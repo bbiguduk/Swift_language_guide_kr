@@ -19,6 +19,7 @@
 * [메서드 \(Methods\)](methods.md)
 * [서브 스크립트 \(Subscripts\)](subscripts.md)
 * [상속 \(Inheritance\)](inheritance.md)
+* [초기화 \(Initialization\)](initialization.md)
 
 ## Contact
 
