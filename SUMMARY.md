@@ -24,6 +24,7 @@
 * [옵셔널 체이닝 \(Optional Chaining\)](optional-chaining.md)
 * [에러 처리 \(Error Handling\)](error-handling.md)
 * [타입 캐스팅 \(Type Casting\)](type-casting.md)
+* [중첩된 타입 \(Nested Types\)](nested-types.md)
 
 ## Contact
 
