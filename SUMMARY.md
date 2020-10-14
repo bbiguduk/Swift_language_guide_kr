@@ -28,6 +28,7 @@
 * [확장 \(Extensions\)](extensions.md)
 * [프로토콜 \(Protocols\)](protocols.md)
 * [제너릭 \(Generics\)](generics.md)
+* [불투명한 타입 \(Opaque Types\)](opaque-types.md)
 
 ## Contact
 
