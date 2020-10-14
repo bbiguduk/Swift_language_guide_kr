@@ -27,6 +27,7 @@
 * [중첩된 타입 \(Nested Types\)](nested-types.md)
 * [확장 \(Extensions\)](extensions.md)
 * [프로토콜 \(Protocols\)](protocols.md)
+* [제너릭 \(Generics\)](generics.md)
 
 ## Contact
 
