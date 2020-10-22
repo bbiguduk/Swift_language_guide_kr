@@ -32,6 +32,7 @@
 * [자동 참조 카운팅 \(Automatic Reference Counting\)](automatic-reference-counting.md)
 * [메모리 안정성 \(Memory Safety\)](memory-safety.md)
 * [접근 제어 \(Access Control\)](access-control.md)
+* [고급 연산자 \(Advanced Operators\)](advanced-operators.md)
 
 ## Contact
 
