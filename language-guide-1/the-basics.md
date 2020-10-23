@@ -25,7 +25,6 @@ let maximumNumberOfLoginAttempts = 10
 var currentLoginAttempt = 0
 ```
 
-```text
 이 코드는 아래와 같이 읽을 수 있습니다:
 
 _"`maximumNumberOfLoginAttempts` 인 새로운 상수를 선언하고 `10` 이라는 값을 설정합니다. 그리고 `currentLoginAttempt` 인 새로운 변수를 선언하고 `0` 이라는 값으로 초기화 하였습니다."_
