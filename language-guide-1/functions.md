@@ -34,7 +34,8 @@ print(greet(person: "Brian"))
 
 `greet(person: "Anna")` 와 같이 `person` 인자 뒤에 `String` 값을 전달하여 `greet(person:)` 함수를 호출합니다. 함수는 `String` 값을 반환하므로 `greet(person:)` 은 위에서와 같이 반환 값의 문자열을 출력하기 위해 `print(_:separator:terminator:)` 함수로 래핑할 수 있습니다.
 
-> NOTE `print(_:separator:terminator:)` 함수는 첫번째 인자의 라벨을 가지고 있지 않고 다른 인자는 기본값을 가지고 있으므로 선택입니다. 함수 구문의 이러한 변형은 아래 [함수 인자 라벨과 파라미터 이름 \(Function Argument Labels and Parameter Names\)](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID166) 와 [파라미터 기본값 \(Default Parameter Values\)](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID169) 에서 자세히 설명합니다.
+> NOTE   
+> `print(_:separator:terminator:)` 함수는 첫번째 인자의 라벨을 가지고 있지 않고 다른 인자는 기본값을 가지고 있으므로 선택입니다. 함수 구문의 이러한 변형은 아래 [함수 인자 라벨과 파라미터 이름 \(Function Argument Labels and Parameter Names\)](functions.md#function-argument-labels-and-parameter-names) 와 [파라미터 기본값 \(Default Parameter Values\)](functions.md#default-parameter-values) 에서 자세히 설명합니다.
 
 `greet(person:)` 함수의 바디는 `greeting` 으로 불리는 새로운 `String` 상수 정의와 간단한 인사말 메세지 설정으로 시작합니다. 이 인사말은 `return` 키워드를 사용하여 함수의 바깥으로 전달됩니다. `return greeting` 이라는 코드 줄에서 함수는 실행을 완료하고 인사말의 현재값을 반환합니다.
 
@@ -102,7 +103,8 @@ greet(person: "Dave")
 
 반환값이 필요하지 않기 때문에 함수의 정의는 반환 화살표 \(`->`\) 또는 반환 타입을 포함하지 않습니다.
 
-> NOTE 엄밀히 말하면 `greet(person:)` 함수는 반환값을 정의하지 않았지만 여전히 반환값이 있습니다. 반환 타입이 정의되지 않은 함수는 `Void` 타입의 특별한 값을 반환합니다. 이것은 `()` 로 쓰여진 빈 튜플입니다.
+> NOTE   
+> 엄밀히 말하면 `greet(person:)` 함수는 반환값을 정의하지 않았지만 여전히 반환값이 있습니다. 반환 타입이 정의되지 않은 함수는 `Void` 타입의 특별한 값을 반환합니다. 이것은 `()` 로 쓰여진 빈 튜플입니다.
 
 함수의 반환값은 호출될 때 무시될 수 있습니다:
 
@@ -122,7 +124,8 @@ printWithoutCounting(string: "hello, world")
 
 첫번째 함수 `printAndCount(string:)` 은 문자열을 출력하고 문자 갯수를 `Int` 로 반환합니다. 두번째 함수 `printWithoutCounting(string:)` 은 첫번째 함수를 호출하지만 반환값을 무시합니다. 두번째 함수가 호출될 때 첫번째 함수에 의해 메세지는 출력되지만 반환된 값은 사용하지 않습니다.
 
-> NOTE 반환값은 무시할 수 있지만 함수는 항상 값을 반환할 것입니다. 정의된 반환 타입이 있는 함수는 반환되는 값 없이 함수의 바닥에서 밖으로 빠져 나오는것을 허락하지 않고 그렇게 하면 컴파일 시 에러가 발생합니다.
+> NOTE   
+> 반환값은 무시할 수 있지만 함수는 항상 값을 반환할 것입니다. 정의된 반환 타입이 있는 함수는 반환되는 값 없이 함수의 바닥에서 밖으로 빠져 나오는것을 허락하지 않고 그렇게 하면 컴파일 시 에러가 발생합니다.
 
 ### 여러개의 반환값이 있는 함수 \(Functions with Multiple Return Values\)
 
@@ -163,7 +166,8 @@ print("min is \(bounds.min) and max is \(bounds.max)")
 
 함수에서 반환되는 튜플 타입이 전체 튜플에 대해 "값이 없을" 가능성이 있는 경우 _옵셔널_ 튜플 반환 타입을 사용하여 전체 튜플이 `nil` 일 수 있다는 사실을 반영할 수 있습니다. `(Int, Int)?` 또는 `(String, Int, Bool)?` 와 같이 튜플 타입의 닫는 소괄호 다음에 물음표를 붙여 옵셔널 튜플 반환 타입을 작성합니다.
 
-> NOTE `(Int, Int)?` 와 같은 옵셔널 튜플 타입은 `(Int?, Int?)` 와 같이 옵셔널 타입을 가지는 튜플과는 다릅니다. 옵셔널 튜플 타입은 튜플 안에 각각의 값이 옵셔널이 아니라 전체 튜플이 옵셔널이라는 의미입니다.
+> NOTE   
+> `(Int, Int)?` 와 같은 옵셔널 튜플 타입은 `(Int?, Int?)` 와 같이 옵셔널 타입을 가지는 튜플과는 다릅니다. 옵셔널 튜플 타입은 튜플 안에 각각의 값이 옵셔널이 아니라 전체 튜플이 옵셔널이라는 의미입니다.
 
 위에서 `minMax(array:)` 함수는 2개의 `Int` 값을 포함하는 튜플을 반환합니다. 그러나 이 함수는 배열이 전달될 때 아무런 안정성 확인을 하지 않습니다. `array` 인자가 빈 배열을 포함하면 위에서 정의된 `minMax(array:)` 함수는 `array[0]` 을 접근할 때 런타임 에러가 발생합니다.
 
@@ -214,7 +218,7 @@ print(anotherGreeting(for: "Dave"))
 
 `greeting(for:)` 함수의 전체 정의는 인사말 메세지를 반환하고 이것은 짧은 표현으로 사용할 수 있다는 의미입니다. `anotherGreeing(for:)` 함수는 긴 함수와 같이 `return` 키워드를 사용하여 같은 인사말 메세지를 반환합니다. 단일 `return` 으로 작성된 함수는 `return` 을 생략할 수 있습니다.
 
-[짧은 게터 선언 \(Shorthand Getter Declaration\)](https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID608) 에서 살펴보겠지만 프로퍼티 게터 또한 맹목적 반환을 사용할 수 있습니다.
+[짧은 게터 선언 \(Shorthand Getter Declaration\)](properties.md#getter-shorthand-getter-declaration) 에서 살펴보겠지만 프로퍼티 게터 또한 맹목적 반환을 사용할 수 있습니다.
 
 ## 함수 인자 라벨과 파라미터 이름 \(Function Argument Labels and Parameter Names\)
 
@@ -304,7 +308,8 @@ arithmeticMean(3, 8.25, 18.75)
 // returns 10.0, which is the arithmetic mean of these three numbers
 ```
 
-> NOTE 함수는 최대 하나의 가변 파라미터를 가질 수 있습니다.
+> NOTE   
+> 함수는 최대 하나의 가변 파라미터를 가질 수 있습니다.
 
 ### In-Out 파라미터 \(In-Out Parameters\)
 
@@ -314,7 +319,8 @@ in-out 파라미터는 파라미터의 타입 바로 전에 `inout` 키워드를
 
 in-out 파라미터의 인자로 변수만 전달할 수 있습니다. 상수와 반복은 수정할 수 없기 때문에 인자로 상수 또는 반복 값은 전달할 수 없습니다. 함수에 수정가능함을 알리기 위해 in-out 파라미터에 인자로 전달할 때 변수의 이름 앞에 앰퍼샌드 \(`&`\)를 붙여줍니다.
 
-> NOTE in-out 파라미터는 기본값을 가질 수 없고 가변 파라미터는 `inout` 으로 표기할 수 없습니다.
+> NOTE   
+> in-out 파라미터는 기본값을 가질 수 없고 가변 파라미터는 `inout` 으로 표기할 수 없습니다.
 
 다음 예제의 함수는 `a` 와 `b` 라 하는 2개의 in-out 정수 파라미터를 가지는 `swapTwoInts(_:_:)` 입니다:
 
@@ -340,7 +346,8 @@ print("someInt is now \(someInt), and anotherInt is now \(anotherInt)")
 
 위의 예제는 `someInt` 와 `anotherInt` 의 기본값이 함수의 바깥에서 정의되었지만 `swapTwoInts(_:_:)` 함수로 인해 원래값이 수정되는 것을 보여줍니다.
 
-> NOTE in-out 파라미터는 함수에서 값을 반환하는 것과 다릅니다. 위의 `swapTwoInts` 예제는 반환 타입을 정의하거나 값을 반환하지 않지만 `someInt` 와 `anotherInt` 의 값은 여전히 수정합니다. In-out 파라미터는 함수가 함수 바디의 범위를 벗어나 영향을 미치는 다른 방법입니다.
+> NOTE   
+> in-out 파라미터는 함수에서 값을 반환하는 것과 다릅니다. 위의 `swapTwoInts` 예제는 반환 타입을 정의하거나 값을 반환하지 않지만 `someInt` 와 `anotherInt` 의 값은 여전히 수정합니다. In-out 파라미터는 함수가 함수 바디의 범위를 벗어나 영향을 미치는 다른 방법입니다.
 
 ## 함수 타입 \(Function Types\)
 
