@@ -2,11 +2,11 @@
 
 _연산자 \(operator\)_ 는 값을 체크, 변경, 또는 결합하기 위해 사용하는 기호 또는 구 입니다. 예를 들어 더하기 연산자 \(`+`\)는 `let i = 1 + 2` 에서처럼 두 숫자를 더하고 논리 AND 연산자 \(`&&`\)는 `if enteredDoorCode && passedRetinaScan` 에서처럼 두 부울 값을 결합합니다.
 
-Swift는 C와 같은 언어에서 알고있는 연산자를 지원하고 코딩 에러를 제거하기 위해 여러 기능을 향상시킵니다. 대입 연산자 \(`=`\)는 등호 연산자 \(`==`\)를 의도했을 때 실수로 사용되지 않도록 값을 반환하지 않습니다. 산술 연산자 \(`+`, `-`, `*`, `/`, `%` 등\)는 타입이 수용할 수 있는 값의 범위보다 크거나 작은 숫자로 작업을 수행하려 할 때 예기치 않은 결과를 피하기 위해 값 오버플로우를 감지하고 허락하지 않습니다. [오버플로우 연산자 \(Overflow Operators\)](https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html#ID37) 에서 설명한 대로 Swift 오버플로우 연산자를 사용하여 값 오버플로우 동작을 결정할 수 있습니다.
+Swift는 C와 같은 언어에서 알고있는 연산자를 지원하고 코딩 에러를 제거하기 위해 여러 기능을 향상시킵니다. 대입 연산자 \(`=`\)는 등호 연산자 \(`==`\)를 의도했을 때 실수로 사용되지 않도록 값을 반환하지 않습니다. 산술 연산자 \(`+`, `-`, `*`, `/`, `%` 등\)는 타입이 수용할 수 있는 값의 범위보다 크거나 작은 숫자로 작업을 수행하려 할 때 예기치 않은 결과를 피하기 위해 값 오버플로우를 감지하고 허락하지 않습니다. [오버플로우 연산자 \(Overflow Operators\)](advanced-operators.md#overflow-operators) 에서 설명한 대로 Swift 오버플로우 연산자를 사용하여 값 오버플로우 동작을 결정할 수 있습니다.
 
 Swift는 C에서는 없는 값의 범위를 나타내는 `a..<b` 및 `a...b` 와 같은 범위 연산자를 제공합니다.
 
-이 챕터에서는 Swift의 기본 연산자에 대해 설명합니다. [고급 연산자 \(Advanced Operators\)](https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html) 에서는 Swift의 고급 연산자에 대해 다루고 사용자 정의 연산자를 어떻게 정의하고 사용자 정의 타입을 위한 표준 연산자의 구현은 어떻게 하는지 설명합니다.
+이 챕터에서는 Swift의 기본 연산자에 대해 설명합니다. [고급 연산자 \(Advanced Operators\)](advanced-operators.md) 에서는 Swift의 고급 연산자에 대해 다루고 사용자 정의 연산자를 어떻게 정의하고 사용자 정의 타입을 위한 표준 연산자의 구현은 어떻게 하는지 설명합니다.
 
 ## 술어 \(Terminology\)
 
@@ -62,7 +62,7 @@ Swift는 모든 숫자 타입에 대해 4개의 기본 _산술 연산자 \(arith
 10.0 / 2.5  // equals 4.0
 ```
 
-C와 Objective-C에서의 산술 연산자와 다르게 Swift 산술 연산자는 기본적으로 값이 오버플로우 되는 것을 허락하지 않습니다. `a &+ b` 와 같은 Swift의 오버플로우 연산자를 사용하여 값 오버플로우 동작을 선택할 수 있습니다. 자세한 내용은 [오버플로우 연산자 \(Overflow Operators\)](https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html#ID37) 를 참고 바랍니다.
+C와 Objective-C에서의 산술 연산자와 다르게 Swift 산술 연산자는 기본적으로 값이 오버플로우 되는 것을 허락하지 않습니다. `a &+ b` 와 같은 Swift의 오버플로우 연산자를 사용하여 값 오버플로우 동작을 선택할 수 있습니다. 자세한 내용은 [오버플로우 연산자 \(Overflow Operators\)](advanced-operators.md#overflow-operators) 를 참고 바랍니다.
 
 덧셈 연산자는 `String` 연결도 지원합니다:
 
@@ -74,7 +74,8 @@ C와 Objective-C에서의 산술 연산자와 다르게 Swift 산술 연산자�
 
 _나머지 연산자 \(remainder operator\)_ \(`a % b`\)는 `a` 안에 들어갈 `b` 의 배수가 몇인지를 계산하고 남은 값 \(나머지\)을 반환합니다.
 
-> NOTE 나머지 연산자 \(`%`\)는 다른 언어에서는 _모듈로 연산자 \(modulo operator\)_ 라고 합니다. 그러나 음수에 대한 Swift의 동작은 모듈로 연산이 아닌 나머지 입니다.
+> NOTE   
+> 나머지 연산자 \(`%`\)는 다른 언어에서는 _모듈로 연산자 \(modulo operator\)_ 라고 합니다. 그러나 음수에 대한 Swift의 동작은 모듈로 연산이 아닌 나머지 입니다.
 
 여기 나머지 연산자가 어떻게 동작하는지 살펴봅시다. `9 % 4` 를 계산하기위해 `9` 안에 얼마나 많은 `4` 가 들어가는지 알아야 합니다:
 
@@ -147,7 +148,8 @@ a += 2
 
 표현식 `a += 2` 는 `a = a + 2` 의 짧은 표현입니다. 효과적으로 덧셈과 대입은 동시에 수행되고 하나의 연산자로 결합됩니다.
 
-> NOTE 복합 대입 연산자는 값을 반환하지 않습니다. 예를 들어 `let b = a += 2` 로 작성할 수 없습니다.
+> NOTE   
+> 복합 대입 연산자는 값을 반환하지 않습니다. 예를 들어 `let b = a += 2` 로 작성할 수 없습니다.
 
 Swift 표준 라이브러리에서 제공하는 연산자에 대한 내용은 [연산자 선언 \(Operator Declarations\)](https://developer.apple.com/documentation/swift/operator_declarations) 를 참고 바랍니다.
 
@@ -162,7 +164,8 @@ Swift는 아래의 비교 연산자 \(comparison operators\)를 제공합니다:
 * 보다 크거나 같음 \(`a >= b`\)
 * 보다 작거나 같은 \(`a <= b`\)
 
-> NOTE Swift는 또한 2개의 객체 참조가 동일한 객체 인스턴스를 참조하는지 판별하는 2개의 _식별 연산자 \(identity operators\)_ \(`===` 와 `!==`\)를 제공합니다. 자세한 내용은 [식별 연산자 \(Identity Operators\)](https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html#ID90) 를 참고 바랍니다.
+> NOTE   
+> Swift는 또한 2개의 객체 참조가 동일한 객체 인스턴스를 참조하는지 판별하는 2개의 _식별 연산자 \(identity operators\)_ \(`===` 와 `!==`\)를 제공합니다. 자세한 내용은 [식별 연산자 \(Identity Operators\)](structures-and-classes.md#identity-operators) 를 참고 바랍니다.
 
 각 비교 연산자는 구문이 `true` 인지 아닌지 판단하기 위해 `Bool` 값을 반환합니다:
 
@@ -187,7 +190,7 @@ if name == "world" {
 // Prints "hello, world", because name is indeed equal to "world".
 ```
 
-`if` 구문에 대한 자세한 내용은 [흐름제어 \(Control Flow\)](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html) 를 참고 바랍니다.
+`if` 구문에 대한 자세한 내용은 [제어 흐 \(Control Flow\)](control-flow.md) 를 참고 바랍니다.
 
 같은 타입과 같은 갯수의 값을 가지고 있는 2개의 튜플은 비교할 수 있습니다. 튜플은 2개의 값이 다를 때까지 왼쪽에서 오른쪽으로 한번에 하나씩 비교합니다. 두개의 값이 비교되고 해당 비교 결과에 따라 튜플 비교의 전체 결과가 결정됩니다. 모든 요소가 동일하면 튜플은 같습니다. 예를 들어:
 
@@ -206,7 +209,8 @@ if name == "world" {
 ("blue", false) < ("purple", true)  // Error because < can't compare Boolean values
 ```
 
-> NOTE Swift 표준 라이브러리는 7개 미만의 요소를 가지고 있는 튜플에 대해 튜플 비교 연산자를 제공합니다. 7개 이상의 요소의 튜플을 비교하려면 비교 연산자를 직접 구현해야 합니다.
+> NOTE   
+> Swift 표준 라이브러리는 7개 미만의 요소를 가지고 있는 튜플에 대해 튜플 비교 연산자를 제공합니다. 7개 이상의 요소의 튜플을 비교하려면 비교 연산자를 직접 구현해야 합니다.
 
 ## 삼항 조건 연산자 \(Ternary Conditional Operator\)
 
@@ -261,7 +265,8 @@ a != nil ? a! : b
 
 위 코드는 삼항 조건 연산자를 사용하고 `a` 가 `nil` 이 아닐경우 `a` 안에 래핑된 값을 접근하기 위해 강제로 언래핑 \(`a!`\) 하며 `a` 가 `nil` 일 경우 `b` 를 반환합니다. nil-결합 연산자는 조건 검사 및 언래핑을 간결하고 읽기 쉬운 형태로 캡슐화 합니다.
 
-> NOTE `a` 의 값이 `nil` 이 아닐경우 `b` 는 절대 반환되지 않습니다. 이러한 경우를 _연산 생략 \(short-circuit evaluation\)_ 이라 합니다.
+> NOTE   
+> `a` 의 값이 `nil` 이 아닐경우 `b` 는 절대 반환되지 않습니다. 이러한 경우를 _연산 생략 \(short-circuit evaluation\)_ 이라 합니다.
 
 아래 예제는 기본 컬러 이름과 옵셔널 사용자가 정의한 컬러 이름 중 선택하기 위해 nil-결합 연산자를 사용합니다:
 
@@ -304,7 +309,7 @@ for index in 1...5 {
 // 5 times 5 is 25
 ```
 
-`for`-`in` 루프에 대한 자세한 설명은 [흐름제어 \(Control Flow\)](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html) 을 참고 바랍니다.
+`for`-`in` 루프에 대한 자세한 설명은 [제어 흐름 \(Control Flow\)](control-flow.md) 을 참고 바랍니다.
 
 ### 반-열림 범위 연산자 \(Half-Open Range Operator\)
 
@@ -324,7 +329,7 @@ for i in 0..<count {
 // Person 4 is called Jack
 ```
 
-배열은 4개의 아이템을 가지고 있지만 `0..<count` 는 반-열림 범위이기 때문에 오직 `3` \(배열의 마지막 아이템의 인덱스\) 까지 카운트 합니다. 배열에 대한 자세한 설명은 [배열 \(Arrays\)](https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID107) 을 참고 바랍니다.
+배열은 4개의 아이템을 가지고 있지만 `0..<count` 는 반-열림 범위이기 때문에 오직 `3` \(배열의 마지막 아이템의 인덱스\) 까지 카운트 합니다. 배열에 대한 자세한 설명은 [배열 \(Arrays\)](collection-types.md#arrays) 을 참고 바랍니다.
 
 ### 단-방향 범위 \(One-Sided Ranges\)
 
@@ -447,7 +452,8 @@ if enteredDoorCode && passedRetinaScan || hasDoorKey || knowsOverridePassword {
 
 `enteredDoorCode`, `passedRetinaScan`, 그리고 `hasDoorKey` 의 값을 기반으로 첫번째 2개의 표현식은 `false` 입니다. 그러나 긴급 비밀번호는 알고 있으므로 이 표현식의 결과는 `true` 입니다.
 
-> NOTE Swift 논리적 연산자 `&&` 와 `||` 은 왼쪽 우선결합 \(left-associative\) 입니다. 그 의미는 여러개의 논리적 연산자로 이루어진 복합 표현식은 가장 왼쪽부터 판단한다는 뜻입니다.
+> NOTE   
+> Swift 논리적 연산자 `&&` 와 `||` 은 왼쪽 우선결합 \(left-associative\) 입니다. 그 의미는 여러개의 논리적 연산자로 이루어진 복합 표현식은 가장 왼쪽부터 판단한다는 뜻입니다.
 
 ### 명시적 소괄호 \(Explicit Parentheses\)
 

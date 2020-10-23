@@ -33,7 +33,7 @@ _"`maximumNumberOfLoginAttempts` 인 새로운 상수를 선언하고 `10` 이�
 
 여러개의 상수 또는 여러개의 변수를 선언할 때 콤마로 구분하여 한줄로 선언이 가능합니다:
 
-``` swift
+```swift
 var x = 0.0, y = 0.0, z = 0.0
 ```
 
@@ -68,7 +68,7 @@ welcomeMessage = "Hello"
 var red, green, blue: Double
 ```
 
-> NOTE   
+> NOTE  
 > 실제로 타입 명시가 필요한 경우는 드뭅니다. 상수 또는 변수를 선언할 때 초기값을 지정하면 Swift는 [타입 세이프티와 타입 추론 \(Type Safety and Type Inference\)](the-basics.md#type-safety-and-type-inference) 에서 나와있는대로 해당 상수 또는 변수에 사용될 타입을 거의 항상 유추할 수 있습니다. 위의 `welcomeMessage` 예제에서 초기값을 지정하지 않았으므로 `welcomeMessage` 변수의 타입은 초기값에서 유추되지 않고 타입을 명시 하였습니다.
 
 ### 상수와 변수의 이름 \(Naming Constants and Variables\)
@@ -85,7 +85,7 @@ let 🐶🐮 = "dogcow"
 
 특정 타입으로 상수 또는 변수를 선언하면 동일한 이름으로 다시 선언하거나 다른 타입의 값을 저장하도록 변경하여 선언할 수 없습니다. 상수를 변수로 바꾸거나 변수를 상수로 바꿀 수도 없습니다.
 
-> NOTE   
+> NOTE  
 > Swift 키워드와 동일한 이름의 상수 또는 변수를 제공해야 한다면 이름을 백틱 \(\`\)으로 묶어야 합니다. 그러나 선택의 여지가 없을때까지는 키워드를 이름으로 사용하지 말아야 합니다.
 
 동일한 타입의 다른 값으로 이미 선언된 변수에 값을 변경할 수 있습니다. 예제에서 `friendlyWelcome` 값은 `"Hello!"` 에서 `"Bonjour!"` 변경됩니다:
@@ -122,7 +122,7 @@ print("The current value of friendlyWelcome is \(friendlyWelcome)")
 // Prints "The current value of friendlyWelcome is Bonjour!"
 ```
 
-> NOTE   
+> NOTE  
 > 문자열 삽입에서 사용할 수 있는 모든 옵션은 [문자열 삽입 \(String interpolation\)](strings-and-characters.md#string-interpolation) 에 자세히 설명되어 있습니다.
 
 ## 주석 \(Comments\)
@@ -194,7 +194,7 @@ Swift는 또한 현재 플랫폼의 네이티브 사이즈와 같은 `UInt` 인 
 * 32-bit 플랫폼에서 `UInt` 는 `UInt32` 와 같은 크기를 가짐
 * 64-bit 플랫폼에서 `UInt` 는 `UInt64` 와 같은 크기를 가짐
 
-> NOTE   
+> NOTE  
 > `UInt` 는 플랫폼의 네이티브 사이즈와 같은 크기의 부호없는 정수 타입이 필요한 경우에만 사용하십시오. 저장될 값이 음수가 아니어도 `Int` 를 더 선호합니다. 정수값에 `Int` 를 일관되게 사용하면 코드 상호 운용성을 지원하고 [타입 세이프티 와 타입 유추 \(Type Safety and Type Inference\)](the-basics.md#type-safety-and-type-inference)에 설명 된대로 다른 숫자 형식간에 변환 할 필요가 없습니다.
 
 ## 부동 소수점 숫자 \(Floating-Point Numbers\)
@@ -206,7 +206,7 @@ _부동 소수점 숫자 \(Floating-point numbers\)_ 는 3.14159, 0.1, 및 -273.
 * `Double` 은 64-bit 부동 소수점 숫자를 표기
 * `Float` 는 32-bit 부동 소수점 숫자를 표기
 
-> NOTE   
+> NOTE  
 > `Double` 은 최소 15자리의 소수점 정확도를 가지고 있는것에 반해 `Float` 는 더 적은 6자리의 정확도를 가집니다. 사용할 적절한 부동 소수점 타입은 코드에서 작업해야하는 값의 특성과 범위에 따라 다릅니다. 두 타입 중에는 `Double` 이 선호됩니다.
 
 ## 타입 세이프티와 타입 유추 \(Type Safety and Type Inference\)
@@ -346,7 +346,7 @@ let integerPi = Int(pi)
 
 부동 소수점 값은 새로운 정수 값으로 초기화할 때 소수점 아래를 버림합니다. 이것은 4.75는 4, 그리고 -3.9는 -3이 된다는 의미입니다.
 
-> NOTE   
+> NOTE  
 > 숫자 상수와 변수를 결합하는 규칙은 숫자 리터럴 규칙과 다릅니다. 리터럴 값 3은 숫자 리터럴에 명시적인 타입이 없으므로 리터럴 값 0.14159에 직접 추가할 수 있습니다. 이것의 타입은 컴파일러가 실해되는 시점에서만 유추됩니다.
 
 ## 타입 별칭 \(Type Aliases\)
@@ -473,14 +473,14 @@ print("The status message is \(http200Status.description)")
 
 튜플은 함수의 반환 값으로 특히 유용합니다. 웹 페이지를 검색하는 함수는 페이지 검색의 성공 또는 실패를 설명하기위해 `(Int, String)` 튜플 타입을 반환할 수 있습니다. 이 함수는 각각 다른 타입의 2가지 고유한 값으로 튜플을 반환함으로써 단일 타입의 단일 값만 반환할 수 있는 경우보다 유용합니다. 자세한 내용은 [반환값이 여러개인 함수 \(Functions with Multiple Return Values\)](functions.md#functions-with-multiple-return-values) 를 참조 바랍니다.
 
-> NOTE   
+> NOTE  
 > 튜플은 관련된 값의 간단한 그룹에 유용합니다. 복잡한 데이터 구조를 생성하는데는 맞지 않습니다. 데이터 구조가 복잡한 경우 튜플이 아닌 클래스 \(class\) 또는 구조체 \(structure\)를 사용하십시오. 자세한 내용은 [구조체와 클래스 \(Structures and Classes\)](structures-and-classes.md) 를 참조 바랍니다.
 
 ## 옵셔널 \(Optionals\)
 
 값이 없는 경우에 _옵셔널 \(optionals\)_ 을 사용합니다. 옵셔널은 2가지 가능성이 있습니다: 값이 있고 옵셔널을 풀어서 값에 접근하거나 값이 없을 수도 있습니다.
 
-> NOTE   
+> NOTE  
 > 옵셔널의 개념은 C 또는 Objective-C 에는 존재하지 않는 개념입니다. Objective-C에서 가장 가까운 것은 객체를 반환하는 메서드에서 `nil` \(유효한 객체가 없음\)을 반환하는 것입니다. 그러나 이것은 오직 객체에 대해서만 동작하고 구조체, 기본 C 타입, 또는 열거형 값에서는 동작하지 않습니다. 이러한 타입의 경우 Objective-C 메서드는 일반적으로 값이 없음을 나타내는 `NSNotFound` 와 같은 특수한 값을 반환합니다. 이러한 방법은 메서드 호출자가 특수한 값에 대해 대응하고 체크해야 된다는 것을 알고 있다고 가정합니다. Swift의 옵셔널은 특수한 상수 없이 _어떠한 타입_ 에 대해서 값이 없음을 나타낼 수 있습니다.
 
 다음의 예는 옵셔널을 사용하여 값이 없는 상황에 대처하는 방법을 나타냅니다. Swift의 `Int` 타입은 `String` 값을 `Int` 값으로 변환하는 초기화가 존재합니다. 그러나 모든 문자열을 정수로 변환할 수 없습니다. 문자열 "123"은 숫자값 123으로 변환될 수 있지만 문자열 "hello, world"는 변환할 숫자값이 없습니다.
@@ -506,7 +506,7 @@ serverResponseCode = nil
 // serverResponseCode now contains no value
 ```
 
-> NOTE   
+> NOTE  
 > 옵셔널이 아닌 상수와 변수에는 `nil` 을 사용할 수 없습니다. 코드에서 상수 또는 변수가 값이 없는 상태에서 동작이 필요하다면 항상 해당 타입의 옵셔널 값으로 선언해야 합니다.
 
 기본값이 없이 옵셔널 변수를 정의하면 이 변수는 자동적으로 `nil` 로 설정됩니다:
@@ -516,7 +516,7 @@ var surveyAnswer: String?
 // surveyAnswer is automatically set to nil
 ```
 
-> NOTE   
+> NOTE  
 > Swift의 `nil` 은 Objective-C의 `nil` 과 다릅니다. Objective-C에서의 `nil` 은 존재하지 않는 객체에 대한 포인터입니다. Swift에서의 `nil` 은 특정 타입의 값이 없음을 나타내며 포인터가 아닙니다. 객체 타입 뿐만 아니라 _모든_ 타입의 옵셔널을 `nil` 로 설정할 수 있습니다.
 
 ### if 구문과 강제로 풀기 \(If Statements and Forced Unwrapping\)
@@ -543,7 +543,7 @@ if convertedNumber != nil {
 
 [제어 흐름 \(Control Flow\)](control-flow.md) 에서 `if` 구문에 대해 자세히 다뤄보겠습니다.
 
-> NOTE   
+> NOTE  
 > `!` 를 사용하여 값이 없는 옵셔널에 사용하면 런타임 에러가 발생합니다. 항상 `!` 를 사용하여 값을 강제로 풀기 전에 옵셔널에 `nil` 이 아닌 값이 있다는 것을 확실시 해야 합니다.
 
 ### 옵셔널 바인딩 \(Optional Binding\)
@@ -595,7 +595,7 @@ if let firstNumber = Int("4") {
 // Prints "4 < 42 < 100"
 ```
 
-> NOTE   
+> NOTE  
 > `if` 구문에서 옵셔널 바인딩으로 생성된 상수와 변수는 오직 `if` 구문의 본문 안에서만 사용가능합니다. 반면에 `guard` 구문으로 생성된 상수와 변수는 [이른 종료 \(Early Exit\)](control-flow.md#early-exit) 에 설명된 것처럼 `guard` 구문 다음 코드 라인부터 사용 가능합니다.
 
 ### 암시적으로 언래핑된 옵셔널 \(Implicitly Unwrapped Optionals\)
@@ -645,7 +645,7 @@ if let definiteString = assumedString {
 // Prints "An implicitly unwrapped optional string."
 ```
 
-> NOTE   
+> NOTE  
 > 나중에 변수가 `nil` 이 될 가능성이 있다면 암시적으로 언래핑된 옵셔널을 사용하지 말아야 합니다. 변수의 수명에 따라 `nil` 값을 확인해야 한다면 항상 기본 옵셔널을 사용해야 합니다.
 
 ## 에러 처리 \(Error Handling\)
@@ -755,7 +755,7 @@ precondition(index > 0, "Index must be greater than zero.")
 
 [`preconditionFailure(_:file:line:)`](https://developer.apple.com/documentation/swift/1539374-preconditionfailure) 함수를 호출하여 실패가 발생했음을 알릴 수 있습니다. 예를 들어 유효한 데이터는 switch 의 default 케이스가 아닌 다른 케이스에서 처리되어야 합니다.
 
-> NOTE   
+> NOTE  
 > 체크하지 않는 모드 \(`-Ounchecked`\)로 컴파일하면 전제조건은 체크하지 않습니다. 컴파일러는 전제조건은 항상 참이라고 가정하고 코드에 알맞게 최정화 합니다. 그러나 `fatalError(_:file:line:)` 함수는 최적화 설정과 무관하게 항상 중지를 실행합니다.
 >
 > 프로토타입과 초기 개발단계에서 아직 구현되지 않은 기능에서 `fatalError(_:file:line:)` 을 사용할 수 있으며 `fatalError("Unimplemented")` 와 같이 작성할 수 있습니다. 주장 또는 전제조건과 다르게 치명적인 에러는 절대 최적화 되지 않기 때문에 이 구현을 만나면 항상 중지됩니다.
