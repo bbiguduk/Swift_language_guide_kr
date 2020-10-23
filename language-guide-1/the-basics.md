@@ -20,7 +20,10 @@ Swift는 _타입-세이프 \(type-safe\)_ 언어입니다. 타입 세이프란 �
 
 상수와 변수는 사용하기 전에 반드시 선언이 되어야 합니다. 상수는 `let` 키워드와 함께 선언하고 변수는 `var` 키워드와 함께 선언합니다. 다음의 예제는 상수와 변수를 사용하여 어떻게 사용자 로그인 시도 횟수를 추적하는지를 보여줍니다:
 
-\`\`\`swift {.line-numbers} let maximumNumberOfLoginAttempts = 10 var currentLoginAttempt = 0
+```swift
+let maximumNumberOfLoginAttempts = 10
+var currentLoginAttempt = 0
+```
 
 ```text
 이 코드는 아래와 같이 읽을 수 있습니다:
