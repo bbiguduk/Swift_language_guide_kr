@@ -20,7 +20,7 @@ print("We're number \(one)!")
 
 종이에 쓰여진 예산을 어떻게 업데이트 하는지 생각해 보면 비슷한 문제를 확인할 수 있습니다. 예산을 업데이트 하는 것은 2단계 프로세스 입니다: 먼저 항목들의 이름과 가격을 추가한 다음에 현재 목록에 있는 항목을 반영하기 위해 총 금액을 변경합니다. 업데이트 전후에 아래 그림과 같이 예산에서 모든 정보를 읽고 올바른 답을 얻을 수 있습니다.
 
-![Memory Shopping](.gitbook/assets/25_memory_shopping_2x.png)
+![Memory Shopping](../.gitbook/assets/25_memory_shopping_2x.png)
 
 예산에 항목을 추가하는 동안 총 금액이 새로 추가된 항목을 반영하기 위해 업데이트 되지 않았기 때문에 임시적으로 유효하지 않은 상태입니다. 항목을 추가하는 동안 총 금액을 읽으면 잘못된 정보가 제공됩니다.
 
@@ -78,7 +78,7 @@ increment(&stepSize)
 
 위의 코드에서 `stepSize` 는 전역 변수이고 일반적으로 `increment(_:)` 내에서 접근할 수 있습니다. 그러나 `stepSize` 에 읽기 접근은 `number` 에 쓰기 접근과 오버랩 됩니다. 아래 그림에서 보았듯이 `number` 와 `stepSize` 모두 같은 메모리의 위치를 참조합니다. 읽기와 쓰기 접근은 같은 메모리를 참조하고 오버랩되어 충돌이 발생합니다.
 
-![Memory Increment](.gitbook/assets/25_memory_increment_2x.png)
+![Memory Increment](../.gitbook/assets/25_memory_increment_2x.png)
 
 이 충돌을 해결하는 한가지 방법은 `stepSize` 의 복사본을 명확하게 지정하는 것입니다:
 
@@ -146,7 +146,7 @@ oscar.shareHealth(with: &maria)  // OK
 
 위의 예제에서 Maria의 플레이어와 함께 체력을 공유하기 위해 Oscar의 플레이어에 대한 `shareHealth(with:)` 메서드 호출은 중복을 야기 시키지 않습니다. `oscar` 는 변경 함수에서 `self` 의 값이기 때문에 `oscar` 에 대한 쓰기 접근이 있고 `maria` 는 in-out 파라미터로 전달되기 때문에 `maria` 에 대한 쓰기 접근이 있습니다. 아래 그림과 같이 메모리의 다른 위치를 접근합니다. 두 쓰기 접근이 동시에 오버랩 되지만 충돌이 일어나지 않습니다.
 
-![Memory Share Health Maria](.gitbook/assets/25_memory_share_health_maria_2x.png)
+![Memory Share Health Maria](../.gitbook/assets/25_memory_share_health_maria_2x.png)
 
 그러나 `shareHealth(with:)` 의 인자로 `oscar` 를 전달하면 충돌이 일어납니다:
 
@@ -157,7 +157,7 @@ oscar.shareHealth(with: &oscar)
 
 변경 메서드는 `self` 에 대한 쓰기 접근이 필요하고 in-out 파라미터는 `teammate` 에 쓰기 접근이 필요합니다. 메서드 내에서 `self` 와 `teammate` 모두는 아래 그림과 같이 메모리의 같은 위치를 참조합니다. 두 쓰기 접근이 같은 메모리를 참조하고 오버랩 되므로 충돌이 일어납니다.
 
-![Memory Share Health Oscar](.gitbook/assets/25_memory_share_health_oscar_2x.png)
+![Memory Share Health Oscar](../.gitbook/assets/25_memory_share_health_oscar_2x.png)
 
 ## 프로퍼티에서 충돌 접근 \(Conflicting Access to Properties\)
 

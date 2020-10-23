@@ -2,7 +2,7 @@
 
 Swift는 콜렉션의 값을 저장하기 위한 배열 \(array\), 집합 \(set\), 딕셔너리 \(dictionary\)와 같은 3개의 원시적인 _콜렉션 타입 \(collection types\)_ 을 제공합니다. 배열은 콜렉션 값에 순서를 가지고 있습니다. 집합은 반복되지 않은 값에 순서가 없는 콜렉션 타입입니다. 딕셔너리는 키-값 쌍의 순서가 없는 콜렉션 타입입니다.
 
-![Collection types intro](.gitbook/assets/04_collectiontypes_intro_2x.png)
+![Collection types intro](../.gitbook/assets/04_collectiontypes_intro_2x.png)
 
 Swift에 배열, 집합, 그리고 딕셔너리는 저장할 수 있는 값의 타입과 키에 대해 항상 명확합니다. 이것은 실수로 콜렉션에 잘못된 타입을 추가할 수 없다는 의미입니다. 또한 콜렉션에서 검색할 값에 대해 타입이 명확하다는 것을 의미합니다.
 
@@ -72,7 +72,7 @@ var sixDoubles = threeDoubles + anotherThreeDoubles
 
 배열 콜렉션으로 하나 이상의 값을 작성하여 _배열 리터럴 \(array literal\)_ 로 배열을 생성할 수 있습니다. 배열 리터럴은 값을 목록으로 작성하고 콤마로 구분하며 대괄호로 둘러싸게 작성합니다:
 
-![Creating an Array](.gitbook/assets/04_arrayliteral_2x.png)
+![Creating an Array](../.gitbook/assets/04_arrayliteral_2x.png)
 
 아래 예제는 `String` 값을 저장하는 `shoppingList` 배열을 생성하는 예입니다:
 
@@ -382,7 +382,7 @@ for genre in favoriteGenres.sorted() {
 
 아래 그림은 두 집합 `a` 와 `b` 의 여러가지 집합 연산에 대한 결과를 나타냅니다.
 
-![Set Venn Diagram](.gitbook/assets/04_setvenndiagram_2x.png)
+![Set Venn Diagram](../.gitbook/assets/04_setvenndiagram_2x.png)
 
 * `intersection(_:)` 메서드를 사용하면 두 집합의 공통 값을 가지는 새로운 집합을 생성합니다.
 * `symmetricDifference(_:)` 메서드를 사용하면 두 집합의 공통 값을 제외한 새로운 집합을 생성합니다.
@@ -408,7 +408,7 @@ oddDigits.symmetricDifference(singleDigitPrimeNumbers).sorted()
 
 아래 그림은 세 집합 `a`, `b`, `c` 를 나타내며 집합의 공통 요소는 겹쳐서 표현하고 있습니다. `a` 는 `b` 의 모든 요소를 포함하므로 집합 `a` 는 `b` 의 _초집합 \(superset\)_ 이라 합니다. 반대로 `b` 의 모든 요소가 `a` 에 포함되어 있으므로 집합 `b` 는 집합 `a` 의 _부분집합 \(subset\)_ 이라 합니다. 집합 `b` 와 집합 `c` 는 공통 요소가 없으므로 _분리집합 \(disjoint\)_ 이라 합니다.
 
-![Set Euler Diagram](.gitbook/assets/04_seteulerdiagram_2x.png)
+![Set Euler Diagram](../.gitbook/assets/04_seteulerdiagram_2x.png)
 
 * 두 집합이 같은 값을 모두 포함하고 있는지 판단하려면 "같음" 연산자 \(`==`\)를 사용합니다.
 * `isSubset(of:)` 메서드를 사용하면 집합이 특정 집합에 모든 값이 포함되어 있는지 판단합니다.
@@ -471,7 +471,7 @@ namesOfIntegers = [:]
 
 _키-값 쌍_ 은 키와 값의 결합입니다. 딕셔너리 리터럴에서 각 키-값 쌍의 키와 값은 콜론으로 구분됩니다. 키-값 쌍은 콤마로 구분하고 대괄호로 둘러싸 목록 형식으로 작성됩니다:
 
-![Creating a Dictionary](.gitbook/assets/04_dictionarycreating.png)
+![Creating a Dictionary](../.gitbook/assets/04_dictionarycreating.png)
 
 아래 예제는 국제 공항의 이름을 저장하는 딕셔너리를 생성합니다. 딕셔너리에 키는 3글자로 된 국제 항공 운송 협회 \(Air Transport Association\) 코드이고 값은 공항 이름입니다:
 

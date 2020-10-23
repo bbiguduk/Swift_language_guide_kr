@@ -334,11 +334,11 @@ _편의 초기화 구문 \(Convenience initializers\)_ 클래스에 대해 초�
 
 클래스에 대한 지정된 초기화 구문은 값 타입에 대한 간단한 초기화 구문과 동일한 방법으로 작성됩니다:
 
-![Designated Initializer](.gitbook/assets/14_designatedinitializer.png)
+![Designated Initializer](../.gitbook/assets/14_designatedinitializer.png)
 
 편의 초기화 구문은 같은 스타일로 작성되지만 공백으로 구분하여 `init` 키워드 전에 `convenience` 수정자를 작성합니다:
 
-![Convenience Initializer](.gitbook/assets/14_convenienceinitializer.png)
+![Convenience Initializer](../.gitbook/assets/14_convenienceinitializer.png)
 
 ### 클래스 타입에 대한 초기화 구문 위임 \(Initializer Delegation for Class Types\)
 
@@ -363,7 +363,7 @@ _편의 초기화 구문 \(Convenience initializers\)_ 클래스에 대해 초�
 
 이러한 규칙은 아래의 그림에 설명되어 있습니다:
 
-![Initializer Delegation](.gitbook/assets/14_initializerdelegation01_2x.png)
+![Initializer Delegation](../.gitbook/assets/14_initializerdelegation01_2x.png)
 
 여기에서 상위 클래스는 하나의 지정된 초기화 구문과 2개의 편의 초기화 구문을 가지고 있습니다. 하나의 편의 초기화 구문은 다른 편의 초기화 구문을 호출하고 차례로 지정된 초기화 구문을 호출합니다. 이는 위의 규칙 2와 3을 충족합니다. 상위 클래스는 더이상의 상위 클래스를 가지고 있지 않으므로 규칙 1은 적용되지 않습니다.
 
@@ -373,7 +373,7 @@ _편의 초기화 구문 \(Convenience initializers\)_ 클래스에 대해 초�
 
 아래 그림은 4개의 클래스에 대한 더 복잡한 클래스 계층도를 보여줍니다. 이 계층도에서 지정된 초기화 구문이 클래스 초기화에 대해 "funnel" 지점으로 어떻게 동작하는지 클래스 간의 상호 관계를 단순화 하여 보여줍니다:
 
-![Initializer Delegation2](.gitbook/assets/14_initializerdelegation02_2x.png)
+![Initializer Delegation2](../.gitbook/assets/14_initializerdelegation02_2x.png)
 
 ### 2단계 초기화 \(Two-Phase Initialization\)
 
@@ -423,7 +423,7 @@ Swift의 컴파일러는 에러없이 2단계 초기화가 완료되었는지 �
 
 다음은 첫번째 단계에서 가상 하위 클래스와 상위 클래스에 대한 초기화 호출을 찾는 방법을 나타냅니다:
 
-![Two-Phase Initialization 1](.gitbook/assets/14_twophaseinitialization01_2x.png)
+![Two-Phase Initialization 1](../.gitbook/assets/14_twophaseinitialization01_2x.png)
 
 이 예제에서 초기화는 하위 클래스의 편의 초기화 구문을 호출하며 시작합니다. 이 편의 초기화 구문은 아직 모든 프로퍼티를 수정할 수 없습니다. 이것은 같은 클래스의 지정된 초기화 구문으로 위임합니다.
 
@@ -435,7 +435,7 @@ Swift의 컴파일러는 에러없이 2단계 초기화가 완료되었는지 �
 
 다음은 2 단계에서 같은 초기화 호출을 찾는 방법을 나타냅니다:
 
-![Two-Phase Initialization 2](.gitbook/assets/14_twophaseinitialization02_2x.png)
+![Two-Phase Initialization 2](../.gitbook/assets/14_twophaseinitialization02_2x.png)
 
 상위 클래스의 지정된 초기화 구문은 이제 인스턴스를 추가로 사용자 화 할 수 있는 기회 \(필수는 아님\)를 가집니다.
 
@@ -566,7 +566,7 @@ class Food {
 
 아래의 그림은 `Food` 클래스를 위한 초기화 구문 체인을 나타냅니다:
 
-![Initializer Example 1](.gitbook/assets/14_initializersexample01_2x.png)
+![Initializer Example 1](../.gitbook/assets/14_initializersexample01_2x.png)
 
 클래스는 기본 멤버별 초기화 구문을 가지고 있지 않으므로 `Food` 클래스는 `name` 이라는 하나의 인자를 가지는 지정된 초기화 구문을 제공합니다. 이 초기화 구문은 특정 이름으로 새로운 `Food` 인스턴스를 생성하기 위해 사용될 수 있습니다:
 
@@ -601,7 +601,7 @@ class RecipeIngredient: Food {
 
 아래의 그림은 `RecipeIngredient` 클래스에 대한 초기화 구문 체인을 보여줍니다:
 
-![Initializers Example 2](.gitbook/assets/14_initializersexample02_2x.png)
+![Initializers Example 2](../.gitbook/assets/14_initializersexample02_2x.png)
 
 `RecipeIngredient` 클래스는 새로운 `RecipeIngredient` 인스턴스에 모든 프로퍼티를 채울 수 있는 `init(name: String, quantity: Int)` 인 하나의 지정된 초기화 구문을 가지고 있습니다. 이 초기화 구문은 `RecipeIngredient` 에 도입된 새로운 프로퍼티 인 `quantity` 프로퍼티에 전달된 `quantity` 인자를 할당하는 것으로 시작합니다. 그런 후에 `Food` 클래스에 `init(name: String)` 초기화 구문으로 위임합니다. 이 프로세스는 위에서 설명한 [2단계 초기화 구문 \(Two-Phase Initialization\)](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID220) 에 안전 점검 1에 충족합니다.
 
@@ -642,7 +642,7 @@ class ShoppingListItem: RecipeIngredient {
 
 아래의 그림은 세 클래스에 대한 모든 초기화 구문 체인을 나타냅니다:
 
-![Initializers Example 3](.gitbook/assets/14_initializersexample03_2x.png)
+![Initializers Example 3](../.gitbook/assets/14_initializersexample03_2x.png)
 
 상속된 세가지 초기화 구문을 모두 사용하여 새로운 `ShoppingListItem` 인스턴스를 생성할 수 있습니다:
 
@@ -970,7 +970,7 @@ class SomeClass {
 
 아래 예제는 체스 게임을 위한 보드를 모델링하는 `Chessboard` 라는 구조체를 정의합니다. 체스는 검은색과 하얀색의 사각형이 번갈아 가며 8 x 8 보드에서 플레이 됩니다.
 
-![Chessboard](.gitbook/assets/14_chessboard_2x.png)
+![Chessboard](../.gitbook/assets/14_chessboard_2x.png)
 
 게임보드를 표현하기 위해 `Chessboard` 구조체는 64 `Bool` 값의 배열인 `boardColors` 라는 하나의 프로퍼티를 가집니다. 배열에 `true` 값은 검은색 사각형을 표시하고 `false` 값은 하얀색 사각형을 표시합니다. 배열의 첫번째 항목은 게임보드에 좌측상단을 나타내고 배열에 마지막 항목은 게임보드의 우측하단을 나타냅니다.
 

@@ -156,7 +156,7 @@ print("hd is still \(hd.width) pixels wide")
 
 `cinema` 에 `hd` 에 현재값이 주어졌을 때 `hd` 에 저장된 _값_ 은 새로운 `cinema` 인스턴스에 복사됩니다. 마지막 결과는 숫자값을 포함한 2개의 완벽히 분리된 인스턴스 입니다. 그러나 분리된 인스턴스이기 때문에 아래의 그림과 같이 `cinema` 에 너비를 `2048` 로 설정해도 `hd` 에 저장된 너비에는 영향을 주지 않습니다:
 
-![Shared State Struct](.gitbook/assets/09_sharedstatestruct_2x.png)
+![Shared State Struct](../.gitbook/assets/09_sharedstatestruct_2x.png)
 
 열거형에서도 같은 동작이 이뤄집니다:
 
@@ -204,7 +204,7 @@ alsoTenEighty.frameRate = 30.0
 
 클래스는 참조 타입이므로 `tenEighty` 와 `alsoTenEighty` 는 실질적으로 _같은_ `VideoMode` 인스턴스를 참조합니다. 실제로는 아래 그림과 같이 같은 하나의 인스턴스에 다른 2개의 이름을 가지고 있는 것입니다:
 
-![Shared State Class](.gitbook/assets/09_sharedstateclass_2x.png)
+![Shared State Class](../.gitbook/assets/09_sharedstateclass_2x.png)
 
 `tenEighty` 의 `frameRate` 프로퍼티를 체크하면 `VideoMode` 인스턴스에서 `30.0` 의 새로운 프레임 속도가 올바르게 설정된 것을 보여줍니다:
 

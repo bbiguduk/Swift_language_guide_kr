@@ -148,7 +148,7 @@ print("square.origin is now at (\(square.origin.x), \(square.origin.y))")
 
 아래 다이어그램의 오렌지색 사각형처럼 `center` 프로퍼티는 `(15, 15)` 의 새로운 값으로 설정되어 새로운 위치로 사각형이 위와 우측으로 이동합니다. `center` 프로퍼티 설정은 `center` 의 setter를 호출하고 `origin` 프로퍼티에 저장된 `x` 와 `y` 값을 변경하고 사각형을 새로운 위치로 이동합니다.
 
-![Computed Properties](.gitbook/assets/10_computedproperties_2x.png)
+![Computed Properties](../.gitbook/assets/10_computedproperties_2x.png)
 
 ### 짧은 Setter 선언 \(Shorthand Setter Declaration\)
 
@@ -597,7 +597,7 @@ print(SomeClass.computedTypeProperty)
 
 아래 그림은 이러한 오디오 채널 중 2개를 결합하여 스테레오 오디오 레벨 미터를 모델링하는 방법을 보여줍니다. 채널의 오디오 레벨이 `0` 이면 해당 채널의 조명은 켜지지 않습니다. 오디오 레벨이 `10` 이면 모든 채널의 조명은 켜집니다. 이 그림에서 왼쪽 채널은 현재 `9` 의 레벨을 가지고 오른쪽 채널은 현재 `7` 의 레벨을 가집니다:
 
-![Static Properties VUMeter](.gitbook/assets/10_staticpropertiesvumeter_2x.png)
+![Static Properties VUMeter](../.gitbook/assets/10_staticpropertiesvumeter_2x.png)
 
 위에 설명한 오디오 채널은 `AudioChannel` 구조체의 인스턴스로 표현됩니다:
 

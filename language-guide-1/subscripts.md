@@ -111,7 +111,7 @@ var matrix = Matrix(rows: 2, columns: 2)
 
 위의 예제는 2행과 2열을 가지는 새로운 `Matrix` 인스턴스를 생성합니다. `Matrix` 인스턴스의 `grid` 배열은 왼쪽 상단에서 오른쪽 하단으로 읽는 것처럼 행렬의 평면화 버전입니다:
 
-![Subscript Matrix 1](.gitbook/assets/12_subscriptmatrix01_2x.png)
+![Subscript Matrix 1](../.gitbook/assets/12_subscriptmatrix01_2x.png)
 
 행렬의 값은 콤마로 구분된 서브 스크립트에 행과 열 값을 전달하여 설정될 수 있습니다:
 
@@ -122,7 +122,7 @@ matrix[1, 0] = 3.2
 
 이 2개의 구문은 행렬의 우측 상단 \(`row` 가 `0` 이고 `column` 이 `1`\)에 `1.5` 값을 설정하고 좌측 하단 \(`row` 가 `1` 이고 `column` 이 `0`\)에 `3.2` 값을 설정하기 위해 서브 스크립트의 setter를 호출합니다:
 
-![Subscript Matrix 2](.gitbook/assets/12_subscriptmatrix02_2x.png)
+![Subscript Matrix 2](../.gitbook/assets/12_subscriptmatrix02_2x.png)
 
 `Matrix` 서브 스크립트의 getter와 setter 둘다 서브 스크립트의 `row` 와 `column` 값이 유효한지 판단하기 위해 어설션 \(assertion\)이 포함됩니다. 어설션을 지원하기 위해 `Matrix` 는 요청한 `row` 와 `column` 이 행렬의 범위안에 있는지를 판단하기 위해 `indexIsValid(row:column:)` 이라는 편리한 메서드를 포함합니다:
 

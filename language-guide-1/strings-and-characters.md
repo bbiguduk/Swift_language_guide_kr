@@ -70,7 +70,7 @@ It also ends with a line break.
 
 여러줄 문자열은 주변 코드와 일치하도록 들여 쓸 수 있습니다. 닫는 따옴표 \(`"""`\) 앞의 공백은 Swift가 다른 모든 줄의 공백은 무시한다는 것을 말합니다. 그러나 닫는 따옴표 전에 추가로 공백이 들어가면 그 공백은 추가됩니다.
 
-![&#xC5EC;&#xB7EC;&#xC904; &#xBB38;&#xC790;&#xC5F4; &#xACF5;&#xBC31; \(Multiline String Whitespace\)](.gitbook/assets/03_multilinestringwhitespace_2x.png)
+![&#xC5EC;&#xB7EC;&#xC904; &#xBB38;&#xC790;&#xC5F4; &#xACF5;&#xBC31; \(Multiline String Whitespace\)](../.gitbook/assets/03_multilinestringwhitespace_2x.png)
 
 
 
@@ -447,7 +447,7 @@ let newString = String(beginning)
 
 위의 예제에서 `greeting` 은 문자열을 구성하는 문자가 저장되는 메모리 영역이 있는 문자열입니다. `beginning` 은 `greeting` 의 부분 문자열이기 때문에 `greeting` 이 사용하는 메모리를 재사용합니다. 반대로 `newString` 은 문자열입니다. 즉 이것은 부분 문자열에서 생성될 때 자신만의 저장소를 가집니다. 아래는 이러한 관계를 보여줍니다:
 
-![String and SubString relationship](.gitbook/assets/03_stringsubstring_2x.png)
+![String and SubString relationship](../.gitbook/assets/03_stringsubstring_2x.png)
 
 > NOTE `String` 과 `Substring` 은 모두 `StringProtocol` 을 준수합니다. 이것은 문자열 조작 함수가 `StringProtocol` 값을 받아들이는 것이 편리한 경우가 많다는 것을 의미합니다. 이러한 함수는 `String` 또는 `Substring` 값으로 호출할 수 있습니다.
 
@@ -575,7 +575,7 @@ let dogString = "Dog‼🐶"
 
 `utf8` 프로퍼티 반복을 통해 `String` 에 UTF-8 표현에 접근할 수 있습니다. 이 프로퍼티는 문자열의 UTF-8 표현에서 각 바이트에 대해 하나씩 부호가 없는 8-bit \(`UInt8`\) 값의 모음인 `String.UTF8View` 타입 입니다:
 
-![UTF-8](.gitbook/assets/03_utf8_2x.png)
+![UTF-8](../.gitbook/assets/03_utf8_2x.png)
 
 ```swift
 for codeUnit in dogString.utf8 {
@@ -591,7 +591,7 @@ print("")
 
 `utf16` 프로퍼티 반복을 통해 `String` 에 UTF-16 표현에 접근할 수 있습니다. 이 프로퍼티는 문자열의 UTF-16 표현에서 각 16-bit 코드 유닛에 대해 하나씩 부호가 없는 16-bit \(`UInt16`\) 값의 모음인 `String.UTF16View` 타입 입니다:
 
-![UTF-16](.gitbook/assets/03_utf16_2x.png)
+![UTF-16](../.gitbook/assets/03_utf16_2x.png)
 
 ```swift
 for codeUnit in dogString.utf16 {
@@ -613,7 +613,7 @@ print("")
 
 각 `UnicodeScalar` 는 `UInt32` 값안에 표현된 스칼라의 21-bit 값은 반환하는 `value` 프로퍼티를 가지고 있습니다:
 
-![Unicode Scalar](.gitbook/assets/03_unicodescalar_2x.png)
+![Unicode Scalar](../.gitbook/assets/03_unicodescalar_2x.png)
 
 ```swift
 for scalar in dogString.unicodeScalars {

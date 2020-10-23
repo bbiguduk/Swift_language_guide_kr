@@ -57,7 +57,7 @@ var reversedNames = names.sorted(by: backward)
 
 클로저 표현구는 아래와 같이 일반적인 형태를 가지고 있습니다:
 
-![Closure Expression Syntax](.gitbook/assets/07_closureexpressionsyntax.png)
+![Closure Expression Syntax](../.gitbook/assets/07_closureexpressionsyntax.png)
 
 클로저 표현구의 _파라미터_ 는 in-out 파라미터 일 수 있지만 기본값을 가질 수 없습니다. 가변 파라미터의 이름을 지정하면 가변 파라미터를 사용할 수 있습니다. 튜플은 파라미터 타입과 반환 타입으로 사용될 수도 있습니다.
 

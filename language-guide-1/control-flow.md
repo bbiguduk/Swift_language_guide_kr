@@ -1,4 +1,4 @@
-# 흐름 제어 \(Control Flow\)
+# 제어 흐름 \(Control Flow\)
 
 Swift는 다양한 흐름 제어 \(control flow\) 구문을 제공합니다. 이것은 여러번 작업을 수행하는 `while` 루프를 포함하고 조건에 따라 다르게 실행되는 `if`, `guard`, `swift` 구문과 코드에서 다른 포인트로 실행 플로우를 전달하는 `break` 와 `continue` 를 포함합니다.
 
@@ -110,11 +110,11 @@ for tickMark in stride(from: 3, through: hours, by: hourInterval) {
 
 여기 `while` 루프의 기본 형식 입니다:
 
-![While Form](.gitbook/assets/05_whileform.png)
+![While Form](../.gitbook/assets/05_whileform.png)
 
 이 예제는 _Snakes and Ladders_ \(또는 _Chutes and Ladders_\) 게임을 플레이 합니다:
 
-![Snakes and Ladders](.gitbook/assets/05_snakesandladders_2x.png)
+![Snakes and Ladders](../.gitbook/assets/05_snakesandladders_2x.png)
 
 게임의 규칙은 아래와 같습니다:
 
@@ -175,7 +175,7 @@ print("Game over!")
 
 여기 `repeat`-`while` 루프의 일반적인 형식입니다:
 
-![Repeat While](.gitbook/assets/05_repeatwhile.png)
+![Repeat While](../.gitbook/assets/05_repeatwhile.png)
 
 _Snakes and Ladders_ 예제에서 `while` 루프보다 `repeat`-`while` 루프를 쓰는 것이 더 좋습니다. `finalSquare`, `board`, `square`, `diceRoll` 의 값은 `while` 루프에서와 같은 방식으로 명시적으로 초기화 됩니다.
 
@@ -278,7 +278,7 @@ if temperatureInFahrenheit <= 32 {
 
 가장 간단한 형식으로 `switch` 구문은 하나 이상의 같은 타입의 값과 비교합니다.
 
-![Switch Form](.gitbook/assets/05_switchform.png)
+![Switch Form](../.gitbook/assets/05_switchform.png)
 
 모든 `switch` 구문은 각각 `case` 키워드로 시작하는 여러개의 가능한 _케이스_ 로 구성되어 있습니다. 특정 값과 비교하는 것 외에도 Swift는 각 케이스에 대해 더 복잡한 일치 패턴을 지정하는 여러가지 방법을 제공합니다. 이 옵션은 이 챕터 뒤에서 다루겠습니다.
 
@@ -393,7 +393,7 @@ default:
 // Prints "(1, 1) is inside the box"
 ```
 
-![Coordinate Graph Simple](.gitbook/assets/05_coordinategraphsimple_2x.png)
+![Coordinate Graph Simple](../.gitbook/assets/05_coordinategraphsimple_2x.png)
 
 `switch` 구문은 점이 원점 \(0, 0\) 인지, 빨간색 x축 위에 있는지, 오렌지색 y축 위에 있는지, 원점이 중심인 파란색 4 x 4 박스 내부에 있는지 외부에 있는지 판단합니다.
 
@@ -418,7 +418,7 @@ case let (x, y):
 // Prints "on the x-axis with an x value of 2"
 ```
 
-![Coordinate Graph Medium](.gitbook/assets/05_coordinategraphmedium_2x.png)
+![Coordinate Graph Medium](../.gitbook/assets/05_coordinategraphmedium_2x.png)
 
 이 `switch` 구문은 점이 빨간색인 x축에 있는지, 오렌지색인 y축에 있는지, 또는 다른 곳 \(축 위가 아닌\)에 있는지 판단합니다.
 
@@ -447,7 +447,7 @@ case let (x, y):
 // Prints "(1, -1) is on the line x == -y"
 ```
 
-![Coordinate Graph Complex](.gitbook/assets/05_coordinategraphcomplex_2x.png)
+![Coordinate Graph Complex](../.gitbook/assets/05_coordinategraphcomplex_2x.png)
 
 `switch` 구문은 `x == y` 인 초록색 대각선 위에 있는지, `x == -y` 인 보라색 대각선 위에 있거나 아니면 그 외에 위치하는지 판단합니다.
 
@@ -607,7 +607,7 @@ Swift에서 복잡한 제어흐름 구조를 생성하기 위해 루프와 조�
 
 라벨이 있는 구문 \(labeled statement\)은 구문의 소개자 키워드와 같은 줄에 위치하고 바로 다음에 콜론이 옵니다. 여기 예제는 `while` 루프에 대한 구문의 예입니다. 모든 루프와 `switch` 구문에 대해 동일합니다:
 
-![Lebeled Statements](.gitbook/assets/05_lebeledstatements.png)
+![Lebeled Statements](../.gitbook/assets/05_lebeledstatements.png)
 
 다음 예제는 이 챕터의 이전에 봤던 _Snakes and Ladders_ 게임에 적절한 버전을 위해 라벨이 있는 `while` 루프와 `break` 와 `continue` 구문을 사용합니다. 이번에는 게임에 추가 규칙이 있습니다:
 
@@ -617,7 +617,7 @@ Swift에서 복잡한 제어흐름 구조를 생성하기 위해 루프와 조�
 
 게임 보드는 이전과 동일합니다.
 
-![Snakes and Ladders](.gitbook/assets/05_snakesandladders_2x.png)
+![Snakes and Ladders](../.gitbook/assets/05_snakesandladders_2x.png)
 
 `finalSquare`, `board`, square`, diceRoll` 은 이전과 동일하게 초기화 됩니다:
 
@@ -718,5 +718,5 @@ iOS에서 위의 특정 가용성 조건의 `if` 구문의 바디는 iOS 10 이�
 
 일반적인 형식에서 가용성 조건은 플랫폼 이름 및 버전 목록을 사용합니다. `iOS`, `macOS`, `watchOS`, `tvOS` 와 같은 플랫폼 이름을 사용하고 자세한 내용은 [선언 속성 \(Declaration Attributes\)](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#ID348) 을 참고 바랍니다. iOS 8 또는 macOS 10.10과 같은 메이저 버전 번호를 지정하는 것 외에 iOS 11.2.6과 macOS 10.13.3과 같은 마이너 버전 번호로 지정할 수 있습니다.
 
-![Availability Condition](.gitbook/assets/05_availabilitycondition.png)
+![Availability Condition](../.gitbook/assets/05_availabilitycondition.png)
 

@@ -131,11 +131,11 @@ for beverage in Beverage.allCases {
 
 예를 들어 재고 추적 시스템이 2가지 타입의 바코드로 제품을 추적해야 된다고 가정해 보겠습니다. 어떤 제품은 숫자 `0` 에서 `9` 를 사용하는 UPC 형식의 1D 바코드 라벨이 부착되어 있습니다. 각 바코드에는 숫자 시스템과 이어서 5자리의 제조업체 코드와 5자리의 제품 코드가 있습니다. 다음에는 코드가 올바르게 스캔되었는지 확인하기 위해 검사 숫자가 있습니다:
 
-![Barcode UPC](.gitbook/assets/08_barcode_upc_2x.png)
+![Barcode UPC](../.gitbook/assets/08_barcode_upc_2x.png)
 
 다른 제품은 어떠한 ISO 8859-1 문자도 사용할 수 있고 2,953개의 문자까지 인코딩할 수 있는 QR 코드 형식의 2D 바코드 라벨이 부착되어 있습니다:
 
-![Barcode QR](.gitbook/assets/08_barcode_qr_2x.png)
+![Barcode QR](../.gitbook/assets/08_barcode_qr_2x.png)
 
 재고 추적 시스템은 UPC 바코드를 4개의 정수로 된 튜플로 저장하고 QR 코드 바코드를 모든 길이의 문자열로 저장하는 것이 편리합니다.
 
