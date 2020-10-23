@@ -6,7 +6,8 @@ Swift의 `String` 과 `Character` 타입은 코드의 텍스트를 처리하는 
 
 간단한 구문임에도 Swift의 `String` 타입은 빠르고, 최신 문자열 구현입니다. 모든 문자열은 인코딩에 독립적인 유니코드 문자로 구성되어 있으며 다양한 유니코드 표현의 문자에 접근할 수 있도록 지원합니다.
 
-> NOTE Swift의 `String` 타입은 Foundation의 `NSString` 클래스와 연결되어 있습니다. Foundation은 또한 `NSString` 에 의해 정의된 메서드를 노출시키기 위해 `String` 을 확장합니다. 이것은 Foundation을 import 하면 캐스팅 없이 `String` 에서 `NSString` 메서드를 접근할 수 있습니다.
+> NOTE   
+> Swift의 `String` 타입은 Foundation의 `NSString` 클래스와 연결되어 있습니다. Foundation은 또한 `NSString` 에 의해 정의된 메서드를 노출시키기 위해 `String` 을 확장합니다. 이것은 Foundation을 import 하면 캐스팅 없이 `String` 에서 `NSString` 메서드를 접근할 수 있습니다.
 >
 > Foundation과 Cocoa에서 `String` 사용에 대한 자세한 내용은 [String과 NSString의 연결 \(Bridging Between String and NSString\)](https://developer.apple.com/documentation/swift/string#2919514) 을 참고 바랍니다.
 
@@ -81,7 +82,7 @@ It also ends with a line break.
 문자열 리터럴은 아래와 같은 특수 문자를 포함할 수 있습니다:
 
 * 이스케이프 된 문자 `\0` \(null 문자\), `\\` \(백슬래시\), `\t` \(수평 탭\), `\n` \(개행\), `\r` \(캐리지 리턴\), `\"` \(쌍따옴표\) 와 `\'` \(홑따옴표\)
-* `\u{n}` 로 쓰여진 임의의 유니코드 스칼라 값. 여기서 _n_ 은 1-8 자리의 16진수 \(유니코드는 아래 [유니코드 \(Unicode\)](https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html#ID293) 에서 설명합니다.\)
+* `\u{n}` 로 쓰여진 임의의 유니코드 스칼라 값. 여기서 _n_ 은 1-8 자리의 16진수 \(유니코드는 아래 [유니코드 \(Unicode\)](strings-and-characters.md#unicode) 에서 설명합니다.\)
 
 아래 코드는 특수 문자의 4개의 예를 보여줍니다. `wiseWords` 상수는 2개의 이스케이프 된 쌍따옴표를 포함합니다. `dollarSign`, `blackHeart` 그리고 `sparklingHeart` 는 유니코드 스칼라 형태를 보여줍니다:
 
@@ -149,11 +150,12 @@ constantString += " and another Highlander"
 // this reports a compile-time error - a constant string cannot be modified
 ```
 
-> NOTE 이 접근방식은 Objective-C와 Cocoa의 문자열 변형과 다릅니다. 여기서 두 클래스 \(`NSString` 및 `NSMutableString`\) 중에서 선택하여 문자열 변형이 가능한지 여부를 나타냅니다.
+> NOTE   
+> 이 접근방식은 Objective-C와 Cocoa의 문자열 변형과 다릅니다. 여기서 두 클래스 \(`NSString` 및 `NSMutableString`\) 중에서 선택하여 문자열 변형이 가능한지 여부를 나타냅니다.
 
 ## 문자열은 값 타입 \(Strings Are Value Types\)
 
-Swift의 `String` 타입은 _값 타입 \(value type\)_ 입니다. 새로운 `String` 값을 생성한다면 `String` 값은 함수 또는 메서드에 전달될 때나 상수 또는 변수에 대입될 때 _복사_ 됩니다. 각 경우에 존재하는 `String` 값의 새로운 복사본이 생성되고 원본이 아닌 새로운 복사본은 전달되거나 할당됩니다. 값 타입은 [구조체와 열거형은 값 타입 \(Structures and Enumerations Are Value Types\)](https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html#ID88) 에서 설명합니다.
+Swift의 `String` 타입은 _값 타입 \(value type\)_ 입니다. 새로운 `String` 값을 생성한다면 `String` 값은 함수 또는 메서드에 전달될 때나 상수 또는 변수에 대입될 때 _복사_ 됩니다. 각 경우에 존재하는 `String` 값의 새로운 복사본이 생성되고 원본이 아닌 새로운 복사본은 전달되거나 할당됩니다. 값 타입은 [구조체와 열거형은 값 타입 \(Structures and Enumerations Are Value Types\)](structures-and-classes.md#structures-and-enumerations-are-value-types) 에서 설명합니다.
 
 Swift의 기본 `String` 으로의 복사 동작은 함수 또는 메서드가 `String` 값을 전달할 때 출처에 관계없이 `String` 값은 정확하다고 보장합니다. 전달된 문자열은 직접 수정하지 않는한 수정되지 않습니다.
 
@@ -174,7 +176,7 @@ for character in "Dog!🐶" {
 // 🐶
 ```
 
-`for`-`in` 루프는 [For-In 루프 \(For-In Loops\)](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID121) 에서 설명합니다.
+`for`-`in` 루프는 [For-In 루프 \(For-In Loops\)](control-flow.md#for-in-for-in-loops) 에서 설명합니다.
 
 또는 하나의 문자 문자열 리터럴을 `Character` 타입을 명시하여 단독의 `Character` 상수 또는 변수를 생성할 수 있습니다:
 
@@ -218,7 +220,8 @@ welcome.append(exclamationMark)
 // welcome now equals "hello there!"
 ```
 
-> NOTE `Character` 값은 반드시 하나의 문자만 포함해야 하므로 `Character` 변수에 추가로 `String` 또는 `Character` 를 추가할 수 없습니다.
+> NOTE   
+> `Character` 값은 반드시 하나의 문자만 포함해야 하므로 `Character` 변수에 추가로 `String` 또는 `Character` 를 추가할 수 없습니다.
 
 여러줄 문자열 리터럴을 이용하여 긴 문자열의 라인을 구성하는 경우 문자열 매 라인 끝에 공백이 포함되길 원합니다. 예를 들어:
 
@@ -277,7 +280,8 @@ print(#"6 times 7 is \#(6 * 7)."#)
 // Prints "6 times 7 is 42."
 ```
 
-> NOTE 소괄호 안에 작성한 표현식에 삽입된 문자열은 백슬래시 \(`\`\), 캐리지 리턴, 또는 개행을 포함할 수 없습니다. 그러나 다른 문자열 리터럴은 포함할 수 있습니다.
+> NOTE   
+> 소괄호 안에 작성한 표현식에 삽입된 문자열은 백슬래시 \(`\`\), 캐리지 리턴, 또는 개행을 포함할 수 없습니다. 그러나 다른 문자열 리터럴은 포함할 수 있습니다.
 
 ## 유니코드 \(Unicode\)
 
@@ -350,7 +354,8 @@ print("the number of characters in \(word) is \(word.count)")
 // Prints "the number of characters in café is 4"
 ```
 
-> NOTE 확장된 문자소 클러스터는 여러개의 유니코드 스칼라로 구성할 수 있습니다. 이것은 다른 문자와 같은 문자의 다른 표기법은 저장할 때 메모리 사용량이 다르게 요구할 수 있다는 의미입니다. 이 때문에 Swift의 문자는 각각 문자열에서 동일한 양의 메모리를 차지하지 않습니다. 그 결과 문자열에 문자의 숫자는 확장된 문자소 클러스터 경계를 결정하기 위해 문자열을 반복하지 않고는 계산할 수 없습니다. 특히 긴 문자열 값으로 작업하는 경우에 해당 문자열의 문자를 결정하려면 `count` 프로퍼티가 전체 문자열의 유니코드 스칼라를 반복해야 합니다.
+> NOTE   
+> 확장된 문자소 클러스터는 여러개의 유니코드 스칼라로 구성할 수 있습니다. 이것은 다른 문자와 같은 문자의 다른 표기법은 저장할 때 메모리 사용량이 다르게 요구할 수 있다는 의미입니다. 이 때문에 Swift의 문자는 각각 문자열에서 동일한 양의 메모리를 차지하지 않습니다. 그 결과 문자열에 문자의 숫자는 확장된 문자소 클러스터 경계를 결정하기 위해 문자열을 반복하지 않고는 계산할 수 없습니다. 특히 긴 문자열 값으로 작업하는 경우에 해당 문자열의 문자를 결정하려면 `count` 프로퍼티가 전체 문자열의 유니코드 스칼라를 반복해야 합니다.
 >
 > `count` 프로퍼티로 반환된 문자의 갯수는 같은 문자여도 `NSString` 의 `length` 프로퍼티와 항상 같지는 않습니다. `NSString` 의 길이는 문자열 내에 유니코드 확장된 문자소 클러스터 수가 아니라 문자열의 UTF-16 표현 내의 16-bit 코드 단위 수를 기반으로 합니다.
 
@@ -399,7 +404,8 @@ for index in greeting.indices {
 // Prints "G u t e n   T a g ! "
 ```
 
-> NOTE `Collection` 프로토콜을 준수하는 어떠한 타입에서든 `startIndex` 와 `endIndex` 프로퍼티와 `index(before:)`, `index(after:)`, 그리고 `index(_:offsetBy:)` 메서드를 사용할 수 있습니다. 이것은 여기서 봤듯이 `String` 뿐만 아니라 `Array`, `Dictionary`, 그리고 `Set` 과 같은 콜렉션 타입도 포함됩니다.
+> NOTE   
+> `Collection` 프로토콜을 준수하는 어떠한 타입에서든 `startIndex` 와 `endIndex` 프로퍼티와 `index(before:)`, `index(after:)`, 그리고 `index(_:offsetBy:)` 메서드를 사용할 수 있습니다. 이것은 여기서 봤듯이 `String` 뿐만 아니라 `Array`, `Dictionary`, 그리고 `Set` 과 같은 콜렉션 타입도 포함됩니다.
 
 ### 삽입과 삭제 \(Inserting and Removing\)
 
@@ -425,7 +431,8 @@ welcome.removeSubrange(range)
 // welcome now equals "hello"
 ```
 
-> NOTE `RangeReplaceableCollection` 프로토콜을 준수하는 어떠한 타입에서든 `insert(_:at:)`, `insert(contentsOf:at:)`, `remove(at:)` 그리고 `removeSubrange(_:)` 메서드를 사용할 수 있습니다. 이것은 여기서 봤듯이 `String` 뿐만 아니라 `Array`, `Dictionary`, 그리고 `Set` 과 같은 콜렉션 타입도 포함됩니다.
+> NOTE   
+> `RangeReplaceableCollection` 프로토콜을 준수하는 어떠한 타입에서든 `insert(_:at:)`, `insert(contentsOf:at:)`, `remove(at:)` 그리고 `removeSubrange(_:)` 메서드를 사용할 수 있습니다. 이것은 여기서 봤듯이 `String` 뿐만 아니라 `Array`, `Dictionary`, 그리고 `Set` 과 같은 콜렉션 타입도 포함됩니다.
 
 ## 부분 문자열 \(Substrings\)
 
@@ -449,7 +456,8 @@ let newString = String(beginning)
 
 ![String and SubString relationship](../.gitbook/assets/03_stringsubstring_2x.png)
 
-> NOTE `String` 과 `Substring` 은 모두 `StringProtocol` 을 준수합니다. 이것은 문자열 조작 함수가 `StringProtocol` 값을 받아들이는 것이 편리한 경우가 많다는 것을 의미합니다. 이러한 함수는 `String` 또는 `Substring` 값으로 호출할 수 있습니다.
+> NOTE   
+> `String` 과 `Substring` 은 모두 `StringProtocol` 을 준수합니다. 이것은 문자열 조작 함수가 `StringProtocol` 값을 받아들이는 것이 편리한 경우가 많다는 것을 의미합니다. 이러한 함수는 `String` 또는 `Substring` 값으로 호출할 수 있습니다.
 
 ## 문자열 비교 \(Comparing Strings\)
 
@@ -457,7 +465,7 @@ Swift는 문자열과 문자 같음, 접두사 같음, 그리고 접미사 같�
 
 ### 문자열과 문자 같음 \(String and Character Equality\)
 
-[비교 연산자 \(Comparison Operators\)](https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html#ID70) 에서 설명한대로 "같음" 연산자 \(`==`\)와 "같지 않음" 연산자 \(`!=`\)로 문자열과 문자가 같은지 확인합니다:
+[비교 연산자 \(Comparison Operators\)](basic-operators.md#comparison-operators) 에서 설명한대로 "같음" 연산자 \(`==`\)와 "같지 않음" 연산자 \(`!=`\)로 문자열과 문자가 같은지 확인합니다:
 
 ```swift
 let quotation = "We're a lot alike, you and I."
@@ -498,7 +506,8 @@ if latinCapitalLetterA != cyrillicCapitalLetterA {
 // Prints "These two characters are not equivalent."
 ```
 
-> NOTE Swift의 문자열과 문자 비교는 로케일을 구분하지 않습니다.
+> NOTE   
+> Swift의 문자열과 문자 비교는 로케일을 구분하지 않습니다.
 
 ### 접두사와 접미사 같음 \(Prefix and Suffix Equality\)
 
@@ -551,13 +560,14 @@ print("\(mansionCount) mansion scenes; \(cellCount) cell scenes")
 // Prints "6 mansion scenes; 2 cell scenes"
 ```
 
-> NOTE `hasPrefix(_:)` 와 `hasSuffix(_:)` 메서드는 [문자열과 문자 같음 \(String and Character Equality\)](https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html#ID299) 에서 설명했듯이 각 문자열에 확장된 문자소 클러스터 간의 문자 단위로 동등한지 수행합니다.
+> NOTE   
+> `hasPrefix(_:)` 와 `hasSuffix(_:)` 메서드는 [문자열과 문자 같음 \(String and Character Equality\)](strings-and-characters.md#string-and-character-equality) 에서 설명했듯이 각 문자열에 확장된 문자소 클러스터 간의 문자 단위로 동등한지 수행합니다.
 
 ## 문자열의 유니코드 표현 \(Unicode Representations of Strings\)
 
 유니코드 문자열이 텍스트 파일 또는 다른 저장소에 쓰여질 때 해당 문자열의 유니코드 스칼라는 정의된 유니코드 _인코딩 형식_ 중에 하나로 인코딩 됩니다. 각 형식은 _코드 유닛_ 으로 알려진 작 청크로 문자열을 인코딩합니다. 이것은 UTF-8 인코딩 형식 \(8-bit 코드 유닛으로 문자열을 인코딩\), UTF-16 인코딩 형식 \(16-bit 코드 유닛으로 문자열을 인코딩\), UTF-32 인코딩 형식 \(32-bit 코드 유닛으로 문자열을 인코딩\)을 포함합니다.
 
-Swift는 문자열의 유니코드 표현에 접근하는 여러가지 방법을 제공합니다. `for`-`in` 구문으로 문자열을 반복하여 유니코드 확장된 문자소 클러스터인 `Character` 값에 접근할 수 있습니다. [문자 작업 \(Working with Characters\)](https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html#ID290) 에 자세히 설명되어 있습니다.
+Swift는 문자열의 유니코드 표현에 접근하는 여러가지 방법을 제공합니다. `for`-`in` 구문으로 문자열을 반복하여 유니코드 확장된 문자소 클러스터인 `Character` 값에 접근할 수 있습니다. [문자 작업 \(Working with Characters\)](strings-and-characters.md#working-with-characters) 에 자세히 설명되어 있습니다.
 
 또는 세가지 다른 유니코드 호환 표현 중 하나로 `String` 값에 접근할 수 있습니다:
 
