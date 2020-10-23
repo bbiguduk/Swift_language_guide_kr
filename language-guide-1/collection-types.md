@@ -6,7 +6,8 @@ Swift는 콜렉션의 값을 저장하기 위한 배열 \(array\), 집합 \(set\
 
 Swift에 배열, 집합, 그리고 딕셔너리는 저장할 수 있는 값의 타입과 키에 대해 항상 명확합니다. 이것은 실수로 콜렉션에 잘못된 타입을 추가할 수 없다는 의미입니다. 또한 콜렉션에서 검색할 값에 대해 타입이 명확하다는 것을 의미합니다.
 
-> NOTE Swift의 배열, 집합, 그리고 딕셔너리 타입은 _제너릭 콜렉션 \(generic collections\)_ 으로 구현됩니다. 제너릭 타입과 콜렉션에 대한 자세한 내용은 [제너릭 \(Generics\)](https://docs.swift.org/swift-book/LanguageGuide/Generics.html) 을 참고 바랍니다.
+> NOTE   
+> Swift의 배열, 집합, 그리고 딕셔너리 타입은 _제너릭 콜렉션 \(generic collections\)_ 으로 구현됩니다. 제너릭 타입과 콜렉션에 대한 자세한 내용은 [제너릭 \(Generics\)](generics.md) 을 참고 바랍니다.
 
 ## 콜렉션의 가변성 \(Mutablility of Collections\)
 
@@ -18,7 +19,8 @@ Swift에 배열, 집합, 그리고 딕셔너리는 저장할 수 있는 값의 �
 
 _배열 \(array\)_ 는 순서대로 같은 타입의 값을 저장합니다. 같은 값은 배열에 다른 순서로 존재할 수 있습니다.
 
-> NOTE Swift의 `Array` 타입은 Foundation의 `NSArray` 클래스와 연결됩니다.
+> NOTE   
+> Swift의 `Array` 타입은 Foundation의 `NSArray` 클래스와 연결됩니다.
 >
 > Foundation과 Cocoa의 `Array` 사용에 대한 자세한 내용은 [Array와 NSArray 사이의 연결 \(Bridging Between Array and NSArray\)](https://developer.apple.com/documentation/swift/array#2846730) 을 참고 바랍니다.
 
@@ -83,7 +85,8 @@ var shoppingList: [String] = ["Eggs", "Milk"]
 
 `shoppingList` 변수는 `[String]` 으로 쓰고 "문자열 값의 배열"로 선언됩니다. 이 배열은 `String` 의 값 타입을 가지고 있기 때문에 `String` 값만 저장이 가능합니다. 여기서 `shoppingList` 배열은 배열 리터럴 안에 쓰여진 2개의 `String` 값 \(`"Eggs"` 와 `"Milk"`\)으로 초기화 되었습니다.
 
-> NOTE 아래 예제에서 쇼핑 리스트에 더 많은 아이템이 추가되기 때문에 `shoppingList` 배열은 상수 \(`let` 으로 선언\)가 아닌 변수 \(`var` 로 선언\)로 선언되었습니다.
+> NOTE   
+> 아래 예제에서 쇼핑 리스트에 더 많은 아이템이 추가되기 때문에 `shoppingList` 배열은 상수 \(`let` 으로 선언\)가 아닌 변수 \(`var` 로 선언\)로 선언되었습니다.
 
 이 경우 배열 리터럴은 2개의 `String` 값을 포함합니다. 이것은 `shoppingList` 변수의 선언 타입 \(`String` 값만 포함될 수 있는 배열\)과 일치하므로 2개의 초기 항목으로 `shoppingList` 를 초기화하는 방법으로 배열 리터럴의 할당이 허용됩니다.
 
@@ -140,7 +143,8 @@ var firstItem = shoppingList[0]
 // firstItem is equal to "Eggs"
 ```
 
-> NOTE 배열안에 첫번째 아이템은 인덱스가 `1` 이 아닌 `0` 입니다. Swift에 배열은 항상 제로-인덱스 \(zero-indexed\) 입니다.
+> NOTE   
+> 배열안에 첫번째 아이템은 인덱스가 `1` 이 아닌 `0` 입니다. Swift에 배열은 항상 제로-인덱스 \(zero-indexed\) 입니다.
 
 서브 스크립트 구문을 사용하여 존재하는 값을 변경할 수 있습니다:
 
@@ -177,7 +181,8 @@ let mapleSyrup = shoppingList.remove(at: 0)
 // the mapleSyrup constant is now equal to the removed "Maple Syrup" string
 ```
 
-> NOTE 배열의 범위를 넘는 인덱스로 값에 접근 또는 수정을 할 경우 런타임 에러가 발생합니다. 배열의 `count` 프로퍼티를 사용하여 인덱스가 유효한지 확인할 수 있습니다. 배열은 0부터 인덱스 되기 때문에 배열에서 가장 큰 유효한 인덱스는 `count - 1` 입니다. 그러나 `count` 가 `0` 이면 \(배열이 비어있음\) 유효한 인덱스가 없다는 의미입니다.
+> NOTE   
+> 배열의 범위를 넘는 인덱스로 값에 접근 또는 수정을 할 경우 런타임 에러가 발생합니다. 배열의 `count` 프로퍼티를 사용하여 인덱스가 유효한지 확인할 수 있습니다. 배열은 0부터 인덱스 되기 때문에 배열에서 가장 큰 유효한 인덱스는 `count - 1` 입니다. 그러나 `count` 가 `0` 이면 \(배열이 비어있음\) 유효한 인덱스가 없다는 의미입니다.
 
 아이템이 삭제되면 배열에 어떤 간격도 닫히므로 인덱스 `0` 인 값은 `"Six eggs"` 와 같습니다:
 
@@ -223,13 +228,14 @@ for (index, value) in shoppingList.enumerated() {
 // Item 5: Bananas
 ```
 
-`for`-`in` 루프에 대한 자세한 내용은 [For-In 루프 \(For-In Loops\)](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID121) 을 참고 바랍니다.
+`for`-`in` 루프에 대한 자세한 내용은 [For-In 루프 \(For-In Loops\)](control-flow.md#for-in-for-in-loops) 을 참고 바랍니다.
 
 ## 집합 \(Sets\)
 
 _집합 \(set\)_ 은 콜렉션에 순서와 상관없이 같은 타입의 다른 값을 저장합니다. 아이템의 순서가 중요하지 않거나 아이템이 반복되면 안될 때 배열 대신에 집합을 사용할 수 있습니다.
 
-> NOTE Swift의 집합 타입은 Foundation의 `NSSet` 클래스와 연결됩니다.
+> NOTE   
+> Swift의 집합 타입은 Foundation의 `NSSet` 클래스와 연결됩니다.
 >
 > Foundation과 Cocoa의 `Set` 에 대해 더 자세한 내용은 [Set과 NSSet 사이의 연결 \(Bridging Between Set and NSSet\)](https://developer.apple.com/documentation/swift/set#2845530) 을 참고 바랍니다.
 
@@ -237,9 +243,10 @@ _집합 \(set\)_ 은 콜렉션에 순서와 상관없이 같은 타입의 다른
 
 집합 \(set\) 에 저장하기 위해 타입은 반드시 _hashable_ 여야 합니다. 즉, _해쉬 값 \(hash value\)_ 을 계산할 수 있는 방법을 타입은 제공해야 합니다. 해쉬 값은 동일하게 비교되는 모든 객체에 대해 동일한 `Int` 값으로 `a == b` 이면 `a.hashValue == b.hashValue` 를 따릅니다.
 
-Swift의 모든 기본 타입 \(`String`, `Int`, `Double`, 그리고 `Bool`\)은 기본적으로 hashable 이고 집합의 값 타입 또는 딕셔너리의 키 타입으로 사용할 수 있습니다. 연관된 값이 없는 열거형 \(Enumeration\) 케이스 값 \([열거형 \(Enumerations\)](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html)\)은 기본적으로 hashable 입니다.
+Swift의 모든 기본 타입 \(`String`, `Int`, `Double`, 그리고 `Bool`\)은 기본적으로 hashable 이고 집합의 값 타입 또는 딕셔너리의 키 타입으로 사용할 수 있습니다. 연관된 값이 없는 열거형 \(Enumeration\) 케이스 값 \([열거형 \(Enumerations\)](enumerations.md)\)은 기본적으로 hashable 입니다.
 
-> NOTE 집합 값 타입 또는 딕셔너리 키 타입으로 사용자화 타입을 사용하려면 Swift의 표준 라이브러리의 `Hashable` 프로토콜을 준수해야 사용할 수 있습니다. `Hashable` 프로토콜을 준수하는 타입은 반드시 `hashValue` 라고 부르는 `Int` 프로퍼티를 얻을 수 있도록 제공해야 합니다. 타입의 `hasValue` 프로퍼티로 부터 반환된 값은 동일 프로그램의 다른 실행 또는 다른 프로그램에서 동일할 필요는 없습니다.
+> NOTE   
+> 집합 값 타입 또는 딕셔너리 키 타입으로 사용자화 타입을 사용하려면 Swift의 표준 라이브러리의 `Hashable` 프로토콜을 준수해야 사용할 수 있습니다. `Hashable` 프로토콜을 준수하는 타입은 반드시 `hashValue` 라고 부르는 `Int` 프로퍼티를 얻을 수 있도록 제공해야 합니다. 타입의 `hasValue` 프로퍼티로 부터 반환된 값은 동일 프로그램의 다른 실행 또는 다른 프로그램에서 동일할 필요는 없습니다.
 >
 > `Hashable` 프로토콜은 `Equatable` 을 따르기 때문에 타입은 반드시 같음 연산자 \(`==`\)의 구현을 제공해야 합니다. `Equatable` 프로토콜은 동일 관계가 되기 위해 `==` 의 모든걸 준수할 수 있도록 구현하여 제공해야 합니다. 즉, `==` 의 구현은 반드시 아래의 3가지 조건을 `a`, `b`, `c` 모든 값에 대해 충족해야 합니다:
 >
@@ -247,7 +254,7 @@ Swift의 모든 기본 타입 \(`String`, `Int`, `Double`, 그리고 `Bool`\)은
 > * `a == b` 와 `b == a` 같음 \(대칭성\)
 > * `a == b && b == c` 와 `a == c` 같음 \(이동성\)
 >
-> 프로토콜 준수에 대한 자세한 내용은 [프로토콜 \(Protocols\)](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html) 을 참고 바랍니다.
+> 프로토콜 준수에 대한 자세한 내용은 [프로토콜 \(Protocols\)](protocols.md) 을 참고 바랍니다.
 
 ### 집합 타입 구문 \(Set Type Syntax\)
 
@@ -263,7 +270,8 @@ print("letters is of type Set<Character> with \(letters.count) items.")
 // Prints "letters is of type Set<Character> with 0 items."
 ```
 
-> NOTE `letters` 변수의 타입은 초기화의 타입으로 부터 `Set<Character>` 로 추론됩니다.
+> NOTE   
+> `letters` 변수의 타입은 초기화의 타입으로 부터 `Set<Character>` 로 추론됩니다.
 
 또한 컨텍스트가 함수 인자 또는 이미 타입이 명시된 변수 또는 상수로 타입 정보를 이미 제공한다면 빈 배열 리터럴을 사용하여 빈 집합을 생성할 수 있습니다:
 
@@ -287,7 +295,8 @@ var favoriteGenres: Set<String> = ["Rock", "Classical", "Hip hop"]
 
 `favoriteGenres` 변수는 `Set<String>` 라고 쓰고 "`String` 값의 집합" 으로 선언됩니다. 이 집합은 특정 `String` 타입의 값을 가지고 있기 때문에 `String` 값만 저장할 수 있습니다. 여기서 `favoriteGenres` 집합은 배열 리터럴 안에 적힌 3개의 `String` 값 \(`"Rock"`, `"Classical"`, `"Hip hop"`\)으로 초기화 됩니다.
 
-> NOTE `favoriteGenres` 집합은 아래 예제에서 아이템을 추가하거나 삭제하기 때문에 상수 \(`let`\)가 아닌 변수 \(`var`\)로 선언되었습니다.
+> NOTE   
+> `favoriteGenres` 집합은 아래 예제에서 아이템을 추가하거나 삭제하기 때문에 상수 \(`let`\)가 아닌 변수 \(`var`\)로 선언되었습니다.
 
 집합 타입은 배열 리터럴에서 추론할 수 없기 때문에 `Set` 타입은 명시적으로 선언해야 합니다. 그러나 Swift의 타입 유추 때문에 배열 리터럴로 초기화 할 때 하나의 타입의 값이 포함되어 있는 경우 집합 요소의 타입을 명시하지 않아도 됩니다. `favoriteGenres` 초기화는 짧게 쓸 수 있습니다:
 
@@ -361,7 +370,7 @@ for genre in favoriteGenres {
 // Hip hop
 ```
 
-`for`-`in` 루프에 대해 자세한 내용은 [For-In 루프 \(For-In Loops\)](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID121) 를 참고 바랍니다.
+`for`-`in` 루프에 대해 자세한 내용은 [For-In 루프 \(For-In Loops\)](control-flow.md#for-in-for-in-loops) 를 참고 바랍니다.
 
 Swift의 `Set` 타입은 정의된 순서를 가지고 있지 않습니다. 특정 순서로 집합의 값을 반복하려면 집합의 요소를 `<` 연산자를 사용하여 정렬하여 반환하는 `sorted()` 메서드를 사용합니다.
 
@@ -433,7 +442,8 @@ farmAnimals.isDisjoint(with: cityAnimals)
 
 _딕셔너리 \(dictionary\)_ 는 순서와 상관없이 콜렉션에 같은 타입의 키 \(key\)와 같은 타입의 값 \(value\)를 저장합니다. 각 값은 딕셔너리 내부에서 값에 대한 식별자로 동작하는 유니크한 _키_ 와 조합됩니다. 배열의 아이템과 다르게 딕셔너리의 아이템은 특정 순서를 가지고 있지 않습니다. 특정 단어를 찾기위해 사전을 찾는 방법과 같이 식별자를 기준을 값을 찾을 때 딕셔너리를 사용합니다.
 
-> NOTE Swift의 `Dictionary` 타입은 Foundation의 `NSDictionary` 클래스와 연결됩니다.
+> NOTE   
+> Swift의 `Dictionary` 타입은 Foundation의 `NSDictionary` 클래스와 연결됩니다.
 >
 > Foundation과 Cocoa에서 `Dictionary` 사용에 대한 자세한 내용은 [Dictionary와 NSDictionary의 연결 \(Bridging Between Dictionary and NSDictionary\)](https://developer.apple.com/documentation/swift/dictionary#2846239) 을 참고 바랍니다.
 
@@ -441,7 +451,8 @@ _딕셔너리 \(dictionary\)_ 는 순서와 상관없이 콜렉션에 같은 타
 
 Swift 딕셔너리의 타입은 `Dictionary<Key, Value>` 로 적으며 `Key` 는 딕셔너리 키로 사용되는 값의 타입이고 `Value` 는 딕셔너리에 저장될 값의 타입 입니다.
 
-> NOTE 딕셔너리 `Key` 타입은 집합의 값 타입과 같이 반드시 `Hashable` 프로토콜을 준수해야 합니다.
+> NOTE   
+> 딕셔너리 `Key` 타입은 집합의 값 타입과 같이 반드시 `Hashable` 프로토콜을 준수해야 합니다.
 
 `[Key: Value]` 와 같이 짧은 형식으로 딕셔너리 타입을 작성할 수도 있습니다. 두 형식은 기능적으로 동일하지만 이 가이드에서는 짧은 형식을 더 선호합니다.
 
@@ -481,7 +492,8 @@ var airports: [String: String] = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
 
 `airports` 딕셔너리는 `Dictionary` 키는 `String` 타입이고 값은 `String` 타입인 `[String: String]` 타입을 갖도록 선언됩니다.
 
-> NOTE `airports` 딕셔너리는 아래 예제에서 딕셔너리에 더 많은 공항이 추가되므로 상수 \(`let`\)가 아닌 변수 \(`var`\)로 선언됩니다.
+> NOTE   
+> `airports` 딕셔너리는 아래 예제에서 딕셔너리에 더 많은 공항이 추가되므로 상수 \(`let`\)가 아닌 변수 \(`var`\)로 선언됩니다.
 
 `airports` 딕셔너리는 2개의 키-값 쌍을 포함한 딕셔너리 리터럴로 초기화 됩니다. 첫번째 쌍은 `"YYZ"` 의 키와 `"Toronto Pearson"` 값을 가집니다. 두번째 쌍은 `"DUB"` 의 키와 `"Dublin"` 값을 가집니다.
 
@@ -585,7 +597,7 @@ for (airportCode, airportName) in airports {
 // YYZ: Toronto Pearson
 ```
 
-`for`-`in` 루프에 대한 자세한 설명은 [For-In 루프 \(For-In Loops\)](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID121) 를 참고 바랍니다.
+`for`-`in` 루프에 대한 자세한 설명은 [For-In 루프 \(For-In Loops\)](control-flow.md#for-in-for-in-loops) 를 참고 바랍니다.
 
 딕셔너리의 `keys` 와 `values` 프로퍼티로 딕셔너리의 키 또는 값에 반복 가능한 콜렉션을 가져올 수도 있습니다:
 
