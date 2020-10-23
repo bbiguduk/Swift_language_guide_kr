@@ -35,7 +35,7 @@ for (animalName, legCount) in numberOfLegs {
 // spiders have 8 legs
 ```
 
-`Dictionary` 의 콘텐츠는 기본적으로 순서가 없으며 반복으로 가져올 아이템에 대한 순서를 보장하지 않습니다. 특히 아이템을 딕셔너리에 삽입하는 순서는 아이템이 반복되는 순서를 정의하지 않습니다. 배열과 딕셔너리의 자세한 내용은 [콜렉션 타입 \(Collection Types\)](https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html) 을 참고 바랍니다.
+`Dictionary` 의 콘텐츠는 기본적으로 순서가 없으며 반복으로 가져올 아이템에 대한 순서를 보장하지 않습니다. 특히 아이템을 딕셔너리에 삽입하는 순서는 아이템이 반복되는 순서를 정의하지 않습니다. 배열과 딕셔너리의 자세한 내용은 [콜렉션 타입 \(Collection Types\)](collection-types.md) 을 참고 바랍니다.
 
 숫자 범위에 대해 `for`-`in` 루프를 사용할 수도 있습니다. 이 예제는 5의 배수 항목을 몇개 출력합니다:
 
@@ -69,7 +69,7 @@ print("\(base) to the power of \(power) is \(answer)")
 
 위의 예는 한 숫자의 값을 다른 숫자의 제곱으로 계산합니다 \(이 경우 `3` 에서 `10` 제곱\). `1` 로 시작하고 `10` 으로 끝나는 닫힌 범위를 사용하여 `1` 로 시작하는 값 \(`3` 의 `0` 제곱\)에 `3` 을 `10` 번 곱합니다. 이 계산에서 루프의 각 카우터 값은 불필요 합니다. 즉 이 코드는 간단하게 올바른 숫자만큼 실행됩니다. 루프 변수 위치에 사용된 언더바 문자 \(`_`\)는 각 값을 무시하고 루프의 각 반복동안 현재 값에 접근하는 것을 제공하지 않습니다.
 
-어떤 상황에선 양 끝점을 포함하는 닫힌 범위를 사용하지 않을 수 있습니다. 시계 페이스에 매 분마다 눈금을 그리는 것을 생각해 봅시다. `0` 분을 시작으로 `60` 개의 눈금을 그려야 합니다. 이럴 경우 반열림 범위 연산자 \(`..<`\)를 사용하여 가장 최소 값은 포함하지만 최대 값은 포함되지 않게 사용할 수 있습니다. 범위에 대한 자세한 내용은 [범위 연산자 \(Range Operators\)](https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html#ID73) 를 참고 바랍니다.
+어떤 상황에선 양 끝점을 포함하는 닫힌 범위를 사용하지 않을 수 있습니다. 시계 페이스에 매 분마다 눈금을 그리는 것을 생각해 봅시다. `0` 분을 시작으로 `60` 개의 눈금을 그려야 합니다. 이럴 경우 반열림 범위 연산자 \(`..<`\)를 사용하여 가장 최소 값은 포함하지만 최대 값은 포함되지 않게 사용할 수 있습니다. 범위에 대한 자세한 내용은 [범위 연산자 \(Range Operators\)](basic-operators.md#range-operators) 를 참고 바랍니다.
 
 ```swift
 let minutes = 60
@@ -161,7 +161,8 @@ print("Game over!")
 
 주사위를 굴리고 난 후에 플레이어는 `diceRoll` 정사각형으로 앞으로 이동합니다. 주사위 굴림이 플레이어를 정사각형 25를 넘어 이동할 수 있으며 이럴 경우 게임이 끝납니다. 이 시나리오에 대처하기 위해 `board` 배열의 `count` 프로퍼티가 `square` 보다 작은지 확인합니다. `square` 가 유효하다면 `board[square]` 에 저장된 값은 현재 `square` 값이 추가되어 플레이어를 사다리나 뱀의 위나 아래로 이동합니다.
 
-> NOTE 확인을 수행하지 않으면 `board[square]` 는 `board` 배열의 범위를 넘는 값을 접근하려 시도할 수 있습니다. 이런 경우 런타임 에러가 발생합니다.
+> NOTE   
+> 확인을 수행하지 않으면 `board[square]` 는 `board` 배열의 범위를 넘는 값을 접근하려 시도할 수 있습니다. 이런 경우 런타임 에러가 발생합니다.
 
 현재 `while` 루프의 실행이 끝나면 루프를 다시 실행해야 되는지 알기위해 조건을 확인합니다. 플레이어가 정사각형 숫자 `25` 에 위치하거나 넘으면 루프 조건은 `false` 가 되고 게임은 종료됩니다.
 
@@ -171,7 +172,8 @@ print("Game over!")
 
 `while` 루프의 다른 하나는 루프의 조건을 판단하기 _전에_ 루프 블럭을 처음에 한번 먼저 통과하는 `repeat`-`while` 루프가 있습니다. 조건이 `false` 가 될 때까지 루프를 반복합니다.
 
-> NOTE Swift에 `repeat`-`while` 루프는 다른 언어의 `do`-`while` 루프와 유사합니다.
+> NOTE   
+> Swift에 `repeat`-`while` 루프는 다른 언어의 `do`-`while` 루프와 유사합니다.
 
 여기 `repeat`-`while` 루프의 일반적인 형식입니다:
 
@@ -307,7 +309,8 @@ default:
 
 C와 Objective-C의 `switch` 구문과 다르게 Swift의 `switch` 구문은 기본적으로 각 케이스의 바닥에서 다음 케이스로 바로 실행되지 않습니다. 명시적으로 `break` 구문 요청 없이 처음 일치하는 `switch` 케이스가 완료되자마자 `switch` 구문 전체가 끝납니다. 이러한 점은 `switch` 구문을 더 안전하고 C의 `switch` 구문보다 사용하기 쉽게 해주고 실수로 `switch` 케이스가 하나 이상 실행되는 것을 피할 수 있습니다.
 
-> NOTE Swift에서 `break` 는 요구되지 않지만 특정 케이스를 무시하거나 일치하는 케이스의 실행이 완료되기 전에 빠져나와야 할 경우 `break` 구문을 사용할 수 있습니다. 자세한 내용은 [Switch 구문에서 Break \(Break in a Switch Statement\)](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID139) 를 참고 바랍니다.
+> NOTE   
+> Swift에서 `break` 는 요구되지 않지만 특정 케이스를 무시하거나 일치하는 케이스의 실행이 완료되기 전에 빠져나와야 할 경우 `break` 구문을 사용할 수 있습니다. 자세한 내용은 [Switch 구문에서 Break \(Break in a Switch Statement\)](control-flow.md#switch-break-break-in-a-switch-statement) 를 참고 바랍니다.
 
 각 케이스의 바디는 _반드시_ 적어도 하나의 실행가능한 구문이 포함되어야 합니다. 아래의 코드는 첫번째 케이스가 비어 있으므로 유효하지 않습니다:
 
@@ -338,9 +341,10 @@ default:
 // Prints "The letter A"
 ```
 
-읽기 쉽게 하기위해 합성 케이스는 여러줄로 작성할 수도 있습니다. 합성 케이스에 대한 자세한 내용은 [합성 케이스 \(Compound Cases\)](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID548) 를 참고 바랍니다.
+읽기 쉽게 하기위해 합성 케이스는 여러줄로 작성할 수도 있습니다. 합성 케이스에 대한 자세한 내용은 [합성 케이스 \(Compound Cases\)](control-flow.md#compound-cases) 를 참고 바랍니다.
 
-> NOTE 특정 `switch` 케이스에 끝에서 명시적으로 다음 케이스로 떨어뜨리려면 [Fallthrough](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID140) 에서 설명한대로 `fallthrough` 키워드를 사용합니다.
+> NOTE   
+> 특정 `switch` 케이스에 끝에서 명시적으로 다음 케이스로 떨어뜨리려면 [Fallthrough](control-flow.md#fallthrough) 에서 설명한대로 `fallthrough` 키워드를 사용합니다.
 
 ### 간격 일치 \(Interval Matching\)
 
@@ -538,7 +542,8 @@ print(puzzleOutput)
 
 이러한 동작은 일치할 때 사용될 수 있고 `switch` 구문에서 하나 또는 그 이상의 케이스를 무시할 때 사용됩니다. Swift의 `switch` 구문은 완벽하고 빈 케이스를 허락하지 않기 때문에 의도를 명시하기 위해 의도적으로 케이스를 일치시키고 무시해야 하는 경우가 있습니다. 무시할 케이스의 전체 본문으로 `break` 구문을 작성하여 이를 수행합니다. 해당 케이스가 `switch` 구문과 일치하면 케이스 내부의 `break` 구문이 `switch` 구문의 실행을 즉시 종료합니다.
 
-> NOTE `switch` 케이스에 주석만 포함되어 있으면 컴파일 시 에러가 발생합니다. 주석은 구문이 아니며 `switch` 케이스는 무시되지 않습니다. 항상 `switch` 케이스를 무시하려면 `break` 구문을 사용하십시오.
+> NOTE   
+> `switch` 케이스에 주석만 포함되어 있으면 컴파일 시 에러가 발생합니다. 주석은 구문이 아니며 `switch` 케이스는 무시되지 않습니다. 항상 `switch` 케이스를 무시하려면 `break` 구문을 사용하십시오.
 
 아래 예제는 `Character` 값을 바꾸고 4개의 언어중 하나의 언어로 숫자 기호를 표기하는지 판단합니다. 간결함을 위해 단일 케이스에 여러 값이 포함됩니다.
 
@@ -597,7 +602,8 @@ print(description)
 
 `switch` 구문 실행이 완료된 후에 숫자의 설명은 `print(_:separator:terminator:)` 함수를 사용하여 출력됩니다. 이 예제에서 숫자 `5` 는 소수로써 유효합니다.
 
-> NOTE `fallthrough` 키워드는 `switch` 케이스 실행을 위한 케이스 조건을 확인하지 않습니다. `fallthrough` 키워드는 간단하게 C의 표준 `switch` 구문 동작처럼 다음 케이스 또는 `default` 케이스로 코드 실행을 직접적으로 이동시킵니다.
+> NOTE   
+> `fallthrough` 키워드는 `switch` 케이스 실행을 위한 케이스 조건을 확인하지 않습니다. `fallthrough` 키워드는 간단하게 C의 표준 `switch` 구문 동작처럼 다음 케이스 또는 `default` 케이스로 코드 실행을 직접적으로 이동시킵니다.
 
 ### 라벨이 있는 구문 \(Labeled Statements\)
 
@@ -660,7 +666,8 @@ print("Game over!")
 * 주사위 굴림이 플레이어를 마지막 정사각형을 넘어 이동시킨다면 이 이동은 유효하지 않고 플레이어는 주사위를 다시 굴려야 합니다. `continue gameLoop` 구문은 현재 `while` 루프 반복을 종효하고 루프의 다음 반복을 시작합니다.
 * 다른 모든 케이스에 해당하는 주사위 굴림은 유효합니다. 플레이어는 `diceRoll` 만큼 이동하고 게임 로직은 뱀과 사다리에 대해 확인합니다. 그러면 루프는 종료되고 다음 턴이 요구되는지 결정하기 위해 `while` 조건으로 되돌아 갑니다.
 
-> NOTE 위에서 `break` 구문을 `gameLoop` 라벨 없이 사용하면 `while` 구문을 빠져나오는 것이 아니라 `switch` 구문을 빠져나옵니다. `gameLoop` 라벨을 사용하는 것은 제어 구문을 종료하기 위해 명확하도록 만들어 줍니다.
+> NOTE   
+> 위에서 `break` 구문을 `gameLoop` 라벨 없이 사용하면 `while` 구문을 빠져나오는 것이 아니라 `switch` 구문을 빠져나옵니다. `gameLoop` 라벨을 사용하는 것은 제어 구문을 종료하기 위해 명확하도록 만들어 줍니다.
 >
 > 루프의 다음 반복으로 이동하기위해 `continue gameLoop` 호출할 때 `gameLoop` 라벨을 사용하는 것은 필요하지 않습니다. 게임에서 오직 하나의 루프만 존재하므로 루프는 `continue` 구문의 영향을 받습니다. 그러나 `continue` 구문과 함께 `gameLoop` 라벨을 사용해도 아무런 문제가 없습니다. 이렇게 하면 `break` 구문과 일치하며 게임의 로직을 더 명확하게 읽고 이해하는데 도움을 줍니다.
 
