@@ -4,9 +4,10 @@ _클로저 \(Closures\)_ 는 코드에서 주변에 전달과 사용할 수 있�
 
 클로저는 정의된 컨텍스트에서 모든 상수와 변수에 대한 참조를 캡처하고 저장할 수 있습니다. 이러한 상수와 변수를 _폐쇄 \(closing over\)_ 라고 합니다. Swift는 캡처의 모든 메모리 관리를 처리합니다.
 
-> NOTE 캡처에 대한 개념이 생소하더라도 걱정하지 마십시오. 아래 [캡처값 \(Capturing Values\)](https://docs.swift.org/swift-book/LanguageGuide/Closures.html#ID103) 에서 자세히 다루도록 하겠습니다.
+> NOTE   
+> 캡처에 대한 개념이 생소하더라도 걱정하지 마십시오. 아래 [캡처값 \(Capturing Values\)](closures.md#capturing-values) 에서 자세히 다루도록 하겠습니다.
 
-[함수 \(Functions\)](https://docs.swift.org/swift-book/LanguageGuide/Functions.html) 에서 소개한 전역과 중첩 함수는 클로저의 특별한 케이스 입니다. 클로저는 3가지 형태 중 하나를 취합니다:
+[함수 \(Functions\)](functions.md) 에서 소개한 전역과 중첩 함수는 클로저의 특별한 케이스 입니다. 클로저는 3가지 형태 중 하나를 취합니다:
 
 * 전역 함수는 이름을 가지고 어떠한 값도 캡처하지 않는 클로저입니다.
 * 중첩 함수는 이름을 가지고 둘러싼 함수로 부터 값을 캡처할 수 있는 클로저입니다.
@@ -21,7 +22,7 @@ Swift의 클로저 표현식은 일반 시나리오에서 간단하고 깔끔한
 
 ## 클로저 표현식 \(Closure Expressions\)
 
-[중첩 함수 \(Nested Functions\)](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID178) 에서 소개된 중첩 함수는 더 큰 함수에 부분으로 자체 포함된 코드 블럭의 이름을 지정하고 정의하기 편리한 수단입니다. 그러나 완전한 선언과 이름없이 함수와 유사한 구조의 짧은 버전을 작성하는 것이 때때로 유용합니다. 함수를 하나 이상의 인자로 사용하는 함수 또는 메서드로 작업할 때 특히 그렇습니다.
+[중첩 함수 \(Nested Functions\)](functions.md#nested-functions) 에서 소개된 중첩 함수는 더 큰 함수에 부분으로 자체 포함된 코드 블럭의 이름을 지정하고 정의하기 편리한 수단입니다. 그러나 완전한 선언과 이름없이 함수와 유사한 구조의 짧은 버전을 작성하는 것이 때때로 유용합니다. 함수를 하나 이상의 인자로 사용하는 함수 또는 메서드로 작업할 때 특히 그렇습니다.
 
 _클로저 표현식 \(Closure expressions\)_ 은 간단하고 집중적인 구문으로 인라인 클로저로 작성하는 방법입니다. 클로저 표현식은 명확성이나 의도를 잃지 않고 짧은 형태로 클로저를 작성 하기위한 몇가지 구문 최적화를 제공합니다. 아래의 클로저 표현식 예제는 여러 반복에 걸쳐 `sorted(by:)` 메서드의 단일 예제를 구체화하는 최적화를 나타냅니다. 각 예제는 동일한 기능을 보다 간결한 방식으로 표현합니다.
 
@@ -81,8 +82,6 @@ reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in return s1
 
 이것은 `sorted(by:)` 메서드에 대한 전체 호출이 동일하게 유지되었음을 보여줍니다. 소괄호는 여전히 메서드의 전체 인자를 둘러싸고 있습니다. 그러나 인자는 이제 인라인 클로저입니다.
 
-This illustrates that the overall call to the `sorted(by:)` method has remained the same. A pair of parentheses still wrap the entire argument for the method. However, that argument is now an inline closure.
-
 ### 컨텍스트로 타입 유추 \(Inferring Type From Context\)
 
 정렬 클로저는 메서드에 인자로 전달되기 때문에 Swift는 파라미터 타입과 반환되는 값의 타입을 유추할 수 있습니다. `sorted(by:)` 메서드는 문자열 배열에서 호출되므로 인자는 `(String, String) -> Bool` 타입의 함수이어야 합니다. 이는 `(String, String)` 과 `Bool` 타입을 클로저 표현식 정의에 일부러 작성할 필요가 없음을 의미합니다. 모든 타입은 유추할 수 있기 때문에 반환 화살표 \(`->`\)와 파라미터의 이름을 둘러싼 소괄호를 생략할 수 있습니다:
@@ -125,7 +124,7 @@ reversedNames = names.sorted(by: { $0 > $1 } )
 reversedNames = names.sorted(by: >)
 ```
 
-자세한 내용은 [연산자 메서드 \(Operator Methods\)](https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html#ID42) 를 참고 바랍니다.
+자세한 내용은 [연산자 메서드 \(Operator Methods\)](advanced-operators.md#operator-methods) 를 참고 바랍니다.
 
 ## 후행 클로저 \(Trailing Closures\)
 
@@ -149,7 +148,7 @@ someFunctionThatTakesAClosure() {
 }
 ```
 
-위의 [클로저 표현구 \(Closure Expression Syntax\)](https://docs.swift.org/swift-book/LanguageGuide/Closures.html#ID97) 섹션에 문자열 정렬 클로저는 후행 클로저로 `sorted(by:)` 메서드의 소괄호 바깥에 작성될 수 있습니다:
+위의 [클로저 표현구 \(Closure Expression Syntax\)](closures.md#closure-expression-syntax) 섹션에 문자열 정렬 클로저는 후행 클로저로 `sorted(by:)` 메서드의 소괄호 바깥에 작성될 수 있습니다:
 
 ```swift
 reversedNames = names.sorted() { $0 > $1 }
@@ -199,7 +198,8 @@ let strings = numbers.map { (number) -> String in
 
 클로저 표현식은 호출될 때마다 `output` 이라는 문자열을 만듭니다. 나머지 연산자 \(`number % 10`\)를 이용하여 `number` 의 마지막 숫자를 계산하고 `digitNames` 딕셔너리에 적절한 숫자 문자열을 찾습니다. 클로저는 0보다 큰 정수에 대한 문자열 표현을 생성하는데 사용할 수 있습니다.
 
-> NOTE 딕셔너리 서브 스크립트는 키가 존재하지 않는경우에 값을 찾는 것을 실패하기 위해 옵셔널 값을 반환합니다. 그래서 `digitNames` 딕셔너리의 서브 스크립트를 호출할 때는 느낌표를 붙여 줍니다 \(`!`\). 위의 예제에서 `digitNames` 딕셔너리에 `number % 10` 은 항상 유효한 서브 스크립트 키를 보장하므로 느낌표는 서브 스크립트의 옵셔널 반환 값에 저장된 `String` 값을 강제로 언래핑 하는데 사용됩니다.
+> NOTE   
+> 딕셔너리 서브 스크립트는 키가 존재하지 않는경우에 값을 찾는 것을 실패하기 위해 옵셔널 값을 반환합니다. 그래서 `digitNames` 딕셔너리의 서브 스크립트를 호출할 때는 느낌표를 붙여 줍니다 \(`!`\). 위의 예제에서 `digitNames` 딕셔너리에 `number % 10` 은 항상 유효한 서브 스크립트 키를 보장하므로 느낌표는 서브 스크립트의 옵셔널 반환 값에 저장된 `String` 값을 강제로 언래핑 하는데 사용됩니다.
 
 `digitNames` 딕셔너리에서 반환된 문자열이 `output` _앞에_ 추가되어 숫자의 문자열 버전을 역순으로 효과적으로 빌드합니다 \(표현식 `number % 10` 은 `16` 의 경우 `6`, `58` 의 경우 `8`, `510` 의 경우 `0` 을 제공합니다\).
 
@@ -252,7 +252,7 @@ func makeIncrementer(forIncrement amount: Int) -> () -> Int {
 }
 ```
 
-`makeIncrementer` 의 반환 타입은 `() -> Int` 입니다. 이것은 단순한 값이 아닌 _함수_ 를 반환한다는 의미입니다. 반환하는 함수에는 파라미터가 없으며 호출될 때마다 `Int` 값을 반환합니다. 함수가 다른 함수를 반환하는 방법을 알아보려면 [반환 타입으로의 함수 타입 \(Function Types as Return Types\)](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID177) 을 참고 바랍니다.
+`makeIncrementer` 의 반환 타입은 `() -> Int` 입니다. 이것은 단순한 값이 아닌 _함수_ 를 반환한다는 의미입니다. 반환하는 함수에는 파라미터가 없으며 호출될 때마다 `Int` 값을 반환합니다. 함수가 다른 함수를 반환하는 방법을 알아보려면 [반환 타입으로의 함수 타입 \(Function Types as Return Types\)](functions.md#function-types-as-return-types) 을 참고 바랍니다.
 
 `makeIncrementer(forIncrement:)` 함수는 반환될 현재 증가분을 저장하기 위해 `runningTotal` 이라는 정수 변수를 정의합니다. 이 변수는 `0` 으로 초기화 됩니다.
 
@@ -269,7 +269,8 @@ func incrementer() -> Int {
 
 `incrementer()` 함수는 파라미터가 없으며 함수 바디내에 `runningTotal` 과 `amount` 를 참조하고 있습니다. 둘러싸인 함수에 `runningTotal` 과 `amount` 대한 _참조 \(reference\)_ 를 캡처하고 함수 내에서 사용합니다. 참조를 캡처하는 것은 `makeIncrementer` 호출이 종료될 때 `runningTotal` 과 `amount` 가 사라지지 않고 다음에 `incrementer` 함수가 호출될 때 `runningTotal` 을 사용할 수 있습니다.
 
-> NOTE 최적화로 Swift는 값이 클로저에 의해 변경되지 않고 클로저가 생성된 후 값이 변경되지 않는 경우 값의 복사본을 캡처하고 저장할 수 있습니다.
+> NOTE   
+> 최적화로 Swift는 값이 클로저에 의해 변경되지 않고 클로저가 생성된 후 값이 변경되지 않는 경우 값의 복사본을 캡처하고 저장할 수 있습니다.
 >
 > Swift는 더이상 필요하지 않을때 변수를 처리하는 것과 관련된 모든 메모리 관리도 처리합니다.
 
@@ -305,7 +306,8 @@ incrementByTen()
 // returns a value of 40
 ```
 
-> NOTE 클래스 인스턴스의 프로퍼티에 클로저를 할당하고 클로저가 인스턴스 또는 멤버를 참조하여 해당 인스턴스를 캡처하면 클로저와 인스턴스 사이에 강한 참조 사이클이 생성됩니다. Swift는 캡처 목록을 사용하여 이러한 강한 참조 사이클을 깨뜨립니다. 자세한 내용은 [클로저의 강한 참조 사이클 \(Strong Reference Cycles for Closures\)](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID56) 을 참고 바랍니다.
+> NOTE   
+> 클래스 인스턴스의 프로퍼티에 클로저를 할당하고 클로저가 인스턴스 또는 멤버를 참조하여 해당 인스턴스를 캡처하면 클로저와 인스턴스 사이에 강한 참조 사이클이 생성됩니다. Swift는 캡처 목록을 사용하여 이러한 강한 참조 사이클을 깨뜨립니다. 자세한 내용은 [클로저의 강한 참조 사이클 \(Strong Reference Cycles for Closures\)](automatic-reference-counting.md#strong-reference-cycles-for-closures) 을 참고 바랍니다.
 
 ## 클로저는 참조 타입 \(Closures Are Reference Types\)
 
@@ -341,7 +343,7 @@ func someFunctionWithEscapingClosure(completionHandler: @escaping () -> Void) {
 
 `someFunctionWithEscapingClosure(_:)` 함수는 인자로 클로저를 가지고 있고 함수 바깥에 선언된 배열에 추가합니다. 함수의 파라미터에 `@escaping` 을 표시하지 않으면 컴파일 시 에러가 발생합니다.
 
-`self` 를 참조하는 이스케이프 클로저은 `self` 가 클래스의 인스턴스를 참조하는 경우 특별한 고려가 필요합니다. 이스케이프 클로저에 `self` 캡처는 강한 참조 사이클이 생기기 쉽습니다. 참조 사이클에 대한 자세한 내용은 [자동 참조 카운팅 \(Automatic Reference Counting\)](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html) 을 참조 바랍니다.
+`self` 를 참조하는 이스케이프 클로저은 `self` 가 클래스의 인스턴스를 참조하는 경우 특별한 고려가 필요합니다. 이스케이프 클로저에 `self` 캡처는 강한 참조 사이클이 생기기 쉽습니다. 참조 사이클에 대한 자세한 내용은 [자동 참조 카운팅 \(Automatic Reference Counting\)](automatic-reference-counting.md) 을 참조 바랍니다.
 
 일반적으로 클로저는 클로저 내부에서 변수를 사용하여 암시적으로 변수를 캡처하지만 이 경우에는 명시적이어야 합니다. `self` 를 캡처하려면 사용할 때 명시적으로 `self` 를 작성하거나 클로저의 캡처 목록에 `self` 를 포함합니다. `self` 를 명시적으로 작성하는데 의도를 표현하고 참조 사이클이 없음을 확인하도록 상기시켜 줍니다. 예를 들어 아래 코드에서 `someFunctionWithEscapingClosure(_:)` 에 전달된 클로저는 명시적으로 `self` 를 참조합니다. 반대로 `someFunctionWithNonescapingClosure(_:)` 에 전달된 클로저는 비이스케이프 클로저입니다. 즉 암시적으로 `self` 를 참조할 수 있습니다.
 
@@ -380,7 +382,7 @@ class SomeOtherClass {
 }
 ```
 
-`self` 가 구조 또는 열거 인스턴스이면 항상 암시적으로 `self` 를 참조할 수 있습니다. 그러나 이스케이프 클로저는 구조 또는 열거 인스턴스이면 `self` 에 대한 변경 가능한 참조를 캡처할 수 없습니다. 구조와 열거는 [구조와 열거는 값타입 \(Structures and Enumerations Are Value Types\)](https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html#ID88) 에서 설명 했듯이 공유 변경을 허용하지 않습니다.
+`self` 가 구조 또는 열거 인스턴스이면 항상 암시적으로 `self` 를 참조할 수 있습니다. 그러나 이스케이프 클로저는 구조 또는 열거 인스턴스이면 `self` 에 대한 변경 가능한 참조를 캡처할 수 없습니다. 구조와 열거는 [구조와 열거는 값타입 \(Structures and Enumerations Are Value Types\)](structures-and-classes.md#structures-and-enumerations-are-value-types) 에서 설명 했듯이 공유 변경을 허용하지 않습니다.
 
 ```swift
 struct SomeStruct {
@@ -441,9 +443,10 @@ serve(customer: customersInLine.remove(at: 0))
 // Prints "Now serving Ewa!"
 ```
 
-> NOTE 자동 클로저 남용은 코드 이해를 어렵게 만들 수 있습니다. 컨텍스트와 함수 이름은 판단이 연기되고 있음을 분명히 해야합니다.
+> NOTE   
+> 자동 클로저 남용은 코드 이해를 어렵게 만들 수 있습니다. 컨텍스트와 함수 이름은 판단이 연기되고 있음을 분명히 해야합니다.
 
-자동 클로저가 이스케이프를 허용하길 원한다면 `@autoclosure` 와 `@escaping` 속성을 둘다 사용하면 됩니다. `@escaping` 속성은 위의 [이스케이프 클로저 \(Escaping Closures\)](https://docs.swift.org/swift-book/LanguageGuide/Closures.html#ID546) 에서 설명되어 있습니다.
+자동 클로저가 이스케이프를 허용하길 원한다면 `@autoclosure` 와 `@escaping` 속성을 둘다 사용하면 됩니다. `@escaping` 속성은 위의 [이스케이프 클로저 \(Escaping Closures\)](closures.md#escaping-closures) 에서 설명되어 있습니다.
 
 ```swift
 // customersInLine is ["Barry", "Daniella"]
