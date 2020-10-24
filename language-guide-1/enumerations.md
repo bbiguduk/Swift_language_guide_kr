@@ -8,7 +8,7 @@ C에 익숙하다면 C 열거형은 정수값을 설정하기 위해 연관된 �
 
 Swift의 열거형은 그 자체로 1급 타입입니다. 열거형의 현재값에 대한 추가 정보를 제공하는 계산된 프로퍼티와 열거형이 나타내는 값과 관련된 기능을 제공하는 인스턴스 메서드와 같이 전통적으로 클래스에서만 지원되는 많은 기능을 채택합니다. 열거형은 케이스 초기값을 제공하기 위해 초기화를 정의할 수도 있습니다. 열거형은 기존 구현을 넘어 기능적으로 확장될 수도 있고 표준 기능을 제공하기 위해 프로토콜을 준수할 수 있습니다.
 
-이러한 기능의 자세한 내용은 [프로퍼티 \(Properties\)](https://docs.swift.org/swift-book/LanguageGuide/Properties.html), [메서드 \(Methods\)](https://docs.swift.org/swift-book/LanguageGuide/Methods.html), [초기화 \(Initialization\)](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html), [확장 \(Extensions\)](https://docs.swift.org/swift-book/LanguageGuide/Extensions.html), 와 [프로토콜 \(Protocols\)](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html) 을 참고 바랍니다.
+이러한 기능의 자세한 내용은 [프로퍼티 \(Properties\)](properties.md), [메서드 \(Methods\)](methods.md), [초기화 \(Initialization\)](initialization.md), [확장 \(Extensions\)](extensions.md), 와 [프로토콜 \(Protocols\)](protocols.md) 을 참고 바랍니다.
 
 ## 열거형 구문 \(Enumeration Syntax\)
 
@@ -33,7 +33,8 @@ enum CompassPoint {
 
 열거형 안에 정의된 값 \(`north`, `south`, `east`, `west`\)은 _열거형 케이스 \(enumeration cases\)_ 입니다. 새로운 열거형 케이스를 나타내기 위해 `case` 키워드를 사용합니다.
 
-> NOTE Swift 열거형 케이스 C와 Objective-C 처럼 기본적으로 정수값을 설정하지 않습니다. 위 예제 `CompassPoint` 에 `north`, `south`, `east`, `west` 는 `0`, `1`, `2`, `3` 과 같지 않습니다. 대신 다른 열거형 케이스는 `CompassPoint` 의 명시적으로 정의된 타입으로 자체 값입니다.
+> NOTE   
+> Swift 열거형 케이스 C와 Objective-C 처럼 기본적으로 정수값을 설정하지 않습니다. 위 예제 `CompassPoint` 에 `north`, `south`, `east`, `west` 는 `0`, `1`, `2`, `3` 과 같지 않습니다. 대신 다른 열거형 케이스는 `CompassPoint` 의 명시적으로 정의된 타입으로 자체 값입니다.
 
 여러개의 케이스는 콤마로 구분하여 한줄로 표기할 수 있습니다:
 
@@ -82,7 +83,7 @@ case .west:
 
 등등
 
-[제어 흐름 \(Control Flow\)](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html) 에서 설명 했듯이 `switch` 구문은 열거형 케이스를 고려할 때 완벽해야 합니다. `.west` 에 대한 `case` 가 생략된다면 `CompassPoint` 케이스에 대해 모든 목록이 고려되지 않았으므로 이 코드는 컴파일 되지 않습니다. 완전성을 요구하면 열거형 케이스가 실수로 생략되지 않도록 합니다.
+[제어 흐름 \(Control Flow\)](control-flow.md) 에서 설명 했듯이 `switch` 구문은 열거형 케이스를 고려할 때 완벽해야 합니다. `.west` 에 대한 `case` 가 생략된다면 `CompassPoint` 케이스에 대해 모든 목록이 고려되지 않았으므로 이 코드는 컴파일 되지 않습니다. 완전성을 요구하면 열거형 케이스가 실수로 생략되지 않도록 합니다.
 
 모든 열거형 케이스에 대해 `case` 를 제공하는 것이 적절하지 않은 경우 명시적으로 해결되지 않은 사례를 포함하는 `default` 케이스를 제공할 수 있습니다:
 
@@ -121,7 +122,7 @@ for beverage in Beverage.allCases {
 // juice
 ```
 
-위 예제에서 사용된 구문은 열거형이 [`CaseIterable`](https://developer.apple.com/documentation/swift/caseiterable) 프로토콜을 준수하는 것으로 표시합니다. 자세한 내용은 [프로토콜 \(Protocols\)](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html) 을 참조 바랍니다.
+위 예제에서 사용된 구문은 열거형이 [`CaseIterable`](https://developer.apple.com/documentation/swift/caseiterable) 프로토콜을 준수하는 것으로 표시합니다. 자세한 내용은 [프로토콜 \(Protocols\)](protocols.md) 을 참조 바랍니다.
 
 ## 연관된 값 \(Associated Values\)
 
@@ -170,7 +171,7 @@ productBarcode = .qrCode("ABCDEFGHIJKLMNOP")
 
 여기서 기존의 `Barcode.upc` 와 그것의 정수 값은 새로운 `Barcode.qrCode` 와 그것의 문자열 값으로 대체됩니다. `Barcode` 타입의 상수와 변수는 `.upc` 또는 `.qrCode` 모두 이것들과 연관된 값으로 저장할 수 있지만 오직 하나의 값만 저장할 수 있습니다.
 
-[스위치 구문으로 열거형 값 일치 \(Matching Enumeration Values with a Switch Statement\)](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html#ID147) 에서의 예제와 유사하게 스위치 구문을 이용하여 다른 바코드 타입을 확인할 수 있습니다. 그러나 이번에는 관련값이 스위치 구문의 일부로 추출됩니다. `switch` 케이스의 바디 내에서 사용하기 위해 상수 \(`let` 접두사\) 또는 변수 \(`var` 접두사\)로 각 연관된 값을 추출합니다:
+[스위치 구문으로 열거형 값 일치 \(Matching Enumeration Values with a Switch Statement\)](enumerations.md#switch-matching-enumeration-values-with-switch-statement) 에서의 예제와 유사하게 스위치 구문을 이용하여 다른 바코드 타입을 확인할 수 있습니다. 그러나 이번에는 관련값이 스위치 구문의 일부로 추출됩니다. `switch` 케이스의 바디 내에서 사용하기 위해 상수 \(`let` 접두사\) 또는 변수 \(`var` 접두사\)로 각 연관된 값을 추출합니다:
 
 ```swift
 switch productBarcode {
@@ -196,7 +197,7 @@ case let .qrCode(productCode):
 
 ## 원시값 \(Raw Values\)
 
-[연관된 값 \(Associated Values\)](https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html#ID148) 에서의 바코드 예제는 어떻게 열거형 케이스에 다른 타입의 연관된 값을 저장한다고 선언 하는지를 보여줍니다. 연관된 값의 대안으로 열거형 케이스는 모두 동일한 타입의 기본값 \(_원시값 \(raw values\)_\)으로 미리 채워질 수 있습니다.
+[연관된 값 \(Associated Values\)](enumerations.md#associated-values) 에서의 바코드 예제는 어떻게 열거형 케이스에 다른 타입의 연관된 값을 저장한다고 선언 하는지를 보여줍니다. 연관된 값의 대안으로 열거형 케이스는 모두 동일한 타입의 기본값 \(_원시값 \(raw values\)_\)으로 미리 채워질 수 있습니다.
 
 다음은 명명된 열거형 케이스와 함께 원시 ASCII 값을 저장하는 예입니다:
 
@@ -208,11 +209,12 @@ enum ASCIIControlCharacter: Character {
 }
 ```
 
-여기서 `ASCIIControlCharacter` 라 하는 열거형의 원시값은 `Character` 타입으로 정의되고 일반적인 ASCII 제어 문자 중 일부를 선정합니다. `Character` 값은 [문자열과 문자 \(Strings and Characters\)](https://docs.swift.org/swift-book/LanguageGuide/StringsAndCharacters.html) 에서 설명되어 있습니다.
+여기서 `ASCIIControlCharacter` 라 하는 열거형의 원시값은 `Character` 타입으로 정의되고 일반적인 ASCII 제어 문자 중 일부를 선정합니다. `Character` 값은 [문자열과 문자 \(Strings and Characters\)](strings-and-characters.md) 에서 설명되어 있습니다.
 
 원시값은 문자열, 문자, 또는 어떠한 정수 또는 부동소수점 숫자 타입이 가능합니다. 각 원시값은 열거형 선언부 내에서 유일한 값이어야 합니다.
 
-> NOTE 원시값은 연관된 값 \(associated values\)과 같지 않습니다. 원시값은 위의 3개의 ASCII 코드처럼 코드에서 열거형을 처음 정의할 때 미리 설정하는 값입니다. 특정 열거형 케이스를 위한 원시값은 항상 같습니다. 연관된 값은 열거형 케이스 중 하나를 기반으로 새로운 상수 또는 변수를 생성할 때 설정하고 달라질 수 있습니다.
+> NOTE   
+> 원시값은 연관된 값 \(associated values\)과 같지 않습니다. 원시값은 위의 3개의 ASCII 코드처럼 코드에서 열거형을 처음 정의할 때 미리 설정하는 값입니다. 특정 열거형 케이스를 위한 원시값은 항상 같습니다. 연관된 값은 열거형 케이스 중 하나를 기반으로 새로운 상수 또는 변수를 생성할 때 설정하고 달라질 수 있습니다.
 
 ### 암시적으로 할당된 원시값 \(Implicitly Assigned Raw Values\)
 
@@ -265,7 +267,8 @@ let possiblePlanet = Planet(rawValue: 7)
 
 그러나 가능한 모든 `Int` 값으로 행성을 찾지 않습니다. 이러한 점 때문에 원시값 초기화는 항상 _옵셔널_ 열거형 케이스를 반환합니다. 위의 예제에서 `possiblePlanet` 은 `Planet?` 또는 "옵셔널 `Planet`" 타입입니다.
 
-> NOTE 원시값 초기화는 모든 원시값을 열거형 케이스로 반환할 수 없으므로 초기화가 실패할 수 있습니다. 더 자세한 내용은 [실패가능한 초기화 \(Failable Initializers\)](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID376) 을 참고 바랍니다.
+> NOTE   
+> 원시값 초기화는 모든 원시값을 열거형 케이스로 반환할 수 없으므로 초기화가 실패할 수 있습니다. 더 자세한 내용은 [실패 가능한 초기화 구 \(Failable Initializers\)](initialization.md#failable-initializers) 을 참고 바랍니다.
 
 `11` 의 위치로 행성을 찾는다면 원시값 초기화로 부터 반환된 옵셔널 `Planet` 값은 `nil` 입니다:
 
