@@ -4,7 +4,8 @@ _구조체 \(Structures\)_ 와 _클래스 \(classes\)_ 는 프로그램 코드�
 
 다른 프로그래밍 언어와 달리 Swift는 사용자 정의 구조체와 클래에 대해 별도의 인터페이스와 구현 파일을 만들 필요가 없습니다. Swift에서 단일 파일로 구조체 또는 클래스를 정의하면 해당 클래스 또는 구조체에 대한 외부 인터페이스가 자동으로 다른 코드에서 사용할 수 있습니다.
 
-> NOTE 클래스의 인스턴스는 전통적으로 _객체 \(object\)_ 라고 알고 있습니다. 그러나 Swift 구조체와 클래스는 다른 언어보다 기능적으로 훨씬 가깝고 이 챕터의 대부분은 클래스 또는 구조체 타입의 인스턴스에 적용되는 기능을 설명합니다. 이 때문에 좀 더 일반적인 용어인 _인스턴스 \(instance\)_ 사용됩니다.
+> NOTE   
+> 클래스의 인스턴스는 전통적으로 _객체 \(object\)_ 라고 알고 있습니다. 그러나 Swift 구조체와 클래스는 다른 언어보다 기능적으로 훨씬 가깝고 이 챕터의 대부분은 클래스 또는 구조체 타입의 인스턴스에 적용되는 기능을 설명합니다. 이 때문에 좀 더 일반적인 용어인 _인스턴스 \(instance\)_ 사용됩니다.
 
 ## 구조체와 클래스의 비교 \(Comparing Structures and Classes\)
 
@@ -17,7 +18,7 @@ Swift에서 구조체와 클래스는 공통점이 많습니다. 둘다 아래�
 * 기본 구현을 넘어 기능적 확장을 위한 확장
 * 특정 종류의 표준 기능을 제공하는 프로토콜 준수
 
-더 자세한 내용은 [프로퍼티 \(Properties\)](https://docs.swift.org/swift-book/LanguageGuide/Properties.html), [메서드 \(Methods\)](https://docs.swift.org/swift-book/LanguageGuide/Methods.html), [서브 스크립트 \(Subscripts\)](https://docs.swift.org/swift-book/LanguageGuide/Subscripts.html), [초기화 \(Initialization\)](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html), [확장 \(Extensions\)](https://docs.swift.org/swift-book/LanguageGuide/Extensions.html), [프로토콜 \(Protocols\)](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html) 을 참고 바랍니다.
+더 자세한 내용은 [프로퍼티 \(Properties\)](properties.md), [메서드 \(Methods\)](methods.md), [서브 스크립트 \(Subscripts\)](subscripts.md), [초기화 \(Initialization\)](initialization.md), [확장 \(Extensions\)](extensions.md), [프로토콜 \(Protocols\)](protocols.md) 을 참고 바랍니다.
 
 클래스는 구조체에 없는 추가적인 기능이 있습니다:
 
@@ -26,7 +27,7 @@ Swift에서 구조체와 클래스는 공통점이 많습니다. 둘다 아래�
 * Deinitalizers를 사용하면 클래스의 인스턴스가 할당된 리소스를 해제할 수 있도록 합니다.
 * 참조 카운팅은 하나 이상의 클래스 인스턴스 참조를 허락합니다.
 
-더 자세한 내용은 [상속 \(Inheritance\)](https://docs.swift.org/swift-book/LanguageGuide/Inheritance.html), [타입 캐스팅 \(Type Casting\)](https://docs.swift.org/swift-book/LanguageGuide/TypeCasting.html), [Deinitialization](https://docs.swift.org/swift-book/LanguageGuide/Deinitialization.html), [자동 참조 카운팅 \(Automatic Reference Counting\)](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html) 를 참고 바랍니다.
+더 자세한 내용은 [상속 \(Inheritance\)](inheritance.md), [타입 캐스팅 \(Type Casting\)](type-casting.md), [초기화 해제 \(Deinitialization\)](deinitialization.md), [자동 참조 카운팅 \(Automatic Reference Counting\)](automatic-reference-counting.md) 를 참고 바랍니다.
 
 클래스가 지원하는 추가 기능은 복잡성이 증가합니다. 일반적인 지침으로는 추론하기 쉬운 구조체를 선호하고 적절하거나 필요할 때 클래스를 사용합니다. 실질적으로 정의하는 대부분의 사용자 정의 데이터 타입이 구조체와 열거형 이라는 것을 의미합니다. 더 자세한 비교는 [구조체와 클래스 선택 \(Choosing Between Structures and Classes\)](https://developer.apple.com/documentation/swift/choosing_between_structures_and_classes) 를 참고 바랍니다.
 
@@ -43,7 +44,8 @@ class SomeClass {
 }
 ```
 
-> NOTE 새로운 구조체 또는 클래스를 정의할 때마다 새로운 Swift 타입을 정의합니다. 표준 Swift 타입 \(`String`, `Int`, `Bool` 와 같은\)의 대소문자와 일치하도록 타입 `UpperCamelCase` 이름 \(`SomeStructure` 와 `SomeClass` 와 같이\)을 지정하십시오. 프로퍼티와 메서드는 타입 이름과 구분을 위해 `lowerCamelCase` 이름 \(`frameRate` 와 `incrementCount` 와 같이\)으로 지정하십시오.
+> NOTE   
+> 새로운 구조체 또는 클래스를 정의할 때마다 새로운 Swift 타입을 정의합니다. 표준 Swift 타입 \(`String`, `Int`, `Bool` 와 같은\)의 대소문자와 일치하도록 타입 `UpperCamelCase` 이름 \(`SomeStructure` 와 `SomeClass` 와 같이\)을 지정하십시오. 프로퍼티와 메서드는 타입 이름과 구분을 위해 `lowerCamelCase` 이름 \(`frameRate` 와 `incrementCount` 와 같이\)으로 지정하십시오.
 
 다음은 구조체 정의와 클래스 정의의 예입니다:
 
@@ -75,7 +77,7 @@ let someResolution = Resolution()
 let someVideoMode = VideoMode()
 ```
 
-구조체와 클래스 모두 새로운 인스턴스를 위해 초기화 구문을 사용합니다. 초기화 구문의 가장 간단한 형태는 `Resolution()` 또는 `VideoMode()` 와 같이 클래스 또는 구조체 타입 이름 뒤에 빈 소괄호를 붙여 사용하는 것입니다. 이렇게 하면 모든 프로퍼티가 기본값으로 초기화되는 클래스 또는 구조체의 새로운 인스턴스를 생성합니다. 클래스와 구조체 초기화에 대한 자세한 내용은 [초기화 \(Initialization\)](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html) 를 참고 바랍니다.
+구조체와 클래스 모두 새로운 인스턴스를 위해 초기화 구문을 사용합니다. 초기화 구문의 가장 간단한 형태는 `Resolution()` 또는 `VideoMode()` 와 같이 클래스 또는 구조체 타입 이름 뒤에 빈 소괄호를 붙여 사용하는 것입니다. 이렇게 하면 모든 프로퍼티가 기본값으로 초기화되는 클래스 또는 구조체의 새로운 인스턴스를 생성합니다. 클래스와 구조체 초기화에 대한 자세한 내용은 [초기화 \(Initialization\)](initialization.md) 를 참고 바랍니다.
 
 ### 프로퍼티 접근 \(Accessing Properties\)
 
@@ -111,7 +113,7 @@ print("The width of someVideoMode is now \(someVideoMode.resolution.width)")
 let vga = Resolution(width: 640, height: 480)
 ```
 
-구조체와 반대로 클래스 인스턴스는 멤버별 초기화를 받지 않습니다. 자세한 설명은 [초기화 \(Initialization\)](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html) 을 참고 바랍니다.
+구조체와 반대로 클래스 인스턴스는 멤버별 초기화를 받지 않습니다. 자세한 설명은 [초기화 \(Initialization\)](initialization.md) 을 참고 바랍니다.
 
 ## 구조체와 열거형은 값 타입 \(Structures and Enumerations Are Value Types\)
 
@@ -121,7 +123,8 @@ _값 타입 \(value type\)_ 은 변수 또는 상수에 할당될 때나 함수�
 
 Swift에서 모든 구조체와 열거형은 값 타입입니다. 이것은 생성한 구조체와 열거형 인스턴스와 프로퍼티로 포함된 모든 값 타입은 코드에서 전달될 때 복사된다는 의미입니다.
 
-> NOTE 배열, 딕셔너리, 문자열과 같은 표준 라이브러리에 정의된 콜렉션은 최적화를 사용하여 복사 성능 비용을 줄입니다. 즉시 복사본을 만드는 대신에 이러한 콜렉션은 원본 인스턴스와 복사본 간에 요소가 저장된 메모리를 공유합니다. 콜렉션의 복사본 중 하나가 수정되면 요소는 수정되기 직전에 복사됩니다. 코드에서 보이는 동작은 항상 바로 복사가 일어나는 것처럼 보입니다.
+> NOTE   
+> 배열, 딕셔너리, 문자열과 같은 표준 라이브러리에 정의된 콜렉션은 최적화를 사용하여 복사 성능 비용을 줄입니다. 즉시 복사본을 만드는 대신에 이러한 콜렉션은 원본 인스턴스와 복사본 간에 요소가 저장된 메모리를 공유합니다. 콜렉션의 복사본 중 하나가 수정되면 요소는 수정되기 직전에 복사됩니다. 코드에서 보이는 동작은 항상 바로 복사가 일어나는 것처럼 보입니다.
 
 이전 예제에서의 `Resolution` 구조체를 사용하는 다음 예제를 살펴봅시다:
 
@@ -237,7 +240,7 @@ if tenEighty === alsoTenEighty {
 
 _동일 인스턴스_ \(3개의 등호로 표시 또는 `===`\)는 _같음 \(equal to\)_ \(2개의 등호로 표시 또는 `==`\)과 같다는 의미는 아닙니다. _동일 인스턴스_ 는 클래스 타입의 2개의 상수 또는 변수가 동일한 클래스 인스턴스를 잠조한다는 의미입니다. _같음_ 은 두 인스턴스의 값이 동일하거나 동등하다는 것을 의미합니다.
 
-커스텀 구조체와 클래스를 정의할 때 두 인스턴스가 같은지의 여부를 결정하는 것은 사용자의 몫입니다. `==` 와 `!=` 연산자의 자체 구현 선언의 프로세스는 [등가 연산자 \(Equivalence Operators\)](https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html#ID45) 에 자세히 설명되어 있습니다.
+커스텀 구조체와 클래스를 정의할 때 두 인스턴스가 같은지의 여부를 결정하는 것은 사용자의 몫입니다. `==` 와 `!=` 연산자의 자체 구현 선언의 프로세스는 [등가 연산자 \(Equivalence Operators\)](advanced-operators.md#equivalence-operators) 에 자세히 설명되어 있습니다.
 
 ### 포인터 \(Pointers\)
 
