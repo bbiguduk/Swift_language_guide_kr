@@ -198,7 +198,7 @@ if let bounds = minMax(array: [8, -6, 2, 109, 3, 71]) {
 // Prints "min is -6 and max is 109"
 ```
 
-### 맹목적 반환을 가진 함수 \(Functions \)
+### 암시적 반환을 가진 함수 \(Functions With an Implicit Return\)
 
 함수의 전체 바디가 한줄로 표현이 된다면 함수는 맹목적으로 표현식을 반환합니다. 예를 들어 아래의 두 함수는 모드 같은 동작을 합니다:
 
