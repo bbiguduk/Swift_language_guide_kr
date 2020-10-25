@@ -29,7 +29,7 @@ rangeOfThreeItems.firstValue = 6
 
 `FixedLengthRange` 의 인스턴스는 `firstValue` 라는 저장된 프로퍼티 변수가 있으며 `length` 라는 저장된 프로퍼티 상수가 있습니다. 위의 예제에서 `length` 는 새 범위가 생성될 때 초기화되며 프로퍼티 상수 이므로 변경할 수 없습니다.
 
-### 상수 구조체 인스턴스에 저장된 프로퍼티 \(Stored Properties of Constant Structure Instances\)
+### 상수 구조체 인스턴스 저장된 프로퍼티 \(Stored Properties of Constant Structure Instances\)
 
 구조체의 인스턴스를 생성하고 상수로 할당하면 프로퍼티 변수로 선언되어 있어도 인스턴스의 프로퍼티를 수정할 수 없습니다:
 

@@ -6,7 +6,7 @@ Swift에서 구조체와 열거형에 메서드를 정의할 수 있다는 사�
 
 ## 인스턴스 메서드 \(Instance Methods\)
 
-_인스턴스 메서드 \(Instance methods\)_ 는 특정 클래스, 구조체, 또는 열거형의 인스턴스에 속하는 함수입니다. 인스턴스 프로퍼티에 접근하고 수정하는 방법을 제공하거나 인스턴스의 목적과 관련된 기능을 제공합니다. 인스턴스 메서드는 [함수 \(Functions\)](https://docs.swift.org/swift-book/LanguageGuide/Functions.html) 에서 설명한 대로 함수 구문과 완벽하게 동일합니다.
+_인스턴스 메서드 \(Instance methods\)_ 는 특정 클래스, 구조체, 또는 열거형의 인스턴스에 속하는 함수입니다. 인스턴스 프로퍼티에 접근하고 수정하는 방법을 제공하거나 인스턴스의 목적과 관련된 기능을 제공합니다. 인스턴스 메서드는 [함수 \(Functions\)](functions.md) 에서 설명한 대로 함수 구문과 완벽하게 동일합니다.
 
 인스턴스 메서드는 속하는 타입의 중괄호 내에 작성합니다. 인스턴스 메서드는 다른 인스턴스 메서드와 타입의 프로퍼티에 암시적으로 접근할 수 있습니다. 인스턴스 메서드는 자신이 속한 타입의 특정 인스턴스에서만 호출될 수 있습니다. 기존 인스턴스 없이는 호출할 수 없습니다.
 
@@ -48,7 +48,7 @@ counter.reset()
 // the counter's value is now 0
 ```
 
-함수 파라미터는 [함수 인자 라벨과 파라미터 명 \(Function Argument Labels and Parameter Names\)](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID166) 에서 설명 했듯이 함수의 바디 내에서 사용하는 이름과 함수를 호출할 때 사용하는 인자 라벨 둘다 가질 수 있습니다. 메서드는 타입과 관련된 함수이므로 메서드 파라미터도 동일하게 적용됩니다.
+함수 파라미터는 [함수 인자 라벨과 파라미터 명 \(Function Argument Labels and Parameter Names\)](functions.md#function-argument-labels-and-parameter-names) 에서 설명 했듯이 함수의 바디 내에서 사용하는 이름과 함수를 호출할 때 사용하는 인자 라벨 둘다 가질 수 있습니다. 메서드는 타입과 관련된 함수이므로 메서드 파라미터도 동일하게 적용됩니다.
 
 ### self 프로퍼티 \(The self Property\)
 
@@ -108,7 +108,7 @@ print("The point is now at (\(somePoint.x), \(somePoint.y))")
 
 위의 `Point` 구조체는 포함한 양만큼 `Point` 인스턴스를 이동시키는 변경가능한 `moveBy(x:y:)` 메서드를 정의합니다. 새로운 위치를 반환하는 대신에 이 메서드는 실제로 호출된 위치를 수정합니다. `mutating` 키워드는 프로퍼티를 수정할 수 있도록 정의에 추가됩니다.
 
-[상수 구조체 인스턴스의 저장된 프로퍼티 \(Stored Properties of Constant Structure Instances\)](https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID256) 에서 설명했듯이 프로퍼티가 프로퍼티 변수이더라도 변경할 수 없기 때문에 구조체 타입의 상수에 대해 변경 메서드를 호출할 수 없습니다:
+[상수 구조체 인스턴스의 저장된 프로퍼티 \(Stored Properties of Constant Structure Instances\)](properties.md#stored-properties-of-constant-structure-instances) 에서 설명했듯이 프로퍼티가 프로퍼티 변수이더라도 변경할 수 없기 때문에 구조체 타입의 상수에 대해 변경 메서드를 호출할 수 없습니다:
 
 ```swift
 let fixedPoint = Point(x: 3.0, y: 3.0)
@@ -160,7 +160,8 @@ ovenLight.next()
 
 위에 설명한 인스턴스 메서드는 특정 타입의 인스턴스에서 호출하는 메서드 입니다. 타입 자체에서 호출되는 메서드도 정의할 수 있습니다. 이런 종류의 메서드를 _타입 메서드 \(type methods\)_ 라고 합니다. 메서드의 `func` 키워드 전에 `static` 키워드를 작성하여 타입 메서드를 나타냅니다. 클래스는 대신 `class` 키워드를 사용하여 하위 클래스가 해당 메서드의 수퍼 클래스 구현을 재정의 할 수 있습니다.
 
-> NOTE Objective-C에서는 Objective-C 클래스에 대해서만 타입 레벨 메서드 \(type-level methods\)를 정의할 수 있습니다. Swift에서는 모든 클래스, 구조체, 그리고 열거형에 대해서 타입 레벨 메서드를 정의할 수 있습니다. 각 타입 메서드는 지원하는 타입으로 명시적으로 범위가 지정됩니다.
+> NOTE   
+> Objective-C에서는 Objective-C 클래스에 대해서만 타입 레벨 메서드 \(type-level methods\)를 정의할 수 있습니다. Swift에서는 모든 클래스, 구조체, 그리고 열거형에 대해서 타입 레벨 메서드를 정의할 수 있습니다. 각 타입 메서드는 지원하는 타입으로 명시적으로 범위가 지정됩니다.
 
 타입 메서드는 인스턴스 메서드처럼 점 구문으로 호출됩니다. 그러나 해당 타입의 인스턴스가 아닌 타입으로 타입 메서드를 호출합니다. `SomeClass` 라는 클래스에서 타입 메서드를 호출하는 방법은 다음과 같습니다:
 
