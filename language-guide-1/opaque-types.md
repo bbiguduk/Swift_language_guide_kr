@@ -133,7 +133,7 @@ print(opaqueJoinedTriangles.draw())
 // *
 ```
 
-이 예제의 `opaqueJoinedTriangles` 의 값은 이 챕터의 이전 [불투명한 타입이 해결하는 문제 \(The Problem That Opaque Types Solve\)](https://docs.swift.org/swift-book/LanguageGuide/OpaqueTypes.html#ID613) 섹션에 제너릭 예제에서 `joinedTriangles` 와 동일합니다. 그러나 이 예제의 값과 달리 `flip(_:)` 과 `join(_:_:)` 은 불투명한 반환 타입으로 반환하는 제너릭 모양 연산자 인 기본 타입을 래핑하여 해당 타입이 표시되지 않도록 합니다. 두 함수는 의존하는 타입이 제너릭이고 함수에 대한 타입 파라미터가 `FlippedShape` 와 `JoinedShape` 에 필요한 타입 정보를 전달하기 때문에 모두 제너릭입니다.
+이 예제의 `opaqueJoinedTriangles` 의 값은 이 챕터의 이전 [불투명한 타입이 해결하는 문제 \(The Problem That Opaque Types Solve\)](opaque-types.md#the-problem-that-opaque-types-solve) 섹션에 제너릭 예제에서 `joinedTriangles` 와 동일합니다. 그러나 이 예제의 값과 달리 `flip(_:)` 과 `join(_:_:)` 은 불투명한 반환 타입으로 반환하는 제너릭 모양 연산자 인 기본 타입을 래핑하여 해당 타입이 표시되지 않도록 합니다. 두 함수는 의존하는 타입이 제너릭이고 함수에 대한 타입 파라미터가 `FlippedShape` 와 `JoinedShape` 에 필요한 타입 정보를 전달하기 때문에 모두 제너릭입니다.
 
 불투명한 반환 타입을 가진 함수가 여러 위치에서 반환하는 경우 가능한 모든 반환 값은 동일한 타입을 가져야 합니다. 제너릭 함수의 경우 해당 반환 타입은 함수의 제너릭 타입 파라미터로 사용할 수 있지만 여전히 단일 타입이어야 합니다. 예를 들어 다음은 사각형에 대한 특수 케이스를 포함하는 잘못된 버전의 모양-뒤집기 함수 입니다:
 
@@ -209,7 +209,7 @@ protoFlippedTriangle == sameThing  // Error
 
 이 접근 방식의 다른 문제는 모양 변형이 중첩되지 않습니다. 삼각형을 뒤집은 결과는 `Shape` 타입의 값이고 `protoFlip(_:)` 함수는 `Shape` 프로토콜을 준수하는 일부 타입의 인수를 가집니다. 그러나 프로토콜 타입의 값은 `protoFlip(_:)` 에 의해 반환된 값은 `Shape` 를 준수하지 않으므로 프로토콜을 준수하지 않습니다. 여러 변형을 적용하는 `protoFlip(protoFlip(smallTriangle))` 같은 코드는 뒤집힌 모양이 `protoFlip(_:)` 에 대해 유효하지 않은 인수이므로 유효하지 않습니다.
 
-반대로 불투명한 타입은 기본 타입의 정체성을 보존합니다. Swift는 연관된 타입을 유추할 수 있으므로 프로토콜 타입을 반환값으로 사용할 수 없는 위치에 불투명한 반환값을 사용할 수 있습니다. 예를 들어 다음은 [제너릭 \(Generics\)](https://docs.swift.org/swift-book/LanguageGuide/Generics.html) 의 `Container` 프로토콜의 버전입니다:
+반대로 불투명한 타입은 기본 타입의 정체성을 보존합니다. Swift는 연관된 타입을 유추할 수 있으므로 프로토콜 타입을 반환값으로 사용할 수 없는 위치에 불투명한 반환값을 사용할 수 있습니다. 예를 들어 다음은 [제너릭 \(Generics\)](generics.md) 의 `Container` 프로토콜의 버전입니다:
 
 ```swift
 protocol Container {
