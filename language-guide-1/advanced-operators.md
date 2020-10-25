@@ -1,6 +1,6 @@
 # 고급 연산자 \(Advanced Operators\)
 
-[기본 연산자 \(Basic Operators\)](https://docs.swift.org/swift-book/LanguageGuide/BasicOperators.html) 에서 설명한 연산자 외에도 Swift는 더 복잡한 값을 조작하는 여러 고급 연산자를 제공합니다. 여기에는 C와 Objective-C에서 익숙한 모든 비트와 비트 이동 연산자가 포함됩니다.
+[기본 연산자 \(Basic Operators\)](basic-operators.md) 에서 설명한 연산자 외에도 Swift는 더 복잡한 값을 조작하는 여러 고급 연산자를 제공합니다. 여기에는 C와 Objective-C에서 익숙한 모든 비트와 비트 이동 연산자가 포함됩니다.
 
 C의 산술 연산자와 달리 Swift의 산술 연산자는 기본적으로 오버플로우 \(overflow\) 되지 않습니다. 오버플로우 동작은 트랩되고 에러로 보고됩니다. 오버플로우 동작을 선택하려면 오버플로우 더하기 연산자 \(`&+`\)와 같이 기본적으로 오버플로우 되는 Swift의 두번째 산술 연산자 집합을 사용합니다. 모든 오버플로우 연산자는 앰퍼샌드 \(`&`\)로 시작합니다.
 
@@ -210,7 +210,7 @@ unsignedOverflow = unsignedOverflow &- 1
 
 ![Overflow Unsigned Subtraction](../.gitbook/assets/27_overflowunsignedsubtraction_2x.png)
 
-오버플로우는 부호가 있는 정수에서도 발생합니다. 부호가 있는 정수에 대한 모든 덧셈과 뺄셈은 비트 방식으로 수행되며 부호 비트는 [비트 왼쪽과 오른쪽 이동 연산자 \(Bitwise Left and Right Shift Operators\)](https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html#ID34) 에 설명된대로 덧셈 또는 뺄셈 숫자의 부분으로 포함됩니다.
+오버플로우는 부호가 있는 정수에서도 발생합니다. 부호가 있는 정수에 대한 모든 덧셈과 뺄셈은 비트 방식으로 수행되며 부호 비트는 [비트 왼쪽과 오른쪽 이동 연산자 \(Bitwise Left and Right Shift Operators\)](advanced-operators.md#bitwise-left-and-right-shift-operators) 에 설명된대로 덧셈 또는 뺄셈 숫자의 부분으로 포함됩니다.
 
 ```swift
 var signedOverflow = Int8.min
@@ -268,7 +268,8 @@ signedOverflow = signedOverflow &- 1
 
 연산자 우선순위 그룹과 연관성 설정의 전체 목록을 포함하여 Swift 표준 라이브러리에 의해 제공되는 연산자에 대한 자세한 내용은 [연산자 선언 \(Operator Declarations\)](https://developer.apple.com/documentation/swift/operator_declarations) 을 참고 바랍니다.
 
-> NOTE Swift의 연산자 우선순위와 연관성 규칙은 C와 Objective-C보다 더 간단하고 예측 가능합니다. 그러나 이것은 C 기반 언어와 정확하게 일치하지 않음을 의미합니다. 기존 코드를 Swift로 이식할 때 연산자 상호작용이 의도한대로 작동하는지 계속 확인해야 합니다.
+> NOTE   
+> Swift의 연산자 우선순위와 연관성 규칙은 C와 Objective-C보다 더 간단하고 예측 가능합니다. 그러나 이것은 C 기반 언어와 정확하게 일치하지 않음을 의미합니다. 기존 코드를 Swift로 이식할 때 연산자 상호작용이 의도한대로 작동하는지 계속 확인해야 합니다.
 
 ## 연산자 메서드 \(Operator Methods\)
 
@@ -356,7 +357,8 @@ original += vectorToAdd
 // original now has values of (4.0, 6.0)
 ```
 
-> NOTE 기본 할당 연산자 \(`=`\)는 오버로드가 불가능합니다. 복합 할당 연산자만 오버로드 될 수 있습니다. 마찬가지로 삼항 조건 연산자 \(`a ? b : c`\)는 오버로드 할 수 없습니다.
+> NOTE   
+> 기본 할당 연산자 \(`=`\)는 오버로드가 불가능합니다. 복합 할당 연산자만 오버로드 될 수 있습니다. 마찬가지로 삼항 조건 연산자 \(`a ? b : c`\)는 오버로드 할 수 없습니다.
 
 ### 등가 연산자 \(Equivalence Operators\)
 
@@ -385,7 +387,7 @@ if twoThree == anotherTwoThree {
 // Prints "These two vectors are equivalent."
 ```
 
-많은 간단한 경우에 [합성 구현을 사용하여 프로토콜 채택 \(Adopting a Protocol Using a Synthesized Implementation\)](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID627) 에서 설명 된대로 Swift에 등가 연산자의 합성 구현을 제공하도록 요청할 수 있습니다.
+많은 간단한 경우에 [합성 구현을 사용하여 프로토콜 채택 \(Adopting a Protocol Using a Synthesized Implementation\)](protocols.md#adopting-a-protocol-using-a-synthesized-implementation) 에서 설명 된대로 Swift에 등가 연산자의 합성 구현을 제공하도록 요청할 수 있습니다.
 
 ## 사용자 정의 연산자 \(Custom Operators\)
 
@@ -415,7 +417,7 @@ let afterDoubling = +++toBeDoubled
 
 ### 사용자 정의 중위 연산자의 우선순위 \(Precedence for Custom Infix Operators\)
 
-사용자 정의 중위 연산자는 각 우선순위 그룹에 속해 있습니다. 우선순위 그룹은 다른 중위 연산자에 상대적인 연산자의 우선순위와 연산자의 연관성을 지정합니다. 이러한 특성이 중위 연산자와 다른 중위 연산자 와의 상호작용에 미치는 영향에 대한 설명은 [우선순위와 연관성 \(Precedence and Associativity\)](https://docs.swift.org/swift-book/LanguageGuide/AdvancedOperators.html#ID41) 을 참고 바랍니다.
+사용자 정의 중위 연산자는 각 우선순위 그룹에 속해 있습니다. 우선순위 그룹은 다른 중위 연산자에 상대적인 연산자의 우선순위와 연산자의 연관성을 지정합니다. 이러한 특성이 중위 연산자와 다른 중위 연산자 와의 상호작용에 미치는 영향에 대한 설명은 [우선순위와 연관성 \(Precedence and Associativity\)](advanced-operators.md#precedence-and-associativity) 을 참고 바랍니다.
 
 우선순위 그룹에 명시적으로 위치되지 않은 사용자 정의 중위 연산자는 삼항 조건 연산자의 우선순위 바로 위인 기본 우선순위 그룹이 제공됩니다.
 
@@ -436,5 +438,6 @@ let plusMinusVector = firstVector +- secondVector
 
 이 연산자는 두 벡터의 `x` 값을 더하고 첫번째 벡터에서 두번째 벡터의 `y` 값을 뺍니다. 본질적으로 "가산" 연산자이기 때문에 `+` 와 `-` 와 같은 가산 중위 연산자와 같은 우선순위 그룹이 지정되었습니다. 연산자 우선순위 그룹과 연관성 설정의 전체 목록을 포함하여 Swift 표준 라이브러리에서 제공하는 연산자에 대한 정보는 [연산자 선언 \(Operator Declarations\)](https://developer.apple.com/documentation/swift/operator_declarations) 을 참고 바랍니다. 우선순위 그룹에 대한 자세한 내용과 고유한 연산자와 우선순위 그룹에 대한 구문을 보려면 [연산자 선언 \(Operator Declaration\)](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID380) 를 참고 바랍니다.
 
-> NOTE 접두사 또는 접미사 연산자를 정의할 때 우선순위를 지정하지 않습니다. 그러나 같은 피연산자에 접두사와 접미사 연산자를 모두 적용하면 접미사 연산자가 먼저 적용됩니다.
+> NOTE   
+> 접두사 또는 접미사 연산자를 정의할 때 우선순위를 지정하지 않습니다. 그러나 같은 피연산자에 접두사와 접미사 연산자를 모두 적용하면 접미사 연산자가 먼저 적용됩니다.
 
