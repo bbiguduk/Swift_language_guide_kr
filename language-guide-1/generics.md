@@ -16,7 +16,7 @@ func swapTwoInts(_ a: inout Int, _ b: inout Int) {
 }
 ```
 
-이 함수는 [In-Out Parameters](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID173) 에서 설명한 대로 `a` 와 `b` 의 값을 바꾸기 위해 in-out 파라미터를 사용하여 만듭니다.
+이 함수는 [In-Out 파라미터 \(In-Out Parameters\)](functions.md#in-out-in-out-parameters) 에서 설명한 대로 `a` 와 `b` 의 값을 바꾸기 위해 in-out 파라미터를 사용하여 만듭니다.
 
 `swapTwoInts(_:_:)` 함수는 `b` 의 값을 `a` 로 그리고 `a` 의 값을 `b` 로 바꿉니다. 2개의 `Int` 변수의 값을 바꾸기 위해 이 함수를 호출할 수 있습니다:
 
@@ -48,7 +48,8 @@ func swapTwoDoubles(_ a: inout Double, _ b: inout Double) {
 
 _모든 타입_ 의 2개의 값을 바꾸는 단일 함수로 작성하면 더 유용하고 더 유연합니다. 제너릭 코드는 이러한 함수를 작성할 수 있습니다 \(이 함수의 제너릭 버전은 아래에 정의됩니다\).
 
-> NOTE 이 3개의 함수는 `a` 와 `b` 의 타입이 모두 같아야 합니다. `a` 와 `b` 가 같은 타입이 아니면 바꾸는 것은 불가능합니다. Swift는 타입 안정성 언어이고 `String` 타입의 변수와 `Double` 타입의 변수가 서로 값을 바꾸도록 허락하지 않습니다. 이러한 시도는 컴파일 에러가 발생합니다.
+> NOTE   
+> 이 3개의 함수는 `a` 와 `b` 의 타입이 모두 같아야 합니다. `a` 와 `b` 가 같은 타입이 아니면 바꾸는 것은 불가능합니다. Swift는 타입 안정성 언어이고 `String` 타입의 변수와 `Double` 타입의 변수가 서로 값을 바꾸도록 허락하지 않습니다. 이러한 시도는 컴파일 에러가 발생합니다.
 
 ## 제너릭 함수 \(Generic Functions\)
 
@@ -89,7 +90,8 @@ swapTwoValues(&someString, &anotherString)
 // someString is now "world", and anotherString is now "hello"
 ```
 
-> NOTE 위에 정의된 `swapTwoValues(_:_:)` 함수는 Swift 표준 라이브러리의 부분이고 앱에서 사용하기 위해 자동으로 만들어지는 `swap` 이라는 제너릭 함수에 의해 영감을 얻었습니다. 자체 코드에서 `swapTwoValues(_:_:)` 함수의 동작이 필요하다면 직접 구현한 함수보다 Swift에 존재하는 `swap(_:_:)` 함수를 사용할 수 있습니다.
+> NOTE   
+> 위에 정의된 `swapTwoValues(_:_:)` 함수는 Swift 표준 라이브러리의 부분이고 앱에서 사용하기 위해 자동으로 만들어지는 `swap` 이라는 제너릭 함수에 의해 영감을 얻었습니다. 자체 코드에서 `swapTwoValues(_:_:)` 함수의 동작이 필요하다면 직접 구현한 함수보다 Swift에 존재하는 `swap(_:_:)` 함수를 사용할 수 있습니다.
 
 ## 타입 파라미터 \(Type Parameters\)
 
@@ -103,7 +105,8 @@ swapTwoValues(&someString, &anotherString)
 
 대부분의 경우 타입 파라미터는 타입 파라미터와 제너릭 타입 간의 관계나 함수 간의 관계를 나타내기 위해 `Dictionary<Key, Value>` 에서 `Key` 와 `Value` 그리고 `Array<Element>` 에서 `Element` 와 같이 설명이 포함된 이름이 있습니다. 그러나 의미있는 관계가 없을 때는 위에서 `swapTwoValues(_:_:)` 함수에서 `T` 와 같이 `T`, `U`, 그리고 `V` 와 같은 단일 문자를 사용하여 이름을 지정하는 것이 일반적입니다.
 
-> NOTE 값이 아니라 타입에 대한 임의의 표시라는 것을 나타내기 위해 항상 타입 파라미터가 주어질 때 대문자 이름 \(`T` 와 `MyTypeParameter` 와 같은\)으로 주어집니다.
+> NOTE   
+> 값이 아니라 타입에 대한 임의의 표시라는 것을 나타내기 위해 항상 타입 파라미터가 주어질 때 대문자 이름 \(`T` 와 `MyTypeParameter` 와 같은\)으로 주어집니다.
 
 ## 제너릭 타입 \(Generic Types\)
 
@@ -111,7 +114,8 @@ swapTwoValues(&someString, &anotherString)
 
 이번 섹션은 `Stack` 이라는 제너릭 콜렉션 타입을 어떻게 작성하는지 보여줍니다. 스택은 배열과 유사하지만 Swift의 `Array` 타입보다 더 제한된 작업 집합을 가진 순서가 지정된 집합입니다. 배열은 모든 위치에서 새 항목을 삽입하고 제거할 수 있습니다. 그러나 스택은 새로운 항목이 콜렉션의 끝에 추가하는 것만 허락합니다 \(스택에 새로운 값을 _푸쉬 \(pushing\)_ 한다고 알려져 있음\). 마찬가지로 스택은 콜렉션의 끝부분의 항목만 제거할 수 있습니다 \(스택에서 값을 _팝 \(popping\)_ 한다고 알려져 있음\).
 
-> NOTE 스택의 개념은 네비게이션 계층도에서 뷰 컨트롤러를 모델링 하는 `UINavigationController` 클래스에 의해 사용됩니다. `UINavigationController` 클래스에서 네비게이션 스택에 뷰 컨트롤러를 추가 또는 푸쉬 하기 위해 `pushViewController(_:animated:)` 메서드를 호출하고 네비게이션 스택에 뷰 컨트롤러를 삭제 또는 팝 하기 위해 `popViewControllerAnimated(_:)` 메서드를 호출합니다. 스택은 콜렉션 관리에 대한 엄격한 "후입 선출" 접근 방식이 필요할 때 유용한 콜렉션 모델입니다.
+> NOTE   
+> 스택의 개념은 네비게이션 계층도에서 뷰 컨트롤러를 모델링 하는 `UINavigationController` 클래스에 의해 사용됩니다. `UINavigationController` 클래스에서 네비게이션 스택에 뷰 컨트롤러를 추가 또는 푸쉬 하기 위해 `pushViewController(_:animated:)` 메서드를 호출하고 네비게이션 스택에 뷰 컨트롤러를 삭제 또는 팝 하기 위해 `popViewControllerAnimated(_:)` 메서드를 호출합니다. 스택은 콜렉션 관리에 대한 엄격한 "후입 선출" 접근 방식이 필요할 때 유용한 콜렉션 모델입니다.
 
 아래의 그림은 스택에 대한 푸쉬와 팝에 대한 동작을 보여줍니다:
 
@@ -218,13 +222,13 @@ if let topItem = stackOfStrings.topItem {
 // Prints "The top item on the stack is tres."
 ```
 
-제너릭 타입의 확장은 아래 [제너릭 Where 절의 확장 \(Extensions with a Generic Where Clause\)](https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID553) 에서 설명 하듯이 확장된 타입의 인스턴스는 새로운 기능을 얻기 위해 충족해야 할 요구사항도 포함할 수 있습니다.
+제너릭 타입의 확장은 아래 [제너릭 Where 절의 확장 \(Extensions with a Generic Where Clause\)](generics.md#where-extensions-with-a-generic-where-clause) 에서 설명 하듯이 확장된 타입의 인스턴스는 새로운 기능을 얻기 위해 충족해야 할 요구사항도 포함할 수 있습니다.
 
 ## 타입 제약 \(Type Constraints\)
 
 `swapTwoValues(_:_:)` 함수와 `Stack` 타입은 모든 타입과 함께 동작 가능합니다. 그러나 가끔 제너릭 함수와 제너릭 타입으로 사용될 수 있는 타입에 _타입 제약 \(type constraints\)_ 을 강제로 포함해야 유용할 수 있습니다. 타입 제약은 타입 파라미터가 특정 클래스를 상속하거나 특정 프로토콜 또는 프로토콜 구성을 준수해야 함을 지정해야 합니다.
 
-예를 들어 Swift의 `Dictionary` 타입은 딕셔너리에 대해 키로 사용될 수 있는 타입에 제한을 둡니다. [딕셔너리 \(Dictionaries\)](https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID113) 에서 설명 했듯이 딕셔너리 키의 타입은 _hashable_ 이어야 합니다. 즉, 고유하게 표현할 수 있는 방법을 제공해야 합니다. `Dictionary` 는 특정 키에 대해 값이 이미 포함되어 있는지 확인할 수 있도록 키를 해시 할 수 있어야 합니다. 이 요구사항이 없으면 `Dictionary` 는 특정 키에 대해 값을 삽입 또는 대체해야 하는지 알 수 없으며 이미 딕셔너리에 있는 주어진 키에 대한 값을 찾을 수 없습니다.
+예를 들어 Swift의 `Dictionary` 타입은 딕셔너리에 대해 키로 사용될 수 있는 타입에 제한을 둡니다. [딕셔너리 \(Dictionaries\)](collection-types.md#dictionaries) 에서 설명 했듯이 딕셔너리 키의 타입은 _hashable_ 이어야 합니다. 즉, 고유하게 표현할 수 있는 방법을 제공해야 합니다. `Dictionary` 는 특정 키에 대해 값이 이미 포함되어 있는지 확인할 수 있도록 키를 해시 할 수 있어야 합니다. 이 요구사항이 없으면 `Dictionary` 는 특정 키에 대해 값을 삽입 또는 대체해야 하는지 알 수 없으며 이미 딕셔너리에 있는 주어진 키에 대한 값을 찾을 수 없습니다.
 
 이 요구사항은 키 타입이 Swift 표준 라이브러리에서 정의된 특수 프로토콜 인 `Hashable` 프로토콜을 준수해야 함을 지정하는 `Dictionary` 의 키 타입에서 타입 제약에 의해 강제됩니다. Swift의 모든 기본 타입 \(`String`, `Int`, `Double`, 그리고 `Bool`\)은 기본적으로 해시 가능해야 합니다. `Hashable` 프로토콜을 준수하는 자체 사용자 정의 타입을 만드는 것에 대한 자세한 내용은 [해시 가능한 프로토콜 준수 \(Conforming to the Hashable Protocol\)](https://developer.apple.com/documentation/swift/hashable#2849490) 을 참고 바랍니다.
 
@@ -341,7 +345,7 @@ protocol Container {
 
 이를 달성하기 위해 `Container` 프로토콜은 `associatedtype Item` 으로 작성한 `Item` 이라는 연관된 타입을 선언합니다. 이 프로토콜은 `Item` 이 무엇인지 정의하지 않고 해당 정보는 모든 준수하는 타입이 제공할 수 있도록 남겨집니다. 그럼에도 불구하고 `Item` 별칭은 `Container` 의 항목에 타입을 참조하고 `append(_:)` 메서드와 서브 스크립트에서 사용하는 타입을 정의하고 모든 `Container` 의 동작이 예상되도록 방법을 제공합니다.
 
-다음은 `Container` 프로토콜을 준수하도록 조정된 위의 [제너릭 타입 \(Generic Types\)](https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID184) 에서의 제너릭이 아닌 `IntStack` 의 버전입니다:
+다음은 `Container` 프로토콜을 준수하도록 조정된 위의 [제너릭 타입 \(Generic Types\)](generics.md#generic-types) 에서의 제너릭이 아닌 `IntStack` 의 버전입니다:
 
 ```swift
 struct IntStack: Container {
@@ -400,11 +404,11 @@ struct Stack<Element>: Container {
 
 이번에는 `Element` 타입 파라미터는 `append(_:)` 메서드의 `item` 파라미터와 서브 스크립트의 반환 타입으로 사용됩니다. 따라서 Swift는 `Element` 가 특정 컨테이너에 대해 `Item` 으로 사용하는 적절한 타입이라고 유추할 수 있습니다.
 
-### 기존 유형을 확장하여 연관된 타입 지정 \(Extending an Existing Type to Specify an Associated Type\)
+### 기존 타입을 확장하여 연관된 타입 지정 \(Extending an Existing Type to Specify an Associated Type\)
 
-[확장으로 프로토콜 준수성 추가 \(Adding Protocol Conformance with an Extension\)](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID277) 에서 설명한대로 프로토콜의 준수성을 추가하기 위해 기존 타입을 확장할 수 있습니다. 여기에는 연관된 타입이 있는 프로토콜을 포함합니다.
+[확장으로 프로토콜 준수성 추가 \(Adding Protocol Conformance with an Extension\)](protocols.md#adding-protocol-conformance-with-an-extension) 에서 설명한대로 프로토콜의 준수성을 추가하기 위해 기존 타입을 확장할 수 있습니다. 여기에는 연관된 타입이 있는 프로토콜을 포함합니다.
 
-Swift의 `Array` 타입은 이미 `append(_:)` 메서드, `count` 프로퍼티, 그리고 `Int` 인덱스로 요소를 조회하기 위해 서브 스크립트를 제공합니다. 이 3가지 기능은 `Container` 프로토콜의 요구사항과 일치합니다. 이것은 `Array` 가 프로토콜을 채택하도록 선언하는 것으로 간단하게 `Container` 프로토콜을 준수하도록 `Array` 를 확장할 수 있다는 의미입니다. [확장으로 프로토콜 채택 선언 \(Declaring Protocol Adoption with an Extension\)](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID278) 에서 설명 했듯이 빈 확장을 사용하여 이 작업을 수행할 수 있습니다:
+Swift의 `Array` 타입은 이미 `append(_:)` 메서드, `count` 프로퍼티, 그리고 `Int` 인덱스로 요소를 조회하기 위해 서브 스크립트를 제공합니다. 이 3가지 기능은 `Container` 프로토콜의 요구사항과 일치합니다. 이것은 `Array` 가 프로토콜을 채택하도록 선언하는 것으로 간단하게 `Container` 프로토콜을 준수하도록 `Array` 를 확장할 수 있다는 의미입니다. [확장으로 프로토콜 채택 선언 \(Declaring Protocol Adoption with an Extension\)](protocols.md#declaring-protocol-adoption-with-an-extension) 에서 설명 했듯이 빈 확장을 사용하여 이 작업을 수행할 수 있습니다:
 
 ```swift
 extension Array: Container {}
@@ -438,9 +442,9 @@ protocol SuffixableContainer: Container {
 }
 ```
 
-이 프로토콜에서 `Suffix` 는 위의 `Container` 예제에서 `Item` 타입과 같은 연관된 타입입니다. `Suffix` 는 2개의 제약을 가지고 있으며 먼저 현재 정의되어 있는 프로토콜 인 `SuffixableContainer` 프로토콜을 준수해야 하며 `Item` 타입은 컨테이너의 `Item` 타입과 동일해야 합니다. `Item` 에 대한 제약은 아래의 [제너릭 Where 절을 가진 연관된 타입 \(Associated Types with a Generic Where Clause\)](https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID557) 에서 설명할 제너릭 `where` 절입니다.
+이 프로토콜에서 `Suffix` 는 위의 `Container` 예제에서 `Item` 타입과 같은 연관된 타입입니다. `Suffix` 는 2개의 제약을 가지고 있으며 먼저 현재 정의되어 있는 프로토콜 인 `SuffixableContainer` 프로토콜을 준수해야 하며 `Item` 타입은 컨테이너의 `Item` 타입과 동일해야 합니다. `Item` 에 대한 제약은 아래의 [제너릭 Where 절을 가진 연관된 타입 \(Associated Types with a Generic Where Clause\)](generics.md#where-associated-types-with-a-generic-where-clause) 에서 설명할 제너릭 `where` 절입니다.
 
-다음은 `SuffixableContainer` 프로토콜의 준수성을 추가하는 위의 [제너릭 타입 \(Generic Types\)](https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID184) 에서 `Stack` 타입의 확장입니다:
+다음은 `SuffixableContainer` 프로토콜의 준수성을 추가하는 위의 [제너릭 타입 \(Generic Types\)](generics.md#generic-types) 에서 `Stack` 타입의 확장입니다:
 
 ```swift
 extension Stack: SuffixableContainer {
@@ -478,7 +482,7 @@ extension IntStack: SuffixableContainer {
 
 ## 제너릭 Where 절 \(Generic Where Clauses\)
 
-[타입 제약 \(Type Constraints\)](https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID186) 을 사용하면 제너릭 함수, 서브 스크립트, 또는 타입과 연관된 타입 파라미터에 대한 요구사항을 정의할 수 있습니다.
+[타입 제약 \(Type Constraints\)](generics.md#type-constraints) 을 사용하면 제너릭 함수, 서브 스크립트, 또는 타입과 연관된 타입 파라미터에 대한 요구사항을 정의할 수 있습니다.
 
 연관된 타입에 대한 요구사항을 정의하는 것도 유용할 수 있습니다. _제너릭 where 절 \(generic where clause\)_ 을 정의하여 이것을 수행할 수 있습니다. 제너릭 `where` 절을 사용하면 연관된 타입이 특정 프로토콜을 준수해야 하거나 특정 타입 파라미터와 연관된 타입이 동일해야 한다고 요구할 수 있습니다. 제너릭 `where` 절은 `where` 키워드로 시작하고 이어서 연관된 타입 또는 타입과 연관된 타입 사이의 동등 관계에 대한 제약이 따라옵니다. 타입 또는 함수의 바디의 여는 중괄호 바로 전에 제너릭 `where` 절을 작성합니다.
 
@@ -682,7 +686,7 @@ extension Container where Item: Equatable {
 
 상황별 `where` 절을 사용하는 이 예제의 버전에서 각 메서드의 제너릭 `where` 절은 해당 메서드를 사용할 수 있도록 충족해야 할 요구사항을 명시하기 때문에 `average()` 와 `endsWith(_:)` 의 구현은 모두 같은 확장에 있습니다. 이러한 요구사항을 확장의 제너릭 `where` 절로 이동하면 동일한 상황에서 메서드를 사용할 수 있지만 요구사항 당 하나의 확장이 필요합니다.
 
-## 제너릭 Where 절을 사용하는 연관된 타입 \(Associated Types with a Generic Where Clause\)
+## 제너릭 Where 절이 있 연관된 타입 \(Associated Types with a Generic Where Clause\)
 
 연관된 타입에 제너릭 `where` 절을 포함할 수 있습니다. 예를 들어 표준 라이브러리에서 `Sequence` 프로토콜이 사용하는 것과 같이 반복자를 포함하는 `Container` 의 버전을 만들고 싶다고 가정해 봅시다. 작성 방법은 아래와 같습니다:
 
