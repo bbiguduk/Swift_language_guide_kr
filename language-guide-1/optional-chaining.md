@@ -2,9 +2,10 @@
 
 _옵셔널 체이닝 \(Optional chaining\)_ 은 현재 `nil` 일 수 있는 옵셔널 인 프로퍼티, 메서드, 그리고 서브 스크립트를 조회하고 호출하기 위한 프로세스 입니다. 옵셔널에 값이 포함되어 있으면 프로퍼티, 메서드, 또는 서브 스크립트는 호출에 성공합니다. 옵셔널이 `nil` 이면 프로퍼티, 메서드, 또는 서브 스크립트 호출은 `nil` 을 반환합니다. 여러 조회는 함께 연결될 수 있고 체인에 어느 부분이라도 `nil` 이면 전체 체인은 실패합니다.
 
-> NOTE Swift에서 옵셔널 체이닝은 Objective-C에서 메시징 `nil` 과 유사하지만 모든 타입에 대해 동작하고 성공 또는 실패 여부를 확인할 수 있습니다.
+> NOTE   
+> Swift에서 옵셔널 체이닝은 Objective-C에서 메시징 `nil` 과 유사하지만 모든 타입에 대해 동작하고 성공 또는 실패 여부를 확인할 수 있습니다.
 
-## 강제 언래핑에 대한 대안으로 옵셔널 체이닝 \(Optional Chaining as an Alternative to Forced Unwrapping\)
+## 강제 언래핑의 대한 대안으로 옵셔널 체이닝 \(Optional Chaining as an Alternative to Forced Unwrapping\)
 
 옵셔널이 `nil` 이 아닌 경우 프로퍼티, 메서드 또는 서브 스크립트를 호출하려는 옵셔널 값 뒤에 물음표 \(`?`\)를 배치하여 옵셔널 체이닝을 지정합니다. 이것은 값에 강제 언래핑을 하기 위해 옵셔널 값 뒤에 느낌표 \(`!`\)를 배치하는 것과 유사합니다. 이것의 주요 차이점은 옵셔널이 `nil` 일 때 옵셔널 체이닝은 실패하는 반면에 강제 언래핑은 런타임 에러를 트리거 합니다.
 
@@ -154,7 +155,7 @@ class Address {
 
 ## 옵셔널 체이닝을 통해 프로퍼티 접근 \(Accessing Properties Through Optional Chaining\)
 
-[강제 언래핑의 대안으로 옵셔널 체이닝 \(Optional Chaining as an Alternative to Forced Unwrapping\)](https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html#ID246) 에서 설명 했듯이 옵셔널 값의 프로퍼티에 접근하고 프로퍼티 접근이 성공하면 검사하기 위해 옵셔널 체이닝을 사용할 수 있습니다.
+[강제 언래핑의 대안으로 옵셔널 체이닝 \(Optional Chaining as an Alternative to Forced Unwrapping\)](optional-chaining.md#optional-chaining-as-an-alternative-to-forced-unwrapping) 에서 설명 했듯이 옵셔널 값의 프로퍼티에 접근하고 프로퍼티 접근이 성공하면 검사하기 위해 옵셔널 체이닝을 사용할 수 있습니다.
 
 새로운 `Person` 인스턴스를 생성하기 위해 위에 정의된 클래스를 사용하고 이전처럼 `numberOfRooms` 프로퍼티에 접근합니다:
 
@@ -210,7 +211,7 @@ func printNumberOfRooms() {
 }
 ```
 
-이 메서드는 반환 타입이 지정되지 않았습니다. 그러나 반환 타입이 없는 함수와 메서드는 [반환값 없는 함수 \(Functions Without Return Values\)](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID163) 에서 설명했듯이 `Void` 의 암시적 반환 타입을 가지고 있습니다. 이것은 `()` 의 값 또는 빈 튜플을 반환한다는 의미입니다.
+이 메서드는 반환 타입이 지정되지 않았습니다. 그러나 반환 타입이 없는 함수와 메서드는 [반환값 없는 함수 \(Functions Without Return Values\)](functions.md#functions-without-return-values) 에서 설명했듯이 `Void` 의 암시적 반환 타입을 가지고 있습니다. 이것은 `()` 의 값 또는 빈 튜플을 반환한다는 의미입니다.
 
 옵셔널 체이닝을 사용하여 옵셔널 값에 대해 메서드를 호출하면 반환값은 옵셔널 체이닝을 통해 호출하면 옵셔널 타입이기 때문에 메서드의 반환 타입은 `Void` 가 아닌 `Void?` 입니다. 메서드가 반환값을 정의하지 않았어도 `printNumberOfRooms()` 메서드 호출이 가능한지 `if` 구문을 사용하여 확인할 수 있습니다. `printNumberOfRooms` 호출의 반환값을 `nil` 과 비교하여 메서드 호출이 성공했는지 확인합니다:
 
@@ -223,7 +224,7 @@ if john.residence?.printNumberOfRooms() != nil {
 // Prints "It was not possible to print the number of rooms."
 ```
 
-옵셔널 체이닝을 통해 프로퍼티를 설정하려는 경우에도 마찬가지입니다. [Accessing Properties Through Optional Chaining](https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html#ID248) 에서 위의 예제는 `residence` 프로퍼티가 `nil` 이지만 `John.residence` 에 대해 `address` 값을 설정 하려고 합니다. 옵셔널 체이닝을 통해 프로퍼티를 설정하려는 모든 시도는 `nil` 과 비교하여 프로퍼티에 값이 성공적으로 설정되었는지 확인할 수 있는 `Void?` 타입의 값을 반환합니다:
+옵셔널 체이닝을 통해 프로퍼티를 설정하려는 경우에도 마찬가지입니다. [옵셔널 체이닝을 통해 프로퍼티 접근 \(Accessing Properties Through Optional Chaining\)](optional-chaining.md#accessing-properties-through-optional-chaining) 에서 위의 예제는 `residence` 프로퍼티가 `nil` 이지만 `John.residence` 에 대해 `address` 값을 설정 하려고 합니다. 옵셔널 체이닝을 통해 프로퍼티를 설정하려는 모든 시도는 `nil` 과 비교하여 프로퍼티에 값이 성공적으로 설정되었는지 확인할 수 있는 `Void?` 타입의 값을 반환합니다:
 
 ```swift
 if (john.residence?.address = someAddress) != nil {
@@ -238,7 +239,8 @@ if (john.residence?.address = someAddress) != nil {
 
 옵셔널 값의 서브 스크립트에서 값을 조회하고 설정하고 해당 서브 스크립트 호출이 성공했는지 확인하기 위해 옵셔널 체이닝을 사용할 수 있습니다.
 
-> NOTE 옵셔널 체이닝을 통해 옵셔널 값의 서브 스크립트에 접근할 때 물음표는 서브 스크립트의 대괄호 전에 위치합니다. 옵셔널 체이닝 물음표는 항상 옵셔널 표현구 부분의 바로 다음에 위치합니다.
+> NOTE   
+> 옵셔널 체이닝을 통해 옵셔널 값의 서브 스크립트에 접근할 때 물음표는 서브 스크립트의 대괄호 전에 위치합니다. 옵셔널 체이닝 물음표는 항상 옵셔널 표현구 부분의 바로 다음에 위치합니다.
 
 아래의 예제는 `Residence` 클래스에 정의된 서브 스크립트를 사용하여 `john.residence` 프로퍼티에 `rooms` 배열의 첫번째 방 이름을 조회합니다. 현재 `john.residence` 는 `nil` 이므로 서브 스크립트 호출은 실패합니다:
 
@@ -365,5 +367,6 @@ if let beginsWithThe =
 // Prints "John's building identifier begins with "The"."
 ```
 
-> NOTE 위의 예제에서 연결하려는 옵셔널 값이 `buildingIdentifier()` 메서드 자체가 아닌 `buildingIdentifier()` 메서드의 반환값이므로 소괄호 _뒤에_ 옵셔널 체이닝 물음표를 위치시킵니다.
+> NOTE   
+> 위의 예제에서 연결하려는 옵셔널 값이 `buildingIdentifier()` 메서드 자체가 아닌 `buildingIdentifier()` 메서드의 반환값이므로 소괄호 _뒤에_ 옵셔널 체이닝 물음표를 위치시킵니다.
 
