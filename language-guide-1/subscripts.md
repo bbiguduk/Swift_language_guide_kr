@@ -47,7 +47,8 @@ print("six times three is \(threeTimesTable[6])")
 
 `threeTimesTable[6]` 에 대한 호출에 보여준 것처럼 서브 스크립트를 호출하여 `threeTimesTable` 인스턴스를 조회할 수 있습니다. 이것은 `3` 의 `6` 배인 `18` 의 값을 반환하는 3배 테이블에서 6번째 값을 요청합니다.
 
-> NOTE _n_ 배 테이블은 수학적 규칙을 기반으로 합니다. `threeTimesTable[someIndex]` 를 새로운 값을 설정하는 것은 적절하지 않으므로 `TimesTable` 의 서브 스크립트는 읽기전용 서브 스크립트로 정의됩니다.
+> NOTE   
+> _n_ 배 테이블은 수학적 규칙을 기반으로 합니다. `threeTimesTable[someIndex]` 를 새로운 값을 설정하는 것은 적절하지 않으므로 `TimesTable` 의 서브 스크립트는 읽기전용 서브 스크립트로 정의됩니다.
 
 ## 서브 스크립트 사용 \(Subscript Usage\)
 
@@ -62,15 +63,16 @@ numberOfLegs["bird"] = 2
 
 위의 예제는 `numberOfLegs` 라는 변수를 정의하고 3개의 키-값 쌍을 포함하는 딕셔너리를 초기화합니다. `numberOfLegs` 딕셔너리의 타입은 `[String: Int]` 로 유추됩니다. 딕셔너리가 생성된 후에 이 예제는 딕셔너리에 `"bird"` 의 `String` 키와 `2` 의 `Int` 값을 추가하기 위해 서브 스크립트 할당을 사용합니다.
 
-`Dictionary` 서브 스크립트에 대한 자세한 내용은 [딕셔너리 접근과 수정 \(Accessing and Modifying a Dictionary\)](https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID116) 을 참고 바랍니다.
+`Dictionary` 서브 스크립트에 대한 자세한 내용은 [딕셔너리 접근과 수정 \(Accessing and Modifying a Dictionary\)](collection-types.md#accessing-and-modifying-a-dictionary) 을 참고 바랍니다.
 
-> NOTE Swift의 `Dictionary` 타입은 _옵셔널_ 타입을 가지고 반환하는 서브 스크립트 인 키-값 서브 스크립트를 구현합니다. 위의 `numberOfLegs` 딕셔너리에서 키-값 서브 스크립트는 타입 `Int?` 또는 "옵셔널 int"의 값을 가지고 반환합니다. `Dictionary` 타입은 모든 키에 값이 있지 않다는 사실을 모델링 하고 키의 값에 `nil` 을 할당하여 키의 값을 삭제하는 방법을 제공하기 위해 옵셔널 서브 스크립트 타입을 사용합니다.
+> NOTE   
+> Swift의 `Dictionary` 타입은 _옵셔널_ 타입을 가지고 반환하는 서브 스크립트 인 키-값 서브 스크립트를 구현합니다. 위의 `numberOfLegs` 딕셔너리에서 키-값 서브 스크립트는 타입 `Int?` 또는 "옵셔널 int"의 값을 가지고 반환합니다. `Dictionary` 타입은 모든 키에 값이 있지 않다는 사실을 모델링 하고 키의 값에 `nil` 을 할당하여 키의 값을 삭제하는 방법을 제공하기 위해 옵셔널 서브 스크립트 타입을 사용합니다.
 
 ## 서브 스크립트 옵션 \(Subscript Options\)
 
 서브 스크립트는 여러개의 입력 파라미터를 가질 수 있고 입력 파라미터는 어떤 타입도 가능합니다. 서브 스크립트는 어떤 타입도 반환할 수도 있습니다.
 
-함수 처럼 서브 스크립트는 [가변 파라미터 \(Variadic Parameters\)](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID171) 와 [파라미터 기본값 \(Default Parameter Values\)](https://docs.swift.org/swift-book/LanguageGuide/Functions.html#ID169) 에서 설명 했듯이 가변 파라미터와 파라미터에 기본값을 가질 수 있습니다. 그러나 함수와 다르게 서브 스크립트는 in-out 파라미터를 사용할 수 없습니다.
+함수 처럼 서브 스크립트는 [가변 파라미터 \(Variadic Parameters\)](functions.md#variadic-parameters) 와 [파라미터 기본값 \(Default Parameter Values\)](functions.md#default-parameter-values) 에서 설명 했듯이 가변 파라미터와 파라미터에 기본값을 가질 수 있습니다. 그러나 함수와 다르게 서브 스크립트는 in-out 파라미터를 사용할 수 없습니다.
 
 클래스 또는 구조체는 필요한 만큼 서브 스크립트 구현과 값의 타입 또는 서브 스크립트 대괄호 내에서 포함된 값을 기반으로 유추하여 적절한 서브 스크립트를 제공할 수 있습니다. 이러한 여러개의 서브 스크립트 정의를 _서브 스크립트 오버로딩 \(subscript overloading\)_ 이라 합니다.
 
@@ -101,7 +103,7 @@ struct Matrix {
 }
 ```
 
-`Matrix` 는 `rows` 와 `columns` 라는 2개의 파라미터를 가지고 `Double` 타입의 `rows * columns` 값을 저장할 수 있는 큰 배열을 생성하는 초기화를 제공합니다. 행렬의 각 위치는 `0.0` 의 초기값이 주어집니다. 이를 위해 배열의 크기와 초기 셀 값 `0.0` 이 올바른 크기의 새로운 배열을 생성하고 초기화하는 배열 초기화에 전달됩니다. 이러한 초기화는 [기본값을 가진 배열 생성 \(Creating an Array with a Default Value\)](https://docs.swift.org/swift-book/LanguageGuide/CollectionTypes.html#ID501) 에 자세히 설명되어 있습니다.
+`Matrix` 는 `rows` 와 `columns` 라는 2개의 파라미터를 가지고 `Double` 타입의 `rows * columns` 값을 저장할 수 있는 큰 배열을 생성하는 초기화를 제공합니다. 행렬의 각 위치는 `0.0` 의 초기값이 주어집니다. 이를 위해 배열의 크기와 초기 셀 값 `0.0` 이 올바른 크기의 새로운 배열을 생성하고 초기화하는 배열 초기화에 전달됩니다. 이러한 초기화는 [기본값을 가진 배열 생성 \(Creating an Array with a Default Value\)](collection-types.md#creating-an-array-with-a-default-value) 에 자세히 설명되어 있습니다.
 
 적절한 행과 열의 수를 초기화로 전달하여 새로운 `Matrix` 인스턴스를 생성할 수 있습니다:
 
