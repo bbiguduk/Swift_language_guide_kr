@@ -63,7 +63,7 @@ struct BlackjackCard {
 
 `BlackjackCard` 구조체 자체는 `rank` 와 `suit` 의 2개의 프로퍼티를 가지고 있습니다. 이름과 카드의 값의 설명을 만들기 위해 `rank` 와 `suit` 에 저장된 값을 사용하는 `description` 이라는 계산된 프로퍼티도 정의합니다. `description` 프로퍼티는 화면에 표시하기 위해 두번째 값이 있는지 확인하고 있으면 두번째 값에 대해 상세 설명을 추가합니다.
 
-`BlackjackCard` 는 사용자 지정 초기화 구문이 없는 구조체이기 때문에 [구조체 타입에 대한 멤버별 초기화 구문 \(Memberwise Initializers for Structure Types\)](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID214) 에서 설명 했듯이 암시적 멤버별 초기화 구문을 가지고 있습니다. `theAceOfSpades` 라는 새로운 상수를 초기화 하기 위해 초기화 구문을 사용할 수 있습니다:
+`BlackjackCard` 는 사용자 지정 초기화 구문이 없는 구조체이기 때문에 [구조체 타입에 대한 멤버별 초기화 구문 \(Memberwise Initializers for Structure Types\)](initialization.md#memberwise-initializers-for-structure-types) 에서 설명 했듯이 암시적 멤버별 초기화 구문을 가지고 있습니다. `theAceOfSpades` 라는 새로운 상수를 초기화 하기 위해 초기화 구문을 사용할 수 있습니다:
 
 ```swift
 let theAceOfSpades = BlackjackCard(rank: .ace, suit: .spades)
