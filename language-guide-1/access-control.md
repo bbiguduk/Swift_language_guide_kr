@@ -6,7 +6,8 @@ _접근 제어 \(Access control\)_ 은 다른 소스 파일과 모듈에서 코�
 
 다양한 수준의 접근 제어를 제공하는 것 외에도 Swift는 일반적인 시나리오에 대한 기본 접근 수준을 제공하여 명시적으로 접근 제어 수준을 지정할 필요성을 줄여줍니다. 실제로 단일 앱을 작성한다면 접근 제어 수준을 전혀 지정할 필요가 없습니다.
 
-> NOTE 프로퍼티, 타입, 함수 등에 접근 제어를 적용할 수 있는 코드의 다양한 측면은 간결성을 위해 아래 섹션에서 "엔티티" 라고 합니다.
+> NOTE   
+> 프로퍼티, 타입, 함수 등에 접근 제어를 적용할 수 있는 코드의 다양한 측면은 간결성을 위해 아래 섹션에서 "엔티티" 라고 합니다.
 
 ## 모듈과 소스 파일 \(Modules and Source Files\)
 
@@ -29,7 +30,7 @@ Swift는 코드 내에서 엔티티에 대해 5개의 다른 _접근 수준 \(ac
 
 Open 접근은 가장 높은 \(가장 적은 제약\) 접근 수준이며 private 접근은 가장 적은 \(가장 높은 제약\) 접근 수준입니다.
 
-Open 접근은 클래스와 클래스 멤버에만 적용되고 아래의 [서브 클래싱 \(Subclassing\)](https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html#ID16) 에서 설명 하듯이 모듈 외부의 코드를 하위 클래스와 재정의할 수 있는다는 점에서 public 접근과 다릅니다. 명시적으로 클래스를 개방형으로 표기하면 해당 클래스를 상위 클래스로 사용하는 다른 모듈의 코드가 미치는 영향을 고려하고 이에 따라 클래스 코드를 설계했음을 나타냅니다.
+Open 접근은 클래스와 클래스 멤버에만 적용되고 아래의 [서브 클래싱 \(Subclassing\)](access-control.md#subclassing) 에서 설명 하듯이 모듈 외부의 코드를 하위 클래스와 재정의할 수 있는다는 점에서 public 접근과 다릅니다. 명시적으로 클래스를 개방형으로 표기하면 해당 클래스를 상위 클래스로 사용하는 다른 모듈의 코드가 미치는 영향을 고려하고 이에 따라 클래스 코드를 설계했음을 나타냅니다.
 
 ### 접근 수준의 기본 원칙 \(Guiding Principle of Access Levels\)
 
@@ -54,7 +55,8 @@ Swift에서 접근 수준은 전반적인 기본 원칙을 따릅니다: _엔티
 
 프레임워크를 개발할 때 프레임워크를 가져오는 앱과 같은 다른 모듈에서 보고 접근할 수 있게 하기 위해 해당 프레임워크에 대한 공용 인터페이스를 open 또는 public으로 표시합니다. 이 공용 인터페이스는 프레임워크 용 애플리케이션 프로그래밍 인터페이스 또는 API 입니다.
 
-> NOTE 프레임워크의 내부 구현 세부정보는 여전히 internal의 기본 접근 수준을 사용할 수 있거나 프레임워크의 내부 코드의 다른 부분에서 가리기 위해 private 또는 file private로 표기될 수 있습니다. 프레임워크 API의 부분이 되길 원한다면 엔티티를 open 또는 public으로 표시해야 합니다.
+> NOTE   
+> 프레임워크의 내부 구현 세부정보는 여전히 internal의 기본 접근 수준을 사용할 수 있거나 프레임워크의 내부 코드의 다른 부분에서 가리기 위해 private 또는 file private로 표기될 수 있습니다. 프레임워크 API의 부분이 되길 원한다면 엔티티를 open 또는 public으로 표시해야 합니다.
 
 ### 유닛 테스트 타겟에 대한 접근 수준 \(Access Levels for Unit Test Targets\)
 
@@ -76,7 +78,7 @@ fileprivate func someFilePrivateFunction() {}
 private func somePrivateFunction() {}
 ```
 
-달리 지정하지 않는 한 [기본 접근 수준 \(Default Access Levels\)](https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html#ID7) 은 internal 입니다. `SomeInternalClass` 와 `someInternalConstant` 는 명시적으로 접근 수준 수식어 없이 작성될 수 있으며 여전히 internal의 접근 수준을 가진다는 의미입니다:
+달리 지정하지 않는 한 [기본 접근 수준 \(Default Access Levels\)](access-control.md#default-access-levels) 은 internal 입니다. `SomeInternalClass` 와 `someInternalConstant` 는 명시적으로 접근 수준 수식어 없이 작성될 수 있으며 여전히 internal의 접근 수준을 가진다는 의미입니다:
 
 ```swift
 class SomeInternalClass {}              // implicitly internal
@@ -89,7 +91,8 @@ let someInternalConstant = 0            // implicitly internal
 
 타입의 접근 제어 수준은 해당 타입의 _멤버_ \(프로퍼티, 메서드, 초기화 구문, 그리고 서브 스크립트\)의 기본 접근 수준에도 영향을 줍니다. 타입의 접근 수준을 private 또는 file private로 정의한다면 멤버의 기본 접근 수준 또한 private 또는 file private가 됩니다. 타입의 접근 수준을 internal 또는 public 또는 명시적으로 접근 수준을 지정하지 않아 internal의 기본 접근 수준으로 정의하면 타입의 멤버의 기본 접근 수준은 internal이 됩니다.
 
-> IMPORTANT Public 타입은 기본적으로 public 멤버가 아닌 internal 멤버를 가집니다. 타입 멤버를 public으로 하려면 명시적으로 표시해야 합니다. 이 요구사항은 타입에 대한 공용 API는 공개되도록 하고 실수로 타입의 내부 작업을 공개 API로 표시되지 않도록 합니다.
+> IMPORTANT   
+> Public 타입은 기본적으로 public 멤버가 아닌 internal 멤버를 가집니다. 타입 멤버를 public으로 하려면 명시적으로 표시해야 합니다. 이 요구사항은 타입에 대한 공용 API는 공개되도록 하고 실수로 타입의 내부 작업을 공개 API로 표시되지 않도록 합니다.
 
 ```swift
 public class SomePublicClass {                  // explicitly public class
@@ -119,7 +122,8 @@ private class SomePrivateClass {                // explicitly private class
 
 튜플 타입에 대한 접근 수준은 해당 튜플에서 사용되는 모든 타입에 가장 제한적인 접근 수준입니다. 예를 들어 하나는 internal 접근이고 하나는 private 접근인 2개의 다른 타입의 튜플을 구성하는 경우 해당 복합 튜플 타입에 대한 접근 수준은 private 입니다.
 
-> NOTE 튜플 타입은 클래스, 구조체, 열거형, 그리고 함수와 같이 독립형 정의가 없습니다. 튜플 타입의 접근 수준은 튜플 타입을 구성하는 타입에서 자동으로 결정되고 명시적으로 지정할 수 없습니다.
+> NOTE   
+> 튜플 타입은 클래스, 구조체, 열거형, 그리고 함수와 같이 독립형 정의가 없습니다. 튜플 타입의 접근 수준은 튜플 타입을 구성하는 타입에서 자동으로 결정되고 명시적으로 지정할 수 없습니다.
 
 ### 함수 타입 \(Function Types\)
 
@@ -133,7 +137,7 @@ func someFunction() -> (SomeInternalClass, SomePrivateClass) {
 }
 ```
 
-함수의 반환 타입은 위에 [사용자 정의 타입 \(Custom Types\)](https://docs.swift.org/swift-book/LanguageGuide/AccessControl.html#ID11) 에서 정의된 2개의 사용자 정의 클래스로 구성된 튜플 타입입니다. 이 클래스 중 하나는 internal로 다른 하나는 private로 정의됩니다. 따라서 복합 튜플 타입의 전체 접근 수준은 private 입니다 \(튜플의 구성 타입의 최소 접근 수준\).
+함수의 반환 타입은 위에 [사용자 정의 타입 \(Custom Types\)](access-control.md#custom-types) 에서 정의된 2개의 사용자 정의 클래스로 구성된 튜플 타입입니다. 이 클래스 중 하나는 internal로 다른 하나는 private로 정의됩니다. 따라서 복합 튜플 타입의 전체 접근 수준은 private 입니다 \(튜플의 구성 타입의 최소 접근 수준\).
 
 함수의 반환 타입은 private 이므로 함수 선언이 유효하려면 `private` 수식어와 함께 함수의 전체 접근 수준을 표시해야 합니다:
 
@@ -218,7 +222,8 @@ private var privateInstance = SomePrivateClass()
 
 해당 변수, 프로퍼티, 또는 서브 스크립트에 읽기-쓰기 범위를 제한하기 위해 getter 보다 _더 낮은_ 접근 수준으로 setter를 제공할 수 있습니다. `var` 또는 `subscript` 전에 `fileprivate(set)`, `private(set)`, 또는 `internal(set)` 을 작성하여 더 낮은 접근 수준을 할당합니다.
 
-> NOTE 이 규칙은 저장된 프로퍼티 뿐만 아니라 계산된 프로퍼티에도 적용됩니다. 저장된 프로퍼티에 대해 명시적으로 getter와 setter를 작성하지 않아도 Swift는 저장된 프로퍼티의 저장소에 대한 접근을 제공하기 위해 여전히 암시적으로 getter와 setter를 합성합니다. 계산된 프로퍼티의 명시적 setter와 같은 방식으로 합성된 setter의 접근 수준을 변경하기 위해 `fileprivate(set)`, `private(set)`, 그리고 `internal(set)` 을 사용합니다.
+> NOTE   
+> 이 규칙은 저장된 프로퍼티 뿐만 아니라 계산된 프로퍼티에도 적용됩니다. 저장된 프로퍼티에 대해 명시적으로 getter와 setter를 작성하지 않아도 Swift는 저장된 프로퍼티의 저장소에 대한 접근을 제공하기 위해 여전히 암시적으로 getter와 setter를 합성합니다. 계산된 프로퍼티의 명시적 setter와 같은 방식으로 합성된 setter의 접근 수준을 변경하기 위해 `fileprivate(set)`, `private(set)`, 그리고 `internal(set)` 을 사용합니다.
 
 아래 예제는 문자열 프로퍼티가 몇번 수정되는지 추적하는 `TrackedString` 이라는 구조체를 정의합니다:
 
@@ -266,13 +271,13 @@ public struct TrackedString {
 
 ## 초기화 구문 \(Initializers\)
 
-사용자 정의 초기화 구문은 초기화 하는 타입보다 더 낮거나 같은 접근 수준으로 할당할 수 있습니다. 유일한 예외는 [필수 초기화 구문 \(Required Initializers\)](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID231) 입니다. 필수 초기화 구문은 자신이 속한 클래스와 동일한 접근 수준을 가져야 합니다.
+사용자 정의 초기화 구문은 초기화 하는 타입보다 더 낮거나 같은 접근 수준으로 할당할 수 있습니다. 유일한 예외는 [필수 초기화 구문 \(Required Initializers\)](initialization.md#required-initializers) 입니다. 필수 초기화 구문은 자신이 속한 클래스와 동일한 접근 수준을 가져야 합니다.
 
 함수와 메서드 파라미터와 마찬가지로 초기화 구문의 파라미터의 타입은 초기화 구문의 자체 접근 수준보다 더 비공개 일 수 없습니다.
 
 ### 기본 초기화 구문 \(Default Initializers\)
 
-[Default Initializers](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID213) 에서 설명 했듯이 Swift는 모든 프로퍼티에 기본값을 제공하고 하나 이상의 초기화 구문 자체를 제공하지 않는 구조체 또는 기본 클래스에 대해 인자없는 _기본 초기화 구문 \(default initializer\)_ 을 자동으로 제공합니다.
+[기본 초기화 구문 \(Default Initializers\)](initialization.md#default-initializers) 에서 설명 했듯이 Swift는 모든 프로퍼티에 기본값을 제공하고 하나 이상의 초기화 구문 자체를 제공하지 않는 구조체 또는 기본 클래스에 대해 인자없는 _기본 초기화 구문 \(default initializer\)_ 을 자동으로 제공합니다.
 
 기본 초기화 구문은 타입이 `public` 으로 정의되지 않는한 초기화하는 타입과 같은 접근 수준을 가집니다. `public` 으로 정의된 타입의 경우 기본 초기화 구문은 internal로 간주합니다. 다른 모듈에서 사용할 때 인자가 없는 초기화 구문을 public 타입으로 초기화 하려면 명시적으로 타입의 정의의 부분으로 public 인자가 없는 초기화 구문을 제공해야 합니다.
 
@@ -288,7 +293,8 @@ public struct TrackedString {
 
 프로토콜 정의 내의 각 요구사항의 접근 수준은 자동으로 프로토콜과 같은 접근 수준으로 설정됩니다. 프로토콜 요구사항을 지원하는 프로토콜과 다른 접근 수준으로 설정할 수 없습니다. 이렇게 하면 모든 프로토콜의 요구사항은 프로토콜을 채택하는 모든 타입에서 볼 수 있습니다.
 
-> NOTE public 프로토콜을 정의한다면 프로토콜의 요구사항은 구현될 때 public 접근 수준을 요구합니다. 이 동작은 public 타입 정의가 타입의 멤버에 대한 internal의 접근 수준을 의미하는 다른 타입과 다릅니다.
+> NOTE   
+> public 프로토콜을 정의한다면 프로토콜의 요구사항은 구현될 때 public 접근 수준을 요구합니다. 이 동작은 public 타입 정의가 타입의 멤버에 대한 internal의 접근 수준을 의미하는 다른 타입과 다릅니다.
 
 ### 프로토콜 상속 \(Protocol Inheritance\)
 
@@ -302,7 +308,8 @@ public struct TrackedString {
 
 프로토콜을 준수하기 위해 타입을 작성하거나 확장할 때 각 프로토콜 요구사항의 타입의 구현이 해당 프로토콜에 대한 타입의 준수성과 최소한 같은 접근 수준을 가지고 있는지 확인해야 합니다. 예를 들어 public 타입이 internal 프로토콜을 준수하는 경우 각 프로토콜 요구사항의 타입의 구현은 적어도 internal 이어야 합니다.
 
-> NOTE Objective-C처럼 Swift에서 프로토콜 준수성은 전역입니다—같은 프로그램 내에서 타입이 두가지 다른 방식으로 프로토콜을 준수하는 것은 불가능 합니다.
+> NOTE   
+> Objective-C처럼 Swift에서 프로토콜 준수성은 전역입니다—같은 프로그램 내에서 타입이 두가지 다른 방식으로 프로토콜을 준수하는 것은 불가능 합니다.
 
 ## 확장 \(Extensions\)
 
@@ -350,5 +357,6 @@ extension SomeStruct: SomeProtocol {
 
 정의한 모든 타입 별칭은 접근 제어의 목적을 위해 고유한 타입으로 처리됩니다. 타입 별칭은 별칭이 지정된 타입의 접근 수준보다 작거나 같은 접근 수준을 가질 수 있습니다. 예를 들어 private 타입 별칭은 private, file-private, internal, public, 또는 open 타입의 별칭이 가능하지만 public 타입 별칭은 internal, file-private, 또는 private 타입의 별칭만 가능합니다.
 
-> NOTE 이 규칙은 프로토콜 준수성을 충족하는데 사용되는 관련된 타입의 타입 별칭에도 적용됩니다.
+> NOTE   
+> 이 규칙은 프로토콜 준수성을 충족하는데 사용되는 관련된 타입의 타입 별칭에도 적용됩니다.
 
