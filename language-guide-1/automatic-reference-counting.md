@@ -85,7 +85,7 @@ reference3 = nil
 
 그러나 클래스의 인스턴스가 강한 참조가 없는 지점에 도달하지 않는 코드를 작성할 수 있습니다. 이는 두 클래스 인스턴스가 서로에 대한 강한 참조를 유지하여 각 인스턴스가 다른 인스턴스를 유지하는 경우 발생할 수 있습니다. 이것은 _강한 참조 사이클 \(strong reference cycle\)_ 이라고 합니다.
 
-클래스 간의 일부 관계를 강한 참조 대신 약한 \(weak\) 또는 미소유 \(unowned\) 참조로 정의하여 강한 참조 사이클을 해결합니다. 이 프로세스는 [클래스 인스턴스 간의 강한 참조 주기 해결 \(Resolving Strong Reference Cycles Between Class Instances\)](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID52) 에서 설명되어 있습니다. 그러나 강한 참조 사이클을 어떻게 해결하는지 배우기 전에 어떻게 사이클이 발생하는지 이해하는 것이 유용합니다.
+클래스 간의 일부 관계를 강한 참조 대신 약한 \(weak\) 또는 미소유 \(unowned\) 참조로 정의하여 강한 참조 사이클을 해결합니다. 이 프로세스는 [클래스 인스턴스 간의 강한 참조 사이 해결 \(Resolving Strong Reference Cycles Between Class Instances\)](automatic-reference-counting.md#resolving-strong-reference-cycles-between-class-instances) 에서 설명되어 있습니다. 그러나 강한 참조 사이클을 어떻게 해결하는지 배우기 전에 어떻게 사이클이 발생하는지 이해하는 것이 유용합니다.
 
 다음은 실수로 강한 참조 사이클을 생성하는 예입니다. 이 예제는 아파트와 거주자의 블럭을 모델링 하는 `Person` 과 `Apartment` 라는 2개의 클래스를 정의합니다:
 
@@ -171,7 +171,8 @@ _약한 참조 \(weak reference\)_ 는 참조하는 인스턴스를 강하게 �
 
 다른 옵셔널 값과 같이 약한 참조에 값의 존재를 확인할 수 있고 더이상 존재하지 않는 유효하지 않은 인스턴스에 참조하는 것으로 끝나지 않습니다.
 
-> NOTE 프로퍼티 관찰자는 ARC가 약한 참조를 `nil` 로 설정할 때 호출되지 않습니다.
+> NOTE   
+> 프로퍼티 관찰자는 ARC가 약한 참조를 `nil` 로 설정할 때 호출되지 않습니다.
 
 아래의 예제는 위의 `Person` 과 `Apartment` 예제와 동일하지만 한가지 중요한 차이점이 있습니다. 이번에는 `Apartment` 타입의 `tenant` 프로퍼티는 약한 참조로 선언됩니다:
 
@@ -230,7 +231,8 @@ unit4A = nil
 
 ![Weak Reference 03](../.gitbook/assets/24_weakreference03_2x.png)
 
-> NOTE 가비지 콜렉션을 사용하는 시스템에서는 메모리 압력이 가비지 콜렉션을 트리거 할 때만 강한 참조가 없는 객체가 할당 해제되기 때문에 간단한 캐싱 메커니즘을 구현하는데 약한 포인터가 사용되는 경우가 있습니다. 그러나 ARC를 사용하면 마지막 강한 참조가 제거되자마자 값이 할당 해제되어 약한 참조는 이러한 목적에 적합하지 않습니다.
+> NOTE   
+> 가비지 콜렉션을 사용하는 시스템에서는 메모리 압력이 가비지 콜렉션을 트리거 할 때만 강한 참조가 없는 객체가 할당 해제되기 때문에 간단한 캐싱 메커니즘을 구현하는데 약한 포인터가 사용되는 경우가 있습니다. 그러나 ARC를 사용하면 마지막 강한 참조가 제거되자마자 값이 할당 해제되어 약한 참조는 이러한 목적에 적합하지 않습니다.
 
 ### 미소유 참조 \(Unowned References\)
 
@@ -238,7 +240,8 @@ unit4A = nil
 
 약한 참조와 달리 미소유 참조는 항상 값을 갖도록 예상됩니다. 결과적으로 미소유로 만들어진 값은 옵셔널로 만들어 지지 않고 ARC는 미소유 참조의 값을 `nil` 로 설정하지 않습니다.
 
-> IMPORTANT 참조가 _항상_ 할당 해제되지 않은 인스턴스를 참조한다고 확신하는 경우에만 미소유 참조를 사용합니다.
+> IMPORTANT   
+> 참조가 _항상_ 할당 해제되지 않은 인스턴스를 참조한다고 확신하는 경우에만 미소유 참조를 사용합니다.
 >
 > 인스턴스가 할당 해제된 후에 미소유 참조의 값에 접근하려고 하면 런타임 에러가 발생합니다.
 
@@ -271,7 +274,8 @@ class CreditCard {
 }
 ```
 
-> NOTE `CreditCard` 클래스의 `number` 프로퍼티는 `Int` 가 아닌 `UInt64` 타입으로 정의되어 `number` 프로퍼티의 용량이 32 비트와 64 비트 시스템 모두에 16 자리 카드번호를 저장할 수 있을만큼 충분히 크도록 합니다.
+> NOTE   
+> `CreditCard` 클래스의 `number` 프로퍼티는 `Int` 가 아닌 `UInt64` 타입으로 정의되어 `number` 프로퍼티의 용량이 32 비트와 64 비트 시스템 모두에 16 자리 카드번호를 저장할 수 있을만큼 충분히 크도록 합니다.
 
 다음 코드는 특정 고객에 대한 참조를 저장하는데 사용되는 `john` 이라는 옵셔널 `Customer` 변수를 정의합니다. 이 변수는 옵셔널이므로 `nil` 의 초기값을 가집니다:
 
@@ -306,7 +310,8 @@ john = nil
 
 위의 마지막 코드는 `john` 변수를 `nil` 로 설정한 후에 `Customer` 인스턴스와 `CreditCard` 인스턴스 모두 "deinitialized" 메서지를 출력하는 초기화 해제 구문을 보여줍니다.
 
-> NOTE 위의 예제는 _안전한_ 미소유 참조를 어떻게 사용해야 하는지 보여줍니다. Swift는 성능상의 이유 등으로 런타임 안전 검사를 비활성화 하는 경우에 대해 _안전하지 않은_ 미소유 참조 \(unsafe unowned references\)를 제공합니다. 모든 안전하지 않은 작업과 마찬가지로 해당 코드의 안정성을 검사하는 것에 책임을 져야 합니다.
+> NOTE   
+> 위의 예제는 _안전한_ 미소유 참조를 어떻게 사용해야 하는지 보여줍니다. Swift는 성능상의 이유 등으로 런타임 안전 검사를 비활성화 하는 경우에 대해 _안전하지 않은_ 미소유 참조 \(unsafe unowned references\)를 제공합니다. 모든 안전하지 않은 작업과 마찬가지로 해당 코드의 안정성을 검사하는 것에 책임을 져야 합니다.
 >
 > `unowned(unsafe)` 로 작성하여 안전하지 않은 미소유 참조를 나타냅니다. 참조하는 인스턴스가 할당 해제된 후에 안전하지 않은 미소유 참조에 접근하려고 하면 프로그램은 안전하지 않은 작업으로 인스턴스가 사용한 메모리 위치에 접근하려고 합니다.
 
@@ -362,7 +367,8 @@ department.courses = [intro, intermediate, advanced]
 
 옵셔널이 아닌 미소유 참조와 같이 `nextCourse` 가 항상 할당 해제되지 않은 과정을 참조하도록 해야합니다. 예를 들어 `department.courses` 에서 과정을 삭제할 때 다른 과정에 있을 수 있는 모든 참조를 삭제해야 합니다.
 
-> NOTE 옵셔널 값의 기본 타입은 Swift 표준 라이브러리에 열거형 인 `Optional` 입니다. 그러나 옵셔널은 값 타입에 `unowned` 를 표기할 수 없는 규칙에 대해 예외입니다.
+> NOTE   
+> 옵셔널 값의 기본 타입은 Swift 표준 라이브러리에 열거형 인 `Optional` 입니다. 그러나 옵셔널은 값 타입에 `unowned` 를 표기할 수 없는 규칙에 대해 예외입니다.
 >
 > 클래스를 래핑한 옵셔널은 참조 카운팅을 사용하지 않으므로 강한 참조를 옵셔널로 유지할 필요가 없습니다.
 
@@ -402,9 +408,9 @@ class City {
 
 두 클래스 간의 상호 종속성을 설정하기 위해 `City` 에 대한 초기화 구문은 `Country` 인스턴스를 가지고 있고 `country` 프로퍼티에 저장합니다.
 
-`City` 에 대한 초기화 구문은 `Country` 에 대한 초기화 구문 내에서 호출됩니다. 그러나 `Country` 에 대한 초기화 구문은 [2단계 초기화 \(Two-Phase Initialization\)](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID220) 에서 설명 했듯이 새로운 `Country` 인스턴스가 완벽히 초기화 될 때까지 `City` 초기화 구문에 `self` 를 전달할 수 없습니다.
+`City` 에 대한 초기화 구문은 `Country` 에 대한 초기화 구문 내에서 호출됩니다. 그러나 `Country` 에 대한 초기화 구문은 [2단계 초기화 \(Two-Phase Initialization\)](initialization.md#2-two-phase-initialization) 에서 설명 했듯이 새로운 `Country` 인스턴스가 완벽히 초기화 될 때까지 `City` 초기화 구문에 `self` 를 전달할 수 없습니다.
 
-이 요구사항을 처리하려면 `Country` 의 `capitalCity` 프로퍼티를 타입 설명의 끝에 느낌표 \(`City!`\)로 표시되는 암시적 언래핑된 옵셔널 프로퍼티로 선언합니다. `capitalCity` 프로퍼티는 다른 옵셔널과 같이 `nil` 의 기본값을 가지지만 [암시적 언래핑된 옵셔널 \(Implicitly Unwrapped Optionals\)](https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#ID334) 에서 설명 했듯이 언래핑 할 필요없이 값에 접근할 수 있다는 의미입니다.
+이 요구사항을 처리하려면 `Country` 의 `capitalCity` 프로퍼티를 타입 설명의 끝에 느낌표 \(`City!`\)로 표시되는 암시적 언래핑된 옵셔널 프로퍼티로 선언합니다. `capitalCity` 프로퍼티는 다른 옵셔널과 같이 `nil` 의 기본값을 가지지만 [암시적 언래핑된 옵셔널 \(Implicitly Unwrapped Optionals\)](the-basics.md#implicitly-unwrapped-optionals) 에서 설명 했듯이 언래핑 할 필요없이 값에 접근할 수 있다는 의미입니다.
 
 `capitalCity` 는 기본 `nil` 값을 가지므로 새로운 `Country` 인스턴스는 `Country` 인스턴스가 초기화 구문 내에서 `name` 프로퍼티를 설정하는 즉시 새로운 `Country`인스턴스는 완벽히 초기화 된 것으로 간주합니다. 이것은 `Country` 초기화 구문은 `name` 프로퍼티가 설정되는 즉시 암시적 `self` 프로퍼티를 참조하고 전달할 수 있다는 의미입니다. 따라서 `Country` 초기화 구문은 `capitalCity` 프로퍼티를 설정할 때 `City` 초기화 구문에 대한 하나의 파라미터로 `self` 를 전달할 수 있습니다.
 
@@ -476,7 +482,8 @@ print(heading.asHTML())
 // Prints "<h1>some default text</h1>"
 ```
 
-> NOTE `asHTML` 프로퍼티는 요소가 실제로 일부 HTML 출력 타겟에 대한 문자열 값으로 렌더링 되어야 하는 경우에만 필요하므로 지연 프로퍼티로 선언됩니다. `asHTML` 이 지연 프로퍼티라는 사실은 초기화가 완료되고 `self` 가 존재할 때까지 접근할 수 없으므로 기본 클로저 내에서 `self` 를 참조할 수 있다는 의미입니다.
+> NOTE   
+> `asHTML` 프로퍼티는 요소가 실제로 일부 HTML 출력 타겟에 대한 문자열 값으로 렌더링 되어야 하는 경우에만 필요하므로 지연 프로퍼티로 선언됩니다. `asHTML` 이 지연 프로퍼티라는 사실은 초기화가 완료되고 `self` 가 존재할 때까지 접근할 수 없으므로 기본 클로저 내에서 `self` 를 참조할 수 있다는 의미입니다.
 
 `HTMLElement` 클래스는 `name` 인자와 필요하면 `text` 인자를 사용하여 새로운 요소를 초기화 하는 단일 초기화 구문을 제공합니다. 이 클래스는 `HTMLElement` 인스턴스가 할당 해제될 때 메세지를 출력하는 초기화 해제 구문도 정의합니다.
 
@@ -488,15 +495,17 @@ print(paragraph!.asHTML())
 // Prints "<p>hello, world</p>"
 ```
 
-> NOTE 위의 `paragraph` 변수는 강한 참조 사이클의 존재를 보여주기 위해 아래에서 `nil` 로 설정할 수 있으므로 _옵셔널_ `HTMLElement` 로 정의됩니다.
+> NOTE   
+> 위의 `paragraph` 변수는 강한 참조 사이클의 존재를 보여주기 위해 아래에서 `nil` 로 설정할 수 있으므로 _옵셔널_ `HTMLElement` 로 정의됩니다.
 
 안타깝게도 위에서 작성한 `HTMLElement` 클래스는 `HTMLElement` 인스턴스와 기본 `asHTML` 값으로 사용된 클로저 간에 강한 참조 사이클을 생성합니다. 사이클은 다음과 같습니다:
 
 ![Closure Reference Cycle 01](../.gitbook/assets/24_closurereferencecycle01_2x.png)
 
-인스턴스의 `asHTML` 프로퍼티는 클로저에 대해 강한 참조를 유지합니다. 그러나 클로저는 바디 내에서 `self.name` 과 `self.text` 를 참조하는 방법 처럼 `self` 를 참조하기 때문에 클로저는 `HTMLElement` 인스턴스에 다시 강한 참조를 유지한다는 의미로 `self` 를 _캡처_ 합니다. 둘 사이에 강한 참조 사이클이 생성됩니다 \(자세한 내용은 [값 캡처 \(Capturing Values\)](https://docs.swift.org/swift-book/LanguageGuide/Closures.html#ID103) 을 참고 바랍니다\).
+인스턴스의 `asHTML` 프로퍼티는 클로저에 대해 강한 참조를 유지합니다. 그러나 클로저는 바디 내에서 `self.name` 과 `self.text` 를 참조하는 방법 처럼 `self` 를 참조하기 때문에 클로저는 `HTMLElement` 인스턴스에 다시 강한 참조를 유지한다는 의미로 `self` 를 _캡처_ 합니다. 둘 사이에 강한 참조 사이클이 생성됩니다 \(자세한 내용은 [캡처값 \(Capturing Values\)](closures.md#capturing-values) 을 참고 바랍니다\).
 
-> NOTE 클로저는 여러번 `self` 를 참조하지만 `HTMLElement` 인스턴스에 대한 하나의 강한 참조만 캡처합니다.
+> NOTE   
+> 클로저는 여러번 `self` 를 참조하지만 `HTMLElement` 인스턴스에 대한 하나의 강한 참조만 캡처합니다.
 
 `paragraph` 변수를 `nil` 로 설정하고 `HTMLElement` 인스턴스에 대한 강한 참조를 끊으면 강한 참조 사이클 때문에 `HTMLElement` 인스턴스와 해당 클로저는 할당 해제되지 않습니다:
 
@@ -510,7 +519,8 @@ paragraph = nil
 
 클로저의 정의의 부분으로 _캡처 목록 \(capture list\)_ 을 정의하여 클로저와 클래스 인스턴스 간의 강한 참조 사이클을 해결합니다. 캡처 목록은 클로저의 바디 내에서 하나 이상의 참조 타입을 캡처할 때 사용할 규칙을 정의합니다. 두 클래스 간의 강한 참조 사이클과 마찬가지로 캡처된 각 참조를 강한 참조가 아닌 약한 참조 또는 미소유 참조로 선언합니다. 약한 참조 또는 미소유 참조의 적절한 선택은 코드의 다른 부분 간의 관계에 따라 다릅니다.
 
-> NOTE Swift는 클로저 내에서 `self` 의 멤버를 참조할 때마다 `someProperty` 또는 `someMethod()` 가 아닌 `self.someProperty` 또는 `self.someMethod()` 로 작성해야 합니다. 이것은 실수로 `self` 를 캡첩할 수 있는 것을 기억하는데 도움이 됩니다.
+> NOTE   
+> Swift는 클로저 내에서 `self` 의 멤버를 참조할 때마다 `someProperty` 또는 `someMethod()` 가 아닌 `self.someProperty` 또는 `self.someMethod()` 로 작성해야 합니다. 이것은 실수로 `self` 를 캡첩할 수 있는 것을 기억하는데 도움이 됩니다.
 
 ### 캡처 목록 정의 \(Defining a Capture List\)
 
@@ -541,9 +551,10 @@ lazy var someClosure = {
 
 반대로 캡처된 참조가 향후에 `nil` 이 될 때 약한 참조로 캡처를 정의합니다. 약한 참조는 항상 옵셔널 타입이고 참조하는 인스턴스가 할당 해제되면 자동으로 `nil` 이 됩니다. 이를 사용하여 클로저의 바디 내에서 존재하는지 확인할 수 있습니다.
 
-> NOTE 캡처된 참조가 `nil` 이 되지 않으면 약한 참조보다 미소유 참조로 항상 캡처되어야 합니다.
+> NOTE   
+> 캡처된 참조가 `nil` 이 되지 않으면 약한 참조보다 미소유 참조로 항상 캡처되어야 합니다.
 
-미소유 참조는 위의 [클로저에 대한 강한 참조 사이클 \(Strong Reference Cycles for Closures\)](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID56) 에서 `HTMLElement` 예제에서 강한 참조 사이클을 해결하기 위해 사용할 적절한 캡처 방법입니다. 다음은 사이클을 피하기 위해 `HTMLElement` 클래스를 어떻게 작성하는지 보여줍니다:
+미소유 참조는 위의 [클로저에 대한 강한 참조 사이클 \(Strong Reference Cycles for Closures\)](automatic-reference-counting.md#strong-reference-cycles-for-closures) 에서 `HTMLElement` 예제에서 강한 참조 사이클을 해결하기 위해 사용할 적절한 캡처 방법입니다. 다음은 사이클을 피하기 위해 `HTMLElement` 클래스를 어떻게 작성하는지 보여줍니다:
 
 ```swift
 class HTMLElement {
