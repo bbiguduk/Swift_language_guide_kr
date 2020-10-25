@@ -144,11 +144,12 @@ print("And another one: \(generator.random())")
 
 ## 메서드 요구사항 변경 \(Mutating Method Requirements\)
 
-메서드가 속한 인스턴스를 수정 또는 변경 해야하는 경우가 있습니다. 값 타입 \(구조체와 열거형\)에 대한 인스턴스 메서드의 경우 메서드의 `func` 키워드 앞에 `mutating` 키워드를 위치시켜 메서드가 속한 인스턴스와 인스턴스의 모든 프로퍼티를 수정할 수 있음을 나타냅니다. 이 프로세스는 [인스턴스 메서드 내에서 값 타입 수정 \(Modifying Value Types from Within Instance Methods\)](https://docs.swift.org/swift-book/LanguageGuide/Methods.html#ID239) 에 설명되어 있습니다.
+메서드가 속한 인스턴스를 수정 또는 변경 해야하는 경우가 있습니다. 값 타입 \(구조체와 열거형\)에 대한 인스턴스 메서드의 경우 메서드의 `func` 키워드 앞에 `mutating` 키워드를 위치시켜 메서드가 속한 인스턴스와 인스턴스의 모든 프로퍼티를 수정할 수 있음을 나타냅니다. 이 프로세스는 [인스턴스 메서드 내에서 값 타입 수정 \(Modifying Value Types from Within Instance Methods\)](methods.md#modifying-value-types-from-within-instance-methods) 에 설명되어 있습니다.
 
 프로토콜을 채택하는 모든 타입의 인스턴스를 변경하기 위한 프로토콜 인스턴스 메서드 요구사항을 정의하는 경우 프로토콜의 정의의 부분으로 `mutating` 키워드로 메서드를 표시합니다. 이를 통해 구조체와 열거형이 프로토콜을 채택하고 메서드 요구사항을 충족할 수 있습니다.
 
-> NOTE `mutating` 으로 프로토콜 인스턴스 메서드 요구사항을 표시하면 클래스에 대한 해당 메서드의 구현을 작성할 때 `mutating` 키워드를 작성할 필요가 없습니다. `mutating` 키워드는 구조체와 열거형에 의해서만 사용됩니다.
+> NOTE   
+> `mutating` 으로 프로토콜 인스턴스 메서드 요구사항을 표시하면 클래스에 대한 해당 메서드의 구현을 작성할 때 `mutating` 키워드를 작성할 필요가 없습니다. `mutating` 키워드는 구조체와 열거형에 의해서만 사용됩니다.
 
 아래의 예제는 `toggle` 이라는 단일 인스턴스 메서드 요구사항을 정의하는 `Togglable` 이라는 프로토콜을 정의합니다. 이름에서 알 수 있듯이 `toggle()` 메서드는 해당 타입의 프로퍼티를 수정하여 모든 준수하는 타입의 상태를 전환하거나 반전하기 위한 것입니다.
 
@@ -205,9 +206,10 @@ class SomeClass: SomeProtocol {
 
 `required` 수식어를 사용하면 준수하는 클래스의 모든 하위 클래스에 초기화 구문 요구사항의 명시적 또는 상속된 구현을 제공하여 프로토콜을 준수할 수 있습니다.
 
-더 자세한 정보는 [필수 초기화 구문 \(Required Initializers\)](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID231) 을 참고 바랍니다.
+더 자세한 정보는 [필수 초기화 구문 \(Required Initializers\)](initialization.md#required-initializers) 을 참고 바랍니다.
 
-> NOTE final 클래스는 하위 클래스 될 수 없으므로 `final` 수식어로 표시된 클래스에 `required` 수식어를 프로토콜 초기화 구문 구현에 표시할 필요가 없습니다. `final` 수식어에 대한 자세한 내용은 [재정의 방지 \(Preventing Overrides\)](https://docs.swift.org/swift-book/LanguageGuide/Inheritance.html#ID202) 를 참고 바랍니다.
+> NOTE   
+> final 클래스는 하위 클래스 될 수 없으므로 `final` 수식어로 표시된 클래스에 `required` 수식어를 프로토콜 초기화 구문 구현에 표시할 필요가 없습니다. `final` 수식어에 대한 자세한 내용은 [재정의 방지 \(Preventing Overrides\)](inheritance.md#preventing-overrides) 를 참고 바랍니다.
 
 하위 클래스가 상위 클래스의 지정된 초기화 구문을 재정의 하고 프로토콜로 부터 일치하는 초기화 구문 요구사항이 구현되면 `required` 와 `override` 수식어 둘 다 초기화 구문 구현에 표시합니다:
 
@@ -232,7 +234,7 @@ class SomeSubClass: SomeSuperClass, SomeProtocol {
 
 ### 실패 가능한 초기화 구문 요구사항 \(Failable Initializer Requirements\)
 
-프로토콜은 [실패 가능한 초기화 구문 \(Failable Initializers\)](https://docs.swift.org/swift-book/LanguageGuide/Initialization.html#ID224) 에 정의 된대로 준수하는 타입에 대해 실패 가능한 초기화 구문 요구사항을 정의할 수 있습니다.
+프로토콜은 [실패 가능한 초기화 구문 \(Failable Initializers\)](initialization.md#failable-initializers) 에 정의 된대로 준수하는 타입에 대해 실패 가능한 초기화 구문 요구사항을 정의할 수 있습니다.
 
 실패 가능한 초기화 구문 요구사항은 준수하는 타입에 실패 가능하거나 실패 불가능한 초기화 구문에 의해 충족될 수 있습니다. 실패 불가능한 초기화 구문 요구사항은 실패 불가능한 초기화 구문 또는 암시적 언래핑 된 실패 가능한 초기화 구문에 의해 충족될 수 있습니다.
 
@@ -246,7 +248,8 @@ class SomeSubClass: SomeSuperClass, SomeProtocol {
 * 상수, 변수, 또는 프로퍼티의 타입으로
 * 배열, 딕셔너리, 또는 다른 컨테이너에서 항목의 타입
 
-> NOTE 프로토콜은 타입이므로 Swift에서 다른 타입 \(`Int`, `String`, 그리고 `Double`\)과 일치하도록 프로토콜 이름을 대문자로 시작합니다 \(`FullyNamed` 그리고 `RandomNumberGenerator`\).
+> NOTE   
+> 프로토콜은 타입이므로 Swift에서 다른 타입 \(`Int`, `String`, 그리고 `Double`\)과 일치하도록 프로토콜 이름을 대문자로 시작합니다 \(`FullyNamed` 그리고 `RandomNumberGenerator`\).
 
 다음은 타입으로 사용한 프로토콜의 예입니다:
 
@@ -266,7 +269,7 @@ class Dice {
 
 이 예제는 보드 게임에서 사용하기 위한 _n_ 면의 주사위를 나타내는 `Dice` 라는 새로운 클래스를 정의합니다. `Dice` 인스턴스는 얼마나 많은 면을 가지고 있는지를 나타내는 `sides` 라는 정수 프로퍼티를 가지고 주사위 굴린 값을 생성하기 위해 난수 생성기를 제공하는 `generator` 라는 프로퍼티를 가집니다.
 
-`generator` 프로퍼티는 `RandomNumberGenerator` 타입입니다. 따라서 `RandomNumberGenerator` 프로토콜을 채택하는 _모든_ 타입에 인스턴스로 설정할 수 있습니다. 인스턴스가 `RandomNumberGenerator` 프로토콜을 채택해야 된다는 것을 제외하고 이 프로퍼티에 할당하는 인스턴스에 다른 것은 필요하지 않습니다. 타입은 `RandomNumberGenerator` 이므로 `Dice` 클래스 내의 코드는 이 프로토콜을 준수하는 모든 생성기에 적용하는 방식으로만 `generator` 와 상호작용 할 수 있습니다. 생성기의 기본 타입으로 정의된 메서드 또는 프로퍼티는 사용할 수 없습니다. 그러나 [Downcasting](https://docs.swift.org/swift-book/LanguageGuide/TypeCasting.html#ID341) 에서 설명 했듯이 상위 클래스에서 하위 클래스로 다운 캐스트 할 수 있는 방법과 동일하게 프로토콜 타입에서 기본 타입으로 다운 캐스트 할 수 있습니다.
+`generator` 프로퍼티는 `RandomNumberGenerator` 타입입니다. 따라서 `RandomNumberGenerator` 프로토콜을 채택하는 _모든_ 타입에 인스턴스로 설정할 수 있습니다. 인스턴스가 `RandomNumberGenerator` 프로토콜을 채택해야 된다는 것을 제외하고 이 프로퍼티에 할당하는 인스턴스에 다른 것은 필요하지 않습니다. 타입은 `RandomNumberGenerator` 이므로 `Dice` 클래스 내의 코드는 이 프로토콜을 준수하는 모든 생성기에 적용하는 방식으로만 `generator` 와 상호작용 할 수 있습니다. 생성기의 기본 타입으로 정의된 메서드 또는 프로퍼티는 사용할 수 없습니다. 그러나 [다운 캐스팅 \(Downcasting\)](type-casting.md#downcasting) 에서 설명 했듯이 상위 클래스에서 하위 클래스로 다운 캐스트 할 수 있는 방법과 동일하게 프로토콜 타입에서 기본 타입으로 다운 캐스트 할 수 있습니다.
 
 `Dice` 는 초기화 상태를 설정하기 위해 초기화 구문을 가지고 있습니다. 이 초기화 구문은 `RandomNumberGenerator` 타입의 `generator` 라는 파라미터를 가지고 있습니다. 새로운 `Dice` 인스턴스로 초기화 할 때 파라미터로 준수하는 타입의 값을 전달할 수 있습니다.
 
@@ -306,9 +309,9 @@ protocol DiceGameDelegate: AnyObject {
 
 `DiceGame` 프로토콜은 주사위를 포함하는 모든 게임에 의해 채택될 수 있는 프로토콜입니다.
 
-`DiceGameDelegate` 프로토콜은 `DiceGame` 의 진행사항을 추적하기 위해 채택될 수 있습니다. 강한 참조 사이클을 방지하기 위해 위임자는 약한 참조로 선언됩니다. 약한 참조에 대한 자세한 내용은 [클래스 인스턴스 사이의 강한 참조 사이클 \(Strong Reference Cycles Between Class Instances\)](https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID51) 을 참고 바랍니다. 프로토콜을 클래슬 전용 프로토콜로 표시하면 이 챕터의 뒷부분에서 `SnakesAndLadders` 클래스는 위임자가 약한 참조로 사용되어야 한다고 선언할 수 있습니다. [클래스 전용 프로토콜 \(Class-Only Protocols\)](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID281) 은 `AnyObject` 의 상속으로 표시됩니다.
+`DiceGameDelegate` 프로토콜은 `DiceGame` 의 진행사항을 추적하기 위해 채택될 수 있습니다. 강한 참조 사이클을 방지하기 위해 위임자는 약한 참조로 선언됩니다. 약한 참조에 대한 자세한 내용은 [클래스 인스턴스 사이의 강한 참조 사이클 \(Strong Reference Cycles Between Class Instances\)](automatic-reference-counting.md#strong-reference-cycles-between-class-instances) 을 참고 바랍니다. 프로토콜을 클래슬 전용 프로토콜로 표시하면 이 챕터의 뒷부분에서 `SnakesAndLadders` 클래스는 위임자가 약한 참조로 사용되어야 한다고 선언할 수 있습니다. [클래스 전용 프로토콜 \(Class-Only Protocols\)](protocols.md#class-only-protocols) 은 `AnyObject` 의 상속으로 표시됩니다.
 
-다음은 [제어 흐름 \(Control Flow\)](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html) 에서 기존에 도입된 _Snakes and Ladders_ 게임의 버전입니다. 이 버전은 주사위 굴림에 대해 `Dice` 인스턴스를 사용하기 위해 채택하고 `DiceGame` 프로토콜을 채택하고 진행사항에 대해 알리기 위해 `DiceGameDelegate` 를 채택합니다:
+다음은 [제어 흐름 \(Control Flow\)](control-flow.md) 에서 기존에 도입된 _Snakes and Ladders_ 게임의 버전입니다. 이 버전은 주사위 굴림에 대해 `Dice` 인스턴스를 사용하기 위해 채택하고 `DiceGame` 프로토콜을 채택하고 진행사항에 대해 알리기 위해 `DiceGameDelegate` 를 채택합니다:
 
 ```swift
 class SnakesAndLadders: DiceGame {
@@ -343,7 +346,7 @@ class SnakesAndLadders: DiceGame {
 }
 ```
 
-_Snakes and Ladders_ 게임 플레이에 대한 설명은 [중단 \(Break\)](https://docs.swift.org/swift-book/LanguageGuide/ControlFlow.html#ID137) 을 참고 바랍니다.
+_Snakes and Ladders_ 게임 플레이에 대한 설명은 [중단 \(Break\)](control-flow.md#break) 을 참고 바랍니다.
 
 이 게임의 버전은 `DiceGame` 프로토콜을 채택하는 `SnakesAndLadders` 라는 클래스로 래핑됩니다. 프로토콜을 준수하기 위해 gettable `dice` 프로퍼티와 `play()` 메서드를 제공합니다 \(초기화 후에 변경할 필요가 없고 프로토콜은 오직 gettable만 요구하므로 `dice` 프로퍼티는 상수 프로퍼티로 선언됩니다\).
 
@@ -401,9 +404,10 @@ game.play()
 
 ## 확장으로 프로토콜 준수성 추가 \(Adding Protocol Conformance with an Extension\)
 
-기존 타입에 대해 소스 코드에서 접근할 수 없지만 새로운 프로토콜을 채택하고 준수하기 위해 기존 타입을 확장할 수 있습니다. 확장은 기존 타입에 새로운 프로퍼티, 메서드, 그리고 서브 스크립트를 추가할 수 있으므로 프로토콜이 요구할 수 있는 모든 요구사항을 추가할 수 있습니다. 자세한 내용은 [확장 \(Extensions\)](https://docs.swift.org/swift-book/LanguageGuide/Extensions.html) 을 참고 바랍니다.
+기존 타입에 대해 소스 코드에서 접근할 수 없지만 새로운 프로토콜을 채택하고 준수하기 위해 기존 타입을 확장할 수 있습니다. 확장은 기존 타입에 새로운 프로퍼티, 메서드, 그리고 서브 스크립트를 추가할 수 있으므로 프로토콜이 요구할 수 있는 모든 요구사항을 추가할 수 있습니다. 자세한 내용은 [확장 \(Extensions\)](extensions.md) 을 참고 바랍니다.
 
-> NOTE 타입의 기존 인스턴스는 확장에 인스턴스의 타입이 추가될 때 자동으로 프로토콜을 채택하고 준수합니다.
+> NOTE   
+> 타입의 기존 인스턴스는 확장에 인스턴스의 타입이 추가될 때 자동으로 프로토콜을 채택하고 준수합니다.
 
 예를 들어 `TextRepresentable` 이라는 프로토콜은 텍스트로 표현할 수 있는 모든 타입으로 구현될 수 있습니다. 이것은 자신의 설명이거나 현재 상태의 텍스트 버전일 수 있습니다:
 
@@ -447,7 +451,7 @@ print(game.textualDescription)
 
 ### 조건적으로 프로토콜 준수 \(Conditionally Conforming to a Protocol\)
 
-일반 타입은 타입의 일반 파라미터가 프로토콜을 준수하는 경우와 같은 특정 조건에서만 프로토콜의 요구사항을 충족시킬 수 있습니다. 타입을 확장할 때 제약조건을 나열하여 일반 타입이 프로토콜을 조건적으로 준수할 수 있도록 만들 수 있습니다. 일반적인 `where` 절을 작성하여 채택중인 프로토콜의 이름 뒤에 제약조건을 작성합니다. 일반 `where` 절에 대한 자세한 내용은 [일반 Where 절 \(Generic Where Clauses\)](https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID192) 을 참고 바랍니다.
+일반 타입은 타입의 일반 파라미터가 프로토콜을 준수하는 경우와 같은 특정 조건에서만 프로토콜의 요구사항을 충족시킬 수 있습니다. 타입을 확장할 때 제약조건을 나열하여 일반 타입이 프로토콜을 조건적으로 준수할 수 있도록 만들 수 있습니다. 일반적인 `where` 절을 작성하여 채택중인 프로토콜의 이름 뒤에 제약조건을 작성합니다. 일반 `where` 절에 대한 자세한 내용은 [제너릭 Where 절 \(Generic Where Clauses\)](generics.md#where-generic-where-clauses) 을 참고 바랍니다.
 
 다음 확장은 `Array` 인스턴스가 `TextRepresentable` 을 준수하는 타입의 항목을 저장할 때마다 `TextRepresentable` 프로토콜을 준수하도록 합니다.
 
@@ -486,7 +490,8 @@ print(somethingTextRepresentable.textualDescription)
 // Prints "A hamster named Simon"
 ```
 
-> NOTE 타입은 요구사항이 충족된다고 해서 프로토콜을 자동으로 채택하지 않습니다. 항상 프로토콜 채택을 명시적으로 선언해야 합니다.
+> NOTE   
+> 타입은 요구사항이 충족된다고 해서 프로토콜을 자동으로 채택하지 않습니다. 항상 프로토콜 채택을 명시적으로 선언해야 합니다.
 
 ## 합성된 구현을 사용하여 프로토콜 채택 \(Adopting a Protocol Using a Synthesized Implementation\)
 
@@ -546,7 +551,7 @@ for level in levels.sorted() {
 
 ## 프로토콜 타입의 콜렉션 \(Collections of Protocol Types\)
 
-프로토콜은 [타입으로의 프로토콜 \(Protocols as Types\)](https://docs.swift.org/swift-book/LanguageGuide/Protocols.html#ID275) 에서 언급했듯이 배열 또는 딕셔너리와 같은 콜렉션에 저장되기 위해 타입으로 사용될 수 있습니다. 이 예제는 `TextRepresentable` 에 대한 배열을 생성합니다:
+프로토콜은 [타입으로의 프로토콜 \(Protocols as Types\)](protocols.md#protocols-as-types) 에서 언급했듯이 배열 또는 딕셔너리와 같은 콜렉션에 저장되기 위해 타입으로 사용될 수 있습니다. 이 예제는 `TextRepresentable` 에 대한 배열을 생성합니다:
 
 ```swift
 let things: [TextRepresentable] = [game, d12, simonTheHamster]
@@ -632,7 +637,8 @@ protocol SomeClassOnlyProtocol: AnyObject, SomeInheritedProtocol {
 
 위의 예제에서 `SomeClassOnlyProtocol` 은 클래스 타입에만 채택될 수 있습니다. `SomeClassOnlyProtocol` 을 구조체 또는 열거형 정의에 채택하면 컴파일 시 에러가 발생합니다.
 
-> NOTE 프로토콜의 요구사항에 의해 정의된 동작이 준수하는 타입에 값 의미 체계가 아닌 참조 의미 체계가 있다고 가정하거나 요구하는 경우 클래스 전용 프로토콜을 사용합니다. 참조와 값 의미 체계에 대한 자세한 내용은 [구조체와 열거형은 값 타입 \(Structures and Enumerations Are Value Types\)](https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html#ID88) 와 [클래스는 참조 타입 \(Classes Are Reference Types\)](https://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.html#ID89) 을 참고 바랍니다.
+> NOTE   
+> 프로토콜의 요구사항에 의해 정의된 동작이 준수하는 타입에 값 의미 체계가 아닌 참조 의미 체계가 있다고 가정하거나 요구하는 경우 클래스 전용 프로토콜을 사용합니다. 참조와 값 의미 체계에 대한 자세한 내용은 [구조체와 열거형은 값 타입 \(Structures and Enumerations Are Value Types\)](structures-and-classes.md#structures-and-enumerations-are-value-types) 와 [클래스는 참조 타입 \(Classes Are Reference Types\)](structures-and-classes.md#classes-are-reference-types) 을 참고 바랍니다.
 
 ## 프로토콜 구성 \(Protocol Composition\)
 
@@ -700,7 +706,7 @@ beginConcert(in: seattle)
 
 ## 프로토콜 준수에 대한 검사 \(Checking for Protocol Conformance\)
 
-프로토콜 준수성에 대해 확인하고 특정 프로토콜로 캐스팅 하기 위해 [타입 캐스팅 \(Type Casting\)](https://docs.swift.org/swift-book/LanguageGuide/TypeCasting.html) 에서 설명했듯이 `is` 와 `as` 연산자를 사용할 수 있습니다. 프로토콜을 확인하고 캐스팅하는 것은 타입을 확인하고 캐스팅 하는 것과 정확하게 같은 구문을 따릅니다:
+프로토콜 준수성에 대해 확인하고 특정 프로토콜로 캐스팅 하기 위해 [타입 캐스팅 \(Type Casting\)](type-casting.md) 에서 설명했듯이 `is` 와 `as` 연산자를 사용할 수 있습니다. 프로토콜을 확인하고 캐스팅하는 것은 타입을 확인하고 캐스팅 하는 것과 정확하게 같은 구문을 따릅니다:
 
 * `is` 연산자는 인스턴스가 프로토콜을 준수한다면 `true` 를 반환하고 그렇지 않으면 `false` 를 반환합니다.
 * 다운 캐스트 연산자의 `as?` 버전은 프로토콜의 타입의 옵셔널 값을 반환하고 인스턴스가 프로토콜을 준수하지 않으면 그 값은 `nil` 입니다.
@@ -777,7 +783,7 @@ for object in objects {
 
 옵셔널 요구사항에서 메서드나 프로퍼티를 사용할 때 그것의 타입은 자동으로 옵셔널이 됩니다. 예를 들어 `(Int) -> String` 타입의 메서드는 `((Int) -> String)?` 이 됩니다. 전체 함수 타입은 메서드의 반환값이 아니라 옵셔널로 래핑됩니다.
 
-옵셔널 프로토콜 요구사항은 프로토콜을 준수하는 타입에 의해 요구사항이 구현되지 않았을 가능성을 나타내기 위해 옵셔널 체이닝으로 호출될 수 있습니다. 호출될 때 `someOptionalMethod?(someArgument)` 와 같이 메서드의 이름 뒤에 물음표를 작성하여 옵셔널 메서드의 구현에 대해 확인합니다. [옵셔널 체이닝 \(Optional Chaining\)](https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html) 에서 더 자세한 내용을 확인할 수 있습니다.
+옵셔널 프로토콜 요구사항은 프로토콜을 준수하는 타입에 의해 요구사항이 구현되지 않았을 가능성을 나타내기 위해 옵셔널 체이닝으로 호출될 수 있습니다. 호출될 때 `someOptionalMethod?(someArgument)` 와 같이 메서드의 이름 뒤에 물음표를 작성하여 옵셔널 메서드의 구현에 대해 확인합니다. [옵셔널 체이닝 \(Optional Chaining\)](optional-chaining.md) 에서 더 자세한 내용을 확인할 수 있습니다.
 
 다음 예제는 증가하는 값을 제공하기 위해 외부 데이터 소스를 사용하는 `Counter` 라는 정수 카운팅 클래스를 정의합니다. 이 데이터 소스는 2개의 옵셔널 요구사항을 가진 `CounterDataSource` 프로토콜에 의해 정의됩니다:
 
@@ -790,7 +796,8 @@ for object in objects {
 
 `CounterDataSource` 프로토콜은 `increment(forCount:)` 라는 옵셔널 메서드 요구사항과 `fixedIncrement` 라는 옵셔널 프로퍼티 요구사항을 정의합니다. 이 요구사항은 `Counter` 인스턴스에 대해 적절한 증가값을 제공하기 위해 데이터 소스에 대한 2가지 다른 방법을 정의합니다.
 
-> NOTE 엄밀히 말하면 프로토콜 요구사항을 구현하지 않고도 `CounterDataSource` 를 준수하는 사용자 정의 클래스를 작성할 수 있습니다. 둘다 옵셔널 입니다. 기술적으로는 허용되지만 좋은 데이터 소스로는 적합합지 않습니다.
+> NOTE   
+> 엄밀히 말하면 프로토콜 요구사항을 구현하지 않고도 `CounterDataSource` 를 준수하는 사용자 정의 클래스를 작성할 수 있습니다. 둘다 옵셔널 입니다. 기술적으로는 허용되지만 좋은 데이터 소스로는 적합합지 않습니다.
 
 아래 정의된 `Counter` 클래스는 `CounterDataSource?` 타입의 옵셔널 `dataSource` 프로퍼티를 가지고 있습니다:
 
@@ -814,7 +821,7 @@ class Counter {
 
 여기서 2단계 옵셔널 체이닝을 사용합니다. 먼저 `dataSource` 는 `nil` 이 가능하므로 `dataSource` 가 `nil` 이 아닌 경우에만 `increment(forCount:)` 호출해야 된다는 것을 나타내기 위해 `dataSource` 는 이름 뒤에 물음표를 붙입니다. 두번째로 옵셔널 요구사항 이므로 `dataSource` 가 존재하더라도 `increment(forCount:)` 가 구현되었다고 보장하지 않습니다. 여기서 `increment(forCount:)` 가 구현되지 않은 가능성은 옵셔널 체이닝에 의해 처리됩니다. `increment(forCount:)` 가 존재할 경우에만 `increment(forCount:)` 호출이 이뤄지고 존재하지 않으면 `nil` 입니다. 이것이 `increment(forCount:)` 이름 뒤에 물음표가 붙는 이유입니다.
 
-`increment(forCount:)` 를 호출하는 것은 위의 2가지 이유로 실패할 수 있으므로 이 호출은 _옵셔널_ `Int` 값을 반환합니다. `increment(forCount:)` 가 `CounterDataSource` 의 정의에서 옵셔널이 아닌 `Int` 값으로 반환하더라도 마찬가지입니다. 2개의 옵셔널 체이닝 연산자가 차례로 있지만 결과는 여전히 단일 옵셔널로 래핑됩니다. 여러개 옵셔널 체이닝 연산자 사용에 대한 자세한 내용은 [여러 수준의 체이닝 연결 \(Linking Multiple Levels of Chaining\)](https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html#ID252) 을 참고 바랍니다.
+`increment(forCount:)` 를 호출하는 것은 위의 2가지 이유로 실패할 수 있으므로 이 호출은 _옵셔널_ `Int` 값을 반환합니다. `increment(forCount:)` 가 `CounterDataSource` 의 정의에서 옵셔널이 아닌 `Int` 값으로 반환하더라도 마찬가지입니다. 2개의 옵셔널 체이닝 연산자가 차례로 있지만 결과는 여전히 단일 옵셔널로 래핑됩니다. 여러개 옵셔널 체이닝 연산자 사용에 대한 자세한 내용은 [여러 수준의 체이닝 연결 \(Linking Multiple Levels of Chaining\)](optional-chaining.md#linking-multiple-levels-of-chaining) 을 참고 바랍니다.
 
 `increment(forCount:)` 호출 후에 반환한 옵셔널 `Int` 는 옵셔널 바인딩을 사용하여 `amount` 라는 상수에 언래핑 됩니다. 옵셔널 `Int` 에 값이 포함되어 있다면 —이것은 위임자와 메서드가 모두 존재하고 메서드가 값을 반환 한 경우— 언래핑된 `amount` 는 저장된 `count` 프로퍼티에 추가하고 증가를 완료합니다.
 
@@ -909,7 +916,8 @@ print("And here's a random Boolean: \(generator.randomBool())")
 
 해당 프로토콜의 모든 메서드 또는 계산된 프로퍼티 요구사항에 기본 구현을 제공하기 위해 프로토콜 확장을 사용할 수 있습니다. 준수하는 타입이 필수 메서드 또는 프로퍼티의 자체 구현을 제공하면 해당 구현은 확장에 의해 제공되는 구현 대신 사용됩니다.
 
-> NOTE 확장에 의해 제공된 기본 구현을 가진 프로토콜 요구사항은 옵셔널 프로토콜 요구사항과 다릅니다. 준수하는 타입이 자체 구현을 제공할 필요는 없지만 기본 구현을 가진 요구사항은 옵셔널 체이닝 없이 호출될 수 있습니다.
+> NOTE   
+> 확장에 의해 제공된 기본 구현을 가진 프로토콜 요구사항은 옵셔널 프로토콜 요구사항과 다릅니다. 준수하는 타입이 자체 구현을 제공할 필요는 없지만 기본 구현을 가진 요구사항은 옵셔널 체이닝 없이 호출될 수 있습니다.
 
 예를 들어 `TextRepresentable` 프로토콜을 상속하는 `PrettyTextRepresentable` 프로토콜은 `textualDescription` 프로퍼티 접근의 결과를 반환하기 위해 필요한 `prettyTextualDescription` 프로퍼티의 기본 구현을 제공할 수 있습니다:
 
@@ -923,7 +931,7 @@ extension PrettyTextRepresentable  {
 
 ### 프로토콜 확장에 제약사항 추가 \(Adding Constraints to Protocol Extensions\)
 
-프로토콜 확장을 정의할 때 확장의 메서드와 프로퍼티를 사용할 수 있기 전에 준수하는 타입이 충족해야 하는 제약조건을 지정할 수 있습니다. 일반적인 `where` 절을 작성하여 확장하는 프로토콜의 이름 뒤에 제약조건을 작성합니다. 자세한 내용은 [일반적 Where 절 \(Generic Where Clauses\)](https://docs.swift.org/swift-book/LanguageGuide/Generics.html#ID192) 을 참고 바랍니다.
+프로토콜 확장을 정의할 때 확장의 메서드와 프로퍼티를 사용할 수 있기 전에 준수하는 타입이 충족해야 하는 제약조건을 지정할 수 있습니다. 일반적인 `where` 절을 작성하여 확장하는 프로토콜의 이름 뒤에 제약조건을 작성합니다. 자세한 내용은 [제너릭 Where 절 \(Generic Where Clauses\)](generics.md#where-generic-where-clauses) 을 참고 바랍니다.
 
 예를 들어 `Equatable` 프로토콜을 준수하는 항목의 모든 콜렉션에 적용하는 `Collection` 프로토콜의 확장을 정의할 수 있습니다. 콜렉션의 요소를 표준 라이브러리의 일부인 `Equatable` 프로토콜로 제한하면 두 요소간의 같음과 다름에 대한 확인을 위해 `==` 와 `!=` 연산자를 사용할 수 있습니다.
 
@@ -958,5 +966,6 @@ print(differentNumbers.allEqual())
 // Prints "false"
 ```
 
-> NOTE 준수하는 타입이 같은 메서드 또는 프로퍼티에 대한 구현을 제공하는 여러 제약조건의 확장에 대한 요구사항을 충족한다면 Swift는 가장 전문화 된 제약조건에 해당하는 구현을 사용합니다.
+> NOTE   
+> 준수하는 타입이 같은 메서드 또는 프로퍼티에 대한 구현을 제공하는 여러 제약조건의 확장에 대한 요구사항을 충족한다면 Swift는 가장 전문화 된 제약조건에 해당하는 구현을 사용합니다.
 
