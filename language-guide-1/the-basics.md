@@ -14,7 +14,7 @@ Swift는 _타입-세이프 \(type-safe\)_ 언어입니다. 타입 세이프란 �
 
 ## 상수와 변수 \(Constants and Variables\)
 
-상수와 변수는 이름 \(`maximumNumberOfLoginAttempts` 또는 `welcomeMessage`\)과 특정 타입 \(숫자 `10` 또는 문자열 `"Hello"`와 같은 타입\)의 값을 연결합니다. _상수 \(Constant\)_ 의 값은 최초 지정 후 변경이 불가능하지만 _변수 \(Variable\)_ 은 다른 값으로 변경이 가능합니다.
+상수와 변수는 이름 \(`maximumNumberOfLoginAttempts` 또는 `welcomeMessage`\)과 특정 타입 \(숫자 `10` 또는 문자열 `"Hello"`와 같은 타입\)의 값을 연결합니다. _상수 \(Constant\)_ 의 값은 최초 지정 후 변경이 불가능하지만 _변수 \(Variable\)_ 는 다른 값으로 변경이 가능합니다.
 
 ### 상수와 변수 선언 \(Declaring Contants and Variables\)
 
@@ -135,7 +135,7 @@ Swift에서 주석은 C에서 주석을 다는 방법과 유사합니다. 한줄
 // This is a comment.
 ```
 
-여러줄 주석은 슬래시 뒤에 애스터리스크 \(/_\) 로 시작하고 애스터리스크 뒤에 슬래시 \(\_/\)로 끝납니다:
+여러줄 주석은 슬래시 뒤에 애스터리스크 \(`/*`_\) 로 시작하고 애스터리스크 뒤에 슬래시 \(`*/`_\)로 끝납니다:
 
 ```swift
 /* This is also a comment
@@ -154,7 +154,7 @@ This is the end of the first multiline comment. */
 
 ## 세미콜론 \(Semicolons\)
 
-많은 다른 언어와 다르게 Swift는 코드의 각 구문 후에 세미콜론 \(;\)은 필수조건이 아닙니다. 그러나 여러 구문을 한줄로 작성할 경우 세미콜론은 _필수로 작성되어야 합니다_:
+많은 다른 언어와 다르게 Swift는 코드의 각 구문 후에 세미콜론 \(`;`\)은 필수조건이 아닙니다. 그러나 여러 구문을 한줄로 작성할 경우 세미콜론은 _필수로 작성되어야 합니다_:
 
 ```swift
 let cat = "🐱"; print(cat)
