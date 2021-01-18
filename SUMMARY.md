@@ -28,7 +28,7 @@
 * [제너릭 \(Generics\)](language-guide-1/generics.md)
 * [불투명한 타입 \(Opaque Types\)](language-guide-1/opaque-types.md)
 * [자동 참조 카운팅 \(Automatic Reference Counting\)](language-guide-1/automatic-reference-counting.md)
-* [메모리 안정성 \(Memory Safety\)](language-guide-1/memory-safety.md)
+* [메모리 안전성 \(Memory Safety\)](language-guide-1/memory-safety.md)
 * [접근 제어 \(Access Control\)](language-guide-1/access-control.md)
 * [고급 연산자 \(Advanced Operators\)](language-guide-1/advanced-operators.md)
 
