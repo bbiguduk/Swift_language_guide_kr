@@ -28,7 +28,7 @@ https://docs.swift.org/swift-book/ 에 있는 Language Guide 를 한국어로 �
 |서브 스크립트|[Subscripts](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/subscripts.md)|
 |상속|[Inheritance](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/inheritance.md)|
 |초기화|[Initialization](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/initialization.md)|
-|초기화 해제|[Deinitialization(https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/deinitialization.md)|
+|초기화 해제|[Deinitialization](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/deinitialization.md)|
 |옵셔널 체이닝|[Optional Chaining](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/optional-chaining.md)|
 |에러 처리|[Error Handling](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/error-handling.md)|
 |타입 캐스팅|[Type Casting](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/type-casting.md)|
