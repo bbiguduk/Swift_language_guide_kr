@@ -451,7 +451,7 @@ case let (x, y):
 // Prints "(1, -1) is on the line x == -y"
 ```
 
-![Coordinate Graph Complex](../.gitbook/assets/05_coordinategraphcomplex_2x.png)
+![Coordinate Graph Complex](../.gitbook/assets/05_coordinateGraphComplex_2x.png)
 
 `switch` 구문은 `x == y` 인 초록색 대각선 위에 있는지, `x == -y` 인 보라색 대각선 위에 있거나 아니면 그 외에 위치하는지 판단합니다.
 
@@ -613,7 +613,7 @@ Swift에서 복잡한 제어흐름 구조를 생성하기 위해 루프와 조�
 
 라벨이 있는 구문 \(labeled statement\)은 구문의 소개자 키워드와 같은 줄에 위치하고 바로 다음에 콜론이 옵니다. 여기 예제는 `while` 루프에 대한 구문의 예입니다. 모든 루프와 `switch` 구문에 대해 동일합니다:
 
-![Lebeled Statements](../.gitbook/assets/05_lebeledstatements.png)
+![Lebeled Statements](../.gitbook/assets/05_lebeledStatements.png)
 
 다음 예제는 이 챕터의 이전에 봤던 _Snakes and Ladders_ 게임에 적절한 버전을 위해 라벨이 있는 `while` 루프와 `break` 와 `continue` 구문을 사용합니다. 이번에는 게임에 추가 규칙이 있습니다:
 

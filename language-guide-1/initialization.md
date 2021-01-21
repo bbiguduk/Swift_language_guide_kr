@@ -339,11 +339,11 @@ _편의 초기화 구문 \(Convenience initializers\)_ 클래스에 대해 초�
 
 클래스에 대한 지정된 초기화 구문은 값 타입에 대한 간단한 초기화 구문과 동일한 방법으로 작성됩니다:
 
-![Designated Initializer](../.gitbook/assets/14_designatedinitializer.png)
+![Designated Initializer](../.gitbook/assets/14_designatedInitializer.png)
 
 편의 초기화 구문은 같은 스타일로 작성되지만 공백으로 구분하여 `init` 키워드 전에 `convenience` 수정자를 작성합니다:
 
-![Convenience Initializer](../.gitbook/assets/14_convenienceinitializer.png)
+![Convenience Initializer](../.gitbook/assets/14_convenienceInitializer.png)
 
 ### 클래스 타입에 대한 초기화 구문 위임 \(Initializer Delegation for Class Types\)
 
@@ -430,7 +430,7 @@ Swift의 컴파일러는 에러없이 2단계 초기화가 완료되었는지 �
 
 다음은 첫번째 단계에서 가상 하위 클래스와 상위 클래스에 대한 초기화 호출을 찾는 방법을 나타냅니다:
 
-![Two-Phase Initialization 1](../.gitbook/assets/14_twophaseinitialization01_2x.png)
+![Two-Phase Initialization 1](../.gitbook/assets/14_twoPhaseInitialization01_2x.png)
 
 이 예제에서 초기화는 하위 클래스의 편의 초기화 구문을 호출하며 시작합니다. 이 편의 초기화 구문은 아직 모든 프로퍼티를 수정할 수 없습니다. 이것은 같은 클래스의 지정된 초기화 구문으로 위임합니다.
 
@@ -442,7 +442,7 @@ Swift의 컴파일러는 에러없이 2단계 초기화가 완료되었는지 �
 
 다음은 2 단계에서 같은 초기화 호출을 찾는 방법을 나타냅니다:
 
-![Two-Phase Initialization 2](../.gitbook/assets/14_twophaseinitialization02_2x.png)
+![Two-Phase Initialization 2](../.gitbook/assets/14_twoPhaseInitialization02_2x.png)
 
 상위 클래스의 지정된 초기화 구문은 이제 인스턴스를 추가로 사용자 화 할 수 있는 기회 \(필수는 아님\)를 가집니다.
 
@@ -577,7 +577,7 @@ class Food {
 
 아래의 그림은 `Food` 클래스를 위한 초기화 구문 체인을 나타냅니다:
 
-![Initializer Example 1](../.gitbook/assets/14_initializersexample01_2x.png)
+![Initializer Example 1](../.gitbook/assets/14_initializersExample01_2x.png)
 
 클래스는 기본 멤버별 초기화 구문을 가지고 있지 않으므로 `Food` 클래스는 `name` 이라는 하나의 인자를 가지는 지정된 초기화 구문을 제공합니다. 이 초기화 구문은 특정 이름으로 새로운 `Food` 인스턴스를 생성하기 위해 사용될 수 있습니다:
 
@@ -612,7 +612,7 @@ class RecipeIngredient: Food {
 
 아래의 그림은 `RecipeIngredient` 클래스에 대한 초기화 구문 체인을 보여줍니다:
 
-![Initializers Example 2](../.gitbook/assets/14_initializersexample02_2x.png)
+![Initializers Example 2](../.gitbook/assets/14_initializersExample02_2x.png)
 
 `RecipeIngredient` 클래스는 새로운 `RecipeIngredient` 인스턴스에 모든 프로퍼티를 채울 수 있는 `init(name: String, quantity: Int)` 인 하나의 지정된 초기화 구문을 가지고 있습니다. 이 초기화 구문은 `RecipeIngredient` 에 도입된 새로운 프로퍼티 인 `quantity` 프로퍼티에 전달된 `quantity` 인자를 할당하는 것으로 시작합니다. 그런 후에 `Food` 클래스에 `init(name: String)` 초기화 구문으로 위임합니다. 이 프로세스는 위에서 설명한 [2단계 초기화 \(Two-Phase Initialization\)](initialization.md#2-two-phase-initialization) 에 안전 점검 1에 충족합니다.
 
@@ -654,7 +654,7 @@ class ShoppingListItem: RecipeIngredient {
 
 아래의 그림은 세 클래스에 대한 모든 초기화 구문 체인을 나타냅니다:
 
-![Initializers Example 3](../.gitbook/assets/14_initializersexample03_2x.png)
+![Initializers Example 3](../.gitbook/assets/14_initializersExample03_2x.png)
 
 상속된 세가지 초기화 구문을 모두 사용하여 새로운 `ShoppingListItem` 인스턴스를 생성할 수 있습니다:
 

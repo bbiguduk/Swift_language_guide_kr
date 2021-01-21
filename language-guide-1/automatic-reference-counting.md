@@ -127,7 +127,7 @@ unit4A = Apartment(unit: "4A")
 
 다음은 강한 참조가 이 두 인스턴스를 생성하고 할당하여 어떻게 보이는지 나타냅니다. `john` 변수는 이제 새로운 `Person` 인스턴스에 대한 강한 참조를 가지고 있고 `unit4A` 변수는 새로운 `Apartment` 인스턴스에 대한 강한 참조를 가지고 있습니다:
 
-![Reference Cycle 01](../.gitbook/assets/24_referencecycle01_2x.png)
+![Reference Cycle 01](../.gitbook/assets/24_referenceCycle01_2x.png)
 
 이제 사람은 아파트를 가지고 아파트는 소유자를 가지도록 두 인스턴스를 함께 연결할 수 있습니다. 느낌표 \(`!`\)는 `john` 과 `unit4A` 옵셔널 변수 내에 저장된 인스턴스를 언래핑 하고 접근하기 위해 사용되므로 해당 인스턴스의 프로퍼티를 설정할 수 있습니다:
 
@@ -138,7 +138,7 @@ unit4A!.tenant = john
 
 다음은 두 인스턴스를 함께 연결한 후에 강한 참조가 어떻게 되는지 보여줍니다:
 
-![Reference Cycle 02](../.gitbook/assets/24_referencecycle02_2x.png)
+![Reference Cycle 02](../.gitbook/assets/24_referenceCycle02_2x.png)
 
 불행히도 이 두 인스턴스 연결은 서로간의 강한 참조 사이클을 생성합니다. `Person` 인스턴스는 이제 `Apartment` 인스턴스에 대한 강한 참조를 가지고 `Apartment` 인스턴스는 `Person` 인스턴스에 대한 강한 참조를 가집니다. 따라서 `john` 과 `unit4A` 변수에 의해 가진 강한 참조를 중단할 때 참조 카운트는 0으로 떨어지지 않고 인스턴스는 ARC에 의해 할당 해제되지 않습니다:
 
@@ -151,7 +151,7 @@ unit4A = nil
 
 다음은 `john` 과 `unit4A` 변수를 `nil` 로 설정한 후에 강한 참조를 나타냅니다:
 
-![Reference Cycle 03](../.gitbook/assets/24_referencecycle03_2x.png)
+![Reference Cycle 03](../.gitbook/assets/24_referenceCycle03_2x.png)
 
 `Person` 과 `Apartment` 인스턴스 간의 강한 참조는 남아있고 중단될 수 없습니다.
 
@@ -207,7 +207,7 @@ unit4A!.tenant = john
 
 다음은 두 인스턴스를 함께 연결한 참조를 나타냅니다:
 
-![Weak Reference 01](../.gitbook/assets/24_weakreference01_2x.png)
+![Weak Reference 01](../.gitbook/assets/24_weakReference01_2x.png)
 
 `Person` 인스턴스는 `Apartment` 인스턴스에 대해 아직 강한 참조를 가지고 있지만 `Apartment` 인스턴스는 이제 `Person` 인스턴스에 대해 _약한_ 참조를 가지고 있습니다. 이것은 `john` 변수에 `nil` 을 설정하여 강한 참조를 끊으면 `Person` 인스턴스에 대해 더이상 강한 참조가 아님을 의미합니다:
 
@@ -218,7 +218,7 @@ john = nil
 
 더이상 `Person` 인스턴스에 대해 강한 참조를 가지지 않기 때문에 할당 해제되고 `tenant` 프로퍼티는 `nil` 로 설정됩니다:
 
-![Weak Reference 02](../.gitbook/assets/24_weakreference02_2x.png)
+![Weak Reference 02](../.gitbook/assets/24_weakReference02_2x.png)
 
 `Apartment` 인스턴스에 대한 유일한 강한 참조는 `unit4A` 변수에서 가져온 것입니다. 강한 참조를 끊으면 `Apartment` 인스턴스에 대한 강한 참조는 더이상 없습니다:
 
@@ -229,7 +229,7 @@ unit4A = nil
 
 `Apartment` 인스턴스에 대한 강한 참조가 더이상 없으므로 할당 해제됩니다:
 
-![Weak Reference 03](../.gitbook/assets/24_weakreference03_2x.png)
+![Weak Reference 03](../.gitbook/assets/24_weakReference03_2x.png)
 
 > NOTE   
 > 가비지 콜렉션을 사용하는 시스템에서는 메모리 압력이 가비지 콜렉션을 트리거 할 때만 강한 참조가 없는 객체가 할당 해제되기 때문에 간단한 캐싱 메커니즘을 구현하는데 약한 포인터가 사용되는 경우가 있습니다. 그러나 ARC를 사용하면 마지막 강한 참조가 제거되자마자 값이 할당 해제되어 약한 참조는 이러한 목적에 적합하지 않습니다.
@@ -361,7 +361,7 @@ department.courses = [intro, intermediate, advanced]
 
 위의 코드는 과와 그 과의 3개의 과정을 생성합니다. 소개와 중급 과정 모두 `nextCourse` 프로퍼티에 저장된 다음 과정을 제안하며 이는 학생이 과정을 완료한 후 수강해야 하는 과정에 대한 미소유 옵셔널 참조를 유지합니다.
 
-![Unowned Optional Reference](../.gitbook/assets/24_unownedoptionalreference_2x.png)
+![Unowned Optional Reference](../.gitbook/assets/24_unownedOptionalReference_2x.png)
 
 미소유 옵셔널 참조는 래핑하는 클래스의 인스턴스에 강하게 유지하지 않으므로 ARC가 인스턴스를 할당 해제하는 것을 방지하지 않습니다. 미소유 옵셔널 참조가 `nil` 이 될 수 있다는 점을 제외하고 미소유 참조는 ARC에서 수행하는 것과 동일하게 동작합니다.
 
@@ -500,7 +500,7 @@ print(paragraph!.asHTML())
 
 안타깝게도 위에서 작성한 `HTMLElement` 클래스는 `HTMLElement` 인스턴스와 기본 `asHTML` 값으로 사용된 클로저 간에 강한 참조 사이클을 생성합니다. 사이클은 다음과 같습니다:
 
-![Closure Reference Cycle 01](../.gitbook/assets/24_closurereferencecycle01_2x.png)
+![Closure Reference Cycle 01](../.gitbook/assets/24_closureReferenceCycle01_2x.png)
 
 인스턴스의 `asHTML` 프로퍼티는 클로저에 대해 강한 참조를 유지합니다. 그러나 클로저는 바디 내에서 `self.name` 과 `self.text` 를 참조하는 방법 처럼 `self` 를 참조하기 때문에 클로저는 `HTMLElement` 인스턴스에 다시 강한 참조를 유지한다는 의미로 `self` 를 _캡처_ 합니다. 둘 사이에 강한 참조 사이클이 생성됩니다 \(자세한 내용은 [캡처값 \(Capturing Values\)](closures.md#capturing-values) 을 참고 바랍니다\).
 
@@ -595,7 +595,7 @@ print(paragraph!.asHTML())
 
 다음은 캡처 목록이 참조에서 어떻게 보이는지 나타냅니다:
 
-![Closure Reference Cycle 02](../.gitbook/assets/24_closurereferencecycle02_2x.png)
+![Closure Reference Cycle 02](../.gitbook/assets/24_closureReferenceCycle02_2x.png)
 
 이번에는 클로저에 의해 `self` 의 캡처는 미소유 참조이고 캡처한 `HTMLElement` 인스턴스를 강하게 유지하지 않습니다. `paragraph` 변수를 `nil` 로 강한 참조를 설정하면 아래 예제에서 초기화 해제 구문 메세지를 출력하는 것을 확인했듯이 `HTMLElement` 인스턴스는 할당 해제 됩니다.
 

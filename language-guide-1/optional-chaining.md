@@ -119,7 +119,7 @@ class Residence {
 
 `rooms` 배열에 접근하는 짧은 구문을 위해 `Residence` 에 버전은 `rooms` 배열에 요청된 인덱스로 방에 접근을 제공하는 읽기-쓰기 서브 스크립트를 제공합니다.
 
-이 `Residence` 버전은 죽택에 있는 방의 갯수를 출력하는 `printNumberOfRooms` 라는 메서드도 제공합니다.
+이 `Residence` 버전은 주택에 있는 방의 갯수를 출력하는 `printNumberOfRooms` 라는 메서드도 제공합니다.
 
 마지막으로 `Residence` 는 `Address?` 타입을 가지는 `address` 라는 옵셔널 프로퍼티를 정의합니다. 이 프로퍼티에 대한 `Address` 클래스 타입은 아래에 정의되어 있습니다.
 

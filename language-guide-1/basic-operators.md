@@ -79,7 +79,7 @@ _나머지 연산자 \(remainder operator\)_ \(`a % b`\)는 `a` 안에 들어갈
 
 여기 나머지 연산자가 어떻게 동작하는지 살펴봅시다. `9 % 4` 를 계산하기위해 `9` 안에 얼마나 많은 `4` 가 들어가는지 알아야 합니다:
 
-![](../.gitbook/assets/02_remainderinteger_2x.png)
+![](../.gitbook/assets/02_remainderInteger_2x.png)
 
 `9` 에 `4` 가 2번 들어가고 오렌지 색과 마찬가지로 `1` 이 남는 것을 알 수 있습니다.
 

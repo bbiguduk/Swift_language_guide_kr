@@ -136,7 +136,7 @@ for beverage in Beverage.allCases {
 
 다른 제품은 어떠한 ISO 8859-1 문자도 사용할 수 있고 2,953개의 문자까지 인코딩할 수 있는 QR 코드 형식의 2D 바코드 라벨이 부착되어 있습니다:
 
-![Barcode QR](../.gitbook/assets/08_barcode_qr_2x.png)
+![Barcode QR](../.gitbook/assets/08_barcode_QR_2x.png)
 
 재고 추적 시스템은 UPC 바코드를 4개의 정수로 된 튜플로 저장하고 QR 코드 바코드를 모든 길이의 문자열로 저장하는 것이 편리합니다.
 

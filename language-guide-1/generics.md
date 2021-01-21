@@ -119,7 +119,7 @@ swapTwoValues(&someString, &anotherString)
 
 아래의 그림은 스택에 대한 푸쉬와 팝에 대한 동작을 보여줍니다:
 
-![Stack Push Pop](../.gitbook/assets/22_stackpushpop_2x.png)
+![Stack Push Pop](../.gitbook/assets/22_stackPushPop_2x.png)
 
 1. 스택에 현재 3개의 값이 있습니다.
 2. 4번째 값은 스택의 상단에 푸쉬됩니다.
@@ -182,7 +182,7 @@ stackOfStrings.push("cuatro")
 
 다음은 `stackOfStrings` 가 스택에 4개의 값을 푸쉬한 후를 나타냅니다:
 
-![Stack Pushed Four Strings](../.gitbook/assets/22_stackpushedfourstrings_2x.png)
+![Stack Pushed Four Strings](../.gitbook/assets/22_stackPushedFourStrings_2x.png)
 
 스택에 값을 팝하여 제거하고 반환되는 값은 `"cuatro"` 입니다:
 
@@ -193,7 +193,7 @@ stackOfStrings.push("cuatro")
 
 다음은 스택이 값을 팝한 후를 보여줍니다:
 
-![Stack Poped One String](../.gitbook/assets/22_stackpoppedonestring_2x.png)
+![Stack Poped One String](../.gitbook/assets/22_stackPoppedOneString_2x.png)
 
 ## 제너릭 타입 확장 \(Extending a Generic Type\)
 

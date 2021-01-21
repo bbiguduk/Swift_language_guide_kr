@@ -18,7 +18,7 @@ Swift는 아래에서 설명 하겠지만 C에서의 모든 비트 연산자를 
 
 _비트 NOT 연산자_ \(`~`\)는 숫자의 모든 비트를 반전합니다:
 
-![Bitwise NOT](../.gitbook/assets/27_bitwisenot_2x.png)
+![Bitwise NOT](../.gitbook/assets/27_bitwiseNOT_2x.png)
 
 비트 NOT 연산자는 접두사 연산자이고 공백없이 동작할 값 바로 앞에 위치합니다:
 
@@ -49,7 +49,7 @@ let middleFourBits = firstSixBits & lastSixBits  // equals 00111100
 
 _비트 OR 연산자_ \(`|`\)는 두 숫자의 비트를 비교합니다. 이 연산자는 입력한 숫자 중 하나라도 비트가 `1` 이면 비트에 `1` 을 설정하는 새로운 숫자를 반환합니다:
 
-![Bitwise OR](../.gitbook/assets/27_bitwiseor_2x.png)
+![Bitwise OR](../.gitbook/assets/27_bitwiseOR_2x.png)
 
 아래 예제에서 `someBits` 와 `moreBits` 의 값은 다른 비트에 `1`을 설정합니다. 비트 OR 연산자는 부호 없는 십진수 `254` 와 같은 숫자 `11111110` 을 만들기 위해 결합합니다:
 
@@ -131,7 +131,7 @@ let blueComponent = pink & 0x0000FF           // blueComponent is 0x99, or 153
 
 _값 비트 \(value bits\)_ 로 알려진 남아있는 비트는 실제 값을 저장합니다. 양수는 부호없는 정수와 같은 방법으로 `0` 부터 위쪽으로 세어 저장됩니다. 다음은 `Int8` 내부의 비트가 숫자 `4` 를 어떻게 보여주는지 나타냅니다:
 
-![Bit Shift Signed Four](../.gitbook/assets/27_bitshiftsignedfour_2x.png)
+![Bit Shift Signed Four](../.gitbook/assets/27_bitshiftSignedFour_2x.png)
 
 "양수"를 의미하는 부호 비트가 `0` 이고 7개 값 비트는 이진 표기법으로 작성된 숫자 `4` 입니다.
 
@@ -153,7 +153,7 @@ _값 비트 \(value bits\)_ 로 알려진 남아있는 비트는 실제 값을 �
 
 두번째, 2의 보수 표현을 사용하면 음수의 비트를 양수처럼 왼쪽과 오른쪽으로 이동할 수 있고 왼쪽으로 이동할 때마다 두배로 늘리거나 오른쪽으로 이동할 때마다 반으로 줄입니다. 이를 위해 부호가 있는 정수를 오른쪽으로 이동할 때는 추가 규칙이 사용됩니다: 부호가 있는 정수를 오른쪽으로 이동할 때 부호가 없는 정수와 같은 규칙이 적용되지만 왼쪽에 비어있는 모든 비트에는 0이 아닌 _부호 비트 \(sign bit\)_ 를 채웁니다.
 
-![Bit Shift Signed](../.gitbook/assets/27_bitshiftsigned_2x.png)
+![Bit Shift Signed](../.gitbook/assets/27_bitshiftSigned_2x.png)
 
 이러한 작업은 부호가 있는 정수가 오른쪽으로 이동한 후에 같은 부호를 갖도록 하고 _산술 이동 \(arithmetic shift\)_ 라고 합니다.
 
@@ -195,7 +195,7 @@ unsignedOverflow = unsignedOverflow &+ 1
 
 변수 `unsignedOverflow` 는 `UInt8` 의 최대값 \(`255` 또는 이진수로 `11111111`\)으로 초기화됩니다. 그런 다음 오버플로우 덧셈 연산자 \(`&+`\)를 사용하여 `1` 만큼 증가시킵니다. 이것은 `UInt8` 이 가질 수 있는 크기보다 큰 바이너리 표현이 적용되어 아래 다이어그램과 같이 경계를 넘어 오버플로우 됩니다. 오버플로우 덧셈 후 `UInt8` 의 범위 내에 남아있는 값은 `00000000` 또는 0 입니다.
 
-![Overflow Addition](../.gitbook/assets/27_overflowaddition_2x.png)
+![Overflow Addition](../.gitbook/assets/27_overflowAddition_2x.png)
 
 부호없는 정수가 음의 방향으로 오버플로우 될 때 비슷한 일이 발생합니다. 다음은 오버플로우 뺄셈 연산자 \(`&-`\)를 사용하는 예제입니다:
 
@@ -208,7 +208,7 @@ unsignedOverflow = unsignedOverflow &- 1
 
 `UInt8` 의 최소값은 0 또는 이진수로 `00000000` 을 가질 수 있습니다. 오버플로우 뺄셈 연산자 \(`&-`\)를 이용하여 `00000000` 에서 `1` 을 뺀다면 숫자는 오버플로우 되고 `11111111` 또는 십진수 `255` 로 래핑됩니다.
 
-![Overflow Unsigned Subtraction](../.gitbook/assets/27_overflowunsignedsubtraction_2x.png)
+![Overflow Unsigned Subtraction](../.gitbook/assets/27_overflowUnsignedSubtraction_2x.png)
 
 오버플로우는 부호가 있는 정수에서도 발생합니다. 부호가 있는 정수에 대한 모든 덧셈과 뺄셈은 비트 방식으로 수행되며 부호 비트는 [비트 왼쪽과 오른쪽 이동 연산자 \(Bitwise Left and Right Shift Operators\)](advanced-operators.md#bitwise-left-and-right-shift-operators) 에 설명된대로 덧셈 또는 뺄셈 숫자의 부분으로 포함됩니다.
 
@@ -221,7 +221,7 @@ signedOverflow = signedOverflow &- 1
 
 `Int8` 의 최소값은 `-128` 또는 이진수로 `10000000` 을 가질 수 있습니다. 오버플로우 연산자를 사용하여 이진수에 `1` 을 빼면 부호 비트를 토글하고 `Int8` 이 가질 수 있는 최대 양수값 `127` 인 `01111111` 의 이진수를 얻습니다.
 
-![Overflow Signed Subtraction](../.gitbook/assets/27_overflowsignedsubtraction_2x.png)
+![Overflow Signed Subtraction](../.gitbook/assets/27_overflowSignedSubtraction_2x.png)
 
 부호가 있는 정수와 부호가 없는 정수에 대해 양의 방향의 오버플로우는 최대 유효 정수값에서 최소값으로 돌아가고 음의 방향의 오버플로우는 최소값에서 최대값으로 순환합니다.
 
@@ -306,7 +306,7 @@ let combinedVector = vector + anotherVector
 
 이 예제는 아래 그림과 같이 벡터 `(5.0, 5.0)` 을 만들기 위해 벡터 `(3.0, 1.0)` 과 `(2.0, 4.0)` 을 함께 더하는 것을 나타냅니다.
 
-![Vector Addition](../.gitbook/assets/27_vectoraddition_2x.png)
+![Vector Addition](../.gitbook/assets/27_vectorAddition_2x.png)
 
 ### 접두사와 접미사 연산자 \(Prefix and Postfix Operators\)
 

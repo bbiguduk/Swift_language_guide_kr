@@ -75,7 +75,7 @@ var sixDoubles = threeDoubles + anotherThreeDoubles
 
 배열 콜렉션으로 하나 이상의 값을 작성하여 _배열 리터럴 \(array literal\)_ 로 배열을 생성할 수 있습니다. 배열 리터럴은 값을 목록으로 작성하고 콤마로 구분하며 대괄호로 둘러싸서 작성합니다:
 
-![Creating an Array](../.gitbook/assets/04_arrayliteral_2x.png)
+![Creating an Array](../.gitbook/assets/04_ArrayLiteral_2x.png)
 
 아래 예제는 `String` 값을 저장하는 `shoppingList` 배열을 생성하는 예입니다:
 
@@ -483,7 +483,7 @@ namesOfIntegers = [:]
 
 _키-값 쌍_ 은 키와 값의 결합입니다. 딕셔너리 리터럴에서 각 키-값 쌍의 키와 값은 콜론으로 구분됩니다. 키-값 쌍은 콤마로 구분하고 대괄호로 둘러싸 목록 형식으로 작성됩니다:
 
-![Creating a Dictionary](../.gitbook/assets/04_dictionarycreating.png)
+![Creating a Dictionary](../.gitbook/assets/04_dictionaryCreating.png)
 
 아래 예제는 국제 공항의 이름을 저장하는 딕셔너리를 생성합니다. 딕셔너리에 키는 3글자로 된 국제 항공 운송 협회 \(Air Transport Association\) 코드이고 값은 공항 이름입니다:
 
