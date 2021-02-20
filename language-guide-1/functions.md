@@ -308,8 +308,9 @@ arithmeticMean(3, 8.25, 18.75)
 // returns 10.0, which is the arithmetic mean of these three numbers
 ```
 
-> NOTE   
-> 함수는 최대 하나의 가변 파라미터를 가질 수 있습니다.
+가변 파라미터 뒤에 오는 첫번째 파라미터는 인수 라벨을 가지고 있어야 합니다. 인수 라벨은 가변 파라미터에 전달되는 인수와 가변 파라미터 뒤에 오는 파라미터에 전달되는 인수를 명확하게 합니다.
+
+함수는 여러개의 가변 파라미터를 가질 수 있습니다.
 
 ### In-Out 파라미터 \(In-Out Parameters\)
 

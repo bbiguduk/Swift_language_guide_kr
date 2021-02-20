@@ -441,3 +441,149 @@ let plusMinusVector = firstVector +- secondVector
 > NOTE   
 > 접두사 또는 접미사 연산자를 정의할 때 우선순위를 지정하지 않습니다. 그러나 같은 피연산자에 접두사와 접미사 연산자를 모두 적용하면 접미사 연산자가 먼저 적용됩니다.
 
+## 결과 빌더 \(Result Builders\)
+
+_결과 빌더 \(result builder\)_ 는 리스트 \(list\) 나 트리 \(tree\) 와 같은 중첩된 데이터를 자연스럽고 선언적인 방식으로 생성하기 위한 구문을 추가하는 타입입니다. 결과 빌더를 사용하는 코드는 조건적이거나 반복되는 데이터의 조각을 처리하기 위해 `if` 와 `for` 와 같은 Swift 구문을 포함할 수 있습니다.
+
+아래 코드는 별과 텍스트를 사용하여 한줄로 그리기 위해 몇가지 타입을 정의합니다.
+
+```swift
+protocol Drawable {
+    func draw() -> String
+}
+struct Line: Drawable {
+    var elements: [Drawable]
+    func draw() -> String {
+        return elements.map { $0.draw() }.joined(separator: "")
+    }
+}
+struct Text: Drawable {
+    var content: String
+    init(_ content: String) { self.content = content }
+    func draw() -> String { return content }
+}
+struct Space: Drawable {
+    func draw() -> String { return " " }
+}
+struct Stars: Drawable {
+    var length: Int
+    func draw() -> String { return String(repeating: "*", count: length) }
+}
+struct AllCaps: Drawable {
+    var content: Drawable
+    func draw() -> String { return content.draw().uppercased() }
+}
+```
+
+`Drawable` 프로토콜은 선이나 모양을 그릴 수 있는 항목에 대한 요구사항을 정의합니다: 이 타입은 반드시 `draw()` 메서드를 구현해야 합니다. `Line` 구조체는 단일 선 그리는 것을 나타내며 대부분 그리는 것에 대해 최상위 컨테이너 역할을 합니다. `Line` 을 그리기 위해 구조체는 각 선의 구성요소에서 `draw()` 를 호출한 다음 결과 문자열을 하나의 문자열로 연결합니다. `Text` 구조체는 문자열을 감아 그리기의 일부로 만듭니다. AllCaps 구조체는  다른 그리기를 감싸고 수하여 모든 텍스트를 대문자로 변환합니다.
+
+초기화 구문을 호출하여 이러한 타입으로 그리기가 가능합니다:
+
+```swift
+let name: String? = "Ravi Patel"
+let manualDrawing = Line(elements: [
+    Stars(length: 3),
+    Text("Hello"),
+    Space(),
+    AllCaps(content: Text((name ?? "World") + "!")),
+    Stars(length: 2),
+    ])
+print(manualDrawing.draw())
+// Prints "***Hello RAVI PATEL!**"
+```
+
+이 코드는 동작하지만 약간 어색합니다. `AllCaps` 는 뒤에 여러개 중첩된 괄호는 읽기 어렵습니다. `name` 이 `nil` 일 때 "World" 를 사용하는 대체 논리는 더 복잡해 지면 어려워질 수 있지만 `??` 연산자를 사용하여 인라인으로 수행해야 합니다. 그리기의 일부를 구성하기 위해 스위치 또는 `for` 루프를 포함하는 경우에는 그렇게 할 수 없습니다. 결과 빌더를 사용하면 일반적인 Swift 코드처럼 보이도록 다시 작성할 수 있습니다.
+
+결과 빌더를 정의하려면 타입 선언에 `@resultBuilder` 속성을 작성해야 합니다. 예를 들어 이 코드는 선언적 구문을 사용하여 그리기를 설명할 수 있는 `DrawingBuilder` 라는 결과 빌더를 정의합니다:
+
+```swift
+@resultBuilder
+struct DrawingBuilder {
+    static func buildBlock(_ components: Drawable...) -> Drawable {
+        return Line(elements: components)
+    }
+    static func buildEither(first: Drawable) -> Drawable {
+        return first
+    }
+    static func buildEither(second: Drawable) -> Drawable {
+        return second
+    }
+}
+```
+
+`DrawingBuilder` 구조체는 결과 빌더 구문의 일부를 구현하는 3개의 메서드를 정의합니다. `buildBlock(_:)` 메서드는 코드 블럭에 선을 작성하기 위한 지원을 추가합니다. 해당 블럭의 구성요소를 `Line` 으로 결합합니다. `buildEither(first:)` 와 `buildEither(second:)` 메서드는 `if`-`else` 에 대한 지원을 추가합니다.
+
+`@DrawingBuilding` 을 함수의 파라미터로 적용하여 함수에 전달된 클로저를 결과 빌더가 해당 클로저에서 생성하는 값으로 바꿀 수 있습니다. 예를 들어:
+
+```swift
+func draw(@DrawingBuilder content: () -> Drawable) -> Drawable {
+    return content()
+}
+func caps(@DrawingBuilder content: () -> Drawable) -> Drawable {
+    return AllCaps(content: content())
+}
+
+func makeGreeting(for name: String? = nil) -> Drawable {
+    let greeting = draw {
+        Stars(length: 3)
+        Text("Hello")
+        Space()
+        caps {
+            if let name = name {
+                Text(name + "!")
+            } else {
+                Text("World!")
+            }
+        }
+        Stars(length: 2)
+    }
+    return greeting
+}
+let genericGreeting = makeGreeting()
+print(genericGreeting.draw())
+// Prints "***Hello WORLD!**"
+
+let personalGreeting = makeGreeting(for: "Ravi Patel")
+print(personalGreeting.draw())
+// Prints "***Hello RAVI PATEL!**"
+```
+
+`makeGreeting(for:)` 함수는 `name` 파라미터를 가지고 와서 개인화 인사말을 그리는데 사용됩니다. `draw(_:)` 와 `caps(_:)` 함수는 모두 `@DrawingBuilder` 속성으로 표시된 인수로 단일 클로저를 가집니다. 이러한 함수를 호출할 때 `DrawingBuilder` 가 정의하는 특별한 구문을 사용합니다. Swift 는 그리기의 선언적 설명을 `DrawingBuilder` 의 메서드에 대한 호출로 변환하여 함수 인수로 전달되는 값을 구성합니다. 예를 들어 Swift 는 이 예제에서 `caps(_:)` 호출을 다음과 같은 코드로 변환합니다:
+
+```swift
+let capsDrawing = caps {
+    let partialDrawing: Drawable
+    if let name = name {
+        let text = Text(name + "!")
+        partialDrawing = DrawingBuilder.buildEither(first: text)
+    } else {
+        let text = Text("World!")
+        partialDrawing = DrawingBuilder.buildEither(second: text)
+    }
+    return partialDrawing
+}
+```
+
+Swift 는 `if`-`else` 블럭을 `buildEither(first:)` 와 `buildEither(second:)` 메서드에 대한 호출로 변환합니다. 코드에서 이러한 메서드를 호출하지 않지만 변환 결과를 표시하면 `DrawingBuilder` 구문을 사용할 때 Swift 가 코드를 어떻게 변환하는지 쉽게 확인할 수 있습니다.
+
+특별한 그리기 구문에서 `for` 루프 지원을 추가하기 위해 `buildArray(_:)` 메서드를 추가합니다.
+
+```swift
+extension DrawingBuilder {
+    static func buildArray(_ components: [Drawable]) -> Drawable {
+        return Line(elements: components)
+    }
+}
+let manyStars = draw {
+    Text("Stars:")
+    for length in 1...3 {
+        Space()
+        Stars(length: length)
+    }
+}
+```
+
+위의 코드에서 `for` 루프는 그리기의 배열을 생성하고 `buildArray(_:)` 메서드는 해당 배열을 `Line` 으로 변환합니다.
+
+Swift 가 빌더 구문을 빌더 타입의 메서드 호출로 변환하는 방법에 대한 전체 리스트는 [resultBuilder](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#ID633) 를 참고 바랍니다.
+
