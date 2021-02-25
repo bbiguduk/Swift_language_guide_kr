@@ -190,7 +190,7 @@ if name == "world" {
 // Prints "hello, world", because name is indeed equal to "world".
 ```
 
-`if` 구문에 대한 자세한 내용은 [제어 흐 \(Control Flow\)](control-flow.md) 를 참고 바랍니다.
+`if` 구문에 대한 자세한 내용은 [제어 흐름 \(Control Flow\)](control-flow.md) 를 참고 바랍니다.
 
 같은 타입과 같은 갯수의 값을 가지고 있는 2개의 튜플은 비교할 수 있습니다. 튜플은 2개의 값이 다를 때까지 왼쪽에서 오른쪽으로 한번에 하나씩 비교합니다. 두개의 값이 비교되고 해당 비교 결과에 따라 튜플 비교의 전체 결과가 결정됩니다. 모든 요소가 동일하면 튜플은 같습니다. 예를 들어:
 
