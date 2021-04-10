@@ -1,6 +1,12 @@
 # Table of contents
 
-* [Swift Language Guide](README.md)
+* [The Swift Programming Language](README.md)
+
+## WELCOME TO SWIFT
+
+* [Swift 에 대해 \(About Swift\)](welcome-to-swift/swift-about-swift.md)
+* [버전 호환성 \(Version Compatibility\)](welcome-to-swift/version-compatibility.md)
+* [Swift 둘러보기 \(A Swift Tour\)](welcome-to-swift/swift-a-swift-tour.md)
 
 ## Language Guide <a id="language-guide-1"></a>
 
@@ -31,6 +37,19 @@
 * [메모리 안전성 \(Memory Safety\)](language-guide-1/memory-safety.md)
 * [접근 제어 \(Access Control\)](language-guide-1/access-control.md)
 * [고급 연산자 \(Advanced Operators\)](language-guide-1/advanced-operators.md)
+
+## LANGUAGE REFERENCE
+
+* [언어 참조에 대해 \(About the Language Reference\)](language-reference/about-the-language-reference.md)
+* [어휘 구조 \(Lexical Structure\)](language-reference/lexical-structure.md)
+* [타입 \(Types\)](language-reference/types.md)
+* [표현식 \(Expressions\)](language-reference/expressions.md)
+* [구문 \(Statements\)](language-reference/statements.md)
+* [선언 \(Declarations\)](language-reference/declarations.md)
+* [속성 \(Attributes\)](language-reference/attributes.md)
+* [패턴 \(Patterns\)](language-reference/patterns.md)
+* [제너릭 파라미터와 인수 \(Generic Parameters and Arguments\)](language-reference/generic-parameters-and-arguments.md)
+* [문법 정리 \(Summary of the Grammar\)](language-reference/summary-of-the-grammar.md)
 
 ## Contact
 

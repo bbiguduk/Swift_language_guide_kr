@@ -2,9 +2,14 @@
 
 ## Revision History
 
+#### 2021-04-10\(토\)
+
+* WELCOME TO SWIFT 번역 완료
+* LANGUAGE REFERENCE 번역 완료
+
 #### 2021-02-20\(토\)
 
-* Swift 5.4 기반으로 문서 작업 완
+* Swift 5.4 기반으로 문서 작업 완료
 
 #### 2020-10-23\(금\)
 

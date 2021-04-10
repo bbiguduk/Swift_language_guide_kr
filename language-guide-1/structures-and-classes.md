@@ -105,7 +105,7 @@ print("The width of someVideoMode is now \(someVideoMode.resolution.width)")
 // Prints "The width of someVideoMode is now 1280"
 ```
 
-### 구조체 타입에 대한 멤버별 초기화 \(Memberwise Initializers for Structure Types\)
+### 구조체 타입에 대한 멤버별 초기화 구문 \(Memberwise Initializers for Structure Types\)
 
 모든 구조체는 새로운 구조체 인스턴스의 멤버 프로퍼티를 초기화 할 때 사용할 수 있는 자동적으로 생성된 _멤버별 초기화 구문 \(memberwise intializer\)_ 을 가지고 있습니다. 새로운 인스턴스에 프로퍼티 초기값은 이름으로 멤버별 초기화에 전달될 수 있습니다:
 

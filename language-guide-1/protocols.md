@@ -746,7 +746,7 @@ class Animal {
 }
 ```
 
-The `Circle`, `Country` and `Animal` classes don’t have a shared base class. Nonetheless, they’re all classes, and so instances of all three types can be used to initialize an array that stores values of type `AnyObject`:
+`Circle`, `Country` 그리고 `Animal` 클래스는 공유된 기본 클래스가 없습니다. 그럼에도 불구하고 모두 클래스 이므로 모든 세가지 타입의 인스턴스는 타입 `AnyObject` 의 값을 저장하는 배열을 초기화 하기위해 사용될 수 있습니다:
 
 ```swift
 let objects: [AnyObject] = [

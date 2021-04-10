@@ -122,7 +122,7 @@ print("Tandem: \(tandem.description)")
 * `someProperty` 라는 재정의된 프로퍼티는 재정의한 getter 또는 setter 구현 내에서 `super.somProperty` 로 상위 클래스 버전의 `someProperty` 를 접근할 수 있습니다.
 * `someIndex` 를 위한 재정의된 서브 스크립트는 재정의한 서브 스크립트 구현 내에서 `super[someIndex]` 로 상위 클래스 버전의 같은 서브 스크립트에 접근할 수 있습니다.
 
-### 재정의 메서드 \(Overriding Methods\)
+### 메서드 재정의 \(Overriding Methods\)
 
 상속된 인스턴스 또는 타입 메서드를 재정의하여 하위 클래스 내에서 메서드의 맞춤형 또는 대체 구현을 제공합니다.
 
@@ -144,11 +144,11 @@ train.makeNoise()
 // Prints "Choo Choo"
 ```
 
-### 재정의 프로퍼티 \(Overriding Properties\)
+### 프로퍼티 재정의 \(Overriding Properties\)
 
 프로퍼티에 고유한 사용자 정의 getter와 setter를 제공하거나 기본 프로퍼티 값이 변경될 때 재정의 한 프로퍼티가 관찰할 수 있도록 프로퍼티 관찰자를 추가 하기위해 상속된 인스턴스 또는 타입 프로퍼티를 재정의할 수 있습니다.
 
-#### 재정의 프로퍼티 getter와 setter \(Overriding Property Getters and Setters\)
+#### 프로퍼티 getter와 setter 재정의 \(Overriding Property Getters and Setters\)
 
 상속된 프로퍼티가 소스에서 저장된 또는 계산된 프로피티로 구현되었는지 여부와 상관없이 _모든_ 상속된 프로퍼티를 재정의 하기위해 사용자 지정 getter와 setter를 제공할 수 있습니다. 상속된 프로퍼티에 저장된 또는 계산된 특성은 하위 클래스에서 알 수 없습니다. 상속된 프로퍼티의 특정 이름과 타입만 알고 있습니다. 컴파일러가 재정의가 동일한 이름과 타입을 가진 상위 클래스 프로퍼티와 일치하는지 확인할 수 있도록 항상 재정의하는 프로퍼티의 이름과 타입을 모두 명시해야 합니다.
 
@@ -180,7 +180,7 @@ print("Car: \(car.description)")
 // Car: traveling at 25.0 miles per hour in gear 3
 ```
 
-#### 재정의 프로퍼티 관찰자 \(Overriding Property Observers\)
+#### 프로퍼티 관찰자 재정의 \(Overriding Property Observers\)
 
 상속된 프로퍼티에 프로퍼티 관찰자를 추가하기 위해 프로퍼티 재정의를 사용할 수 있습니다. 이것은 기존에 구현된 프로퍼티가 어떻든 상관없이 상속된 프로퍼티의 값이 변경될 때 알림을 받을 수 있습니다. 자세한 내용은 [프로퍼티 관찰자 \(Property Observers\)](properties.md#property-observers) 을 참고 바랍니다.
 
