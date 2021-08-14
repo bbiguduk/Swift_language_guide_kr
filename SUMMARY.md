@@ -27,6 +27,7 @@
 * [초기화 해제 \(Deinitialization\)](language-guide-1/deinitialization.md)
 * [옵셔널 체이닝 \(Optional Chaining\)](language-guide-1/optional-chaining.md)
 * [에러 처리 \(Error Handling\)](language-guide-1/error-handling.md)
+* [동시성 \(Concurrency\)](language-guide-1/concurrency.md)
 * [타입 캐스팅 \(Type Casting\)](language-guide-1/type-casting.md)
 * [중첩된 타입 \(Nested Types\)](language-guide-1/nested-types.md)
 * [확장 \(Extensions\)](language-guide-1/extensions.md)

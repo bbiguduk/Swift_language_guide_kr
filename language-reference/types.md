@@ -25,7 +25,7 @@ _복합 타입 \(compound type\)_ 은 Swift 언어 자체에 정의된 이름이
 > type → [metatype-type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_metatype-type)  
 > type → [any-type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_any-type)  
 > type → [self-type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_self-type)  
-> type → `(` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type)  `)`
+> type → `(` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type) `)`
 
 ## 타입 주석 \(Type Annotation\)
 
@@ -63,7 +63,7 @@ var someValue: ExampleModule.MyType
 ```
 
 > GRAMMAR OF A TYPE IDENTIFIER  
-> type-identifier → [type-name](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-name)  [generic-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-clause) opt \|  [type-name](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-name)  [generic-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-clause) opt `.`[type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-identifier)  
+> type-identifier → [type-name](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-name) [generic-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-clause) opt \| [type-name](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-name) [generic-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-clause) opt `.`[type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-identifier)  
 > type-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)
 
 ## 튜플 타입 \(Tuple Type\)
@@ -84,9 +84,9 @@ someTuple = (left: 5, right: 5)  // Error: names don't match
 모든 튜플 타입은 빈 튜플 타입 인 `()` 에 대한 타입 별칭인 `Void` 를 제외하고 두 개 이상의 타입을 포함합니다.
 
 > GRAMMAR OF A TUPLE TYPE  
-> tuple-type → `(` `)` \|  `(` [tuple-type-element](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_tuple-type-element)  `,` [tuple-type-element-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_tuple-type-element-list)  `)`   
-> tuple-type-element-list → [tuple-type-element](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_tuple-type-element) \|  [tuple-type-element](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_tuple-type-element)  `,` [tuple-type-element-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_tuple-type-element-list)  
-> tuple-type-element → [element-name](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_element-name)  [type-annotation](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-annotation) \|  [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type)  
+> tuple-type → `(` `)` \| `(` [tuple-type-element](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_tuple-type-element) `,` [tuple-type-element-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_tuple-type-element-list) `)`  
+> tuple-type-element-list → [tuple-type-element](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_tuple-type-element) \| [tuple-type-element](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_tuple-type-element) `,` [tuple-type-element-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_tuple-type-element-list)  
+> tuple-type-element → [element-name](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_element-name) [type-annotation](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-annotation) \| [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type)  
 > element-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)
 
 ## 함수 타입 \(Function Type\)
@@ -162,11 +162,11 @@ func takesTwoFunctions(first: (() -> Void) -> Void, second: (() -> Void) -> Void
 제한사항을 피해야 하는 경우 파라미터 중 하나를 이스케이프로 표시하거나 `withoutActuallyEscaping(_:do:)` 함수를 이용하여 이스케이프 함수로 비이스케이프 함수 파라미터 중 하나를 임시로 변경해야 합니다. 메모리에 충돌 접근을 피하는 것에 대한 자세한 내용은 [메모리 안정성 \(Memory Safety\)](../language-guide-1/memory-safety.md) 를 참고 바랍니다.
 
 > GRAMMAR OF A FUNCTION TYPE  
-> function-type → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$  [function-type-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument-clause)  `throws` $$_{opt}$$  `->` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type)  
-> function-type-argument-clause → `(` `)`   
-> function-type-argument-clause → `(` [function-type-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument-list)  `...` $$_{opt}$$ `)`   
-> function-type-argument-list → [function-type-argument](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument) \|  [function-type-argument](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument)  `,` [function-type-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument-list)  
-> function-type-argument → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$  `inout` $$_{opt}$$ [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type) \|  [argument-label](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_argument-label)  [type-annotation](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-annotation)  
+> function-type → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ [function-type-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument-clause) `throws` $$_{opt}$$ `->` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type)  
+> function-type-argument-clause → `(` `)`  
+> function-type-argument-clause → `(` [function-type-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument-list) `...` $$_{opt}$$ `)`  
+> function-type-argument-list → [function-type-argument](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument) \| [function-type-argument](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument) `,` [function-type-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument-list)  
+> function-type-argument → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ `inout` $$_{opt}$$ [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type) \| [argument-label](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_argument-label) [type-annotation](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-annotation)  
 > argument-label → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)
 
 ## 배열 타입 \(Array Type\)
@@ -195,7 +195,7 @@ var array3D: [[[Int]]] = [[[1, 2], [3, 4]], [[5, 6], [7, 8]]]
 Swift 표준 라이브러리 `Array` 타입에 대한 자세한 설명은 [배열 \(Arrays\)](../language-guide-1/collection-types.md#arrays) 를 참고 바랍니다.
 
 > GRAMMAR OF AN ARRAY TYPE  
-> array-type → `[` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type)  `]`
+> array-type → `[` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type) `]`
 
 ## 딕셔너리 타입 \(Dictionary Type\)
 
@@ -219,7 +219,7 @@ let someDictionary: Dictionary<String, Int> = ["Alex": 31, "Paul": 39]
 Swift 표준 라이브러리 `Dictionary` 타입의 자세한 설명은 [딕셔너리 \(Dictionaries\)](../language-guide-1/collection-types.md#dictionaries) 를 참고 바랍니다.
 
 > GRAMMAR OF A DICTIONARY TYPE  
-> dictionary-type → `[` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type)  `:` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type)  `]`
+> dictionary-type → `[` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type) `:` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type) `]`
 
 ## 옵셔널 타입 \(Optional Type\)
 
@@ -248,7 +248,7 @@ optionalInteger! // 42
 더 자세한 정보와 옵셔널 타입 사용에 대한 예제를 보려면 [옵셔널 \(Optionals\)](../language-guide-1/the-basics.md#optionals) 를 참고 바랍니다.
 
 > GRAMMAR OF AN OPTIONAL TYPE  
-> optional-type → [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type)  `?`
+> optional-type → [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type) `?`
 
 ## 암시적으로 언래핑된 옵셔널 타입 \(Implicitly Unwrapped Optional Type\)
 
@@ -280,7 +280,7 @@ let implicitlyUnwrappedArray: [Int]!                  // OK
 암시적으로 언래핑된 옵셔널 타입에 대한 자세한 정보는 [암시적으로 언래핑된 옵셔널 \(Implicitly Unwrapped Optionals\)](../language-guide-1/the-basics.md#implicitly-unwrapped-optionals) 를 참고 바랍니다.
 
 > GRAMMAR OF AN IMPLICITLY UNWRAPPED OPTIONAL TYPE  
-> implicitly-unwrapped-optional-type → [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type)  `!`
+> implicitly-unwrapped-optional-type → [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type) `!`
 
 ## 프로토콜 구성 타입 \(Protocol Composition Type\)
 
@@ -306,8 +306,8 @@ typealias PQR = PQ & Q & R
 ```
 
 > GRAMMAR OF A PROTOCOL COMPOSITION TYPE  
-> protocol-composition-type → [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-identifier)  `&` [protocol-composition-continuation](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_protocol-composition-continuation)  
-> protocol-composition-continuation → [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-identifier) \|  [protocol-composition-type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_protocol-composition-type)
+> protocol-composition-type → [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-identifier) `&` [protocol-composition-continuation](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_protocol-composition-continuation)  
+> protocol-composition-continuation → [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-identifier) \| [protocol-composition-type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_protocol-composition-type)
 
 ## 불투명한 타입 \(Opaque Type\)
 
@@ -373,7 +373,7 @@ let anotherInstance = metatype.init(string: "some string")
 ```
 
 > GRAMMAR OF A METATYPE TYPE  
-> metatype-type → [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type)  `.` `Type` \|  [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type)  `.` `Protocol`
+> metatype-type → [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type) `.` `Type` \| [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type) `.` `Protocol`
 
 ## Any 타입 \(Any Type\)
 
@@ -460,7 +460,7 @@ _타입 상속 절 \(type inheritance clause\)_ 은 명명된 타입이 상속�
 
 > GRAMMAR OF A TYPE INHERITANCE CLAUSE  
 > type-inheritance-clause → `:` [type-inheritance-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-inheritance-list)  
-> type-inheritance-list → [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-identifier) \|  [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-identifier)  `,` [type-inheritance-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-inheritance-list)
+> type-inheritance-list → [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-identifier) \| [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-identifier) `,` [type-inheritance-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-inheritance-list)
 
 ## 타입 추론 \(Type Inference\)
 

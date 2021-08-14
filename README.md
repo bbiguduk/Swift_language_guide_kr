@@ -8,6 +8,7 @@
 
 ## 업데이트
 
+* Swift 5.5, 2021-08-14
 * Swift 5.4, 2021-02-20
 * Swift 5.3, 2020-10-23
 
@@ -32,6 +33,7 @@
 | 초기화 해제 | [Deinitialization](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/deinitialization.md) |
 | 옵셔널 체이닝 | [Optional Chaining](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/optional-chaining.md) |
 | 에러 처리 | [Error Handling](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/error-handling.md) |
+| 동시성 | [Concurrency](language-guide-1/concurrency.md) |
 | 타입 캐스팅 | [Type Casting](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/type-casting.md) |
 | 중첩된 타입 | [Nested Types](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/nested-types.md) |
 | 확장 | [Extensions](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/extensions.md) |

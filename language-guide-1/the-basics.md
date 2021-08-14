@@ -439,7 +439,7 @@ print("The status message is \(statusMessage)")
 // Prints "The status message is Not Found"
 ```
 
-튜플의 값 중 일부만 필요한 경우 튜플을 분해할 때 밑줄 \(`_`)로 튜플의 일부를 무시할 수 있습니다:
+튜플의 값 중 일부만 필요한 경우 튜플을 분해할 때 밑줄 \(`_`\)로 튜플의 일부를 무시할 수 있습니다:
 
 ```swift
 let (justTheStatusCode, _) = http404Error

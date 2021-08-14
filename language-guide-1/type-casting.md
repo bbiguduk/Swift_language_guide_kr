@@ -120,7 +120,7 @@ for item in library {
 
 다운 캐스팅이 성공하면 `movie` 의 프로퍼티는 `director` 의 이름을 포함하여 `Movie` 인스턴스에 대해 설명을 출력하는데 사용합니다. 유사한 원칙을 사용하여 `Song` 인스턴스를 확인하고 라이브러리에서 `Song` 을 찾을 때마다 `artist` 이름을 포함하여 적절한 설명을 출력하는데 사용합니다.
 
-> NOTE   
+> NOTE  
 > 캐스팅은 실제로 인스턴스를 수정하거나 값을 변경하지 않습니다. 기본 인스턴스는 동일하게 유지됩니다. 캐스트된 타입의 인스턴스로 처리하고 접 됩니다.
 
 ## Any와 AnyObject에 대한 타입 캐스팅 \(Type Casting for Any and AnyObject\)
@@ -187,7 +187,7 @@ for thing in things {
 // Hello, Michael
 ```
 
-> NOTE   
+> NOTE  
 > `Any` 타입은 옵셔널 타입을 포함하여 모든 타입의 값을 나타냅니다. Swift는 `Any` 타입의 값이 기대되는 곳에 옵셔널 값을 사용하면 경고를 줍니다. `Any` 값으로 옵셔널 값을 사용하는 것이 필요하다면 아래와 같이 `as` 연산자를 사용하여 명시적으로 옵셔널을 `Any` 로 캐스트 할 수 있습니다.
 >
 > ```swift

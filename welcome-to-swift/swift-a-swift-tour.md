@@ -376,7 +376,7 @@ shape.numberOfSides = 7
 var shapeDescription = shape.simpleDescription()
 ```
 
-이 버전의 `Shape` 클래스는  인스턴스가 생성될 때 클래스를 설정하는 초기화 구문이 누락되었습니다. `init` 을 사용하여 생성합니다.
+이 버전의 `Shape` 클래스는 인스턴스가 생성될 때 클래스를 설정하는 초기화 구문이 누락되었습니다. `init` 을 사용하여 생성합니다.
 
 ```swift
 class NamedShape {

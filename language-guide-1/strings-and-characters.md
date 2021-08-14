@@ -6,7 +6,7 @@ Swift의 `String` 과 `Character` 타입은 코드의 텍스트를 처리하는 
 
 간단한 구문임에도 Swift의 `String` 타입은 빠르고, 최신 문자열 구현입니다. 모든 문자열은 인코딩에 독립적인 유니코드 문자로 구성되어 있으며 다양한 유니코드 표현의 문자에 접근할 수 있도록 지원합니다.
 
-> NOTE   
+> NOTE  
 > Swift의 `String` 타입은 Foundation의 `NSString` 클래스와 연결되어 있습니다. Foundation은 또한 `NSString` 에 의해 정의된 메서드를 노출시키기 위해 `String` 을 확장합니다. 이것은 Foundation을 import 하면 캐스팅 없이 `String` 에서 `NSString` 메서드를 접근할 수 있습니다.
 >
 > Foundation과 Cocoa에서 `String` 사용에 대한 자세한 내용은 [String과 NSString의 연결 \(Bridging Between String and NSString\)](https://developer.apple.com/documentation/swift/string#2919514) 을 참고 바랍니다.
@@ -72,8 +72,6 @@ It also ends with a line break.
 여러줄 문자열은 주변 코드와 일치하도록 들여 쓸 수 있습니다. 닫는 따옴표 \(`"""`\) 앞의 공백은 Swift가 다른 모든 줄의 공백은 무시한다는 것을 말합니다. 그러나 닫는 따옴표 전에 추가로 공백이 들어가면 그 공백은 추가됩니다.
 
 ![&#xC5EC;&#xB7EC;&#xC904; &#xBB38;&#xC790;&#xC5F4; &#xACF5;&#xBC31; \(Multiline String Whitespace\)](../.gitbook/assets/03_multilineStringWhitespace_2x.png)
-
-
 
 위의 예제에서 여러줄 문자열 리터럴 전체가 들여쓰기 되어있지만 문자열에서 첫번째와 마지막 줄은 어떠한 공백없이 시작합니다. 중간줄은 닫는 따옴표 보다 들여쓰기가 더 많으므로 4칸 들여쓰기로 시작합니다.
 
@@ -150,7 +148,7 @@ constantString += " and another Highlander"
 // this reports a compile-time error - a constant string cannot be modified
 ```
 
-> NOTE   
+> NOTE  
 > 이 접근방식은 Objective-C와 Cocoa의 문자열 변형과 다릅니다. 여기서 두 클래스 \(`NSString` 및 `NSMutableString`\) 중에서 선택하여 문자열 변형이 가능한지 여부를 나타냅니다.
 
 ## 문자열은 값 타입 \(Strings Are Value Types\)
@@ -220,7 +218,7 @@ welcome.append(exclamationMark)
 // welcome now equals "hello there!"
 ```
 
-> NOTE   
+> NOTE  
 > `Character` 값은 반드시 하나의 문자만 포함해야 하므로 `Character` 변수에 추가로 `String` 또는 `Character` 를 추가할 수 없습니다.
 
 여러줄 문자열 리터럴을 이용하여 긴 문자열의 라인을 구성하는 경우 문자열 매 라인 끝에 공백이 포함되길 원합니다. 예를 들어:
@@ -280,7 +278,7 @@ print(#"6 times 7 is \#(6 * 7)."#)
 // Prints "6 times 7 is 42."
 ```
 
-> NOTE   
+> NOTE  
 > 소괄호 안에 작성한 표현식에 삽입된 문자열은 백슬래시 \(`\`\), 캐리지 리턴, 또는 개행을 포함할 수 없습니다. 그러나 다른 문자열 리터럴은 포함할 수 있습니다.
 
 ## 유니코드 \(Unicode\)
@@ -354,7 +352,7 @@ print("the number of characters in \(word) is \(word.count)")
 // Prints "the number of characters in café is 4"
 ```
 
-> NOTE   
+> NOTE  
 > 확장된 문자소 클러스터는 여러개의 유니코드 스칼라로 구성할 수 있습니다. 이것은 다른 문자와 같은 문자의 다른 표기법은 저장할 때 메모리 사용량이 다르게 요구할 수 있다는 의미입니다. 이 때문에 Swift의 문자는 각각 문자열에서 동일한 양의 메모리를 차지하지 않습니다. 그 결과 문자열에 문자의 숫자는 확장된 문자소 클러스터 경계를 결정하기 위해 문자열을 반복하지 않고는 계산할 수 없습니다. 특히 긴 문자열 값으로 작업하는 경우에 해당 문자열의 문자를 결정하려면 `count` 프로퍼티가 전체 문자열의 유니코드 스칼라를 반복해야 합니다.
 >
 > `count` 프로퍼티로 반환된 문자의 갯수는 같은 문자여도 `NSString` 의 `length` 프로퍼티와 항상 같지는 않습니다. `NSString` 의 길이는 문자열 내에 유니코드 확장된 문자소 클러스터 수가 아니라 문자열의 UTF-16 표현 내의 16-bit 코드 단위 수를 기반으로 합니다.
@@ -404,7 +402,7 @@ for index in greeting.indices {
 // Prints "G u t e n   T a g ! "
 ```
 
-> NOTE   
+> NOTE  
 > `Collection` 프로토콜을 준수하는 어떠한 타입에서든 `startIndex` 와 `endIndex` 프로퍼티와 `index(before:)`, `index(after:)`, 그리고 `index(_:offsetBy:)` 메서드를 사용할 수 있습니다. 이것은 여기서 봤듯이 `String` 뿐만 아니라 `Array`, `Dictionary`, 그리고 `Set` 과 같은 콜렉션 타입도 포함됩니다.
 
 ### 삽입과 삭제 \(Inserting and Removing\)
@@ -431,7 +429,7 @@ welcome.removeSubrange(range)
 // welcome now equals "hello"
 ```
 
-> NOTE   
+> NOTE  
 > `RangeReplaceableCollection` 프로토콜을 준수하는 어떠한 타입에서든 `insert(_:at:)`, `insert(contentsOf:at:)`, `remove(at:)` 그리고 `removeSubrange(_:)` 메서드를 사용할 수 있습니다. 이것은 여기서 봤듯이 `String` 뿐만 아니라 `Array`, `Dictionary`, 그리고 `Set` 과 같은 콜렉션 타입도 포함됩니다.
 
 ## 부분 문자열 \(Substrings\)
@@ -454,7 +452,7 @@ let newString = String(beginning)
 
 ![String and SubString relationship](../.gitbook/assets/03_stringSubstring_2x.png)
 
-> NOTE   
+> NOTE  
 > `String` 과 `Substring` 은 모두 [`StringProtocol`](https://developer.apple.com/documentation/swift/stringprotocol) 을 준수합니다. 이것은 문자열 조작 함수가 `StringProtocol` 값을 받아들이는 것이 편리한 경우가 많다는 것을 의미합니다. 이러한 함수는 `String` 또는 `Substring` 값으로 호출할 수 있습니다.
 
 ## 문자열 비교 \(Comparing Strings\)
@@ -504,7 +502,7 @@ if latinCapitalLetterA != cyrillicCapitalLetterA {
 // Prints "These two characters are not equivalent."
 ```
 
-> NOTE   
+> NOTE  
 > Swift의 문자열과 문자 비교는 로케일을 구분하지 않습니다.
 
 ### 접두사와 접미사 동등성 \(Prefix and Suffix Equality\)
@@ -558,7 +556,7 @@ print("\(mansionCount) mansion scenes; \(cellCount) cell scenes")
 // Prints "6 mansion scenes; 2 cell scenes"
 ```
 
-> NOTE   
+> NOTE  
 > `hasPrefix(_:)` 와 `hasSuffix(_:)` 메서드는 [문자열과 문자 같음 \(String and Character Equality\)](strings-and-characters.md#string-and-character-equality) 에서 설명했듯이 각 문자열에 확장된 문자소 클러스터 간의 문자 단위로 동등한지 수행합니다.
 
 ## 문자열의 유니코드 표현 \(Unicode Representations of Strings\)

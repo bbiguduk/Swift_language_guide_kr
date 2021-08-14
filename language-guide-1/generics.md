@@ -48,7 +48,7 @@ func swapTwoDoubles(_ a: inout Double, _ b: inout Double) {
 
 _모든 타입_ 의 2개의 값을 바꾸는 단일 함수로 작성하면 더 유용하고 더 유연합니다. 제너릭 코드는 이러한 함수를 작성할 수 있습니다 \(이 함수의 제너릭 버전은 아래에 정의됩니다\).
 
-> NOTE   
+> NOTE  
 > 이 3개의 함수는 `a` 와 `b` 의 타입이 모두 같아야 합니다. `a` 와 `b` 가 같은 타입이 아니면 바꾸는 것은 불가능합니다. Swift는 타입 안정성 언어이고 `String` 타입의 변수와 `Double` 타입의 변수가 서로 값을 바꾸도록 허락하지 않습니다. 이러한 시도는 컴파일 에러가 발생합니다.
 
 ## 제너릭 함수 \(Generic Functions\)
@@ -90,7 +90,7 @@ swapTwoValues(&someString, &anotherString)
 // someString is now "world", and anotherString is now "hello"
 ```
 
-> NOTE   
+> NOTE  
 > 위에 정의된 `swapTwoValues(_:_:)` 함수는 Swift 표준 라이브러리의 부분이고 앱에서 사용하기 위해 자동으로 만들어지는 `swap` 이라는 제너릭 함수에 의해 영감을 얻었습니다. 자체 코드에서 `swapTwoValues(_:_:)` 함수의 동작이 필요하다면 직접 구현한 함수보다 Swift에 존재하는 `swap(_:_:)` 함수를 사용할 수 있습니다.
 
 ## 타입 파라미터 \(Type Parameters\)
@@ -105,7 +105,7 @@ swapTwoValues(&someString, &anotherString)
 
 대부분의 경우 타입 파라미터는 타입 파라미터와 제너릭 타입 간의 관계나 함수 간의 관계를 나타내기 위해 `Dictionary<Key, Value>` 에서 `Key` 와 `Value` 그리고 `Array<Element>` 에서 `Element` 와 같이 설명이 포함된 이름이 있습니다. 그러나 의미있는 관계가 없을 때는 위에서 `swapTwoValues(_:_:)` 함수에서 `T` 와 같이 `T`, `U`, 그리고 `V` 와 같은 단일 문자를 사용하여 이름을 지정하는 것이 일반적입니다.
 
-> NOTE   
+> NOTE  
 > 값이 아니라 타입에 대한 임의의 표시라는 것을 나타내기 위해 항상 타입 파라미터가 주어질 때 대문자 이름 \(`T` 와 `MyTypeParameter` 와 같은\)으로 주어집니다.
 
 ## 제너릭 타입 \(Generic Types\)
@@ -114,7 +114,7 @@ swapTwoValues(&someString, &anotherString)
 
 이번 섹션은 `Stack` 이라는 제너릭 콜렉션 타입을 어떻게 작성하는지 보여줍니다. 스택은 배열과 유사하지만 Swift의 `Array` 타입보다 더 제한된 작업 집합을 가진 순서가 지정된 집합입니다. 배열은 모든 위치에서 새 항목을 삽입하고 제거할 수 있습니다. 그러나 스택은 새로운 항목이 콜렉션의 끝에 추가하는 것만 허락합니다 \(스택에 새로운 값을 _푸쉬 \(pushing\)_ 한다고 알려져 있음\). 마찬가지로 스택은 콜렉션의 끝부분의 항목만 제거할 수 있습니다 \(스택에서 값을 _팝 \(popping\)_ 한다고 알려져 있음\).
 
-> NOTE   
+> NOTE  
 > 스택의 개념은 네비게이션 계층도에서 뷰 컨트롤러를 모델링 하는 `UINavigationController` 클래스에 의해 사용됩니다. `UINavigationController` 클래스에서 네비게이션 스택에 뷰 컨트롤러를 추가 또는 푸쉬 하기 위해 `pushViewController(_:animated:)` 메서드를 호출하고 네비게이션 스택에 뷰 컨트롤러를 삭제 또는 팝 하기 위해 `popViewControllerAnimated(_:)` 메서드를 호출합니다. 스택은 콜렉션 관리에 대한 엄격한 "후입 선출" 접근 방식이 필요할 때 유용한 콜렉션 모델입니다.
 
 아래의 그림은 스택에 대한 푸쉬와 팝에 대한 동작을 보여줍니다:

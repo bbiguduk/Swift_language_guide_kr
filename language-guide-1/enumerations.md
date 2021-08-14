@@ -33,7 +33,7 @@ enum CompassPoint {
 
 열거형 안에 정의된 값 \(`north`, `south`, `east`, `west`\)은 _열거형 케이스 \(enumeration cases\)_ 입니다. 새로운 열거형 케이스를 나타내기 위해 `case` 키워드를 사용합니다.
 
-> NOTE   
+> NOTE  
 > Swift 열거형 케이스 C와 Objective-C 처럼 기본적으로 정수값을 설정하지 않습니다. 위 예제 `CompassPoint` 에 `north`, `south`, `east`, `west` 는 `0`, `1`, `2`, `3` 과 같지 않습니다. 대신 다른 열거형 케이스는 `CompassPoint` 의 명시적으로 정의된 타입으로 자체 값입니다.
 
 여러개의 케이스는 콤마로 구분하여 한줄로 표기할 수 있습니다:
@@ -213,7 +213,7 @@ enum ASCIIControlCharacter: Character {
 
 원시값은 문자열, 문자, 또는 어떠한 정수 또는 부동소수점 숫자 타입이 가능합니다. 각 원시값은 열거형 선언부 내에서 유일한 값이어야 합니다.
 
-> NOTE   
+> NOTE  
 > 원시값은 연관된 값 \(associated values\)과 같지 않습니다. 원시값은 위의 3개의 ASCII 코드처럼 코드에서 열거형을 처음 정의할 때 미리 설정하는 값입니다. 특정 열거형 케이스를 위한 원시값은 항상 같습니다. 연관된 값은 열거형 케이스 중 하나를 기반으로 새로운 상수 또는 변수를 생성할 때 설정하고 달라질 수 있습니다.
 
 ### 암시적으로 할당된 원시값 \(Implicitly Assigned Raw Values\)
@@ -267,7 +267,7 @@ let possiblePlanet = Planet(rawValue: 7)
 
 그러나 가능한 모든 `Int` 값으로 행성을 찾지 않습니다. 이러한 점 때문에 원시값 초기화는 항상 _옵셔널_ 열거형 케이스를 반환합니다. 위의 예제에서 `possiblePlanet` 은 `Planet?` 또는 "옵셔널 `Planet`" 타입입니다.
 
-> NOTE   
+> NOTE  
 > 원시값 초기화는 모든 원시값을 열거형 케이스로 반환할 수 없으므로 초기화가 실패할 수 있습니다. 더 자세한 내용은 [실패 가능한 초기화 구 \(Failable Initializers\)](initialization.md#failable-initializers) 을 참고 바랍니다.
 
 `11` 의 위치로 행성을 찾는다면 원시값 초기화로 부터 반환된 옵셔널 `Planet` 값은 `nil` 입니다:

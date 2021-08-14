@@ -50,7 +50,7 @@ rangeOfFourItems.firstValue = 6
 
 _지연 저장된 프로퍼티 \(lazy stored property\)_ 는 처음 사용될 때까지 초기값은 계산되지 않는 프로퍼티 입니다. 지연 저장된 프로퍼티는 선언 전에 `lazy` 수정자를 붙여 나타냅니다.
 
-> NOTE   
+> NOTE  
 > 인스턴스 초기화가 완료된 후에도 초기값이 없을 수 있으므로 지연 프로퍼티는 `var` 키워드를 사용하여 변수로 선언해야 합니다. 프로퍼티 상수는 초기화가 완료되기 _전에_ 항상 값을 가지고 있어야 하므로 lazy로 선언할 수 없습니다.
 
 지연 프로퍼티는 인스턴스의 초기화가 완료될 때까지 값을 알 수 없는 외부 요인에 인해 초기값이 달라질 때 유용합니다. 지연 프로퍼티는 프로퍼티의 초기값으로 필요할 때까지 수행하면 안되는 복잡하거나 계산 비용이 많이 드는 경우에도 유용합니다.
@@ -93,7 +93,7 @@ print(manager.importer.filename)
 // Prints "data.txt"
 ```
 
-> NOTE   
+> NOTE  
 > `lazy` 수식어가 표시된 프로퍼티는 여러 쓰레드에서 동시에 접근되고 프로퍼티가 아직 초기화되지 않은 경우 프로퍼티가 한번만 초기화 된다는 보장이 없습니다.
 
 ### 저장된 프로퍼티와 인스턴스 변수 \(Stored Properties and Instance Variables\)
@@ -201,7 +201,7 @@ getter에서 생략한 `return` 은 [암시적 반환의 함수 \(Functions With
 
 setter가 없고 getter만 있는 계산된 프로퍼티는 _읽기전용 계산된 프로퍼티 \(read-only computed property\)_ 라고 합니다. 읽기전용 계산된 프로퍼티는 항상 값을 반환하고 점 구문으로 접근할 수 있지만 다른 값을 설정할 수 없습니다.
 
-> NOTE   
+> NOTE  
 > 값이 고정되어 있지 않기 때문에 읽기전용 계산된 프로퍼티를 포함하여 계산된 프로퍼티는 `var` 키워드를 포함하는 프로퍼티 변수로 선언되어야 합니다. `let` 키워드는 인스턴스 초기화의 부분으로 한번 설정되면 값을 변경할 수 없음을 나타내기 위해 오직 프로퍼티 상수에서만 사용됩니다.
 
 `get` 키워드와 그것의 중괄호를 삭제하고 읽기전용 계산된 프로퍼티를 간편하게 선언할 수 있습니다:
@@ -241,7 +241,7 @@ print("the volume of fourByFiveByTwo is \(fourByFiveByTwo.volume)")
 
 유사하게 `didSet` 관찰자를 구현한다면 예전 프로퍼티 값을 포함한 상수 파라미터가 전달됩니다. 파라미터 명을 사용하거나 `oldValue` 인 기본 파라미터 명을 사용할 수 있습니다. `didSet` 관찰자 내의 프로퍼티에 값을 할당한다면 새로운 값으로 방금 설정한 값을 대체합니다.
 
-> NOTE   
+> NOTE  
 > 수퍼 클래스 프로퍼티의 `willSet` 과 `didSet` 관찰자는 수퍼 클래스 초기화가 호출된 후 하위 클래스 초기화에서 프로퍼티가 설정될 때 호출됩니다. 수퍼 클래스가 초기화 호출되기 전에 클래스 자체 프로퍼티를 설정하는 동안에는 호출되지 않습니다.
 >
 > 초기화 위임에 대한 자세한 내용은 [값 타입에 대한 초기화 구문 위임 \(Initializer Delegation for Value Types\)](initialization.md#initializer-delegation-for-value-types) 와 [클래스 타입에 대한 초기화 구 위임 \(Initializer Delegation for Class Types\)](initialization.md#initializer-delegation-for-class-types) 를 참고 바랍니다.
@@ -281,7 +281,7 @@ stepCounter.totalSteps = 896
 
 `didSet` 관찰자는 `totalSteps` 값이 업데이트 되고난 후에 호출됩니다. 이것은 오래된 값에 대해 `totalSteps` 의 새로운 값과 비교합니다. 걸음수가 증가했다면 걸음수가 얼마나 증가하였는지 출력합니다. `didSet` 관찰자는 오래된 값에 대한 사용자 파라미터 명을 제공하지 않고 대신에 `oldValue` 의 기본 이름을 사용합니다.
 
-> NOTE   
+> NOTE  
 > 관찰자를 가진 프로퍼티를 in-out 파라미터로 함수에 전달하면 `willSet` 과 `didSet` 관찰자는 항상 호출됩니다. 이것은 in-out 파라미터에 대한 copy-in-copy-out 메모리 모델 때문에 그렇습니다. 값은 함수 끝에서 프로퍼티에 항상 다시 작성됩니다. in-out 파라미터에 대한 자세한 내용은 [In-Out 파라미터 \(In-Out Parameters\)](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID545) 를 참고 바랍니다.
 
 ## 프로퍼티 래퍼 \(Property Wrappers\)
@@ -303,7 +303,7 @@ struct TwelveOrLess {
 
 setter는 새로운 값이 12이하라는 것을 보장하고 getter는 저장된 값을 반환합니다.
 
-> NOTE   
+> NOTE  
 > 위의 예제에서 `number` 선언부는 `TwelveOrLess` 의 구현에서만 `number` 가 사용될 수 있도록 `private` 로 변수를 표기합니다. 다른곳에서 작성된 코드는 `wrappedValue` 를 위한 getter와 setter를 사용하여 값에 접근하고 직접적으로 `number` 를 사용할 수 없습니다. `private` 에 대한 정보는 [접근 제어 \(Access Control\)](access-control.md) 를 참고 바랍니다.
 
 속성으로 프로퍼티 전에 래퍼의 이름을 작성하여 프로퍼티에 래퍼를 적용합니다. 다음은 항상 12 이하인지 확인하기 위해 `TwelveOrLess` 프로퍼티 래퍼를 사용하여 사각형을 저장하는 구조체입니다:
@@ -528,7 +528,7 @@ struct SizedRectangle {
 
 그러나 전역 또는 지역 범위로 _계산된 변수 \(computed variables\)_ 와 저장된 변수를 위한 관찰자를 정의할 수도 있습니다. 계산된 변수는 값을 저장하기 보다 값을 계산하고 계산된 프로퍼티와 같은 방법으로 작성됩니다.
 
-> NOTE   
+> NOTE  
 > 전역 상수와 변수는 [지연 저장된 프로퍼티 \(Lazy Stored Properties\)](properties.md#lazy-stored-properties) 와 유사한 방법으로 항상 느리게 계산됩니다. 지연 저장된 프로퍼티와 다르게 전역 상수와 변수는 `lazy` 수식어가 필요하지 않습니다.
 >
 > 지역 상수와 변수는 절대 느리게 계산되지 않습니다.
@@ -559,7 +559,7 @@ func someFunction() {
 
 저장된 타입 프로퍼티는 변수 또는 상수 일 수 있습니다. 계산된 타입 프로퍼티는 계산된 인스턴스 프로퍼와 같은 방식으로 항상 프로퍼티 변수로 선언됩니다.
 
-> NOTE   
+> NOTE  
 > 저장된 인스턴스 프로퍼티와 다르게 저장된 타입 프로퍼티에는 기본값을 항상 주어야 합니다. 이는 초기화 시 저장된 타입 프로퍼티에 값을 할당할 수 있는 초기화를 가지고 있지 않기 때문입니다.
 >
 > 저장된 타입 프로퍼티는 처음 접근될 때 느리게 초기화 됩니다. 여러 쓰레드가 동시에 접근할 때도 한번만 초기화 되도록 보장하고 `lazy` 수식어가 필요하지 않습니다.
@@ -594,7 +594,7 @@ class SomeClass {
 }
 ```
 
-> NOTE   
+> NOTE  
 > 위 예제의 계산된 타입 프로퍼티는 읽기전용 계산된 타입 프로퍼티를 위한 것이지만 계산된 인스턴스 프로퍼티와 동일한 구문을 사용하여 읽기 쓰기 계산된 타입 프로퍼티를 정의 할 수도 있습니다.
 
 ### 타입 프로퍼티 조회와 설정 \(Querying and Setting Type Properties\)
@@ -651,7 +651,7 @@ struct AudioChannel {
 * `currentLevel` 의 새로운 값이 `thresholdLevel` 에 허용된 값보다 크면 프로퍼티 관찰자는 `currentLevel` 을 `thresholdLevel` 로 설정합니다.
 * `currentLevel` 의 새로운 값이 `AudioChannel` 인스턴스에서 받은 값이 이전 값보다 크면 프로퍼티 관찰자는 새로운 `currentLevel` 값을 `maxInputLevelForAllChannels` 타입 프로퍼티에 저장합니다.
 
-> NOTE   
+> NOTE  
 > 2가지 체크사항 중 첫번째 항목에서 `didSet` 관찰자는 `currentLevel` 을 다른 값으로 설정합니다. 그러나 이것이 관찰자를 다시 호출하진 않습니다.
 
 스트레오 사운드 시스템에 오디오 레벨을 표시하기 위해 `leftChannel` 과 `rightChannel` 이라 하는 2개의 새로운 오디오 채널을 생성하기 위해 `AudioChannel` 구조체를 사용할 수 있습니다:

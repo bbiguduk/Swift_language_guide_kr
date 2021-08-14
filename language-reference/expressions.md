@@ -5,8 +5,8 @@ Swift 에서 접두사 표현식 \(prefix expressions\), 이진 표현식 \(bina
 접두사 그리고 이진 표현식은 더 작은 표현식에 연산자를 적용할 수 있습니다. 기본 표현식은 개념적으로 가장 간단한 표현식이며 값을 접근하는 방법을 제공합니다. 접두사와 이진 표현식과 같이 접미사 표현식은 함수 호출과 멤버 접근과 같이 접미사를 사용하여 더 복잡한 표현식을 작성할 수 있습니다. 표현식의 각 종류는 아래 섹션에서 자세하게 설명 합니다.
 
 > GRAMMAR OF AN EXPRESSION  
-> expression → [try-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_try-operator) $$_{opt}$$ [await-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_await-operator) $$_{opt}$$ [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  [binary-expressions](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_binary-expressions) $$_{opt}$$   
-> expression-list → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) \|  [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `,` [expression-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression-list)
+> expression → [try-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_try-operator) $$_{opt}$$ [await-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_await-operator) $$_{opt}$$ [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression) [binary-expressions](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_binary-expressions) $$_{opt}$$  
+> expression-list → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) \| [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `,` [expression-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression-list)
 
 ## 접두사 표현식 \(Prefix Expressions\)
 
@@ -69,7 +69,7 @@ sum = (try someThrowingFunction()) + anotherThrowingFunction()
 더 자세한 정보와 `try`, `try?`, 그리고 `try!` 사용법에 대한 예제는 [에러 처리 \(Error Handling\)](../language-guide-1/error-handling.md) 을 참고 바랍니다.
 
 > GRAMMAR OF A TRY EXPRESSION  
-> try-operator → `try` \|  `try` `?` \|  `try` `!`
+> try-operator → `try` \| `try` `?` \| `try` `!`
 
 ## Await 연산자 \(Await Operator\)
 
@@ -100,7 +100,7 @@ sum = (await someAsyncFunction()) + anotherAsyncFunction()
 
 표현식에 `await` 와 `try` 연산자가 모두 포함되면 `try` 연산자가 먼저 나타나야 합니다.
 
-> GRAMMAR OF AN AWAIT EXPRESSION
+> GRAMMAR OF AN AWAIT EXPRESSION   
 > await-operator → `await`
 
 ## 이항 표현식 \(Binary Expressions\)
@@ -115,13 +115,13 @@ Swift 표준 라이브러리에 의해 제공되는 연산자에 대한 자세�
 
 > NOTE  
 > 구문 분석 시 이항 연산자로 구성된 표현식은 단순 목록으로 표현됩니다. 이 목록은 연산자 우선순위를 적용하여 트리로 변환됩니다. 예를 들어 표현식 `2 + 3 * 5` 는 처음에는 5개의 항목 `2`, `+`, `3`, `*`, 그리고 `5` 의 단순 목록으로 이해됩니다. 이 프로세스는 트리 \(2 + \(3 \* 5\)\) 로 변환합니다.
-
+>
 > GRAMMAR OF A BINARY EXPRESSION  
-> binary-expression → [binary-operator](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_binary-operator)  [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  
-> binary-expression → [assignment-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_assignment-operator)  [try-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_try-operator) $$_{opt}$$ [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  
-> binary-expression → [conditional-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_conditional-operator)  [try-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_try-operator) $$_{opt}$$ [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  
+> binary-expression → [binary-operator](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_binary-operator) [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  
+> binary-expression → [assignment-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_assignment-operator) [try-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_try-operator) $$_{opt}$$ [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  
+> binary-expression → [conditional-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_conditional-operator) [try-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_try-operator) $$_{opt}$$ [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  
 > binary-expression → [type-casting-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_type-casting-operator)  
-> binary-expressions → [binary-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_binary-expression)  [binary-expressions](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_binary-expressions) $$_{opt}$$
+> binary-expressions → [binary-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_binary-expression) [binary-expressions](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_binary-expressions) $$_{opt}$$
 
 ### 할당 연산자 \(Assignment Operator\)
 
@@ -152,7 +152,7 @@ _조건_ 이 `true` 이면 조건부 연산자는 첫번째 표현식을 평가�
 삼항 조건 연산자 사용에 대한 예제는 [삼항 조건 연산자 \(Ternary Conditional Operator\)](../language-guide-1/basic-operators.md#ternary-conditional-operator) 를 참고 바랍니다.
 
 > GRAMMAR OF A CONDITIONAL OPERATOR  
-> conditional-operator → `?` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `:`
+> conditional-operator → `?` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `:`
 
 ### 타입 캐스팅 연산자 \(Type-Casting Operators\)
 
@@ -200,7 +200,7 @@ f(x as Any)
 _기본 표현식 \(Primary expressions\)_ 은 표현식의 가장 기본입니다. 표현식 자체로 사용될 수 있으며 접두사 표현식, 이진 표현식, 그리고 접미사 표현식을 만들기 위해 다른 토큰과 결합될 수 있습니다.
 
 > GRAMMAR OF A PRIMARY EXPRESSION  
-> primary-expression → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  [generic-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-clause) $$_{opt}$$   
+> primary-expression → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) [generic-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-clause) $$_{opt}$$  
 > primary-expression → [literal-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_literal-expression)  
 > primary-expression → [self-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_self-expression)  
 > primary-expression → [superclass-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_superclass-expression)  
@@ -273,18 +273,18 @@ Xcode 에서 플레이그라운드 리터럴 사용에 대한 정보는 Xcode �
 
 > GRAMMAR OF A LITERAL EXPRESSION  
 > literal-expression → [literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_literal)  
-> literal-expression → [array-literal](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_array-literal) \|  [dictionary-literal](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_dictionary-literal) \|  [playground-literal](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_playground-literal)  
-> literal-expression → `#file` \|  `#fileID` \|  `#filePath`   
-> literal-expression → `#line` \|  `#column` \|  `#function` \|  `#dsohandle`   
-> array-literal → `[` [array-literal-items](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_array-literal-items) $$_{opt}$$ `]`   
-> array-literal-items → [array-literal-item](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_array-literal-item)  `,` $$_{opt}$$ \|  [array-literal-item](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_array-literal-item)  `,` [array-literal-items](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_array-literal-items)  
+> literal-expression → [array-literal](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_array-literal) \| [dictionary-literal](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_dictionary-literal) \| [playground-literal](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_playground-literal)  
+> literal-expression → `#file` \| `#fileID` \| `#filePath`  
+> literal-expression → `#line` \| `#column` \| `#function` \| `#dsohandle`  
+> array-literal → `[` [array-literal-items](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_array-literal-items) $$_{opt}$$ `]`  
+> array-literal-items → [array-literal-item](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_array-literal-item) `,` $$_{opt}$$ \| [array-literal-item](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_array-literal-item) `,` [array-literal-items](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_array-literal-items)  
 > array-literal-item → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  
-> dictionary-literal → `[` [dictionary-literal-items](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_dictionary-literal-items)  `]` \|  `[` `:` `]`   
-> dictionary-literal-items → [dictionary-literal-item](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_dictionary-literal-item)  `,` $$_{opt}$$ \|  [dictionary-literal-item](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_dictionary-literal-item)  `,` [dictionary-literal-items](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_dictionary-literal-items)  
-> dictionary-literal-item → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  
-> playground-literal → `#colorLiteral` `(` `red` `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `,` `green` `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `,` `blue` `:`[expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `,` `alpha` `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `)`   
-> playground-literal → `#fileLiteral` `(` `resourceName` `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `)`   
-> playground-literal → `#imageLiteral` `(` `resourceName` `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `)`
+> dictionary-literal → `[` [dictionary-literal-items](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_dictionary-literal-items) `]` \| `[` `:` `]`  
+> dictionary-literal-items → [dictionary-literal-item](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_dictionary-literal-item) `,` $$_{opt}$$ \| [dictionary-literal-item](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_dictionary-literal-item) `,` [dictionary-literal-items](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_dictionary-literal-items)  
+> dictionary-literal-item → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  
+> playground-literal → `#colorLiteral` `(` `red` `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `,` `green` `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `,` `blue` `:`[expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `,` `alpha` `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `)`  
+> playground-literal → `#fileLiteral` `(` `resourceName` `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `)`  
+> playground-literal → `#imageLiteral` `(` `resourceName` `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `)`
 
 ### Self 표현식 \(Self Expression\)
 
@@ -317,9 +317,9 @@ struct Point {
 ```
 
 > GRAMMAR OF A SELF EXPRESSION  
-> self-expression → `self` \|  [self-method-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_self-method-expression) \|  [self-subscript-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_self-subscript-expression) \|  [self-initializer-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_self-initializer-expression)  
+> self-expression → `self` \| [self-method-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_self-method-expression) \| [self-subscript-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_self-subscript-expression) \| [self-initializer-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_self-initializer-expression)  
 > self-method-expression → `self` `.` [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  
-> self-subscript-expression → `self` `[` [function-call-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-list)  `]`   
+> self-subscript-expression → `self` `[` [function-call-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-list) `]`  
 > self-initializer-expression → `self` `.` `init`
 
 ### 상위클래스 표현식 \(Superclass Expression\)
@@ -335,9 +335,9 @@ _상위클래스 표현식 \(superclass expression\)_ 을 사용하면 클래스
 하위클래스는 멤버, 서브 스크립팅 그리고 초기화 구문에서 상위클래스 표현식을 사용하여 상위클래스의 구현을 사용할 수 있습니다.
 
 > GRAMMAR OF A SUPERCLASS EXPRESSION  
-> superclass-expression → [superclass-method-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_superclass-method-expression) \|  [superclass-subscript-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_superclass-subscript-expression) \|  [superclass-initializer-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_superclass-initializer-expression)  
+> superclass-expression → [superclass-method-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_superclass-method-expression) \| [superclass-subscript-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_superclass-subscript-expression) \| [superclass-initializer-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_superclass-initializer-expression)  
 > superclass-method-expression → `super` `.` [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  
-> superclass-subscript-expression → `super` `[` [function-call-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-list)  `]`   
+> superclass-subscript-expression → `super` `[` [function-call-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-list) `]`  
 > superclass-initializer-expression → `super` `.` `init`
 
 ### 클로저 표현식 \(Closure Expression\)
@@ -372,7 +372,7 @@ myFunction { $0 + $1 }
 
 함수에 인수로 클로저를 전달하는 것에 대한 정보는 [함수 호출 표현식 \(Function Call Expression\)](expressions.md#function-call-expression) 을 참고 바랍니다.
 
-클로저 표현식은 함수 호출의 일부로 클로저를 즉시 사용할 때와 같이 변수나 상수에 저장하지 않고 사용될 수 있습니다. 위 코드에서 `myFunction` 에 전달된 클로저 표현식은 이러한 종류의 즉각적인 사용의 예제입니다. 결과적으로 클로저 표현식은 이스케이프 \(escaping\) 인지 비이스케이프 \(nonescaping\) 인지 여부는 주변의 컨텍스트에 의해 결정됩니다. 클로저 표현식은 즉시 호출되거나 비이스케이프 함수 인수로 전달되면 비이스케이프 입니다.  그렇지 않으면 클로저 표현식은 이스케이프 입니다.
+클로저 표현식은 함수 호출의 일부로 클로저를 즉시 사용할 때와 같이 변수나 상수에 저장하지 않고 사용될 수 있습니다. 위 코드에서 `myFunction` 에 전달된 클로저 표현식은 이러한 종류의 즉각적인 사용의 예제입니다. 결과적으로 클로저 표현식은 이스케이프 \(escaping\) 인지 비이스케이프 \(nonescaping\) 인지 여부는 주변의 컨텍스트에 의해 결정됩니다. 클로저 표현식은 즉시 호출되거나 비이스케이프 함수 인수로 전달되면 비이스케이프 입니다. 그렇지 않으면 클로저 표현식은 이스케이프 입니다.
 
 이스케이프 클로저에 대한 자세한 내용은 [이스케이프 클로저 \(Escaping Closures\)](../language-guide-1/closures.md#escaping-closures) 를 참고 바랍니다.
 
@@ -433,23 +433,23 @@ myFunction { [unowned self] in print(self.title) }  // unowned capture
 myFunction { [weak parent = self.parent] in print(parent!.title) }
 ```
 
-클로저 표현식에 자세한 내용과 예제는 [클로저 표현식 \(Closure Expressions\)](../language-guide-1/closures.md#closure-expressions) 를 참고 바랍니다.  캡처 목록에 자세한 내용과 예제는 [클로저에 대한 강한 참조 사이클 해결 \(Resolving Strong Reference Cycles for Closures\)](../language-guide-1/automatic-reference-counting.md#resolving-strong-reference-cycles-for-closures) 를 참고 바랍니다.
+클로저 표현식에 자세한 내용과 예제는 [클로저 표현식 \(Closure Expressions\)](../language-guide-1/closures.md#closure-expressions) 를 참고 바랍니다. 캡처 목록에 자세한 내용과 예제는 [클로저에 대한 강한 참조 사이클 해결 \(Resolving Strong Reference Cycles for Closures\)](../language-guide-1/automatic-reference-counting.md#resolving-strong-reference-cycles-for-closures) 를 참고 바랍니다.
 
 > GRAMMAR OF A CLOSURE EXPRESSION  
-> closure-expression → `{` [closure-signature](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-signature) $$_{opt}$$ [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statements) $$_{opt}$$ `}`   
-> closure-signature → [capture-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-list) opt [closure-parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter-clause)  `throws` $$_{opt}$$ [function-result](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_function-result) $$_{opt}$$ `in`   
-> closure-signature → [capture-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-list)  `in`   
-> closure-parameter-clause → `(` `)` \|  `(` [closure-parameter-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter-list)  `)` \|  [identifier-list](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier-list)  
-> closure-parameter-list → [closure-parameter](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter) \|  [closure-parameter](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter)  `,` [closure-parameter-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter-list)  
-> closure-parameter → [closure-parameter-name](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter-name)  [type-annotation](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-annotation) $$_{opt}$$   
-> closure-parameter → [closure-parameter-name](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter-name)  [type-annotation](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-annotation)  `...`   
+> closure-expression → `{` [closure-signature](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-signature) $$_{opt}$$ [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statements) $$_{opt}$$ `}`  
+> closure-signature → [capture-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-list) opt [closure-parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter-clause) `throws` $$_{opt}$$ [function-result](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_function-result) $$_{opt}$$ `in`  
+> closure-signature → [capture-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-list) `in`  
+> closure-parameter-clause → `(` `)` \| `(` [closure-parameter-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter-list) `)` \| [identifier-list](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier-list)  
+> closure-parameter-list → [closure-parameter](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter) \| [closure-parameter](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter) `,` [closure-parameter-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter-list)  
+> closure-parameter → [closure-parameter-name](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter-name) [type-annotation](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-annotation) $$_{opt}$$  
+> closure-parameter → [closure-parameter-name](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter-name) [type-annotation](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-annotation) `...`  
 > closure-parameter-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  
-> capture-list → `[` [capture-list-items](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-list-items)  `]`   
-> capture-list-items → [capture-list-item](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-list-item) \|  [capture-list-item](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-list-item)  `,` [capture-list-items](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-list-items)  
+> capture-list → `[` [capture-list-items](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-list-items) `]`  
+> capture-list-items → [capture-list-item](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-list-item) \| [capture-list-item](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-list-item) `,` [capture-list-items](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-list-items)  
 > capture-list-item → [capture-specifier](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-specifier) $$_{opt}$$ [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  
-> capture-list-item → [capture-specifier](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-specifier) $$_{opt}$$ [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  `=` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  
+> capture-list-item → [capture-specifier](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-specifier) $$_{opt}$$ [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) `=` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  
 > capture-list-item → [capture-specifier](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-specifier) $$_{opt}$$ [self-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_self-expression)  
-> capture-specifier → `weak` \|  `unowned` \|  `unowned(safe)` \|  `unowned(unsafe)`
+> capture-specifier → `weak` \| `unowned` \| `unowned(safe)` \| `unowned(unsafe)`
 
 ### 암시적 멤버 표현식 \(Implicit Member Expression\)
 
@@ -491,7 +491,7 @@ let z: SomeClass = .sharedSubclass
 위의 코드에서 `x` 의 타입은 컨텍스트가 암시하는 타입과 정확히 일치하고 `y` 의 타입은 `SomeClass` 에서 `SomeClass?` 로 변환 가능하며 `z` 의 타입은 `SomeSubclass` 에서 `SomeClass` 로 변환 가능합니다.
 
 > GRAMMAR OF A IMPLICIT MEMBER EXPRESSION  
-> implicit-member-expression → `.` [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)
+> implicit-member-expression → `.` [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)   
 > implicit-member-expression → `.` [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) `.` [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression)
 
 ### 괄호 안 표현식 \(Parenthesized Expression\)
@@ -499,7 +499,7 @@ let z: SomeClass = .sharedSubclass
 _괄호 안 표현식 \(parenthesized expression\)_ 은 표현식을 괄호로 둘러싸인 것으로 구성됩니다. 괄호를 사용하여 표현식을 명시적으로 그룹화 하여 작업의 우선순위를 지정할 수 있습니다. 그룹화 괄호는 표현식의 타입을 변경하지 않습니다—예를 들어 `(1)` 의 타입은 단순히 `Int` 입니다.
 
 > GRAMMAR OF A PARENTHESIZED EXPRESSION  
-> parenthesized-expression → `(` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `)`
+> parenthesized-expression → `(` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `)`
 
 ### 튜플 표현식 \(Tuple Expression\)
 
@@ -513,11 +513,11 @@ _튜플 표현식 \(tuple expression\)_ 은 괄호호 묶인 콤마로 구분된
 
 > NOTE  
 > 빈 튜플 표현식과 빈 튜플 타입 모두 Swift 에서 `()` 로 작성됩니다. `Void` 는 `()` 에 대한 타입 별칭이므로 빈 튜플 타입을 작성하기위해 사용할 수 있습니다. 그러나 모든 타입 별칭과 마찬가지로 `Void` 는 항상 타입이므로 빈 튜플 표현식으로 작성하기 위해 사용할 수 없습니다.
-
+>
 > GRAMMAR OF A TUPLE EXPRESSION  
-> tuple-expression → `(` `)` \|  `(` [tuple-element](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_tuple-element)  `,` [tuple-element-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_tuple-element-list)  `)`   
-> tuple-element-list → [tuple-element](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_tuple-element) \|  [tuple-element](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_tuple-element)  `,` [tuple-element-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_tuple-element-list)  
-> tuple-element → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) \|  [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)
+> tuple-expression → `(` `)` \| `(` [tuple-element](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_tuple-element) `,` [tuple-element-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_tuple-element-list) `)`  
+> tuple-element-list → [tuple-element](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_tuple-element) \| [tuple-element](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_tuple-element) `,` [tuple-element-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_tuple-element-list)  
+> tuple-element → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) \| [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)
 
 ### 와일드카드 표현식 \(Wildcard Expression\)
 
@@ -606,7 +606,7 @@ let myGreeting = greetings[keyPath: \[String].[1]]
 // myGreeting is 'hola'
 ```
 
-서브 스크립트에서 사용된 값은 명명된 값 또는 리터럴 일 수 있습니다. 값은 값 의미로 사용하여 키 경로에서 캡처됩니다. 다음 코드는 키-경로 표현식과 클로저 모두에서 변수 `index` 를 사용하여 `greetings` 배역의 세번째 요소를 접근합니다. `index` 가 수정될 때 클로저는 새로운 인덱스를 사용하는 동안 키-경로 표현식은  여전히 세번째 요소를 참조합니다.
+서브 스크립트에서 사용된 값은 명명된 값 또는 리터럴 일 수 있습니다. 값은 값 의미로 사용하여 키 경로에서 캡처됩니다. 다음 코드는 키-경로 표현식과 클로저 모두에서 변수 `index` 를 사용하여 `greetings` 배역의 세번째 요소를 접근합니다. `index` 가 수정될 때 클로저는 새로운 인덱스를 사용하는 동안 키-경로 표현식은 여전히 세번째 요소를 참조합니다.
 
 ```swift
 var index = 2
@@ -690,14 +690,14 @@ let taskKeyPath = \[Task][makeIndex()]
 let someTask = toDoList[keyPath: taskKeyPath]
 ```
 
-Objective-C API 와 함께 상혹작용하는 코드에서 키 경로를 사용하는 것에 대한 자세한 내용은 [Swift 에서 Objective-C 런타임 특성 사용 \(Using Objective-C Runtime Features in Swift\)](https://developer.apple.com/documentation/swift/using_objective-c_runtime_features_in_swift) 를 참고 바랍니다.  키-값 코딩과 키-값 관찰에 대한 자세한 내용은 [키-값 코딩 프로그래밍 가이드 \(Key-Value Coding Programming Guide\)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/KeyValueCoding/index.html#//apple_ref/doc/uid/10000107i) 와 [키-값 관찰 프로그래밍 가이드 \(Key-Value Observing Programming Guide\)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple_ref/doc/uid/10000177i) 를 참고 바랍니다.
+Objective-C API 와 함께 상혹작용하는 코드에서 키 경로를 사용하는 것에 대한 자세한 내용은 [Swift 에서 Objective-C 런타임 특성 사용 \(Using Objective-C Runtime Features in Swift\)](https://developer.apple.com/documentation/swift/using_objective-c_runtime_features_in_swift) 를 참고 바랍니다. 키-값 코딩과 키-값 관찰에 대한 자세한 내용은 [키-값 코딩 프로그래밍 가이드 \(Key-Value Coding Programming Guide\)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/KeyValueCoding/index.html#//apple_ref/doc/uid/10000107i) 와 [키-값 관찰 프로그래밍 가이드 \(Key-Value Observing Programming Guide\)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple_ref/doc/uid/10000177i) 를 참고 바랍니다.
 
 > GRAMMAR OF A KEY-PATH EXPRESSION  
 > key-path-expression → `\` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type) $$_{opt}$$ `.` [key-path-components](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-components)  
-> key-path-components → [key-path-component](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-component) \|  [key-path-component](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-component)  `.` [key-path-components](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-components)  
-> key-path-component → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  [key-path-postfixes](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-postfixes) $$_{opt}$$ \|  [key-path-postfixes](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-postfixes)  
-> key-path-postfixes → [key-path-postfix](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-postfix)  [key-path-postfixes](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-postfixes) $$_{opt}$$   
-> key-path-postfix → `?` \|  `!` \|  `self` \|  `[` [function-call-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-list)  `]`
+> key-path-components → [key-path-component](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-component) \| [key-path-component](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-component) `.` [key-path-components](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-components)  
+> key-path-component → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) [key-path-postfixes](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-postfixes) $$_{opt}$$ \| [key-path-postfixes](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-postfixes)  
+> key-path-postfixes → [key-path-postfix](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-postfix) [key-path-postfixes](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_key-path-postfixes) $$_{opt}$$  
+> key-path-postfix → `?` \| `!` \| `self` \| `[` [function-call-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-list) `]`
 
 ### 선택기 표현식 \(Selector Expression\)
 
@@ -742,9 +742,9 @@ let anotherSelector = #selector(SomeClass.doSomething(_:) as (SomeClass) -> (Str
 Objective-C API 와 상호작용하는 Swift 코드에서 선택기 사용에 대한 자세한 내용은 [Swift 에서 Objective-C 런타임 특성 사용 \(Using Objective-C Runtime Features in Swift\)](https://developer.apple.com/documentation/swift/using_objective-c_runtime_features_in_swift) 를 참고 바랍니다.
 
 > GRAMMAR OF A SELECTOR EXPRESSION  
-> selector-expression → `#selector` `(` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `)`   
-> selector-expression → `#selector` `(` `getter:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `)`   
-> selector-expression → `#selector` `(` `setter:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `)`
+> selector-expression → `#selector` `(` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `)`  
+> selector-expression → `#selector` `(` `getter:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `)`  
+> selector-expression → `#selector` `(` `setter:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `)`
 
 ### 키-경로 문자열 표현식 \(Key-Path String Expression\)
 
@@ -789,9 +789,9 @@ Objective-C API 와 상호작용하는 Swift 코드에서 키 경로를 사용�
 
 > NOTE  
 > _프로퍼티 이름 \(property name\)_ 은 표현식이지만 절대 평가되지 않습니다.
-
+>
 > GRAMMAR OF A KEY-PATH STRING EXPRESSION  
-> key-path-string-expression → `#keyPath` `(` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `)`
+> key-path-string-expression → `#keyPath` `(` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) `)`
 
 ## 접미사 표현식 \(Postfix Expressions\)
 
@@ -803,7 +803,7 @@ Swift 표준 라이브러리에 의해 제공되는 연산자에 대한 자세�
 
 > GRAMMAR OF A POSTFIX EXPRESSION  
 > postfix-expression → [primary-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_primary-expression)  
-> postfix-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression)  [postfix-operator](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_postfix-operator)  
+> postfix-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) [postfix-operator](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_postfix-operator)  
 > postfix-expression → [function-call-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-expression)  
 > postfix-expression → [initializer-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_initializer-expression)  
 > postfix-expression → [explicit-member-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_explicit-member-expression)  
@@ -913,15 +913,15 @@ withUnsafePointer(to: myNumber) { unsafeFunction(pointer: $0) }
 `withUnsafePointer(to:)` 와 같이 명시적 함수 대신 `&` 사용하는 것은 특히 함수가 여러 포인터 인수를 가지고 있을 때 저수준 C 함수 \(low-level C functions\) 를 더 읽기 쉽게 호출할 수 있습니다. 그러나 다른 Swift 코드에서 함수를 호출할 때 안전하지 않은 API 를 명시적으로 사용하는 대신 `&` 을 사용하는 것은 피해야 합니다.
 
 > GRAMMAR OF A FUNCTION CALL EXPRESSION  
-> function-call-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression)  [function-call-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-clause)  
-> function-call-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression)  [function-call-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-clause) opt [trailing-closures](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_trailing-closures)  
-> function-call-argument-clause → `(` `)` \|  `(` [function-call-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-list)  `)`   
-> function-call-argument-list → [function-call-argument](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument) \|  [function-call-argument](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument)  `,` [function-call-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-list)  
-> function-call-argument → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) \|  [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  
-> function-call-argument → [operator](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_operator) \|  [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  `:` [operator](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_operator)  
-> trailing-closures → [closure-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-expression)  [labeled-trailing-closures](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_labeled-trailing-closures) $$_{opt}$$   
-> labeled-trailing-closures → [labeled-trailing-closure](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_labeled-trailing-closure)  [labeled-trailing-closures](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_labeled-trailing-closures) $$_{opt}$$   
-> labeled-trailing-closure → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  `:` [closure-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-expression)
+> function-call-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) [function-call-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-clause)  
+> function-call-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) [function-call-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-clause) opt [trailing-closures](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_trailing-closures)  
+> function-call-argument-clause → `(` `)` \| `(` [function-call-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-list) `)`  
+> function-call-argument-list → [function-call-argument](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument) \| [function-call-argument](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument) `,` [function-call-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-list)  
+> function-call-argument → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) \| [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) `:` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  
+> function-call-argument → [operator](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_operator) \| [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) `:` [operator](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_operator)  
+> trailing-closures → [closure-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-expression) [labeled-trailing-closures](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_labeled-trailing-closures) $$_{opt}$$  
+> labeled-trailing-closures → [labeled-trailing-closure](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_labeled-trailing-closure) [labeled-trailing-closures](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_labeled-trailing-closures) $$_{opt}$$  
+> labeled-trailing-closure → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) `:` [closure-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-expression)
 
 ### 초기화 구문 표현식 \(Initializer Expression\)
 
@@ -961,8 +961,8 @@ let s4 = type(of: someValue)(data: 5)       // Error
 ```
 
 > GRAMMAR OF AN INITIALIZER EXPRESSION  
-> initializer-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression)  `.` `init`   
-> initializer-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression)  `.` `init` `(` [argument-names](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_argument-names)  `)`
+> initializer-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) `.` `init`  
+> initializer-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) `.` `init` `(` [argument-names](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_argument-names) `)`
 
 ### 명시적 멤버 표현식 \(Explicit Member Expression\)
 
@@ -1021,11 +1021,11 @@ let x = [10, 3, 20, 15, 4]
 ```
 
 > GRAMMAR OF AN EXPLICIT MEMBER EXPRESSION  
-> explicit-member-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression)  `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits)  
-> explicit-member-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression)  `.` [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  [generic-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-clause) $$_{opt}$$   
-> explicit-member-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression)  `.` [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  `(` [argument-names](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_argument-names)  `)`   
-> argument-names → [argument-name](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_argument-name)  [argument-names](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_argument-names) $$_{opt}$$   
-> argument-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  `:`
+> explicit-member-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits)  
+> explicit-member-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) `.` [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) [generic-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-clause) $$_{opt}$$  
+> explicit-member-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) `.` [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) `(` [argument-names](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_argument-names) `)`  
+> argument-names → [argument-name](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_argument-name) [argument-names](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_argument-names) $$_{opt}$$  
+> argument-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) `:`
 
 ### 접미사 Self 표현식 \(Postfix Self Expression\)
 
@@ -1038,7 +1038,7 @@ let x = [10, 3, 20, 15, 4]
 두번째 형식은 _타입 \(type\)_ 의 값으로 평가됩니다. 값으로 타입을 접근하려면 이 형식을 사용합니다. 예를 들어 `SomeClass.self` 는 `SomeClass` 타입 자체로 평가되므로 타입 수준 인수 \(type-level argument\) 를 허용하는 함수나 메서드에 전달할 수 있습니다.
 
 > GRAMMAR OF A POSTFIX SELF EXPRESSION  
-> postfix-self-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression)  `.` `self`
+> postfix-self-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) `.` `self`
 
 ### 서브 스크립트 표현식 \(Subscript Expression\)
 
@@ -1051,7 +1051,7 @@ _서브 스크립트 표현식 \(subscript expression\)_ 은 해당 서브 스�
 서브 스크립트 선언에 대한 자세한 내용은 [프로토콜 서브 스크립트 선언 \(Protocol Subscript Declaration\)](declarations.md#protocol-subscript-declaration) 을 참고 바랍니다.
 
 > GRAMMAR OF A SUBSCRIPT EXPRESSION  
-> subscript-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression)  `[` [function-call-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-list)  `]`
+> subscript-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) `[` [function-call-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_function-call-argument-list) `]`
 
 ### 강제-값 표현식 \(Forced-Value Expression\)
 
@@ -1074,7 +1074,7 @@ someDictionary["a"]![0] = 100
 ```
 
 > GRAMMAR OF A FORCED-VALUE EXPRESSION  
-> forced-value-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression)  `!`
+> forced-value-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) `!`
 
 ### 옵셔널-체이닝 표현식 \(Optional-Chaining Expression\)
 
@@ -1120,5 +1120,5 @@ someDictionary["a"]?[0] = someFunctionWithSideEffects()
 ```
 
 > GRAMMAR OF AN OPTIONAL-CHAINING EXPRESSION  
-> optional-chaining-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression)  `?`
+> optional-chaining-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) `?`
 

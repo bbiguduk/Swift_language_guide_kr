@@ -47,7 +47,7 @@ print("six times three is \(threeTimesTable[6])")
 
 `threeTimesTable[6]` 에 대한 호출에 보여준 것처럼 서브 스크립트를 호출하여 `threeTimesTable` 인스턴스를 조회할 수 있습니다. 이것은 `3` 의 `6` 배인 `18` 의 값을 반환하는 3배 테이블에서 6번째 값을 요청합니다.
 
-> NOTE   
+> NOTE  
 > _n_-배-테이블은 수학적 규칙을 기반으로 합니다. `threeTimesTable[someIndex]` 를 새로운 값을 설정하는 것은 적절하지 않으므로 `TimesTable` 의 서브 스크립트는 읽기전용 서브 스크립트로 정의됩니다.
 
 ## 서브 스크립트 사용 \(Subscript Usage\)
@@ -65,7 +65,7 @@ numberOfLegs["bird"] = 2
 
 `Dictionary` 서브 스크립트에 대한 자세한 내용은 [딕셔너리 접근과 수정 \(Accessing and Modifying a Dictionary\)](collection-types.md#accessing-and-modifying-a-dictionary) 을 참고 바랍니다.
 
-> NOTE   
+> NOTE  
 > Swift의 `Dictionary` 타입은 _옵셔널_ 타입을 가지고 반환하는 서브 스크립트 인 키-값 서브 스크립트를 구현합니다. 위의 `numberOfLegs` 딕셔너리에서 키-값 서브 스크립트는 타입 `Int?` 또는 "옵셔널 int"의 값을 가지고 반환합니다. `Dictionary` 타입은 모든 키에 값이 있지 않다는 사실을 모델링 하고 키의 값에 `nil` 을 할당하여 키의 값을 삭제하는 방법을 제공하기 위해 옵셔널 서브 스크립트 타입을 사용합니다.
 
 ## 서브 스크립트 옵션 \(Subscript Options\)
