@@ -2,6 +2,12 @@
 
 ## Revision History
 
+#### 2021-08-14\(토\)
+
+* Swift 5.5 기반으로 문서 작업 완료
+* [동시성 \(Concurrency\)](../language-guide-1/concurrency.md) 추가
+* 오탈자 수정
+
 #### 2021-04-10\(토\)
 
 * WELCOME TO SWIFT 번역 완료

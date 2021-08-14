@@ -111,7 +111,7 @@ print("\(numberOfChoices) beverages available")
 // Prints "3 beverages available"
 ```
 
-위의 예제에서 `Beverage` 열거형에 모든 케이스를 포함하는 콜렉션에 접근하기 위해 `Beverage.allCases` 를 작성합니다. 다른 콜렉션 처럼 `allCases` 를 사용할 수 있습니다. 콜렉션의 요소는 열거형 타입의 인스턴스 이기 때문에 이 경우에는 `Beverage` 값들입니다. 위의 예제는 얼마나 많은 케이스가 존재하는지 계산하고 아래의 예제는 `for` 루프를 사용하여 모든 케이스를 반복합니다.
+위의 예제에서 `Beverage` 열거형에 모든 케이스를 포함하는 콜렉션에 접근하기 위해 `Beverage.allCases` 를 작성합니다. 다른 콜렉션 처럼 `allCases` 를 사용할 수 있습니다. 콜렉션의 요소는 열거형 타입의 인스턴스 이기 때문에 이 경우에는 `Beverage` 값들입니다. 위의 예제는 얼마나 많은 케이스가 존재하는지 계산하고 아래의 예제는 `for`-`in` 루프를 사용하여 모든 케이스를 반복합니다.
 
 ```swift
 for beverage in Beverage.allCases {
@@ -151,7 +151,7 @@ enum Barcode {
 
 이것은 아래와 같이 읽을 수 있습니다:
 
-"`(Int, Int, Int, Int)` 타입의 연관된 값을 가진 `upc` 또는 `String` 타입의 연관된 값을 가진 `qrCode` 를 취할 수 있는 `Barcode` 라는 열거형 타입을 정의합니다."
+"\(`Int, Int, Int, Int`\) 타입의 연관된 값을 가진 `upc` 또는 `String` 타입의 연관된 값을 가진 `qrCode` 를 취할 수 있는 `Barcode` 라는 열거형 타입을 정의합니다."
 
 이 정의는 어떠한 실질적인 `Int` 또는 `String` 값을 제공하지 않습니다. 이것은 단지 `Barcode.upc` 또는 `Barcode.qrCode` 와 같을 때 `Barcode` 상수와 변수에 저장할 수 있는 연관된 값의 _타입_ 을 정의할 뿐입니다.
 

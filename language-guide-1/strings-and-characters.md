@@ -105,9 +105,9 @@ Escaping all three quotation marks \"\"\"
 
 ### 확장된 문자열 구분기호 \(Extended String Delimiters\)
 
-아무런 영향없이 문자열에 특수 문자를 포함하기 위해 확장된 구분기호 안에 문자열 리터럴을 위치할 수 있습니다. 문자열을 따옴표 \(`"`\)로 둘러싸고 숫자 기호 \(`#`\)로 둘러쌉니다. 예를 들어 문자열 리터럴 `#"Line\nLine2"#` 을 출력하면 2줄로 출력되지 않고 개행 문자 \(`\n`\)가 출력됩니다.
+아무런 영향없이 문자열에 특수 문자를 포함하기 위해 확장된 구분기호 안에 문자열 리터럴을 위치할 수 있습니다. 문자열을 따옴표 \(`"`\)로 둘러싸고 숫자 기호 \(`#`\)로 둘러쌉니다. 예를 들어 문자열 리터럴 `#"Line 1\nLine 2"#` 을 출력하면 2줄로 출력되지 않고 개행 문자 \(`\n`\)가 출력됩니다.
 
-문자열 리터럴에서 문자의 특수 영향이 필요하다면 이스케이프 문자 \(`\`\) 다음에 선언된 숫자 기호의 숫자만큼 숫자 기호를 포함하면 됩니다. 예를 들어 문자열 `#"Line1\nLine2"#` 에 개행을 수행하고 싶다면 `#"Line1\#nLine2"#` 로 작성하면 됩니다. 비슷하게 `###"Line1\###nLine2"###` 도 개행이 이루어집니다.
+문자열 리터럴에서 문자의 특수 영향이 필요하다면 이스케이프 문자 \(`\`\) 다음에 선언된 숫자 기호의 숫자만큼 숫자 기호를 포함하면 됩니다. 예를 들어 문자열 `#"Line 1\nLine 2"#` 에 개행을 수행하고 싶다면 `#"Line 1\#nLine 2"#` 로 작성하면 됩니다. 비슷하게 `###"Line1\###nLine2"###` 도 개행이 이루어집니다.
 
 확장된 구분기호를 사용하여 생성된 문자열 리터럴은 여러줄 문자열 리터럴로 사용할 수도 있습니다. 여러줄 문자열에 텍스트 `"""` 를 포함하기 위해 리터럴을 종료하는 기본 동작을 재정의 하여 확장된 구분기호를 사용할 수 있습니다. 예를 들어:
 
@@ -341,7 +341,7 @@ print("unusualMenagerie has \(unusualMenagerie.count) characters")
 
 Swift에서 `Character` 값을 위한 확장된 문자소 클러스터 사용은 문자열의 연결과 수정은 문자열의 문자 카운트에 영향을 주지 않습니다.
 
-예를 들어 4개의 문자 단어인 `cafe` 로 새로운 문자열을 초기화 하고 문자열 끝에 `COMBINING ACUTE ACCENT` \(`U+0301`\)을 추가하면 결과 문자열은 4번째 문자가 `e` 가 아닌 `é` 가 되고 여전히 문자 카운트는 4 입니다:
+예를 들어 4개의 문자 단어인 `cafe` 로 새로운 문자열을 초기화 하고 문자열 끝에 `COMBINING ACUTE ACCENT` \(`U+0301`\)을 추가하면 결과 문자열은 4번째 문자가 `e` 가 아닌 `é` 가 되고 여전히 문자 카운트는 `4` 입니다:
 
 ```swift
 var word = "cafe"
@@ -448,8 +448,6 @@ let beginning = greeting[..<index]
 let newString = String(beginning)
 ```
 
-
-
 문자열과 마찬가지로 각 부분 문자열에는 부분 문자열을 구성하는 문자가 저장되는 메모리 영역이 있습니다. 문자열과 부분 문자열의 차이점은 성능 최적화를 위해 부분 문자열이 원래 문자열을 저장하는데 사용된 메모리의 일부 또는 다른 부분 문자열을 저장하는데 사용되는 메모리의 일부를 재사용할 수 있다는 것입니다 \(문자열은 비슷한 최적화를 갖지만 두 문자열이 메모리를 공유하면 두 문자열은 같습니다\). 이 성능 최적화는 문자열이나 부분 문자열을 수정할 때까지 메모리 복사에 대한 비용을 지불할 필요가 없음을 의미합니다. 위에서 언급했듯이 부분 문자열은 장기 저장에 적합하지 않습니다. 이것은 원래 문자열의 저장소를 재사용하기 때문에 부분 문자열이 사용되는 한 전체 원본 문자열을 메모리에 보관해야 하기 때문입니다.
 
 위의 예제에서 `greeting` 은 문자열을 구성하는 문자가 저장되는 메모리 영역이 있는 문자열입니다. `beginning` 은 `greeting` 의 부분 문자열이기 때문에 `greeting` 이 사용하는 메모리를 재사용합니다. 반대로 `newString` 은 문자열입니다. 즉 이것은 부분 문자열에서 생성될 때 자신만의 저장소를 가집니다. 아래는 이러한 관계를 보여줍니다:
@@ -457,13 +455,13 @@ let newString = String(beginning)
 ![String and SubString relationship](../.gitbook/assets/03_stringSubstring_2x.png)
 
 > NOTE   
-> `String` 과 `Substring` 은 모두 `StringProtocol` 을 준수합니다. 이것은 문자열 조작 함수가 `StringProtocol` 값을 받아들이는 것이 편리한 경우가 많다는 것을 의미합니다. 이러한 함수는 `String` 또는 `Substring` 값으로 호출할 수 있습니다.
+> `String` 과 `Substring` 은 모두 [`StringProtocol`](https://developer.apple.com/documentation/swift/stringprotocol) 을 준수합니다. 이것은 문자열 조작 함수가 `StringProtocol` 값을 받아들이는 것이 편리한 경우가 많다는 것을 의미합니다. 이러한 함수는 `String` 또는 `Substring` 값으로 호출할 수 있습니다.
 
 ## 문자열 비교 \(Comparing Strings\)
 
 Swift는 문자열과 문자 같음, 접두사 같음, 그리고 접미사 같음과 같이 텍스트 값을 비교하는 3가지 방법이 있습니다.
 
-### 문자열과 문자 같음 \(String and Character Equality\)
+### 문자열과 문자 동등성 \(String and Character Equality\)
 
 [비교 연산자 \(Comparison Operators\)](basic-operators.md#comparison-operators) 에서 설명한대로 "같음" 연산자 \(`==`\)와 "같지 않음" 연산자 \(`!=`\)로 문자열과 문자가 같은지 확인합니다:
 
@@ -509,7 +507,7 @@ if latinCapitalLetterA != cyrillicCapitalLetterA {
 > NOTE   
 > Swift의 문자열과 문자 비교는 로케일을 구분하지 않습니다.
 
-### 접두사와 접미사 같음 \(Prefix and Suffix Equality\)
+### 접두사와 접미사 동등성 \(Prefix and Suffix Equality\)
 
 문자열이 특정 문자열 접두사 또는 접미사를 가지고 있는지 확인하기 위해 문자열의 `hasPrefix(_:)` 와 `hasSuffix(_:)` 메서드를 호출하면 됩니다. 두 메서드는 하나의 `String` 타입 인자를 받고 부울 값을 반환합니다.
 

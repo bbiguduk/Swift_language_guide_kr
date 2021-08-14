@@ -13,6 +13,7 @@ Swift 에서 대부분의 선언은 선언과 동시에 구현되거나 초기�
 > declaration → [enum-declaration](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_enum-declaration)  
 > declaration → [struct-declaration](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_struct-declaration)  
 > declaration → [class-declaration](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_class-declaration)  
+> declaration → [actor-declaration](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_actor-declaration)
 > declaration → [protocol-declaration](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_protocol-declaration)  
 > declaration → [initializer-declaration](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_initializer-declaration)  
 > declaration → [deinitializer-declaration](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_deinitializer-declaration)  
@@ -472,6 +473,16 @@ func someFunction(callback: () throws -> Void) rethrows {
 
 던지는 메서드는 다시 던지는 메서드를 재정의할 수 없고 던지는 메서드는 다시 던지는 메서드에 대한 프로토콜 요구사항을 충족할 수 없습니다. 이 말은 다시 던지는 메서드는 던지는 메서드를 재정의할 수 있고 다시 던지는 메서드는 던지는 메서드에 대해 프로토콜 요구사항을 충족할 수 있습니다.
 
+### 비동기 함수와 메서드 (Asynchronous Functions and Methods)
+
+비동기적으로 실행되는 함수와 메서드는 `async` 키워드로 표시되어야 합니다. 이 함수와 메서드는 _비동기 함수 \(asynchronous functions\)_ 와 _비동기 메서드 \(asynchronous methods\)_ 라고 합니다. 이 형태는 다음과 같습니다:
+
+![Asynchronous Functions and Methods](../.gitbook/assets/asynchronous_functions_and_methods.png)
+
+비동기 함수 또는 메서드에 대한 호출은 `await` 표현식으로 래핑되어야 합니다—즉, `await` 연산자 범위 안에 있어야 합니다.
+
+`async` 키워드는 함수 타입의 부분이고 동기 함수는 비동기 함수의 하위 타입입니다. 결과적으로 비동기 함수가 필요한 컨텍스트에서 동기 함수를 사용할 수 있습니다. 예를 들어 비동기 메서드를 동기 메서드로 재정의 할 수 있으며 동기 메서드는 비동기 메서드가 필요한 프로토콜 요구사항을 충족할 수 있습니다.
+
 ### 반환되지 않는 함수 \(Functions that Never Return\)
 
 Swift 는 함수 또는 메서드가 호출자에게 반환하지 않음을 나타내는 `Never` 타입을 정의합니다. `Never` 반환 타입이 있는 함수와 메서드는 _비반환 \(nonreturning\)_ 이라고 합니다. 비반환 함수와 메서드는 복구할 수 없는 에러를 발생하거나 무한으로 계속되는 작업을 시작합니다. 이것은 호출 직후 코드가 실행되지 않음을 뜻합니다. 던지고 다시 던지는 함수는 비반환인 경우에도 적절한 `catch` 블럭으로 프로그램 제어를 전송할 수 있습니다.
@@ -501,7 +512,7 @@ Swift 는 함수 또는 메서드가 호출자에게 반환하지 않음을 나�
 
 _열거형 선언 \(enumeration declaration\)_ 은 프로그램에 명명된 열거형 타입을 도입합니다.
 
-열거형 선언은 두 가지 기본 형식을 가지고 있고 `enum` 키워드를 사용하여 선언됩니다. 두 형식 중 하나를 사용하여 선언된 열거형의 바디는 열거형 케이스 \(enumeration cases\) 라고 불리는 없거나 더 많은 값과 계산된 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 타입 별칭, 그리고 다른 열거형, 구조체, 그리고 클래스 선언을 포함합니다. 열거형 선언은 초기화 해제 구문 또는 프로토콜 선언을 포함할 수 없습니다.
+열거형 선언은 두 가지 기본 형식을 가지고 있고 `enum` 키워드를 사용하여 선언됩니다. 두 형식 중 하나를 사용하여 선언된 열거형의 바디는 열거형 케이스 \(enumeration cases\) 라고 불리는 없거나 더 많은 값과 계산된 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 타입 별칭, 그리고 다른 열거형, 구조체, 클래스 그리고 행위자 선언을 포함합니다. 열거형 선언은 초기화 해제 구문 또는 프로토콜 선언을 포함할 수 없습니다.
 
 열거형 타입은 여러 프로토콜을 채택할 수 있지만 클래스, 구조체, 또는 다른 열거형을 상속할 수 없습니다.
 
@@ -619,7 +630,7 @@ _구조체 선언 \(structure declaration\)_ 은 프로그램에 명명된 구�
 
 ![](../.gitbook/assets/2021-02-22-1.40.19.png)
 
-구조체의 바디는 _선언 \(declarations\)_ 이 없거나 많이 포함합니다. 이러한 _선언 \(declarations\)_ 은 저장된 프로퍼티와 계산된 프로퍼티, 타입 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 서브 스크립트, 타입 별칭, 그리고 다른 구조체, 클래스, 그리고 열거형 선언을 포함할 수 있습니다. 구조체 선언은 초기화 해제 구문 또는 프로토콜 선언을 포함할 수 없습니다. 여러 종류의 선언을 포함한 구조체에 대한 자세한 내용과 예제는 [구조체와 클래스 \(Structures and Classes\)](../language-guide-1/structures-and-classes.md) 를 참고 바랍니다.
+구조체의 바디는 _선언 \(declarations\)_ 이 없거나 많이 포함합니다. 이러한 _선언 \(declarations\)_ 은 저장된 프로퍼티와 계산된 프로퍼티, 타입 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 서브 스크립트, 타입 별칭, 그리고 다른 구조체, 클래스, 행위자 그리고 열거형 선언을 포함할 수 있습니다. 구조체 선언은 초기화 해제 구문 또는 프로토콜 선언을 포함할 수 없습니다. 여러 종류의 선언을 포함한 구조체에 대한 자세한 내용과 예제는 [구조체와 클래스 \(Structures and Classes\)](../language-guide-1/structures-and-classes.md) 를 참고 바랍니다.
 
 구조체 타입은 여러 프로토콜을 채택할 수 있지만 클래스, 열거형, 또는 다른 구조체를 상속할 수 없습니다.
 
@@ -650,7 +661,7 @@ _클래스 선언 \(class declaration\)_ 은 프로그램에 명명된 클래스
 
 ![](../.gitbook/assets/2021-02-22-1.41.43.png)
 
-클래스의 바디는 선언이 없거나 하나 이상의 _선언 \(declarations\)_ 을 포함합니다. 이러한 _선언 \(declarations\)_ 은 저장된 프로퍼티와 계산된 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 하나의 초기화 해제 구문, 서브 스크립트, 타입 별칭, 그리고 다른 클래스, 구조체, 그리고 열거형 선언을 포함할 수 있습니다. 클래스 선언은 프로토콜 선언을 포함할 수 없습니다. 여러종류의 선언을 포함하는 클래스의 자세한 설명과 예제는 [구조체와 클래스 \(Structures and Classes\)](../language-guide-1/structures-and-classes.md) 를 참고 바랍니다.
+클래스의 바디는 선언이 없거나 하나 이상의 _선언 \(declarations\)_ 을 포함합니다. 이러한 _선언 \(declarations\)_ 은 저장된 프로퍼티와 계산된 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 하나의 초기화 해제 구문, 서브 스크립트, 타입 별칭, 그리고 다른 클래스, 구조체, 행위자 그리고 열거형 선언을 포함할 수 있습니다. 클래스 선언은 프로토콜 선언을 포함할 수 없습니다. 여러종류의 선언을 포함하는 클래스의 자세한 설명과 예제는 [구조체와 클래스 \(Structures and Classes\)](../language-guide-1/structures-and-classes.md) 를 참고 바랍니다.
 
 클래스 타입은 _상위클래스 \(superclass\)_ 로 하나의 부모 클래스만 상속할 수 있지만 프로토콜은 여러개 채택할 수 있습니다. _상위클래스 \(superclass\)_ 는 _클래스 이름 \(class name\)_ 과 콜론 다음에 첫번째로 나타나고 다음으로 _채택된 프로토콜 \(adopted protocols\)_ 이 나타납니다. 제너릭 클래스 \(generic class\) 는 다른 제너릭과 제너릭이 아닌 클래스를 상속할 수 있지만 제너릭이 아닌 클래스 \(nongeneric class\) 는 다른 제너릭이 아닌 클래스만 상속할 수 있습니다. 콜론 뒤에 상위 제너릭 클래스의 이름을 작성할 때 제너릭 파라미터 절을 포함하는 제너릭 클래스의 전체 이름을 포함해야 합니다.
 
@@ -680,6 +691,42 @@ _상위클래스 \(superclass\)_ 에 선언된 프로퍼티와 메서드가 현�
 > class-body → `{` [class-members](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_class-members) $$_{opt}$$ `}`   
 > class-members → [class-member](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_class-member)  [class-members](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_class-members) $$_{opt}$$   
 > class-member → [declaration](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_declaration) \|  [compiler-control-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_compiler-control-statement)
+
+## 행위자 선언 \(Actor Declaration\)
+
+_행위자 선언 \(actor declaration\)_ 은 프로그램에 행위자 타입으로 명명되어 도입됩니다. 행위자 선언은 `actor` 키워드를 사용하여 선언되고 다음의 형식을 가집니다:
+
+![Actor Declaration](../.gitbook/assets/actor_declaration.png)
+
+행위자의 바디에는 0개 이상의 _선언 \(declarations\)_ 이 포함되어 있습니다. 이 선언은 저장된 프로퍼티와 계산된 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 하나의 초기화 해제 구문, 서브 스크립트, 타입 별칭, 그리고 기타 클래스, 구조체, 그리고 열거형 선언을 모두 포함할 수 있습니다. 행위자에 대한 설명과 몇가지 예제는 [행위자 \(Actors\)](../language-guide-1/concurrency.md#actors) 를 참조 바랍니다.
+
+행위자 타입은 프로토콜을 채택할 수 있지만 클래스, 열거형, 구조체, 또는 다른 행위자를 상속할 수 없습니다. 그러나 `@objc` 속성으로 표시된 행위자는 암시적으로 `NSObjectProtocol` 프로토콜을 준수하고 `NSObject` 의 하위 타입으로 Objective-C 런타임에 노출됩니다.
+
+이전에 선언된 행위자의 인스턴스를 만드는 방법에는 두가지 방법이 있습니다:
+
+* [초기화 구문 \(Initializers\)](../language-guide-1/initialization.md#initializers) 에 설명된 대로 행위자 내에서 선언된 초기화 구문 중 하나를 호출합니다.
+* 초기화 구문이 선언되지 않고 행위자 선언의 모든 프로퍼티에 초기값이 제공된 경우 [기본 초기화 구문 \(Default Initializers\)](../language-guide-1/initialization.md#default-initializers) 에서 설명한대로 행위자의 기본 초기화 구문을 호출합니다.
+
+기본적으로 행위자의 멤버는 해당 행위자와 분리됩니다. 메서드의 바디나 프로퍼티에 대한 getter 와 같은 코드는 해당 행위자에서 실행됩니다. 행위자 내의 코드는 해당 코드는 이미 동일한 행위자에서 실행되고 있기 때문에 동기적으로 상호 작용할 수 있지만 행위자 외부의 코드는 이 코드가 다른 행위자에서 비동기적으로 코드를 실행하고 있음을 나타내기 위해 `await` 로 표시해야 합니다. 키 경로는 행위자의 분리된 멤버를 참조할 수 없습니다. 분리된 행위자 저장된 프로퍼티 \(Actor-isolated stored properties\) 는 동기 함수에 in-out 파라미터로 전달할 수 있지만 비동기 함수에는 전달할 수 없습니다.
+
+행위자는 선언이 `nonisolated` 키워드로 표시된 분리되지 않은 멤버 \(nonisolated members\) 를 가질 수도 있습니다. 분리되지 않은 멤버는 행위자 외부의 코드처럼 실행됩니다: 행위자의 분리상태와 상호작용 할 수 없으며 호출자는 이를 사용할 때 `await` 로 표시하지 않습니다.
+
+행위자의 멤버는 분리되지 않거나 비동기 일때만 `@objc` 속성으로 표시될 수 있습니다.
+
+행위자의 선언된 프로퍼티를 초기화 하는 과정은 [초기화 \(Initialization\)](../language-guide-1/initialization.md) 에 설명되어 있습니다.
+
+행위자 인스턴스의 프로퍼티는 [프로퍼티 접근 \(Accessing Properties\)](../language-guide-1/structures-and-classes.md#accessing-properties) 에서 설명한대로 점 \(`.`\) 구문을 사용하여 접근될 수 있습니다.
+
+행위자는 참조 타입입니다; 행위자의 인스턴스는 변수나 상수에 할당되거나 함수 호출에 인수로 전달될 때 복사되지 않고 참조됩니다. 참조 타입에 대한 자세한 내용은 [클래스는 참조 타입 \(Classes Are Reference Types\)](../language-guide-1/structures-and-classes.md#classes-are-reference-types) 를 참조 바랍니다.
+
+[확장 선언 \(Extension Declaration\)](./declarations.md#extension-declaration) 에서 설명한 대로 확장 선언을 사용하여 구조체 타입의 동작을 확장할 수 있습니다.
+
+> GRAMMAR OF AN ACTOR DECLARATION
+> actor-declaration → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ [access-level-modifier](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_access-level-modifier) $$_{opt}$$ `actor` [actor-name](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_actor-name) [generic-parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-parameter-clause) $$_{opt}$$ [type-inheritance-clause](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-inheritance-clause) $$_{opt}$$ [generic-where-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-where-clause) $$_{opt}$$ [actor-body](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_actor-body)
+> actor-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)
+> actor-body → `{` [actor-members](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_actor-members) $$_{opt}$$ `}`
+> actor-members → [actor-member](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_actor-member) [actor-members](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_actor-members) $$_{opt}$$
+> actor-member → [declaration](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_declaration)|[compiler-control-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_compiler-control-statement)
 
 ## 프로토콜 선언 \(Protocol Declaration\)
 

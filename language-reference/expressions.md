@@ -5,7 +5,7 @@ Swift 에서 접두사 표현식 \(prefix expressions\), 이진 표현식 \(bina
 접두사 그리고 이진 표현식은 더 작은 표현식에 연산자를 적용할 수 있습니다. 기본 표현식은 개념적으로 가장 간단한 표현식이며 값을 접근하는 방법을 제공합니다. 접두사와 이진 표현식과 같이 접미사 표현식은 함수 호출과 멤버 접근과 같이 접미사를 사용하여 더 복잡한 표현식을 작성할 수 있습니다. 표현식의 각 종류는 아래 섹션에서 자세하게 설명 합니다.
 
 > GRAMMAR OF AN EXPRESSION  
-> expression → [try-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_try-operator) $$_{opt}$$ [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  [binary-expressions](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_binary-expressions) $$_{opt}$$   
+> expression → [try-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_try-operator) $$_{opt}$$ [await-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_await-operator) $$_{opt}$$ [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  [binary-expressions](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_binary-expressions) $$_{opt}$$   
 > expression-list → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) \|  [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `,` [expression-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression-list)
 
 ## 접두사 표현식 \(Prefix Expressions\)
@@ -49,14 +49,19 @@ _강제 try 표현식 \(forced-try expression\)_ 은 에러를 던질 수 있게
 
 ![](../.gitbook/assets/2021-02-21-10.29.08.png)
 
-_표현식_ 이 에러를 던지면 런타임 에러가 발생합니다.
+강제 try 표현식의 값은 표현식의 값입니다. _표현식_ 이 에러를 던지면 런타임 에러가 발생합니다.
 
 이진 연산자의 왼쪽 표현식에 `try`, `try?`, 또는 `try!` 로 표시되면 해당 연산자는 이진 표현식 전체에 적용됩니다. 즉, 괄호를 사용하여 명시적으로 연산자의 적용 범위를 명시할 수 있습니다.
 
 ```swift
-sum = try someThrowingFunction() + anotherThrowingFunction()   // try applies to both function calls
-sum = try (someThrowingFunction() + anotherThrowingFunction()) // try applies to both function calls
-sum = (try someThrowingFunction()) + anotherThrowingFunction() // Error: try applies only to the first function call
+// try applies to both function calls
+sum = try someThrowingFunction() + anotherThrowingFunction()
+
+// try applies to both function calls
+sum = try (someThrowingFunction() + anotherThrowingFunction())
+
+// Error: try applies only to the first function call
+sum = (try someThrowingFunction()) + anotherThrowingFunction()
 ```
 
 이항 연산자가 할당 연산자 이거나 `try` 표현식이 괄호로 묶여있지 않으면 `try` 표현식은 이항 연산자의 오른쪽에 나타날 수 없습니다.
@@ -66,9 +71,41 @@ sum = (try someThrowingFunction()) + anotherThrowingFunction() // Error: try app
 > GRAMMAR OF A TRY EXPRESSION  
 > try-operator → `try` \|  `try` `?` \|  `try` `!`
 
-## 이진 표현식 \(Binary Expressions\)
+## Await 연산자 \(Await Operator\)
 
-_이진 표현식 \(Binary expressions\)_ 은 좌항과 우항 인수를 가지는 표현식과 중위 이항 연산자 \(infix binary operator\) 를 결합합니다. 형식은 다음과 같습니다:
+_await 표현식 \(await expression\)_ 은 `await` 연산자 다음에 비동기 동작의 결과를 사용하는 표현식으로 구성됩니다. 형식은 다음과 같습니다:
+
+![](../.gitbook/assets/await_expression.png)
+
+`await` 표현식의 값은 _표현식 \(expression\)_ 의 값입니다.
+
+`await` 로 표시된 표현식을 _잠재적 중단 지점 \(potential suspension point\)_ 이라 합니다. 비동기 함수의 실행은 `await` 로 표시된 각 표현식에서 일시 중단될 수 있습니다. 또한 동시 코드의 실행은 다른 시점에서 중단되지 않습니다. 이는 잠재적 중단 지점 사이의 코드가 다음 잠재적 중단 지점 이전에 업데이트를 완료하는 경우 일시적으로 중단을 깨야하는 상태를 안전하게 업데이트 할 수 있음을 의미합니다.
+
+`await` 표현식은 `async(priority:operation:)` 함수에 전달된 후행 클로저와 같은 비동기 컨텍스트 내에서만 나타날 수 있습니다. `defer` 구문의 바디나 동기 함수 타입의 자동 클로저 \(autoclosure\) 내에서는 나타날 수 없습니다.
+
+이항 연산자 \(binary operator\) 의 좌항에 `await` 연산자로 표시되면 해당 연산자는 전체 이항 표현식에 적용됩니다. 즉, 괄호를 사용하여 연산자의 적용 범위를 명시할 수 있습니다.
+
+```swift
+// await applies to both function calls
+sum = await someAsyncFunction() + anotherAsyncFunction()
+
+// await applies to both function calls
+sum = await (someAsyncFunction() + anotherAsyncFunction())
+
+// Error: await applies only to the first function call
+sum = (await someAsyncFunction()) + anotherAsyncFunction()
+```
+
+`await` 표현식은 이항 연산자가 할당 연산자 이거나 `await` 표현식이 괄호로 묶인 경우가 아니면 이항 연산자의 우항에 나타날 수 없습니다.
+
+표현식에 `await` 와 `try` 연산자가 모두 포함되면 `try` 연산자가 먼저 나타나야 합니다.
+
+> GRAMMAR OF AN AWAIT EXPRESSION
+> await-operator → `await`
+
+## 이항 표현식 \(Binary Expressions\)
+
+_이항 표현식 \(Binary expressions\)_ 은 좌항과 우항 인수를 가지는 표현식과 중위 이항 연산자 \(infix binary operator\) 를 결합합니다. 형식은 다음과 같습니다:
 
 ![](../.gitbook/assets/2021-02-21-10.31.00.png)
 
@@ -427,8 +464,35 @@ var x = MyEnumeration.someValue
 x = .anotherValue
 ```
 
+유추된 타입이 옵셔널이면 암시적 멤버 표현식에서 옵셔널이 아닌 타입의 멤버로 사용할 수도 있습니다.
+
+```swift
+var someOptional: MyEnumeration? = .someValue
+```
+
+암시적 멤버 표현식 뒤에는 접미사 연산자 \(postfix operator\) 또는 [접미사 표현식 \(Postfix Expressions\)](expressions.md#post-expression) 에 나열된 다른 접미사 구문이 올 수 있습니다. 이것을 _연결된 암시적 멤버 표현식 \(chained postfix expressions\)_ 이라 합니다. 연결된 접미사 표현식이 동일한 타입을 갖는 것이 일반적이지만 유일한 요구사항은 전체 연결된 암시적 멤버 표현식이 컨텍스트에 의해 암시된 타입으로 변환될 수 있어야 한다는 것입니다. 특히, 암시적 타입이 옵셔널인 경우 옵셔널 타입이 아닌 값을 사용할 수 있고 암시적 타입이 클래스 타입인 경우 해당 하위 클래스 중 하나의 값을 사용할 수 있습니다. 예를 들어:
+
+```swift
+class SomeClass {
+    static var shared = SomeClass()
+    static var sharedSubclass = SomeSubclass()
+    var a = AnotherClass()
+}
+class SomeSubclass: SomeClass { }
+class AnotherClass {
+    static var s = SomeClass()
+    func f() -> SomeClass { return AnotherClass.s }
+}
+let x: SomeClass = .shared.a.f()
+let y: SomeClass? = .shared
+let z: SomeClass = .sharedSubclass
+```
+
+위의 코드에서 `x` 의 타입은 컨텍스트가 암시하는 타입과 정확히 일치하고 `y` 의 타입은 `SomeClass` 에서 `SomeClass?` 로 변환 가능하며 `z` 의 타입은 `SomeSubclass` 에서 `SomeClass` 로 변환 가능합니다.
+
 > GRAMMAR OF A IMPLICIT MEMBER EXPRESSION  
 > implicit-member-expression → `.` [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)
+> implicit-member-expression → `.` [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) `.` [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression)
 
 ### 괄호 안 표현식 \(Parenthesized Expression\)
 

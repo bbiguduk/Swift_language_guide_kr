@@ -135,7 +135,7 @@ Swift는 비특정 타입 작업을 위해 2개의 특별한 타입을 제공합
 다음은 함수 타입과 비 클래스 타입을 포함하여 다른 타입에 혼합으로 작업하기 위해 `Any` 를 사용하는 예제입니다. 이 예제는 `Any` 타입에 값을 저장할 수 있는 `things` 라는 배열을 생성합니다:
 
 ```swift
-var things = [Any]()
+var things: [Any] = []
 
 things.append(0)
 things.append(0.0)

@@ -1,0 +1,220 @@
+
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Apple Inc." />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    
+    <title>Nested Types &mdash; The Swift Programming Language (Swift 5.5)</title>
+    
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css" />
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339" /> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TheBasics.html">Language Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="TheBasics.html">The Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicOperators.html">Basic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringsAndCharacters.html">Strings and Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CollectionTypes.html">Collection Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlFlow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Closures.html">Closures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumerations.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassesAndStructures.html">Structures and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscripts.html">Subscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialization.html">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Deinitialization.html">Deinitialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptionalChaining.html">Optional Chaining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ErrorHandling.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TypeCasting.html">Type Casting</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Nested Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Extensions.html">Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Protocols.html">Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OpaqueTypes.html">Opaque Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutomaticReferenceCounting.html">Automatic Reference Counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MemorySafety.html">Memory Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AccessControl.html">Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AdvancedOperators.html">Advanced Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ReferenceManual/AboutTheLanguageReference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Nested Types</a><ul>
+<li><a class="reference internal" href="#ID243">Nested Types in Action</a></li>
+<li><a class="reference internal" href="#ID244">Referring to Nested Types</a></li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="nested-types">
+<h1>Nested Types<a class="headerlink" href="#nested-types" title="Permalink to this headline">¶</a></h1>
+<p>Enumerations are often created to support a specific class or structure’s functionality. Similarly, it can be convenient to define utility classes and structures purely for use within the context of a more complex type. To accomplish this, Swift enables you to define <em>nested types</em>, whereby you nest supporting enumerations, classes, and structures within the definition of the type they support.</p>
+<p>To nest a type within another type, write its definition within the outer braces of the type it supports. Types can be nested to as many levels as are required.</p>
+<div class="section" id="ID243">
+<h2>Nested Types in Action<a class="headerlink" href="#ID243" title="Permalink to this headline">¶</a></h2>
+<p>The example below defines a structure called <code class="docutils literal notranslate"><span class="pre">BlackjackCard</span></code>, which models a playing card as used in the game of Blackjack. The <code class="docutils literal notranslate"><span class="pre">BlackjackCard</span></code> structure contains two nested enumeration types called <code class="docutils literal notranslate"><span class="pre">Suit</span></code> and <code class="docutils literal notranslate"><span class="pre">Rank</span></code>.</p>
+<p>In Blackjack, the Ace cards have a value of either one or eleven. This feature is represented by a structure called <code class="docutils literal notranslate"><span class="pre">Values</span></code>, which is nested within the <code class="docutils literal notranslate"><span class="pre">Rank</span></code> enumeration:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">BlackjackCard</span> {
+</li><li>
+</li><li>    <span class="c">// nested Suit enumeration</span>
+</li><li>    <span class="k">enum</span> <span class="nv">Suit</span>: <span class="nc">Character</span> {
+</li><li>        <span class="k">case</span> <span class="nv">spades</span> = <span class="s">&quot;♠&quot;</span>, <span class="nv">hearts</span> = <span class="s">&quot;♡&quot;</span>, <span class="nv">diamonds</span> = <span class="s">&quot;♢&quot;</span>, <span class="nv">clubs</span> = <span class="s">&quot;♣&quot;</span>
+</li><li>    }
+</li><li>
+</li><li>    <span class="c">// nested Rank enumeration</span>
+</li><li>    <span class="k">enum</span> <span class="nv">Rank</span>: <span class="nc">Int</span> {
+</li><li>        <span class="k">case</span> <span class="nv">two</span> = <span class="m">2</span>, <span class="nv">three</span>, <span class="nv">four</span>, <span class="nv">five</span>, <span class="nv">six</span>, <span class="nv">seven</span>, <span class="nv">eight</span>, <span class="nv">nine</span>, <span class="nv">ten</span>
+</li><li>        <span class="k">case</span> <span class="nv">jack</span>, <span class="nv">queen</span>, <span class="nv">king</span>, <span class="nv">ace</span>
+</li><li>        <span class="k">struct</span> <span class="nv">Values</span> {
+</li><li>            <span class="k">let</span> <span class="nv">first</span>: <span class="nc">Int</span>, <span class="nv">second</span>: <span class="nc">Int</span>?
+</li><li>        }
+</li><li>        <span class="k">var</span> <span class="nv">values</span>: <span class="nc">Values</span> {
+</li><li>            <span class="k">switch</span> <span class="k">self</span> {
+</li><li>            <span class="k">case</span> .<span class="nv">ace</span>:
+</li><li>                <span class="k">return</span> <span class="nv">Values</span>(<span class="nv">first</span>: <span class="m">1</span>, <span class="nv">second</span>: <span class="m">11</span>)
+</li><li>            <span class="k">case</span> .<span class="nv">jack</span>, .<span class="nv">queen</span>, .<span class="nv">king</span>:
+</li><li>                <span class="k">return</span> <span class="nv">Values</span>(<span class="nv">first</span>: <span class="m">10</span>, <span class="nv">second</span>: <span class="k">nil</span>)
+</li><li>            <span class="k">default</span>:
+</li><li>                <span class="k">return</span> <span class="nv">Values</span>(<span class="nv">first</span>: <span class="k">self</span>.<span class="nv">rawValue</span>, <span class="nv">second</span>: <span class="k">nil</span>)
+</li><li>            }
+</li><li>        }
+</li><li>    }
+</li><li>
+</li><li>    <span class="c">// BlackjackCard properties and methods</span>
+</li><li>    <span class="k">let</span> <span class="nv">rank</span>: <span class="nc">Rank</span>, <span class="nv">suit</span>: <span class="nc">Suit</span>
+</li><li>    <span class="k">var</span> <span class="nv">description</span>: <span class="nc">String</span> {
+</li><li>        <span class="k">var</span> <span class="nv">output</span> = <span class="s">&quot;suit is </span>\<span class="p">(</span><span class="nv">suit</span>.<span class="nv">rawValue</span><span class="p">)</span><span class="s">,&quot;</span>
+</li><li>        <span class="nv">output</span> += <span class="s">&quot; value is </span>\<span class="p">(</span><span class="nv">rank</span>.<span class="nv">values</span>.<span class="nv">first</span><span class="p">)</span><span class="s">&quot;</span>
+</li><li>        <span class="k">if</span> <span class="k">let</span> <span class="nv">second</span> = <span class="nv">rank</span>.<span class="nv">values</span>.<span class="nv">second</span> {
+</li><li>            <span class="nv">output</span> += <span class="s">&quot; or </span>\<span class="p">(</span><span class="nv">second</span><span class="p">)</span><span class="s">&quot;</span>
+</li><li>        }
+</li><li>        <span class="k">return</span> <span class="nv">output</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Suit</span></code> enumeration describes the four common playing card suits, together with a raw <code class="docutils literal notranslate"><span class="pre">Character</span></code> value to represent their symbol.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Rank</span></code> enumeration describes the thirteen possible playing card ranks, together with a raw <code class="docutils literal notranslate"><span class="pre">Int</span></code> value to represent their face value. (This raw <code class="docutils literal notranslate"><span class="pre">Int</span></code> value isn’t used for the Jack, Queen, King, and Ace cards.)</p>
+<p>As mentioned above, the <code class="docutils literal notranslate"><span class="pre">Rank</span></code> enumeration defines a further nested structure of its own, called <code class="docutils literal notranslate"><span class="pre">Values</span></code>. This structure encapsulates the fact that most cards have one value, but the Ace card has two values. The <code class="docutils literal notranslate"><span class="pre">Values</span></code> structure defines two properties to represent this:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">first</span></code>, of type <code class="docutils literal notranslate"><span class="pre">Int</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">second</span></code>, of type <code class="docutils literal notranslate"><span class="pre">Int?</span></code>, or “optional <code class="docutils literal notranslate"><span class="pre">Int</span></code>”</li>
+</ul>
+<p><code class="docutils literal notranslate"><span class="pre">Rank</span></code> also defines a computed property, <code class="docutils literal notranslate"><span class="pre">values</span></code>, which returns an instance of the <code class="docutils literal notranslate"><span class="pre">Values</span></code> structure. This computed property considers the rank of the card and initializes a new <code class="docutils literal notranslate"><span class="pre">Values</span></code> instance with appropriate values based on its rank. It uses special values for <code class="docutils literal notranslate"><span class="pre">jack</span></code>, <code class="docutils literal notranslate"><span class="pre">queen</span></code>, <code class="docutils literal notranslate"><span class="pre">king</span></code>, and <code class="docutils literal notranslate"><span class="pre">ace</span></code>. For the numeric cards, it uses the rank’s raw <code class="docutils literal notranslate"><span class="pre">Int</span></code> value.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">BlackjackCard</span></code> structure itself has two properties—<code class="docutils literal notranslate"><span class="pre">rank</span></code> and <code class="docutils literal notranslate"><span class="pre">suit</span></code>. It also defines a computed property called <code class="docutils literal notranslate"><span class="pre">description</span></code>, which uses the values stored in <code class="docutils literal notranslate"><span class="pre">rank</span></code> and <code class="docutils literal notranslate"><span class="pre">suit</span></code> to build a description of the name and value of the card. The <code class="docutils literal notranslate"><span class="pre">description</span></code> property uses optional binding to check whether there’s a second value to display, and if so, inserts additional description detail for that second value.</p>
+<p>Because <code class="docutils literal notranslate"><span class="pre">BlackjackCard</span></code> is a structure with no custom initializers, it has an implicit memberwise initializer, as described in <a class="reference internal" href="Initialization.html#ID214"><span class="std std-ref">Memberwise Initializers for Structure Types</span></a>. You can use this initializer to initialize a new constant called <code class="docutils literal notranslate"><span class="pre">theAceOfSpades</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">theAceOfSpades</span> = <span class="nv">BlackjackCard</span>(<span class="nv">rank</span>: .<span class="nv">ace</span>, <span class="nv">suit</span>: .<span class="nv">spades</span>)
+</li><li><span class="nv">print</span>(<span class="s">&quot;theAceOfSpades: </span>\<span class="p">(</span><span class="nv">theAceOfSpades</span>.<span class="nv">description</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;theAceOfSpades: suit is ♠, value is 1 or 11&quot;</span>
+</li></ol></div></div></div>
+<p>Even though <code class="docutils literal notranslate"><span class="pre">Rank</span></code> and <code class="docutils literal notranslate"><span class="pre">Suit</span></code> are nested within <code class="docutils literal notranslate"><span class="pre">BlackjackCard</span></code>, their type can be inferred from context, and so the initialization of this instance is able to refer to the enumeration cases by their case names (<code class="docutils literal notranslate"><span class="pre">.ace</span></code> and <code class="docutils literal notranslate"><span class="pre">.spades</span></code>) alone. In the example above, the <code class="docutils literal notranslate"><span class="pre">description</span></code> property correctly reports that the Ace of Spades has a value of <code class="docutils literal notranslate"><span class="pre">1</span></code> or <code class="docutils literal notranslate"><span class="pre">11</span></code>.</p>
+</div>
+<div class="section" id="ID244">
+<h2>Referring to Nested Types<a class="headerlink" href="#ID244" title="Permalink to this headline">¶</a></h2>
+<p>To use a nested type outside of its definition context, prefix its name with the name of the type it’s nested within:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">heartsSymbol</span> = <span class="nv">BlackjackCard</span>.<span class="nv">Suit</span>.<span class="nv">hearts</span>.<span class="nv">rawValue</span>
+</li><li><span class="c">// heartsSymbol is &quot;♡&quot;</span>
+</li></ol></div></div></div>
+<p>For the example above, this enables the names of <code class="docutils literal notranslate"><span class="pre">Suit</span></code>, <code class="docutils literal notranslate"><span class="pre">Rank</span></code>, and <code class="docutils literal notranslate"><span class="pre">Values</span></code> to be kept deliberately short, because their names are naturally qualified by the context in which they’re defined.</p>
+</div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="TypeCasting.html">Type Casting</a></p>
+        <p class="next"><a href="Extensions.html">Extensions</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  </body>
+</html>

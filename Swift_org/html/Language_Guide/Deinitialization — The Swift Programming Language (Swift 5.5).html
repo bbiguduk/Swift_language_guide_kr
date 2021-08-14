@@ -1,0 +1,221 @@
+
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Apple Inc." />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    
+    <title>Deinitialization &mdash; The Swift Programming Language (Swift 5.5)</title>
+    
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css" />
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339" /> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TheBasics.html">Language Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="TheBasics.html">The Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicOperators.html">Basic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringsAndCharacters.html">Strings and Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CollectionTypes.html">Collection Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlFlow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Closures.html">Closures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumerations.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassesAndStructures.html">Structures and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscripts.html">Subscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialization.html">Initialization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Deinitialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptionalChaining.html">Optional Chaining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ErrorHandling.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TypeCasting.html">Type Casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NestedTypes.html">Nested Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Extensions.html">Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Protocols.html">Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OpaqueTypes.html">Opaque Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutomaticReferenceCounting.html">Automatic Reference Counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MemorySafety.html">Memory Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AccessControl.html">Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AdvancedOperators.html">Advanced Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ReferenceManual/AboutTheLanguageReference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Deinitialization</a><ul>
+<li><a class="reference internal" href="#ID143">How Deinitialization Works</a></li>
+<li><a class="reference internal" href="#ID144">Deinitializers in Action</a></li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="deinitialization">
+<h1>Deinitialization<a class="headerlink" href="#deinitialization" title="Permalink to this headline">¶</a></h1>
+<p>A <em>deinitializer</em> is called immediately before a class instance is deallocated. You write deinitializers with the <code class="docutils literal notranslate"><span class="pre">deinit</span></code> keyword, similar to how initializers are written with the <code class="docutils literal notranslate"><span class="pre">init</span></code> keyword. Deinitializers are only available on class types.</p>
+<div class="section" id="ID143">
+<h2>How Deinitialization Works<a class="headerlink" href="#ID143" title="Permalink to this headline">¶</a></h2>
+<p>Swift automatically deallocates your instances when they’re no longer needed, to free up resources. Swift handles the memory management of instances through <em>automatic reference counting</em> (<em>ARC</em>), as described in <a class="reference internal" href="AutomaticReferenceCounting.html"><span class="doc">Automatic Reference Counting</span></a>. Typically you don’t need to perform manual cleanup when your instances are deallocated. However, when you are working with your own resources, you might need to perform some additional cleanup yourself. For example, if you create a custom class to open a file and write some data to it, you might need to close the file before the class instance is deallocated.</p>
+<p>Class definitions can have at most one deinitializer per class. The deinitializer doesn’t take any parameters and is written without parentheses:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">deinit</span> {
+</li><li>    <span class="c">// perform the deinitialization</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>Deinitializers are called automatically, just before instance deallocation takes place. You aren’t allowed to call a deinitializer yourself. Superclass deinitializers are inherited by their subclasses, and the superclass deinitializer is called automatically at the end of a subclass deinitializer implementation. Superclass deinitializers are always called, even if a subclass doesn’t provide its own deinitializer.</p>
+<p>Because an instance isn’t deallocated until after its deinitializer is called, a deinitializer can access all properties of the instance it’s called on and can modify its behavior based on those properties (such as looking up the name of a file that needs to be closed).</p>
+</div>
+<div class="section" id="ID144">
+<h2>Deinitializers in Action<a class="headerlink" href="#ID144" title="Permalink to this headline">¶</a></h2>
+<p>Here’s an example of a deinitializer in action. This example defines two new types, <code class="docutils literal notranslate"><span class="pre">Bank</span></code> and <code class="docutils literal notranslate"><span class="pre">Player</span></code>, for a simple game. The <code class="docutils literal notranslate"><span class="pre">Bank</span></code> class manages a made-up currency, which can never have more than 10,000 coins in circulation. There can only ever be one <code class="docutils literal notranslate"><span class="pre">Bank</span></code> in the game, and so the <code class="docutils literal notranslate"><span class="pre">Bank</span></code> is implemented as a class with type properties and methods to store and manage its current state:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Bank</span> {
+</li><li>    <span class="k">static</span> <span class="k">var</span> <span class="nv">coinsInBank</span> = <span class="m">10_000</span>
+</li><li>    <span class="k">static</span> <span class="k">func</span> <span class="nv">distribute</span>(<span class="nv">coins</span> <span class="nv">numberOfCoinsRequested</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> {
+</li><li>        <span class="k">let</span> <span class="nv">numberOfCoinsToVend</span> = <span class="nv">min</span>(<span class="nv">numberOfCoinsRequested</span>, <span class="nv">coinsInBank</span>)
+</li><li>        <span class="nv">coinsInBank</span> -= <span class="nv">numberOfCoinsToVend</span>
+</li><li>        <span class="k">return</span> <span class="nv">numberOfCoinsToVend</span>
+</li><li>    }
+</li><li>    <span class="k">static</span> <span class="k">func</span> <span class="nv">receive</span>(<span class="nv">coins</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="nv">coinsInBank</span> += <span class="nv">coins</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p><code class="docutils literal notranslate"><span class="pre">Bank</span></code> keeps track of the current number of coins it holds with its <code class="docutils literal notranslate"><span class="pre">coinsInBank</span></code> property. It also offers two methods—<code class="docutils literal notranslate"><span class="pre">distribute(coins:)</span></code> and <code class="docutils literal notranslate"><span class="pre">receive(coins:)</span></code>—to handle the distribution and collection of coins.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">distribute(coins:)</span></code> method checks that there are enough coins in the bank before distributing them. If there aren’t enough coins, <code class="docutils literal notranslate"><span class="pre">Bank</span></code> returns a smaller number than the number that was requested (and returns zero if no coins are left in the bank). It returns an integer value to indicate the actual number of coins that were provided.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">receive(coins:)</span></code> method simply adds the received number of coins back into the bank’s coin store.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Player</span></code> class describes a player in the game. Each player has a certain number of coins stored in their purse at any time. This is represented by the player’s <code class="docutils literal notranslate"><span class="pre">coinsInPurse</span></code> property:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Player</span> {
+</li><li>    <span class="k">var</span> <span class="nv">coinsInPurse</span>: <span class="nc">Int</span>
+</li><li>    <span class="k">init</span>(<span class="nv">coins</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="nv">coinsInPurse</span> = <span class="nv">Bank</span>.<span class="nv">distribute</span>(<span class="nv">coins</span>: <span class="nv">coins</span>)
+</li><li>    }
+</li><li>    <span class="k">func</span> <span class="nv">win</span>(<span class="nv">coins</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="nv">coinsInPurse</span> += <span class="nv">Bank</span>.<span class="nv">distribute</span>(<span class="nv">coins</span>: <span class="nv">coins</span>)
+</li><li>    }
+</li><li>    <span class="k">deinit</span> {
+</li><li>        <span class="nv">Bank</span>.<span class="nv">receive</span>(<span class="nv">coins</span>: <span class="nv">coinsInPurse</span>)
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>Each <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance is initialized with a starting allowance of a specified number of coins from the bank during initialization, although a <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance may receive fewer than that number if not enough coins are available.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Player</span></code> class defines a <code class="docutils literal notranslate"><span class="pre">win(coins:)</span></code> method, which retrieves a certain number of coins from the bank and adds them to the player’s purse. The <code class="docutils literal notranslate"><span class="pre">Player</span></code> class also implements a deinitializer, which is called just before a <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance is deallocated. Here, the deinitializer simply returns all of the player’s coins to the bank:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">playerOne</span>: <span class="nc">Player</span>? = <span class="nv">Player</span>(<span class="nv">coins</span>: <span class="m">100</span>)
+</li><li><span class="nv">print</span>(<span class="s">&quot;A new player has joined the game with </span>\<span class="p">(</span><span class="nv">playerOne</span>!.<span class="nv">coinsInPurse</span><span class="p">)</span><span class="s"> coins&quot;</span>)
+</li><li><span class="c">// Prints &quot;A new player has joined the game with 100 coins&quot;</span>
+</li><li><span class="nv">print</span>(<span class="s">&quot;There are now </span>\<span class="p">(</span><span class="nv">Bank</span>.<span class="nv">coinsInBank</span><span class="p">)</span><span class="s"> coins left in the bank&quot;</span>)
+</li><li><span class="c">// Prints &quot;There are now 9900 coins left in the bank&quot;</span>
+</li></ol></div></div></div>
+<p>A new <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance is created, with a request for 100 coins if they’re available. This <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance is stored in an optional <code class="docutils literal notranslate"><span class="pre">Player</span></code> variable called <code class="docutils literal notranslate"><span class="pre">playerOne</span></code>. An optional variable is used here, because players can leave the game at any point. The optional lets you track whether there’s currently a player in the game.</p>
+<p>Because <code class="docutils literal notranslate"><span class="pre">playerOne</span></code> is an optional, it’s qualified with an exclamation point (<code class="docutils literal notranslate"><span class="pre">!</span></code>) when its <code class="docutils literal notranslate"><span class="pre">coinsInPurse</span></code> property is accessed to print its default number of coins, and whenever its <code class="docutils literal notranslate"><span class="pre">win(coins:)</span></code> method is called:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">playerOne</span>!.<span class="nv">win</span>(<span class="nv">coins</span>: <span class="m">2_000</span>)
+</li><li><span class="nv">print</span>(<span class="s">&quot;PlayerOne won 2000 coins &amp; now has </span>\<span class="p">(</span><span class="nv">playerOne</span>!.<span class="nv">coinsInPurse</span><span class="p">)</span><span class="s"> coins&quot;</span>)
+</li><li><span class="c">// Prints &quot;PlayerOne won 2000 coins &amp; now has 2100 coins&quot;</span>
+</li><li><span class="nv">print</span>(<span class="s">&quot;The bank now only has </span>\<span class="p">(</span><span class="nv">Bank</span>.<span class="nv">coinsInBank</span><span class="p">)</span><span class="s"> coins left&quot;</span>)
+</li><li><span class="c">// Prints &quot;The bank now only has 7900 coins left&quot;</span>
+</li></ol></div></div></div>
+<p>Here, the player has won 2,000 coins. The player’s purse now contains 2,100 coins, and the bank has only 7,900 coins left.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">playerOne</span> = <span class="k">nil</span>
+</li><li><span class="nv">print</span>(<span class="s">&quot;PlayerOne has left the game&quot;</span>)
+</li><li><span class="c">// Prints &quot;PlayerOne has left the game&quot;</span>
+</li><li><span class="nv">print</span>(<span class="s">&quot;The bank now has </span>\<span class="p">(</span><span class="nv">Bank</span>.<span class="nv">coinsInBank</span><span class="p">)</span><span class="s"> coins&quot;</span>)
+</li><li><span class="c">// Prints &quot;The bank now has 10000 coins&quot;</span>
+</li></ol></div></div></div>
+<p>The player has now left the game. This is indicated by setting the optional <code class="docutils literal notranslate"><span class="pre">playerOne</span></code> variable to <code class="docutils literal notranslate"><span class="pre">nil</span></code>, meaning “no <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance.” At the point that this happens, the <code class="docutils literal notranslate"><span class="pre">playerOne</span></code> variable’s reference to the <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance is broken. No other properties or variables are still referring to the <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance, and so it’s deallocated in order to free up its memory. Just before this happens, its deinitializer is called automatically, and its coins are returned to the bank.</p>
+</div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="Initialization.html">Initialization</a></p>
+        <p class="next"><a href="OptionalChaining.html">Optional Chaining</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  </body>
+</html>

@@ -220,6 +220,9 @@ print(anotherGreeting(for: "Dave"))
 
 [짧은 게터 선언 \(Shorthand Getter Declaration\)](properties.md#getter-shorthand-getter-declaration) 에서 살펴보겠지만 프로퍼티 게터 또한 맹목적 반환을 사용할 수 있습니다.
 
+> NOTE
+> 암시적 반환값으로 작성하는 코드는 일부값을 반환하기 위해 필요합니다. 예를 들어 암시적 반환값으로 `fatalError("Oh no!")` 또는 `print(13)` 을 사용할 수 없습니다.
+
 ## 함수 인자 라벨과 파라미터 이름 \(Function Argument Labels and Parameter Names\)
 
 각 함수 파라미터는 _인자 라벨 \(argument label\)_ 과 _파라미터 이름 \(parameter name\)_ 을 가지고 있습니다. 인자 라벨은 함수가 호출될 때 사용되고 각 인자는 함수 호출 시 인자 라벨 다음에 작성합니다. 파라미터 이름은 함수를 구현할 때 사용됩니다. 기본적으로 파라미터는 인자 라벨로 파라미터 이름을 사용합니다.
@@ -308,9 +311,7 @@ arithmeticMean(3, 8.25, 18.75)
 // returns 10.0, which is the arithmetic mean of these three numbers
 ```
 
-가변 파라미터 뒤에 오는 첫번째 파라미터는 인수 라벨을 가지고 있어야 합니다. 인수 라벨은 가변 파라미터에 전달되는 인수와 가변 파라미터 뒤에 오는 파라미터에 전달되는 인수를 명확하게 합니다.
-
-함수는 여러개의 가변 파라미터를 가질 수 있습니다.
+함수는 여러개의 가변 파라미터를 가질 수 있습니다. 가변 파라미터 뒤에 오는 첫번째 파라미터는 인수 라벨을 가지고 있어야 합니다. 인수 라벨은 가변 파라미터에 전달되는 인수와 가변 파라미터 뒤에 오는 파라미터에 전달되는 인수를 명확하게 합니다.
 
 ### In-Out 파라미터 \(In-Out Parameters\)
 

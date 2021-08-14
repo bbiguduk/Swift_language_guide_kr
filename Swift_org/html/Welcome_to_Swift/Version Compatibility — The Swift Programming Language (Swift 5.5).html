@@ -1,0 +1,132 @@
+
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Apple Inc." />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    
+    <title>Version Compatibility &mdash; The Swift Programming Language (Swift 5.5)</title>
+    
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css" />
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339" /> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../">Welcome to Swift</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../">About Swift</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Version Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GuidedTour.html">A Swift Tour</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../LanguageGuide/TheBasics.html">Language Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ReferenceManual/AboutTheLanguageReference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Version Compatibility</a></li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="version-compatibility">
+<h1>Version Compatibility<a class="headerlink" href="#version-compatibility" title="Permalink to this headline">¶</a></h1>
+<p>This book describes Swift 5.5, the default version of Swift that’s included in Xcode 13. You can use Xcode 13 to build targets that are written in either Swift 5.5, Swift 4.2, or Swift 4.</p>
+<p>When you use Xcode 13 to build Swift 4 and Swift 4.2 code, most Swift 5.5 functionality is available. That said, the following changes are available only to code that uses Swift 5.5 or later:</p>
+<ul class="simple">
+<li>Functions that return an opaque type require the Swift 5.1 runtime.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">try?</span></code> expression doesn’t introduce an extra level of optionality to expressions that already return optionals.</li>
+<li>Large integer literal initialization expressions are inferred to be of the correct integer type. For example, <code class="docutils literal notranslate"><span class="pre">UInt64(0xffff_ffff_ffff_ffff)</span></code> evaluates to the correct value rather than overflowing.</li>
+</ul>
+<p>Concurrency requires Swift 5.5 or later, and a version of the Swift standard library that provides the corresponding concurrency types. On Apple platforms, set a deployment target of at least iOS 15, macOS 12, tvOS 15, or watchOS 8.0.</p>
+<p>A target written in Swift 5.5 can depend on a target that’s written in Swift 4.2 or Swift 4, and vice versa. This means, if you have a large project that’s divided into multiple frameworks, you can migrate your code from Swift 4 to Swift 5.5 one framework at a time.</p>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="../">About Swift</a></p>
+        <p class="next"><a href="GuidedTour.html">A Swift Tour</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  </body>
+</html>

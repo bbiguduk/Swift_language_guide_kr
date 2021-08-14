@@ -1,0 +1,347 @@
+
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Apple Inc." />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    
+    <title>Opaque Types &mdash; The Swift Programming Language (Swift 5.5)</title>
+    
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css" />
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339" /> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TheBasics.html">Language Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="TheBasics.html">The Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicOperators.html">Basic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringsAndCharacters.html">Strings and Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CollectionTypes.html">Collection Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlFlow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Closures.html">Closures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumerations.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassesAndStructures.html">Structures and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscripts.html">Subscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialization.html">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Deinitialization.html">Deinitialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptionalChaining.html">Optional Chaining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ErrorHandling.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TypeCasting.html">Type Casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NestedTypes.html">Nested Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Extensions.html">Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Protocols.html">Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generics.html">Generics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Opaque Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutomaticReferenceCounting.html">Automatic Reference Counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MemorySafety.html">Memory Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AccessControl.html">Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AdvancedOperators.html">Advanced Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ReferenceManual/AboutTheLanguageReference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Opaque Types</a><ul>
+<li><a class="reference internal" href="#ID613">The Problem That Opaque Types Solve</a></li>
+<li><a class="reference internal" href="#ID614">Returning an Opaque Type</a></li>
+<li><a class="reference internal" href="#ID615">Differences Between Opaque Types and Protocol Types</a></li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="opaque-types">
+<h1>Opaque Types<a class="headerlink" href="#opaque-types" title="Permalink to this headline">¶</a></h1>
+<p>A function or method with an opaque return type hides its return value’s type information. Instead of providing a concrete type as the function’s return type, the return value is described in terms of the protocols it supports. Hiding type information is useful at boundaries between a module and code that calls into the module, because the underlying type of the return value can remain private. Unlike returning a value whose type is a protocol type, opaque types preserve type identity—the compiler has access to the type information, but clients of the module don’t.</p>
+<div class="section" id="ID613">
+<h2>The Problem That Opaque Types Solve<a class="headerlink" href="#ID613" title="Permalink to this headline">¶</a></h2>
+<p>For example, suppose you’re writing a module that draws ASCII art shapes. The basic characteristic of an ASCII art shape is a <code class="docutils literal notranslate"><span class="pre">draw()</span></code> function that returns the string representation of that shape, which you can use as the requirement for the <code class="docutils literal notranslate"><span class="pre">Shape</span></code> protocol:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">Shape</span> {
+</li><li>    <span class="k">func</span> <span class="nv">draw</span>() -&gt; <span class="nc">String</span>
+</li><li>}
+</li><li>
+</li><li><span class="k">struct</span> <span class="nv">Triangle</span>: <span class="nc">Shape</span> {
+</li><li>    <span class="k">var</span> <span class="nv">size</span>: <span class="nc">Int</span>
+</li><li>    <span class="k">func</span> <span class="nv">draw</span>() -&gt; <span class="nc">String</span> {
+</li><li>        <span class="k">var</span> <span class="nv">result</span>: [<span class="nc">String</span>] = []
+</li><li>        <span class="k">for</span> <span class="nv">length</span> <span class="k">in</span> <span class="m">1</span>...<span class="nv">size</span> {
+</li><li>            <span class="nv">result</span>.<span class="nv">append</span>(<span class="nv">String</span>(<span class="nv">repeating</span>: <span class="s">&quot;*&quot;</span>, <span class="nv">count</span>: <span class="nv">length</span>))
+</li><li>        }
+</li><li>        <span class="k">return</span> <span class="nv">result</span>.<span class="nv">joined</span>(<span class="nv">separator</span>: <span class="s">&quot;\n&quot;</span>)
+</li><li>    }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">smallTriangle</span> = <span class="nv">Triangle</span>(<span class="nv">size</span>: <span class="m">3</span>)
+</li><li><span class="nv">print</span>(<span class="nv">smallTriangle</span>.<span class="nv">draw</span>())
+</li><li><span class="c">// *</span>
+</li><li><span class="c">// **</span>
+</li><li><span class="c">// ***</span>
+</li></ol></div></div></div>
+<p>You could use generics to implement operations like flipping a shape vertically, as shown in the code below. However, there’s an important limitation to this approach: The flipped result exposes the exact generic types that were used to create it.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">FlippedShape</span>&lt;<span class="nv">T</span>: <span class="nc">Shape</span>&gt;: <span class="nc">Shape</span> {
+</li><li>    <span class="k">var</span> <span class="nv">shape</span>: <span class="nc">T</span>
+</li><li>    <span class="k">func</span> <span class="nv">draw</span>() -&gt; <span class="nc">String</span> {
+</li><li>        <span class="k">let</span> <span class="nv">lines</span> = <span class="nv">shape</span>.<span class="nv">draw</span>().<span class="nv">split</span>(<span class="nv">separator</span>: <span class="s">&quot;\n&quot;</span>)
+</li><li>        <span class="k">return</span> <span class="nv">lines</span>.<span class="nv">reversed</span>().<span class="nv">joined</span>(<span class="nv">separator</span>: <span class="s">&quot;\n&quot;</span>)
+</li><li>    }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">flippedTriangle</span> = <span class="nv">FlippedShape</span>(<span class="nv">shape</span>: <span class="nv">smallTriangle</span>)
+</li><li><span class="nv">print</span>(<span class="nv">flippedTriangle</span>.<span class="nv">draw</span>())
+</li><li><span class="c">// ***</span>
+</li><li><span class="c">// **</span>
+</li><li><span class="c">// *</span>
+</li></ol></div></div></div>
+<p>This approach to defining a <code class="docutils literal notranslate"><span class="pre">JoinedShape&lt;T:</span> <span class="pre">Shape,</span> <span class="pre">U:</span> <span class="pre">Shape&gt;</span></code> structure that joins two shapes together vertically, like the code below shows, results in types like <code class="docutils literal notranslate"><span class="pre">JoinedShape&lt;FlippedShape&lt;Triangle&gt;,</span> <span class="pre">Triangle&gt;</span></code> from joining a flipped triangle with another triangle.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">JoinedShape</span>&lt;<span class="nv">T</span>: <span class="nc">Shape</span>, <span class="nv">U</span>: <span class="nc">Shape</span>&gt;: <span class="nc">Shape</span> {
+</li><li>    <span class="k">var</span> <span class="nv">top</span>: <span class="nc">T</span>
+</li><li>    <span class="k">var</span> <span class="nv">bottom</span>: <span class="nc">U</span>
+</li><li>    <span class="k">func</span> <span class="nv">draw</span>() -&gt; <span class="nc">String</span> {
+</li><li>        <span class="k">return</span> <span class="nv">top</span>.<span class="nv">draw</span>() + <span class="s">&quot;\n&quot;</span> + <span class="nv">bottom</span>.<span class="nv">draw</span>()
+</li><li>    }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">joinedTriangles</span> = <span class="nv">JoinedShape</span>(<span class="nv">top</span>: <span class="nv">smallTriangle</span>, <span class="nv">bottom</span>: <span class="nv">flippedTriangle</span>)
+</li><li><span class="nv">print</span>(<span class="nv">joinedTriangles</span>.<span class="nv">draw</span>())
+</li><li><span class="c">// *</span>
+</li><li><span class="c">// **</span>
+</li><li><span class="c">// ***</span>
+</li><li><span class="c">// ***</span>
+</li><li><span class="c">// **</span>
+</li><li><span class="c">// *</span>
+</li></ol></div></div></div>
+<p>Exposing detailed information about the creation of a shape allows types that aren’t meant to be part of the ASCII art module’s public interface to leak out because of the need to state the full return type. The code inside the module could build up the same shape in a variety of ways, and other code outside the module that uses the shape shouldn’t have to account for the implementation details about the list of transformations. Wrapper types like <code class="docutils literal notranslate"><span class="pre">JoinedShape</span></code> and <code class="docutils literal notranslate"><span class="pre">FlippedShape</span></code> don’t matter to the module’s users, and they shouldn’t be visible. The module’s public interface consists of operations like joining and flipping a shape, and those operations return another <code class="docutils literal notranslate"><span class="pre">Shape</span></code> value.</p>
+</div>
+<div class="section" id="ID614">
+<h2>Returning an Opaque Type<a class="headerlink" href="#ID614" title="Permalink to this headline">¶</a></h2>
+<p>You can think of an opaque type like being the reverse of a generic type. Generic types let the code that calls a function pick the type for that function’s parameters and return value in a way that’s abstracted away from the function implementation. For example, the function in the following code returns a type that depends on its caller:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">max</span>&lt;<span class="nv">T</span>&gt;(<span class="k">_</span> <span class="nv">x</span>: <span class="nc">T</span>, <span class="k">_</span> <span class="nv">y</span>: <span class="nc">T</span>) -&gt; <span class="nc">T</span> <span class="k">where</span> <span class="nc">T</span>: <span class="nc">Comparable</span> { ... }
+</li></ol></div></div></div>
+<p>The code that calls <code class="docutils literal notranslate"><span class="pre">max(_:_:)</span></code> chooses the values for <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, and the type of those values determines the concrete type of <code class="docutils literal notranslate"><span class="pre">T</span></code>. The calling code can use any type that conforms to the <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> protocol. The code inside the function is written in a general way so it can handle whatever type the caller provides. The implementation of <code class="docutils literal notranslate"><span class="pre">max(_:_:)</span></code> uses only functionality that all <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> types share.</p>
+<p>Those roles are reversed for a function with an opaque return type. An opaque type lets the function implementation pick the type for the value it returns in a way that’s abstracted away from the code that calls the function. For example, the function in the following example returns a trapezoid without exposing the underlying type of that shape.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Square</span>: <span class="nc">Shape</span> {
+</li><li>    <span class="k">var</span> <span class="nv">size</span>: <span class="nc">Int</span>
+</li><li>    <span class="k">func</span> <span class="nv">draw</span>() -&gt; <span class="nc">String</span> {
+</li><li>        <span class="k">let</span> <span class="nv">line</span> = <span class="nv">String</span>(<span class="nv">repeating</span>: <span class="s">&quot;*&quot;</span>, <span class="nv">count</span>: <span class="nv">size</span>)
+</li><li>        <span class="k">let</span> <span class="nv">result</span> = <span class="nv">Array</span>&lt;<span class="nc">String</span>&gt;(<span class="nv">repeating</span>: <span class="nv">line</span>, <span class="nv">count</span>: <span class="nv">size</span>)
+</li><li>        <span class="k">return</span> <span class="nv">result</span>.<span class="nv">joined</span>(<span class="nv">separator</span>: <span class="s">&quot;\n&quot;</span>)
+</li><li>    }
+</li><li>}
+</li><li>
+</li><li><span class="k">func</span> <span class="nv">makeTrapezoid</span>() -&gt; <span class="nc">some</span> <span class="nv">Shape</span> {
+</li><li>    <span class="k">let</span> <span class="nv">top</span> = <span class="nv">Triangle</span>(<span class="nv">size</span>: <span class="m">2</span>)
+</li><li>    <span class="k">let</span> <span class="nv">middle</span> = <span class="nv">Square</span>(<span class="nv">size</span>: <span class="m">2</span>)
+</li><li>    <span class="k">let</span> <span class="nv">bottom</span> = <span class="nv">FlippedShape</span>(<span class="nv">shape</span>: <span class="nv">top</span>)
+</li><li>    <span class="k">let</span> <span class="nv">trapezoid</span> = <span class="nv">JoinedShape</span>(
+</li><li>        <span class="nv">top</span>: <span class="nv">top</span>,
+</li><li>        <span class="nv">bottom</span>: <span class="nv">JoinedShape</span>(<span class="nv">top</span>: <span class="nv">middle</span>, <span class="nv">bottom</span>: <span class="nv">bottom</span>)
+</li><li>    )
+</li><li>    <span class="k">return</span> <span class="nv">trapezoid</span>
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">trapezoid</span> = <span class="nv">makeTrapezoid</span>()
+</li><li><span class="nv">print</span>(<span class="nv">trapezoid</span>.<span class="nv">draw</span>())
+</li><li><span class="c">// *</span>
+</li><li><span class="c">// **</span>
+</li><li><span class="c">// **</span>
+</li><li><span class="c">// **</span>
+</li><li><span class="c">// **</span>
+</li><li><span class="c">// *</span>
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">makeTrapezoid()</span></code> function in this example declares its return type as <code class="docutils literal notranslate"><span class="pre">some</span> <span class="pre">Shape</span></code>; as a result, the function returns a value of some given type that conforms to the <code class="docutils literal notranslate"><span class="pre">Shape</span></code> protocol, without specifying any particular concrete type. Writing <code class="docutils literal notranslate"><span class="pre">makeTrapezoid()</span></code> this way lets it express the fundamental aspect of its public interface—the value it returns is a shape—without making the specific types that the shape is made from a part of its public interface. This implementation uses two triangles and a square, but the function could be rewritten to draw a trapezoid in a variety of other ways without changing its return type.</p>
+<p>This example highlights the way that an opaque return type is like the reverse of a generic type. The code inside <code class="docutils literal notranslate"><span class="pre">makeTrapezoid()</span></code> can return any type it needs to, as long as that type conforms to the <code class="docutils literal notranslate"><span class="pre">Shape</span></code> protocol, like the calling code does for a generic function. The code that calls the function needs to be written in a general way, like the implementation of a generic function, so that it can work with any <code class="docutils literal notranslate"><span class="pre">Shape</span></code> value that’s returned by <code class="docutils literal notranslate"><span class="pre">makeTrapezoid()</span></code>.</p>
+<p>You can also combine opaque return types with generics. The functions in the following code both return a value of some type that conforms to the <code class="docutils literal notranslate"><span class="pre">Shape</span></code> protocol.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">flip</span>&lt;<span class="nv">T</span>: <span class="nc">Shape</span>&gt;(<span class="k">_</span> <span class="nv">shape</span>: <span class="nc">T</span>) -&gt; <span class="nc">some</span> <span class="nv">Shape</span> {
+</li><li>    <span class="k">return</span> <span class="nv">FlippedShape</span>(<span class="nv">shape</span>: <span class="nv">shape</span>)
+</li><li>}
+</li><li><span class="k">func</span> <span class="nv">join</span>&lt;<span class="nv">T</span>: <span class="nc">Shape</span>, <span class="nv">U</span>: <span class="nc">Shape</span>&gt;(<span class="k">_</span> <span class="nv">top</span>: <span class="nc">T</span>, <span class="k">_</span> <span class="nv">bottom</span>: <span class="nc">U</span>) -&gt; <span class="nc">some</span> <span class="nv">Shape</span> {
+</li><li>    <span class="nv">JoinedShape</span>(<span class="nv">top</span>: <span class="nv">top</span>, <span class="nv">bottom</span>: <span class="nv">bottom</span>)
+</li><li>}
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">opaqueJoinedTriangles</span> = <span class="nv">join</span>(<span class="nv">smallTriangle</span>, <span class="nv">flip</span>(<span class="nv">smallTriangle</span>))
+</li><li><span class="nv">print</span>(<span class="nv">opaqueJoinedTriangles</span>.<span class="nv">draw</span>())
+</li><li><span class="c">// *</span>
+</li><li><span class="c">// **</span>
+</li><li><span class="c">// ***</span>
+</li><li><span class="c">// ***</span>
+</li><li><span class="c">// **</span>
+</li><li><span class="c">// *</span>
+</li></ol></div></div></div>
+<p>The value of <code class="docutils literal notranslate"><span class="pre">opaqueJoinedTriangles</span></code> in this example is the same as <code class="docutils literal notranslate"><span class="pre">joinedTriangles</span></code> in the generics example in the <a class="reference internal" href="#ID613"><span class="std std-ref">The Problem That Opaque Types Solve</span></a> section earlier in this chapter. However, unlike the value in that example, <code class="docutils literal notranslate"><span class="pre">flip(_:)</span></code> and <code class="docutils literal notranslate"><span class="pre">join(_:_:)</span></code> wrap the underlying types that the generic shape operations return in an opaque return type, which prevents those types from being visible. Both functions are generic because the types they rely on are generic, and the type parameters to the function pass along the type information needed by <code class="docutils literal notranslate"><span class="pre">FlippedShape</span></code> and <code class="docutils literal notranslate"><span class="pre">JoinedShape</span></code>.</p>
+<p>If a function with an opaque return type returns from multiple places, all of the possible return values must have the same type. For a generic function, that return type can use the function’s generic type parameters, but it must still be a single type. For example, here’s an <em>invalid</em> version of the shape-flipping function that includes a special case for squares:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">invalidFlip</span>&lt;<span class="nv">T</span>: <span class="nc">Shape</span>&gt;(<span class="k">_</span> <span class="nv">shape</span>: <span class="nc">T</span>) -&gt; <span class="nc">some</span> <span class="nv">Shape</span> {
+</li><li>    <span class="k">if</span> <span class="nv">shape</span> <span class="k">is</span> <span class="nc">Square</span> {
+</li><li>        <span class="k">return</span> <span class="nv">shape</span> <span class="c">// Error: return types don&#39;t match</span>
+</li><li>    }
+</li><li>    <span class="k">return</span> <span class="nv">FlippedShape</span>(<span class="nv">shape</span>: <span class="nv">shape</span>) <span class="c">// Error: return types don&#39;t match</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>If you call this function with a <code class="docutils literal notranslate"><span class="pre">Square</span></code>, it returns a <code class="docutils literal notranslate"><span class="pre">Square</span></code>; otherwise, it returns a <code class="docutils literal notranslate"><span class="pre">FlippedShape</span></code>. This violates the requirement to return values of only one type and makes <code class="docutils literal notranslate"><span class="pre">invalidFlip(_:)</span></code> invalid code. One way to fix <code class="docutils literal notranslate"><span class="pre">invalidFlip(_:)</span></code> is to move the special case for squares into the implementation of <code class="docutils literal notranslate"><span class="pre">FlippedShape</span></code>, which lets this function always return a <code class="docutils literal notranslate"><span class="pre">FlippedShape</span></code> value:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">FlippedShape</span>&lt;<span class="nv">T</span>: <span class="nc">Shape</span>&gt;: <span class="nc">Shape</span> {
+</li><li>    <span class="k">var</span> <span class="nv">shape</span>: <span class="nc">T</span>
+</li><li>    <span class="k">func</span> <span class="nv">draw</span>() -&gt; <span class="nc">String</span> {
+</li><li>        <span class="k">if</span> <span class="nv">shape</span> <span class="k">is</span> <span class="nc">Square</span> {
+</li><li>            <span class="k">return</span> <span class="nv">shape</span>.<span class="nv">draw</span>()
+</li><li>        }
+</li><li>        <span class="k">let</span> <span class="nv">lines</span> = <span class="nv">shape</span>.<span class="nv">draw</span>().<span class="nv">split</span>(<span class="nv">separator</span>: <span class="s">&quot;\n&quot;</span>)
+</li><li>        <span class="k">return</span> <span class="nv">lines</span>.<span class="nv">reversed</span>().<span class="nv">joined</span>(<span class="nv">separator</span>: <span class="s">&quot;\n&quot;</span>)
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>The requirement to always return a single type doesn’t prevent you from using generics in an opaque return type. Here’s an example of a function that incorporates its type parameter into the underlying type of the value it returns:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">`repeat`</span>&lt;<span class="nv">T</span>: <span class="nc">Shape</span>&gt;(<span class="nv">shape</span>: <span class="nc">T</span>, <span class="nv">count</span>: <span class="nc">Int</span>) -&gt; <span class="nc">some</span> <span class="nv">Collection</span> {
+</li><li>    <span class="k">return</span> <span class="nv">Array</span>&lt;<span class="nc">T</span>&gt;(<span class="nv">repeating</span>: <span class="nv">shape</span>, <span class="nv">count</span>: <span class="nv">count</span>)
+</li><li>}
+</li></ol></div></div></div>
+<p>In this case, the underlying type of the return value varies depending on <code class="docutils literal notranslate"><span class="pre">T</span></code>: Whatever shape is passed it, <code class="docutils literal notranslate"><span class="pre">repeat(shape:count:)</span></code> creates and returns an array of that shape. Nevertheless, the return value always has the same underlying type of <code class="docutils literal notranslate"><span class="pre">[T]</span></code>, so it follows the requirement that functions with opaque return types must return values of only a single type.</p>
+</div>
+<div class="section" id="ID615">
+<h2>Differences Between Opaque Types and Protocol Types<a class="headerlink" href="#ID615" title="Permalink to this headline">¶</a></h2>
+<p>Returning an opaque type looks very similar to using a protocol type as the return type of a function, but these two kinds of return type differ in whether they preserve type identity. An opaque type refers to one specific type, although the caller of the function isn’t able to see which type; a protocol type can refer to any type that conforms to the protocol. Generally speaking, protocol types give you more flexibility about the underlying types of the values they store, and opaque types let you make stronger guarantees about those underlying types.</p>
+<p>For example, here’s a version of <code class="docutils literal notranslate"><span class="pre">flip(_:)</span></code> that uses a protocol type as its return type instead of an opaque return type:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">protoFlip</span>&lt;<span class="nv">T</span>: <span class="nc">Shape</span>&gt;(<span class="k">_</span> <span class="nv">shape</span>: <span class="nc">T</span>) -&gt; <span class="nc">Shape</span> {
+</li><li>    <span class="k">return</span> <span class="nv">FlippedShape</span>(<span class="nv">shape</span>: <span class="nv">shape</span>)
+</li><li>}
+</li></ol></div></div></div>
+<p>This version of <code class="docutils literal notranslate"><span class="pre">protoFlip(_:)</span></code> has the same body as <code class="docutils literal notranslate"><span class="pre">flip(_:)</span></code>, and it always returns a value of the same type. Unlike <code class="docutils literal notranslate"><span class="pre">flip(_:)</span></code>, the value that <code class="docutils literal notranslate"><span class="pre">protoFlip(_:)</span></code> returns isn’t required to always have the same type—it just has to conform to the <code class="docutils literal notranslate"><span class="pre">Shape</span></code> protocol. Put another way, <code class="docutils literal notranslate"><span class="pre">protoFlip(_:)</span></code> makes a much looser API contract with its caller than <code class="docutils literal notranslate"><span class="pre">flip(_:)</span></code> makes. It reserves the flexibility to return values of multiple types:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">protoFlip</span>&lt;<span class="nv">T</span>: <span class="nc">Shape</span>&gt;(<span class="k">_</span> <span class="nv">shape</span>: <span class="nc">T</span>) -&gt; <span class="nc">Shape</span> {
+</li><li>    <span class="k">if</span> <span class="nv">shape</span> <span class="k">is</span> <span class="nc">Square</span> {
+</li><li>        <span class="k">return</span> <span class="nv">shape</span>
+</li><li>    }
+</li><li>
+</li><li>    <span class="k">return</span> <span class="nv">FlippedShape</span>(<span class="nv">shape</span>: <span class="nv">shape</span>)
+</li><li>}
+</li></ol></div></div></div>
+<p>The revised version of the code returns an instance of <code class="docutils literal notranslate"><span class="pre">Square</span></code> or an instance of <code class="docutils literal notranslate"><span class="pre">FlippedShape</span></code>, depending on what shape is passed in. Two flipped shapes returned by this function might have completely different types. Other valid versions of this function could return values of different types when flipping multiple instances of the same shape. The less specific return type information from <code class="docutils literal notranslate"><span class="pre">protoFlip(_:)</span></code> means that many operations that depend on type information aren’t available on the returned value. For example, it’s not possible to write an <code class="docutils literal notranslate"><span class="pre">==</span></code> operator comparing results returned by this function.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">protoFlippedTriangle</span> = <span class="nv">protoFlip</span>(<span class="nv">smallTriangle</span>)
+</li><li><span class="k">let</span> <span class="nv">sameThing</span> = <span class="nv">protoFlip</span>(<span class="nv">smallTriangle</span>)
+</li><li><span class="nv">protoFlippedTriangle</span> == <span class="nv">sameThing</span>  <span class="c">// Error</span>
+</li></ol></div></div></div>
+<p>The error on the last line of the example occurs for several reasons. The immediate issue is that the <code class="docutils literal notranslate"><span class="pre">Shape</span></code> doesn’t include an <code class="docutils literal notranslate"><span class="pre">==</span></code> operator as part of its protocol requirements. If you try adding one, the next issue you’ll encounter is that the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator needs to know the types of its left-hand and right-hand arguments. This sort of operator usually takes arguments of type <code class="docutils literal notranslate"><span class="pre">Self</span></code>, matching whatever concrete type adopts the protocol, but adding a <code class="docutils literal notranslate"><span class="pre">Self</span></code> requirement to the protocol doesn’t allow for the type erasure that happens when you use the protocol as a type.</p>
+<p>Using a protocol type as the return type for a function gives you the flexibility to return any type that conforms to the protocol. However, the cost of that flexibility is that some operations aren’t possible on the returned values. The example shows how the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator isn’t available—it depends on specific type information that isn’t preserved by using a protocol type.</p>
+<p>Another problem with this approach is that the shape transformations don’t nest. The result of flipping a triangle is a value of type <code class="docutils literal notranslate"><span class="pre">Shape</span></code>, and the <code class="docutils literal notranslate"><span class="pre">protoFlip(_:)</span></code> function takes an argument of some type that conforms to the <code class="docutils literal notranslate"><span class="pre">Shape</span></code> protocol. However, a value of a protocol type doesn’t conform to that protocol; the value returned by <code class="docutils literal notranslate"><span class="pre">protoFlip(_:)</span></code> doesn’t conform to <code class="docutils literal notranslate"><span class="pre">Shape</span></code>. This means code like <code class="docutils literal notranslate"><span class="pre">protoFlip(protoFlip(smallTriange))</span></code> that applies multiple transformations is invalid because the flipped shape isn’t a valid argument to <code class="docutils literal notranslate"><span class="pre">protoFlip(_:)</span></code>.</p>
+<p>In contrast, opaque types preserve the identity of the underlying type. Swift can infer associated types, which lets you use an opaque return value in places where a protocol type can’t be used as a return value. For example, here’s a version of the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol from <a class="reference internal" href="Generics.html"><span class="doc">Generics</span></a>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">Container</span> {
+</li><li>    <span class="k">associatedtype</span> <span class="nv">Item</span>
+</li><li>    <span class="k">var</span> <span class="nv">count</span>: <span class="nc">Int</span> { <span class="k">get</span> }
+</li><li>    <span class="k">subscript</span>(<span class="nv">i</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Item</span> { <span class="k">get</span> }
+</li><li>}
+</li><li><span class="k">extension</span> <span class="nc">Array</span>: <span class="nc">Container</span> { }
+</li></ol></div></div></div>
+<p>You can’t use <code class="docutils literal notranslate"><span class="pre">Container</span></code> as the return type of a function because that protocol has an associated type. You also can’t use it as constraint in a generic return type because there isn’t enough information outside the function body to infer what the generic type needs to be.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="c">// Error: Protocol with associated types can&#39;t be used as a return type.</span>
+</li><li><span class="k">func</span> <span class="nv">makeProtocolContainer</span>&lt;<span class="nv">T</span>&gt;(<span class="nv">item</span>: <span class="nc">T</span>) -&gt; <span class="nc">Container</span> {
+</li><li>    <span class="k">return</span> [<span class="nv">item</span>]
+</li><li>}
+</li><li>
+</li><li><span class="c">// Error: Not enough information to infer C.</span>
+</li><li><span class="k">func</span> <span class="nv">makeProtocolContainer</span>&lt;<span class="nv">T</span>, <span class="nv">C</span>: <span class="nc">Container</span>&gt;(<span class="nv">item</span>: <span class="nc">T</span>) -&gt; <span class="nc">C</span> {
+</li><li>    <span class="k">return</span> [<span class="nv">item</span>]
+</li><li>}
+</li></ol></div></div></div>
+<p>Using the opaque type <code class="docutils literal notranslate"><span class="pre">some</span> <span class="pre">Container</span></code> as a return type expresses the desired API contract—the function returns a container, but declines to specify the container’s type:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">makeOpaqueContainer</span>&lt;<span class="nv">T</span>&gt;(<span class="nv">item</span>: <span class="nc">T</span>) -&gt; <span class="nc">some</span> <span class="nv">Container</span> {
+</li><li>    <span class="k">return</span> [<span class="nv">item</span>]
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">opaqueContainer</span> = <span class="nv">makeOpaqueContainer</span>(<span class="nv">item</span>: <span class="m">12</span>)
+</li><li><span class="k">let</span> <span class="nv">twelve</span> = <span class="nv">opaqueContainer</span>[<span class="m">0</span>]
+</li><li><span class="nv">print</span>(<span class="nv">type</span>(<span class="nv">of</span>: <span class="nv">twelve</span>))
+</li><li><span class="c">// Prints &quot;Int&quot;</span>
+</li></ol></div></div></div>
+<p>The type of <code class="docutils literal notranslate"><span class="pre">twelve</span></code> is inferred to be <code class="docutils literal notranslate"><span class="pre">Int</span></code>, which illustrates the fact that type inference works with opaque types. In the implementation of <code class="docutils literal notranslate"><span class="pre">makeOpaqueContainer(item:)</span></code>, the underlying type of the opaque container is <code class="docutils literal notranslate"><span class="pre">[T]</span></code>. In this case, <code class="docutils literal notranslate"><span class="pre">T</span></code> is <code class="docutils literal notranslate"><span class="pre">Int</span></code>, so the return value is an array of integers and the <code class="docutils literal notranslate"><span class="pre">Item</span></code> associated type is inferred to be <code class="docutils literal notranslate"><span class="pre">Int</span></code>. The subscript on <code class="docutils literal notranslate"><span class="pre">Container</span></code> returns <code class="docutils literal notranslate"><span class="pre">Item</span></code>, which means that the type of <code class="docutils literal notranslate"><span class="pre">twelve</span></code> is also inferred to be <code class="docutils literal notranslate"><span class="pre">Int</span></code>.</p>
+</div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="Generics.html">Generics</a></p>
+        <p class="next"><a href="AutomaticReferenceCounting.html">Automatic Reference Counting</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  </body>
+</html>

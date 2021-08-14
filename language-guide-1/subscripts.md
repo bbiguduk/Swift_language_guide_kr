@@ -29,7 +29,7 @@ subscript(index: Int) -> Int {
 }
 ```
 
-다음은 정수의 n 배 테이블을 표시하기 위한 `TimesTable` 구조체를 정의하는 읽기전용 서브 스크립트 구현의 예입니다:
+다음은 정수의 _n_-배-테이블을 표시하기 위한 `TimesTable` 구조체를 정의하는 읽기전용 서브 스크립트 구현의 예입니다:
 
 ```swift
 struct TimesTable {
@@ -48,7 +48,7 @@ print("six times three is \(threeTimesTable[6])")
 `threeTimesTable[6]` 에 대한 호출에 보여준 것처럼 서브 스크립트를 호출하여 `threeTimesTable` 인스턴스를 조회할 수 있습니다. 이것은 `3` 의 `6` 배인 `18` 의 값을 반환하는 3배 테이블에서 6번째 값을 요청합니다.
 
 > NOTE   
-> _n_ 배 테이블은 수학적 규칙을 기반으로 합니다. `threeTimesTable[someIndex]` 를 새로운 값을 설정하는 것은 적절하지 않으므로 `TimesTable` 의 서브 스크립트는 읽기전용 서브 스크립트로 정의됩니다.
+> _n_-배-테이블은 수학적 규칙을 기반으로 합니다. `threeTimesTable[someIndex]` 를 새로운 값을 설정하는 것은 적절하지 않으므로 `TimesTable` 의 서브 스크립트는 읽기전용 서브 스크립트로 정의됩니다.
 
 ## 서브 스크립트 사용 \(Subscript Usage\)
 

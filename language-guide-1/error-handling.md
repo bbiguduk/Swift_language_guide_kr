@@ -133,7 +133,7 @@ struct PurchasedSnack {
 
 ![Error Handling](../.gitbook/assets/17_errorHandling.png)
 
-처리할 수 있는 에러가 무엇인지 나타내기 위해 `catch` 뒤에 패턴을 작성합니다. `catch` 절이 패턴을 가지고 있지 않다면 이 절은 모든 에러와 일치하고 `error` 라는 이름을 가진 지역 상수로 에러를 바인드 합니다. 자세한 내용은 [패턴 \(Patterns\)](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html) 을 참고 바랍니다.
+처리할 수 있는 에러가 무엇인지 나타내기 위해 `catch` 뒤에 패턴을 작성합니다. `catch` 절이 패턴을 가지고 있지 않다면 이 절은 모든 에러와 일치하고 `error` 라는 이름을 가진 지역 상수로 에러를 바인드 합니다. 자세한 내용은 [패턴 \(Patterns\)](../language-reference/patterns.md) 을 참고 바랍니다.
 
 예를 들어 다음 코드는 `VendingMachineError` 열거형에 3가지 모든 케이스에 대해 일치합니다.
 

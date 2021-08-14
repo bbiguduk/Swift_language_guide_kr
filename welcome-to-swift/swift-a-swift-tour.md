@@ -94,8 +94,8 @@ print(shoppingList)
 빈 배열 또는 빈 딕셔너리를 생성하기 위해 초기화 구문을 사용합니다.
 
 ```swift
-let emptyArray = [String]()
-let emptyDictionary = [String: Float]()
+let emptyArray: [String] = []
+let emptyDictionary: [String: Float] = [:]
 ```
 
 타입 정보를 유추할 수 있으면 `[]` 로 빈 배열을 작성하고 `[:]` 로 빈 딕셔너리를 작성할 수 있습니다 — 예를 들어 변수에 새로운 값을 설정할 때나 함수에 인수로 전달할 때 사용할 수 있습니다.
@@ -216,8 +216,6 @@ repeat {
 print(m)
 // Prints "128"
 ```
-
-인
 
 인덱스의 범위를 만들기 위해선 `..<` 을 사용하여 루프에 인덱스를 유지할 수 있습니다.
 

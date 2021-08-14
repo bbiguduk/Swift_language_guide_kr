@@ -293,8 +293,7 @@ stepCounter.totalSteps = 896
 ```swift
 @propertyWrapper
 struct TwelveOrLess {
-    private var number: Int
-    init() { self.number = 0 }
+    private var number = 0
     var wrappedValue: Int {
         get { return number }
         set { number = min(newValue, 12) }
@@ -307,7 +306,7 @@ setter는 새로운 값이 12이하라는 것을 보장하고 getter는 저장�
 > NOTE   
 > 위의 예제에서 `number` 선언부는 `TwelveOrLess` 의 구현에서만 `number` 가 사용될 수 있도록 `private` 로 변수를 표기합니다. 다른곳에서 작성된 코드는 `wrappedValue` 를 위한 getter와 setter를 사용하여 값에 접근하고 직접적으로 `number` 를 사용할 수 없습니다. `private` 에 대한 정보는 [접근 제어 \(Access Control\)](access-control.md) 를 참고 바랍니다.
 
-속성으로 프로퍼티 전에 래퍼의 이름을 작성하여 프로퍼티에 래퍼를 적용합니다. 다음은 `TwelveOrLess` 프로퍼티 래퍼로 구현된 "small"과 동일한 의를 사용하여 작은 사각형을 저장하는 구조체입니다:
+속성으로 프로퍼티 전에 래퍼의 이름을 작성하여 프로퍼티에 래퍼를 적용합니다. 다음은 항상 12 이하인지 확인하기 위해 `TwelveOrLess` 프로퍼티 래퍼를 사용하여 사각형을 저장하는 구조체입니다:
 
 ```swift
 struct SmallRectangle {
@@ -461,12 +460,8 @@ print(mixedRectangle.height)
 ```swift
 @propertyWrapper
 struct SmallNumber {
-    private var number: Int
-    var projectedValue: Bool
-    init() {
-        self.number = 0
-        self.projectedValue = false
-    }
+    private var number = 0
+    var projectedValue = false
     var wrappedValue: Int {
         get { return number }
         set {
@@ -537,6 +532,22 @@ struct SizedRectangle {
 > 전역 상수와 변수는 [지연 저장된 프로퍼티 \(Lazy Stored Properties\)](properties.md#lazy-stored-properties) 와 유사한 방법으로 항상 느리게 계산됩니다. 지연 저장된 프로퍼티와 다르게 전역 상수와 변수는 `lazy` 수식어가 필요하지 않습니다.
 >
 > 지역 상수와 변수는 절대 느리게 계산되지 않습니다.
+
+계산된 지역 변수에 프로퍼티 래퍼를 적용할 수 있지만 전역 변수 또는 계산된 변수에는 적용할 수 없습니다. 예를 들어 아래 코드에서 `myNumber` 는 프로퍼티 래퍼로 `SmallNumber` 를 사용합니다.
+
+```swift
+func someFunction() {
+    @SmallNumber var myNumber: Int = 0
+
+    myNumber = 10
+    // now myNumber is 10
+
+    myNumber = 24
+    // now myNumber is 12
+}
+```
+
+프로퍼티에 `SmallNumber` 를 적용할 때와 마찬가지로 `myNumber` 값을 10으로 설정하는 것이 유효합니다. 프로퍼티 래퍼는 12보다 큰 값을 허용하지 않기 때문에 `myNumber` 를 24 대신 12로 설정합니다.
 
 ## 타입 프로퍼티 \(Type Properties\)
 

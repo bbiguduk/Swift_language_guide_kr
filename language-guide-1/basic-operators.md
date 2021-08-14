@@ -214,7 +214,7 @@ if name == "world" {
 
 ## 삼항 조건 연산자 \(Ternary Conditional Operator\)
 
-_삼항 조건 연산자 \(ternary conditional operator\)_ 는 `question ? Answer1 : answer2` 형태의 3가지 부분으로 이루어진 특별한 연산자입니다. `question` 이 참 또는 거짓인지에 따라 2개의 표현식 중 하나를 나타내는 식입니다. `question` 이 참이라면 `answer1` 을 반환하고 반대면 `answer2` 를 반환합니다.
+_삼항 조건 연산자 \(ternary conditional operator\)_ 는 `question ? answer1 : answer2` 형태의 3가지 부분으로 이루어진 특별한 연산자입니다. `question` 이 참 또는 거짓인지에 따라 2개의 표현식 중 하나를 나타내는 식입니다. `question` 이 참이라면 `answer1` 을 반환하고 반대면 `answer2` 를 반환합니다.
 
 삼항 조건 연산자는 아래의 코드를 줄여서 표현한 것입니다:
 
@@ -333,7 +333,7 @@ for i in 0..<count {
 
 ### 단-방향 범위 \(One-Sided Ranges\)
 
-닫힌 범위 연산자는 한방향으로 계속되는 범위에 대한 대체 형식입니다. 인덱스 2에서 배열 끝까지 배열의 모든 요소를 포함하는 범위가 그 예입니다. 이러한 경우 범위 연산자의 한쪽을 생략할 수 있습니다. 이러한 범위의 종류는 연산자가 오직 한쪽의 값만 가지고 있으므로 _단-방향 범위 \(one-sided range\)_ 라고 합니다. 예를 들어:
+닫힌 범위 연산자는 한방향으로 계속되는 범위에 대한 대체 형식입니다. 인덱스 `2` 에서 배열 끝까지 배열의 모든 요소를 포함하는 범위가 그 예입니다. 이러한 경우 범위 연산자의 한쪽을 생략할 수 있습니다. 이러한 범위의 종류는 연산자가 오직 한쪽의 값만 가지고 있으므로 _단-방향 범위 \(one-sided range\)_ 라고 합니다. 예를 들어:
 
 ```swift
 for name in names[2...] {

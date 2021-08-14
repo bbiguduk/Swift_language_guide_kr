@@ -6,7 +6,7 @@ _제너릭 코드 \(Generic code\)_ 는 정의한 요구사항에 따라 모든 
 
 ## 제너릭이 해결하는 문제 \(The Problem That Generics Solve\)
 
-다음은 2 `Int` 값을 바꾸는 `swapTwoInts(_:_:)` 라는 제너릭이 아닌 함수, 표준입니다:
+다음은 두 `Int` 값을 바꾸는 `swapTwoInts(_:_:)` 라는 제너릭이 아닌 함수, 표준입니다:
 
 ```swift
 func swapTwoInts(_ a: inout Int, _ b: inout Int) {
@@ -131,7 +131,7 @@ swapTwoValues(&someString, &anotherString)
 
 ```swift
 struct IntStack {
-    var items = [Int]()
+    var items: [Int] = []
     mutating func push(_ item: Int) {
         items.append(item)
     }
@@ -149,7 +149,7 @@ struct IntStack {
 
 ```swift
 struct Stack<Element> {
-    var items = [Element]()
+    var items: [Element] = []
     mutating func push(_ item: Element) {
         items.append(item)
     }
@@ -350,7 +350,7 @@ protocol Container {
 ```swift
 struct IntStack: Container {
     // original IntStack implementation
-    var items = [Int]()
+    var items: [Int] = []
     mutating func push(_ item: Int) {
         items.append(item)
     }
@@ -382,7 +382,7 @@ Swift의 타입 추론 덕분에 실제로 `IntStack` 의 정의의 부분으로
 ```swift
 struct Stack<Element>: Container {
     // original Stack<Element> implementation
-    var items = [Element]()
+    var items: [Element] = []
     mutating func push(_ item: Element) {
         items.append(item)
     }
@@ -718,7 +718,7 @@ protocol ComparableContainer: Container where Item: Comparable { }
 extension Container {
     subscript<Indices: Sequence>(indices: Indices) -> [Item]
         where Indices.Iterator.Element == Int {
-            var result = [Item]()
+            var result: [Item] = []
             for index in indices {
                 result.append(self[index])
             }

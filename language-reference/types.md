@@ -157,8 +157,6 @@ func takesTwoFunctions(first: (() -> Void) -> Void, second: (() -> Void) -> Void
 
 위의 코드에서 `takesTwoFunctions(first:second:)` 에 대한 두 파라미터는 모두 함수입니다. 두 파라미터 모두 `@escaping` 으로 표시되지 않으므로 결과적으로 둘다 비이스케이프 입니다.
 
-위
-
 위의 예제에서 "Error" 로 표시된 4개의 함수 호출은 컴파일러 에러를 일으킵니다. `first` 와 `second` 파라미터는 비이스케이프 함수이므로 다른 비이스케이프 함수 파라미터 인수로 전달될 수 없습니다. 반대로 "OK" 로 표시된 2개의 함수 호출은 컴파일러 에러를 발생시키지 않습니다. 이 함수 호출은 `external` 이 `takesTwoFunctions(first:second:)` 의 파라미터 중 하나가 아니므로 제한사항에 위배되지 않습니다.
 
 제한사항을 피해야 하는 경우 파라미터 중 하나를 이스케이프로 표시하거나 `withoutActuallyEscaping(_:do:)` 함수를 이용하여 이스케이프 함수로 비이스케이프 함수 파라미터 중 하나를 임시로 변경해야 합니다. 메모리에 충돌 접근을 피하는 것에 대한 자세한 내용은 [메모리 안정성 \(Memory Safety\)](../language-guide-1/memory-safety.md) 를 참고 바랍니다.

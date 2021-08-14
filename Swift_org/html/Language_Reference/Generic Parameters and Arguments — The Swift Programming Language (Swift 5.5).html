@@ -1,0 +1,196 @@
+
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Apple Inc." />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    
+    <title>Generic Parameters and Arguments &mdash; The Swift Programming Language (Swift 5.5)</title>
+    
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css" />
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339" /> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LanguageGuide/TheBasics.html">Language Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="AboutTheLanguageReference.html">Language Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="AboutTheLanguageReference.html">About the Language Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LexicalStructure.html">Lexical Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Expressions.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Statements.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Declarations.html">Declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Attributes.html">Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Patterns.html">Patterns</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Generic Parameters and Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zzSummaryOfTheGrammar.html">Summary of the Grammar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Generic Parameters and Arguments</a><ul>
+<li><a class="reference internal" href="#ID407">Generic Parameter Clause</a><ul>
+<li><a class="reference internal" href="#ID408">Generic Where Clauses</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID409">Generic Argument Clause</a></li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="generic-parameters-and-arguments">
+<h1>Generic Parameters and Arguments<a class="headerlink" href="#generic-parameters-and-arguments" title="Permalink to this headline">¶</a></h1>
+<p>This chapter describes parameters and arguments for generic types, functions, and initializers. When you declare a generic type, function, subscript, or initializer, you specify the type parameters that the generic type, function, or initializer can work with. These type parameters act as placeholders that are replaced by actual concrete type arguments when an instance of a generic type is created or a generic function or initializer is called.</p>
+<p>For an overview of generics in Swift, see <a class="reference internal" href="../LanguageGuide/Generics.html"><span class="doc">Generics</span></a>.</p>
+<div class="section" id="ID407">
+<h2>Generic Parameter Clause<a class="headerlink" href="#ID407" title="Permalink to this headline">¶</a></h2>
+<p>A <em>generic parameter clause</em> specifies the type parameters of a generic type or function, along with any associated constraints and requirements on those parameters. A generic parameter clause is enclosed in angle brackets (&lt;&gt;) and has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>&lt;<span class="gi">generic parameter list</span>&gt;
+</li></ol></div></div></div>
+<p>The <em>generic parameter list</em> is a comma-separated list of generic parameters, each of which has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="gi">type parameter</span>: <span class="gi">constraint</span>
+</li></ol></div></div></div>
+<p>A generic parameter consists of a <em>type parameter</em> followed by an optional <em>constraint</em>. A <em>type parameter</em> is simply the name of a placeholder type (for example, <code class="docutils literal notranslate"><span class="pre">T</span></code>, <code class="docutils literal notranslate"><span class="pre">U</span></code>, <code class="docutils literal notranslate"><span class="pre">V</span></code>, <code class="docutils literal notranslate"><span class="pre">Key</span></code>, <code class="docutils literal notranslate"><span class="pre">Value</span></code>, and so on). You have access to the type parameters (and any of their associated types) in the rest of the type, function, or initializer declaration, including in the signature of the function or initializer.</p>
+<p>The <em>constraint</em> specifies that a type parameter inherits from a specific class or conforms to a protocol or protocol composition. For example, in the generic function below, the generic parameter <code class="docutils literal notranslate"><span class="pre">T:</span> <span class="pre">Comparable</span></code> indicates that any type argument substituted for the type parameter <code class="docutils literal notranslate"><span class="pre">T</span></code> must conform to the <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> protocol.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">simpleMax</span>&lt;<span class="nv">T</span>: <span class="nc">Comparable</span>&gt;(<span class="k">_</span> <span class="nv">x</span>: <span class="nc">T</span>, <span class="k">_</span> <span class="nv">y</span>: <span class="nc">T</span>) -&gt; <span class="nc">T</span> {
+</li><li>    <span class="k">if</span> <span class="nv">x</span> &lt; <span class="nv">y</span> {
+</li><li>        <span class="k">return</span> <span class="nv">y</span>
+</li><li>    }
+</li><li>    <span class="k">return</span> <span class="nv">x</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>Because <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Double</span></code>, for example, both conform to the <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> protocol, this function accepts arguments of either type. In contrast with generic types, you don’t specify a generic argument clause when you use a generic function or initializer. The type arguments are instead inferred from the type of the arguments passed to the function or initializer.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">simpleMax</span>(<span class="m">17</span>, <span class="m">42</span>) <span class="c">// T is inferred to be Int</span>
+</li><li><span class="nv">simpleMax</span>(<span class="m">3.14159</span>, <span class="m">2.71828</span>) <span class="c">// T is inferred to be Double</span>
+</li></ol></div></div></div>
+<div class="section" id="ID408">
+<h3>Generic Where Clauses<a class="headerlink" href="#ID408" title="Permalink to this headline">¶</a></h3>
+<p>You can specify additional requirements on type parameters and their associated types by including a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause right before the opening curly brace of a type or function’s body. A generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause consists of the <code class="docutils literal notranslate"><span class="pre">where</span></code> keyword, followed by a comma-separated list of one or more <em>requirements</em>.</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">where</span> <span class="gi">requirements</span>
+</li></ol></div></div></div>
+<p>The <em>requirements</em> in a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause specify that a type parameter inherits from a class or conforms to a protocol or protocol composition. Although the generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause provides syntactic sugar for expressing simple constraints on type parameters (for example, <code class="docutils literal notranslate"><span class="pre">&lt;T:</span> <span class="pre">Comparable&gt;</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">&lt;T&gt;</span> <span class="pre">where</span> <span class="pre">T:</span> <span class="pre">Comparable</span></code> and so on), you can use it to provide more complex constraints on type parameters and their associated types. For example, you can constrain the associated types of type parameters to conform to protocols. For example, <code class="docutils literal notranslate"><span class="pre">&lt;S:</span> <span class="pre">Sequence&gt;</span> <span class="pre">where</span> <span class="pre">S.Iterator.Element:</span> <span class="pre">Equatable</span></code> specifies that <code class="docutils literal notranslate"><span class="pre">S</span></code> conforms to the <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> protocol and that the associated type <code class="docutils literal notranslate"><span class="pre">S.Iterator.Element</span></code> conforms to the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol. This constraint ensures that each element of the sequence is equatable.</p>
+<p>You can also specify the requirement that two types be identical, using the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator. For example, <code class="docutils literal notranslate"><span class="pre">&lt;S1:</span> <span class="pre">Sequence,</span> <span class="pre">S2:</span> <span class="pre">Sequence&gt;</span> <span class="pre">where</span> <span class="pre">S1.Iterator.Element</span> <span class="pre">==</span> <span class="pre">S2.Iterator.Element</span></code> expresses the constraints that <code class="docutils literal notranslate"><span class="pre">S1</span></code> and <code class="docutils literal notranslate"><span class="pre">S2</span></code> conform to the <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> protocol and that the elements of both sequences must be of the same type.</p>
+<p>Any type argument substituted for a type parameter must meet all the constraints and requirements placed on the type parameter.</p>
+<p>A generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause can appear as part of a declaration that includes type parameters, or as part of a declaration that’s nested inside of a declaration that includes type parameters. The generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause for a nested declaration can still refer to the type parameters of the enclosing declaration; however, the requirements from that <code class="docutils literal notranslate"><span class="pre">where</span></code> clause apply only to the declaration where it’s written.</p>
+<p>If the enclosing declaration also has a <code class="docutils literal notranslate"><span class="pre">where</span></code> clause, the requirements from both clauses are combined. In the example below, <code class="docutils literal notranslate"><span class="pre">startsWithZero()</span></code> is available only if <code class="docutils literal notranslate"><span class="pre">Element</span></code> conforms to both <code class="docutils literal notranslate"><span class="pre">SomeProtocol</span></code> and <code class="docutils literal notranslate"><span class="pre">Numeric</span></code>.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">Collection</span> <span class="k">where</span> <span class="nc">Element</span>: <span class="nc">SomeProtocol</span> {
+</li><li>    <span class="k">func</span> <span class="nv">startsWithZero</span>() -&gt; <span class="nc">Bool</span> <span class="k">where</span> <span class="nv">Element</span>: <span class="nv">Numeric</span> {
+</li><li>        <span class="k">return</span> <span class="nv">first</span> == .<span class="nv">zero</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>You can overload a generic function or initializer by providing different constraints, requirements, or both on the type parameters. When you call an overloaded generic function or initializer, the compiler uses these constraints to resolve which overloaded function or initializer to invoke.</p>
+<p>For more information about generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clauses and to see an example of one in a generic function declaration, see <a class="reference internal" href="../LanguageGuide/Generics.html#ID192"><span class="std std-ref">Generic Where Clauses</span></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a generic parameter clause</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_generic-parameter-clause"></a>generic-parameter-clause</span><span class="arrow"> → </span> <code>&lt;</code> <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_generic-parameter-list">generic-parameter-list</a></span>  <code>&gt;</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_generic-parameter-list"></a>generic-parameter-list</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_generic-parameter">generic-parameter</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_generic-parameter">generic-parameter</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_generic-parameter-list">generic-parameter-list</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_generic-parameter"></a>generic-parameter</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-name">type-name</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_generic-parameter_1103"></a>generic-parameter</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-name">type-name</a></span>  <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-identifier">type-identifier</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_generic-parameter_1104"></a>generic-parameter</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-name">type-name</a></span>  <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_protocol-composition-type">protocol-composition-type</a></span> </p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_generic-where-clause"></a>generic-where-clause</span><span class="arrow"> → </span> <code>where</code> <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_requirement-list">requirement-list</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_requirement-list"></a>requirement-list</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_requirement">requirement</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_requirement">requirement</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_requirement-list">requirement-list</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_requirement"></a>requirement</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_conformance-requirement">conformance-requirement</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_same-type-requirement">same-type-requirement</a></span> </p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_conformance-requirement"></a>conformance-requirement</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-identifier">type-identifier</a></span>  <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-identifier">type-identifier</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_conformance-requirement_1105"></a>conformance-requirement</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-identifier">type-identifier</a></span>  <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_protocol-composition-type">protocol-composition-type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_same-type-requirement"></a>same-type-requirement</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-identifier">type-identifier</a></span>  <code>==</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span> </p></div></div></div>
+</div>
+<div class="section" id="ID409">
+<h2>Generic Argument Clause<a class="headerlink" href="#ID409" title="Permalink to this headline">¶</a></h2>
+<p>A <em>generic argument clause</em> specifies the type arguments of a generic type. A generic argument clause is enclosed in angle brackets (&lt;&gt;) and has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>&lt;<span class="gi">generic argument list</span>&gt;
+</li></ol></div></div></div>
+<p>The <em>generic argument list</em> is a comma-separated list of type arguments. A <em>type argument</em> is the name of an actual concrete type that replaces a corresponding type parameter in the generic parameter clause of a generic type. The result is a specialized version of that generic type. The example below shows a simplified version of the Swift standard library’s generic dictionary type.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Dictionary</span>&lt;<span class="nv">Key</span>: <span class="nc">Hashable</span>, <span class="nv">Value</span>&gt;: <span class="nc">Collection</span>, <span class="nc">ExpressibleByDictionaryLiteral</span> {
+</li><li>    <span class="c">/* ... */</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>The specialized version of the generic <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> type, <code class="docutils literal notranslate"><span class="pre">Dictionary&lt;String,</span> <span class="pre">Int&gt;</span></code> is formed by replacing the generic parameters <code class="docutils literal notranslate"><span class="pre">Key:</span> <span class="pre">Hashable</span></code> and <code class="docutils literal notranslate"><span class="pre">Value</span></code> with the concrete type arguments <code class="docutils literal notranslate"><span class="pre">String</span></code> and <code class="docutils literal notranslate"><span class="pre">Int</span></code>. Each type argument must satisfy all the constraints of the generic parameter it replaces, including any additional requirements specified in a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause. In the example above, the <code class="docutils literal notranslate"><span class="pre">Key</span></code> type parameter is constrained to conform to the <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> protocol and therefore <code class="docutils literal notranslate"><span class="pre">String</span></code> must also conform to the <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> protocol.</p>
+<p>You can also replace a type parameter with a type argument that’s itself a specialized version of a generic type (provided it satisfies the appropriate constraints and requirements). For example, you can replace the type parameter <code class="docutils literal notranslate"><span class="pre">Element</span></code> in <code class="docutils literal notranslate"><span class="pre">Array&lt;Element&gt;</span></code> with a specialized version of an array, <code class="docutils literal notranslate"><span class="pre">Array&lt;Int&gt;</span></code>, to form an array whose elements are themselves arrays of integers.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">arrayOfArrays</span>: <span class="nc">Array</span>&lt;<span class="nc">Array</span>&lt;<span class="nc">Int</span>&gt;&gt; = [[<span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>], [<span class="m">4</span>, <span class="m">5</span>, <span class="m">6</span>], [<span class="m">7</span>, <span class="m">8</span>, <span class="m">9</span>]]
+</li></ol></div></div></div>
+<p>As mentioned in <a class="reference internal" href="#ID407"><span class="std std-ref">Generic Parameter Clause</span></a>, you don’t use a generic argument clause to specify the type arguments of a generic function or initializer.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a generic argument clause</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_generic-argument-clause"></a>generic-argument-clause</span><span class="arrow"> → </span> <code>&lt;</code> <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-list">generic-argument-list</a></span>  <code>&gt;</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_generic-argument-list"></a>generic-argument-list</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument">generic-argument</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument">generic-argument</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-list">generic-argument-list</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_generic-argument"></a>generic-argument</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span> </p></div></div></div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="Patterns.html">Patterns</a></p>
+        <p class="next"><a href="zzSummaryOfTheGrammar.html">Summary of the Grammar</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  </body>
+</html>

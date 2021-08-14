@@ -1,0 +1,933 @@
+
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Apple Inc." />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    
+    <title>Protocols &mdash; The Swift Programming Language (Swift 5.5)</title>
+    
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css" />
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339" /> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TheBasics.html">Language Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="TheBasics.html">The Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicOperators.html">Basic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringsAndCharacters.html">Strings and Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CollectionTypes.html">Collection Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlFlow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Closures.html">Closures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumerations.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassesAndStructures.html">Structures and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscripts.html">Subscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialization.html">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Deinitialization.html">Deinitialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptionalChaining.html">Optional Chaining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ErrorHandling.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TypeCasting.html">Type Casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NestedTypes.html">Nested Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Extensions.html">Extensions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OpaqueTypes.html">Opaque Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutomaticReferenceCounting.html">Automatic Reference Counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MemorySafety.html">Memory Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AccessControl.html">Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AdvancedOperators.html">Advanced Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ReferenceManual/AboutTheLanguageReference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Protocols</a><ul>
+<li><a class="reference internal" href="#ID268">Protocol Syntax</a></li>
+<li><a class="reference internal" href="#ID269">Property Requirements</a></li>
+<li><a class="reference internal" href="#ID270">Method Requirements</a></li>
+<li><a class="reference internal" href="#ID271">Mutating Method Requirements</a></li>
+<li><a class="reference internal" href="#ID272">Initializer Requirements</a><ul>
+<li><a class="reference internal" href="#ID273">Class Implementations of Protocol Initializer Requirements</a></li>
+<li><a class="reference internal" href="#ID274">Failable Initializer Requirements</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID275">Protocols as Types</a></li>
+<li><a class="reference internal" href="#ID276">Delegation</a></li>
+<li><a class="reference internal" href="#ID277">Adding Protocol Conformance with an Extension</a><ul>
+<li><a class="reference internal" href="#ID574">Conditionally Conforming to a Protocol</a></li>
+<li><a class="reference internal" href="#ID278">Declaring Protocol Adoption with an Extension</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID627">Adopting a Protocol Using a Synthesized Implementation</a></li>
+<li><a class="reference internal" href="#ID279">Collections of Protocol Types</a></li>
+<li><a class="reference internal" href="#ID280">Protocol Inheritance</a></li>
+<li><a class="reference internal" href="#ID281">Class-Only Protocols</a></li>
+<li><a class="reference internal" href="#ID282">Protocol Composition</a></li>
+<li><a class="reference internal" href="#ID283">Checking for Protocol Conformance</a></li>
+<li><a class="reference internal" href="#ID284">Optional Protocol Requirements</a></li>
+<li><a class="reference internal" href="#ID521">Protocol Extensions</a><ul>
+<li><a class="reference internal" href="#ID529">Providing Default Implementations</a></li>
+<li><a class="reference internal" href="#ID527">Adding Constraints to Protocol Extensions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="protocols">
+<h1>Protocols<a class="headerlink" href="#protocols" title="Permalink to this headline">¶</a></h1>
+<p>A <em>protocol</em> defines a blueprint of methods, properties, and other requirements that suit a particular task or piece of functionality. The protocol can then be <em>adopted</em> by a class, structure, or enumeration to provide an actual implementation of those requirements. Any type that satisfies the requirements of a protocol is said to <em>conform</em> to that protocol.</p>
+<p>In addition to specifying requirements that conforming types must implement, you can extend a protocol to implement some of these requirements or to implement additional functionality that conforming types can take advantage of.</p>
+<div class="section" id="ID268">
+<h2>Protocol Syntax<a class="headerlink" href="#ID268" title="Permalink to this headline">¶</a></h2>
+<p>You define protocols in a very similar way to classes, structures, and enumerations:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">SomeProtocol</span> {
+</li><li>    <span class="c">// protocol definition goes here</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>Custom types state that they adopt a particular protocol by placing the protocol’s name after the type’s name, separated by a colon, as part of their definition. Multiple protocols can be listed, and are separated by commas:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">SomeStructure</span>: <span class="nc">FirstProtocol</span>, <span class="nc">AnotherProtocol</span> {
+</li><li>    <span class="c">// structure definition goes here</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>If a class has a superclass, list the superclass name before any protocols it adopts, followed by a comma:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SomeClass</span>: <span class="nc">SomeSuperclass</span>, <span class="nc">FirstProtocol</span>, <span class="nc">AnotherProtocol</span> {
+</li><li>    <span class="c">// class definition goes here</span>
+</li><li>}
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID269">
+<h2>Property Requirements<a class="headerlink" href="#ID269" title="Permalink to this headline">¶</a></h2>
+<p>A protocol can require any conforming type to provide an instance property or type property with a particular name and type. The protocol doesn’t specify whether the property should be a stored property or a computed property—it only specifies the required property name and type. The protocol also specifies whether each property must be gettable or gettable <em>and</em> settable.</p>
+<p>If a protocol requires a property to be gettable and settable, that property requirement can’t be fulfilled by a constant stored property or a read-only computed property. If the protocol only requires a property to be gettable, the requirement can be satisfied by any kind of property, and it’s valid for the property to be also settable if this is useful for your own code.</p>
+<p>Property requirements are always declared as variable properties, prefixed with the <code class="docutils literal notranslate"><span class="pre">var</span></code> keyword. Gettable and settable properties are indicated by writing <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">get</span> <span class="pre">set</span> <span class="pre">}</span></code> after their type declaration, and gettable properties are indicated by writing <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">get</span> <span class="pre">}</span></code>.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">SomeProtocol</span> {
+</li><li>    <span class="k">var</span> <span class="nv">mustBeSettable</span>: <span class="nc">Int</span> { <span class="k">get</span> <span class="k">set</span> }
+</li><li>    <span class="k">var</span> <span class="nv">doesNotNeedToBeSettable</span>: <span class="nc">Int</span> { <span class="k">get</span> }
+</li><li>}
+</li></ol></div></div></div>
+<p>Always prefix type property requirements with the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword when you define them in a protocol. This rule pertains even though type property requirements can be prefixed with the <code class="docutils literal notranslate"><span class="pre">class</span></code> or <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword when implemented by a class:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">AnotherProtocol</span> {
+</li><li>    <span class="k">static</span> <span class="k">var</span> <span class="nv">someTypeProperty</span>: <span class="nc">Int</span> { <span class="k">get</span> <span class="k">set</span> }
+</li><li>}
+</li></ol></div></div></div>
+<p>Here’s an example of a protocol with a single instance property requirement:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">FullyNamed</span> {
+</li><li>    <span class="k">var</span> <span class="nv">fullName</span>: <span class="nc">String</span> { <span class="k">get</span> }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">FullyNamed</span></code> protocol requires a conforming type to provide a fully qualified name. The protocol doesn’t specify anything else about the nature of the conforming type—it only specifies that the type must be able to provide a full name for itself. The protocol states that any <code class="docutils literal notranslate"><span class="pre">FullyNamed</span></code> type must have a gettable instance property called <code class="docutils literal notranslate"><span class="pre">fullName</span></code>, which is of type <code class="docutils literal notranslate"><span class="pre">String</span></code>.</p>
+<p>Here’s an example of a simple structure that adopts and conforms to the <code class="docutils literal notranslate"><span class="pre">FullyNamed</span></code> protocol:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Person</span>: <span class="nc">FullyNamed</span> {
+</li><li>    <span class="k">var</span> <span class="nv">fullName</span>: <span class="nc">String</span>
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">john</span> = <span class="nv">Person</span>(<span class="nv">fullName</span>: <span class="s">&quot;John Appleseed&quot;</span>)
+</li><li><span class="c">// john.fullName is &quot;John Appleseed&quot;</span>
+</li></ol></div></div></div>
+<p>This example defines a structure called <code class="docutils literal notranslate"><span class="pre">Person</span></code>, which represents a specific named person. It states that it adopts the <code class="docutils literal notranslate"><span class="pre">FullyNamed</span></code> protocol as part of the first line of its definition.</p>
+<p>Each instance of <code class="docutils literal notranslate"><span class="pre">Person</span></code> has a single stored property called <code class="docutils literal notranslate"><span class="pre">fullName</span></code>, which is of type <code class="docutils literal notranslate"><span class="pre">String</span></code>. This matches the single requirement of the <code class="docutils literal notranslate"><span class="pre">FullyNamed</span></code> protocol, and means that <code class="docutils literal notranslate"><span class="pre">Person</span></code> has correctly conformed to the protocol. (Swift reports an error at compile time if a protocol requirement isn’t fulfilled.)</p>
+<p>Here’s a more complex class, which also adopts and conforms to the <code class="docutils literal notranslate"><span class="pre">FullyNamed</span></code> protocol:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Starship</span>: <span class="nc">FullyNamed</span> {
+</li><li>    <span class="k">var</span> <span class="nv">prefix</span>: <span class="nc">String</span>?
+</li><li>    <span class="k">var</span> <span class="nv">name</span>: <span class="nc">String</span>
+</li><li>    <span class="k">init</span>(<span class="nv">name</span>: <span class="nc">String</span>, <span class="nv">prefix</span>: <span class="nc">String</span>? = <span class="k">nil</span>) {
+</li><li>        <span class="k">self</span>.<span class="nv">name</span> = <span class="nv">name</span>
+</li><li>        <span class="k">self</span>.<span class="nv">prefix</span> = <span class="nv">prefix</span>
+</li><li>    }
+</li><li>    <span class="k">var</span> <span class="nv">fullName</span>: <span class="nc">String</span> {
+</li><li>        <span class="k">return</span> (<span class="nv">prefix</span> != <span class="k">nil</span> ? <span class="nv">prefix</span>! + <span class="s">&quot; &quot;</span> : <span class="s">&quot;&quot;</span>) + <span class="nv">name</span>
+</li><li>    }
+</li><li>}
+</li><li><span class="k">var</span> <span class="nv">ncc1701</span> = <span class="nv">Starship</span>(<span class="nv">name</span>: <span class="s">&quot;Enterprise&quot;</span>, <span class="nv">prefix</span>: <span class="s">&quot;USS&quot;</span>)
+</li><li><span class="c">// ncc1701.fullName is &quot;USS Enterprise&quot;</span>
+</li></ol></div></div></div>
+<p>This class implements the <code class="docutils literal notranslate"><span class="pre">fullName</span></code> property requirement as a computed read-only property for a starship. Each <code class="docutils literal notranslate"><span class="pre">Starship</span></code> class instance stores a mandatory <code class="docutils literal notranslate"><span class="pre">name</span></code> and an optional <code class="docutils literal notranslate"><span class="pre">prefix</span></code>. The <code class="docutils literal notranslate"><span class="pre">fullName</span></code> property uses the <code class="docutils literal notranslate"><span class="pre">prefix</span></code> value if it exists, and prepends it to the beginning of <code class="docutils literal notranslate"><span class="pre">name</span></code> to create a full name for the starship.</p>
+</div>
+<div class="section" id="ID270">
+<h2>Method Requirements<a class="headerlink" href="#ID270" title="Permalink to this headline">¶</a></h2>
+<p>Protocols can require specific instance methods and type methods to be implemented by conforming types. These methods are written as part of the protocol’s definition in exactly the same way as for normal instance and type methods, but without curly braces or a method body. Variadic parameters are allowed, subject to the same rules as for normal methods. Default values, however, can’t be specified for method parameters within a protocol’s definition.</p>
+<p>As with type property requirements, you always prefix type method requirements with the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword when they’re defined in a protocol. This is true even though type method requirements are prefixed with the <code class="docutils literal notranslate"><span class="pre">class</span></code> or <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword when implemented by a class:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">SomeProtocol</span> {
+</li><li>    <span class="k">static</span> <span class="k">func</span> <span class="nv">someTypeMethod</span>()
+</li><li>}
+</li></ol></div></div></div>
+<p>The following example defines a protocol with a single instance method requirement:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">RandomNumberGenerator</span> {
+</li><li>    <span class="k">func</span> <span class="nv">random</span>() -&gt; <span class="nc">Double</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>This protocol, <code class="docutils literal notranslate"><span class="pre">RandomNumberGenerator</span></code>, requires any conforming type to have an instance method called <code class="docutils literal notranslate"><span class="pre">random</span></code>, which returns a <code class="docutils literal notranslate"><span class="pre">Double</span></code> value whenever it’s called. Although it’s not specified as part of the protocol, it’s assumed that this value will be a number from <code class="docutils literal notranslate"><span class="pre">0.0</span></code> up to (but not including) <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">RandomNumberGenerator</span></code> protocol doesn’t make any assumptions about how each random number will be generated—it simply requires the generator to provide a standard way to generate a new random number.</p>
+<p>Here’s an implementation of a class that adopts and conforms to the <code class="docutils literal notranslate"><span class="pre">RandomNumberGenerator</span></code> protocol. This class implements a pseudorandom number generator algorithm known as a <em>linear congruential generator</em>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">LinearCongruentialGenerator</span>: <span class="nc">RandomNumberGenerator</span> {
+</li><li>    <span class="k">var</span> <span class="nv">lastRandom</span> = <span class="m">42.0</span>
+</li><li>    <span class="k">let</span> <span class="nv">m</span> = <span class="m">139968.0</span>
+</li><li>    <span class="k">let</span> <span class="nv">a</span> = <span class="m">3877.0</span>
+</li><li>    <span class="k">let</span> <span class="nv">c</span> = <span class="m">29573.0</span>
+</li><li>    <span class="k">func</span> <span class="nv">random</span>() -&gt; <span class="nc">Double</span> {
+</li><li>        <span class="nv">lastRandom</span> = ((<span class="nv">lastRandom</span> * <span class="nv">a</span> + <span class="nv">c</span>)
+</li><li>            .<span class="nv">truncatingRemainder</span>(<span class="nv">dividingBy</span>:<span class="nv">m</span>))
+</li><li>        <span class="k">return</span> <span class="nv">lastRandom</span> / <span class="nv">m</span>
+</li><li>    }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">generator</span> = <span class="nv">LinearCongruentialGenerator</span>()
+</li><li><span class="nv">print</span>(<span class="s">&quot;Here&#39;s a random number: </span>\<span class="p">(</span><span class="nv">generator</span>.<span class="nv">random</span>()<span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;Here&#39;s a random number: 0.3746499199817101&quot;</span>
+</li><li><span class="nv">print</span>(<span class="s">&quot;And another one: </span>\<span class="p">(</span><span class="nv">generator</span>.<span class="nv">random</span>()<span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;And another one: 0.729023776863283&quot;</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID271">
+<h2>Mutating Method Requirements<a class="headerlink" href="#ID271" title="Permalink to this headline">¶</a></h2>
+<p>It’s sometimes necessary for a method to modify (or <em>mutate</em>) the instance it belongs to. For instance methods on value types (that is, structures and enumerations) you place the <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword before a method’s <code class="docutils literal notranslate"><span class="pre">func</span></code> keyword to indicate that the method is allowed to modify the instance it belongs to and any properties of that instance. This process is described in <a class="reference internal" href="Methods.html#ID239"><span class="std std-ref">Modifying Value Types from Within Instance Methods</span></a>.</p>
+<p>If you define a protocol instance method requirement that’s intended to mutate instances of any type that adopts the protocol, mark the method with the <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword as part of the protocol’s definition. This enables structures and enumerations to adopt the protocol and satisfy that method requirement.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you mark a protocol instance method requirement as <code class="docutils literal notranslate"><span class="pre">mutating</span></code>, you don’t need to write the <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword when writing an implementation of that method for a class. The <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword is only used by structures and enumerations.</p>
+</div>
+<p>The example below defines a protocol called <code class="docutils literal notranslate"><span class="pre">Togglable</span></code>, which defines a single instance method requirement called <code class="docutils literal notranslate"><span class="pre">toggle</span></code>. As its name suggests, the <code class="docutils literal notranslate"><span class="pre">toggle()</span></code> method is intended to toggle or invert the state of any conforming type, typically by modifying a property of that type.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">toggle()</span></code> method is marked with the <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword as part of the <code class="docutils literal notranslate"><span class="pre">Togglable</span></code> protocol definition, to indicate that the method is expected to mutate the state of a conforming instance when it’s called:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">Togglable</span> {
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">toggle</span>()
+</li><li>}
+</li></ol></div></div></div>
+<p>If you implement the <code class="docutils literal notranslate"><span class="pre">Togglable</span></code> protocol for a structure or enumeration, that structure or enumeration can conform to the protocol by providing an implementation of the <code class="docutils literal notranslate"><span class="pre">toggle()</span></code> method that’s also marked as <code class="docutils literal notranslate"><span class="pre">mutating</span></code>.</p>
+<p>The example below defines an enumeration called <code class="docutils literal notranslate"><span class="pre">OnOffSwitch</span></code>. This enumeration toggles between two states, indicated by the enumeration cases <code class="docutils literal notranslate"><span class="pre">on</span></code> and <code class="docutils literal notranslate"><span class="pre">off</span></code>. The enumeration’s <code class="docutils literal notranslate"><span class="pre">toggle</span></code> implementation is marked as <code class="docutils literal notranslate"><span class="pre">mutating</span></code>, to match the <code class="docutils literal notranslate"><span class="pre">Togglable</span></code> protocol’s requirements:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">OnOffSwitch</span>: <span class="nc">Togglable</span> {
+</li><li>    <span class="k">case</span> <span class="nv">off</span>, <span class="nv">on</span>
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">toggle</span>() {
+</li><li>        <span class="k">switch</span> <span class="k">self</span> {
+</li><li>        <span class="k">case</span> .<span class="nv">off</span>:
+</li><li>            <span class="k">self</span> = .<span class="nv">on</span>
+</li><li>        <span class="k">case</span> .<span class="nv">on</span>:
+</li><li>            <span class="k">self</span> = .<span class="nv">off</span>
+</li><li>        }
+</li><li>    }
+</li><li>}
+</li><li><span class="k">var</span> <span class="nv">lightSwitch</span> = <span class="nv">OnOffSwitch</span>.<span class="nv">off</span>
+</li><li><span class="nv">lightSwitch</span>.<span class="nv">toggle</span>()
+</li><li><span class="c">// lightSwitch is now equal to .on</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID272">
+<h2>Initializer Requirements<a class="headerlink" href="#ID272" title="Permalink to this headline">¶</a></h2>
+<p>Protocols can require specific initializers to be implemented by conforming types. You write these initializers as part of the protocol’s definition in exactly the same way as for normal initializers, but without curly braces or an initializer body:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">SomeProtocol</span> {
+</li><li>    <span class="k">init</span>(<span class="nv">someParameter</span>: <span class="nc">Int</span>)
+</li><li>}
+</li></ol></div></div></div>
+<div class="section" id="ID273">
+<h3>Class Implementations of Protocol Initializer Requirements<a class="headerlink" href="#ID273" title="Permalink to this headline">¶</a></h3>
+<p>You can implement a protocol initializer requirement on a conforming class as either a designated initializer or a convenience initializer. In both cases, you must mark the initializer implementation with the <code class="docutils literal notranslate"><span class="pre">required</span></code> modifier:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SomeClass</span>: <span class="nc">SomeProtocol</span> {
+</li><li>    <span class="k">required</span> <span class="k">init</span>(<span class="nv">someParameter</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="c">// initializer implementation goes here</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>The use of the <code class="docutils literal notranslate"><span class="pre">required</span></code> modifier ensures that you provide an explicit or inherited implementation of the initializer requirement on all subclasses of the conforming class, such that they also conform to the protocol.</p>
+<p>For more information on required initializers, see <a class="reference internal" href="Initialization.html#ID231"><span class="std std-ref">Required Initializers</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You don’t need to mark protocol initializer implementations with the <code class="docutils literal notranslate"><span class="pre">required</span></code> modifier on classes that are marked with the <code class="docutils literal notranslate"><span class="pre">final</span></code> modifier, because final classes can’t subclassed. For more about the <code class="docutils literal notranslate"><span class="pre">final</span></code> modifier, see <a class="reference internal" href="Inheritance.html#ID202"><span class="std std-ref">Preventing Overrides</span></a>.</p>
+</div>
+<p>If a subclass overrides a designated initializer from a superclass, and also implements a matching initializer requirement from a protocol, mark the initializer implementation with both the <code class="docutils literal notranslate"><span class="pre">required</span></code> and <code class="docutils literal notranslate"><span class="pre">override</span></code> modifiers:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">SomeProtocol</span> {
+</li><li>    <span class="k">init</span>()
+</li><li>}
+</li><li>
+</li><li><span class="k">class</span> <span class="nv">SomeSuperClass</span> {
+</li><li>    <span class="k">init</span>() {
+</li><li>        <span class="c">// initializer implementation goes here</span>
+</li><li>    }
+</li><li>}
+</li><li>
+</li><li><span class="k">class</span> <span class="nv">SomeSubClass</span>: <span class="nc">SomeSuperClass</span>, <span class="nc">SomeProtocol</span> {
+</li><li>    <span class="c">// &quot;required&quot; from SomeProtocol conformance; &quot;override&quot; from SomeSuperClass</span>
+</li><li>    <span class="k">required</span> <span class="k">override</span> <span class="k">init</span>() {
+</li><li>        <span class="c">// initializer implementation goes here</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID274">
+<h3>Failable Initializer Requirements<a class="headerlink" href="#ID274" title="Permalink to this headline">¶</a></h3>
+<p>Protocols can define failable initializer requirements for conforming types, as defined in <a class="reference internal" href="Initialization.html#ID224"><span class="std std-ref">Failable Initializers</span></a>.</p>
+<p>A failable initializer requirement can be satisfied by a failable or nonfailable initializer on a conforming type. A nonfailable initializer requirement can be satisfied by a nonfailable initializer or an implicitly unwrapped failable initializer.</p>
+</div>
+</div>
+<div class="section" id="ID275">
+<h2>Protocols as Types<a class="headerlink" href="#ID275" title="Permalink to this headline">¶</a></h2>
+<p>Protocols don’t actually implement any functionality themselves. Nonetheless, you can use protocols as a fully fledged types in your code. Using a protocol as a type is sometimes called an <em>existential type</em>, which comes from the phrase “there exists a type <em>T</em> such that <em>T</em> conforms to the protocol”.</p>
+<p>You can use a protocol in many places where other types are allowed, including:</p>
+<ul class="simple">
+<li>As a parameter type or return type in a function, method, or initializer</li>
+<li>As the type of a constant, variable, or property</li>
+<li>As the type of items in an array, dictionary, or other container</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Because protocols are types, begin their names with a capital letter (such as <code class="docutils literal notranslate"><span class="pre">FullyNamed</span></code> and <code class="docutils literal notranslate"><span class="pre">RandomNumberGenerator</span></code>) to match the names of other types in Swift (such as <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, and <code class="docutils literal notranslate"><span class="pre">Double</span></code>).</p>
+</div>
+<p>Here’s an example of a protocol used as a type:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Dice</span> {
+</li><li>    <span class="k">let</span> <span class="nv">sides</span>: <span class="nc">Int</span>
+</li><li>    <span class="k">let</span> <span class="nv">generator</span>: <span class="nc">RandomNumberGenerator</span>
+</li><li>    <span class="k">init</span>(<span class="nv">sides</span>: <span class="nc">Int</span>, <span class="nv">generator</span>: <span class="nc">RandomNumberGenerator</span>) {
+</li><li>        <span class="k">self</span>.<span class="nv">sides</span> = <span class="nv">sides</span>
+</li><li>        <span class="k">self</span>.<span class="nv">generator</span> = <span class="nv">generator</span>
+</li><li>    }
+</li><li>    <span class="k">func</span> <span class="nv">roll</span>() -&gt; <span class="nc">Int</span> {
+</li><li>        <span class="k">return</span> <span class="nv">Int</span>(<span class="nv">generator</span>.<span class="nv">random</span>() * <span class="nv">Double</span>(<span class="nv">sides</span>)) + <span class="m">1</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>This example defines a new class called <code class="docutils literal notranslate"><span class="pre">Dice</span></code>, which represents an <em>n</em>-sided dice for use in a board game. <code class="docutils literal notranslate"><span class="pre">Dice</span></code> instances have an integer property called <code class="docutils literal notranslate"><span class="pre">sides</span></code>, which represents how many sides they have, and a property called <code class="docutils literal notranslate"><span class="pre">generator</span></code>, which provides a random number generator from which to create dice roll values.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">generator</span></code> property is of type <code class="docutils literal notranslate"><span class="pre">RandomNumberGenerator</span></code>. Therefore, you can set it to an instance of <em>any</em> type that adopts the <code class="docutils literal notranslate"><span class="pre">RandomNumberGenerator</span></code> protocol. Nothing else is required of the instance you assign to this property, except that the instance must adopt the <code class="docutils literal notranslate"><span class="pre">RandomNumberGenerator</span></code> protocol. Because its type is <code class="docutils literal notranslate"><span class="pre">RandomNumberGenerator</span></code>, code inside the <code class="docutils literal notranslate"><span class="pre">Dice</span></code> class can only interact with <code class="docutils literal notranslate"><span class="pre">generator</span></code> in ways that apply to all generators that conform to this protocol. That means it can’t use any methods or properties that are defined by the underlying type of the generator. However, you can downcast from a protocol type to an underlying type in the same way you can downcast from a superclass to a subclass, as discussed in <a class="reference internal" href="TypeCasting.html#ID341"><span class="std std-ref">Downcasting</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Dice</span></code> also has an initializer, to set up its initial state. This initializer has a parameter called <code class="docutils literal notranslate"><span class="pre">generator</span></code>, which is also of type <code class="docutils literal notranslate"><span class="pre">RandomNumberGenerator</span></code>. You can pass a value of any conforming type in to this parameter when initializing a new <code class="docutils literal notranslate"><span class="pre">Dice</span></code> instance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Dice</span></code> provides one instance method, <code class="docutils literal notranslate"><span class="pre">roll</span></code>, which returns an integer value between 1 and the number of sides on the dice. This method calls the generator’s <code class="docutils literal notranslate"><span class="pre">random()</span></code> method to create a new random number between <code class="docutils literal notranslate"><span class="pre">0.0</span></code> and <code class="docutils literal notranslate"><span class="pre">1.0</span></code>, and uses this random number to create a dice roll value within the correct range. Because <code class="docutils literal notranslate"><span class="pre">generator</span></code> is known to adopt <code class="docutils literal notranslate"><span class="pre">RandomNumberGenerator</span></code>, it’s guaranteed to have a <code class="docutils literal notranslate"><span class="pre">random()</span></code> method to call.</p>
+<p>Here’s how the <code class="docutils literal notranslate"><span class="pre">Dice</span></code> class can be used to create a six-sided dice with a <code class="docutils literal notranslate"><span class="pre">LinearCongruentialGenerator</span></code> instance as its random number generator:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">d6</span> = <span class="nv">Dice</span>(<span class="nv">sides</span>: <span class="m">6</span>, <span class="nv">generator</span>: <span class="nv">LinearCongruentialGenerator</span>())
+</li><li><span class="k">for</span> <span class="k">_</span> <span class="k">in</span> <span class="m">1</span>...<span class="m">5</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Random dice roll is </span>\<span class="p">(</span><span class="nv">d6</span>.<span class="nv">roll</span>()<span class="p">)</span><span class="s">&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Random dice roll is 3</span>
+</li><li><span class="c">// Random dice roll is 5</span>
+</li><li><span class="c">// Random dice roll is 4</span>
+</li><li><span class="c">// Random dice roll is 5</span>
+</li><li><span class="c">// Random dice roll is 4</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID276">
+<h2>Delegation<a class="headerlink" href="#ID276" title="Permalink to this headline">¶</a></h2>
+<p><em>Delegation</em> is a design pattern that enables a class or structure to hand off (or <em>delegate</em>) some of its responsibilities to an instance of another type. This design pattern is implemented by defining a protocol that encapsulates the delegated responsibilities, such that a conforming type (known as a delegate) is guaranteed to provide the functionality that has been delegated. Delegation can be used to respond to a particular action, or to retrieve data from an external source without needing to know the underlying type of that source.</p>
+<p>The example below defines two protocols for use with dice-based board games:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">DiceGame</span> {
+</li><li>    <span class="k">var</span> <span class="nv">dice</span>: <span class="nc">Dice</span> { <span class="k">get</span> }
+</li><li>    <span class="k">func</span> <span class="nv">play</span>()
+</li><li>}
+</li><li><span class="k">protocol</span> <span class="nv">DiceGameDelegate</span>: <span class="nc">AnyObject</span> {
+</li><li>    <span class="k">func</span> <span class="nv">gameDidStart</span>(<span class="k">_</span> <span class="nv">game</span>: <span class="nc">DiceGame</span>)
+</li><li>    <span class="k">func</span> <span class="nv">game</span>(<span class="k">_</span> <span class="nv">game</span>: <span class="nc">DiceGame</span>, <span class="nv">didStartNewTurnWithDiceRoll</span> <span class="nv">diceRoll</span>: <span class="nc">Int</span>)
+</li><li>    <span class="k">func</span> <span class="nv">gameDidEnd</span>(<span class="k">_</span> <span class="nv">game</span>: <span class="nc">DiceGame</span>)
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">DiceGame</span></code> protocol is a protocol that can be adopted by any game that involves dice.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">DiceGameDelegate</span></code> protocol can be adopted to track the progress of a <code class="docutils literal notranslate"><span class="pre">DiceGame</span></code>. To prevent strong reference cycles, delegates are declared as weak references. For information about weak references, see <a class="reference internal" href="AutomaticReferenceCounting.html#ID51"><span class="std std-ref">Strong Reference Cycles Between Class Instances</span></a>. Marking the protocol as class-only lets the <code class="docutils literal notranslate"><span class="pre">SnakesAndLadders</span></code> class later in this chapter declare that its delegate must use a weak reference. A class-only protocol is marked by its inheritance from <code class="docutils literal notranslate"><span class="pre">AnyObject</span></code>, as discussed in <a class="reference internal" href="#ID281"><span class="std std-ref">Class-Only Protocols</span></a>.</p>
+<p>Here’s a version of the <em>Snakes and Ladders</em> game originally introduced in <a class="reference internal" href="ControlFlow.html"><span class="doc">Control Flow</span></a>. This version is adapted to use a <code class="docutils literal notranslate"><span class="pre">Dice</span></code> instance for its dice-rolls; to adopt the <code class="docutils literal notranslate"><span class="pre">DiceGame</span></code> protocol; and to notify a <code class="docutils literal notranslate"><span class="pre">DiceGameDelegate</span></code> about its progress:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SnakesAndLadders</span>: <span class="nc">DiceGame</span> {
+</li><li>    <span class="k">let</span> <span class="nv">finalSquare</span> = <span class="m">25</span>
+</li><li>    <span class="k">let</span> <span class="nv">dice</span> = <span class="nv">Dice</span>(<span class="nv">sides</span>: <span class="m">6</span>, <span class="nv">generator</span>: <span class="nv">LinearCongruentialGenerator</span>())
+</li><li>    <span class="k">var</span> <span class="nv">square</span> = <span class="m">0</span>
+</li><li>    <span class="k">var</span> <span class="nv">board</span>: [<span class="nc">Int</span>]
+</li><li>    <span class="k">init</span>() {
+</li><li>        <span class="nv">board</span> = <span class="nv">Array</span>(<span class="nv">repeating</span>: <span class="m">0</span>, <span class="nv">count</span>: <span class="nv">finalSquare</span> + <span class="m">1</span>)
+</li><li>        <span class="nv">board</span>[<span class="m">03</span>] = +<span class="m">08</span>; <span class="nv">board</span>[<span class="m">06</span>] = +<span class="m">11</span>; <span class="nv">board</span>[<span class="m">09</span>] = +<span class="m">09</span>; <span class="nv">board</span>[<span class="m">10</span>] = +<span class="m">02</span>
+</li><li>        <span class="nv">board</span>[<span class="m">14</span>] = <span class="m">-10</span>; <span class="nv">board</span>[<span class="m">19</span>] = <span class="m">-11</span>; <span class="nv">board</span>[<span class="m">22</span>] = <span class="m">-02</span>; <span class="nv">board</span>[<span class="m">24</span>] = <span class="m">-08</span>
+</li><li>    }
+</li><li>    <span class="k">weak</span> <span class="k">var</span> <span class="nv">delegate</span>: <span class="nc">DiceGameDelegate</span>?
+</li><li>    <span class="k">func</span> <span class="nv">play</span>() {
+</li><li>        <span class="nv">square</span> = <span class="m">0</span>
+</li><li>        <span class="nv">delegate</span>?.<span class="nv">gameDidStart</span>(<span class="k">self</span>)
+</li><li>        <span class="nv">gameLoop</span>: <span class="k">while</span> <span class="nv">square</span> != <span class="nv">finalSquare</span> {
+</li><li>            <span class="k">let</span> <span class="nv">diceRoll</span> = <span class="nv">dice</span>.<span class="nv">roll</span>()
+</li><li>            <span class="nv">delegate</span>?.<span class="nv">game</span>(<span class="k">self</span>, <span class="nv">didStartNewTurnWithDiceRoll</span>: <span class="nv">diceRoll</span>)
+</li><li>            <span class="k">switch</span> <span class="nv">square</span> + <span class="nv">diceRoll</span> {
+</li><li>            <span class="k">case</span> <span class="nv">finalSquare</span>:
+</li><li>                <span class="k">break</span> <span class="nv">gameLoop</span>
+</li><li>            <span class="k">case</span> <span class="k">let</span> <span class="nv">newSquare</span> <span class="k">where</span> <span class="nv">newSquare</span> &gt; <span class="nv">finalSquare</span>:
+</li><li>                <span class="k">continue</span> <span class="nv">gameLoop</span>
+</li><li>            <span class="k">default</span>:
+</li><li>                <span class="nv">square</span> += <span class="nv">diceRoll</span>
+</li><li>                <span class="nv">square</span> += <span class="nv">board</span>[<span class="nv">square</span>]
+</li><li>            }
+</li><li>        }
+</li><li>        <span class="nv">delegate</span>?.<span class="nv">gameDidEnd</span>(<span class="k">self</span>)
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>For a description of the <em>Snakes and Ladders</em> gameplay, see <a class="reference internal" href="ControlFlow.html#ID137"><span class="std std-ref">Break</span></a>.</p>
+<p>This version of the game is wrapped up as a class called <code class="docutils literal notranslate"><span class="pre">SnakesAndLadders</span></code>, which adopts the <code class="docutils literal notranslate"><span class="pre">DiceGame</span></code> protocol. It provides a gettable <code class="docutils literal notranslate"><span class="pre">dice</span></code> property and a <code class="docutils literal notranslate"><span class="pre">play()</span></code> method in order to conform to the protocol. (The <code class="docutils literal notranslate"><span class="pre">dice</span></code> property is declared as a constant property because it doesn’t need to change after initialization, and the protocol only requires that it must be gettable.)</p>
+<p>The <em>Snakes and Ladders</em> game board setup takes place within the class’s <code class="docutils literal notranslate"><span class="pre">init()</span></code> initializer. All game logic is moved into the protocol’s <code class="docutils literal notranslate"><span class="pre">play</span></code> method, which uses the protocol’s required <code class="docutils literal notranslate"><span class="pre">dice</span></code> property to provide its dice roll values.</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">delegate</span></code> property is defined as an <em>optional</em> <code class="docutils literal notranslate"><span class="pre">DiceGameDelegate</span></code>, because a delegate isn’t required in order to play the game. Because it’s of an optional type, the <code class="docutils literal notranslate"><span class="pre">delegate</span></code> property is automatically set to an initial value of <code class="docutils literal notranslate"><span class="pre">nil</span></code>. Thereafter, the game instantiator has the option to set the property to a suitable delegate. Because the <code class="docutils literal notranslate"><span class="pre">DiceGameDelegate</span></code> protocol is class-only, you can declare the delegate to be <code class="docutils literal notranslate"><span class="pre">weak</span></code> to prevent reference cycles.</p>
+<p><code class="docutils literal notranslate"><span class="pre">DiceGameDelegate</span></code> provides three methods for tracking the progress of a game. These three methods have been incorporated into the game logic within the <code class="docutils literal notranslate"><span class="pre">play()</span></code> method above, and are called when a new game starts, a new turn begins, or the game ends.</p>
+<p>Because the <code class="docutils literal notranslate"><span class="pre">delegate</span></code> property is an <em>optional</em> <code class="docutils literal notranslate"><span class="pre">DiceGameDelegate</span></code>, the <code class="docutils literal notranslate"><span class="pre">play()</span></code> method uses optional chaining each time it calls a method on the delegate. If the <code class="docutils literal notranslate"><span class="pre">delegate</span></code> property is nil, these delegate calls fail gracefully and without error. If the <code class="docutils literal notranslate"><span class="pre">delegate</span></code> property is non-nil, the delegate methods are called, and are passed the <code class="docutils literal notranslate"><span class="pre">SnakesAndLadders</span></code> instance as a parameter.</p>
+<p>This next example shows a class called <code class="docutils literal notranslate"><span class="pre">DiceGameTracker</span></code>, which adopts the <code class="docutils literal notranslate"><span class="pre">DiceGameDelegate</span></code> protocol:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">DiceGameTracker</span>: <span class="nc">DiceGameDelegate</span> {
+</li><li>    <span class="k">var</span> <span class="nv">numberOfTurns</span> = <span class="m">0</span>
+</li><li>    <span class="k">func</span> <span class="nv">gameDidStart</span>(<span class="k">_</span> <span class="nv">game</span>: <span class="nc">DiceGame</span>) {
+</li><li>        <span class="nv">numberOfTurns</span> = <span class="m">0</span>
+</li><li>        <span class="k">if</span> <span class="nv">game</span> <span class="k">is</span> <span class="nc">SnakesAndLadders</span> {
+</li><li>            <span class="nv">print</span>(<span class="s">&quot;Started a new game of Snakes and Ladders&quot;</span>)
+</li><li>        }
+</li><li>        <span class="nv">print</span>(<span class="s">&quot;The game is using a </span>\<span class="p">(</span><span class="nv">game</span>.<span class="nv">dice</span>.<span class="nv">sides</span><span class="p">)</span><span class="s">-sided dice&quot;</span>)
+</li><li>    }
+</li><li>    <span class="k">func</span> <span class="nv">game</span>(<span class="k">_</span> <span class="nv">game</span>: <span class="nc">DiceGame</span>, <span class="nv">didStartNewTurnWithDiceRoll</span> <span class="nv">diceRoll</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="nv">numberOfTurns</span> += <span class="m">1</span>
+</li><li>        <span class="nv">print</span>(<span class="s">&quot;Rolled a </span>\<span class="p">(</span><span class="nv">diceRoll</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li>    }
+</li><li>    <span class="k">func</span> <span class="nv">gameDidEnd</span>(<span class="k">_</span> <span class="nv">game</span>: <span class="nc">DiceGame</span>) {
+</li><li>        <span class="nv">print</span>(<span class="s">&quot;The game lasted for </span>\<span class="p">(</span><span class="nv">numberOfTurns</span><span class="p">)</span><span class="s"> turns&quot;</span>)
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p><code class="docutils literal notranslate"><span class="pre">DiceGameTracker</span></code> implements all three methods required by <code class="docutils literal notranslate"><span class="pre">DiceGameDelegate</span></code>. It uses these methods to keep track of the number of turns a game has taken. It resets a <code class="docutils literal notranslate"><span class="pre">numberOfTurns</span></code> property to zero when the game starts, increments it each time a new turn begins, and prints out the total number of turns once the game has ended.</p>
+<p>The implementation of <code class="docutils literal notranslate"><span class="pre">gameDidStart(_:)</span></code> shown above uses the <code class="docutils literal notranslate"><span class="pre">game</span></code> parameter to print some introductory information about the game that’s about to be played. The <code class="docutils literal notranslate"><span class="pre">game</span></code> parameter has a type of <code class="docutils literal notranslate"><span class="pre">DiceGame</span></code>, not <code class="docutils literal notranslate"><span class="pre">SnakesAndLadders</span></code>, and so <code class="docutils literal notranslate"><span class="pre">gameDidStart(_:)</span></code> can access and use only methods and properties that are implemented as part of the <code class="docutils literal notranslate"><span class="pre">DiceGame</span></code> protocol. However, the method is still able to use type casting to query the type of the underlying instance. In this example, it checks whether <code class="docutils literal notranslate"><span class="pre">game</span></code> is actually an instance of <code class="docutils literal notranslate"><span class="pre">SnakesAndLadders</span></code> behind the scenes, and prints an appropriate message if so.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">gameDidStart(_:)</span></code> method also accesses the <code class="docutils literal notranslate"><span class="pre">dice</span></code> property of the passed <code class="docutils literal notranslate"><span class="pre">game</span></code> parameter. Because <code class="docutils literal notranslate"><span class="pre">game</span></code> is known to conform to the <code class="docutils literal notranslate"><span class="pre">DiceGame</span></code> protocol, it’s guaranteed to have a <code class="docutils literal notranslate"><span class="pre">dice</span></code> property, and so the <code class="docutils literal notranslate"><span class="pre">gameDidStart(_:)</span></code> method is able to access and print the dice’s <code class="docutils literal notranslate"><span class="pre">sides</span></code> property, regardless of what kind of game is being played.</p>
+<p>Here’s how <code class="docutils literal notranslate"><span class="pre">DiceGameTracker</span></code> looks in action:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">tracker</span> = <span class="nv">DiceGameTracker</span>()
+</li><li><span class="k">let</span> <span class="nv">game</span> = <span class="nv">SnakesAndLadders</span>()
+</li><li><span class="nv">game</span>.<span class="nv">delegate</span> = <span class="nv">tracker</span>
+</li><li><span class="nv">game</span>.<span class="nv">play</span>()
+</li><li><span class="c">// Started a new game of Snakes and Ladders</span>
+</li><li><span class="c">// The game is using a 6-sided dice</span>
+</li><li><span class="c">// Rolled a 3</span>
+</li><li><span class="c">// Rolled a 5</span>
+</li><li><span class="c">// Rolled a 4</span>
+</li><li><span class="c">// Rolled a 5</span>
+</li><li><span class="c">// The game lasted for 4 turns</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID277">
+<h2>Adding Protocol Conformance with an Extension<a class="headerlink" href="#ID277" title="Permalink to this headline">¶</a></h2>
+<p>You can extend an existing type to adopt and conform to a new protocol, even if you don’t have access to the source code for the existing type. Extensions can add new properties, methods, and subscripts to an existing type, and are therefore able to add any requirements that a protocol may demand. For more about extensions, see <a class="reference internal" href="Extensions.html"><span class="doc">Extensions</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Existing instances of a type automatically adopt and conform to a protocol when that conformance is added to the instance’s type in an extension.</p>
+</div>
+<p>For example, this protocol, called <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code>, can be implemented by any type that has a way to be represented as text. This might be a description of itself, or a text version of its current state:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">TextRepresentable</span> {
+</li><li>    <span class="k">var</span> <span class="nv">textualDescription</span>: <span class="nc">String</span> { <span class="k">get</span> }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Dice</span></code> class from above can be extended to adopt and conform to <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">Dice</span>: <span class="nc">TextRepresentable</span> {
+</li><li>    <span class="k">var</span> <span class="nv">textualDescription</span>: <span class="nc">String</span> {
+</li><li>        <span class="k">return</span> <span class="s">&quot;A </span>\<span class="p">(</span><span class="nv">sides</span><span class="p">)</span><span class="s">-sided dice&quot;</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>This extension adopts the new protocol in exactly the same way as if <code class="docutils literal notranslate"><span class="pre">Dice</span></code> had provided it in its original implementation. The protocol name is provided after the type name, separated by a colon, and an implementation of all requirements of the protocol is provided within the extension’s curly braces.</p>
+<p>Any <code class="docutils literal notranslate"><span class="pre">Dice</span></code> instance can now be treated as <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">d12</span> = <span class="nv">Dice</span>(<span class="nv">sides</span>: <span class="m">12</span>, <span class="nv">generator</span>: <span class="nv">LinearCongruentialGenerator</span>())
+</li><li><span class="nv">print</span>(<span class="nv">d12</span>.<span class="nv">textualDescription</span>)
+</li><li><span class="c">// Prints &quot;A 12-sided dice&quot;</span>
+</li></ol></div></div></div>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">SnakesAndLadders</span></code> game class can be extended to adopt and conform to the <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code> protocol:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">SnakesAndLadders</span>: <span class="nc">TextRepresentable</span> {
+</li><li>    <span class="k">var</span> <span class="nv">textualDescription</span>: <span class="nc">String</span> {
+</li><li>        <span class="k">return</span> <span class="s">&quot;A game of Snakes and Ladders with </span>\<span class="p">(</span><span class="nv">finalSquare</span><span class="p">)</span><span class="s"> squares&quot;</span>
+</li><li>    }
+</li><li>}
+</li><li><span class="nv">print</span>(<span class="nv">game</span>.<span class="nv">textualDescription</span>)
+</li><li><span class="c">// Prints &quot;A game of Snakes and Ladders with 25 squares&quot;</span>
+</li></ol></div></div></div>
+<div class="section" id="ID574">
+<h3>Conditionally Conforming to a Protocol<a class="headerlink" href="#ID574" title="Permalink to this headline">¶</a></h3>
+<p>A generic type may be able to satisfy the requirements of a protocol only under certain conditions, such as when the type’s generic parameter conforms to the protocol. You can make a generic type conditionally conform to a protocol by listing constraints when extending the type. Write these constraints after the name of the protocol you’re adopting by writing a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause. For more about generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clauses, see <a class="reference internal" href="Generics.html#ID192"><span class="std std-ref">Generic Where Clauses</span></a>.</p>
+<p>The following extension makes <code class="docutils literal notranslate"><span class="pre">Array</span></code> instances conform to the <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code> protocol whenever they store elements of a type that conforms to <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code>.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">Array</span>: <span class="nc">TextRepresentable</span> <span class="k">where</span> <span class="nc">Element</span>: <span class="nc">TextRepresentable</span> {
+</li><li>    <span class="k">var</span> <span class="nv">textualDescription</span>: <span class="nc">String</span> {
+</li><li>        <span class="k">let</span> <span class="nv">itemsAsText</span> = <span class="k">self</span>.<span class="nv">map</span> { <span class="nv">$0</span>.<span class="nv">textualDescription</span> }
+</li><li>        <span class="k">return</span> <span class="s">&quot;[&quot;</span> + <span class="nv">itemsAsText</span>.<span class="nv">joined</span>(<span class="nv">separator</span>: <span class="s">&quot;, &quot;</span>) + <span class="s">&quot;]&quot;</span>
+</li><li>    }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">myDice</span> = [<span class="nv">d6</span>, <span class="nv">d12</span>]
+</li><li><span class="nv">print</span>(<span class="nv">myDice</span>.<span class="nv">textualDescription</span>)
+</li><li><span class="c">// Prints &quot;[A 6-sided dice, A 12-sided dice]&quot;</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID278">
+<h3>Declaring Protocol Adoption with an Extension<a class="headerlink" href="#ID278" title="Permalink to this headline">¶</a></h3>
+<p>If a type already conforms to all of the requirements of a protocol, but hasn’t yet stated that it adopts that protocol, you can make it adopt the protocol with an empty extension:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Hamster</span> {
+</li><li>    <span class="k">var</span> <span class="nv">name</span>: <span class="nc">String</span>
+</li><li>    <span class="k">var</span> <span class="nv">textualDescription</span>: <span class="nc">String</span> {
+</li><li>        <span class="k">return</span> <span class="s">&quot;A hamster named </span>\<span class="p">(</span><span class="nv">name</span><span class="p">)</span><span class="s">&quot;</span>
+</li><li>    }
+</li><li>}
+</li><li><span class="k">extension</span> <span class="nc">Hamster</span>: <span class="nc">TextRepresentable</span> {}
+</li></ol></div></div></div>
+<p>Instances of <code class="docutils literal notranslate"><span class="pre">Hamster</span></code> can now be used wherever <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code> is the required type:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">simonTheHamster</span> = <span class="nv">Hamster</span>(<span class="nv">name</span>: <span class="s">&quot;Simon&quot;</span>)
+</li><li><span class="k">let</span> <span class="nv">somethingTextRepresentable</span>: <span class="nc">TextRepresentable</span> = <span class="nv">simonTheHamster</span>
+</li><li><span class="nv">print</span>(<span class="nv">somethingTextRepresentable</span>.<span class="nv">textualDescription</span>)
+</li><li><span class="c">// Prints &quot;A hamster named Simon&quot;</span>
+</li></ol></div></div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Types don’t automatically adopt a protocol just by satisfying its requirements. They must always explicitly declare their adoption of the protocol.</p>
+</div>
+</div>
+</div>
+<div class="section" id="ID627">
+<h2>Adopting a Protocol Using a Synthesized Implementation<a class="headerlink" href="#ID627" title="Permalink to this headline">¶</a></h2>
+<p>Swift can automatically provide the protocol conformance for <code class="docutils literal notranslate"><span class="pre">Equatable</span></code>, <code class="docutils literal notranslate"><span class="pre">Hashable</span></code>, and <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> in many simple cases. Using this synthesized implementation means you don’t have to write repetitive boilerplate code to implement the protocol requirements yourself.</p>
+<p>Swift provides a synthesized implementation of <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> for the following kinds of custom types:</p>
+<ul class="simple">
+<li>Structures that have only stored properties that conform to the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol</li>
+<li>Enumerations that have only associated types that conform to the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol</li>
+<li>Enumerations that have no associated types</li>
+</ul>
+<p>To receive a synthesized implementation of <code class="docutils literal notranslate"><span class="pre">==</span></code>, declare conformance to <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> in the file that contains the original declaration, without implementing an <code class="docutils literal notranslate"><span class="pre">==</span></code> operator yourself. The <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol provides a default implementation of <code class="docutils literal notranslate"><span class="pre">!=</span></code>.</p>
+<p>The example below defines a <code class="docutils literal notranslate"><span class="pre">Vector3D</span></code> structure for a three-dimensional position vector <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code>, similar to the <code class="docutils literal notranslate"><span class="pre">Vector2D</span></code> structure. Because the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code> properties are all of an <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> type, <code class="docutils literal notranslate"><span class="pre">Vector3D</span></code> receives synthesized implementations of the equivalence operators.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Vector3D</span>: <span class="nc">Equatable</span> {
+</li><li>    <span class="k">var</span> <span class="nv">x</span> = <span class="m">0.0</span>, <span class="nv">y</span> = <span class="m">0.0</span>, <span class="nv">z</span> = <span class="m">0.0</span>
+</li><li>}
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">twoThreeFour</span> = <span class="nv">Vector3D</span>(<span class="nv">x</span>: <span class="m">2.0</span>, <span class="nv">y</span>: <span class="m">3.0</span>, <span class="nv">z</span>: <span class="m">4.0</span>)
+</li><li><span class="k">let</span> <span class="nv">anotherTwoThreeFour</span> = <span class="nv">Vector3D</span>(<span class="nv">x</span>: <span class="m">2.0</span>, <span class="nv">y</span>: <span class="m">3.0</span>, <span class="nv">z</span>: <span class="m">4.0</span>)
+</li><li><span class="k">if</span> <span class="nv">twoThreeFour</span> == <span class="nv">anotherTwoThreeFour</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;These two vectors are also equivalent.&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;These two vectors are also equivalent.&quot;</span>
+</li></ol></div></div></div>
+<p>Swift provides a synthesized implementation of <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> for the following kinds of custom types:</p>
+<ul class="simple">
+<li>Structures that have only stored properties that conform to the <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> protocol</li>
+<li>Enumerations that have only associated types that conform to the <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> protocol</li>
+<li>Enumerations that have no associated types</li>
+</ul>
+<p>To receive a synthesized implementation of <code class="docutils literal notranslate"><span class="pre">hash(into:)</span></code>, declare conformance to <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> in the file that contains the original declaration, without implementing a <code class="docutils literal notranslate"><span class="pre">hash(into:)</span></code> method yourself.</p>
+<p>Swift provides a synthesized implementation of <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> for enumerations that don’t have a raw value. If the enumeration has associated types, they must all conform to the <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> protocol. To receive a synthesized implementation of <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, declare conformance to <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> in the file that contains the original enumeration declaration, without implementing a <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> operator yourself. The <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> protocol’s default implementation of <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> provides the remaining comparison operators.</p>
+<p>The example below defines a <code class="docutils literal notranslate"><span class="pre">SkillLevel</span></code> enumeration with cases for beginners, intermediates, and experts. Experts are additionally ranked by the number of stars they have.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">SkillLevel</span>: <span class="nc">Comparable</span> {
+</li><li>    <span class="k">case</span> <span class="nv">beginner</span>
+</li><li>    <span class="k">case</span> <span class="nv">intermediate</span>
+</li><li>    <span class="k">case</span> <span class="nv">expert</span>(<span class="nv">stars</span>: <span class="nv">Int</span>)
+</li><li>}
+</li><li><span class="k">var</span> <span class="nv">levels</span> = [<span class="nv">SkillLevel</span>.<span class="nv">intermediate</span>, <span class="nv">SkillLevel</span>.<span class="nv">beginner</span>,
+</li><li>              <span class="nv">SkillLevel</span>.<span class="nv">expert</span>(<span class="nv">stars</span>: <span class="m">5</span>), <span class="nv">SkillLevel</span>.<span class="nv">expert</span>(<span class="nv">stars</span>: <span class="m">3</span>)]
+</li><li><span class="k">for</span> <span class="nv">level</span> <span class="k">in</span> <span class="nv">levels</span>.<span class="nv">sorted</span>() {
+</li><li>    <span class="nv">print</span>(<span class="nv">level</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;beginner&quot;</span>
+</li><li><span class="c">// Prints &quot;intermediate&quot;</span>
+</li><li><span class="c">// Prints &quot;expert(stars: 3)&quot;</span>
+</li><li><span class="c">// Prints &quot;expert(stars: 5)&quot;</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID279">
+<h2>Collections of Protocol Types<a class="headerlink" href="#ID279" title="Permalink to this headline">¶</a></h2>
+<p>A protocol can be used as the type to be stored in a collection such as an array or a dictionary, as mentioned in <a class="reference internal" href="#ID275"><span class="std std-ref">Protocols as Types</span></a>. This example creates an array of <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code> things:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">things</span>: [<span class="nc">TextRepresentable</span>] = [<span class="nv">game</span>, <span class="nv">d12</span>, <span class="nv">simonTheHamster</span>]
+</li></ol></div></div></div>
+<p>It’s now possible to iterate over the items in the array, and print each item’s textual description:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">for</span> <span class="nv">thing</span> <span class="k">in</span> <span class="nv">things</span> {
+</li><li>    <span class="nv">print</span>(<span class="nv">thing</span>.<span class="nv">textualDescription</span>)
+</li><li>}
+</li><li><span class="c">// A game of Snakes and Ladders with 25 squares</span>
+</li><li><span class="c">// A 12-sided dice</span>
+</li><li><span class="c">// A hamster named Simon</span>
+</li></ol></div></div></div>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">thing</span></code> constant is of type <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code>. It’s not of type <code class="docutils literal notranslate"><span class="pre">Dice</span></code>, or <code class="docutils literal notranslate"><span class="pre">DiceGame</span></code>, or <code class="docutils literal notranslate"><span class="pre">Hamster</span></code>, even if the actual instance behind the scenes is of one of those types. Nonetheless, because it’s of type <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code>, and anything that’s <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code> is known to have a <code class="docutils literal notranslate"><span class="pre">textualDescription</span></code> property, it’s safe to access <code class="docutils literal notranslate"><span class="pre">thing.textualDescription</span></code> each time through the loop.</p>
+</div>
+<div class="section" id="ID280">
+<h2>Protocol Inheritance<a class="headerlink" href="#ID280" title="Permalink to this headline">¶</a></h2>
+<p>A protocol can <em>inherit</em> one or more other protocols and can add further requirements on top of the requirements it inherits. The syntax for protocol inheritance is similar to the syntax for class inheritance, but with the option to list multiple inherited protocols, separated by commas:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">InheritingProtocol</span>: <span class="nc">SomeProtocol</span>, <span class="nc">AnotherProtocol</span> {
+</li><li>    <span class="c">// protocol definition goes here</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>Here’s an example of a protocol that inherits the <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code> protocol from above:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">PrettyTextRepresentable</span>: <span class="nc">TextRepresentable</span> {
+</li><li>    <span class="k">var</span> <span class="nv">prettyTextualDescription</span>: <span class="nc">String</span> { <span class="k">get</span> }
+</li><li>}
+</li></ol></div></div></div>
+<p>This example defines a new protocol, <code class="docutils literal notranslate"><span class="pre">PrettyTextRepresentable</span></code>, which inherits from <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code>. Anything that adopts <code class="docutils literal notranslate"><span class="pre">PrettyTextRepresentable</span></code> must satisfy all of the requirements enforced by <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code>, <em>plus</em> the additional requirements enforced by <code class="docutils literal notranslate"><span class="pre">PrettyTextRepresentable</span></code>. In this example, <code class="docutils literal notranslate"><span class="pre">PrettyTextRepresentable</span></code> adds a single requirement to provide a gettable property called <code class="docutils literal notranslate"><span class="pre">prettyTextualDescription</span></code> that returns a <code class="docutils literal notranslate"><span class="pre">String</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">SnakesAndLadders</span></code> class can be extended to adopt and conform to <code class="docutils literal notranslate"><span class="pre">PrettyTextRepresentable</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">SnakesAndLadders</span>: <span class="nc">PrettyTextRepresentable</span> {
+</li><li>    <span class="k">var</span> <span class="nv">prettyTextualDescription</span>: <span class="nc">String</span> {
+</li><li>        <span class="k">var</span> <span class="nv">output</span> = <span class="nv">textualDescription</span> + <span class="s">&quot;:\n&quot;</span>
+</li><li>        <span class="k">for</span> <span class="nv">index</span> <span class="k">in</span> <span class="m">1</span>...<span class="nv">finalSquare</span> {
+</li><li>            <span class="k">switch</span> <span class="nv">board</span>[<span class="nv">index</span>] {
+</li><li>            <span class="k">case</span> <span class="k">let</span> <span class="nv">ladder</span> <span class="k">where</span> <span class="nv">ladder</span> &gt; <span class="m">0</span>:
+</li><li>                <span class="nv">output</span> += <span class="s">&quot;▲ &quot;</span>
+</li><li>            <span class="k">case</span> <span class="k">let</span> <span class="nv">snake</span> <span class="k">where</span> <span class="nv">snake</span> &lt; <span class="m">0</span>:
+</li><li>                <span class="nv">output</span> += <span class="s">&quot;▼ &quot;</span>
+</li><li>            <span class="k">default</span>:
+</li><li>                <span class="nv">output</span> += <span class="s">&quot;○ &quot;</span>
+</li><li>            }
+</li><li>        }
+</li><li>        <span class="k">return</span> <span class="nv">output</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>This extension states that it adopts the <code class="docutils literal notranslate"><span class="pre">PrettyTextRepresentable</span></code> protocol and provides an implementation of the <code class="docutils literal notranslate"><span class="pre">prettyTextualDescription</span></code> property for the <code class="docutils literal notranslate"><span class="pre">SnakesAndLadders</span></code> type. Anything that’s <code class="docutils literal notranslate"><span class="pre">PrettyTextRepresentable</span></code> must also be <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code>, and so the implementation of <code class="docutils literal notranslate"><span class="pre">prettyTextualDescription</span></code> starts by accessing the <code class="docutils literal notranslate"><span class="pre">textualDescription</span></code> property from the <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code> protocol to begin an output string. It appends a colon and a line break, and uses this as the start of its pretty text representation. It then iterates through the array of board squares, and appends a geometric shape to represent the contents of each square:</p>
+<ul class="simple">
+<li>If the square’s value is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, it’s the base of a ladder, and is represented by <code class="docutils literal notranslate"><span class="pre">▲</span></code>.</li>
+<li>If the square’s value is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, it’s the head of a snake, and is represented by <code class="docutils literal notranslate"><span class="pre">▼</span></code>.</li>
+<li>Otherwise, the square’s value is <code class="docutils literal notranslate"><span class="pre">0</span></code>, and it’s a “free” square, represented by <code class="docutils literal notranslate"><span class="pre">○</span></code>.</li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">prettyTextualDescription</span></code> property can now be used to print a pretty text description of any <code class="docutils literal notranslate"><span class="pre">SnakesAndLadders</span></code> instance:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="nv">game</span>.<span class="nv">prettyTextualDescription</span>)
+</li><li><span class="c">// A game of Snakes and Ladders with 25 squares:</span>
+</li><li><span class="c">// ○ ○ ▲ ○ ○ ▲ ○ ○ ▲ ▲ ○ ○ ○ ▼ ○ ○ ○ ○ ▼ ○ ○ ▼ ○ ▼ ○</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID281">
+<h2>Class-Only Protocols<a class="headerlink" href="#ID281" title="Permalink to this headline">¶</a></h2>
+<p>You can limit protocol adoption to class types (and not structures or enumerations) by adding the <code class="docutils literal notranslate"><span class="pre">AnyObject</span></code> protocol to a protocol’s inheritance list.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">SomeClassOnlyProtocol</span>: <span class="nc">AnyObject</span>, <span class="nc">SomeInheritedProtocol</span> {
+</li><li>    <span class="c">// class-only protocol definition goes here</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>In the example above, <code class="docutils literal notranslate"><span class="pre">SomeClassOnlyProtocol</span></code> can only be adopted by class types. It’s a compile-time error to write a structure or enumeration definition that tries to adopt <code class="docutils literal notranslate"><span class="pre">SomeClassOnlyProtocol</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use a class-only protocol when the behavior defined by that protocol’s requirements assumes or requires that a conforming type has reference semantics rather than value semantics. For more about reference and value semantics, see <a class="reference internal" href="ClassesAndStructures.html#ID88"><span class="std std-ref">Structures and Enumerations Are Value Types</span></a> and <a class="reference internal" href="ClassesAndStructures.html#ID89"><span class="std std-ref">Classes Are Reference Types</span></a>.</p>
+</div>
+</div>
+<div class="section" id="ID282">
+<h2>Protocol Composition<a class="headerlink" href="#ID282" title="Permalink to this headline">¶</a></h2>
+<p>It can be useful to require a type to conform to multiple protocols at the same time. You can combine multiple protocols into a single requirement with a <em>protocol composition</em>. Protocol compositions behave as if you defined a temporary local protocol that has the combined requirements of all protocols in the composition. Protocol compositions don’t define any new protocol types.</p>
+<p>Protocol compositions have the form <code class="docutils literal notranslate"><span class="pre">SomeProtocol</span> <span class="pre">&amp;</span> <span class="pre">AnotherProtocol</span></code>. You can list as many protocols as you need, separating them with ampersands (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>). In addition to its list of protocols, a protocol composition can also contain one class type, which you can use to specify a required superclass.</p>
+<p>Here’s an example that combines two protocols called <code class="docutils literal notranslate"><span class="pre">Named</span></code> and <code class="docutils literal notranslate"><span class="pre">Aged</span></code> into a single protocol composition requirement on a function parameter:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">Named</span> {
+</li><li>    <span class="k">var</span> <span class="nv">name</span>: <span class="nc">String</span> { <span class="k">get</span> }
+</li><li>}
+</li><li><span class="k">protocol</span> <span class="nv">Aged</span> {
+</li><li>    <span class="k">var</span> <span class="nv">age</span>: <span class="nc">Int</span> { <span class="k">get</span> }
+</li><li>}
+</li><li><span class="k">struct</span> <span class="nv">Person</span>: <span class="nc">Named</span>, <span class="nc">Aged</span> {
+</li><li>    <span class="k">var</span> <span class="nv">name</span>: <span class="nc">String</span>
+</li><li>    <span class="k">var</span> <span class="nv">age</span>: <span class="nc">Int</span>
+</li><li>}
+</li><li><span class="k">func</span> <span class="nv">wishHappyBirthday</span>(<span class="nv">to</span> <span class="nv">celebrator</span>: <span class="nc">Named</span> &amp; <span class="nc">Aged</span>) {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Happy birthday, </span>\<span class="p">(</span><span class="nv">celebrator</span>.<span class="nv">name</span><span class="p">)</span><span class="s">, you&#39;re </span>\<span class="p">(</span><span class="nv">celebrator</span>.<span class="nv">age</span><span class="p">)</span><span class="s">!&quot;</span>)
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">birthdayPerson</span> = <span class="nv">Person</span>(<span class="nv">name</span>: <span class="s">&quot;Malcolm&quot;</span>, <span class="nv">age</span>: <span class="m">21</span>)
+</li><li><span class="nv">wishHappyBirthday</span>(<span class="nv">to</span>: <span class="nv">birthdayPerson</span>)
+</li><li><span class="c">// Prints &quot;Happy birthday, Malcolm, you&#39;re 21!&quot;</span>
+</li></ol></div></div></div>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">Named</span></code> protocol has a single requirement for a gettable <code class="docutils literal notranslate"><span class="pre">String</span></code> property called <code class="docutils literal notranslate"><span class="pre">name</span></code>. The <code class="docutils literal notranslate"><span class="pre">Aged</span></code> protocol has a single requirement for a gettable <code class="docutils literal notranslate"><span class="pre">Int</span></code> property called <code class="docutils literal notranslate"><span class="pre">age</span></code>. Both protocols are adopted by a structure called <code class="docutils literal notranslate"><span class="pre">Person</span></code>.</p>
+<p>The example also defines a <code class="docutils literal notranslate"><span class="pre">wishHappyBirthday(to:)</span></code> function. The type of the <code class="docutils literal notranslate"><span class="pre">celebrator</span></code> parameter is <code class="docutils literal notranslate"><span class="pre">Named</span> <span class="pre">&amp;</span> <span class="pre">Aged</span></code>, which means “any type that conforms to both the <code class="docutils literal notranslate"><span class="pre">Named</span></code> and <code class="docutils literal notranslate"><span class="pre">Aged</span></code> protocols.” It doesn’t matter which specific type is passed to the function, as long as it conforms to both of the required protocols.</p>
+<p>The example then creates a new <code class="docutils literal notranslate"><span class="pre">Person</span></code> instance called <code class="docutils literal notranslate"><span class="pre">birthdayPerson</span></code> and passes this new instance to the <code class="docutils literal notranslate"><span class="pre">wishHappyBirthday(to:)</span></code> function. Because <code class="docutils literal notranslate"><span class="pre">Person</span></code> conforms to both protocols, this call is valid, and the <code class="docutils literal notranslate"><span class="pre">wishHappyBirthday(to:)</span></code> function can print its birthday greeting.</p>
+<p>Here’s an example that combines the <code class="docutils literal notranslate"><span class="pre">Named</span></code> protocol from the previous example with a <code class="docutils literal notranslate"><span class="pre">Location</span></code> class:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Location</span> {
+</li><li>    <span class="k">var</span> <span class="nv">latitude</span>: <span class="nc">Double</span>
+</li><li>    <span class="k">var</span> <span class="nv">longitude</span>: <span class="nc">Double</span>
+</li><li>    <span class="k">init</span>(<span class="nv">latitude</span>: <span class="nc">Double</span>, <span class="nv">longitude</span>: <span class="nc">Double</span>) {
+</li><li>        <span class="k">self</span>.<span class="nv">latitude</span> = <span class="nv">latitude</span>
+</li><li>        <span class="k">self</span>.<span class="nv">longitude</span> = <span class="nv">longitude</span>
+</li><li>    }
+</li><li>}
+</li><li><span class="k">class</span> <span class="nv">City</span>: <span class="nc">Location</span>, <span class="nc">Named</span> {
+</li><li>    <span class="k">var</span> <span class="nv">name</span>: <span class="nc">String</span>
+</li><li>    <span class="k">init</span>(<span class="nv">name</span>: <span class="nc">String</span>, <span class="nv">latitude</span>: <span class="nc">Double</span>, <span class="nv">longitude</span>: <span class="nc">Double</span>) {
+</li><li>        <span class="k">self</span>.<span class="nv">name</span> = <span class="nv">name</span>
+</li><li>        <span class="k">super</span>.<span class="nv">init</span>(<span class="nv">latitude</span>: <span class="nv">latitude</span>, <span class="nv">longitude</span>: <span class="nv">longitude</span>)
+</li><li>    }
+</li><li>}
+</li><li><span class="k">func</span> <span class="nv">beginConcert</span>(<span class="nv">in</span> <span class="nv">location</span>: <span class="nc">Location</span> &amp; <span class="nc">Named</span>) {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Hello, </span>\<span class="p">(</span><span class="nv">location</span>.<span class="nv">name</span><span class="p">)</span><span class="s">!&quot;</span>)
+</li><li>}
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">seattle</span> = <span class="nv">City</span>(<span class="nv">name</span>: <span class="s">&quot;Seattle&quot;</span>, <span class="nv">latitude</span>: <span class="m">47.6</span>, <span class="nv">longitude</span>: <span class="m">-122.3</span>)
+</li><li><span class="nv">beginConcert</span>(<span class="nv">in</span>: <span class="nv">seattle</span>)
+</li><li><span class="c">// Prints &quot;Hello, Seattle!&quot;</span>
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">beginConcert(in:)</span></code> function takes a parameter of type <code class="docutils literal notranslate"><span class="pre">Location</span> <span class="pre">&amp;</span> <span class="pre">Named</span></code>, which means “any type that’s a subclass of <code class="docutils literal notranslate"><span class="pre">Location</span></code> and that conforms to the <code class="docutils literal notranslate"><span class="pre">Named</span></code> protocol.” In this case, <code class="docutils literal notranslate"><span class="pre">City</span></code> satisfies both requirements.</p>
+<p>Passing <code class="docutils literal notranslate"><span class="pre">birthdayPerson</span></code> to the <code class="docutils literal notranslate"><span class="pre">beginConcert(in:)</span></code> function is invalid because <code class="docutils literal notranslate"><span class="pre">Person</span></code> isn’t a subclass of <code class="docutils literal notranslate"><span class="pre">Location</span></code>. Likewise, if you made a subclass of <code class="docutils literal notranslate"><span class="pre">Location</span></code> that didn’t conform to the <code class="docutils literal notranslate"><span class="pre">Named</span></code> protocol, calling <code class="docutils literal notranslate"><span class="pre">beginConcert(in:)</span></code> with an instance of that type is also invalid.</p>
+</div>
+<div class="section" id="ID283">
+<h2>Checking for Protocol Conformance<a class="headerlink" href="#ID283" title="Permalink to this headline">¶</a></h2>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">is</span></code> and <code class="docutils literal notranslate"><span class="pre">as</span></code> operators described in <a class="reference internal" href="TypeCasting.html"><span class="doc">Type Casting</span></a> to check for protocol conformance, and to cast to a specific protocol. Checking for and casting to a protocol follows exactly the same syntax as checking for and casting to a type:</p>
+<ul class="simple">
+<li>The <code class="docutils literal notranslate"><span class="pre">is</span></code> operator returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if an instance conforms to a protocol and returns <code class="docutils literal notranslate"><span class="pre">false</span></code> if it doesn’t.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">as?</span></code> version of the downcast operator returns an optional value of the protocol’s type, and this value is <code class="docutils literal notranslate"><span class="pre">nil</span></code> if the instance doesn’t conform to that protocol.</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">as!</span></code> version of the downcast operator forces the downcast to the protocol type and triggers a runtime error if the downcast doesn’t succeed.</li>
+</ul>
+<p>This example defines a protocol called <code class="docutils literal notranslate"><span class="pre">HasArea</span></code>, with a single property requirement of a gettable <code class="docutils literal notranslate"><span class="pre">Double</span></code> property called <code class="docutils literal notranslate"><span class="pre">area</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">HasArea</span> {
+</li><li>    <span class="k">var</span> <span class="nv">area</span>: <span class="nc">Double</span> { <span class="k">get</span> }
+</li><li>}
+</li></ol></div></div></div>
+<p>Here are two classes, <code class="docutils literal notranslate"><span class="pre">Circle</span></code> and <code class="docutils literal notranslate"><span class="pre">Country</span></code>, both of which conform to the <code class="docutils literal notranslate"><span class="pre">HasArea</span></code> protocol:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Circle</span>: <span class="nc">HasArea</span> {
+</li><li>    <span class="k">let</span> <span class="nv">pi</span> = <span class="m">3.1415927</span>
+</li><li>    <span class="k">var</span> <span class="nv">radius</span>: <span class="nc">Double</span>
+</li><li>    <span class="k">var</span> <span class="nv">area</span>: <span class="nc">Double</span> { <span class="k">return</span> <span class="nv">pi</span> * <span class="nv">radius</span> * <span class="nv">radius</span> }
+</li><li>    <span class="k">init</span>(<span class="nv">radius</span>: <span class="nc">Double</span>) { <span class="k">self</span>.<span class="nv">radius</span> = <span class="nv">radius</span> }
+</li><li>}
+</li><li><span class="k">class</span> <span class="nv">Country</span>: <span class="nc">HasArea</span> {
+</li><li>    <span class="k">var</span> <span class="nv">area</span>: <span class="nc">Double</span>
+</li><li>    <span class="k">init</span>(<span class="nv">area</span>: <span class="nc">Double</span>) { <span class="k">self</span>.<span class="nv">area</span> = <span class="nv">area</span> }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Circle</span></code> class implements the <code class="docutils literal notranslate"><span class="pre">area</span></code> property requirement as a computed property, based on a stored <code class="docutils literal notranslate"><span class="pre">radius</span></code> property. The <code class="docutils literal notranslate"><span class="pre">Country</span></code> class implements the <code class="docutils literal notranslate"><span class="pre">area</span></code> requirement directly as a stored property. Both classes correctly conform to the <code class="docutils literal notranslate"><span class="pre">HasArea</span></code> protocol.</p>
+<p>Here’s a class called <code class="docutils literal notranslate"><span class="pre">Animal</span></code>, which doesn’t conform to the <code class="docutils literal notranslate"><span class="pre">HasArea</span></code> protocol:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Animal</span> {
+</li><li>    <span class="k">var</span> <span class="nv">legs</span>: <span class="nc">Int</span>
+</li><li>    <span class="k">init</span>(<span class="nv">legs</span>: <span class="nc">Int</span>) { <span class="k">self</span>.<span class="nv">legs</span> = <span class="nv">legs</span> }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Circle</span></code>, <code class="docutils literal notranslate"><span class="pre">Country</span></code> and <code class="docutils literal notranslate"><span class="pre">Animal</span></code> classes don’t have a shared base class. Nonetheless, they’re all classes, and so instances of all three types can be used to initialize an array that stores values of type <code class="docutils literal notranslate"><span class="pre">AnyObject</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">objects</span>: [<span class="nc">AnyObject</span>] = [
+</li><li>    <span class="nv">Circle</span>(<span class="nv">radius</span>: <span class="m">2.0</span>),
+</li><li>    <span class="nv">Country</span>(<span class="nv">area</span>: <span class="m">243_610</span>),
+</li><li>    <span class="nv">Animal</span>(<span class="nv">legs</span>: <span class="m">4</span>)
+</li><li>]
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">objects</span></code> array is initialized with an array literal containing a <code class="docutils literal notranslate"><span class="pre">Circle</span></code> instance with a radius of 2 units; a <code class="docutils literal notranslate"><span class="pre">Country</span></code> instance initialized with the surface area of the United Kingdom in square kilometers; and an <code class="docutils literal notranslate"><span class="pre">Animal</span></code> instance with four legs.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">objects</span></code> array can now be iterated, and each object in the array can be checked to see if it conforms to the <code class="docutils literal notranslate"><span class="pre">HasArea</span></code> protocol:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">for</span> <span class="nv">object</span> <span class="k">in</span> <span class="nv">objects</span> {
+</li><li>    <span class="k">if</span> <span class="k">let</span> <span class="nv">objectWithArea</span> = <span class="nv">object</span> <span class="k">as</span>? <span class="nc">HasArea</span> {
+</li><li>        <span class="nv">print</span>(<span class="s">&quot;Area is </span>\<span class="p">(</span><span class="nv">objectWithArea</span>.<span class="nv">area</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li>    } <span class="k">else</span> {
+</li><li>        <span class="nv">print</span>(<span class="s">&quot;Something that doesn&#39;t have an area&quot;</span>)
+</li><li>    }
+</li><li>}
+</li><li><span class="c">// Area is 12.5663708</span>
+</li><li><span class="c">// Area is 243610.0</span>
+</li><li><span class="c">// Something that doesn&#39;t have an area</span>
+</li></ol></div></div></div>
+<p>Whenever an object in the array conforms to the <code class="docutils literal notranslate"><span class="pre">HasArea</span></code> protocol, the optional value returned by the <code class="docutils literal notranslate"><span class="pre">as?</span></code> operator is unwrapped with optional binding into a constant called <code class="docutils literal notranslate"><span class="pre">objectWithArea</span></code>. The <code class="docutils literal notranslate"><span class="pre">objectWithArea</span></code> constant is known to be of type <code class="docutils literal notranslate"><span class="pre">HasArea</span></code>, and so its <code class="docutils literal notranslate"><span class="pre">area</span></code> property can be accessed and printed in a type-safe way.</p>
+<p>Note that the underlying objects aren’t changed by the casting process. They continue to be a <code class="docutils literal notranslate"><span class="pre">Circle</span></code>, a <code class="docutils literal notranslate"><span class="pre">Country</span></code> and an <code class="docutils literal notranslate"><span class="pre">Animal</span></code>. However, at the point that they’re stored in the <code class="docutils literal notranslate"><span class="pre">objectWithArea</span></code> constant, they’re only known to be of type <code class="docutils literal notranslate"><span class="pre">HasArea</span></code>, and so only their <code class="docutils literal notranslate"><span class="pre">area</span></code> property can be accessed.</p>
+</div>
+<div class="section" id="ID284">
+<h2>Optional Protocol Requirements<a class="headerlink" href="#ID284" title="Permalink to this headline">¶</a></h2>
+<p>You can define <em>optional requirements</em> for protocols. These requirements don’t have to be implemented by types that conform to the protocol. Optional requirements are prefixed by the <code class="docutils literal notranslate"><span class="pre">optional</span></code> modifier as part of the protocol’s definition. Optional requirements are available so that you can write code that interoperates with Objective-C. Both the protocol and the optional requirement must be marked with the <code class="docutils literal notranslate"><span class="pre">&#64;objc</span></code> attribute. Note that <code class="docutils literal notranslate"><span class="pre">&#64;objc</span></code> protocols can be adopted only by classes that inherit from Objective-C classes or other <code class="docutils literal notranslate"><span class="pre">&#64;objc</span></code> classes. They can’t be adopted by structures or enumerations.</p>
+<p>When you use a method or property in an optional requirement, its type automatically becomes an optional. For example, a method of type <code class="docutils literal notranslate"><span class="pre">(Int)</span> <span class="pre">-&gt;</span> <span class="pre">String</span></code> becomes <code class="docutils literal notranslate"><span class="pre">((Int)</span> <span class="pre">-&gt;</span> <span class="pre">String)?</span></code>. Note that the entire function type is wrapped in the optional, not the method’s return value.</p>
+<p>An optional protocol requirement can be called with optional chaining, to account for the possibility that the requirement was not implemented by a type that conforms to the protocol. You check for an implementation of an optional method by writing a question mark after the name of the method when it’s called, such as <code class="docutils literal notranslate"><span class="pre">someOptionalMethod?(someArgument)</span></code>. For information on optional chaining, see <a class="reference internal" href="OptionalChaining.html"><span class="doc">Optional Chaining</span></a>.</p>
+<p>The following example defines an integer-counting class called <code class="docutils literal notranslate"><span class="pre">Counter</span></code>, which uses an external data source to provide its increment amount. This data source is defined by the <code class="docutils literal notranslate"><span class="pre">CounterDataSource</span></code> protocol, which has two optional requirements:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">@objc</span> <span class="k">protocol</span> <span class="nv">CounterDataSource</span> {
+</li><li>    <span class="k">@objc</span> <span class="k">optional</span> <span class="k">func</span> <span class="nv">increment</span>(<span class="nv">forCount</span> <span class="nv">count</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span>
+</li><li>    <span class="k">@objc</span> <span class="k">optional</span> <span class="k">var</span> <span class="nv">fixedIncrement</span>: <span class="nc">Int</span> { <span class="k">get</span> }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">CounterDataSource</span></code> protocol defines an optional method requirement called <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code> and an optional property requirement called <code class="docutils literal notranslate"><span class="pre">fixedIncrement</span></code>. These requirements define two different ways for data sources to provide an appropriate increment amount for a <code class="docutils literal notranslate"><span class="pre">Counter</span></code> instance.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Strictly speaking, you can write a custom class that conforms to <code class="docutils literal notranslate"><span class="pre">CounterDataSource</span></code> without implementing <em>either</em> protocol requirement. They’re both optional, after all. Although technically allowed, this wouldn’t make for a very good data source.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Counter</span></code> class, defined below, has an optional <code class="docutils literal notranslate"><span class="pre">dataSource</span></code> property of type <code class="docutils literal notranslate"><span class="pre">CounterDataSource?</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Counter</span> {
+</li><li>    <span class="k">var</span> <span class="nv">count</span> = <span class="m">0</span>
+</li><li>    <span class="k">var</span> <span class="nv">dataSource</span>: <span class="nc">CounterDataSource</span>?
+</li><li>    <span class="k">func</span> <span class="nv">increment</span>() {
+</li><li>        <span class="k">if</span> <span class="k">let</span> <span class="nv">amount</span> = <span class="nv">dataSource</span>?.<span class="nv">increment</span>?(<span class="nv">forCount</span>: <span class="nv">count</span>) {
+</li><li>            <span class="nv">count</span> += <span class="nv">amount</span>
+</li><li>        } <span class="k">else</span> <span class="k">if</span> <span class="k">let</span> <span class="nv">amount</span> = <span class="nv">dataSource</span>?.<span class="nv">fixedIncrement</span> {
+</li><li>            <span class="nv">count</span> += <span class="nv">amount</span>
+</li><li>        }
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Counter</span></code> class stores its current value in a variable property called <code class="docutils literal notranslate"><span class="pre">count</span></code>. The <code class="docutils literal notranslate"><span class="pre">Counter</span></code> class also defines a method called <code class="docutils literal notranslate"><span class="pre">increment</span></code>, which increments the <code class="docutils literal notranslate"><span class="pre">count</span></code> property every time the method is called.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">increment()</span></code> method first tries to retrieve an increment amount by looking for an implementation of the <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code> method on its data source. The <code class="docutils literal notranslate"><span class="pre">increment()</span></code> method uses optional chaining to try to call <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code>, and passes the current <code class="docutils literal notranslate"><span class="pre">count</span></code> value as the method’s single argument.</p>
+<p>Note that <em>two</em> levels of optional chaining are at play here. First, it’s possible that <code class="docutils literal notranslate"><span class="pre">dataSource</span></code> may be <code class="docutils literal notranslate"><span class="pre">nil</span></code>, and so <code class="docutils literal notranslate"><span class="pre">dataSource</span></code> has a question mark after its name to indicate that <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code> should be called only if <code class="docutils literal notranslate"><span class="pre">dataSource</span></code> isn’t <code class="docutils literal notranslate"><span class="pre">nil</span></code>. Second, even if <code class="docutils literal notranslate"><span class="pre">dataSource</span></code> <em>does</em> exist, there’s no guarantee that it implements <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code>, because it’s an optional requirement. Here, the possibility that <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code> might not be implemented is also handled by optional chaining. The call to <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code> happens only if <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code> exists—that is, if it isn’t <code class="docutils literal notranslate"><span class="pre">nil</span></code>. This is why <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code> is also written with a question mark after its name.</p>
+<p>Because the call to <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code> can fail for either of these two reasons, the call returns an <em>optional</em> <code class="docutils literal notranslate"><span class="pre">Int</span></code> value. This is true even though <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code> is defined as returning a non-optional <code class="docutils literal notranslate"><span class="pre">Int</span></code> value in the definition of <code class="docutils literal notranslate"><span class="pre">CounterDataSource</span></code>. Even though there are two optional chaining operations, one after another, the result is still wrapped in a single optional. For more information about using multiple optional chaining operations, see <a class="reference internal" href="OptionalChaining.html#ID252"><span class="std std-ref">Linking Multiple Levels of Chaining</span></a>.</p>
+<p>After calling <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code>, the optional <code class="docutils literal notranslate"><span class="pre">Int</span></code> that it returns is unwrapped into a constant called <code class="docutils literal notranslate"><span class="pre">amount</span></code>, using optional binding. If the optional <code class="docutils literal notranslate"><span class="pre">Int</span></code> does contain a value—that is, if the delegate and method both exist, and the method returned a value—the unwrapped <code class="docutils literal notranslate"><span class="pre">amount</span></code> is added onto the stored <code class="docutils literal notranslate"><span class="pre">count</span></code> property, and incrementation is complete.</p>
+<p>If it’s <em>not</em> possible to retrieve a value from the <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code> method—either because <code class="docutils literal notranslate"><span class="pre">dataSource</span></code> is nil, or because the data source doesn’t implement <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code>—then the <code class="docutils literal notranslate"><span class="pre">increment()</span></code> method tries to retrieve a value from the data source’s <code class="docutils literal notranslate"><span class="pre">fixedIncrement</span></code> property instead. The <code class="docutils literal notranslate"><span class="pre">fixedIncrement</span></code> property is also an optional requirement, so its value is an optional <code class="docutils literal notranslate"><span class="pre">Int</span></code> value, even though <code class="docutils literal notranslate"><span class="pre">fixedIncrement</span></code> is defined as a non-optional <code class="docutils literal notranslate"><span class="pre">Int</span></code> property as part of the <code class="docutils literal notranslate"><span class="pre">CounterDataSource</span></code> protocol definition.</p>
+<p>Here’s a simple <code class="docutils literal notranslate"><span class="pre">CounterDataSource</span></code> implementation where the data source returns a constant value of <code class="docutils literal notranslate"><span class="pre">3</span></code> every time it’s queried. It does this by implementing the optional <code class="docutils literal notranslate"><span class="pre">fixedIncrement</span></code> property requirement:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">ThreeSource</span>: <span class="nc">NSObject</span>, <span class="nc">CounterDataSource</span> {
+</li><li>    <span class="k">let</span> <span class="nv">fixedIncrement</span> = <span class="m">3</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>You can use an instance of <code class="docutils literal notranslate"><span class="pre">ThreeSource</span></code> as the data source for a new <code class="docutils literal notranslate"><span class="pre">Counter</span></code> instance:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">counter</span> = <span class="nv">Counter</span>()
+</li><li><span class="nv">counter</span>.<span class="nv">dataSource</span> = <span class="nv">ThreeSource</span>()
+</li><li><span class="k">for</span> <span class="k">_</span> <span class="k">in</span> <span class="m">1</span>...<span class="m">4</span> {
+</li><li>    <span class="nv">counter</span>.<span class="nv">increment</span>()
+</li><li>    <span class="nv">print</span>(<span class="nv">counter</span>.<span class="nv">count</span>)
+</li><li>}
+</li><li><span class="c">// 3</span>
+</li><li><span class="c">// 6</span>
+</li><li><span class="c">// 9</span>
+</li><li><span class="c">// 12</span>
+</li></ol></div></div></div>
+<p>The code above creates a new <code class="docutils literal notranslate"><span class="pre">Counter</span></code> instance; sets its data source to be a new <code class="docutils literal notranslate"><span class="pre">ThreeSource</span></code> instance; and calls the counter’s <code class="docutils literal notranslate"><span class="pre">increment()</span></code> method four times. As expected, the counter’s <code class="docutils literal notranslate"><span class="pre">count</span></code> property increases by three each time <code class="docutils literal notranslate"><span class="pre">increment()</span></code> is called.</p>
+<p>Here’s a more complex data source called <code class="docutils literal notranslate"><span class="pre">TowardsZeroSource</span></code>, which makes a <code class="docutils literal notranslate"><span class="pre">Counter</span></code> instance count up or down towards zero from its current <code class="docutils literal notranslate"><span class="pre">count</span></code> value:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">TowardsZeroSource</span>: <span class="nc">NSObject</span>, <span class="nc">CounterDataSource</span> {
+</li><li>    <span class="k">func</span> <span class="nv">increment</span>(<span class="nv">forCount</span> <span class="nv">count</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> {
+</li><li>        <span class="k">if</span> <span class="nv">count</span> == <span class="m">0</span> {
+</li><li>            <span class="k">return</span> <span class="m">0</span>
+</li><li>        } <span class="k">else</span> <span class="k">if</span> <span class="nv">count</span> &lt; <span class="m">0</span> {
+</li><li>            <span class="k">return</span> <span class="m">1</span>
+</li><li>        } <span class="k">else</span> {
+</li><li>            <span class="k">return</span> <span class="m">-1</span>
+</li><li>        }
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">TowardsZeroSource</span></code> class implements the optional <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code> method from the <code class="docutils literal notranslate"><span class="pre">CounterDataSource</span></code> protocol and uses the <code class="docutils literal notranslate"><span class="pre">count</span></code> argument value to work out which direction to count in. If <code class="docutils literal notranslate"><span class="pre">count</span></code> is already zero, the method returns <code class="docutils literal notranslate"><span class="pre">0</span></code> to indicate that no further counting should take place.</p>
+<p>You can use an instance of <code class="docutils literal notranslate"><span class="pre">TowardsZeroSource</span></code> with the existing <code class="docutils literal notranslate"><span class="pre">Counter</span></code> instance to count from <code class="docutils literal notranslate"><span class="pre">-4</span></code> to zero. Once the counter reaches zero, no more counting takes place:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">counter</span>.<span class="nv">count</span> = <span class="m">-4</span>
+</li><li><span class="nv">counter</span>.<span class="nv">dataSource</span> = <span class="nv">TowardsZeroSource</span>()
+</li><li><span class="k">for</span> <span class="k">_</span> <span class="k">in</span> <span class="m">1</span>...<span class="m">5</span> {
+</li><li>    <span class="nv">counter</span>.<span class="nv">increment</span>()
+</li><li>    <span class="nv">print</span>(<span class="nv">counter</span>.<span class="nv">count</span>)
+</li><li>}
+</li><li><span class="c">// -3</span>
+</li><li><span class="c">// -2</span>
+</li><li><span class="c">// -1</span>
+</li><li><span class="c">// 0</span>
+</li><li><span class="c">// 0</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID521">
+<h2>Protocol Extensions<a class="headerlink" href="#ID521" title="Permalink to this headline">¶</a></h2>
+<p>Protocols can be extended to provide method, initializer, subscript, and computed property implementations to conforming types. This allows you to define behavior on protocols themselves, rather than in each type’s individual conformance or in a global function.</p>
+<p>For example, the <code class="docutils literal notranslate"><span class="pre">RandomNumberGenerator</span></code> protocol can be extended to provide a <code class="docutils literal notranslate"><span class="pre">randomBool()</span></code> method, which uses the result of the required <code class="docutils literal notranslate"><span class="pre">random()</span></code> method to return a random <code class="docutils literal notranslate"><span class="pre">Bool</span></code> value:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">RandomNumberGenerator</span> {
+</li><li>    <span class="k">func</span> <span class="nv">randomBool</span>() -&gt; <span class="nc">Bool</span> {
+</li><li>        <span class="k">return</span> <span class="nv">random</span>() &gt; <span class="m">0.5</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>By creating an extension on the protocol, all conforming types automatically gain this method implementation without any additional modification.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">generator</span> = <span class="nv">LinearCongruentialGenerator</span>()
+</li><li><span class="nv">print</span>(<span class="s">&quot;Here&#39;s a random number: </span>\<span class="p">(</span><span class="nv">generator</span>.<span class="nv">random</span>()<span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;Here&#39;s a random number: 0.3746499199817101&quot;</span>
+</li><li><span class="nv">print</span>(<span class="s">&quot;And here&#39;s a random Boolean: </span>\<span class="p">(</span><span class="nv">generator</span>.<span class="nv">randomBool</span>()<span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;And here&#39;s a random Boolean: true&quot;</span>
+</li></ol></div></div></div>
+<p>Protocol extensions can add implementations to conforming types but can’t make a protocol extend or inherit from another protocol. Protocol inheritance is always specified in the protocol declaration itself.</p>
+<div class="section" id="ID529">
+<h3>Providing Default Implementations<a class="headerlink" href="#ID529" title="Permalink to this headline">¶</a></h3>
+<p>You can use protocol extensions to provide a default implementation to any method or computed property requirement of that protocol. If a conforming type provides its own implementation of a required method or property, that implementation will be used instead of the one provided by the extension.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Protocol requirements with default implementations provided by extensions are distinct from optional protocol requirements. Although conforming types don’t have to provide their own implementation of either, requirements with default implementations can be called without optional chaining.</p>
+</div>
+<p>For example, the <code class="docutils literal notranslate"><span class="pre">PrettyTextRepresentable</span></code> protocol, which inherits the <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code> protocol can provide a default implementation of its required <code class="docutils literal notranslate"><span class="pre">prettyTextualDescription</span></code> property to simply return the result of accessing the <code class="docutils literal notranslate"><span class="pre">textualDescription</span></code> property:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">PrettyTextRepresentable</span>  {
+</li><li>    <span class="k">var</span> <span class="nv">prettyTextualDescription</span>: <span class="nc">String</span> {
+</li><li>        <span class="k">return</span> <span class="nv">textualDescription</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID527">
+<h3>Adding Constraints to Protocol Extensions<a class="headerlink" href="#ID527" title="Permalink to this headline">¶</a></h3>
+<p>When you define a protocol extension, you can specify constraints that conforming types must satisfy before the methods and properties of the extension are available. You write these constraints after the name of the protocol you’re extending by writing a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause. For more about generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clauses, see <a class="reference internal" href="Generics.html#ID192"><span class="std std-ref">Generic Where Clauses</span></a>.</p>
+<p>For example, you can define an extension to the <code class="docutils literal notranslate"><span class="pre">Collection</span></code> protocol that applies to any collection whose elements conform to the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol. By constraining a collection’s elements to the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol, a part of the standard library, you can use the <code class="docutils literal notranslate"><span class="pre">==</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code> operators to check for equality and inequality between two elements.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">Collection</span> <span class="k">where</span> <span class="nc">Element</span>: <span class="nc">Equatable</span> {
+</li><li>    <span class="k">func</span> <span class="nv">allEqual</span>() -&gt; <span class="nc">Bool</span> {
+</li><li>        <span class="k">for</span> <span class="nv">element</span> <span class="k">in</span> <span class="k">self</span> {
+</li><li>            <span class="k">if</span> <span class="nv">element</span> != <span class="k">self</span>.<span class="nv">first</span> {
+</li><li>                <span class="k">return</span> <span class="k">false</span>
+</li><li>            }
+</li><li>        }
+</li><li>        <span class="k">return</span> <span class="k">true</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">allEqual()</span></code> method returns <code class="docutils literal notranslate"><span class="pre">true</span></code> only if all the elements in the collection are equal.</p>
+<p>Consider two arrays of integers, one where all the elements are the same, and one where they aren’t:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">equalNumbers</span> = [<span class="m">100</span>, <span class="m">100</span>, <span class="m">100</span>, <span class="m">100</span>, <span class="m">100</span>]
+</li><li><span class="k">let</span> <span class="nv">differentNumbers</span> = [<span class="m">100</span>, <span class="m">100</span>, <span class="m">200</span>, <span class="m">100</span>, <span class="m">200</span>]
+</li></ol></div></div></div>
+<p>Because arrays conform to <code class="docutils literal notranslate"><span class="pre">Collection</span></code> and integers conform to <code class="docutils literal notranslate"><span class="pre">Equatable</span></code>, <code class="docutils literal notranslate"><span class="pre">equalNumbers</span></code> and <code class="docutils literal notranslate"><span class="pre">differentNumbers</span></code> can use the <code class="docutils literal notranslate"><span class="pre">allEqual()</span></code> method:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="nv">equalNumbers</span>.<span class="nv">allEqual</span>())
+</li><li><span class="c">// Prints &quot;true&quot;</span>
+</li><li><span class="nv">print</span>(<span class="nv">differentNumbers</span>.<span class="nv">allEqual</span>())
+</li><li><span class="c">// Prints &quot;false&quot;</span>
+</li></ol></div></div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If a conforming type satisfies the requirements for multiple constrained extensions that provide implementations for the same method or property, Swift uses the implementation corresponding to the most specialized constraints.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="Extensions.html">Extensions</a></p>
+        <p class="next"><a href="Generics.html">Generics</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  </body>
+</html>
