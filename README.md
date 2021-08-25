@@ -1,3 +1,5 @@
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bbiguduk&repo=Swift_language_guide_kr&theme=midnight-purple)](https://github.com/anuraghazra/github-readme-stats)
+
 # The Swift Programming Language
 
 [https://docs.swift.org/swift-book/](https://docs.swift.org/swift-book/) 에 있는 [The Swift Programming Language](https://docs.swift.org/swift-book/) 을 한국어로 번역한 것이며, 오역 및 오타 많을 수 있습니다. 발견 시 연락처에 있는 email로 연락해 주세요!
@@ -44,5 +46,3 @@
 | 메모리 안전성 | [Memory Safety](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/memory-safety.md) |
 | 접근 제어 | [Access Control](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/access-control.md) |
 | 고급 연산자 | [Advanced Operators](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/advanced-operators.md) |
-
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bbiguduk&repo=Swift_language_guide_kr&theme=midnight-purple)](https://github.com/anuraghazra/github-readme-stats)
