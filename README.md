@@ -45,4 +45,4 @@
 | 접근 제어 | [Access Control](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/access-control.md) |
 | 고급 연산자 | [Advanced Operators](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/advanced-operators.md) |
 
-[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=anuraghazra&repo=github-readme-stats)](https://github.com/anuraghazra/github-readme-stats)
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bbiguduk&repo=Swift_language_guide_kr&theme=midnight-purple)](https://github.com/anuraghazra/github-readme-stats)
