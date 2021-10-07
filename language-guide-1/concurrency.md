@@ -140,7 +140,7 @@ _작업 \(task\)_ 은 프로그램의 일부로 비동기적으로 실행할 수
 await withTaskGroup(of: Data.self) { taskGroup in
     let photoNames = await listPhotos(inGallery: "Summer Vacation")
     for name in photoNames {
-        taskGroup.async { await downloadPhoto(named: name) }
+        taskGroup.addTask { await downloadPhoto(named: name) }
     }
 }
 ```
