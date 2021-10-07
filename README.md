@@ -1,20 +1,22 @@
+# The Swift Programming Language
+
 [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bbiguduk&repo=Swift_language_guide_kr&theme=midnight-purple)](https://github.com/anuraghazra/github-readme-stats)
 
-# The Swift Programming Language
+## The Swift Programming Language
 
 [https://docs.swift.org/swift-book/](https://docs.swift.org/swift-book/) 에 있는 [The Swift Programming Language](https://docs.swift.org/swift-book/) 을 한국어로 번역한 것이며, 오역 및 오타 많을 수 있습니다. 발견 시 연락처에 있는 email로 연락해 주세요!
 
-## 온라인 문서
+### 온라인 문서
 
 [GitBook](https://bbiguduk.gitbook.io/swift)
 
-## 업데이트
+### 업데이트
 
 * Swift 5.5, 2021-08-14
 * Swift 5.4, 2021-02-20
 * Swift 5.3, 2020-10-23
 
-## 차례
+### 차례
 
 | 속성 | 위치 |
 | :--- | :--- |
@@ -46,3 +48,4 @@
 | 메모리 안전성 | [Memory Safety](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/memory-safety.md) |
 | 접근 제어 | [Access Control](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/access-control.md) |
 | 고급 연산자 | [Advanced Operators](https://github.com/bbiguduk/Swift_language_guide_kr/blob/master/language-guide-1/advanced-operators.md) |
+
