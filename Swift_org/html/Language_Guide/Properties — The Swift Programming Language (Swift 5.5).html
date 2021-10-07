@@ -514,8 +514,9 @@
 <p>In the <code class="docutils literal notranslate"><span class="pre">SmallNumber</span></code> example above, if you try to set the property to a number that’s too large, the property wrapper adjusts the number before storing it. The code below adds a <code class="docutils literal notranslate"><span class="pre">projectedValue</span></code> property to the <code class="docutils literal notranslate"><span class="pre">SmallNumber</span></code> structure to keep track of whether the property wrapper adjusted the new value for the property before storing that new value.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>@<span class="nv">propertyWrapper</span>
 </li><li><span class="k">struct</span> <span class="nv">SmallNumber</span> {
-</li><li>    <span class="k">private</span> <span class="k">var</span> <span class="nv">number</span> = <span class="m">0</span>
-</li><li>    <span class="k">var</span> <span class="nv">projectedValue</span> = <span class="k">false</span>
+</li><li>    <span class="k">private</span> <span class="k">var</span> <span class="nv">number</span>: <span class="nc">Int</span>
+</li><li>    <span class="k">private(set)</span> <span class="k">var</span> <span class="nv">projectedValue</span>: <span class="nc">Bool</span>
+</li><li>
 </li><li>    <span class="k">var</span> <span class="nv">wrappedValue</span>: <span class="nc">Int</span> {
 </li><li>        <span class="k">get</span> { <span class="k">return</span> <span class="nv">number</span> }
 </li><li>        <span class="k">set</span> {
@@ -527,6 +528,11 @@
 </li><li>                <span class="nv">projectedValue</span> = <span class="k">false</span>
 </li><li>            }
 </li><li>        }
+</li><li>    }
+</li><li>
+</li><li>    <span class="k">init</span>() {
+</li><li>        <span class="k">self</span>.<span class="nv">number</span> = <span class="m">0</span>
+</li><li>        <span class="k">self</span>.<span class="nv">projectedValue</span> = <span class="k">false</span>
 </li><li>    }
 </li><li>}
 </li><li><span class="k">struct</span> <span class="nv">SomeStructure</span> {
@@ -707,14 +713,6 @@
     <div class="next_previous">
         <p class="previous"><a href="ClassesAndStructures.html">Structures and Classes</a></p>
         <p class="next"><a href="Methods.html">Methods</a></p>
-    </div>
-    <div class="admonition-beta admonition">
-        <p class="first admonition-title">Beta Software</p>
-        <p>
-          This documentation contains preliminary information about an API or technology in development.
-          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
-        </p>
-        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 
