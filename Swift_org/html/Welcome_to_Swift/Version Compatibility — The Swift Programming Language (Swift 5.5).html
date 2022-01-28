@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Version Compatibility &mdash; The Swift Programming Language (Swift 5.5)</title>
+    <title>Version Compatibility &mdash; The Swift Programming Language (Swift 5.6)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
 
     <ul>
     <ul class="current">
@@ -85,15 +85,15 @@
         
   <div class="section" id="version-compatibility">
 <h1>Version Compatibility<a class="headerlink" href="#version-compatibility" title="Permalink to this headline">¶</a></h1>
-<p>This book describes Swift 5.5, the default version of Swift that’s included in Xcode 13. You can use Xcode 13 to build targets that are written in either Swift 5.5, Swift 4.2, or Swift 4.</p>
-<p>When you use Xcode 13 to build Swift 4 and Swift 4.2 code, most Swift 5.5 functionality is available. That said, the following changes are available only to code that uses Swift 5.5 or later:</p>
+<p>This book describes Swift 5.6, the default version of Swift that’s included in Xcode 13. You can use Xcode 13 to build targets that are written in either Swift 5.6, Swift 4.2, or Swift 4.</p>
+<p>When you use Xcode 13 to build Swift 4 and Swift 4.2 code, most Swift 5.6 functionality is available. That said, the following changes are available only to code that uses Swift 5.6 or later:</p>
 <ul class="simple">
 <li>Functions that return an opaque type require the Swift 5.1 runtime.</li>
 <li>The <code class="docutils literal notranslate"><span class="pre">try?</span></code> expression doesn’t introduce an extra level of optionality to expressions that already return optionals.</li>
 <li>Large integer literal initialization expressions are inferred to be of the correct integer type. For example, <code class="docutils literal notranslate"><span class="pre">UInt64(0xffff_ffff_ffff_ffff)</span></code> evaluates to the correct value rather than overflowing.</li>
 </ul>
-<p>Concurrency requires Swift 5.5 or later, and a version of the Swift standard library that provides the corresponding concurrency types. On Apple platforms, set a deployment target of at least iOS 15, macOS 12, tvOS 15, or watchOS 8.0.</p>
-<p>A target written in Swift 5.5 can depend on a target that’s written in Swift 4.2 or Swift 4, and vice versa. This means, if you have a large project that’s divided into multiple frameworks, you can migrate your code from Swift 4 to Swift 5.5 one framework at a time.</p>
+<p>Concurrency requires Swift 5.6 or later, and a version of the Swift standard library that provides the corresponding concurrency types. On Apple platforms, set a deployment target of at least iOS 15, macOS 12, tvOS 15, or watchOS 8.0.</p>
+<p>A target written in Swift 5.6 can depend on a target that’s written in Swift 4.2 or Swift 4, and vice versa. This means, if you have a large project that’s divided into multiple frameworks, you can migrate your code from Swift 4 to Swift 5.6 one framework at a time.</p>
 </div>
 
 
@@ -101,6 +101,14 @@
     <div class="next_previous">
         <p class="previous"><a href="../">About Swift</a></p>
         <p class="next"><a href="GuidedTour.html">A Swift Tour</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 
@@ -111,7 +119,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

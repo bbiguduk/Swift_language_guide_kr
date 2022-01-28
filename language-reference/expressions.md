@@ -51,7 +51,7 @@ _강제 try 표현식 \(forced-try expression\)_ 은 에러를 던질 수 있게
 
 강제 try 표현식의 값은 표현식의 값입니다. _표현식_ 이 에러를 던지면 런타임 에러가 발생합니다.
 
-이진 연산자의 왼쪽 표현식에 `try`, `try?`, 또는 `try!` 로 표시되면 해당 연산자는 이진 표현식 전체에 적용됩니다. 즉, 괄호를 사용하여 명시적으로 연산자의 적용 범위를 명시할 수 있습니다.
+중위 연산자의 왼쪽 표현식에 `try`, `try?`, 또는 `try!` 로 표시되면 해당 연산자는 중위 표현식 전체에 적용됩니다. 즉, 괄호를 사용하여 명시적으로 연산자의 적용 범위를 명시할 수 있습니다.
 
 ```swift
 // try applies to both function calls
@@ -64,7 +64,7 @@ sum = try (someThrowingFunction() + anotherThrowingFunction())
 sum = (try someThrowingFunction()) + anotherThrowingFunction()
 ```
 
-이항 연산자가 할당 연산자 이거나 `try` 표현식이 괄호로 묶여있지 않으면 `try` 표현식은 이항 연산자의 오른쪽에 나타날 수 없습니다.
+중위 연산자가 할당 연산자 이거나 `try` 표현식이 괄호로 묶여있지 않으면 `try` 표현식은 중위 연산자의 오른쪽에 나타날 수 없습니다.
 
 더 자세한 정보와 `try`, `try?`, 그리고 `try!` 사용법에 대한 예제는 [에러 처리 \(Error Handling\)](../language-guide-1/error-handling.md) 을 참고 바랍니다.
 
@@ -83,7 +83,7 @@ _await 표현식 \(await expression\)_ 은 `await` 연산자 다음에 비동기
 
 `await` 표현식은 `async(priority:operation:)` 함수에 전달된 후행 클로저와 같은 비동기 컨텍스트 내에서만 나타날 수 있습니다. `defer` 구문의 바디나 동기 함수 타입의 자동 클로저 \(autoclosure\) 내에서는 나타날 수 없습니다.
 
-이항 연산자 \(binary operator\) 의 좌항에 `await` 연산자로 표시되면 해당 연산자는 전체 이항 표현식에 적용됩니다. 즉, 괄호를 사용하여 연산자의 적용 범위를 명시할 수 있습니다.
+중위 연산자 \(infix operator\) 의 좌항에 `await` 연산자로 표시되면 해당 연산자는 전체 중위 표현식에 적용됩니다. 즉, 괄호를 사용하여 연산자의 적용 범위를 명시할 수 있습니다.
 
 ```swift
 // await applies to both function calls
@@ -96,16 +96,16 @@ sum = await (someAsyncFunction() + anotherAsyncFunction())
 sum = (await someAsyncFunction()) + anotherAsyncFunction()
 ```
 
-`await` 표현식은 이항 연산자가 할당 연산자 이거나 `await` 표현식이 괄호로 묶인 경우가 아니면 이항 연산자의 우항에 나타날 수 없습니다.
+`await` 표현식은 중위 연산자가 할당 연산자 이거나 `await` 표현식이 괄호로 묶인 경우가 아니면 중위 연산자의 우항에 나타날 수 없습니다.
 
 표현식에 `await` 와 `try` 연산자가 모두 포함되면 `try` 연산자가 먼저 나타나야 합니다.
 
 > GRAMMAR OF AN AWAIT EXPRESSION   
 > await-operator → `await`
 
-## 이항 표현식 \(Binary Expressions\)
+## 중위 표현식 \(Infix Expressions\)
 
-_이항 표현식 \(Binary expressions\)_ 은 좌항과 우항 인수를 가지는 표현식과 중위 이항 연산자 \(infix binary operator\) 를 결합합니다. 형식은 다음과 같습니다:
+_중위 표현식 \(Infix expressions\)_ 은 좌항과 우항 인수를 가지는 표현식과 중위 이항 연산자 \(infix binary operator\) 를 결합합니다. 형식은 다음과 같습니다:
 
 ![](../.gitbook/assets/2021-02-21-10.31.00.png)
 
@@ -114,14 +114,14 @@ _이항 표현식 \(Binary expressions\)_ 은 좌항과 우항 인수를 가지�
 Swift 표준 라이브러리에 의해 제공되는 연산자에 대한 자세한 내용은 [연산자 선언 \(Operator Declarations\)](https://developer.apple.com/documentation/swift/swift_standard_library/operator_declarations) 를 참고 바랍니다.
 
 > NOTE  
-> 구문 분석 시 이항 연산자로 구성된 표현식은 단순 목록으로 표현됩니다. 이 목록은 연산자 우선순위를 적용하여 트리로 변환됩니다. 예를 들어 표현식 `2 + 3 * 5` 는 처음에는 5개의 항목 `2`, `+`, `3`, `*`, 그리고 `5` 의 단순 목록으로 이해됩니다. 이 프로세스는 트리 \(2 + \(3 \* 5\)\) 로 변환합니다.
+> 구문 분석 시 중위 연산자로 구성된 표현식은 단순 목록으로 표현됩니다. 이 목록은 연산자 우선순위를 적용하여 트리로 변환됩니다. 예를 들어 표현식 `2 + 3 * 5` 는 처음에는 5개의 항목 `2`, `+`, `3`, `*`, 그리고 `5` 의 단순 목록으로 이해됩니다. 이 프로세스는 트리 \(2 + \(3 \* 5\)\) 로 변환합니다.
 >
-> GRAMMAR OF A BINARY EXPRESSION  
-> binary-expression → [binary-operator](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_binary-operator) [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  
-> binary-expression → [assignment-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_assignment-operator) [try-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_try-operator) $$_{opt}$$ [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  
-> binary-expression → [conditional-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_conditional-operator) [try-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_try-operator) $$_{opt}$$ [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  
-> binary-expression → [type-casting-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_type-casting-operator)  
-> binary-expressions → [binary-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_binary-expression) [binary-expressions](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_binary-expressions) $$_{opt}$$
+> GRAMMAR OF A INFIX EXPRESSION  
+> infix-expression → [infix-operator](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_infix-operator) [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  
+> infix-expression → [assignment-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_assignment-operator) [try-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_try-operator) $$_{opt}$$ [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  
+> infix-expression → [conditional-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_conditional-operator) [try-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_try-operator) $$_{opt}$$ [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_prefix-expression)  
+> infix-expression → [type-casting-operator](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_type-casting-operator)  
+> infix-expressions → [infix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_infix-expression) [infix-expressions](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_infix-expressions) $$_{opt}$$
 
 ### 할당 연산자 \(Assignment Operator\)
 
@@ -197,7 +197,7 @@ f(x as Any)
 
 ## 기본 표현식 \(Primary Expressions\)
 
-_기본 표현식 \(Primary expressions\)_ 은 표현식의 가장 기본입니다. 표현식 자체로 사용될 수 있으며 접두사 표현식, 이진 표현식, 그리고 접미사 표현식을 만들기 위해 다른 토큰과 결합될 수 있습니다.
+_기본 표현식 \(Primary expressions\)_ 은 표현식의 가장 기본입니다. 표현식 자체로 사용될 수 있으며 접두사 표현식, 중위 표현식, 그리고 접미사 표현식을 만들기 위해 다른 토큰과 결합될 수 있습니다.
 
 > GRAMMAR OF A PRIMARY EXPRESSION  
 > primary-expression → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) [generic-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-clause) $$_{opt}$$  
@@ -1020,10 +1020,28 @@ let x = [10, 3, 20, 15, 4]
     .map { $0 * 100 }
 ```
 
+이 여러줄로 연결된 구문을 컴파일러 제어문과 결합하여 각 메서드가 호출되는 시기를 제어할 수 있습니다. 예를 들어 다음 코드는 iOS 에서 다른 필터링 규칙을 사용합니다:
+
+```swift
+let numbers = [10, 20, 33, 43, 50]
+#if os(iOS)
+.filter { $0 < 40 }
+#else
+.filter { $0 > 25 }
+#endif
+```
+
+`#if`, `#endif` 와 다른 컴파일 지시문 사이에 조건부 컴파일 블록은 암시적 멤버 표현식 뒤에 접미사를 포함하지 않거나 많은 접미사를 포함하여 접미사 표현식을 형성할 수 있습니다. 다른 조건부 컴파일러 블럭 또는 이러한 표현식과 블럭을 포함할 수도 있습니다.
+
+최상위 코드 뿐만 아니라 명시적 멤버 표현식을 작성할 수 있는 모든 곳에서 이 구문을 사용할 수 있습니다.
+
+조건부 컴파일러 블럭에서 `#if` 컴파일러 지시문의 분기에는 하나 이상의 표현식이 포함되어야 합니다. 다른 분기는 비어있을 수 있습니다.
+
 > GRAMMAR OF AN EXPLICIT MEMBER EXPRESSION  
 > explicit-member-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits)  
 > explicit-member-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) `.` [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) [generic-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-clause) $$_{opt}$$  
 > explicit-member-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) `.` [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) `(` [argument-names](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_argument-names) `)`  
+> explicit-member-expression → [postfix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_postfix-expression) [conditional-compilation-block](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_conditional-compilation-block)  
 > argument-names → [argument-name](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_argument-name) [argument-names](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_argument-names) $$_{opt}$$  
 > argument-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) `:`
 

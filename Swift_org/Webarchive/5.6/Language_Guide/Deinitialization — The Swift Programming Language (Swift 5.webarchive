@@ -1,0 +1,1904 @@
+bplist00“+_WebSubresources_WebMainResource®"&‘	
+_WebResourceData_WebResourceMIMEType_WebResourceResponse^WebResourceURLOO«Ôªøhtml{
+    font-size:100%;
+    -ms-text-size-adjust:100%;
+    -webkit-text-size-adjust:100%
+}
+body{
+    margin:0;
+    padding:0
+}
+ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,hgroup,p,blockquote,figure,form,fieldset,input,legend,pre,abbr{
+    margin:0;
+    padding:0
+}
+pre,code,address,caption,th,figcaption{
+    font-size:1em;
+    font-weight:normal;
+    font-style:normal
+}
+fieldset,iframe,img{
+    border:none
+}
+caption,th{
+    text-align:left
+}
+table{
+    border-collapse:collapse;
+    border-spacing:0
+}
+article,aside,footer,header,nav,main,section,summary,details,hgroup,figure,figcaption{
+    display:block
+}
+audio,canvas,video,progress{
+    display:inline-block;
+    vertical-align:baseline
+}
+button{
+    font:inherit;
+    vertical-align:middle
+}
+.highlight { background: #ffffff }
+.highlight .c, .highlight .cm, .highlight .cp, .highlight .c1, .highlight .cs { color: #007400; } /* Comment, Comment.Multiline, Comment.Preproc, Comment.Single, Comment.Special */
+.highlight .k, .highlight .kc, .highlight .kd, .highlight .kp, .highlight .kr, .highlight .nb { color: #AA0D91; } /* Keyword, Keyword.Constant, Keyword.Declaration, Keyword.Pseudo, Name.Builtin */
+.highlight .kt { color: #3F6E74 } /* Keyword.Reserved */
+.highlight .err { color: #a61717; } /* Error */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .gd { color: #000000;background-color: #fdd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000;background-color: #faa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style:italic } /* Generic.Emph */
+.highlight .gr { color: #a00 } /* Generic.Error */
+.highlight .gh { color: #999 } /* Generic.Heading */
+.highlight .gi { color: #000000;background-color: #dfd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000;background-color: #afa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888 } /* Generic.Output */
+.highlight .gp { color: #555 } /* Generic.Prompt */
+.highlight .gs { font-weight:bold } /* Generic.Strong */
+.highlight .gu { color: #aaa } /* Generic.Subheading */
+.highlight .gt { color: #a00 } /* Generic.Traceback */
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo { color: #1C00CF; } /* Literal.Number, Literal.Number.Float, Literal.Number.Hex, Literal.Number.Integer, Literal.Number.Oct */
+.highlight .s { color: #C41A16; } /* Literal.String */
+.highlight .na { color:teal }     /* Name.Attribute */
+.highlight .nc { color: #5C2699 } /* Name.Class */
+.highlight .no { color: teal }    /* Name.Constant */
+.highlight .ni { color: purple }  /* Name.Entity */
+.highlight .ne { color: #990000 } /* Name.Exception */
+.highlight .nn { color: #555 }    /* Name.Namespace */
+.highlight .nt { color: navy } 	  /* Name.Tag */
+.highlight .nv, .highlight .nf { color: #3F6E74 } /* Name.Variable, Name.Function */
+.highlight .ow { font-weight:bold } /* Operator.Word */
+.highlight .w { color: #bbb } /* Text.Whitespace */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color:teal } /* Name.Variable.Class */
+.highlight .vg { color:teal } /* Name.Variable.Global */
+.highlight .vi { color:teal } /* Name.Variable.Instance */
+.highlight .il { color: #099 } /* Literal.Number.Integer.Long */
+
+*,*:before,*:after{
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box
+}
+html,body{
+    height:100%
+}
+body{
+    font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+    font-size:18px;
+    line-height:1.5;
+    color:#333;
+    font-weight:300
+}
+body pre,body code{
+    font-family:Menlo, Consolas, Monaco, "Courier New", monospace, serif
+}
+a:link{
+    color:#0088cc;
+    text-decoration:none
+}
+a:visited{
+    color:#7766cc
+}
+a:active{
+    color:#0088cc
+}
+a:hover{
+    color:#0088cc;
+    text-decoration:underline
+}
+p{
+    margin-bottom:1.5em
+}
+h1{
+    margin-bottom:0.8em;
+    font-size:3em;
+    font-weight:300;
+    line-height:1
+}
+h1.active+.main-nav{
+    border-top:1px solid #333
+}
+h2{
+    margin-bottom:0.5em;
+    font-size:2.5em;
+    font-weight:300;
+    line-height:1
+}
+h3{
+    margin-bottom:0.5em;
+    font-size:1.5em;
+    font-weight:300;
+    line-height:1
+}
+h4{
+    margin-bottom:0.5em;
+    font-size:1.25em;
+    font-weight:300;
+    line-height:1.2
+}
+h5{
+    margin-bottom:0.5em;
+    font-size:1.175em;
+    font-weight:500;
+    line-height:1.4
+}
+h6{
+    margin-bottom:0.5em;
+    font-size:1em;
+    font-weight:700;
+    line-height:1.5
+}
+pre{
+    font-size:14px;
+    line-height:18px;
+    border-left:3px #ef5138 solid;
+    margin:0.5em;
+    margin-left:10px;
+    margin-bottom:1.5em;
+    padding:0.5em;
+    padding-left:1em;
+    overflow:scroll
+}
+p>code,li>code,dd>code,blockquote>code,td>code{
+    color:#000;
+    padding:3px 8px;
+    font-size:14px;
+    white-space:nowrap;
+    border:1px solid #E5E5E5;
+    background-color:#f7f7f7
+}
+hr{
+    border:none;
+    border-top:1px #f3f3f3 solid;
+    margin:2em 0
+}
+hr:last-child{
+    display:none
+}
+details{
+    margin-bottom:2em
+}
+details :first-child{
+    margin-top:1.5em
+}
+cite{
+    display:block
+}
+cite:before{
+    content:"‚Äî "
+}
+#logo{
+    text-indent:-9999px;
+    height:48px;
+    width:100%;
+    margin-top:20px;
+    margin-bottom:0.5em;
+    padding-bottom:10px
+}
+#logo a{
+    display:block;
+    width:190px;
+    height:48px;
+    background-image:url("../images/swift.svg");
+    background-repeat:no-repeat;
+    background-size:190px 48px;
+    background-position-x: -8px;
+}
+nav[role="navigation"]{
+    width:250px;
+    position:fixed;
+    overflow:scroll;
+    left:0;
+    top:0;
+    bottom:0;
+    background:#FAFAFA;
+    border-right:1px solid #e6e6e6;
+    padding:20px 30px
+}
+nav[role="navigation"] ul{
+    border-top:1px solid #e6e6e6;
+    font-weight:400;
+    margin-bottom:30px;
+    list-style:none
+}
+nav[role="navigation"] ul ul{
+    list-style:none
+}
+nav[role="navigation"] ul li{
+    border-bottom:1px solid #e6e6e6
+}
+nav[role="navigation"] ul li.active{
+    border-bottom:1px solid #333
+}
+nav[role="navigation"] ul li.active a{
+    font-weight:700
+}
+nav[role="navigation"] ul li a:link{
+    color:#333;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-size:12px;
+    display:block;
+    padding:10px
+}
+nav[role="navigation"] ul li a:visited{
+    color:#333
+}
+nav[role="navigation"] ul li a:active{
+    font-weight:700
+}
+nav[role="navigation"] ul li a:hover{
+    color:#0088cc
+}
+nav[role="navigation"] ul li ul{
+    margin-bottom:10px;
+    border-top:none
+}
+nav[role="navigation"] ul li ul li{
+    border-bottom:none;
+    padding:0.1em
+}
+nav[role="navigation"] ul li ul li.active{
+    border-bottom:none
+}
+nav[role="navigation"] ul li ul li.active a{
+    font-weight:700
+}
+nav[role="navigation"] ul li ul a:link{
+    color:#0088cc;
+    text-decoration:none;
+    text-transform:none;
+    letter-spacing:0;
+    font-size:12px;
+    display:block;
+    margin-left:15px;
+    padding:0 0 3px;
+    border-bottom:none;
+    font-weight:300
+}
+nav[role="navigation"] ul li ul a:hover{
+    text-decoration:underline
+}
+nav[role="navigation"] h2{
+    font-size:0.75em;
+    font-weight:600;
+    text-transform:lowercase;
+    font-variant:small-caps;
+    color:#999;
+    padding-bottom:0.5em
+}
+main{
+    max-width:798px;
+    min-width:320px;
+    margin-left:250px;
+    padding: 35px 30px 0;
+    min-height:100%;
+    height:auto !important;
+    height:100%
+}
+footer[role="contentinfo"]{
+    background:#333;
+    color:white;
+    padding:20px 30px;
+    margin-left:250px;
+    min-height:74px
+}
+footer[role="contentinfo"] p{
+    font-size:0.625em;
+    color:#ccc;
+    line-height:1em;
+    margin-bottom:1em
+}
+footer[role="contentinfo"] p.privacy a{
+    color:#ccc;
+    border-right:1px solid #ccc;
+    margin-right:6px;
+    padding-right:8px
+}
+footer[role="contentinfo"] p.privacy a:last-child{
+    border:none;
+    margin:0;
+    padding:0
+}
+footer[role="contentinfo"] aside{
+    position:relative;
+    width:100%;
+    max-width:700px;
+    margin-right:68px
+}
+footer[role="contentinfo"] aside i{
+    width:16px;
+    height:16px;
+    background-repeat:no-repeat;
+    background-size:16px;
+    display:block;
+    margin-left:1em;
+    float:right;
+    text-indent: -5000em;
+}
+footer[role="contentinfo"] aside i.twitter{
+    background-image:url("../images/icon-twitter.svg")
+}
+footer[role="contentinfo"] aside i.feed{
+    background-image:url("../images/icon-feed.svg")
+}
+article:first-of-type{
+    padding-bottom:36px
+}
+article h2{
+    padding-top:1.1em
+}
+article h3{
+    padding-top:1em
+}
+article h4{
+    padding-top:1em;
+    border-bottom:1px #f3f3f3 solid;
+    padding-bottom:0.5em
+}
+article h5{
+    margin-top:1em
+}
+article header{
+    width:100%;
+    display:inline-block;
+    padding-bottom:3em
+}
+article header h1{
+    padding-bottom:0.125em
+}
+article header .byline{
+    float:left;
+    font-size:14px;
+    margin-left:3em
+}
+article header .byline img{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    border:1px #ccc solid;
+    position:absolute;
+    margin-right:0.25em;
+    margin-top:-6px
+}
+article header .byline span{
+    padding-left:42px
+}
+article header time{
+    float:left;
+    text-transform:uppercase;
+    font-size:14px;
+    font-weight:400;
+    color:#aaa
+}
+article header .tags{
+    display:block;
+    font-size:12px;
+    font-weight:400;
+    margin-top:0
+}
+article:not(:first-of-type){
+    border-top:1px solid #e6e6e6;
+    padding:36px 0
+}
+article blockquote{
+    border-left:3px #c3c3c3 solid;
+    margin:0.5em;
+    margin-left:10px;
+    margin-bottom:1.5em;
+    padding:0.5em;
+    padding-left:1em;
+    color:#333
+}
+article ul,article ol{
+    padding-left:40px;
+    margin:1em 0
+}
+article ul ul,article ul ol,article ol ul,article ol ol{
+    margin:0
+}
+article ul{
+    list-style:disc
+}
+article ul ul{
+    list-style:circle
+}
+article ul ul ul{
+    list-style:square
+}
+article ol{
+    list-style:decimal
+}
+article dl{
+    margin:2em 0 1em 0
+}
+article dl dt{
+    display:block;
+}
+article dl dd{
+    margin:0 0 1em 1em
+}
+article table{
+    width:auto;
+    min-width:68%;
+    margin:2em auto 3em auto;
+    border-collapse:separate;
+    border:1px #e3e3e3 solid
+}
+article table th{
+    background:#fafafa;
+    font-weight:700;
+    text-align:center
+}
+article table th,article table td{
+    padding:0.5em 1.5em;
+    border-bottom:1px #f3f3f3 solid
+}
+article table th:not(:first-child),article table td:not(:first-child){
+    border-left:1px #f3f3f3 solid
+}
+article table tr:last-child td{
+    border-bottom:none
+}
+article details{
+    margin-top:0;
+    cursor:pointer
+}
+article details summary{
+    padding-bottom:0.5em;
+    outline:none;
+    margin-top:0
+}
+article details summary:after{
+    content:"Expand";
+    text-transform:lowercase;
+    font-variant:small-caps;
+    border-bottom:1px #ccc dashed
+}
+article details[open] summary:after{
+    content:"Collapse"
+}
+article details[open] *:not(summary){
+    cursor:auto
+}
+article details.download{
+    margin-top:0;
+    cursor:pointer
+}
+article details.download summary{
+    padding-bottom:0.5em;
+    outline:none;
+    margin-top:0
+}
+article details.download summary:after{
+    content:none;
+    text-transform:lowercase;
+    font-variant:small-caps;
+    border-bottom:1px #ccc dashed
+}
+article details.download[open] summary:after{
+    content:none
+}
+article details.download[open] *:not(summary){
+    cursor:auto
+}
+article>details{
+    margin-left:40px
+}
+article .good pre,article pre.good{
+    background:#E6FFE5;
+    border-color:#C0FFBC
+}
+article .good pre:before,article pre.good:before{
+    content:"‚úÖ";
+    float:right
+}
+article .bad pre,article pre.bad{
+    background:#F9E2E4;
+    border-color:#F6B7BE
+}
+article .bad pre:before,article pre.bad:before{
+    content:"‚õîÔ∏è";
+    float:right
+}
+article footer{
+    margin:4em 0 0 0;
+    padding:1.5em 0 1em 0;
+    border-top:1px #F3F3F3 solid
+}
+article footer:after{
+    content:"";
+    display:table;
+    clear:both
+}
+article footer nav [rel="prev"]{
+    width:45%;
+    float:left;
+    text-align:left
+}
+article footer nav [rel="prev"]:before{
+    content:"‚Üê "
+}
+article footer nav [rel="next"]{
+    width:45%;
+    float:right;
+    text-align:right
+}
+article footer nav [rel="next"]:after{
+    content:" ‚Üí"
+}
+.title a:link,.title a:visited{
+    color:#333
+}
+.alert,.success,.info,.warning,.danger{
+    border-width:1px;
+    border-style:solid;
+    padding:0.5em;
+    margin:0.5em 0 1.5em 0
+}
+.alert p:first-child,.success p:first-child,.info p:first-child,.warning p:first-child,.danger p:first-child{
+    margin-top:0
+}
+.alert p:last-child,.success p:last-child,.info p:last-child,.warning p:last-child,.danger p:last-child{
+    margin-bottom:0
+}
+.alert code,.success code,.info code,.warning code,.danger code{
+    border:none;
+    background:transparent;
+    padding:0
+}
+code{
+    white-space:pre-line
+}
+pre code{
+    white-space:inherit
+}
+pre code .graphic{
+    font-size:19px;
+    line-height:0
+}
+pre code .commentary,pre code .graphic{
+    font-family:"Helvetica Neue", Helvetica, Arial, Verdana, sans-serif
+}
+@supports (overflow: -webkit-marquee) and (justify-content: inherit){
+    .alert:before,.success:before,.info:before,.warning:before,.danger:before{
+        font-size:1em;
+        float:left;
+        clear:left;
+        padding-left:0.125em;
+        width:2em
+    }
+    .alert p,.success p,.info p,.warning p,.danger p{
+        padding-left:2em
+    }
+    .success:before{
+        content:"‚úÖ"
+    }
+    .info:before{
+        content:"‚ÑπÔ∏è"
+    }
+    .warning:before{
+        content:"‚ö†Ô∏è"
+    }
+    .danger:before{
+        content:"‚ùóÔ∏è"
+    }
+}
+.success{
+    border-color:#149e39;
+    background-color:#e0ffe8
+}
+.info{
+    border-color:#139CFE;
+    background-color:#DEF0FD
+}
+.warning{
+    border-color:#FFFF10;
+    background-color:#FFFFEB
+}
+.danger{
+    border-color:#D5001B;
+    background-color:#FEE1E2
+}
+table.downloads{
+    width:100%;
+    table-layout:fixed
+}
+table.downloads th{
+    font-size:0.75em
+}
+table.downloads .platform{
+    width:40%
+}
+table.downloads .download{
+    width:60%
+}
+table.downloads .download a.debug,table.downloads .download a.signature{
+    font-size:0.7em;
+    display:block
+}
+table.downloads .download a{
+    font-weight:700;
+    font-size:1em
+}
+table.downloads .download a:not([download]){
+    font-weight:400
+}
+table.downloads .download a:not([download]):before{
+    content:"("
+}
+table.downloads .download a:not([download]):after{
+    content:")"
+}
+article input.detail[type=checkbox]{
+    visibility:hidden;
+    cursor:pointer;
+    height:0;
+    width:100%;
+    margin-bottom:2em;
+    display:block;
+    font-size:inherit;
+    font-style:inherit;
+    font-weight:inherit;
+    font-family:inherit;
+    position:relative;
+    top:-.85rem
+}
+article p+input.detail[type=checkbox]{
+    margin-top:auto
+}
+article .screenonly{
+    display:none
+}
+@media screen{
+    article .screenonly{
+        display:inherit
+    }
+    article input.detail[type=checkbox]:before{
+        content:"‚ñ∂ ";
+        visibility:visible;
+        font-size:80%
+    }
+    article input.detail[type=checkbox]:after{
+        text-transform:lowercase;
+        font-variant:small-caps;
+        border-bottom:1px #ccc dashed;
+        color:#666666;
+        content:"More detail";
+        visibility:visible
+    }
+    article input.detail[type=checkbox]:checked:before{
+        content:"‚ñº "
+    }
+    article input.detail[type=checkbox]:checked:after{
+        content:"Less detail"
+    }
+    article input.detail[type=checkbox]+.more{
+        transition:0.5s opacity ease, 0.5s max-height ease
+    }
+    article input.detail[type=checkbox]:checked+.more{
+        visibility:visible;
+        max-height:1000rem
+    }
+    article input.detail[type=checkbox]:not(:checked)+.more{
+        overflow:hidden;
+        max-height:0px;
+        opacity:0
+    }
+}
+article .more>p:first-of-type{
+    margin-top:0
+}
+@media only screen and (max-width: 767px){
+    nav[role="navigation"]{
+        width:100%;
+        position:relative;
+        background:#FAFAFA;
+        border-bottom:1px solid #e6e6e6;
+        border-right:none;
+        padding:20px 30px;
+        overflow:hidden
+    }
+    nav[role="navigation"].open>*{
+        display:block
+    }
+    nav[role="navigation"]>h2,nav[role="navigation"] ul{
+        display:none
+    }
+    .menu-toggle{
+        float:right;
+        content:' ';
+        height:20px;
+        width:20px;
+        background-image:url("../images/icon-close.svg");
+        background-repeat:no-repeat;
+        background-position:center center;
+        background-size:21px 21px;
+        margin-top:-48px;
+        margin-right:12px;
+        cursor:pointer
+    }
+    .menu-toggle.open{
+        background-image:url("../images/icon-menu.svg")
+    }
+    #logo a{
+        width:198px;
+        margin:0 auto
+    }
+    main{
+        max-width:100%;
+        min-width:320px;
+        margin-left:0;
+        padding:30px 30px 0
+    }
+    footer[role="contentinfo"]{
+        margin-left:0
+    }
+    h1{
+        font-size:48px;
+        font-weight:200;
+        line-height:1
+    }
+    h2{
+        font-size:40px;
+        font-weight:300;
+        line-height:1.1
+    }
+    h3{
+        font-size:38px;
+        font-weight:300;
+        line-height:1.1
+    }
+    h4{
+        font-size:36px;
+        font-weight:300;
+        line-height:1.2
+    }
+    h5{
+        font-size:24px;
+        font-weight:500;
+        line-height:1.4
+    }
+    h6{
+        font-size:18px;
+        font-weight:700;
+        line-height:1.5
+    }
+    table.downloads{
+        border:1px #f3f3f3 solid
+    }
+    table.downloads,table.downloads thead,table.downloads tbody,table.downloads th,table.downloads td,table.downloads tr{
+        display:block !important
+    }
+    table.downloads thead tr{
+        position:absolute;
+        top:-9999px;
+        left:-9999px
+    }
+    table.downloads tr{
+        border:1px solid #f3f3f3
+    }
+    table.downloads td{
+        border-left:none !important;
+        border-right:none !important;
+        border-bottom:1px solid #f3f3f3 !important;
+        position:relative;
+        padding-left:35%;
+        width:100% !important
+    }
+    table.downloads td:before{
+        position:absolute;
+        top:0.5em;
+        left:0.5em;
+        width:27.5%;
+        padding-right:10px;
+        white-space:nowrap;
+        text-align:right
+    }
+    table.downloads td.platform:before{
+        content:"Platform"
+    }
+    table.downloads td.download:before{
+        content:"Download";
+        top:1em
+    }
+    table.downloads td.date:before{
+        content:"Date"
+    }
+}
+@media only print{
+    html body{
+        background:white;
+        font-size:12pt;
+        padding:0.5in
+    }
+    html body *{
+        -webkit-print-color-adjust:exact
+    }
+    a{
+        color:black !important;
+        text-decoration:underline !important
+    }
+    h1,h2,h3,h4,h5,h6,p,article>div,pre,table{
+        page-break-inside:avoid
+    }
+    details:not([open]){
+        visibility:visible
+    }
+    details:not([open]) summary{
+        display:none !important
+    }
+    details:not([open])>*,details:not([open]){
+        display:block
+    }
+    .alert,.success,.info,.warning,.danger{
+        margin:1.5em 0
+    }
+    main{
+        width:auto;
+        padding:0;
+        border:0;
+        float:none !important;
+        color:black;
+        background:transparent;
+        margin:0;
+        max-width:100%;
+        min-height:1in
+    }
+    nav[role="navigation"]{
+        background:transparent;
+        border:none;
+        width:auto;
+        position:static;
+        padding:0
+    }
+    nav[role="navigation"] h2,nav[role="navigation"] ul{
+        display:none
+    }
+    nav[role="navigation"] #logo{
+        position:static;
+        margin-bottom:1.5em
+    }
+    nav[role="navigation"] #logo a{
+        background-position:-15px
+    }
+    footer[role="contentinfo"]{
+        display:none
+    }
+}
+ Xtext/cssO¬bplist00‘
+X$versionY$archiverT$topX$objects Ü†_NSKeyedArchiver—	_WebResourceResponseÄØ1'-.4567cdefghijklmnopqrstuvwxyz{|}~ÄÅÇÉÑÖÜáàâçU$null› !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1ÄÄÄ	ÄÄ0ÄÄ Ä”()$+,WNS.base[NS.relativeÄ ÄÄ_Ehttps://docs.swift.org/swift-book/_static/stylesheets/application.css“/012Z$classnameX$classesUNSURL¢13XNSObject#A√“É-√ »”89:NbWNS.keysZNS.objectsØ;<=>?@ABCDEFGHIJKLMÄ	Ä
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄØPQRSTUVWXYZ[\]^_`aÄÄÄÄÄ Ä!Ä"Ä#Ä$Ä%Ä&Ä'Ä(Ä)Ä*Ä+Ä,Ä-Ä.Ä/\Content-Type_X-Frame-Options]Last-ModifiedSAge_Content-EncodingVServer_X-XSS-ProtectionSViaWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-RangesWX-CacheXtext/cssZSAMEORIGIN_Thu, 27 Jan 2022 18:45:55 GMTQ0TgzipUApple]1; mode=block_uhttps/1.1 jptyo7-edge-bx-011.ts.apple.com (acdn/137.13246), http/1.1 jptyo7-edge-lx-001.ts.apple.com (acdn/137.13246)_/fc6a706a-259d-4e82-ab8c-c3aa8568ba11-5181885687_max-age=180, public_Fri, 28 Jan 2022 11:54:31 GMT_#max-age=31536000; includeSubdomainsT5684Zkeep-alive_Ä
+
+YnBsaXN0MDDfEBIBAgMEBQYHCAkKCwwNDg8QERITFRcZGx0fISMlJykrLS8xMzVcQ29udGVudC1UeXBlV1gtQ2FjaGVURXRhZ1NBZ2VfEBBDb250ZW50LUVuY29kaW5nVlNlcnZlcl8QEFgtWFNTLVByb3RlY3Rpb25TVmlhV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zXUxhc3QtTW9kaWZpZWShFFh0ZXh0L2Nzc6EWWWhpdC1zdGFsZaEYXxAUIjRmYzctNWQ2OTRiYTcwOWVjMCKhGlEwoRxUZ3ppcKEeVUFwcGxloSBdMTsgbW9kZT1ibG9ja6EiXxB1aHR0cHMvMS4xIGpwdHlvNy1lZGdlLWJ4LTAxMS50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KSwgaHR0cC8xLjEganB0eW83LWVkZ2UtbHgtMDAxLnRzLmFwcGxlLmNvbSAoYWNkbi8xMzcuMTMyNDYpoSRfEC9mYzZhNzA2YS0yNTlkLTRlODItYWI4Yy1jM2FhODU2OGJhMTEtNTE4MTg4NTY4N6EmXxATbWF4LWFnZT0xODAsIHB1YmxpY6EoXxAdRnJpLCAyOCBKYW4gMjAyMiAxMTo1NDozMSBHTVShKl8QI21heC1hZ2U9MzE1MzYwMDA7IGluY2x1ZGVTdWJkb21haW5zoSxUNTY4NKEuWmtlZXAtYWxpdmWhMFdub3NuaWZmoTJVYnl0ZXOhNFpTQU1FT1JJR0lOoTZfEB1UaHUsIDI3IEphbiAyMDIyIDE4OjQ1OjU1IEdNVAAIAC8APABEAEkATQBgAGcAegB+AIYAlACZALUAxADPAOgA9gEIARYBGAEhASMBLQEvAUYBSAFKAUwBUQFTAVkBWwFpAWsB4wHlAhcCGQIvAjECUQJTAnkCewKAAoICjQKPApcCmQKfAqECrAKuAAAAAAAAAgEAAAAAAAAANwAAAAAAAAAAAAAAAAAAAs4=Wnosniff_"4fc7-5d694ba709ec0"UbytesYhit-stale“/0äã_NSMutableDictionary£äå3\NSDictionary“/0éè_NSHTTPURLResponse£êë3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d ò û π € ˝ "%GNpsvò∫Ωø¡√≈«…ÀÕŒ–“‘÷›ÂÒÛı˜?DOX^ajsuw~Üëß©´≠Ø±≥µ∑πªΩø¡√≈«…ÀÕ„ÂÁÈÎÌÔÒÛı˜˘˚˝ˇ	*8<OVimuÉà§≥æ«‡ÂÛ˚/16<J¬Ù
+*PU`	‰	Ï
+
+	
+
+
+.
+2
+?
+D
+X
+\
+p             í              
+~_Ehttps://docs.swift.org/swift-book/_static/stylesheets/application.css‘O¨<?xml version="1.0" encoding="iso-8859-1"?>
+<svg version="1.1" id="artwork" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="191.1856px" height="59.3911px" viewBox="0 0 191.1856 59.3911" enable-background="new 0 0 191.1856 59.3911"
+	 xml:space="preserve">
+<g>
+	<g>
+		<path fill="#F05138" d="M59.3867,16.4501c-0.0035-0.5973-0.0101-1.1943-0.0266-1.7923c-0.0348-1.3008-0.1117-2.6134-0.3429-3.9003
+			c-0.2346-1.3069-0.6181-2.5221-1.2225-3.7093c-0.5933-1.1659-1.3689-2.2328-2.2941-3.158
+			c-0.925-0.9252-1.9919-1.7007-3.1583-2.2943c-1.1862-0.6037-2.4016-0.9871-3.7073-1.2217
+			c-1.2876-0.2319-2.6002-0.3083-3.902-0.3435c-0.5977-0.0162-1.1948-0.023-1.7923-0.0267C42.2315,0,41.5218,0,40.8128,0H25.0912
+			h-6.5131c-0.7097,0-1.4186,0-2.1276,0.0041c-0.5977,0.0037-1.1955,0.0105-1.7923,0.0267
+			c-0.3254,0.0088-0.6515,0.0202-0.9778,0.0359c-0.9788,0.0472-1.9591,0.1337-2.9243,0.3076
+			c-0.9793,0.176-1.9079,0.4356-2.8113,0.8091C7.6437,1.3078,7.3453,1.445,7.0487,1.5959C6.1739,2.0411,5.3549,2.5886,4.61,3.2248
+			c-0.2483,0.2121-0.4884,0.434-0.7196,0.6653c-0.9254,0.9252-1.701,1.9921-2.2943,3.158
+			c-0.6044,1.1872-0.9874,2.4024-1.2222,3.7093c-0.231,1.2869-0.3078,2.5995-0.3428,3.9003
+			c-0.0164,0.598-0.0233,1.195-0.0272,1.7923C-0.0006,17.1594,0,17.8689,0,18.5781V28.26v12.5525
+			c0,0.7099-0.0007,1.4187,0.0039,2.1286c0.0039,0.5973,0.0108,1.1943,0.0272,1.7913c0.035,1.3015,0.1117,2.6144,0.3428,3.9007
+			c0.2348,1.3065,0.6178,2.5228,1.2222,3.7097c0.5933,1.1662,1.3689,2.2328,2.2943,3.1576c0.9247,0.9256,1.9919,1.701,3.1584,2.295
+			c1.1863,0.6038,2.4016,0.9867,3.7076,1.2213c1.2868,0.2316,2.6004,0.3086,3.9019,0.3434c0.5968,0.0159,1.1946,0.023,1.7923,0.0264
+			c0.709,0.0051,1.4179,0.0044,2.1276,0.0044h22.2346c0.709,0,1.4187,0.0007,2.1278-0.0044
+			c0.5975-0.0034,1.1946-0.0105,1.7923-0.0264c1.3018-0.0348,2.6144-0.1119,3.902-0.3434c1.3057-0.2346,2.5211-0.6176,3.7073-1.2213
+			c1.1664-0.5939,2.2333-1.3694,3.1583-2.295c0.9252-0.9249,1.7009-1.9914,2.2941-3.1576c0.6044-1.1869,0.9879-2.4031,1.2225-3.7097
+			c0.2312-1.2863,0.3081-2.5992,0.3429-3.9007c0.0164-0.597,0.023-1.1939,0.0266-1.7913c0.0046-0.7099,0.0042-1.4187,0.0042-2.1286
+			V18.5781C59.3909,17.8689,59.3912,17.1594,59.3867,16.4501z"/>
+		<path fill="#FFFFFF" d="M47.0606,36.6607c-0.0014-0.0018-0.0027-0.0031-0.0042-0.0048c0.0657-0.2236,0.1335-0.4458,0.191-0.675
+			c2.465-9.8209-3.5511-21.4319-13.7316-27.5454c4.4613,6.0479,6.4339,13.3733,4.6813,19.7795
+			c-0.1563,0.5714-0.3442,1.1198-0.5519,1.6528c-0.2254-0.1481-0.5094-0.3162-0.8908-0.5265c0,0-10.1269-6.2527-21.1028-17.3122
+			c-0.288-0.2903,5.8528,8.777,12.8219,16.1399c-3.2834-1.8427-12.4338-8.5004-18.2266-13.8023
+			c0.7117,1.1869,1.5582,2.3298,2.4887,3.4301c4.8375,6.1349,11.1462,13.7044,18.7043,19.5169
+			c-5.3104,3.2498-12.8141,3.5025-20.2852,0.0034c-1.8479-0.866-3.5851-1.9109-5.1932-3.0981
+			c3.1625,5.0585,8.0332,9.4229,13.9613,11.9708c7.0695,3.0381,14.0996,2.8321,19.3356,0.0498l-0.0041,0.006
+			c0.0239-0.0151,0.0543-0.0316,0.0791-0.0469c0.215-0.1156,0.4284-0.2333,0.6371-0.3576
+			c2.5157-1.3058,7.4847-2.6306,10.1518,2.5588C50.7755,49.6699,52.1635,42.9395,47.0606,36.6607z"/>
+	</g>
+</g>
+<g id="XMLID_1_">
+	<g>
+		<path d="M81.9306,38.5423c0.464,4.1203,4.3938,6.8217,9.8514,6.8217c5.1854,0,8.9239-2.7014,8.9239-6.4393
+			c0-3.2203-2.2648-5.186-7.4776-6.4953l-5.0484-1.2825c-7.259-1.8013-10.534-5.0764-10.534-10.4792
+			c0-6.6585,5.8127-11.2709,14.0819-11.2709c8.0226,0,13.7263,4.6392,13.9175,11.3257h-5.3212
+			c-0.4098-4.0935-3.7391-6.6049-8.7327-6.6049c-4.94,0-8.3783,2.5382-8.3783,6.2493c0,2.8926,2.129,4.6124,7.3686,5.9497
+			l4.2025,1.0913c8.1323,1.9926,11.4615,5.158,11.4615,10.8617c0,7.259-5.7585,11.8166-14.9278,11.8166
+			c-8.5141,0-14.3268-4.5308-14.7634-11.5437H81.9306z"/>
+		<path d="M140.0488,49.4308h-5.3492l-6.2493-21.777h-0.109l-6.2219,21.777h-5.3486l-7.9142-28.5183h5.1848l5.5124,22.8963h0.1096
+			l6.2219-22.8963h5.021l6.2767,22.8963h0.1096l5.5125-22.8963h5.13L140.0488,49.4308z"/>
+		<path d="M151.3891,13.2442c0-1.7185,1.4195-3.1106,3.1387-3.1106c1.7466,0,3.1655,1.3921,3.1655,3.1106
+			c0,1.7197-1.4189,3.1387-3.1655,3.1387C152.8086,16.3829,151.3891,14.964,151.3891,13.2442z M151.9353,20.9125h5.2122v28.5183
+			h-5.2122V20.9125z"/>
+		<path d="M191.1856,25.1156v-4.2032h-5.5125v-6.8217h-5.1854v6.8217h-4.2299h-5.7335v-2.5102
+			c0.0268-2.5382,1.0096-3.6027,3.3567-3.6027c0.7636,0,1.5279,0.0828,2.1558,0.1912v-4.0935
+			c-0.9281-0.1364-1.774-0.218-2.7562-0.218c-5.5673,0-7.9142,2.3202-7.9142,7.6414v2.5918h-3.9839v4.2032h3.9839v24.3151h5.1848
+			V25.1156h5.7067h4.2299v16.8381c0,5.5125,2.1016,7.6402,7.5592,7.6402c1.1735,0,2.5108-0.0816,3.1113-0.218v-4.2567
+			c-0.355,0.0548-1.3922,0.1364-1.9651,0.1364c-2.4286,0-3.5199-1.1461-3.5199-3.7111V25.1156H191.1856z"/>
+	</g>
+</g>
+</svg>
+]image/svg+xmlOlbplist00‘
+X$versionY$archiverT$topX$objects Ü†_NSKeyedArchiver—	_WebResourceResponseÄØ/'-.4567abcdefghijklmnopqrstuvwxyz{|}~ÄÅÇÉÑÖâU$null› !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1ÄÄÄ	ÄÄ.ÄÄ Ä”()$+,WNS.base[NS.relativeÄ ÄÄ_:https://docs.swift.org/swift-book/_static/images/swift.svg“/012Z$classnameX$classesUNSURL¢13XNSObject#A√“É5] »”89:M`WNS.keysZNS.objectsØ;<=>?@ABCDEFGHIJKLÄ	Ä
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄØOPQRSTUVWXYZ[\]^_ÄÄÄÄÄÄ Ä!Ä"Ä#Ä$Ä%Ä&Ä'Ä(Ä)Ä*Ä+Ä,Ä-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGINYhit-staleQ0_uhttps/1.1 jptyo7-edge-bx-015.ts.apple.com (acdn/137.13246), http/1.1 jptyo7-edge-lx-006.ts.apple.com (acdn/137.13246)UApple]1; mode=block_/7b2b3fa3-84cd-4730-85ae-28e86a6242ab-5174903654_max-age=180, public_Fri, 28 Jan 2022 11:54:31 GMT_#max-age=31536000; includeSubdomainsT4780Zkeep-alive_X
+
+YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1UaHUsIDI3IEphbiAyMDIyIDE4OjQ1OjU1IEdNVKEXXxAUIjEyYWMtNWQ2OTRiYTcwOWVjMCKhGVEwoRtfEHVodHRwcy8xLjEganB0eW83LWVkZ2UtYngtMDE1LnRzLmFwcGxlLmNvbSAoYWNkbi8xMzcuMTMyNDYpLCBodHRwLzEuMSBqcHR5bzctZWRnZS1seC0wMDYudHMuYXBwbGUuY29tIChhY2RuLzEzNy4xMzI0NimhHVVBcHBsZaEfXTE7IG1vZGU9YmxvY2uhIV8QLzdiMmIzZmEzLTg0Y2QtNDczMC04NWFlLTI4ZTg2YTYyNDJhYi01MTc0OTAzNjU0oSNfEBNtYXgtYWdlPTE4MCwgcHVibGljoSVfEB1GcmksIDI4IEphbiAyMDIyIDExOjU0OjMxIEdNVKEnXxAjbWF4LWFnZT0zMTUzNjAwMDsgaW5jbHVkZVN1YmRvbWFpbnOhKVQ0NzgwoStaa2VlcC1hbGl2ZaEtV25vc25pZmahL1VieXRlc6ExWlNBTUVPUklHSU6hM1loaXQtc3RhbGUACAAtADoASABNAFEAVQBcAG8AdwCFAIoApgC1AMAA2QDnAPkBAQEDAREBEwEzATUBTAFOAVABUgHKAcwB0gHUAeIB5AIWAhgCLgIwAlACUgJ4AnoCfwKBAowCjgKWApgCngKgAqsCrQAAAAAAAAIBAAAAAAAAADQAAAAAAAAAAAAAAAAAAAK3Wnosniff_"12ac-5d694ba709ec0"Ubytes_Thu, 27 Jan 2022 18:45:55 GMT“/0Üá_NSMutableDictionary£Üà3\NSDictionary“/0äã_NSHTTPURLResponse£åç3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d ñ ú ∑ Ÿ ˚ ˛ #ELnqtñ∏ªΩø¡√≈«…ÀÃŒ–“‘€„ÔÒÛı27BKQT]fhjqyÑôõùü°£•ß©´≠Ø±≥µ∑πªΩ“‘÷ÿ⁄‹ﬁ‡‚‰ÊËÍÏÓÚÙˆ¯#'.AIW\xáíõ¥π«’„Ó¯˙rxÜ∏ŒÓ$	Ä	à	ü	•	≈	 	‡	‰	Ò	ˆ
+
+
+
+"             é              
+0_:https://docs.swift.org/swift-book/_static/images/swift.svg‘O<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+<path fill="#cccccc" d="M16 3.038c-0.589 0.261-1.221 0.438-1.885 0.517 0.678-0.406 1.198-1.050 1.443-1.816-0.634 0.376-1.337 0.649-2.085 0.797-0.599-0.638-1.452-1.037-2.396-1.037-1.813 0-3.283 1.47-3.283 3.282 0 0.257 0.029 0.508 0.085 0.748-2.728-0.137-5.147-1.444-6.766-3.43-0.283 0.485-0.444 1.049-0.444 1.65 0 1.139 0.579 2.144 1.46 2.732-0.538-0.017-1.044-0.165-1.487-0.411-0 0.014-0 0.027-0 0.041 0 1.59 1.132 2.917 2.633 3.219-0.275 0.075-0.565 0.115-0.865 0.115-0.212 0-0.417-0.021-0.618-0.059 0.418 1.304 1.63 2.253 3.066 2.28-1.123 0.88-2.539 1.405-4.077 1.405-0.265 0-0.526-0.016-0.783-0.046 1.453 0.931 3.178 1.475 5.032 1.475 6.038 0 9.34-5.002 9.34-9.34 0-0.142-0.003-0.284-0.010-0.425 0.642-0.463 1.198-1.041 1.638-1.699z"></path>
+</svg>
+Orbplist00‘
+X$versionY$archiverT$topX$objects Ü†_NSKeyedArchiver—	_WebResourceResponseÄØ/'-.4567abcdefghijklmnopqrstuvwxyz{|}~ÄÅÇÉÑÖâU$null› !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1ÄÄÄ	ÄÄ.ÄÄ Ä”()$+,WNS.base[NS.relativeÄ ÄÄ_Ahttps://docs.swift.org/swift-book/_static/images/icon-twitter.svg“/012Z$classnameX$classesUNSURL¢13XNSObject#A√“É:˜ »”89:M`WNS.keysZNS.objectsØ;<=>?@ABCDEFGHIJKLÄ	Ä
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄØOPQRSTUVWXYZ[\]^_ÄÄÄÄÄÄ Ä!Ä"Ä#Ä$Ä%Ä&Ä'Ä(Ä)Ä*Ä+Ä,Ä-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGINYhit-staleQ0_uhttps/1.1 jptyo7-edge-bx-011.ts.apple.com (acdn/137.13246), http/1.1 jptyo7-edge-lx-011.ts.apple.com (acdn/137.13246)UApple]1; mode=block_/fc6a706a-259d-4e82-ab8c-c3aa8568ba11-5181886870_max-age=180, public_Fri, 28 Jan 2022 11:54:31 GMT_#max-age=31536000; includeSubdomainsT1032Zkeep-alive_X
+
+YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1UaHUsIDI3IEphbiAyMDIyIDE4OjQ1OjU1IEdNVKEXXxATIjQwOC01ZDY5NGJhNzA5ZWMwIqEZUTChG18QdWh0dHBzLzEuMSBqcHR5bzctZWRnZS1ieC0wMTEudHMuYXBwbGUuY29tIChhY2RuLzEzNy4xMzI0NiksIGh0dHAvMS4xIGpwdHlvNy1lZGdlLWx4LTAxMS50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KaEdVUFwcGxloR9dMTsgbW9kZT1ibG9ja6EhXxAvZmM2YTcwNmEtMjU5ZC00ZTgyLWFiOGMtYzNhYTg1NjhiYTExLTUxODE4ODY4NzChI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHUZyaSwgMjggSmFuIDIwMjIgMTE6NTQ6MzEgR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpVDEwMzKhK1prZWVwLWFsaXZloS1Xbm9zbmlmZqEvVWJ5dGVzoTFaU0FNRU9SSUdJTqEzWWhpdC1zdGFsZQAIAC0AOgBIAE0AUQBVAFwAbwB3AIUAigCmALUAwADZAOcA+QEBAQMBEQETATMBNQFLAU0BTwFRAckBywHRAdMB4QHjAhUCFwItAi8CTwJRAncCeQJ+AoACiwKNApUClwKdAp8CqgKsAAAAAAAAAgEAAAAAAAAANAAAAAAAAAAAAAAAAAAAArY=Wnosniff_"408-5d694ba709ec0"Ubytes_Thu, 27 Jan 2022 18:45:55 GMT“/0Üá_NSMutableDictionary£Üà3\NSDictionary“/0äã_NSHTTPURLResponse£åç3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d ñ ú ∑ Ÿ ˚ ˛ #ELnqtñ∏ªΩø¡√≈«…ÀÃŒ–“‘€„ÔÒÛı9>IRX[dmoqxÄã†¢§¶®™¨Æ∞≤¥∂∏∫ºæ¿¬ƒŸ€›ﬂ·„ÂÁÈÎÌÔÒÛı˜˘˚˝ˇ&*.5HP^céô¢ª¿Œ‹Íıˇyçø’ı +	á	è	•	´	À	–	Ê	Í	˜	¸
+
+
+(             é              
+6_Ahttps://docs.swift.org/swift-book/_static/images/icon-twitter.svg‘Où<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+<path fill="#cccccc" d="M2.13 11.733c-1.175 0-2.13 0.958-2.13 2.126 0 1.174 0.955 2.122 2.13 2.122 1.179 0 2.133-0.948 2.133-2.122-0-1.168-0.954-2.126-2.133-2.126zM0.002 5.436v3.067c1.997 0 3.874 0.781 5.288 2.196 1.412 1.411 2.192 3.297 2.192 5.302h3.080c-0-5.825-4.739-10.564-10.56-10.564zM0.006 0v3.068c7.122 0 12.918 5.802 12.918 12.932h3.076c0-8.82-7.176-16-15.994-16z"></path>
+</svg>
+Onbplist00‘
+X$versionY$archiverT$topX$objects Ü†_NSKeyedArchiver—	_WebResourceResponseÄØ/'-.4567abcdefghijklmnopqrstuvwxyz{|}~ÄÅÇÉÑÖâU$null› !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1ÄÄÄ	ÄÄ.ÄÄ Ä”()$+,WNS.base[NS.relativeÄ ÄÄ_>https://docs.swift.org/swift-book/_static/images/icon-feed.svg“/012Z$classnameX$classesUNSURL¢13XNSObject#A√“É@5 »”89:M`WNS.keysZNS.objectsØ;<=>?@ABCDEFGHIJKLÄ	Ä
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄØOPQRSTUVWXYZ[\]^_ÄÄÄÄÄÄ Ä!Ä"Ä#Ä$Ä%Ä&Ä'Ä(Ä)Ä*Ä+Ä,Ä-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGINYhit-staleQ0_uhttps/1.1 jptyo7-edge-bx-015.ts.apple.com (acdn/137.13246), http/1.1 jptyo7-edge-lx-004.ts.apple.com (acdn/137.13246)UApple]1; mode=block_/7b2b3fa3-84cd-4730-85ae-28e86a6242ab-5174903660_max-age=180, public_Fri, 28 Jan 2022 11:54:31 GMT_#max-age=31536000; includeSubdomainsS669Zkeep-alive_X
+
+YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1UaHUsIDI3IEphbiAyMDIyIDE4OjQ1OjU1IEdNVKEXXxATIjI5ZC01ZDY5NGJhNzA5ZWMwIqEZUTChG18QdWh0dHBzLzEuMSBqcHR5bzctZWRnZS1ieC0wMTUudHMuYXBwbGUuY29tIChhY2RuLzEzNy4xMzI0NiksIGh0dHAvMS4xIGpwdHlvNy1lZGdlLWx4LTAwNC50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KaEdVUFwcGxloR9dMTsgbW9kZT1ibG9ja6EhXxAvN2IyYjNmYTMtODRjZC00NzMwLTg1YWUtMjhlODZhNjI0MmFiLTUxNzQ5MDM2NjChI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHUZyaSwgMjggSmFuIDIwMjIgMTE6NTQ6MzEgR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpUzY2OaErWmtlZXAtYWxpdmWhLVdub3NuaWZmoS9VYnl0ZXOhMVpTQU1FT1JJR0lOoTNZaGl0LXN0YWxlAAgALQA6AEgATQBRAFUAXABvAHcAhQCKAKYAtQDAANkA5wD5AQEBAwERARMBMwE1AUsBTQFPAVEByQHLAdEB0wHhAeMCFQIXAi0CLwJPAlECdwJ5An0CfwKKAowClAKWApwCngKpAqsAAAAAAAACAQAAAAAAAAA0AAAAAAAAAAAAAAAAAAACtQ==Wnosniff_"29d-5d694ba709ec0"Ubytes_Thu, 27 Jan 2022 18:45:55 GMT“/0Üá_NSMutableDictionary£Üà3\NSDictionary“/0äã_NSHTTPURLResponse£åç3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d ñ ú ∑ Ÿ ˚ ˛ #ELnqtñ∏ªΩø¡√≈«…ÀÃŒ–“‘€„ÔÒÛı6;FOUXajlnu}àùü°£•ß©´≠Ø±≥µ∑πªΩø¡÷ÿ⁄‹ﬁ‡‚‰ÊËÍÏÓÚÙˆ¯˙¸	#'+2EM[`|ãñü∏ΩÀŸÁÚ¸˛v|äº“Ú'	É	ã	°	ß	«	Ã	‚	Ê	Û	¯
+
+
+$             é              
+2_>https://docs.swift.org/swift-book/_static/images/icon-feed.svg‘
+OwÔªø/* code listings */
+
+div.Swift {
+    font-family: Menlo, monospace;
+    font-size:14px;
+    line-height:18px;
+    margin:0.5em;
+    margin-left:10px;
+    margin-bottom:1.5em;
+    padding:0.5em;
+    padding-left:1em;
+    overflow:scroll
+}
+
+.code-sample {
+    display: block;
+    font-size: 1.4em;
+    margin-left: 21px;
+}
+.code-sample .code-lines {
+    margin-left: 0;
+}
+.code-lines {
+    counter-reset: li;
+    line-height: 1.6em;
+    list-style: none;
+    margin: 0 0 0 20px;
+    padding: 0;
+}
+
+.code-sample .code-lines li {
+    list-style-type: none;
+    margin: 0;
+    padding-right: 10px;
+}
+.code-lines li {
+    padding-left: 0;
+    text-indent: -13px;
+    white-space: pre-wrap;
+    border-left: 18px solid transparent;
+}
+
+.code-lines li::before {
+    color: rgba(128,128,128,1);
+    content: counter(li);
+    counter-increment: li;
+    font-family: Menlo,monospace;
+    font-size: .9em;
+    margin-right: 16px;
+    -webkit-user-select: none;
+}
+.code-sample .code-lines li::before {
+    margin-left: -35px;
+    margin-right: 25px;
+}
+.code-sample .code-lines li:nth-child(n+10)::before {
+    margin-left: -43px;
+    margin-right: 25px;
+}
+.code-sample .code-lines li:only-of-type::before {
+    color: rgba(255,255,255,1);
+    content: ' ';
+}
+
+/* no line numbering in syntax outlines */
+.syntax-outline .code-lines li::before {
+    content: ' ';
+}
+.syntax-outline .code-lines {
+    line-height: 1.9em;
+}
+.syntax-outline div.Swift {
+    border-color: transparent;
+}
+
+.code-sample div.Swift {
+    width: 93%;
+    margin-left: 13px;
+    overflow: visible;
+}
+div.Swift {
+    border-left: 5px solid rgba(205,233,244,1);
+    padding: 4px 0 2px 10px;
+    margin: 10px 0 21px;
+    line-height: 22px;
+}
+
+.highlight .gi { /* code placeholder capsule */
+    background-color: rgba(233, 239, 250, 1);
+    border: 1px solid rgba(196, 212, 241, 1);
+    border-radius: 10px;
+    color: rgba(0, 0, 0, 1);
+    padding: 2px 6px;
+    font-style: inherit;
+    white-space: nowrap
+}
+
+/* grammar */
+
+.admonition.grammar {
+    border-left: 5px solid rgba(233,233,233,1);
+    margin: 20px 0;
+    padding-left: 15px;
+    padding-bottom: 1px;
+    font-size: 0.8em;
+    background: transparent;
+}
+.admonition.grammar p.admonition-title {
+    margin-bottom: 8px;
+}
+.admonition.grammar p {
+    margin: 0;
+}
+.admonition.grammar p.syntax-def {
+    margin-left: 25px;
+    text-indent: -25px;
+}
+.admonition.grammar .syntax-def-name {
+    color: rgba(128,128,128,1);
+    font-style: italic;
+    font-size: 15px;
+}
+.admonition.grammar .arrow {
+    padding: 0 6px;
+}
+.admonition.grammar code {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 3px;
+}
+.admonition.grammar a.syntax-def {
+    font-size: 15px;
+    font-style: italic;
+    padding: 0 3px;
+}
+.admonition.grammar sub {
+    color: rgba(128,128,128,1);
+    font-size: 12px;
+    font-style: italic;
+    margin-left: -3px;
+    padding-right: 5px;
+    vertical-align: baseline;
+    position: relative;
+    top: 0.3em; 
+}
+.admonition.grammar .syntax-group {
+    margin-bottom: 10px;
+}
+
+/* navigation overrides */
+
+nav[role="navigation"] h2 {
+    font-size: 1em;
+    color: #333;
+    padding: 0 12px 2px;
+}
+nav[role="navigation"] h2 div {
+    font-weight: 100;
+    padding-top: 3px;
+}
+nav[role="navigation"] ul li ul a:link {
+    color: #333;
+}
+nav[role="navigation"] ul li ul a.current:link {
+    font-weight: bold;
+}
+nav[role="navigation"] .return {
+    padding: 0 0 20px;
+    margin-top: ¬†-10px;
+    text-indent: -18px;
+    margin-left: 18px;
+}
+
+/* general overrides */
+
+img.align-center {
+    max-width: 100%;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+}
+
+a.headerlink {
+    display: none;
+}
+
+body {
+    background: #fff;
+}
+p {
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-size: 2em;
+}
+h3 { 
+    font-size: 1.4em;
+}
+@media only screen and (max-width: 767px) {
+    h2 {
+        font-size: 2em;
+    }
+    h3 { 
+        font-size: 1.4em;
+    }
+}
+
+.playground_link a {
+    font-weight: bold;
+}
+
+p>code.literal, li>code.literal, dt>code.literal, dd>code.literal {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: #666;
+    font-size: 0.9em;
+}
+a>code.literal {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0.9em;
+}
+article table {
+    border-collapse: collapse;
+    border-color: #ddd;
+}
+
+article table th, article table td, article table th:not(:first-child), article table td:not(:first-child) {
+    border-color: #ddd;
+}
+
+.admonition {
+    margin-left: 34px;
+    border-left: solid 5px #ccc;
+    background-color: #f5f5f5;
+    padding: 10px;
+    font-size: 0.85em;
+    margin-bottom: 1.5em;
+}
+.admonition-experiment {
+    border-color: #0088cc;
+}
+.admonition-beta {
+    margin-top: 4em;
+    clear: both;
+}
+.admonition .admonition-title {
+    text-transform: uppercase;
+    color: #777;
+    font-weight: normal;
+    font-size: 0.7em;
+    letter-spacing: 2px;
+    margin-bottom: 0.7em;
+}
+.admonition .last {
+    margin-bottom: 0;
+}
+
+nav[role="navigation"].open ul {
+    display: block;
+}
+
+/* intrapage navigation */
+
+#bashful {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    z-index: 10;
+}
+
+#bashful .inner {
+    position: relative;
+    width: 100%;
+    max-width: 985px;
+}
+
+#jump_to {
+    position: absolute;
+    right: 15px;
+}
+
+#jump_to_toggle {
+    display: block;
+    float: right;
+    background: rgb(250, 250, 250) right 1px no-repeat url(../images/icon-caret-sm.svg);
+    border: 1px solid rgb(230, 230, 230);
+    border-top: none;
+    padding: 5px 27px 5px 8px;
+    color: #333;
+    font: 12px Helvetica, Arial, Verdana, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 14px;
+    height: 25px;
+    cursor: pointer;
+}
+  
+#jump_to.open #jump_to_toggle {
+    border-bottom-color: rgb(250, 250, 250);
+    background-image: url(../images/icon-close-sm.svg);
+}
+
+#jump_to menu {
+    display: none;
+}
+
+#jump_to.open menu {
+    display: block;
+    margin: 24px 0 0;
+    padding: 0 15px;
+    background: rgb(250, 250, 250);
+    border: 1px solid rgb(230, 230, 230);
+    width: 300px;
+    font-size: 12px;
+    line-height: 15px;
+    color: #666;
+}
+
+#jump_to menu ul {
+    list-style: none;
+    margin: 15px 0;
+    padding: 0;
+}
+
+#jump_to menu ul ul {
+    margin: 0;
+}
+
+/* hide h1 level nav */
+#jump_to menu ul a {
+    display: none;
+}
+/* show >= h2 level nav */
+#jump_to menu ul ul a {
+    display: inline;
+    color: #333;
+}
+/* indent h3 level nav */
+#jump_to menu ul ul ul {
+    display: none;
+    padding-left: 15px;
+    margin-bottom: 10px;
+}
+/* hide >= h4 level nav */
+#jump_to menu ul ul ul ul {
+    display: none;
+}
+
+#jump_to menu ul ul li {
+    margin: 6px 0;
+}
+
+#jump_to_overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0; 
+    left: 0;
+    background-color: transparent;
+    z-index: 5;
+    cursor: default;
+}
+
+.next_previous p {
+    display: inline;
+    margin: 0;
+}
+.next_previous .previous a {
+    float: left;
+    padding: 0 25px;
+    background: 0 3px url(../images/icon-next_previous.svg) no-repeat;
+    display: block;
+}
+.next_previous .next a {
+    float: right;
+    padding: 0 25px;
+    background: right -18px url(../images/icon-next_previous.svg) no-repeat;
+    display: block;
+}
+footer {
+    margin-top: 4em;
+    clear: both;
+}
+
+@media only screen and (max-width: 767px) {
+    #jump_to, #bashful {
+        display: none;
+    }
+
+    .code-sample {
+        margin-left: 10px;
+    }
+    .admonition {
+        margin-left: 23px;
+    }
+}
+Oªbplist00‘
+X$versionY$archiverT$topX$objects Ü†_NSKeyedArchiver—	_WebResourceResponseÄØ1'-.4567cdefghijklmnopqrstuvwxyz{|}~ÄÅÇÉÑÖÜáàâçU$null› !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1ÄÄÄ	ÄÄ0ÄÄ Ä”()$+,WNS.base[NS.relativeÄ ÄÄ_>https://docs.swift.org/swift-book/_static/stylesheets/tspl.css“/012Z$classnameX$classesUNSURL¢13XNSObject#A√“ÉEZ »”89:NbWNS.keysZNS.objectsØ;<=>?@ABCDEFGHIJKLMÄ	Ä
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄØPQRSTUVWXYZ[\]^_`aÄÄÄÄÄ Ä!Ä"Ä#Ä$Ä%Ä&Ä'Ä(Ä)Ä*Ä+Ä,Ä-Ä.Ä/\Content-Type_X-Frame-Options]Last-ModifiedSAge_Content-EncodingVServer_X-XSS-ProtectionSViaWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-RangesWX-CacheXtext/cssZSAMEORIGIN_Thu, 27 Jan 2022 18:45:55 GMTQ0TgzipUApple]1; mode=block_uhttps/1.1 jptyo7-edge-bx-015.ts.apple.com (acdn/137.13246), http/1.1 jptyo7-edge-lx-005.ts.apple.com (acdn/137.13246)_/7b2b3fa3-84cd-4730-85ae-28e86a6242ab-5174903327_max-age=180, public_Fri, 28 Jan 2022 11:54:31 GMT_#max-age=31536000; includeSubdomainsT2390Zkeep-alive_Ä
+
+YnBsaXN0MDDfEBIBAgMEBQYHCAkKCwwNDg8QERITFRcZGx0fISMlJykrLS8xMzVcQ29udGVudC1UeXBlV1gtQ2FjaGVURXRhZ1NBZ2VfEBBDb250ZW50LUVuY29kaW5nVlNlcnZlcl8QEFgtWFNTLVByb3RlY3Rpb25TVmlhV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zXUxhc3QtTW9kaWZpZWShFFh0ZXh0L2Nzc6EWWWhpdC1zdGFsZaEYXxAUIjFkNzctNWQ2OTRiYTcwOWVjMCKhGlEwoRxUZ3ppcKEeVUFwcGxloSBdMTsgbW9kZT1ibG9ja6EiXxB1aHR0cHMvMS4xIGpwdHlvNy1lZGdlLWJ4LTAxNS50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KSwgaHR0cC8xLjEganB0eW83LWVkZ2UtbHgtMDA1LnRzLmFwcGxlLmNvbSAoYWNkbi8xMzcuMTMyNDYpoSRfEC83YjJiM2ZhMy04NGNkLTQ3MzAtODVhZS0yOGU4NmE2MjQyYWItNTE3NDkwMzMyN6EmXxATbWF4LWFnZT0xODAsIHB1YmxpY6EoXxAdRnJpLCAyOCBKYW4gMjAyMiAxMTo1NDozMSBHTVShKl8QI21heC1hZ2U9MzE1MzYwMDA7IGluY2x1ZGVTdWJkb21haW5zoSxUMjM5MKEuWmtlZXAtYWxpdmWhMFdub3NuaWZmoTJVYnl0ZXOhNFpTQU1FT1JJR0lOoTZfEB1UaHUsIDI3IEphbiAyMDIyIDE4OjQ1OjU1IEdNVAAIAC8APABEAEkATQBgAGcAegB+AIYAlACZALUAxADPAOgA9gEIARYBGAEhASMBLQEvAUYBSAFKAUwBUQFTAVkBWwFpAWsB4wHlAhcCGQIvAjECUQJTAnkCewKAAoICjQKPApcCmQKfAqECrAKuAAAAAAAAAgEAAAAAAAAANwAAAAAAAAAAAAAAAAAAAs4=Wnosniff_"1d77-5d694ba709ec0"UbytesYhit-stale“/0äã_NSMutableDictionary£äå3\NSDictionary“/0éè_NSHTTPURLResponse£êë3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d ò û π € ˝ "%GNpsvò∫Ωø¡√≈«…ÀÕŒ–“‘÷›ÂÒÛı˜8=HQWZclnpwä†¢§¶®™¨Æ∞≤¥∂∏∫ºæ¿¬ƒ∆‹ﬁ‡‚‰ÊËÍÏÓÚÙˆ¯˙¸˛ #15HObfn|Åù¨∑¿ŸﬁÏÙ˝(*/5CªÌ#INY	›	Â	¸
+
+
+
+'
++
+8
+=
+Q
+U
+i             í              
+w_>https://docs.swift.org/swift-book/_static/stylesheets/tspl.css‘ !O&<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="21px" height="21px" viewBox="0 0 21 21" enable-background="new 0 0 21 21" xml:space="preserve">
+<title>icon-close</title>
+<desc>Close Icon</desc>
+<g id="Container">
+	<g id="icon-close">
+		<path id="Line-Copy-8" fill="none" stroke="#333333" stroke-linecap="square" d="M7.002,8.338l3.655,3.655"/>
+		<path id="Line-Copy-7" fill="none" stroke="#333333" stroke-linecap="square" d="M10.657,11.993l3.655-3.655"/>
+	</g>
+</g>
+</svg>
+Orbplist00‘
+X$versionY$archiverT$topX$objects Ü†_NSKeyedArchiver—	_WebResourceResponseÄØ/'-.4567abcdefghijklmnopqrstuvwxyz{|}~ÄÅÇÉÑÖâU$null› !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1ÄÄÄ	ÄÄ.ÄÄ Ä”()$+,WNS.base[NS.relativeÄ ÄÄ_Bhttps://docs.swift.org/swift-book/_static/images/icon-caret-sm.svg“/012Z$classnameX$classesUNSURL¢13XNSObject#A√“ÉJê »”89:M`WNS.keysZNS.objectsØ;<=>?@ABCDEFGHIJKLÄ	Ä
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄØOPQRSTUVWXYZ[\]^_ÄÄÄÄÄÄ Ä!Ä"Ä#Ä$Ä%Ä&Ä'Ä(Ä)Ä*Ä+Ä,Ä-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGINYhit-staleQ0_uhttps/1.1 jptyo7-edge-bx-011.ts.apple.com (acdn/137.13246), http/1.1 jptyo7-edge-lx-009.ts.apple.com (acdn/137.13246)UApple]1; mode=block_/fc6a706a-259d-4e82-ab8c-c3aa8568ba11-5181886038_max-age=180, public_Fri, 28 Jan 2022 11:54:31 GMT_#max-age=31536000; includeSubdomainsS806Zkeep-alive_X
+
+YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1UaHUsIDI3IEphbiAyMDIyIDE4OjQ1OjU1IEdNVKEXXxATIjMyNi01ZDY5NGJhNzA5ZWMwIqEZUTChG18QdWh0dHBzLzEuMSBqcHR5bzctZWRnZS1ieC0wMTEudHMuYXBwbGUuY29tIChhY2RuLzEzNy4xMzI0NiksIGh0dHAvMS4xIGpwdHlvNy1lZGdlLWx4LTAwOS50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KaEdVUFwcGxloR9dMTsgbW9kZT1ibG9ja6EhXxAvZmM2YTcwNmEtMjU5ZC00ZTgyLWFiOGMtYzNhYTg1NjhiYTExLTUxODE4ODYwMzihI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHUZyaSwgMjggSmFuIDIwMjIgMTE6NTQ6MzEgR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpUzgwNqErWmtlZXAtYWxpdmWhLVdub3NuaWZmoS9VYnl0ZXOhMVpTQU1FT1JJR0lOoTNZaGl0LXN0YWxlAAgALQA6AEgATQBRAFUAXABvAHcAhQCKAKYAtQDAANkA5wD5AQEBAwERARMBMwE1AUsBTQFPAVEByQHLAdEB0wHhAeMCFQIXAi0CLwJPAlECdwJ5An0CfwKKAowClAKWApwCngKpAqsAAAAAAAACAQAAAAAAAAA0AAAAAAAAAAAAAAAAAAACtQ==Wnosniff_"326-5d694ba709ec0"Ubytes_Thu, 27 Jan 2022 18:45:55 GMT“/0Üá_NSMutableDictionary£Üà3\NSDictionary“/0äã_NSHTTPURLResponse£åç3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d ñ ú ∑ Ÿ ˚ ˛ #ELnqtñ∏ªΩø¡√≈«…ÀÃŒ–“‘€„ÔÒÛı:?JSY\enpryÅå°£•ß©´≠Ø±≥µ∑πªΩø¡√≈⁄‹ﬁ‡‚‰ÊËÍÏÓÚÙˆ¯˙¸˛ '+/6IQ_dÄèö£º¡œ›Îˆ zÄé¿÷ˆ +	á	è	•	´	À	–	Ê	Í	˜	¸
+
+
+(             é              
+6_Bhttps://docs.swift.org/swift-book/_static/images/icon-caret-sm.svg‘#$%OC<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="21px" height="41.918px" viewBox="0 0 21 41.918" enable-background="new 0 0 21 41.918" xml:space="preserve">
+<title>icon-close</title>
+<desc>Close Icon</desc>
+<g id="Container">
+	<g id="icon-close">
+		<path id="Line-Copy-8" fill="none" stroke="#333333" stroke-linecap="square" d="M7.005,10.5l5.5,5.813"/>
+		<path id="Line-Copy-7" fill="none" stroke="#333333" stroke-linecap="square" d="M7.005,10.5l5.5-5.5"/>
+	</g>
+</g>
+<g id="Container_1_">
+	<g id="icon-close_1_">
+		<path id="Line-Copy-8_1_" fill="none" stroke="#333333" stroke-linecap="square" d="M8.006,37.347l5.5-5.813"/>
+		<path id="Line-Copy-7_1_" fill="none" stroke="#333333" stroke-linecap="square" d="M8.006,26.033l5.5,5.5"/>
+	</g>
+</g>
+</svg>
+Oxbplist00‘
+X$versionY$archiverT$topX$objects Ü†_NSKeyedArchiver—	_WebResourceResponseÄØ/'-.4567abcdefghijklmnopqrstuvwxyz{|}~ÄÅÇÉÑÖâU$null› !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1ÄÄÄ	ÄÄ.ÄÄ Ä”()$+,WNS.base[NS.relativeÄ ÄÄ_Ghttps://docs.swift.org/swift-book/_static/images/icon-next_previous.svg“/012Z$classnameX$classesUNSURL¢13XNSObject#A√“ÉOr »”89:M`WNS.keysZNS.objectsØ;<=>?@ABCDEFGHIJKLÄ	Ä
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄØOPQRSTUVWXYZ[\]^_ÄÄÄÄÄÄ Ä!Ä"Ä#Ä$Ä%Ä&Ä'Ä(Ä)Ä*Ä+Ä,Ä-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGINYhit-staleQ0_uhttps/1.1 jptyo7-edge-bx-009.ts.apple.com (acdn/137.13246), http/1.1 jptyo7-edge-lx-009.ts.apple.com (acdn/137.13246)UApple]1; mode=block_/ea3af291-837a-467d-9932-b679312c8763-5175596887_max-age=180, public_Fri, 28 Jan 2022 11:54:31 GMT_#max-age=31536000; includeSubdomainsT1091Zkeep-alive_X
+
+YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1UaHUsIDI3IEphbiAyMDIyIDE4OjQ1OjU1IEdNVKEXXxATIjQ0My01ZDY5NGJhNzA5ZWMwIqEZUTChG18QdWh0dHBzLzEuMSBqcHR5bzctZWRnZS1ieC0wMDkudHMuYXBwbGUuY29tIChhY2RuLzEzNy4xMzI0NiksIGh0dHAvMS4xIGpwdHlvNy1lZGdlLWx4LTAwOS50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KaEdVUFwcGxloR9dMTsgbW9kZT1ibG9ja6EhXxAvZWEzYWYyOTEtODM3YS00NjdkLTk5MzItYjY3OTMxMmM4NzYzLTUxNzU1OTY4ODehI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHUZyaSwgMjggSmFuIDIwMjIgMTE6NTQ6MzEgR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpVDEwOTGhK1prZWVwLWFsaXZloS1Xbm9zbmlmZqEvVWJ5dGVzoTFaU0FNRU9SSUdJTqEzWWhpdC1zdGFsZQAIAC0AOgBIAE0AUQBVAFwAbwB3AIUAigCmALUAwADZAOcA+QEBAQMBEQETATMBNQFLAU0BTwFRAckBywHRAdMB4QHjAhUCFwItAi8CTwJRAncCeQJ+AoACiwKNApUClwKdAp8CqgKsAAAAAAAAAgEAAAAAAAAANAAAAAAAAAAAAAAAAAAAArY=Wnosniff_"443-5d694ba709ec0"Ubytes_Thu, 27 Jan 2022 18:45:55 GMT“/0Üá_NSMutableDictionary£Üà3\NSDictionary“/0äã_NSHTTPURLResponse£åç3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d ñ ú ∑ Ÿ ˚ ˛ #ELnqtñ∏ªΩø¡√≈«…ÀÃŒ–“‘€„ÔÒÛı?DOX^ajsuw~Üë¶®™¨Æ∞≤¥∂∏∫ºæ¿¬ƒ∆» ﬂ·„ÂÁÈÎÌÔÒÛı˜˘˚˝ˇ$,04;NVdiÖîü®¡∆‘‚˚Öì≈€˚!&1	ç	ï	´	±	—	÷	Ï		˝
+
+
+
+.             é              
+<_Ghttps://docs.swift.org/swift-book/_static/images/icon-next_previous.svg‘'()*O?/*! gumshoe v3.0.0 | (c) 2015 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/gumshoe */
+!function(e, t) {
+    "function" == typeof define && define.amd ? define([], t(e)) : "object" == typeof exports ? module.exports = t(e) : e.gumshoe = t(e)
+}("undefined" != typeof global ? global : this.window || this.global, function(e) {
+    "use strict";
+    var t,
+        n,
+        a,
+        o,
+        r,
+        c,
+        s = {},
+        i = "querySelector" in document && "addEventListener" in e && "classList" in document.createElement("_"),
+        l = [],
+        u = {
+            selector: "[data-gumshoe] a",
+            selectorHeader: "[data-gumshoe-header]",
+            offset: 0,
+            activeClass: "active",
+            callback: function() {}
+        },
+        f = function(e, t, n) {
+            if ("[object Object]" === Object.prototype.toString.call(e))
+                for (var a in e)
+                    Object.prototype.hasOwnProperty.call(e, a) && t.call(n, e[a], a, e);
+            else
+                for (var o = 0, r = e.length; r > o; o++)
+                    t.call(n, e[o], o, e)
+        },
+        d = function() {
+            var e = {},
+                t = !1,
+                n = 0,
+                a = arguments.length;
+            "[object Boolean]" === Object.prototype.toString.call(arguments[0]) && (t = arguments[0], n++);
+            for (var o = function(n) {
+                for (var a in n)
+                    Object.prototype.hasOwnProperty.call(n, a) && (t && "[object Object]" === Object.prototype.toString.call(n[a]) ? e[a] = d(!0, e[a], n[a]) : e[a] = n[a])
+            }; a > n; n++) {
+                var r = arguments[n];
+                o(r)
+            }
+            return e
+        },
+        v = function(e) {
+            return Math.max(e.scrollHeight, e.offsetHeight, e.clientHeight)
+        },
+        g = function() {
+            return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight)
+        },
+        m = function(e) {
+            var n = 0;
+            if (e.offsetParent)
+                do n += e.offsetTop, e = e.offsetParent;
+                while (e);
+            return n = n - r - t.offset, n >= 0 ? n : 0
+        },
+        p = function() {
+            l.sort(function(e, t) {
+                return e.distance > t.distance ? -1 : e.distance < t.distance ? 1 : 0
+            })
+        };
+    s.setDistances = function() {
+        a = g(), r = o ? v(o) + m(o) : 0, f(l, function(e) {
+            e.distance = m(e.target)
+        }), p()
+    };
+    var h = function() {
+            var e = document.querySelectorAll(t.selector);
+            f(e, function(e) {
+                e.hash && l.push({
+                    nav: e,
+                    target: document.querySelector(e.hash),
+                    parent: "li" === e.parentNode.tagName.toLowerCase() ? e.parentNode : null,
+                    distance: 0
+                })
+            })
+        },
+        y = function(e) {
+            c && (c.nav.classList.remove(t.activeClass), c.parent && c.parent.classList.remove(t.activeClass)), e.nav.classList.add(t.activeClass), e.parent && e.parent.classList.add(t.activeClass), t.callback(e), c = {
+                nav: e.nav,
+                parent: e.parent
+            }
+        };
+    s.getCurrentNav = function() {
+        var t = e.pageYOffset;
+        if (e.innerHeight + t >= a)
+            return y(l[0]);
+        for (var n = 0, o = l.length; o > n; n++) {
+            var r = l[n];
+            if (r.distance < t)
+                return y(r)
+        }
+    };
+    var b = function() {
+        f(l, function(e) {
+            e.nav.classList.contains(t.activeClass) && (c = {
+                nav: e.nav,
+                parent: e.parent
+            })
+        })
+    };
+    s.destroy = function() {
+        t && (e.removeEventListener("resize", H, !1), e.removeEventListener("scroll", H, !1), l = [], t = null, n = null, a = null, o = null, r = null, c = null)
+    };
+    var H = function(e) {
+        n || (n = setTimeout(function() {
+            n = null, "scroll" === e.type && s.getCurrentNav(), "resize" === e.type && (s.setDistances(), s.getCurrentNav())
+        }, 66))
+    };
+    return s.init = function(n) {
+        i && (s.destroy(), t = d(u, n || {}), o = document.querySelector(t.selectorHeader), h(), 0 !== l.length && (b(), s.setDistances(), s.getCurrentNav(), e.addEventListener("resize", H, !1), e.addEventListener("scroll", H, !1)))
+    }, s
+});
+
+
+(function() {
+    gumshoe.init({
+        selector: 'nav[role="navigation"] > ul li.active ul li a',
+        selectorHeader: 'nav[role="navigation"] > ul li.active',
+        offset: 0,
+        activeClass: 'active',
+        callback: function(nav) {
+            var title = document.title + " - " + nav.target.textContent
+            var hash = "#" + nav.target.id;
+            if (window.location.hash !== hash) {
+                history.replaceState(null, title, window.location.pathname + hash);
+            }
+        }
+    });
+
+    function hasClass(element, className) {
+        if (!element || !className) {
+            return false;
+        }
+
+        var classString = element.className,
+            nameIndex = classString.indexOf(className);
+        return (nameIndex != -1);
+    }
+
+    function toggleClass(element, className) {
+        if (!element || !className) {
+            return;
+        }
+
+        var classString = element.className,
+            nameIndex = classString.indexOf(className);
+        if (nameIndex == -1) {
+            classString += ' ' + className;
+        } else {
+            classString = classString.substr(0, nameIndex) + classString.substr(nameIndex + className.length);
+        }
+        element.className = classString;
+    }
+
+    document.getElementById('menu-toggle').addEventListener('mousedown', function() {
+        toggleClass(document.getElementById('menu-toggle'), 'open');
+        toggleClass(document.querySelector('nav[role="navigation"]'), 'open');
+    });
+
+    function toggleMenu(display) {
+        var menuElement = document.getElementById('jump_to');
+        var overlayElement = document.getElementById('jump_to_overlay');
+        if (display) {
+            menuElement.className = 'open';
+            overlayElement.style.display = 'block';
+        } else {
+            menuElement.className = '';
+            overlayElement.style.display = 'none';
+        }
+    }
+
+    document.getElementById('jump_to_toggle').addEventListener('mousedown', function() {
+        toggleMenu(!hasClass(document.getElementById('jump_to'), 'open'));
+    });
+    var menuLinks = document.getElementById('jump_to').getElementsByTagName('a');
+    if (menuLinks.length == 1) {
+        document.getElementById('bashful').style.display = 'none';
+    }
+    Array.prototype.forEach.call(menuLinks, function (el, index, array) {
+        el.addEventListener('click', function(event) {
+            toggleMenu(false);
+        });
+    });
+    document.getElementById('jump_to_overlay').addEventListener('mousedown', function() {
+        toggleMenu(false);
+    });
+})();
+
+_application/javascriptO≠bplist00‘
+X$versionY$archiverT$topX$objects Ü†_NSKeyedArchiver—	_WebResourceResponseÄØ0'-.4567abcdefghijklmnopqrstuvwxyz{|}~ÄÅÇÉÑÖâäU$null› !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1Ä.ÄÄ	ÄÄ/ÄÄ Ä”()$+,WNS.base[NS.relativeÄ ÄÄ_Dhttps://docs.swift.org/swift-book/_static/javascripts/application.js“/012Z$classnameX$classesUNSURL¢13XNSObject#A√“ÉT~ »”89:M`WNS.keysZNS.objectsØ;<=>?@ABCDEFGHIJKLÄ	Ä
+ÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄÄØNOPQRSTUVWXYZ[\]^_ÄÄÄÄÄÄ Ä!Ä"Ä#Ä$Ä%Ä&Ä'Ä(Ä)Ä*Ä+Ä,Ä-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified_application/javascriptZSAMEORIGINYhit-staleQ0_uhttps/1.1 jptyo7-edge-bx-009.ts.apple.com (acdn/137.13246), http/1.1 jptyo7-edge-lx-004.ts.apple.com (acdn/137.13246)UApple]1; mode=block_/ea3af291-837a-467d-9932-b679312c8763-5175596577_max-age=180, public_Fri, 28 Jan 2022 11:54:31 GMT_#max-age=31536000; includeSubdomainsT7231Zkeep-alive_h
+
+YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE18QFmFwcGxpY2F0aW9uL2phdmFzY3JpcHShFV8QHVRodSwgMjcgSmFuIDIwMjIgMTg6NDU6NTUgR01UoRdfEBQiMWMzZi01ZDY5NGJhNzA5ZWMwIqEZUTChG18QdWh0dHBzLzEuMSBqcHR5bzctZWRnZS1ieC0wMDkudHMuYXBwbGUuY29tIChhY2RuLzEzNy4xMzI0NiksIGh0dHAvMS4xIGpwdHlvNy1lZGdlLWx4LTAwNC50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KaEdVUFwcGxloR9dMTsgbW9kZT1ibG9ja6EhXxAvZWEzYWYyOTEtODM3YS00NjdkLTk5MzItYjY3OTMxMmM4NzYzLTUxNzU1OTY1NzehI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHUZyaSwgMjggSmFuIDIwMjIgMTE6NTQ6MzEgR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpVDcyMzGhK1prZWVwLWFsaXZloS1Xbm9zbmlmZqEvVWJ5dGVzoTFaU0FNRU9SSUdJTqEzWWhpdC1zdGFsZQAIAC0AOgBIAE0AUQBVAFwAbwB3AIUAigCmALUAwADZAOcA+QEBAQMBHAEeAT4BQAFXAVkBWwFdAdUB1wHdAd8B7QHvAiECIwI5AjsCWwJdAoMChQKKAowClwKZAqECowKpAqsCtgK4AAAAAAAAAgEAAAAAAAAANAAAAAAAAAAAAAAAAAAAAsI=Wnosniff_"1c3f-5d694ba709ec0"Ubytes_Thu, 27 Jan 2022 18:45:55 GMT“/0Üá_NSMutableDictionary£Üà3\NSDictionary_application/javascript“/0ãå_NSHTTPURLResponse£çé3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d ó ù ∏ ⁄ ¸ ˇ!$FMoruóπºæ¿¬ƒ∆» ÃÕœ—”’‹‰ÚÙˆ=BMV\_hqsu|Ñè§¶®™¨Æ∞≤¥∂∏∫ºæ¿¬ƒ∆»›ﬂ·„ÂÁÈÎÌÔÒÛı˜˘˚˝ˇ"*.29LTbgÉíù¶øƒ“‡˘àéúŒ‰*/:	¶	Æ	≈	À	Î	
+
+
+
+
+0
+5
+I
+M
+a             è              
+o_Dhttps://docs.swift.org/swift-book/_static/javascripts/application.js’,-./012_WebResourceFrameName_WebResourceTextEncodingNamePOR-<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <meta name="author" content="Apple Inc.">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    
+    <title>Deinitialization ‚Äî The Swift Programming Language (Swift 5.6)</title>
+    
+    <link rel="license" href="/LICENSE.txt">
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css">
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css">
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339"> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TheBasics.html">Language Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="TheBasics.html">The Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicOperators.html">Basic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringsAndCharacters.html">Strings and Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CollectionTypes.html">Collection Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlFlow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Closures.html">Closures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumerations.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassesAndStructures.html">Structures and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscripts.html">Subscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialization.html">Initialization</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Deinitialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptionalChaining.html">Optional Chaining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ErrorHandling.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TypeCasting.html">Type Casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NestedTypes.html">Nested Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Extensions.html">Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Protocols.html">Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OpaqueTypes.html">Opaque Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutomaticReferenceCounting.html">Automatic Reference Counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MemorySafety.html">Memory Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AccessControl.html">Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AdvancedOperators.html">Advanced Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ReferenceManual/AboutTheLanguageReference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">‚Üê Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Deinitialization</a><ul>
+<li><a class="reference internal" href="#ID143">How Deinitialization Works</a></li>
+<li><a class="reference internal" href="#ID144">Deinitializers in Action</a></li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="deinitialization">
+<h1>Deinitialization<a class="headerlink" href="#deinitialization" title="Permalink to this headline">¬∂</a></h1>
+<p>A <em>deinitializer</em> is called immediately before a class instance is deallocated. You write deinitializers with the <code class="docutils literal notranslate"><span class="pre">deinit</span></code> keyword, similar to how initializers are written with the <code class="docutils literal notranslate"><span class="pre">init</span></code> keyword. Deinitializers are only available on class types.</p>
+<div class="section" id="ID143">
+<h2>How Deinitialization Works<a class="headerlink" href="#ID143" title="Permalink to this headline">¬∂</a></h2>
+<p>Swift automatically deallocates your instances when they‚Äôre no longer needed, to free up resources. Swift handles the memory management of instances through <em>automatic reference counting</em> (<em>ARC</em>), as described in <a class="reference internal" href="AutomaticReferenceCounting.html"><span class="doc">Automatic Reference Counting</span></a>. Typically you don‚Äôt need to perform manual cleanup when your instances are deallocated. However, when you are working with your own resources, you might need to perform some additional cleanup yourself. For example, if you create a custom class to open a file and write some data to it, you might need to close the file before the class instance is deallocated.</p>
+<p>Class definitions can have at most one deinitializer per class. The deinitializer doesn‚Äôt take any parameters and is written without parentheses:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">deinit</span> {
+</li><li>    <span class="c">// perform the deinitialization</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>Deinitializers are called automatically, just before instance deallocation takes place. You aren‚Äôt allowed to call a deinitializer yourself. Superclass deinitializers are inherited by their subclasses, and the superclass deinitializer is called automatically at the end of a subclass deinitializer implementation. Superclass deinitializers are always called, even if a subclass doesn‚Äôt provide its own deinitializer.</p>
+<p>Because an instance isn‚Äôt deallocated until after its deinitializer is called, a deinitializer can access all properties of the instance it‚Äôs called on and can modify its behavior based on those properties (such as looking up the name of a file that needs to be closed).</p>
+</div>
+<div class="section" id="ID144">
+<h2>Deinitializers in Action<a class="headerlink" href="#ID144" title="Permalink to this headline">¬∂</a></h2>
+<p>Here‚Äôs an example of a deinitializer in action. This example defines two new types, <code class="docutils literal notranslate"><span class="pre">Bank</span></code> and <code class="docutils literal notranslate"><span class="pre">Player</span></code>, for a simple game. The <code class="docutils literal notranslate"><span class="pre">Bank</span></code> class manages a made-up currency, which can never have more than 10,000 coins in circulation. There can only ever be one <code class="docutils literal notranslate"><span class="pre">Bank</span></code> in the game, and so the <code class="docutils literal notranslate"><span class="pre">Bank</span></code> is implemented as a class with type properties and methods to store and manage its current state:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Bank</span> {
+</li><li>    <span class="k">static</span> <span class="k">var</span> <span class="nv">coinsInBank</span> = <span class="m">10_000</span>
+</li><li>    <span class="k">static</span> <span class="k">func</span> <span class="nv">distribute</span>(<span class="nv">coins</span> <span class="nv">numberOfCoinsRequested</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> {
+</li><li>        <span class="k">let</span> <span class="nv">numberOfCoinsToVend</span> = <span class="nv">min</span>(<span class="nv">numberOfCoinsRequested</span>, <span class="nv">coinsInBank</span>)
+</li><li>        <span class="nv">coinsInBank</span> -= <span class="nv">numberOfCoinsToVend</span>
+</li><li>        <span class="k">return</span> <span class="nv">numberOfCoinsToVend</span>
+</li><li>    }
+</li><li>    <span class="k">static</span> <span class="k">func</span> <span class="nv">receive</span>(<span class="nv">coins</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="nv">coinsInBank</span> += <span class="nv">coins</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p><code class="docutils literal notranslate"><span class="pre">Bank</span></code> keeps track of the current number of coins it holds with its <code class="docutils literal notranslate"><span class="pre">coinsInBank</span></code> property. It also offers two methods‚Äî<code class="docutils literal notranslate"><span class="pre">distribute(coins:)</span></code> and <code class="docutils literal notranslate"><span class="pre">receive(coins:)</span></code>‚Äîto handle the distribution and collection of coins.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">distribute(coins:)</span></code> method checks that there are enough coins in the bank before distributing them. If there aren‚Äôt enough coins, <code class="docutils literal notranslate"><span class="pre">Bank</span></code> returns a smaller number than the number that was requested (and returns zero if no coins are left in the bank). It returns an integer value to indicate the actual number of coins that were provided.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">receive(coins:)</span></code> method simply adds the received number of coins back into the bank‚Äôs coin store.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Player</span></code> class describes a player in the game. Each player has a certain number of coins stored in their purse at any time. This is represented by the player‚Äôs <code class="docutils literal notranslate"><span class="pre">coinsInPurse</span></code> property:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Player</span> {
+</li><li>    <span class="k">var</span> <span class="nv">coinsInPurse</span>: <span class="nc">Int</span>
+</li><li>    <span class="k">init</span>(<span class="nv">coins</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="nv">coinsInPurse</span> = <span class="nv">Bank</span>.<span class="nv">distribute</span>(<span class="nv">coins</span>: <span class="nv">coins</span>)
+</li><li>    }
+</li><li>    <span class="k">func</span> <span class="nv">win</span>(<span class="nv">coins</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="nv">coinsInPurse</span> += <span class="nv">Bank</span>.<span class="nv">distribute</span>(<span class="nv">coins</span>: <span class="nv">coins</span>)
+</li><li>    }
+</li><li>    <span class="k">deinit</span> {
+</li><li>        <span class="nv">Bank</span>.<span class="nv">receive</span>(<span class="nv">coins</span>: <span class="nv">coinsInPurse</span>)
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>Each <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance is initialized with a starting allowance of a specified number of coins from the bank during initialization, although a <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance may receive fewer than that number if not enough coins are available.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Player</span></code> class defines a <code class="docutils literal notranslate"><span class="pre">win(coins:)</span></code> method, which retrieves a certain number of coins from the bank and adds them to the player‚Äôs purse. The <code class="docutils literal notranslate"><span class="pre">Player</span></code> class also implements a deinitializer, which is called just before a <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance is deallocated. Here, the deinitializer simply returns all of the player‚Äôs coins to the bank:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">playerOne</span>: <span class="nc">Player</span>? = <span class="nv">Player</span>(<span class="nv">coins</span>: <span class="m">100</span>)
+</li><li><span class="nv">print</span>(<span class="s">"A new player has joined the game with </span>\<span class="p">(</span><span class="nv">playerOne</span>!.<span class="nv">coinsInPurse</span><span class="p">)</span><span class="s"> coins"</span>)
+</li><li><span class="c">// Prints "A new player has joined the game with 100 coins"</span>
+</li><li><span class="nv">print</span>(<span class="s">"There are now </span>\<span class="p">(</span><span class="nv">Bank</span>.<span class="nv">coinsInBank</span><span class="p">)</span><span class="s"> coins left in the bank"</span>)
+</li><li><span class="c">// Prints "There are now 9900 coins left in the bank"</span>
+</li></ol></div></div></div>
+<p>A new <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance is created, with a request for 100 coins if they‚Äôre available. This <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance is stored in an optional <code class="docutils literal notranslate"><span class="pre">Player</span></code> variable called <code class="docutils literal notranslate"><span class="pre">playerOne</span></code>. An optional variable is used here, because players can leave the game at any point. The optional lets you track whether there‚Äôs currently a player in the game.</p>
+<p>Because <code class="docutils literal notranslate"><span class="pre">playerOne</span></code> is an optional, it‚Äôs qualified with an exclamation point (<code class="docutils literal notranslate"><span class="pre">!</span></code>) when its <code class="docutils literal notranslate"><span class="pre">coinsInPurse</span></code> property is accessed to print its default number of coins, and whenever its <code class="docutils literal notranslate"><span class="pre">win(coins:)</span></code> method is called:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">playerOne</span>!.<span class="nv">win</span>(<span class="nv">coins</span>: <span class="m">2_000</span>)
+</li><li><span class="nv">print</span>(<span class="s">"PlayerOne won 2000 coins &amp; now has </span>\<span class="p">(</span><span class="nv">playerOne</span>!.<span class="nv">coinsInPurse</span><span class="p">)</span><span class="s"> coins"</span>)
+</li><li><span class="c">// Prints "PlayerOne won 2000 coins &amp; now has 2100 coins"</span>
+</li><li><span class="nv">print</span>(<span class="s">"The bank now only has </span>\<span class="p">(</span><span class="nv">Bank</span>.<span class="nv">coinsInBank</span><span class="p">)</span><span class="s"> coins left"</span>)
+</li><li><span class="c">// Prints "The bank now only has 7900 coins left"</span>
+</li></ol></div></div></div>
+<p>Here, the player has won 2,000 coins. The player‚Äôs purse now contains 2,100 coins, and the bank has only 7,900 coins left.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">playerOne</span> = <span class="k">nil</span>
+</li><li><span class="nv">print</span>(<span class="s">"PlayerOne has left the game"</span>)
+</li><li><span class="c">// Prints "PlayerOne has left the game"</span>
+</li><li><span class="nv">print</span>(<span class="s">"The bank now has </span>\<span class="p">(</span><span class="nv">Bank</span>.<span class="nv">coinsInBank</span><span class="p">)</span><span class="s"> coins"</span>)
+</li><li><span class="c">// Prints "The bank now has 10000 coins"</span>
+</li></ol></div></div></div>
+<p>The player has now left the game. This is indicated by setting the optional <code class="docutils literal notranslate"><span class="pre">playerOne</span></code> variable to <code class="docutils literal notranslate"><span class="pre">nil</span></code>, meaning ‚Äúno <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance.‚Äù At the point that this happens, the <code class="docutils literal notranslate"><span class="pre">playerOne</span></code> variable‚Äôs reference to the <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance is broken. No other properties or variables are still referring to the <code class="docutils literal notranslate"><span class="pre">Player</span></code> instance, and so it‚Äôs deallocated in order to free up its memory. Just before this happens, its deinitializer is called automatically, and its coins are returned to the bank.</p>
+</div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="Initialization.html">Initialization</a></p>
+        <p class="next"><a href="OptionalChaining.html">Optional Chaining</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright ¬© 2022 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  
+</body></html>Ytext/htmlUUTF-8_Ehttps://docs.swift.org/swift-book/LanguageGuide/Deinitialization.html            1   :   C   U   k   Å   ê  P[  Pd  \*  \r  \{  o+  o9  z©  zÊ  zÔ  ~˚  äq  äµ  äæ  ç_  ò—  ô  ô  ∂ñ  ¬U  ¬ñ  ¬ü  ≈…  —?  —Ñ  —ç  ’‘  ·P  ·ö  ·£  ˝Ê  ˝ˇ 	∞ 	˜ 
+ 
+ 
+7 
+8 \i \s \y             3             \¡

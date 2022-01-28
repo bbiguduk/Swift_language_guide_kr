@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Initialization &mdash; The Swift Programming Language (Swift 5.5)</title>
+    <title>Initialization &mdash; The Swift Programming Language (Swift 5.6)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
 
     <ul>
     <ul class="current">
@@ -444,7 +444,7 @@
 <li>Convenience initializers must always delegate <em>across</em>.</li>
 </ul>
 <p>These rules are illustrated in the figure below:</p>
-<img alt="../_images/initializerDelegation01_2x.png" class="align-center" src="../_images/initializerDelegation01_2x.png" style="width: 448px;" />
+<img alt="../_images/initializerDelegation01_2x.png" class="align-center" src="../_images/initializerDelegation01_2x.png" style="width: 411px;" />
 <p>Here, the superclass has a single designated initializer and two convenience initializers. One convenience initializer calls another convenience initializer, which in turn calls the single designated initializer. This satisfies rules 2 and 3 from above. The superclass doesn’t itself have a further superclass, and so rule 1 doesn’t apply.</p>
 <p>The subclass in this figure has two designated initializers and one convenience initializer. The convenience initializer must call one of the two designated initializers, because it can only call another initializer from the same class. This satisfies rules 2 and 3 from above. Both designated initializers must call the single designated initializer from the superclass, to satisfy rule 1 from above.</p>
 <div class="admonition note">
@@ -452,7 +452,7 @@
 <p class="last">These rules don’t affect how users of your classes <em>create</em> instances of each class. Any initializer in the diagram above can be used to create a fully initialized instance of the class they belong to. The rules only affect how you write the implementation of the class’s initializers.</p>
 </div>
 <p>The figure below shows a more complex class hierarchy for four classes. It illustrates how the designated initializers in this hierarchy act as “funnel” points for class initialization, simplifying the interrelationships among classes in the chain:</p>
-<img alt="../_images/initializerDelegation02_2x.png" class="align-center" src="../_images/initializerDelegation02_2x.png" style="width: 448px;" />
+<img alt="../_images/initializerDelegation02_2x.png" class="align-center" src="../_images/initializerDelegation02_2x.png" style="width: 411px;" />
 </div>
 <div class="section" id="ID220">
 <h3>Two-Phase Initialization<a class="headerlink" href="#ID220" title="Permalink to this headline">¶</a></h3>
@@ -493,13 +493,13 @@
 <li>Finally, any convenience initializers in the chain have the option to customize the instance and to work with <code class="docutils literal notranslate"><span class="pre">self</span></code>.</li>
 </ul>
 <p>Here’s how phase 1 looks for an initialization call for a hypothetical subclass and superclass:</p>
-<img alt="../_images/twoPhaseInitialization01_2x.png" class="align-center" src="../_images/twoPhaseInitialization01_2x.png" style="width: 448px;" />
+<img alt="../_images/twoPhaseInitialization01_2x.png" class="align-center" src="../_images/twoPhaseInitialization01_2x.png" style="width: 420px;" />
 <p>In this example, initialization begins with a call to a convenience initializer on the subclass. This convenience initializer can’t yet modify any properties. It delegates across to a designated initializer from the same class.</p>
 <p>The designated initializer makes sure that all of the subclass’s properties have a value, as per safety check 1. It then calls a designated initializer on its superclass to continue the initialization up the chain.</p>
 <p>The superclass’s designated initializer makes sure that all of the superclass properties have a value. There are no further superclasses to initialize, and so no further delegation is needed.</p>
 <p>As soon as all properties of the superclass have an initial value, its memory is considered fully initialized, and phase 1 is complete.</p>
 <p>Here’s how phase 2 looks for the same initialization call:</p>
-<img alt="../_images/twoPhaseInitialization02_2x.png" class="align-center" src="../_images/twoPhaseInitialization02_2x.png" style="width: 448px;" />
+<img alt="../_images/twoPhaseInitialization02_2x.png" class="align-center" src="../_images/twoPhaseInitialization02_2x.png" style="width: 420px;" />
 <p>The superclass’s designated initializer now has an opportunity to customize the instance further (although it doesn’t have to).</p>
 <p>Once the superclass’s designated initializer is finished, the subclass’s designated initializer can perform additional customization (although again, it doesn’t have to).</p>
 <p>Finally, once the subclass’s designated initializer is finished, the convenience initializer that was originally called can perform additional customization.</p>
@@ -601,7 +601,7 @@
 </li><li>}
 </li></ol></div></div></div>
 <p>The figure below shows the initializer chain for the <code class="docutils literal notranslate"><span class="pre">Food</span></code> class:</p>
-<img alt="../_images/initializersExample01_2x.png" class="align-center" src="../_images/initializersExample01_2x.png" style="width: 482px;" />
+<img alt="../_images/initializersExample01_2x.png" class="align-center" src="../_images/initializersExample01_2x.png" style="width: 411px;" />
 <p>Classes don’t have a default memberwise initializer, and so the <code class="docutils literal notranslate"><span class="pre">Food</span></code> class provides a designated initializer that takes a single argument called <code class="docutils literal notranslate"><span class="pre">name</span></code>. This initializer can be used to create a new <code class="docutils literal notranslate"><span class="pre">Food</span></code> instance with a specific name:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">namedMeat</span> = <span class="nv">Food</span>(<span class="nv">name</span>: <span class="s">&quot;Bacon&quot;</span>)
 </li><li><span class="c">// namedMeat&#39;s name is &quot;Bacon&quot;</span>
@@ -624,7 +624,7 @@
 </li><li>}
 </li></ol></div></div></div>
 <p>The figure below shows the initializer chain for the <code class="docutils literal notranslate"><span class="pre">RecipeIngredient</span></code> class:</p>
-<img alt="../_images/initializersExample02_2x.png" class="align-center" src="../_images/initializersExample02_2x.png" style="width: 482px;" />
+<img alt="../_images/initializersExample02_2x.png" class="align-center" src="../_images/initializersExample02_2x.png" style="width: 472px;" />
 <p>The <code class="docutils literal notranslate"><span class="pre">RecipeIngredient</span></code> class has a single designated initializer, <code class="docutils literal notranslate"><span class="pre">init(name:</span> <span class="pre">String,</span> <span class="pre">quantity:</span> <span class="pre">Int)</span></code>, which can be used to populate all of the properties of a new <code class="docutils literal notranslate"><span class="pre">RecipeIngredient</span></code> instance. This initializer starts by assigning the passed <code class="docutils literal notranslate"><span class="pre">quantity</span></code> argument to the <code class="docutils literal notranslate"><span class="pre">quantity</span></code> property, which is the only new property introduced by <code class="docutils literal notranslate"><span class="pre">RecipeIngredient</span></code>. After doing so, the initializer delegates up to the <code class="docutils literal notranslate"><span class="pre">init(name:</span> <span class="pre">String)</span></code> initializer of the <code class="docutils literal notranslate"><span class="pre">Food</span></code> class. This process satisfies safety check 1 from <a class="reference internal" href="#ID220"><span class="std std-ref">Two-Phase Initialization</span></a> above.</p>
 <p><code class="docutils literal notranslate"><span class="pre">RecipeIngredient</span></code> also defines a convenience initializer, <code class="docutils literal notranslate"><span class="pre">init(name:</span> <span class="pre">String)</span></code>, which is used to create a <code class="docutils literal notranslate"><span class="pre">RecipeIngredient</span></code> instance by name alone. This convenience initializer assumes a quantity of <code class="docutils literal notranslate"><span class="pre">1</span></code> for any <code class="docutils literal notranslate"><span class="pre">RecipeIngredient</span></code> instance that’s created without an explicit quantity. The definition of this convenience initializer makes <code class="docutils literal notranslate"><span class="pre">RecipeIngredient</span></code> instances quicker and more convenient to create, and avoids code duplication when creating several single-quantity <code class="docutils literal notranslate"><span class="pre">RecipeIngredient</span></code> instances. This convenience initializer simply delegates across to the class’s designated initializer, passing in a <code class="docutils literal notranslate"><span class="pre">quantity</span></code> value of <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">init(name:</span> <span class="pre">String)</span></code> convenience initializer provided by <code class="docutils literal notranslate"><span class="pre">RecipeIngredient</span></code> takes the same parameters as the <code class="docutils literal notranslate"><span class="pre">init(name:</span> <span class="pre">String)</span></code> <em>designated</em> initializer from <code class="docutils literal notranslate"><span class="pre">Food</span></code>. Because this convenience initializer overrides a designated initializer from its superclass, it must be marked with the <code class="docutils literal notranslate"><span class="pre">override</span></code> modifier (as described in <a class="reference internal" href="#ID221"><span class="std std-ref">Initializer Inheritance and Overriding</span></a>).</p>
@@ -652,7 +652,7 @@
 </div>
 <p>Because it provides a default value for all of the properties it introduces and doesn’t define any initializers itself, <code class="docutils literal notranslate"><span class="pre">ShoppingListItem</span></code> automatically inherits <em>all</em> of the designated and convenience initializers from its superclass.</p>
 <p>The figure below shows the overall initializer chain for all three classes:</p>
-<img alt="../_images/initializersExample03_2x.png" class="align-center" src="../_images/initializersExample03_2x.png" style="width: 482px;" />
+<img alt="../_images/initializersExample03_2x.png" class="align-center" src="../_images/initializersExample03_2x.png" style="width: 473px;" />
 <p>You can use all three of the inherited initializers to create a new <code class="docutils literal notranslate"><span class="pre">ShoppingListItem</span></code> instance:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">breakfastList</span> = [
 </li><li>    <span class="nv">ShoppingListItem</span>(),
@@ -929,7 +929,7 @@
 <p class="last">If you use a closure to initialize a property, remember that the rest of the instance hasn’t yet been initialized at the point that the closure is executed. This means that you can’t access any other property values from within your closure, even if those properties have default values. You also can’t use the implicit <code class="docutils literal notranslate"><span class="pre">self</span></code> property, or call any of the instance’s methods.</p>
 </div>
 <p>The example below defines a structure called <code class="docutils literal notranslate"><span class="pre">Chessboard</span></code>, which models a board for the game of chess. Chess is played on an 8 x 8 board, with alternating black and white squares.</p>
-<img alt="../_images/chessBoard_2x.png" class="align-center" src="../_images/chessBoard_2x.png" style="width: 230px;" />
+<img alt="../_images/chessBoard_2x.png" class="align-center" src="../_images/chessBoard_2x.png" style="width: 345px;" />
 <p>To represent this game board, the <code class="docutils literal notranslate"><span class="pre">Chessboard</span></code> structure has a single property called <code class="docutils literal notranslate"><span class="pre">boardColors</span></code>, which is an array of 64 <code class="docutils literal notranslate"><span class="pre">Bool</span></code> values. A value of <code class="docutils literal notranslate"><span class="pre">true</span></code> in the array represents a black square and a value of <code class="docutils literal notranslate"><span class="pre">false</span></code> represents a white square. The first item in the array represents the top left square on the board and the last item in the array represents the bottom right square on the board.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">boardColors</span></code> array is initialized with a closure to set up its color values:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Chessboard</span> {
@@ -966,6 +966,14 @@
         <p class="previous"><a href="Inheritance.html">Inheritance</a></p>
         <p class="next"><a href="Deinitialization.html">Deinitialization</a></p>
     </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
 </main>
 
 
@@ -975,7 +983,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

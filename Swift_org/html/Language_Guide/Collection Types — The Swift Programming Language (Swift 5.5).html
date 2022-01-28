@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Collection Types &mdash; The Swift Programming Language (Swift 5.5)</title>
+    <title>Collection Types &mdash; The Swift Programming Language (Swift 5.6)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
 
     <ul>
     <ul class="current">
@@ -146,7 +146,7 @@
   <div class="section" id="collection-types">
 <h1>Collection Types<a class="headerlink" href="#collection-types" title="Permalink to this headline">¶</a></h1>
 <p>Swift provides three primary <em>collection types</em>, known as arrays, sets, and dictionaries, for storing collections of values. Arrays are ordered collections of values. Sets are unordered collections of unique values. Dictionaries are unordered collections of key-value associations.</p>
-<img alt="../_images/CollectionTypes_intro_2x.png" class="align-center" src="../_images/CollectionTypes_intro_2x.png" style="width: 670px;" />
+<img alt="../_images/CollectionTypes_intro_2x.png" class="align-center" src="../_images/CollectionTypes_intro_2x.png" style="width: 669px;" />
 <p>Arrays, sets, and dictionaries in Swift are always clear about the types of values and keys that they can store. This means that you can’t insert a value of the wrong type into a collection by mistake. It also means you can be confident about the type of values you will retrieve from a collection.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
@@ -437,7 +437,7 @@
 <div class="section" id="ID505">
 <h3>Fundamental Set Operations<a class="headerlink" href="#ID505" title="Permalink to this headline">¶</a></h3>
 <p>The illustration below depicts two sets—<code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>—with the results of various set operations represented by the shaded regions.</p>
-<img alt="../_images/setVennDiagram_2x.png" class="align-center" src="../_images/setVennDiagram_2x.png" style="width: 561px;" />
+<img alt="../_images/setVennDiagram_2x.png" class="align-center" src="../_images/setVennDiagram_2x.png" style="width: 453px;" />
 <ul class="simple">
 <li>Use the <code class="docutils literal notranslate"><span class="pre">intersection(_:)</span></code> method to create a new set with only the values common to both sets.</li>
 <li>Use the <code class="docutils literal notranslate"><span class="pre">symmetricDifference(_:)</span></code> method to create a new set with values in either set, but not both.</li>
@@ -461,7 +461,7 @@
 <div class="section" id="ID506">
 <h3>Set Membership and Equality<a class="headerlink" href="#ID506" title="Permalink to this headline">¶</a></h3>
 <p>The illustration below depicts three sets—<code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">c</span></code>—with overlapping regions representing elements shared among sets. Set <code class="docutils literal notranslate"><span class="pre">a</span></code> is a <em>superset</em> of set <code class="docutils literal notranslate"><span class="pre">b</span></code>, because <code class="docutils literal notranslate"><span class="pre">a</span></code> contains all elements in <code class="docutils literal notranslate"><span class="pre">b</span></code>. Conversely, set <code class="docutils literal notranslate"><span class="pre">b</span></code> is a <em>subset</em> of set <code class="docutils literal notranslate"><span class="pre">a</span></code>, because all elements in <code class="docutils literal notranslate"><span class="pre">b</span></code> are also contained by <code class="docutils literal notranslate"><span class="pre">a</span></code>. Set <code class="docutils literal notranslate"><span class="pre">b</span></code> and set <code class="docutils literal notranslate"><span class="pre">c</span></code> are <em>disjoint</em> with one another, because they share no elements in common.</p>
-<img alt="../_images/setEulerDiagram_2x.png" class="align-center" src="../_images/setEulerDiagram_2x.png" style="width: 551px;" />
+<img alt="../_images/setEulerDiagram_2x.png" class="align-center" src="../_images/setEulerDiagram_2x.png" style="width: 623px;" />
 <ul class="simple">
 <li>Use the “is equal” operator (<code class="docutils literal notranslate"><span class="pre">==</span></code>) to determine whether two sets contain all of the same values.</li>
 <li>Use the <code class="docutils literal notranslate"><span class="pre">isSubset(of:)</span></code> method to determine whether all of the values of a set are contained in the specified set.</li>
@@ -628,6 +628,14 @@
         <p class="previous"><a href="StringsAndCharacters.html">Strings and Characters</a></p>
         <p class="next"><a href="ControlFlow.html">Control Flow</a></p>
     </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
 </main>
 
 
@@ -637,7 +645,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

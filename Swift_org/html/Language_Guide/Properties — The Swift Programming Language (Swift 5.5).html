@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Properties &mdash; The Swift Programming Language (Swift 5.5)</title>
+    <title>Properties &mdash; The Swift Programming Language (Swift 5.6)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
 
     <ul>
     <ul class="current">
@@ -242,6 +242,7 @@
 </li><li><span class="k">var</span> <span class="nv">square</span> = <span class="nv">Rect</span>(<span class="nv">origin</span>: <span class="nv">Point</span>(<span class="nv">x</span>: <span class="m">0.0</span>, <span class="nv">y</span>: <span class="m">0.0</span>),
 </li><li>                  <span class="nv">size</span>: <span class="nv">Size</span>(<span class="nv">width</span>: <span class="m">10.0</span>, <span class="nv">height</span>: <span class="m">10.0</span>))
 </li><li><span class="k">let</span> <span class="nv">initialSquareCenter</span> = <span class="nv">square</span>.<span class="nv">center</span>
+</li><li><span class="c">// initialSquareCenter is at (5.0, 5.0)</span>
 </li><li><span class="nv">square</span>.<span class="nv">center</span> = <span class="nv">Point</span>(<span class="nv">x</span>: <span class="m">15.0</span>, <span class="nv">y</span>: <span class="m">15.0</span>)
 </li><li><span class="nv">print</span>(<span class="s">&quot;square.origin is now at (</span>\<span class="p">(</span><span class="nv">square</span>.<span class="nv">origin</span>.<span class="nv">x</span><span class="p">)</span><span class="s">, </span>\<span class="p">(</span><span class="nv">square</span>.<span class="nv">origin</span>.<span class="nv">y</span><span class="p">)</span><span class="s">)&quot;</span>)
 </li><li><span class="c">// Prints &quot;square.origin is now at (10.0, 10.0)&quot;</span>
@@ -253,10 +254,10 @@
 <li><code class="docutils literal notranslate"><span class="pre">Rect</span></code> defines a rectangle by an origin point and a size.</li>
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">Rect</span></code> structure also provides a computed property called <code class="docutils literal notranslate"><span class="pre">center</span></code>. The current center position of a <code class="docutils literal notranslate"><span class="pre">Rect</span></code> can always be determined from its <code class="docutils literal notranslate"><span class="pre">origin</span></code> and <code class="docutils literal notranslate"><span class="pre">size</span></code>, and so you don’t need to store the center point as an explicit <code class="docutils literal notranslate"><span class="pre">Point</span></code> value. Instead, <code class="docutils literal notranslate"><span class="pre">Rect</span></code> defines a custom getter and setter for a computed variable called <code class="docutils literal notranslate"><span class="pre">center</span></code>, to enable you to work with the rectangle’s <code class="docutils literal notranslate"><span class="pre">center</span></code> as if it were a real stored property.</p>
-<p>The example above creates a new <code class="docutils literal notranslate"><span class="pre">Rect</span></code> variable called <code class="docutils literal notranslate"><span class="pre">square</span></code>. The <code class="docutils literal notranslate"><span class="pre">square</span></code> variable is initialized with an origin point of <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">0)</span></code>, and a width and height of <code class="docutils literal notranslate"><span class="pre">10</span></code>. This square is represented by the blue square in the diagram below.</p>
+<p>The example above creates a new <code class="docutils literal notranslate"><span class="pre">Rect</span></code> variable called <code class="docutils literal notranslate"><span class="pre">square</span></code>. The <code class="docutils literal notranslate"><span class="pre">square</span></code> variable is initialized with an origin point of <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">0)</span></code>, and a width and height of <code class="docutils literal notranslate"><span class="pre">10</span></code>. This square is represented by the light green square in the diagram below.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">square</span></code> variable’s <code class="docutils literal notranslate"><span class="pre">center</span></code> property is then accessed through dot syntax (<code class="docutils literal notranslate"><span class="pre">square.center</span></code>), which causes the getter for <code class="docutils literal notranslate"><span class="pre">center</span></code> to be called, to retrieve the current property value. Rather than returning an existing value, the getter actually calculates and returns a new <code class="docutils literal notranslate"><span class="pre">Point</span></code> to represent the center of the square. As can be seen above, the getter correctly returns a center point of <code class="docutils literal notranslate"><span class="pre">(5,</span> <span class="pre">5)</span></code>.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">center</span></code> property is then set to a new value of <code class="docutils literal notranslate"><span class="pre">(15,</span> <span class="pre">15)</span></code>, which moves the square up and to the right, to the new position shown by the orange square in the diagram below. Setting the <code class="docutils literal notranslate"><span class="pre">center</span></code> property calls the setter for <code class="docutils literal notranslate"><span class="pre">center</span></code>, which modifies the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values of the stored <code class="docutils literal notranslate"><span class="pre">origin</span></code> property, and moves the square to its new position.</p>
-<img alt="../_images/computedProperties_2x.png" class="align-center" src="../_images/computedProperties_2x.png" style="width: 388px;" />
+<p>The <code class="docutils literal notranslate"><span class="pre">center</span></code> property is then set to a new value of <code class="docutils literal notranslate"><span class="pre">(15,</span> <span class="pre">15)</span></code>, which moves the square up and to the right, to the new position shown by the dark green square in the diagram below. Setting the <code class="docutils literal notranslate"><span class="pre">center</span></code> property calls the setter for <code class="docutils literal notranslate"><span class="pre">center</span></code>, which modifies the <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values of the stored <code class="docutils literal notranslate"><span class="pre">origin</span></code> property, and moves the square to its new position.</p>
+<img alt="../_images/computedProperties_2x.png" class="align-center" src="../_images/computedProperties_2x.png" style="width: 477px;" />
 <div class="section" id="ID260">
 <h3>Shorthand Setter Declaration<a class="headerlink" href="#ID260" title="Permalink to this headline">¶</a></h3>
 <p>If a computed property’s setter doesn’t define a name for the new value to be set, a default name of <code class="docutils literal notranslate"><span class="pre">newValue</span></code> is used. Here’s an alternative version of the <code class="docutils literal notranslate"><span class="pre">Rect</span></code> structure that takes advantage of this shorthand notation:</p>
@@ -386,7 +387,7 @@
 </li><li>    }
 </li><li>}
 </li></ol></div></div></div>
-<p>The setter ensures that new values are less than 12, and the getter returns the stored value.</p>
+<p>The setter ensures that new values are less than or equal to 12, and the getter returns the stored value.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">The declaration for <code class="docutils literal notranslate"><span class="pre">number</span></code> in the example above marks the variable as <code class="docutils literal notranslate"><span class="pre">private</span></code>, which ensures <code class="docutils literal notranslate"><span class="pre">number</span></code> is used only in the implementation of <code class="docutils literal notranslate"><span class="pre">TwelveOrLess</span></code>. Code that’s written anywhere else accesses the value using the getter and setter for <code class="docutils literal notranslate"><span class="pre">wrappedValue</span></code>, and can’t use <code class="docutils literal notranslate"><span class="pre">number</span></code> directly. For information about <code class="docutils literal notranslate"><span class="pre">private</span></code>, see <a class="reference internal" href="AccessControl.html"><span class="doc">Access Control</span></a>.</p>
@@ -427,7 +428,7 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">_height</span></code> and <code class="docutils literal notranslate"><span class="pre">_width</span></code> properties store an instance of the property wrapper, <code class="docutils literal notranslate"><span class="pre">TwelveOrLess</span></code>. The getter and setter for <code class="docutils literal notranslate"><span class="pre">height</span></code> and <code class="docutils literal notranslate"><span class="pre">width</span></code> wrap access to the <code class="docutils literal notranslate"><span class="pre">wrappedValue</span></code> property.</p>
 <div class="section" id="ID618">
 <h3>Setting Initial Values for Wrapped Properties<a class="headerlink" href="#ID618" title="Permalink to this headline">¶</a></h3>
-<p>The code in the examples above sets the initial value for the wrapped property by giving <code class="docutils literal notranslate"><span class="pre">number</span></code> an initial value in the definition of <code class="docutils literal notranslate"><span class="pre">TwelveOrLess</span></code>. Code that uses this property wrapper, can’t specify a different initial value for a property that’s wrapped by <code class="docutils literal notranslate"><span class="pre">TwelveOrLess</span></code>—for example, the definition of <code class="docutils literal notranslate"><span class="pre">SmallRectangle</span></code> can’t give <code class="docutils literal notranslate"><span class="pre">height</span></code> or <code class="docutils literal notranslate"><span class="pre">width</span></code> initial values. To support setting an initial value or other customization, the property wrapper needs to add an initializer. Here’s an expanded version of <code class="docutils literal notranslate"><span class="pre">TwelveOrLess</span></code> called <code class="docutils literal notranslate"><span class="pre">SmallNumber</span></code> that defines initializers that set the wrapped and maximum value:</p>
+<p>The code in the examples above sets the initial value for the wrapped property by giving <code class="docutils literal notranslate"><span class="pre">number</span></code> an initial value in the definition of <code class="docutils literal notranslate"><span class="pre">TwelveOrLess</span></code>. Code that uses this property wrapper can’t specify a different initial value for a property that’s wrapped by <code class="docutils literal notranslate"><span class="pre">TwelveOrLess</span></code>—for example, the definition of <code class="docutils literal notranslate"><span class="pre">SmallRectangle</span></code> can’t give <code class="docutils literal notranslate"><span class="pre">height</span></code> or <code class="docutils literal notranslate"><span class="pre">width</span></code> initial values. To support setting an initial value or other customization, the property wrapper needs to add an initializer. Here’s an expanded version of <code class="docutils literal notranslate"><span class="pre">TwelveOrLess</span></code> called <code class="docutils literal notranslate"><span class="pre">SmallNumber</span></code> that defines initializers that set the wrapped and maximum value:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>@<span class="nv">propertyWrapper</span>
 </li><li><span class="k">struct</span> <span class="nv">SmallNumber</span> {
 </li><li>    <span class="k">private</span> <span class="k">var</span> <span class="nv">maximum</span>: <span class="nc">Int</span>
@@ -655,7 +656,7 @@
 </li></ol></div></div></div>
 <p>The examples that follow use two stored type properties as part of a structure that models an audio level meter for a number of audio channels. Each channel has an integer audio level between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">10</span></code> inclusive.</p>
 <p>The figure below illustrates how two of these audio channels can be combined to model a stereo audio level meter. When a channel’s audio level is <code class="docutils literal notranslate"><span class="pre">0</span></code>, none of the lights for that channel are lit. When the audio level is <code class="docutils literal notranslate"><span class="pre">10</span></code>, all of the lights for that channel are lit. In this figure, the left channel has a current level of <code class="docutils literal notranslate"><span class="pre">9</span></code>, and the right channel has a current level of <code class="docutils literal notranslate"><span class="pre">7</span></code>:</p>
-<img alt="../_images/staticPropertiesVUMeter_2x.png" class="align-center" src="../_images/staticPropertiesVUMeter_2x.png" style="width: 243px;" />
+<img alt="../_images/staticPropertiesVUMeter_2x.png" class="align-center" src="../_images/staticPropertiesVUMeter_2x.png" style="width: 299px;" />
 <p>The audio channels described above are represented by instances of the <code class="docutils literal notranslate"><span class="pre">AudioChannel</span></code> structure:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">AudioChannel</span> {
 </li><li>    <span class="k">static</span> <span class="k">let</span> <span class="nv">thresholdLevel</span> = <span class="m">10</span>
@@ -714,6 +715,14 @@
         <p class="previous"><a href="ClassesAndStructures.html">Structures and Classes</a></p>
         <p class="next"><a href="Methods.html">Methods</a></p>
     </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
 </main>
 
 
@@ -723,7 +732,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

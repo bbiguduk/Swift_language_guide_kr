@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Structures and Classes &mdash; The Swift Programming Language (Swift 5.5)</title>
+    <title>Structures and Classes &mdash; The Swift Programming Language (Swift 5.6)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
 
     <ul>
     <ul class="current">
@@ -246,7 +246,7 @@
 </li><li><span class="c">// Prints &quot;hd is still 1920 pixels wide&quot;</span>
 </li></ol></div></div></div>
 <p>When <code class="docutils literal notranslate"><span class="pre">cinema</span></code> was given the current value of <code class="docutils literal notranslate"><span class="pre">hd</span></code>, the <em>values</em> stored in <code class="docutils literal notranslate"><span class="pre">hd</span></code> were copied into the new <code class="docutils literal notranslate"><span class="pre">cinema</span></code> instance. The end result was two completely separate instances that contained the same numeric values. However, because they’re separate instances, setting the width of <code class="docutils literal notranslate"><span class="pre">cinema</span></code> to <code class="docutils literal notranslate"><span class="pre">2048</span></code> doesn’t affect the width stored in <code class="docutils literal notranslate"><span class="pre">hd</span></code>, as shown in the figure below:</p>
-<img alt="../_images/sharedStateStruct_2x.png" class="align-center" src="../_images/sharedStateStruct_2x.png" style="width: 650px;" />
+<img alt="../_images/sharedStateStruct_2x.png" class="align-center" src="../_images/sharedStateStruct_2x.png" style="width: 647px;" />
 <p>The same behavior applies to enumerations:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">CompassPoint</span> {
 </li><li>    <span class="k">case</span> <span class="nv">north</span>, <span class="nv">south</span>, <span class="nv">east</span>, <span class="nv">west</span>
@@ -281,7 +281,7 @@
 </li><li><span class="nv">alsoTenEighty</span>.<span class="nv">frameRate</span> = <span class="m">30.0</span>
 </li></ol></div></div></div>
 <p>Because classes are reference types, <code class="docutils literal notranslate"><span class="pre">tenEighty</span></code> and <code class="docutils literal notranslate"><span class="pre">alsoTenEighty</span></code> actually both refer to the <em>same</em> <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code> instance. Effectively, they’re just two different names for the same single instance, as shown in the figure below:</p>
-<img alt="../_images/sharedStateClass_2x.png" class="align-center" src="../_images/sharedStateClass_2x.png" style="width: 670px;" />
+<img alt="../_images/sharedStateClass_2x.png" class="align-center" src="../_images/sharedStateClass_2x.png" style="width: 737px;" />
 <p>Checking the <code class="docutils literal notranslate"><span class="pre">frameRate</span></code> property of <code class="docutils literal notranslate"><span class="pre">tenEighty</span></code> shows that it correctly reports the new frame rate of <code class="docutils literal notranslate"><span class="pre">30.0</span></code> from the underlying <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code> instance:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="s">&quot;The frameRate property of tenEighty is now </span>\<span class="p">(</span><span class="nv">tenEighty</span>.<span class="nv">frameRate</span><span class="p">)</span><span class="s">&quot;</span>)
 </li><li><span class="c">// Prints &quot;The frameRate property of tenEighty is now 30.0&quot;</span>
@@ -318,6 +318,14 @@
         <p class="previous"><a href="Enumerations.html">Enumerations</a></p>
         <p class="next"><a href="Properties.html">Properties</a></p>
     </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
 </main>
 
 
@@ -327,7 +335,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
