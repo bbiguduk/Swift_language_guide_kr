@@ -131,6 +131,7 @@ struct Rect {
 var square = Rect(origin: Point(x: 0.0, y: 0.0),
                   size: Size(width: 10.0, height: 10.0))
 let initialSquareCenter = square.center
+// initialSquareCenter is at (5.0, 5.0)
 square.center = Point(x: 15.0, y: 15.0)
 print("square.origin is now at (\(square.origin.x), \(square.origin.y))")
 // Prints "square.origin is now at (10.0, 10.0)"
@@ -144,11 +145,11 @@ print("square.origin is now at (\(square.origin.x), \(square.origin.y))")
 
 `Rect` 구조체는 `center` 라는 계산된 프로퍼티를 제공합니다. `Rect` 에 현재 중앙 위치는 항상 `origin` 과 `size` 로 계산될 수 있고 명시적으로 `Point` 값으로 저장할 필요가 없습니다. 대신에 `Rect` 는 `center` 라는 계산된 변수를 위한 getter와 setter를 정의하고 실제 저장된 프로퍼티 처럼 사각형의 `center` 를 동작하도록 합니다.
 
-위의 예제는 `square` 라는 새로운 `Rect` 변수를 생성합니다. `square` 변수는 `(0, 0)` 의 원점으로 너비와 높이를 `10` 으로 초기화 됩니다. 이 사각형은 아래의 다이어그램에서 파란색 사각형으로 표현됩니다.
+위의 예제는 `square` 라는 새로운 `Rect` 변수를 생성합니다. `square` 변수는 `(0, 0)` 의 원점으로 너비와 높이를 `10` 으로 초기화 됩니다. 이 사각형은 아래의 다이어그램에서 밝은 초록색 사각형으로 표현됩니다.
 
 `square` 변수의 `center` 프로퍼티는 점 구문 \(`square.center`\)으로 접근되고 `center` 에 대한 getter를 호출하여 현재 프로퍼티 값을 조회합니다. 존재하는 값을 반환하기 보다 getter는 실질적으로 사각형의 중심을 나타내는 새로운 `Point` 를 계산하고 반환합니다. 위에 볼 수 있듯이 getter는 `(5, 5)` 의 중심점을 반환합니다.
 
-아래 다이어그램의 오렌지색 사각형처럼 `center` 프로퍼티는 `(15, 15)` 의 새로운 값으로 설정되어 새로운 위치로 사각형이 위와 우측으로 이동합니다. `center` 프로퍼티 설정은 `center` 의 setter를 호출하고 `origin` 프로퍼티에 저장된 `x` 와 `y` 값을 변경하고 사각형을 새로운 위치로 이동합니다.
+아래 다이어그램의 어두운 초록색 사각형처럼 `center` 프로퍼티는 `(15, 15)` 의 새로운 값으로 설정되어 새로운 위치로 사각형이 위와 우측으로 이동합니다. `center` 프로퍼티 설정은 `center` 의 setter를 호출하고 `origin` 프로퍼티에 저장된 `x` 와 `y` 값을 변경하고 사각형을 새로운 위치로 이동합니다.
 
 ![Computed Properties](../.gitbook/assets/10_computedproperties_2x.png)
 
@@ -301,7 +302,7 @@ struct TwelveOrLess {
 }
 ```
 
-setter는 새로운 값이 12이하라는 것을 보장하고 getter는 저장된 값을 반환합니다.
+setter는 새로운 값이 12 보다 작거나 같은 것을 확인하고 getter는 저장된 값을 반환합니다.
 
 > NOTE  
 > 위의 예제에서 `number` 선언부는 `TwelveOrLess` 의 구현에서만 `number` 가 사용될 수 있도록 `private` 로 변수를 표기합니다. 다른곳에서 작성된 코드는 `wrappedValue` 를 위한 getter와 setter를 사용하여 값에 접근하고 직접적으로 `number` 를 사용할 수 없습니다. `private` 에 대한 정보는 [접근 제어 \(Access Control\)](access-control.md) 를 참고 바랍니다.

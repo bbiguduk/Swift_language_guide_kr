@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Patterns &mdash; The Swift Programming Language (Swift 5.5)</title>
+    <title>Patterns &mdash; The Swift Programming Language (Swift 5.6)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
 
     <ul>
     <ul class="current">
@@ -106,7 +106,7 @@
 <p>In Swift, there are two basic kinds of patterns: those that successfully match any kind of value, and those that may fail to match a specified value at runtime.</p>
 <p>The first kind of pattern is used for destructuring values in simple variable, constant, and optional bindings. These include wildcard patterns, identifier patterns, and any value binding or tuple patterns containing them. You can specify a type annotation for these patterns to constrain them to match only values of a certain type.</p>
 <p>The second kind of pattern is used for full pattern matching, where the values you’re trying to match against may not be there at runtime. These include enumeration case patterns, optional patterns, expression patterns, and type-casting patterns. You use these patterns in a case label of a <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement, a <code class="docutils literal notranslate"><span class="pre">catch</span></code> clause of a <code class="docutils literal notranslate"><span class="pre">do</span></code> statement, or in the case condition of an <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>, <code class="docutils literal notranslate"><span class="pre">guard</span></code>, or <code class="docutils literal notranslate"><span class="pre">for</span></code>-<code class="docutils literal notranslate"><span class="pre">in</span></code> statement.</p>
-<div class="admonition grammar"><p class="first admonition-title">Grammar of a pattern</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_wildcard-pattern">wildcard-pattern</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-annotation">type-annotation</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1168"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_identifier-pattern">identifier-pattern</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-annotation">type-annotation</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1169"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_value-binding-pattern">value-binding-pattern</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1170"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_tuple-pattern">tuple-pattern</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-annotation">type-annotation</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1171"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_enum-case-pattern">enum-case-pattern</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1172"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_optional-pattern">optional-pattern</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1173"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_type-casting-pattern">type-casting-pattern</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1174"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_expression-pattern">expression-pattern</a></span> </p></div></div><div class="section" id="ID420">
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a pattern</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_wildcard-pattern">wildcard-pattern</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-annotation">type-annotation</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1169"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_identifier-pattern">identifier-pattern</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-annotation">type-annotation</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1170"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_value-binding-pattern">value-binding-pattern</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1171"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_tuple-pattern">tuple-pattern</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-annotation">type-annotation</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1172"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_enum-case-pattern">enum-case-pattern</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1173"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_optional-pattern">optional-pattern</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1174"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_type-casting-pattern">type-casting-pattern</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1175"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_expression-pattern">expression-pattern</a></span> </p></div></div><div class="section" id="ID420">
 <h2>Wildcard Pattern<a class="headerlink" href="#ID420" title="Permalink to this headline">¶</a></h2>
 <p>A <em>wildcard pattern</em> matches and ignores any value and consists of an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>). Use a wildcard pattern when you don’t care about the values being matched against. For example, the following code iterates through the closed range <code class="docutils literal notranslate"><span class="pre">1...3</span></code>, ignoring the current value of the range on each iteration of the loop:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">for</span> <span class="k">_</span> <span class="k">in</span> <span class="m">1</span>...<span class="m">3</span> {
@@ -244,6 +244,14 @@
         <p class="previous"><a href="Attributes.html">Attributes</a></p>
         <p class="next"><a href="GenericParametersAndArguments.html">Generic Parameters and Arguments</a></p>
     </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
 </main>
 
 
@@ -253,7 +261,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

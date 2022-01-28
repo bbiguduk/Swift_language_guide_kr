@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Functions &mdash; The Swift Programming Language (Swift 5.5)</title>
+    <title>Functions &mdash; The Swift Programming Language (Swift 5.6)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
 
     <ul>
     <ul class="current">
@@ -312,7 +312,7 @@
 <p>As you’ll see in <a class="reference internal" href="Properties.html#ID608"><span class="std std-ref">Shorthand Getter Declaration</span></a>, property getters can also use an implicit return.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">The code you write as an implicit return value needs to return some value. For example, you can’t use <code class="docutils literal notranslate"><span class="pre">fatalError(&quot;Oh</span> <span class="pre">no!&quot;)</span></code> or <code class="docutils literal notranslate"><span class="pre">print(13)</span></code> as an implicit return value.</p>
+<p class="last">The code you write as an implicit return value needs to return some value. For example, you can’t use <code class="docutils literal notranslate"><span class="pre">print(13)</span></code> as an implicit return value. However, you can use a function that never returns like <code class="docutils literal notranslate"><span class="pre">fatalError(&quot;Oh</span> <span class="pre">no!&quot;)</span></code> as an implicit return value, because Swift knows that the implicit return doesn’t happen.</p>
 </div>
 </div>
 </div>
@@ -542,6 +542,14 @@
         <p class="previous"><a href="ControlFlow.html">Control Flow</a></p>
         <p class="next"><a href="Closures.html">Closures</a></p>
     </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
 </main>
 
 
@@ -551,7 +559,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

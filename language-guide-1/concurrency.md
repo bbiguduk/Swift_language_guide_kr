@@ -65,13 +65,13 @@ show(photo)
 
 * 비동기 함수, 메서드 또는 프로퍼티의 바디에 있는 코드
 * `@main` 으로 표시된 구조체, 클래스, 또는 열거형의 정적 \(static\) `main()` 메서드에 있는 코드
-* 아래의 [구조화되지 않은 동시성 \(Unstructured Concurrency\)](concurrency.md#unstructured-concurrency) 에 보이는 것처럼 분리된 하위 작업의 코드
+* 아래의 [구조화되지 않은 동시성 \(Unstructured Concurrency\)](concurrency.md#unstructured-concurrency) 에 보이는 것처럼 구조화되지 않은 하위 작업의 코드
 
-> NOTE [`Task.sleep(_:)`](https://developer.apple.com/documentation/swift/task/3814836-sleep) 메서드는 동시성 작동 방식을 배우기 위해 간단한 코드를 작성할 때 유용합니다. 이 메서드는 아무런 동작도 하지 않지만 반환되기 전에 주어진 나노 단위의 초만큼 기다립니다. 다음은 네트워크 작업 대기를 시뮬레이션하기 위해 `sleep()` 을 사용하는 `listPhoto(inGallery:)` 함수의 버전입니다:
+> NOTE [`Task.sleep(_:)`](https://developer.apple.com/documentation/swift/task/3814836-sleep) 메서드는 동시성 작동 방식을 배우기 위해 간단한 코드를 작성할 때 유용합니다. 이 메서드는 아무런 동작도 하지 않지만 반환되기 전에 주어진 나노 단위의 초만큼 기다립니다. 다음은 네트워크 작업 대기를 시뮬레이션하기 위해 `sleep(nanoseconds:)` 을 사용하는 `listPhoto(inGallery:)` 함수의 버전입니다:
 >
 > ```swift
-> func listPhotos(inGallery name: String) async -> [String] {
->     await Task.sleep(2 * 1_000_000_000)  // Two seconds
+> func listPhotos(inGallery name: String) async throws -> [String] {
+>     try await Task.sleep(nanoseconds: 2 * 1_000_000_000)  // Two seconds
 >     return ["IMG001", "IMG99", "IMG0404"]
 > }
 > ```

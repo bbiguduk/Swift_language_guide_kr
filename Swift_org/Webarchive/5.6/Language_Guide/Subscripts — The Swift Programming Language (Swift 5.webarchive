@@ -1,0 +1,2115 @@
+bplist00Ò4_WebSubresources_WebMainResourceª"&+/Ô	
+_WebResourceData_WebResourceMIMEType_WebResourceResponse^WebResourceURLOOÇï»¿html{
+    font-size:100%;
+    -ms-text-size-adjust:100%;
+    -webkit-text-size-adjust:100%
+}
+body{
+    margin:0;
+    padding:0
+}
+ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,hgroup,p,blockquote,figure,form,fieldset,input,legend,pre,abbr{
+    margin:0;
+    padding:0
+}
+pre,code,address,caption,th,figcaption{
+    font-size:1em;
+    font-weight:normal;
+    font-style:normal
+}
+fieldset,iframe,img{
+    border:none
+}
+caption,th{
+    text-align:left
+}
+table{
+    border-collapse:collapse;
+    border-spacing:0
+}
+article,aside,footer,header,nav,main,section,summary,details,hgroup,figure,figcaption{
+    display:block
+}
+audio,canvas,video,progress{
+    display:inline-block;
+    vertical-align:baseline
+}
+button{
+    font:inherit;
+    vertical-align:middle
+}
+.highlight { background: #ffffff }
+.highlight .c, .highlight .cm, .highlight .cp, .highlight .c1, .highlight .cs { color: #007400; } /* Comment, Comment.Multiline, Comment.Preproc, Comment.Single, Comment.Special */
+.highlight .k, .highlight .kc, .highlight .kd, .highlight .kp, .highlight .kr, .highlight .nb { color: #AA0D91; } /* Keyword, Keyword.Constant, Keyword.Declaration, Keyword.Pseudo, Name.Builtin */
+.highlight .kt { color: #3F6E74 } /* Keyword.Reserved */
+.highlight .err { color: #a61717; } /* Error */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .gd { color: #000000;background-color: #fdd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000;background-color: #faa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style:italic } /* Generic.Emph */
+.highlight .gr { color: #a00 } /* Generic.Error */
+.highlight .gh { color: #999 } /* Generic.Heading */
+.highlight .gi { color: #000000;background-color: #dfd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000;background-color: #afa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888 } /* Generic.Output */
+.highlight .gp { color: #555 } /* Generic.Prompt */
+.highlight .gs { font-weight:bold } /* Generic.Strong */
+.highlight .gu { color: #aaa } /* Generic.Subheading */
+.highlight .gt { color: #a00 } /* Generic.Traceback */
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo { color: #1C00CF; } /* Literal.Number, Literal.Number.Float, Literal.Number.Hex, Literal.Number.Integer, Literal.Number.Oct */
+.highlight .s { color: #C41A16; } /* Literal.String */
+.highlight .na { color:teal }     /* Name.Attribute */
+.highlight .nc { color: #5C2699 } /* Name.Class */
+.highlight .no { color: teal }    /* Name.Constant */
+.highlight .ni { color: purple }  /* Name.Entity */
+.highlight .ne { color: #990000 } /* Name.Exception */
+.highlight .nn { color: #555 }    /* Name.Namespace */
+.highlight .nt { color: navy } 	  /* Name.Tag */
+.highlight .nv, .highlight .nf { color: #3F6E74 } /* Name.Variable, Name.Function */
+.highlight .ow { font-weight:bold } /* Operator.Word */
+.highlight .w { color: #bbb } /* Text.Whitespace */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color:teal } /* Name.Variable.Class */
+.highlight .vg { color:teal } /* Name.Variable.Global */
+.highlight .vi { color:teal } /* Name.Variable.Instance */
+.highlight .il { color: #099 } /* Literal.Number.Integer.Long */
+
+*,*:before,*:after{
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box
+}
+html,body{
+    height:100%
+}
+body{
+    font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
+    font-size:18px;
+    line-height:1.5;
+    color:#333;
+    font-weight:300
+}
+body pre,body code{
+    font-family:Menlo, Consolas, Monaco, "Courier New", monospace, serif
+}
+a:link{
+    color:#0088cc;
+    text-decoration:none
+}
+a:visited{
+    color:#7766cc
+}
+a:active{
+    color:#0088cc
+}
+a:hover{
+    color:#0088cc;
+    text-decoration:underline
+}
+p{
+    margin-bottom:1.5em
+}
+h1{
+    margin-bottom:0.8em;
+    font-size:3em;
+    font-weight:300;
+    line-height:1
+}
+h1.active+.main-nav{
+    border-top:1px solid #333
+}
+h2{
+    margin-bottom:0.5em;
+    font-size:2.5em;
+    font-weight:300;
+    line-height:1
+}
+h3{
+    margin-bottom:0.5em;
+    font-size:1.5em;
+    font-weight:300;
+    line-height:1
+}
+h4{
+    margin-bottom:0.5em;
+    font-size:1.25em;
+    font-weight:300;
+    line-height:1.2
+}
+h5{
+    margin-bottom:0.5em;
+    font-size:1.175em;
+    font-weight:500;
+    line-height:1.4
+}
+h6{
+    margin-bottom:0.5em;
+    font-size:1em;
+    font-weight:700;
+    line-height:1.5
+}
+pre{
+    font-size:14px;
+    line-height:18px;
+    border-left:3px #ef5138 solid;
+    margin:0.5em;
+    margin-left:10px;
+    margin-bottom:1.5em;
+    padding:0.5em;
+    padding-left:1em;
+    overflow:scroll
+}
+p>code,li>code,dd>code,blockquote>code,td>code{
+    color:#000;
+    padding:3px 8px;
+    font-size:14px;
+    white-space:nowrap;
+    border:1px solid #E5E5E5;
+    background-color:#f7f7f7
+}
+hr{
+    border:none;
+    border-top:1px #f3f3f3 solid;
+    margin:2em 0
+}
+hr:last-child{
+    display:none
+}
+details{
+    margin-bottom:2em
+}
+details :first-child{
+    margin-top:1.5em
+}
+cite{
+    display:block
+}
+cite:before{
+    content:"â€” "
+}
+#logo{
+    text-indent:-9999px;
+    height:48px;
+    width:100%;
+    margin-top:20px;
+    margin-bottom:0.5em;
+    padding-bottom:10px
+}
+#logo a{
+    display:block;
+    width:190px;
+    height:48px;
+    background-image:url("../images/swift.svg");
+    background-repeat:no-repeat;
+    background-size:190px 48px;
+    background-position-x: -8px;
+}
+nav[role="navigation"]{
+    width:250px;
+    position:fixed;
+    overflow:scroll;
+    left:0;
+    top:0;
+    bottom:0;
+    background:#FAFAFA;
+    border-right:1px solid #e6e6e6;
+    padding:20px 30px
+}
+nav[role="navigation"] ul{
+    border-top:1px solid #e6e6e6;
+    font-weight:400;
+    margin-bottom:30px;
+    list-style:none
+}
+nav[role="navigation"] ul ul{
+    list-style:none
+}
+nav[role="navigation"] ul li{
+    border-bottom:1px solid #e6e6e6
+}
+nav[role="navigation"] ul li.active{
+    border-bottom:1px solid #333
+}
+nav[role="navigation"] ul li.active a{
+    font-weight:700
+}
+nav[role="navigation"] ul li a:link{
+    color:#333;
+    text-decoration:none;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    font-size:12px;
+    display:block;
+    padding:10px
+}
+nav[role="navigation"] ul li a:visited{
+    color:#333
+}
+nav[role="navigation"] ul li a:active{
+    font-weight:700
+}
+nav[role="navigation"] ul li a:hover{
+    color:#0088cc
+}
+nav[role="navigation"] ul li ul{
+    margin-bottom:10px;
+    border-top:none
+}
+nav[role="navigation"] ul li ul li{
+    border-bottom:none;
+    padding:0.1em
+}
+nav[role="navigation"] ul li ul li.active{
+    border-bottom:none
+}
+nav[role="navigation"] ul li ul li.active a{
+    font-weight:700
+}
+nav[role="navigation"] ul li ul a:link{
+    color:#0088cc;
+    text-decoration:none;
+    text-transform:none;
+    letter-spacing:0;
+    font-size:12px;
+    display:block;
+    margin-left:15px;
+    padding:0 0 3px;
+    border-bottom:none;
+    font-weight:300
+}
+nav[role="navigation"] ul li ul a:hover{
+    text-decoration:underline
+}
+nav[role="navigation"] h2{
+    font-size:0.75em;
+    font-weight:600;
+    text-transform:lowercase;
+    font-variant:small-caps;
+    color:#999;
+    padding-bottom:0.5em
+}
+main{
+    max-width:798px;
+    min-width:320px;
+    margin-left:250px;
+    padding: 35px 30px 0;
+    min-height:100%;
+    height:auto !important;
+    height:100%
+}
+footer[role="contentinfo"]{
+    background:#333;
+    color:white;
+    padding:20px 30px;
+    margin-left:250px;
+    min-height:74px
+}
+footer[role="contentinfo"] p{
+    font-size:0.625em;
+    color:#ccc;
+    line-height:1em;
+    margin-bottom:1em
+}
+footer[role="contentinfo"] p.privacy a{
+    color:#ccc;
+    border-right:1px solid #ccc;
+    margin-right:6px;
+    padding-right:8px
+}
+footer[role="contentinfo"] p.privacy a:last-child{
+    border:none;
+    margin:0;
+    padding:0
+}
+footer[role="contentinfo"] aside{
+    position:relative;
+    width:100%;
+    max-width:700px;
+    margin-right:68px
+}
+footer[role="contentinfo"] aside i{
+    width:16px;
+    height:16px;
+    background-repeat:no-repeat;
+    background-size:16px;
+    display:block;
+    margin-left:1em;
+    float:right;
+    text-indent: -5000em;
+}
+footer[role="contentinfo"] aside i.twitter{
+    background-image:url("../images/icon-twitter.svg")
+}
+footer[role="contentinfo"] aside i.feed{
+    background-image:url("../images/icon-feed.svg")
+}
+article:first-of-type{
+    padding-bottom:36px
+}
+article h2{
+    padding-top:1.1em
+}
+article h3{
+    padding-top:1em
+}
+article h4{
+    padding-top:1em;
+    border-bottom:1px #f3f3f3 solid;
+    padding-bottom:0.5em
+}
+article h5{
+    margin-top:1em
+}
+article header{
+    width:100%;
+    display:inline-block;
+    padding-bottom:3em
+}
+article header h1{
+    padding-bottom:0.125em
+}
+article header .byline{
+    float:left;
+    font-size:14px;
+    margin-left:3em
+}
+article header .byline img{
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    border:1px #ccc solid;
+    position:absolute;
+    margin-right:0.25em;
+    margin-top:-6px
+}
+article header .byline span{
+    padding-left:42px
+}
+article header time{
+    float:left;
+    text-transform:uppercase;
+    font-size:14px;
+    font-weight:400;
+    color:#aaa
+}
+article header .tags{
+    display:block;
+    font-size:12px;
+    font-weight:400;
+    margin-top:0
+}
+article:not(:first-of-type){
+    border-top:1px solid #e6e6e6;
+    padding:36px 0
+}
+article blockquote{
+    border-left:3px #c3c3c3 solid;
+    margin:0.5em;
+    margin-left:10px;
+    margin-bottom:1.5em;
+    padding:0.5em;
+    padding-left:1em;
+    color:#333
+}
+article ul,article ol{
+    padding-left:40px;
+    margin:1em 0
+}
+article ul ul,article ul ol,article ol ul,article ol ol{
+    margin:0
+}
+article ul{
+    list-style:disc
+}
+article ul ul{
+    list-style:circle
+}
+article ul ul ul{
+    list-style:square
+}
+article ol{
+    list-style:decimal
+}
+article dl{
+    margin:2em 0 1em 0
+}
+article dl dt{
+    display:block;
+}
+article dl dd{
+    margin:0 0 1em 1em
+}
+article table{
+    width:auto;
+    min-width:68%;
+    margin:2em auto 3em auto;
+    border-collapse:separate;
+    border:1px #e3e3e3 solid
+}
+article table th{
+    background:#fafafa;
+    font-weight:700;
+    text-align:center
+}
+article table th,article table td{
+    padding:0.5em 1.5em;
+    border-bottom:1px #f3f3f3 solid
+}
+article table th:not(:first-child),article table td:not(:first-child){
+    border-left:1px #f3f3f3 solid
+}
+article table tr:last-child td{
+    border-bottom:none
+}
+article details{
+    margin-top:0;
+    cursor:pointer
+}
+article details summary{
+    padding-bottom:0.5em;
+    outline:none;
+    margin-top:0
+}
+article details summary:after{
+    content:"Expand";
+    text-transform:lowercase;
+    font-variant:small-caps;
+    border-bottom:1px #ccc dashed
+}
+article details[open] summary:after{
+    content:"Collapse"
+}
+article details[open] *:not(summary){
+    cursor:auto
+}
+article details.download{
+    margin-top:0;
+    cursor:pointer
+}
+article details.download summary{
+    padding-bottom:0.5em;
+    outline:none;
+    margin-top:0
+}
+article details.download summary:after{
+    content:none;
+    text-transform:lowercase;
+    font-variant:small-caps;
+    border-bottom:1px #ccc dashed
+}
+article details.download[open] summary:after{
+    content:none
+}
+article details.download[open] *:not(summary){
+    cursor:auto
+}
+article>details{
+    margin-left:40px
+}
+article .good pre,article pre.good{
+    background:#E6FFE5;
+    border-color:#C0FFBC
+}
+article .good pre:before,article pre.good:before{
+    content:"âœ…";
+    float:right
+}
+article .bad pre,article pre.bad{
+    background:#F9E2E4;
+    border-color:#F6B7BE
+}
+article .bad pre:before,article pre.bad:before{
+    content:"â›”ï¸";
+    float:right
+}
+article footer{
+    margin:4em 0 0 0;
+    padding:1.5em 0 1em 0;
+    border-top:1px #F3F3F3 solid
+}
+article footer:after{
+    content:"";
+    display:table;
+    clear:both
+}
+article footer nav [rel="prev"]{
+    width:45%;
+    float:left;
+    text-align:left
+}
+article footer nav [rel="prev"]:before{
+    content:"â† "
+}
+article footer nav [rel="next"]{
+    width:45%;
+    float:right;
+    text-align:right
+}
+article footer nav [rel="next"]:after{
+    content:" â†’"
+}
+.title a:link,.title a:visited{
+    color:#333
+}
+.alert,.success,.info,.warning,.danger{
+    border-width:1px;
+    border-style:solid;
+    padding:0.5em;
+    margin:0.5em 0 1.5em 0
+}
+.alert p:first-child,.success p:first-child,.info p:first-child,.warning p:first-child,.danger p:first-child{
+    margin-top:0
+}
+.alert p:last-child,.success p:last-child,.info p:last-child,.warning p:last-child,.danger p:last-child{
+    margin-bottom:0
+}
+.alert code,.success code,.info code,.warning code,.danger code{
+    border:none;
+    background:transparent;
+    padding:0
+}
+code{
+    white-space:pre-line
+}
+pre code{
+    white-space:inherit
+}
+pre code .graphic{
+    font-size:19px;
+    line-height:0
+}
+pre code .commentary,pre code .graphic{
+    font-family:"Helvetica Neue", Helvetica, Arial, Verdana, sans-serif
+}
+@supports (overflow: -webkit-marquee) and (justify-content: inherit){
+    .alert:before,.success:before,.info:before,.warning:before,.danger:before{
+        font-size:1em;
+        float:left;
+        clear:left;
+        padding-left:0.125em;
+        width:2em
+    }
+    .alert p,.success p,.info p,.warning p,.danger p{
+        padding-left:2em
+    }
+    .success:before{
+        content:"âœ…"
+    }
+    .info:before{
+        content:"â„¹ï¸"
+    }
+    .warning:before{
+        content:"âš ï¸"
+    }
+    .danger:before{
+        content:"â—ï¸"
+    }
+}
+.success{
+    border-color:#149e39;
+    background-color:#e0ffe8
+}
+.info{
+    border-color:#139CFE;
+    background-color:#DEF0FD
+}
+.warning{
+    border-color:#FFFF10;
+    background-color:#FFFFEB
+}
+.danger{
+    border-color:#D5001B;
+    background-color:#FEE1E2
+}
+table.downloads{
+    width:100%;
+    table-layout:fixed
+}
+table.downloads th{
+    font-size:0.75em
+}
+table.downloads .platform{
+    width:40%
+}
+table.downloads .download{
+    width:60%
+}
+table.downloads .download a.debug,table.downloads .download a.signature{
+    font-size:0.7em;
+    display:block
+}
+table.downloads .download a{
+    font-weight:700;
+    font-size:1em
+}
+table.downloads .download a:not([download]){
+    font-weight:400
+}
+table.downloads .download a:not([download]):before{
+    content:"("
+}
+table.downloads .download a:not([download]):after{
+    content:")"
+}
+article input.detail[type=checkbox]{
+    visibility:hidden;
+    cursor:pointer;
+    height:0;
+    width:100%;
+    margin-bottom:2em;
+    display:block;
+    font-size:inherit;
+    font-style:inherit;
+    font-weight:inherit;
+    font-family:inherit;
+    position:relative;
+    top:-.85rem
+}
+article p+input.detail[type=checkbox]{
+    margin-top:auto
+}
+article .screenonly{
+    display:none
+}
+@media screen{
+    article .screenonly{
+        display:inherit
+    }
+    article input.detail[type=checkbox]:before{
+        content:"â–¶ ";
+        visibility:visible;
+        font-size:80%
+    }
+    article input.detail[type=checkbox]:after{
+        text-transform:lowercase;
+        font-variant:small-caps;
+        border-bottom:1px #ccc dashed;
+        color:#666666;
+        content:"More detail";
+        visibility:visible
+    }
+    article input.detail[type=checkbox]:checked:before{
+        content:"â–¼ "
+    }
+    article input.detail[type=checkbox]:checked:after{
+        content:"Less detail"
+    }
+    article input.detail[type=checkbox]+.more{
+        transition:0.5s opacity ease, 0.5s max-height ease
+    }
+    article input.detail[type=checkbox]:checked+.more{
+        visibility:visible;
+        max-height:1000rem
+    }
+    article input.detail[type=checkbox]:not(:checked)+.more{
+        overflow:hidden;
+        max-height:0px;
+        opacity:0
+    }
+}
+article .more>p:first-of-type{
+    margin-top:0
+}
+@media only screen and (max-width: 767px){
+    nav[role="navigation"]{
+        width:100%;
+        position:relative;
+        background:#FAFAFA;
+        border-bottom:1px solid #e6e6e6;
+        border-right:none;
+        padding:20px 30px;
+        overflow:hidden
+    }
+    nav[role="navigation"].open>*{
+        display:block
+    }
+    nav[role="navigation"]>h2,nav[role="navigation"] ul{
+        display:none
+    }
+    .menu-toggle{
+        float:right;
+        content:' ';
+        height:20px;
+        width:20px;
+        background-image:url("../images/icon-close.svg");
+        background-repeat:no-repeat;
+        background-position:center center;
+        background-size:21px 21px;
+        margin-top:-48px;
+        margin-right:12px;
+        cursor:pointer
+    }
+    .menu-toggle.open{
+        background-image:url("../images/icon-menu.svg")
+    }
+    #logo a{
+        width:198px;
+        margin:0 auto
+    }
+    main{
+        max-width:100%;
+        min-width:320px;
+        margin-left:0;
+        padding:30px 30px 0
+    }
+    footer[role="contentinfo"]{
+        margin-left:0
+    }
+    h1{
+        font-size:48px;
+        font-weight:200;
+        line-height:1
+    }
+    h2{
+        font-size:40px;
+        font-weight:300;
+        line-height:1.1
+    }
+    h3{
+        font-size:38px;
+        font-weight:300;
+        line-height:1.1
+    }
+    h4{
+        font-size:36px;
+        font-weight:300;
+        line-height:1.2
+    }
+    h5{
+        font-size:24px;
+        font-weight:500;
+        line-height:1.4
+    }
+    h6{
+        font-size:18px;
+        font-weight:700;
+        line-height:1.5
+    }
+    table.downloads{
+        border:1px #f3f3f3 solid
+    }
+    table.downloads,table.downloads thead,table.downloads tbody,table.downloads th,table.downloads td,table.downloads tr{
+        display:block !important
+    }
+    table.downloads thead tr{
+        position:absolute;
+        top:-9999px;
+        left:-9999px
+    }
+    table.downloads tr{
+        border:1px solid #f3f3f3
+    }
+    table.downloads td{
+        border-left:none !important;
+        border-right:none !important;
+        border-bottom:1px solid #f3f3f3 !important;
+        position:relative;
+        padding-left:35%;
+        width:100% !important
+    }
+    table.downloads td:before{
+        position:absolute;
+        top:0.5em;
+        left:0.5em;
+        width:27.5%;
+        padding-right:10px;
+        white-space:nowrap;
+        text-align:right
+    }
+    table.downloads td.platform:before{
+        content:"Platform"
+    }
+    table.downloads td.download:before{
+        content:"Download";
+        top:1em
+    }
+    table.downloads td.date:before{
+        content:"Date"
+    }
+}
+@media only print{
+    html body{
+        background:white;
+        font-size:12pt;
+        padding:0.5in
+    }
+    html body *{
+        -webkit-print-color-adjust:exact
+    }
+    a{
+        color:black !important;
+        text-decoration:underline !important
+    }
+    h1,h2,h3,h4,h5,h6,p,article>div,pre,table{
+        page-break-inside:avoid
+    }
+    details:not([open]){
+        visibility:visible
+    }
+    details:not([open]) summary{
+        display:none !important
+    }
+    details:not([open])>*,details:not([open]){
+        display:block
+    }
+    .alert,.success,.info,.warning,.danger{
+        margin:1.5em 0
+    }
+    main{
+        width:auto;
+        padding:0;
+        border:0;
+        float:none !important;
+        color:black;
+        background:transparent;
+        margin:0;
+        max-width:100%;
+        min-height:1in
+    }
+    nav[role="navigation"]{
+        background:transparent;
+        border:none;
+        width:auto;
+        position:static;
+        padding:0
+    }
+    nav[role="navigation"] h2,nav[role="navigation"] ul{
+        display:none
+    }
+    nav[role="navigation"] #logo{
+        position:static;
+        margin-bottom:1.5em
+    }
+    nav[role="navigation"] #logo a{
+        background-position:-15px
+    }
+    footer[role="contentinfo"]{
+        display:none
+    }
+}
+ Xtext/cssOßbplist00Ô
+X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯1'-.4567cdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…†‡ˆ‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€0€€ €Ó()$+,WNS.base[NS.relative€ €€_Ehttps://docs.swift.org/swift-book/_static/stylesheets/application.cssÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃÒz±¡n ÈÓ89:NbWNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKLM€	€
+€€€€€€€€€€€€€€€€€¯PQRSTUVWXYZ[\]^_`a€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-€.€/\Content-Type_X-Frame-Options]Last-ModifiedSAge_Content-EncodingVServer_X-XSS-ProtectionSViaWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-RangesWX-CacheXtext/cssZSAMEORIGIN_Thu, 27 Jan 2022 18:45:55 GMTQ0TgzipUApple]1; mode=block_uhttp/1.1 jptyo7-edge-lx-001.ts.apple.com (acdn/137.13246), https/1.1 jptyo7-edge-bx-013.ts.apple.com (acdn/137.13246)_/748aa0da-4b64-431b-8e30-a035eb9dbdd7-5173445818_max-age=180, public_Fri, 28 Jan 2022 11:51:28 GMT_#max-age=31536000; includeSubdomainsT5684Zkeep-alive_
+
+YnBsaXN0MDDfEBIBAgMEBQYHCAkKCwwNDg8QERITFRcZGx0fISMlJykrLS8xMzVcQ29udGVudC1UeXBlV1gtQ2FjaGVURXRhZ1NBZ2VfEBBDb250ZW50LUVuY29kaW5nVlNlcnZlcl8QEFgtWFNTLVByb3RlY3Rpb25TVmlhV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zXUxhc3QtTW9kaWZpZWShFFh0ZXh0L2Nzc6EWXxAUaGl0LWZyZXNoLCBoaXQtc3RhbGWhGF8QFCI0ZmM3LTVkNjk0YmE3MDllYzAioRpRMKEcVGd6aXChHlVBcHBsZaEgXTE7IG1vZGU9YmxvY2uhIl8QdWh0dHAvMS4xIGpwdHlvNy1lZGdlLWx4LTAwMS50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KSwgaHR0cHMvMS4xIGpwdHlvNy1lZGdlLWJ4LTAxMy50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KaEkXxAvNzQ4YWEwZGEtNGI2NC00MzFiLThlMzAtYTAzNWViOWRiZGQ3LTUxNzM0NDU4MTihJl8QE21heC1hZ2U9MTgwLCBwdWJsaWOhKF8QHUZyaSwgMjggSmFuIDIwMjIgMTE6NTE6MjggR01UoSpfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EsVDU2ODShLlprZWVwLWFsaXZloTBXbm9zbmlmZqEyVWJ5dGVzoTRaU0FNRU9SSUdJTqE2XxAdVGh1LCAyNyBKYW4gMjAyMiAxODo0NTo1NSBHTVQACAAvADwARABJAE0AYABnAHoAfgCGAJQAmQC1AMQAzwDoAPYBCAEWARgBIQEjAToBPAFTAVUBVwFZAV4BYAFmAWgBdgF4AfAB8gIkAiYCPAI+Al4CYAKGAogCjQKPApoCnAKkAqYCrAKuArkCuwAAAAAAAAIBAAAAAAAAADcAAAAAAAAAAAAAAAAAAALbWnosniff_"4fc7-5d694ba709ec0"Ubytes_hit-fresh, hit-staleÒ/0Š‹_NSMutableDictionary£ŠŒ3\NSDictionaryÒ/0_NSHTTPURLResponse£‘3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d ˜  ¹ Û ı "%GNpsv˜º½¿ÁÃÅÇÉËÍÎĞÒÔÖİåñóõ÷?DOX^ajsuw~†‘§©«­¯±³µ·¹»½¿ÁÃÅÇÉËÍãåçéëíïñóõ÷ùûıÿ	*8<OVimuƒˆ¤³¾Çàåóû/16<JÂô
+*PU`	ô	ü
+
+
+0
+5
+K
+O
+\
+a
+u
+y
+             ’              
+›_Ehttps://docs.swift.org/swift-book/_static/stylesheets/application.cssÔO¬<?xml version="1.0" encoding="iso-8859-1"?>
+<svg version="1.1" id="artwork" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="191.1856px" height="59.3911px" viewBox="0 0 191.1856 59.3911" enable-background="new 0 0 191.1856 59.3911"
+	 xml:space="preserve">
+<g>
+	<g>
+		<path fill="#F05138" d="M59.3867,16.4501c-0.0035-0.5973-0.0101-1.1943-0.0266-1.7923c-0.0348-1.3008-0.1117-2.6134-0.3429-3.9003
+			c-0.2346-1.3069-0.6181-2.5221-1.2225-3.7093c-0.5933-1.1659-1.3689-2.2328-2.2941-3.158
+			c-0.925-0.9252-1.9919-1.7007-3.1583-2.2943c-1.1862-0.6037-2.4016-0.9871-3.7073-1.2217
+			c-1.2876-0.2319-2.6002-0.3083-3.902-0.3435c-0.5977-0.0162-1.1948-0.023-1.7923-0.0267C42.2315,0,41.5218,0,40.8128,0H25.0912
+			h-6.5131c-0.7097,0-1.4186,0-2.1276,0.0041c-0.5977,0.0037-1.1955,0.0105-1.7923,0.0267
+			c-0.3254,0.0088-0.6515,0.0202-0.9778,0.0359c-0.9788,0.0472-1.9591,0.1337-2.9243,0.3076
+			c-0.9793,0.176-1.9079,0.4356-2.8113,0.8091C7.6437,1.3078,7.3453,1.445,7.0487,1.5959C6.1739,2.0411,5.3549,2.5886,4.61,3.2248
+			c-0.2483,0.2121-0.4884,0.434-0.7196,0.6653c-0.9254,0.9252-1.701,1.9921-2.2943,3.158
+			c-0.6044,1.1872-0.9874,2.4024-1.2222,3.7093c-0.231,1.2869-0.3078,2.5995-0.3428,3.9003
+			c-0.0164,0.598-0.0233,1.195-0.0272,1.7923C-0.0006,17.1594,0,17.8689,0,18.5781V28.26v12.5525
+			c0,0.7099-0.0007,1.4187,0.0039,2.1286c0.0039,0.5973,0.0108,1.1943,0.0272,1.7913c0.035,1.3015,0.1117,2.6144,0.3428,3.9007
+			c0.2348,1.3065,0.6178,2.5228,1.2222,3.7097c0.5933,1.1662,1.3689,2.2328,2.2943,3.1576c0.9247,0.9256,1.9919,1.701,3.1584,2.295
+			c1.1863,0.6038,2.4016,0.9867,3.7076,1.2213c1.2868,0.2316,2.6004,0.3086,3.9019,0.3434c0.5968,0.0159,1.1946,0.023,1.7923,0.0264
+			c0.709,0.0051,1.4179,0.0044,2.1276,0.0044h22.2346c0.709,0,1.4187,0.0007,2.1278-0.0044
+			c0.5975-0.0034,1.1946-0.0105,1.7923-0.0264c1.3018-0.0348,2.6144-0.1119,3.902-0.3434c1.3057-0.2346,2.5211-0.6176,3.7073-1.2213
+			c1.1664-0.5939,2.2333-1.3694,3.1583-2.295c0.9252-0.9249,1.7009-1.9914,2.2941-3.1576c0.6044-1.1869,0.9879-2.4031,1.2225-3.7097
+			c0.2312-1.2863,0.3081-2.5992,0.3429-3.9007c0.0164-0.597,0.023-1.1939,0.0266-1.7913c0.0046-0.7099,0.0042-1.4187,0.0042-2.1286
+			V18.5781C59.3909,17.8689,59.3912,17.1594,59.3867,16.4501z"/>
+		<path fill="#FFFFFF" d="M47.0606,36.6607c-0.0014-0.0018-0.0027-0.0031-0.0042-0.0048c0.0657-0.2236,0.1335-0.4458,0.191-0.675
+			c2.465-9.8209-3.5511-21.4319-13.7316-27.5454c4.4613,6.0479,6.4339,13.3733,4.6813,19.7795
+			c-0.1563,0.5714-0.3442,1.1198-0.5519,1.6528c-0.2254-0.1481-0.5094-0.3162-0.8908-0.5265c0,0-10.1269-6.2527-21.1028-17.3122
+			c-0.288-0.2903,5.8528,8.777,12.8219,16.1399c-3.2834-1.8427-12.4338-8.5004-18.2266-13.8023
+			c0.7117,1.1869,1.5582,2.3298,2.4887,3.4301c4.8375,6.1349,11.1462,13.7044,18.7043,19.5169
+			c-5.3104,3.2498-12.8141,3.5025-20.2852,0.0034c-1.8479-0.866-3.5851-1.9109-5.1932-3.0981
+			c3.1625,5.0585,8.0332,9.4229,13.9613,11.9708c7.0695,3.0381,14.0996,2.8321,19.3356,0.0498l-0.0041,0.006
+			c0.0239-0.0151,0.0543-0.0316,0.0791-0.0469c0.215-0.1156,0.4284-0.2333,0.6371-0.3576
+			c2.5157-1.3058,7.4847-2.6306,10.1518,2.5588C50.7755,49.6699,52.1635,42.9395,47.0606,36.6607z"/>
+	</g>
+</g>
+<g id="XMLID_1_">
+	<g>
+		<path d="M81.9306,38.5423c0.464,4.1203,4.3938,6.8217,9.8514,6.8217c5.1854,0,8.9239-2.7014,8.9239-6.4393
+			c0-3.2203-2.2648-5.186-7.4776-6.4953l-5.0484-1.2825c-7.259-1.8013-10.534-5.0764-10.534-10.4792
+			c0-6.6585,5.8127-11.2709,14.0819-11.2709c8.0226,0,13.7263,4.6392,13.9175,11.3257h-5.3212
+			c-0.4098-4.0935-3.7391-6.6049-8.7327-6.6049c-4.94,0-8.3783,2.5382-8.3783,6.2493c0,2.8926,2.129,4.6124,7.3686,5.9497
+			l4.2025,1.0913c8.1323,1.9926,11.4615,5.158,11.4615,10.8617c0,7.259-5.7585,11.8166-14.9278,11.8166
+			c-8.5141,0-14.3268-4.5308-14.7634-11.5437H81.9306z"/>
+		<path d="M140.0488,49.4308h-5.3492l-6.2493-21.777h-0.109l-6.2219,21.777h-5.3486l-7.9142-28.5183h5.1848l5.5124,22.8963h0.1096
+			l6.2219-22.8963h5.021l6.2767,22.8963h0.1096l5.5125-22.8963h5.13L140.0488,49.4308z"/>
+		<path d="M151.3891,13.2442c0-1.7185,1.4195-3.1106,3.1387-3.1106c1.7466,0,3.1655,1.3921,3.1655,3.1106
+			c0,1.7197-1.4189,3.1387-3.1655,3.1387C152.8086,16.3829,151.3891,14.964,151.3891,13.2442z M151.9353,20.9125h5.2122v28.5183
+			h-5.2122V20.9125z"/>
+		<path d="M191.1856,25.1156v-4.2032h-5.5125v-6.8217h-5.1854v6.8217h-4.2299h-5.7335v-2.5102
+			c0.0268-2.5382,1.0096-3.6027,3.3567-3.6027c0.7636,0,1.5279,0.0828,2.1558,0.1912v-4.0935
+			c-0.9281-0.1364-1.774-0.218-2.7562-0.218c-5.5673,0-7.9142,2.3202-7.9142,7.6414v2.5918h-3.9839v4.2032h3.9839v24.3151h5.1848
+			V25.1156h5.7067h4.2299v16.8381c0,5.5125,2.1016,7.6402,7.5592,7.6402c1.1735,0,2.5108-0.0816,3.1113-0.218v-4.2567
+			c-0.355,0.0548-1.3922,0.1364-1.9651,0.1364c-2.4286,0-3.5199-1.1461-3.5199-3.7111V25.1156H191.1856z"/>
+	</g>
+</g>
+</svg>
+]image/svg+xmlObplist00Ô
+X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯/'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€.€€ €Ó()$+,WNS.base[NS.relative€ €€_:https://docs.swift.org/swift-book/_static/images/swift.svgÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃÒz±© ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
+€€€€€€€€€€€€€€€€¯OPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGIN_hit-fresh, hit-staleQ0_uhttp/1.1 jptyo7-edge-lx-006.ts.apple.com (acdn/137.13246), https/1.1 jptyo7-edge-bx-011.ts.apple.com (acdn/137.13246)UApple]1; mode=block_/fc6a706a-259d-4e82-ab8c-c3aa8568ba11-5180986020_max-age=180, public_Fri, 28 Jan 2022 11:51:28 GMT_#max-age=31536000; includeSubdomainsT4780Zkeep-alive_l
+
+YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1UaHUsIDI3IEphbiAyMDIyIDE4OjQ1OjU1IEdNVKEXXxAUIjEyYWMtNWQ2OTRiYTcwOWVjMCKhGVEwoRtfEHVodHRwLzEuMSBqcHR5bzctZWRnZS1seC0wMDYudHMuYXBwbGUuY29tIChhY2RuLzEzNy4xMzI0NiksIGh0dHBzLzEuMSBqcHR5bzctZWRnZS1ieC0wMTEudHMuYXBwbGUuY29tIChhY2RuLzEzNy4xMzI0NimhHVVBcHBsZaEfXTE7IG1vZGU9YmxvY2uhIV8QL2ZjNmE3MDZhLTI1OWQtNGU4Mi1hYjhjLWMzYWE4NTY4YmExMS01MTgwOTg2MDIwoSNfEBNtYXgtYWdlPTE4MCwgcHVibGljoSVfEB1GcmksIDI4IEphbiAyMDIyIDExOjUxOjI4IEdNVKEnXxAjbWF4LWFnZT0zMTUzNjAwMDsgaW5jbHVkZVN1YmRvbWFpbnOhKVQ0NzgwoStaa2VlcC1hbGl2ZaEtV25vc25pZmahL1VieXRlc6ExWlNBTUVPUklHSU6hM18QFGhpdC1mcmVzaCwgaGl0LXN0YWxlAAgALQA6AEgATQBRAFUAXABvAHcAhQCKAKYAtQDAANkA5wD5AQEBAwERARMBMwE1AUwBTgFQAVIBygHMAdIB1AHiAeQCFgIYAi4CMAJQAlICeAJ6An8CgQKMAo4ClgKYAp4CoAKrAq0AAAAAAAACAQAAAAAAAAA0AAAAAAAAAAAAAAAAAAACxA==Wnosniff_"12ac-5d694ba709ec0"Ubytes_Thu, 27 Jan 2022 18:45:55 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionaryÒ/0Š‹_NSHTTPURLResponse£Œ3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d – œ · Ù û ş #ELnqt–¸»½¿ÁÃÅÇÉËÌÎĞÒÔÛãïñóõ27BKQT]fhjqy„™›Ÿ¡£¥§©«­¯±³µ·¹»½ÒÔÖØÚÜŞàâäæèêìîğòôöø#'.AIW\x‡’›´¹ÇÕãî…“ÅÛû!&1	¡	©	À	Æ	æ	ë
+
+
+
+
++
+/
+C                           
+Q_:https://docs.swift.org/swift-book/_static/images/swift.svgÔO<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+<path fill="#cccccc" d="M16 3.038c-0.589 0.261-1.221 0.438-1.885 0.517 0.678-0.406 1.198-1.050 1.443-1.816-0.634 0.376-1.337 0.649-2.085 0.797-0.599-0.638-1.452-1.037-2.396-1.037-1.813 0-3.283 1.47-3.283 3.282 0 0.257 0.029 0.508 0.085 0.748-2.728-0.137-5.147-1.444-6.766-3.43-0.283 0.485-0.444 1.049-0.444 1.65 0 1.139 0.579 2.144 1.46 2.732-0.538-0.017-1.044-0.165-1.487-0.411-0 0.014-0 0.027-0 0.041 0 1.59 1.132 2.917 2.633 3.219-0.275 0.075-0.565 0.115-0.865 0.115-0.212 0-0.417-0.021-0.618-0.059 0.418 1.304 1.63 2.253 3.066 2.28-1.123 0.88-2.539 1.405-4.077 1.405-0.265 0-0.526-0.016-0.783-0.046 1.453 0.931 3.178 1.475 5.032 1.475 6.038 0 9.34-5.002 9.34-9.34 0-0.142-0.003-0.284-0.010-0.425 0.642-0.463 1.198-1.041 1.638-1.699z"></path>
+</svg>
+Obplist00Ô
+X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯/'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€.€€ €Ó()$+,WNS.base[NS.relative€ €€_Ahttps://docs.swift.org/swift-book/_static/images/icon-twitter.svgÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃÒz±®› ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
+€€€€€€€€€€€€€€€€¯OPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGIN_hit-fresh, hit-staleQ0_uhttp/1.1 jptyo7-edge-lx-011.ts.apple.com (acdn/137.13246), https/1.1 jptyo7-edge-bx-013.ts.apple.com (acdn/137.13246)UApple]1; mode=block_/748aa0da-4b64-431b-8e30-a035eb9dbdd7-5173447320_max-age=180, public_Fri, 28 Jan 2022 11:51:28 GMT_#max-age=31536000; includeSubdomainsT1032Zkeep-alive_h
+
+YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1UaHUsIDI3IEphbiAyMDIyIDE4OjQ1OjU1IEdNVKEXXxATIjQwOC01ZDY5NGJhNzA5ZWMwIqEZUTChG18QdWh0dHAvMS4xIGpwdHlvNy1lZGdlLWx4LTAxMS50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KSwgaHR0cHMvMS4xIGpwdHlvNy1lZGdlLWJ4LTAxMy50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KaEdVUFwcGxloR9dMTsgbW9kZT1ibG9ja6EhXxAvNzQ4YWEwZGEtNGI2NC00MzFiLThlMzAtYTAzNWViOWRiZGQ3LTUxNzM0NDczMjChI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHUZyaSwgMjggSmFuIDIwMjIgMTE6NTE6MjggR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpVDEwMzKhK1prZWVwLWFsaXZloS1Xbm9zbmlmZqEvVWJ5dGVzoTFaU0FNRU9SSUdJTqEzXxAUaGl0LWZyZXNoLCBoaXQtc3RhbGUACAAtADoASABNAFEAVQBcAG8AdwCFAIoApgC1AMAA2QDnAPkBAQEDAREBEwEzATUBSwFNAU8BUQHJAcsB0QHTAeEB4wIVAhcCLQIvAk8CUQJ3AnkCfgKAAosCjQKVApcCnQKfAqoCrAAAAAAAAAIBAAAAAAAAADQAAAAAAAAAAAAAAAAAAALDWnosniff_"408-5d694ba709ec0"Ubytes_Thu, 27 Jan 2022 18:45:55 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionaryÒ/0Š‹_NSHTTPURLResponse£Œ3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d – œ · Ù û ş #ELnqt–¸»½¿ÁÃÅÇÉËÌÎĞÒÔÛãïñóõ9>IRX[dmoqx€‹ ¢¤¦¨ª¬®°²´¶¸º¼¾ÀÂÄÙÛİßáãåçéëíïñóõ÷ùûıÿ&*.5HP^c™¢»ÀÎÜêõ†ŒšÌâ(-8	¤	¬	Â	È	è	í
+
+
+
+
+-
+1
+E                           
+S_Ahttps://docs.swift.org/swift-book/_static/images/icon-twitter.svgÔO<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+<path fill="#cccccc" d="M2.13 11.733c-1.175 0-2.13 0.958-2.13 2.126 0 1.174 0.955 2.122 2.13 2.122 1.179 0 2.133-0.948 2.133-2.122-0-1.168-0.954-2.126-2.133-2.126zM0.002 5.436v3.067c1.997 0 3.874 0.781 5.288 2.196 1.412 1.411 2.192 3.297 2.192 5.302h3.080c-0-5.825-4.739-10.564-10.56-10.564zM0.006 0v3.068c7.122 0 12.918 5.802 12.918 12.932h3.076c0-8.82-7.176-16-15.994-16z"></path>
+</svg>
+O‹bplist00Ô
+X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯/'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€.€€ €Ó()$+,WNS.base[NS.relative€ €€_>https://docs.swift.org/swift-book/_static/images/icon-feed.svgÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃÒz±³Ğ ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
+€€€€€€€€€€€€€€€€¯OPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGIN_hit-fresh, hit-staleQ0_uhttp/1.1 jptyo7-edge-lx-004.ts.apple.com (acdn/137.13246), https/1.1 jptyo7-edge-bx-011.ts.apple.com (acdn/137.13246)UApple]1; mode=block_/fc6a706a-259d-4e82-ab8c-c3aa8568ba11-5180986599_max-age=180, public_Fri, 28 Jan 2022 11:51:28 GMT_#max-age=31536000; includeSubdomainsS669Zkeep-alive_h
+
+YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1UaHUsIDI3IEphbiAyMDIyIDE4OjQ1OjU1IEdNVKEXXxATIjI5ZC01ZDY5NGJhNzA5ZWMwIqEZUTChG18QdWh0dHAvMS4xIGpwdHlvNy1lZGdlLWx4LTAwNC50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KSwgaHR0cHMvMS4xIGpwdHlvNy1lZGdlLWJ4LTAxMS50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KaEdVUFwcGxloR9dMTsgbW9kZT1ibG9ja6EhXxAvZmM2YTcwNmEtMjU5ZC00ZTgyLWFiOGMtYzNhYTg1NjhiYTExLTUxODA5ODY1OTmhI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHUZyaSwgMjggSmFuIDIwMjIgMTE6NTE6MjggR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpUzY2OaErWmtlZXAtYWxpdmWhLVdub3NuaWZmoS9VYnl0ZXOhMVpTQU1FT1JJR0lOoTNfEBRoaXQtZnJlc2gsIGhpdC1zdGFsZQAIAC0AOgBIAE0AUQBVAFwAbwB3AIUAigCmALUAwADZAOcA+QEBAQMBEQETATMBNQFLAU0BTwFRAckBywHRAdMB4QHjAhUCFwItAi8CTwJRAncCeQJ9An8CigKMApQClgKcAp4CqQKrAAAAAAAAAgEAAAAAAAAANAAAAAAAAAAAAAAAAAAAAsI=Wnosniff_"29d-5d694ba709ec0"Ubytes_Thu, 27 Jan 2022 18:45:55 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionaryÒ/0Š‹_NSHTTPURLResponse£Œ3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d – œ · Ù û ş #ELnqt–¸»½¿ÁÃÅÇÉËÌÎĞÒÔÛãïñóõ6;FOUXajlnu}ˆŸ¡£¥§©«­¯±³µ·¹»½¿ÁÖØÚÜŞàâäæèêìîğòôöøúü	#'+2EM[`|‹–Ÿ¸½ËÙçò	ƒ‰—Éßÿ%)4	 	¨	¾	Ä	ä	é	ÿ
+
+
+
+)
+-
+A                           
+O_>https://docs.swift.org/swift-book/_static/images/icon-feed.svgÔ
+Owï»¿/* code listings */
+
+div.Swift {
+    font-family: Menlo, monospace;
+    font-size:14px;
+    line-height:18px;
+    margin:0.5em;
+    margin-left:10px;
+    margin-bottom:1.5em;
+    padding:0.5em;
+    padding-left:1em;
+    overflow:scroll
+}
+
+.code-sample {
+    display: block;
+    font-size: 1.4em;
+    margin-left: 21px;
+}
+.code-sample .code-lines {
+    margin-left: 0;
+}
+.code-lines {
+    counter-reset: li;
+    line-height: 1.6em;
+    list-style: none;
+    margin: 0 0 0 20px;
+    padding: 0;
+}
+
+.code-sample .code-lines li {
+    list-style-type: none;
+    margin: 0;
+    padding-right: 10px;
+}
+.code-lines li {
+    padding-left: 0;
+    text-indent: -13px;
+    white-space: pre-wrap;
+    border-left: 18px solid transparent;
+}
+
+.code-lines li::before {
+    color: rgba(128,128,128,1);
+    content: counter(li);
+    counter-increment: li;
+    font-family: Menlo,monospace;
+    font-size: .9em;
+    margin-right: 16px;
+    -webkit-user-select: none;
+}
+.code-sample .code-lines li::before {
+    margin-left: -35px;
+    margin-right: 25px;
+}
+.code-sample .code-lines li:nth-child(n+10)::before {
+    margin-left: -43px;
+    margin-right: 25px;
+}
+.code-sample .code-lines li:only-of-type::before {
+    color: rgba(255,255,255,1);
+    content: ' ';
+}
+
+/* no line numbering in syntax outlines */
+.syntax-outline .code-lines li::before {
+    content: ' ';
+}
+.syntax-outline .code-lines {
+    line-height: 1.9em;
+}
+.syntax-outline div.Swift {
+    border-color: transparent;
+}
+
+.code-sample div.Swift {
+    width: 93%;
+    margin-left: 13px;
+    overflow: visible;
+}
+div.Swift {
+    border-left: 5px solid rgba(205,233,244,1);
+    padding: 4px 0 2px 10px;
+    margin: 10px 0 21px;
+    line-height: 22px;
+}
+
+.highlight .gi { /* code placeholder capsule */
+    background-color: rgba(233, 239, 250, 1);
+    border: 1px solid rgba(196, 212, 241, 1);
+    border-radius: 10px;
+    color: rgba(0, 0, 0, 1);
+    padding: 2px 6px;
+    font-style: inherit;
+    white-space: nowrap
+}
+
+/* grammar */
+
+.admonition.grammar {
+    border-left: 5px solid rgba(233,233,233,1);
+    margin: 20px 0;
+    padding-left: 15px;
+    padding-bottom: 1px;
+    font-size: 0.8em;
+    background: transparent;
+}
+.admonition.grammar p.admonition-title {
+    margin-bottom: 8px;
+}
+.admonition.grammar p {
+    margin: 0;
+}
+.admonition.grammar p.syntax-def {
+    margin-left: 25px;
+    text-indent: -25px;
+}
+.admonition.grammar .syntax-def-name {
+    color: rgba(128,128,128,1);
+    font-style: italic;
+    font-size: 15px;
+}
+.admonition.grammar .arrow {
+    padding: 0 6px;
+}
+.admonition.grammar code {
+    padding: 0;
+    border: 0;
+    background: transparent;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0 3px;
+}
+.admonition.grammar a.syntax-def {
+    font-size: 15px;
+    font-style: italic;
+    padding: 0 3px;
+}
+.admonition.grammar sub {
+    color: rgba(128,128,128,1);
+    font-size: 12px;
+    font-style: italic;
+    margin-left: -3px;
+    padding-right: 5px;
+    vertical-align: baseline;
+    position: relative;
+    top: 0.3em; 
+}
+.admonition.grammar .syntax-group {
+    margin-bottom: 10px;
+}
+
+/* navigation overrides */
+
+nav[role="navigation"] h2 {
+    font-size: 1em;
+    color: #333;
+    padding: 0 12px 2px;
+}
+nav[role="navigation"] h2 div {
+    font-weight: 100;
+    padding-top: 3px;
+}
+nav[role="navigation"] ul li ul a:link {
+    color: #333;
+}
+nav[role="navigation"] ul li ul a.current:link {
+    font-weight: bold;
+}
+nav[role="navigation"] .return {
+    padding: 0 0 20px;
+    margin-top: Â -10px;
+    text-indent: -18px;
+    margin-left: 18px;
+}
+
+/* general overrides */
+
+img.align-center {
+    max-width: 100%;
+    height: auto;
+    margin: 10px auto;
+    display: block;
+}
+
+a.headerlink {
+    display: none;
+}
+
+body {
+    background: #fff;
+}
+p {
+    margin-bottom: 1em;
+}
+
+h2 {
+    font-size: 2em;
+}
+h3 { 
+    font-size: 1.4em;
+}
+@media only screen and (max-width: 767px) {
+    h2 {
+        font-size: 2em;
+    }
+    h3 { 
+        font-size: 1.4em;
+    }
+}
+
+.playground_link a {
+    font-weight: bold;
+}
+
+p>code.literal, li>code.literal, dt>code.literal, dd>code.literal {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    color: #666;
+    font-size: 0.9em;
+}
+a>code.literal {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    font-size: 0.9em;
+}
+article table {
+    border-collapse: collapse;
+    border-color: #ddd;
+}
+
+article table th, article table td, article table th:not(:first-child), article table td:not(:first-child) {
+    border-color: #ddd;
+}
+
+.admonition {
+    margin-left: 34px;
+    border-left: solid 5px #ccc;
+    background-color: #f5f5f5;
+    padding: 10px;
+    font-size: 0.85em;
+    margin-bottom: 1.5em;
+}
+.admonition-experiment {
+    border-color: #0088cc;
+}
+.admonition-beta {
+    margin-top: 4em;
+    clear: both;
+}
+.admonition .admonition-title {
+    text-transform: uppercase;
+    color: #777;
+    font-weight: normal;
+    font-size: 0.7em;
+    letter-spacing: 2px;
+    margin-bottom: 0.7em;
+}
+.admonition .last {
+    margin-bottom: 0;
+}
+
+nav[role="navigation"].open ul {
+    display: block;
+}
+
+/* intrapage navigation */
+
+#bashful {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    z-index: 10;
+}
+
+#bashful .inner {
+    position: relative;
+    width: 100%;
+    max-width: 985px;
+}
+
+#jump_to {
+    position: absolute;
+    right: 15px;
+}
+
+#jump_to_toggle {
+    display: block;
+    float: right;
+    background: rgb(250, 250, 250) right 1px no-repeat url(../images/icon-caret-sm.svg);
+    border: 1px solid rgb(230, 230, 230);
+    border-top: none;
+    padding: 5px 27px 5px 8px;
+    color: #333;
+    font: 12px Helvetica, Arial, Verdana, sans-serif;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    line-height: 14px;
+    height: 25px;
+    cursor: pointer;
+}
+  
+#jump_to.open #jump_to_toggle {
+    border-bottom-color: rgb(250, 250, 250);
+    background-image: url(../images/icon-close-sm.svg);
+}
+
+#jump_to menu {
+    display: none;
+}
+
+#jump_to.open menu {
+    display: block;
+    margin: 24px 0 0;
+    padding: 0 15px;
+    background: rgb(250, 250, 250);
+    border: 1px solid rgb(230, 230, 230);
+    width: 300px;
+    font-size: 12px;
+    line-height: 15px;
+    color: #666;
+}
+
+#jump_to menu ul {
+    list-style: none;
+    margin: 15px 0;
+    padding: 0;
+}
+
+#jump_to menu ul ul {
+    margin: 0;
+}
+
+/* hide h1 level nav */
+#jump_to menu ul a {
+    display: none;
+}
+/* show >= h2 level nav */
+#jump_to menu ul ul a {
+    display: inline;
+    color: #333;
+}
+/* indent h3 level nav */
+#jump_to menu ul ul ul {
+    display: none;
+    padding-left: 15px;
+    margin-bottom: 10px;
+}
+/* hide >= h4 level nav */
+#jump_to menu ul ul ul ul {
+    display: none;
+}
+
+#jump_to menu ul ul li {
+    margin: 6px 0;
+}
+
+#jump_to_overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0; 
+    left: 0;
+    background-color: transparent;
+    z-index: 5;
+    cursor: default;
+}
+
+.next_previous p {
+    display: inline;
+    margin: 0;
+}
+.next_previous .previous a {
+    float: left;
+    padding: 0 25px;
+    background: 0 3px url(../images/icon-next_previous.svg) no-repeat;
+    display: block;
+}
+.next_previous .next a {
+    float: right;
+    padding: 0 25px;
+    background: right -18px url(../images/icon-next_previous.svg) no-repeat;
+    display: block;
+}
+footer {
+    margin-top: 4em;
+    clear: both;
+}
+
+@media only screen and (max-width: 767px) {
+    #jump_to, #bashful {
+        display: none;
+    }
+
+    .code-sample {
+        margin-left: 10px;
+    }
+    .admonition {
+        margin-left: 23px;
+    }
+}
+OØbplist00Ô
+X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯1'-.4567cdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…†‡ˆ‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€0€€ €Ó()$+,WNS.base[NS.relative€ €€_>https://docs.swift.org/swift-book/_static/stylesheets/tspl.cssÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃÒz±¸í ÈÓ89:NbWNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKLM€	€
+€€€€€€€€€€€€€€€€€¯PQRSTUVWXYZ[\]^_`a€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-€.€/\Content-Type_X-Frame-Options]Last-ModifiedSAge_Content-EncodingVServer_X-XSS-ProtectionSViaWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-RangesWX-CacheXtext/cssZSAMEORIGIN_Thu, 27 Jan 2022 18:45:55 GMTQ0TgzipUApple]1; mode=block_uhttp/1.1 jptyo7-edge-lx-005.ts.apple.com (acdn/137.13246), https/1.1 jptyo7-edge-bx-015.ts.apple.com (acdn/137.13246)_/7b2b3fa3-84cd-4730-85ae-28e86a6242ab-5173995416_max-age=180, public_Fri, 28 Jan 2022 11:51:28 GMT_#max-age=31536000; includeSubdomainsT2390Zkeep-alive_
+
+YnBsaXN0MDDfEBIBAgMEBQYHCAkKCwwNDg8QERITFRcZGx0fISMlJykrLS8xMzVcQ29udGVudC1UeXBlV1gtQ2FjaGVURXRhZ1NBZ2VfEBBDb250ZW50LUVuY29kaW5nVlNlcnZlcl8QEFgtWFNTLVByb3RlY3Rpb25TVmlhV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zXUxhc3QtTW9kaWZpZWShFFh0ZXh0L2Nzc6EWXxAUaGl0LWZyZXNoLCBoaXQtc3RhbGWhGF8QFCIxZDc3LTVkNjk0YmE3MDllYzAioRpRMKEcVGd6aXChHlVBcHBsZaEgXTE7IG1vZGU9YmxvY2uhIl8QdWh0dHAvMS4xIGpwdHlvNy1lZGdlLWx4LTAwNS50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KSwgaHR0cHMvMS4xIGpwdHlvNy1lZGdlLWJ4LTAxNS50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KaEkXxAvN2IyYjNmYTMtODRjZC00NzMwLTg1YWUtMjhlODZhNjI0MmFiLTUxNzM5OTU0MTahJl8QE21heC1hZ2U9MTgwLCBwdWJsaWOhKF8QHUZyaSwgMjggSmFuIDIwMjIgMTE6NTE6MjggR01UoSpfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EsVDIzOTChLlprZWVwLWFsaXZloTBXbm9zbmlmZqEyVWJ5dGVzoTRaU0FNRU9SSUdJTqE2XxAdVGh1LCAyNyBKYW4gMjAyMiAxODo0NTo1NSBHTVQACAAvADwARABJAE0AYABnAHoAfgCGAJQAmQC1AMQAzwDoAPYBCAEWARgBIQEjAToBPAFTAVUBVwFZAV4BYAFmAWgBdgF4AfAB8gIkAiYCPAI+Al4CYAKGAogCjQKPApoCnAKkAqYCrAKuArkCuwAAAAAAAAIBAAAAAAAAADcAAAAAAAAAAAAAAAAAAALbWnosniff_"1d77-5d694ba709ec0"Ubytes_hit-fresh, hit-staleÒ/0Š‹_NSMutableDictionary£ŠŒ3\NSDictionaryÒ/0_NSHTTPURLResponse£‘3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d ˜  ¹ Û ı "%GNpsv˜º½¿ÁÃÅÇÉËÍÎĞÒÔÖİåñóõ÷8=HQWZclnpwŠ ¢¤¦¨ª¬®°²´¶¸º¼¾ÀÂÄÆÜŞàâäæèêìîğòôöøúüş #15HObfn|¬·ÀÙŞìôı(*/5C»í#INY	í	õ
+
+
+)
+.
+D
+H
+U
+Z
+n
+r
+†             ’              
+”_>https://docs.swift.org/swift-book/_static/stylesheets/tspl.cssÔ !O&<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="21px" height="21px" viewBox="0 0 21 21" enable-background="new 0 0 21 21" xml:space="preserve">
+<title>icon-close</title>
+<desc>Close Icon</desc>
+<g id="Container">
+	<g id="icon-close">
+		<path id="Line-Copy-8" fill="none" stroke="#333333" stroke-linecap="square" d="M7.002,8.338l3.655,3.655"/>
+		<path id="Line-Copy-7" fill="none" stroke="#333333" stroke-linecap="square" d="M10.657,11.993l3.655-3.655"/>
+	</g>
+</g>
+</svg>
+Obplist00Ô
+X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯/'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€.€€ €Ó()$+,WNS.base[NS.relative€ €€_Bhttps://docs.swift.org/swift-book/_static/images/icon-caret-sm.svgÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃÒz±¾4 ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
+€€€€€€€€€€€€€€€€¯OPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGIN_hit-fresh, hit-staleQ0_uhttp/1.1 jptyo7-edge-lx-009.ts.apple.com (acdn/137.13246), https/1.1 jptyo7-edge-bx-015.ts.apple.com (acdn/137.13246)UApple]1; mode=block_/7b2b3fa3-84cd-4730-85ae-28e86a6242ab-5173996713_max-age=180, public_Fri, 28 Jan 2022 11:51:28 GMT_#max-age=31536000; includeSubdomainsS806Zkeep-alive_h
+
+YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1UaHUsIDI3IEphbiAyMDIyIDE4OjQ1OjU1IEdNVKEXXxATIjMyNi01ZDY5NGJhNzA5ZWMwIqEZUTChG18QdWh0dHAvMS4xIGpwdHlvNy1lZGdlLWx4LTAwOS50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KSwgaHR0cHMvMS4xIGpwdHlvNy1lZGdlLWJ4LTAxNS50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KaEdVUFwcGxloR9dMTsgbW9kZT1ibG9ja6EhXxAvN2IyYjNmYTMtODRjZC00NzMwLTg1YWUtMjhlODZhNjI0MmFiLTUxNzM5OTY3MTOhI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHUZyaSwgMjggSmFuIDIwMjIgMTE6NTE6MjggR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpUzgwNqErWmtlZXAtYWxpdmWhLVdub3NuaWZmoS9VYnl0ZXOhMVpTQU1FT1JJR0lOoTNfEBRoaXQtZnJlc2gsIGhpdC1zdGFsZQAIAC0AOgBIAE0AUQBVAFwAbwB3AIUAigCmALUAwADZAOcA+QEBAQMBEQETATMBNQFLAU0BTwFRAckBywHRAdMB4QHjAhUCFwItAi8CTwJRAncCeQJ9An8CigKMApQClgKcAp4CqQKrAAAAAAAAAgEAAAAAAAAANAAAAAAAAAAAAAAAAAAAAsI=Wnosniff_"326-5d694ba709ec0"Ubytes_Thu, 27 Jan 2022 18:45:55 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionaryÒ/0Š‹_NSHTTPURLResponse£Œ3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d – œ · Ù û ş #ELnqt–¸»½¿ÁÃÅÇÉËÌÎĞÒÔÛãïñóõ:?JSY\enpryŒ¡£¥§©«­¯±³µ·¹»½¿ÁÃÅÚÜŞàâäæèêìîğòôöøúüş '+/6IQ_d€š£¼ÁÏİëö‡›Íã)-8	¤	¬	Â	È	è	í
+
+
+
+
+-
+1
+E                           
+S_Bhttps://docs.swift.org/swift-book/_static/images/icon-caret-sm.svgÔ#$%OC<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="21px" height="41.918px" viewBox="0 0 21 41.918" enable-background="new 0 0 21 41.918" xml:space="preserve">
+<title>icon-close</title>
+<desc>Close Icon</desc>
+<g id="Container">
+	<g id="icon-close">
+		<path id="Line-Copy-8" fill="none" stroke="#333333" stroke-linecap="square" d="M7.005,10.5l5.5,5.813"/>
+		<path id="Line-Copy-7" fill="none" stroke="#333333" stroke-linecap="square" d="M7.005,10.5l5.5-5.5"/>
+	</g>
+</g>
+<g id="Container_1_">
+	<g id="icon-close_1_">
+		<path id="Line-Copy-8_1_" fill="none" stroke="#333333" stroke-linecap="square" d="M8.006,37.347l5.5-5.813"/>
+		<path id="Line-Copy-7_1_" fill="none" stroke="#333333" stroke-linecap="square" d="M8.006,26.033l5.5,5.5"/>
+	</g>
+</g>
+</svg>
+O•bplist00Ô
+X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯/'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€.€€ €Ó()$+,WNS.base[NS.relative€ €€_Ghttps://docs.swift.org/swift-book/_static/images/icon-next_previous.svgÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃÒz±Ã& ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
+€€€€€€€€€€€€€€€€¯OPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGIN_hit-fresh, hit-staleQ0_uhttp/1.1 jptyo7-edge-lx-009.ts.apple.com (acdn/137.13246), https/1.1 jptyo7-edge-bx-013.ts.apple.com (acdn/137.13246)UApple]1; mode=block_/748aa0da-4b64-431b-8e30-a035eb9dbdd7-5173446851_max-age=180, public_Fri, 28 Jan 2022 11:51:28 GMT_#max-age=31536000; includeSubdomainsT1091Zkeep-alive_h
+
+YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1UaHUsIDI3IEphbiAyMDIyIDE4OjQ1OjU1IEdNVKEXXxATIjQ0My01ZDY5NGJhNzA5ZWMwIqEZUTChG18QdWh0dHAvMS4xIGpwdHlvNy1lZGdlLWx4LTAwOS50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KSwgaHR0cHMvMS4xIGpwdHlvNy1lZGdlLWJ4LTAxMy50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KaEdVUFwcGxloR9dMTsgbW9kZT1ibG9ja6EhXxAvNzQ4YWEwZGEtNGI2NC00MzFiLThlMzAtYTAzNWViOWRiZGQ3LTUxNzM0NDY4NTGhI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHUZyaSwgMjggSmFuIDIwMjIgMTE6NTE6MjggR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpVDEwOTGhK1prZWVwLWFsaXZloS1Xbm9zbmlmZqEvVWJ5dGVzoTFaU0FNRU9SSUdJTqEzXxAUaGl0LWZyZXNoLCBoaXQtc3RhbGUACAAtADoASABNAFEAVQBcAG8AdwCFAIoApgC1AMAA2QDnAPkBAQEDAREBEwEzATUBSwFNAU8BUQHJAcsB0QHTAeEB4wIVAhcCLQIvAk8CUQJ3AnkCfgKAAosCjQKVApcCnQKfAqoCrAAAAAAAAAIBAAAAAAAAADQAAAAAAAAAAAAAAAAAAALDWnosniff_"443-5d694ba709ec0"Ubytes_Thu, 27 Jan 2022 18:45:55 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionaryÒ/0Š‹_NSHTTPURLResponse£Œ3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d – œ · Ù û ş #ELnqt–¸»½¿ÁÃÅÇÉËÌÎĞÒÔÛãïñóõ?DOX^ajsuw~†‘¦¨ª¬®°²´¶¸º¼¾ÀÂÄÆÈÊßáãåçéëíïñóõ÷ùûıÿ$,04;NVdi…”Ÿ¨ÁÆÔâğûŒ’ Òè.3>	ª	²	È	Î	î	ó
+	
+
+
+
+3
+7
+K                           
+Y_Ghttps://docs.swift.org/swift-book/_static/images/icon-next_previous.svgÔ'()*OnH‰PNG
+
+   IHDR    F   Ø#W   sRGB ®Îé   DeXIfMM *    ‡i                                  F    ÂXxn  @ IDATxìİ	œeÿñ§º'™œD¬ wğ\PÀœ€®Á#+‡èº$.+ëêòW<X\¹r@’&QpQñdõ¿şÙD"’Õ%\	¹„HÖ !	$“™®ÿ÷é™®©îéîé9ºëx>å«í§zê©çy×3¡~]—1L €  €  €À	xCTÕ €  €  €@LfÎœ9üÙgŸÕàæµ­]»¶£¥Á¡z@ @ ˆX`Û¶mŸğ}ÿËlF&“9Mõÿ,ÓÈP7 €  € ¸%@€áÖş¦· €  € 4T€K¤ÊKå.	LŸ>}„úk?›Æ¿kÕªUÛ #€  € ƒ À$ «#Phkk»B×6^^œoÄ÷îİ»OT½6¢nêD @ †B€K¤†B‘:@ @ @  À €  € )ĞÖèJ‹sÓM­ÿAûé«Œ¾„X  €  €@Â6nÜø{uÁ~<Mš4éuZ¹Ï ƒK¤LÌŠ €  €  P.@€Q.Â< €  € X€K¤LÇŠôOÀó¼œ>õo­ÒÒ­­­(Ía@ ˆ— F¼ö­I±@6›½cÃ†÷§¸‹t@ 0\"Å @ @ @ ! À2J*B @ @ Æ  €  € ™ ÆQR €  € `0@ @ @`È0†Œ’Š@ @ @€ ƒ1€  €  € C&@€1d”T„  €  € Œ@ @ 2Œ!£¤"@ @  À` €  €  €À	`ôA9qâÄqS§N}].—Ãª+#€  €  ÀAs•10cÆŒÑ
+.ş¯¿ĞÑÑñû[o½õÏ“&M:»Jq²@ @ @@U†Á;–kÑ‡õñº‹äûş¿ëlÆ_VY…l@ @ œhq^ 
+€‚‰Yïììü€ò[aYÓ²t&åï<Ï; ¸ÁL&óÃ6ü¹8Ï7 €  € Q	`T—VeQµü*Å‡>[ÁÏ}ŞT¬YÆ/•&À(‚8şm/ïÛ¹sç©#GäóùÃŒîÉSú<²iÓ¦uš÷ÓDäZ£Øw.»Ô×(Æ’İ¦kÆ®õ7Šqå’qRúZ¼ü'Šñëmêş‹Wÿ¾¬‘öÀì¤-[¶l(Ëoê¬ÚfÏ FKKËI:ƒqSÁÆz	èÌÒU:¨¿¼×‚îŒFï§iÓ¦¥û…®Ğæf©c«´ã	å{ìØ±+Ö®]kÄN®õ7Šå’±K}b,ÙmºfìZ£W.Ç¥¯:ÖÉécaµı­½OÓ™?ãŒ*B£FúıÒ{_hq»æ/Š:¸µ‡$ÀäÉ“gíÛ·ïAıÑŸW#¸°åÒgÑ®]»6ê« Hµ’4¹Öß(öKÆ.õ5Š±d·éš±kıb\¹dœÄ¾`Tù«¸ç{=óÌ3ÿ*›Í Ï{õëó›7oşR•âd#™€şáù˜.…ú5`\?ñf$ëõKÄú±N,ŠºÖß(Ğ]2v©¯QŒ%»M×Œ]ëoãÊ%ã¤ö• £Æ_†Ş}‘ß¸qãÿès7Q×€bQdú‡çd_+k€=Ûö}f(ÿµ
+'+}>á3rvüdúôé¯²3I˜\ëoûÄ%c—úÅX²ÛtÍØµşF1®\2Nr_¹É;Š¿¶‰ÀÌœ93»mÛ¶ï¨ªá¡ê¶+ 8CAñæPMnVÀ|Óm·İv¡.¡ú‚æ?.(ıú¶¶¶Åšÿg[(Î“kıb_¸dìR_£Kv›®»Öß(Æ•KÆIïk6ŠÂ6'ğš×¼æ3ªa|±İPó­?ıéO,Îó€öË;µå¿ª¶õ¡ŞO#Güˆ¶u^q{:CÑ¡ôt]Ê·¥˜şÖMİşÓO?}¿Ú9Bùo-;şˆ#¸Icè¥P^ì’®õ7Šà’±K}b,ÙmºfìZ£W.Çµ¯:†˜®}o?'‹ü»5ã©Š<d"’'VélÄ
+=„À>²¸æ¤'H-Ğ? „
+µêéS—†æãšt­¿Qì—Œ]êkcÉnÓ5c×úÅ¸rÉ8Ñ}MM€¡Ë?2z|ë8ûÅˆg›4S`Ê”)Çk{¯m³½µµµ®‡èLF‡‚‘ëBëÚäÙÊ‹íc«]ëoÙ¾iÊ¬KÆ.õµ)ƒ§ÂF\3v­¿vyÃ³\2NC_kŞƒ¡'Ì§_:OĞM¤'Øo€ì¯ï?ê{›¾WéRŒ’›Fu3Š}šMğüı	&|mÕªUíµF¶q–ê;ªV-{F¿Ì®
+—Q01L—œ|TÛ{¿ò¹õÖ[Öw«¾óªói¥ïTûì%$']Û6|ëÖ­Ÿ¬¸°J¦¶·Ù¾¨¬Êâgw?Ûx¢*8Ñ~äq¨|ÿ¤ô“úÜzôÑGß!ÇN¥™(èòg•QüxİºuÛËòªÎxà?xşùçÿUÆtzÍÔ©Sí,¿w£jÍ\àZ›i[Ü–KÆ.õµ¸›ıíš±kımöx²ÛsÉ8}­`è@ãÕºdâ[:Ğ=CŸÂ8
+}¿Õfhş³ö…oö _İ›ºó®Ô÷á6m§'Ÿ|ò&}Õ0´ÜäŸ¦O­iƒ†ˆ¿ÓüÕ
+.&TX)£¶¦|[¦j€¡¶ÙëĞËÅ­P]IÖrÍY€qÚi§µnß¾}¹z¡ê-ùõX}°¿PÛé“º‘÷
+Ş>n_\Ò•Åÿ#`N( ½#<_OZëüAãìØbY¥m±0Ô.×ú[Ü-ÍüvÉØ¥¾6s…·åš±kıïëf¥]2N|_{]N¤ƒ÷÷+¸xH£åŒ:FÌ_ê än­sve‡¤ˆ‚š¿×6ÿŸ>•‚‹!ÙF3*Q?Şüì³ÏÚƒ¹ÏêS\”o_}=LÁÔjŸ._Æ¼{v¼¼9Üs=9êîğ|­´~@8lÇ÷¨ ¸°å5ÿ–ZëEµÌµşFáì’±K}b,ÙmºfìZ£W.§¥¯%g0t û>Èş¨ÚàÑ/ÛÔñú>Vßö€ı‡d„æ¿}Ê)§¬Û»woµUkå?¤õG—hQ½'—åŸ§ıíòüÌëîü¼ŞfüD­uÕ®±jÇµÊd™=ÀS·^u—÷»P¶ûg-{B3oÔg\!SÕ¾ù’“ÿîí—®|½ÚD#(‹MºlîÅFn#®u+ ·g	Ãcçe½§åÑzÚ«ñ3U§^¤ıspyyå½©</ó®õ7
+s—Œ]êkcÉnÓ5c×úÅ¸rÉ8-}ŒîËu¾XaàüN¿~N%÷ë†Â^ÌÕ¢gçÛƒßtPr¾>c\Ø³
+ûUX¿f–êœ]^À¾øKÿ/”çë òZåµóu ¾Mé´İ•ş•¾õå½Zyö×İSŠå*}ëF×6å]iY1OcŸTú«Åù¡úVpa/µ
+ µ{‡Ú‘ò×Èä»-Û¬­~ÏÒì•úW¹ï*ÿ »<®“ÆŠ=ÓbÏÌ4r²Y½·‘ˆqİöo/<=©–Ö?ZçhÙ·5~FT)ó:û·mo¯²<ªl×ú…³KÆ.õ5Š±d·éš±kıb\¹dœŠ¾ÆsÏ=gn	Ì~mØ°a­_¿ş•p~÷È¯•÷I´Ü®–›ôù«p™¡NëWÿ×éÀ|jw½;Õ¶ë@üC½F×§³DöÍËŞúr—œ?,g{cw0)ßŞ ³UŸer¾CÆ+õ™ á¤€ÆÅaAß5ÿ‡`¦BBe=Ÿ+õ=¿lñÍÏåÓı@¡yû„ØL®õ7
+x—Œ]êkcÉnÓ5c×úÅ¸rÉ8-}-Üƒ1cÆŒÑ:è-yŞ®Ğ½:€ÿTypQ>°TæÇÂ¸¤<¨çõ«ø‡mÚ–}rÕñI.lûuwµıM/èFù¿-.BËIõ÷I²¿@÷Y–bŞ	¡1áj~Gx>œÖY¸Q
+jW*¯$¸ĞßÑzÊÛéúŞ.¯ £¤îğ²¨Ò®õ7
+g—Œ]êkcÉnÓ5c×úÅ¸rÉ8-}-œÁØ¹s§½ö:|ÉN^óu_âræ™g~ç¶ÛnûŒPìcV‡|ÒAĞ$Uj¡ù'ıÒÿ¾‚!oÀĞVhûL
+.®Ü¸qãóAF„ÊmÖ/Ñß“óGj‹|‘ú´NmÙÈ†hüo#ësİú{#ßp_ÏÓ'tÒ¡ííí?QÙÂ“ßl¾ÖíÔüç°~Y£ ¤MÙ#Šë(]€áZ‹û¢™ß.»Ô×f¡ğ¶\3v­¿á}İ¬´KÆiék!ÀĞGÉõ^êÜëàã—õ½ÜÎ¾{ÂŞ¿ñİz×éO9µ/kË«]“\tğï	Q^Ñ™£¯ôÓâ•u€¡ÇéÚ_Ìí‡©ú{(J.a´›ÔY‹É
+.~¬ä!Å&h¼½¤Ï‡ô·~Üñn-?¨XFÁayİÅE‘}»Öß( ]2v©¯QŒ%»M×Œ]ëoãÊ%ã´ôµp‰”:SòôÍÿ¦¿H—ïü¶¿ëô³üo>úè›ú¹N¬Šë’’@NÎêIHûúÓH]Öòˆ;û³eÓ% ı_¸C½*9¡ØâC[wiy\(ı„>§”¿K¥|,)à-¯[«E;¹Öß(´]2v©¯QŒ%»M×Œ]ëoãÊ%ã´ôµ`h°”øjşáş –––ß÷wş”×/«7$ımÖ:è+w~¤?¶¬}3ºêy¢¿ëQ>=Úÿö²¦ğT¸¼Qùöfîœ‚„›•.QÓ?Vë[[[§êÌÅ¯Ã+u§G…óôwV^wxq$i×ú²KÆ.õ5Š±d·éš±kıb\¹dœ–¾Ï`ì0:±-<_Oú¾ûîÛ¥rÏÕSv€eú}0>Àí4l5šgøõÛÙ6n ë5¬cTÜTíÿ’ @óctùİH6°XXÖ˜ï?şÔuëÖm/Ë/Ìª|ˆØıí—Ô]ifç¹ÖßfûÚí¹dìR_£K®'ûÅ¸réï6-}-Á(/:èĞ%8BĞz%¯2£›z«²(±Ùuèz‰…¢á%åÿøh<¥§?İ­B³Âu6b¡.Áûğí·ß¾7œ_LëŞ©Œê
+?ÜÁè&ïØiïoqÿ4óÛ¥1åR_›9†ÂÛrÍØµş†÷u³Ò.§¥¯Á{0š5H¸v=J÷)ı
+;ÀÕYôè ûÏe½™¦¼ Kÿ8ÙGÏ~L÷[ÜdVH¬^½úP­ş7 ?zôèg+4ËµşFí’±K}b,ÙmºfìZ£W.§¥¯áƒ‹(ÆL½Ûüƒ}RU½…)­€.Õù[µàÔF¶BÑ×ê zk#·×ºufâai¨Ø<¹üY—9}`Ã†÷W,ÊÔ½G†fíe2Oè%š68‰ÕäZ£ÀwÉØ¥¾F1–ì6]3v­¿QŒ+—ŒÓÒ×b€Ñ^6`^]6ßçìôéÓ[víÚu@ŸP@>åí@-Ñ¯¢AÓ©ƒºpC^éGz ëõc/ªèûíZû3¯¡ï5µûë¼“Æ¨Q£¶êoÍşM/“zhøğáïÓ™¾šoö.®£¿«cåXœµßı~¸CxåF¥]ëo£kÕë’±K}­µÏ¹Ì5c×úÛÈ±S­n—ŒÓÒ×Â=:Ğ(¹¿AÁo¨¶“«å¿üòË´lXµåäN?QæĞoçîõº^Ùæ™M¢€Î2tèo¶ä©mšÿÅˆ#N©7¸°ıîÃı~<uxåF¥]ëo£kÕë’±K}­µÏ¹Ì5c×úÛÈ±S­n—ŒÓÒ×âMŞå¿\–?NµÚ>òu°ÂAo Q5QîÜo³“O>ù/T{¬Ï`Tí=†R`MYeÛ»ŸäV–]yV¯–L/UR^gxqİé©S§NÓÂ/Ô¥rÑx-¹«îJz,o[lúÛ»©‰Í‰¥1ã‰ñTàß¨¢„³ßüUç®oäãël‚)\"¥?Ú‡Õ˜`Í¿ëmo{Ûş÷Ş{ïAf	õ°×İ3Õ8à€~ÿüóÏ[h{pg§C§M›ö¦ûï¿ÿw]³}ÿÿŞ½{ßİw©hKè‰_7ê¥‚w4²úµ>–¿¶7²Ïáºõ7úıÍ^Êû€êÇé©Q/†òª&uĞ6CxQÃw…æûÔe’¯jkk»IûşıveûoŠÆk»Ú5OíúB¿+­·şêe†«yç†šhägÿ¶¯ïïË3ÃuD™›±KãÉî÷´©¸'kìÒ˜JÛx²û/ncÊ¥ñdıû;½$ïwíííÁº:08à•W^É)ã³Af„V&ê â#5Š°HkÖ¬Ù­_uÿ(ßÃ‹ r»VéÓŠóµ¾5˜GèÚû«k•‰Ã²î€©î )mNZô´§û4ì{g²m×˜©{|>ªäuv¾¯IÃåÛ«{`¬àâ+jG!¸mßŞ'rÍ”)S¶nÜ¸ñ–P~¿’që¯ú9]Ÿeøí`©²úš:7c—Æ“İÑiSqOÖØ¥1•¶ñd÷_ÜÆ”KãÉú÷w*\"µ~ıú?iÅÛÂ++Rü´~y<5œW)mÏtè‰6_Ñ²â¯ò•Š‘×- ?ú•aÍ¿·û©KáìŠiPÎÓ‚£*.$Ó){¦
+œ“‚†«u ÿú £JB¿lÍÒ¸µ¾şŞ¯©R¼®lı[qŒê<§ZaµmAµeõäÇ­¿jó‰ÚıÓ
+y‰ÉŠ“±ƒãÉ“T©8'‹ëà˜JÕx²û0NcÊÁñdwA¿¦â=Fg1ìåÁi,Ø³?×ÁïÕúå¼p¦£¼f-›¾gÏ_©ì-ÛW¾œùŠ‹•[òVeù­¬å¬<NË¿¯õæW¬‘L'ôkÎ—Õq{£8V°¿Roõ_úT\VøVpñì=œ©àâ–Í›7?ÎëoZÁÎÄ>Ö9næÌ™ölÆ€§8õWHİ¼í‰‹±ƒãÉò§nLÅe<Y\ÇTêÆ“İqS'Ëß¯©ä¬ƒb—ë`÷²òt ò¿Êß¬ü”Ş¡ôñJÛÁûf}ŠAÊ™JOŸıõ)L
+ZÆéyü/ç+}ë`h¤.*¹ÙYÛ«¥»Cå×Î<;4_’TùuùÅ¶’Ì>fìvõöã÷Ô*¦~¾WË?U,£íüPéïç+|ïÓÚíòK²t÷ñòƒ¼î¿Õ6îTú—êï*ó&¥OìnGá QË¿¥¼#”´]Î'ÕóŞƒîmğÕ ıı\¥ıryµê±Ÿ´ÍĞ6ËÇä‹?ó4Vn×¸xÂ¶Gå&èËåôiÕ§8½ Äd]Úóx1c ßÓïÖxı¯ëîÔ6‚j”«¹(.ıUĞo_HX¸<Í6XÖ/i?4ØËÌjv¾Iã`ìÚx²»6­c*ãÉúº6¦Ò:ì¾ŒÃ˜rm<Y÷â$ÿœş{·°8_ş­ãÓô²Ÿ•œ™3fÌb]†ó—*lƒ…`REö†F›w¦ÒA~1¡ÿ¸~OÖ«5 ‹YuëŞ{½¥ÑÁK­_XWkı’6÷QŸ½ŞõÕúü¸¯ráå*ÿ·š·ŸŠ“viÁ~†2Ï8ãŒoİvÛmïS}ïeÛä_*Ïú›J/RSıOµ¶¶~N7Îş»-Ã„€şî¾§¿;ğ_Ò§¿—ì¼ş´cÒş´óáIã©SóRƒ
+.lÚŞ&;ş5~Ç†·JÛÀyĞSú«{ÎÓ"ApÑİ©Ÿ§!¸°}‰ƒ±KãÉš§yLÅa<Yc—ÆTšÇ“İ—qS.'k>)^I×·µé?’ö ×şÒùrxYµ´"•åG}ôÇª-'¿·€}+¹ş@ÎÒÙ?ë³§w‰Š9öR´Sûó(ÒŠµ™:	&ÌÖ8²7÷Šşí¿>½‚•İ©¿İ™‡µÎ:Ôm¥7^ÔvÂOµ
+ÖUÛ^²q1ÈDÔıU?O¨Ğ…DßQŞŸ¨]OÖ>íc*êñd]SiOvF=¦\OÖ{ SI€Q¬@p_ÓAÁ[5¾ï¶Åeİß/(ïF]ò1I§Aæ¬ZµÊşÊÔOÜık6›(ËŸhÕ§«¬ş¸–_¡e'i¿ú—æ*Û ;ÁöïOcÉ^Úh/éûŸZ]ÑXê´ãMü'æ©N•¶¡ñùM-öß£İËÛµ­ÿÒìŞÚŸ Vª;œuuvñÄp{lZ}^Y¾Nœç£6¶6®Œ'Û×´©8Œ'—ÆTÚÇ“İ—qS.ıeÍû;•ÜƒQme xºæÊ^Ã=jìØ±OéLÇÎò²ö]îÔ¦übĞ²û}ï{ß~ö×úò²ÌW°/ÑÓ¥'êÔÛ¡:0{ZkOÚG¾*İë—éÊ5¥€şFš~F¥şªö ø,}ÔçpııÚ³dOi<=¢±µRÿ(>£ù†Nöér‡rÈnıG xpD£6Øìşê’´ÿT_ş¦Øı}>¨ ¯WĞQ\†ïf—›¥y<Ù¾º6¦¢OÖ<ÍcÊµñd÷gÔc*ÍãÉú†'Y×uF]F¸âjih{Æ#¸—BÿÑ]¯ÿè\­<ù¤M@t±0Òæ·şèßºmjÓQÅvéßº%ú·®êÍıÅr|#PM€1UM†ü0¢Æ:õ
+Ô`nò>å”SÆê‰J“‹•ëWÎôÌZ7U‹ßúut’Öæ•øŸği@ éöW*½„ô¨²~¤êş‹²¾1Û`ÆTƒ«ñäØqw—3)0èĞçGºnïö£K*Öëé3‡×Ûn]u€Ö¹²¬üƒeóÌ"€ ‰Ğ{ì»‚Ig/vè!÷$è§ cªŸ`¯)ÀxªÉÃÂ&
+½ÉûöºââÔªùÿ§G½º˜QíÛıĞ½ßRyû(ÛÂ¤ÿèşqØ°a«Šó|#€ )(¿×b½Ù0%}£Ñ0¦¢qOëVOiİ³	ëWñ†lû¢¨oèü‡RÃ)ºáø]kuù´iÓ*ï—Îp¬Ï'ôNûÄ˜„–çUÏ¹
+Zv„òH"€ i(ÿ7—G¥a¯FÛÆT´şiÛ:ã)m{4¡ı	^´§{.îSÀğaõãÿ*¸(æ¢ôUº?ã*İ4ô¢–ıIŸ}&è’ª1úî5)¸X¦G×ŞÕk €@òÂÿñÎ9ògÉï=ˆX€1ñHÙæO)Û¡IíNpÃv@Á( ø{%{=†Vyãô±o™~‹>•‚‹'\üã™g9_Ë™@ T	Ìœ93«í¿ö‹ûõïİ÷ï¹çgSÕI:ÓTÆTS¹S¿1ÆSêwq¢:X<S4ZÏÈ_¥³«õÏPæúêqÁÂÊ‰gTö‹cÆŒù²Ş±GgB*—"H°@÷½oOphzÌS1Û!	oã)á;0eÍï`Øş)ÈxY_7Ú‚#ô|Ldôy\¥}L÷h<¦²öÒ)&@ @ @ÀT0Â.
+ Ô¼ı0!€  €  € 5JîÁ¨Y’… €  €  €@}Áèc}#€  €  €@Ìôê‰«toõåƒi¦Ö¯kuÎ`ÔÅD!@ @ ¨G€ £%Ê €  €  €@]u1Q@ @ êàŒz”(ƒÀè±ÎëõØçAÕ¤ÇCŸ¦bòöèA)²2 € 4R€3Ô¥n@ @ à†c;œî"€  € ¸' '@İª—e?ÓÈçóùßÚú	0©Lİ €  € Ä@@/ÏŞ fØOÃ'.‘j81@ @ @Àwö5=E @ @ á\"Õpb6àŠ@3¯mtÅ”~"€  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  l/ÙÍ§õ € ÄPÀ÷=³|á§ƒ–íè×ÍùçïæI € )hIqßè € Ñ¬Z•1yÿ_ƒw<óoJ` $@ Í™4w¾!€  €  €@s0šëÍÖ@ @ Hµ Fªw/C @ @ ¹Íõfk €  € ¤Z€ #Õ»—Î!€  €  Ğ\"Õ\o¶†  ĞH;s-fKË¡¦³ã“5;Ípó´¹0÷Ò€7iëÛ`^cò‡/û¼}ÀSæÂ÷¸¾(VüNn„yŞeöeFšƒó¿3Ëí©ÙŒ¥K÷7æå	&3æ÷föì]5ËÖZ¸reÖlıí¡Æ3«ØÓfvîµŠ³Ò#À{0Ò³/é	 à¦@×;'Şk|óÏÆø3ô <Ío½şÿ›fŞ¢ïùµ¶¾¥Wa¼ÎO©Ø_÷ªÏ÷6)ÿ+fÌA7W6ìÁõcu›—k>“kæ—.˜i|ÿ†Â¼çıÌÌ]ô‘`YµÄÒÛ´ÎèÂâ–ì[Ìe¹ÿŠ.[t¬Éï»³kŞûƒú:ÙÜ˜eÏ_£¼”Ë¨Â2ÏtßÛb<ÿ3w±íG×tıõ­f÷siæmã5]™^^ß¿Öç>“5×Ì™óbW~èÿ+m×öıñ_/T©óU×_¥=cƒ•õfXö³æ’ÜÃA>	H —H¥n—Ò!@À!+F›¥~ wNüT³§•–Á×ïç¾²ßV¹›Œ=®5İc–-ø‘1·jİÓ+Ögü)ªï&³ûÙõfyî°ZÕU]æ›Z6¾ûóªªåJøÅòãMKKOeËdòÃôÿ]Ë=súì™ù›ÔNIİÁ…-W¾lûu ¿4÷O6Ë\{Õ¡¦íÙßh%útv¯cÿ-ú|Êø/ÿÌ,_>Öæ–LåÛµè+ªg¾>=Á…Í÷ÍX}f˜}Êø|›Å„ é ÀHç~¥W €@úl°°o×ZuôƒAg=ï	…_7£_Ğ½¯ê³9XæûÿhÚ»Û\›; È'ì¥D/æïÑAğYA¶ç=¦:n4·@ß_.­ÏœhòùM…ô`…$lp±láàÏ”Å‹jû*E W¾=Óuy—4üü—Í5¹¿4{ÛµÜ£²¯èóó®²24^ÏYßŸf:wßÒGï2
+âròû„ÖíĞö6è³Âx™ëUïëãÖ÷M«Úvùüâcú¨Å PîÁHè£Ù €€ó»ŸSáO
+<ïJ3MÒ§æz.M²—äN×åNß×áí8•ŸbÚ;/Pî¢`½bâÏşb-?¡8«ï‹ÍœÌ—Œ—³—
+õLËœ¡ä[Tß0}löîÕÁ¸9£§@ä©#Õ®œî¿'*ñøüâ×™öÛÕBÜëÌF{ş}W@°ÑŒÎ¼§ä~{ÿÉıºÄÊ÷?ÛÕ#ÿ]fÉ’Í¼yÏWì¡ï¡ü…Úîzã:­×%UË¼KgšşCnêÓj:÷­Pùà°b¥d"€@8ƒ‘Ä½F›@ ×V,>ZÆ—…nÖ}¹’ƒéâÂy¹Ÿê÷ú÷gM^¿°ÛƒçğdMÏûö„îÉû†™·øÚ^Á…]:gÑjD_\,©ƒåÓAL‡„÷sÀ¡çõò¸lş£ºYıÿô´Ğæqã|oIpaØ@í˜Ìeêëv¶0yí“‹ÉÊßîÙyF¯àÂ½è²ºªg=İ/Ã„ © ÀHån¥S €@Ê:Û?¤ƒÕîût)ÏÙójöø²Åwiùt°üG}|³1ÿ’òûf)`éşo¢÷ ymÆå¨>ÍY¤Ë¥T_qò:Ï)&cñ1_0çŸ¿¯b[æ˜»uÆâåe™š¹s_è™¥fåÚ5gíº&¯sJ1Yñ;“Y^µ.»ÂˆıoÔ¶»Îùf´ùâÕ‡T¬‡LH´ F¢wG È{ôÜ3?6ççBÌÁ’ÒÄ¼Å3u–ãğÂÇşšüğ¥:Şm¦ëÀ:\¢wÚóş3Èô½³z	6;aàG­«ºU{É—çÿ)XñpÔœ–ú™WéJ‰LvC¥ì ï¢‹ì}=O¿Ú·çµÁ2 ŒÔìJ:‚ 8$àùoõöBé%Ãõy¾}4kß“×*çïg6Ş÷Ğ÷z.á™?V¼D©d»:‹Sœ|{1Yå»ëÆp»Ğ÷{ÖëUØÛiì%X}O=ÁMgvtßÅ) I ÀHÚ£½ €€ëöÑ´ö‘§ÅiXfp†}_D¸¾’À¡¸‘
+ßòèrŸğåö…rq˜JoJl‹<=•ª8y^Oº˜WüöôbÃú¦ÎúŠQ
+’*@€‘Ô=G»@ W2{K3›ÙoÛ (ÚZ,YÿÕùÇKæ«Í.£òŸ
+ûùÒz‚$@ ·0ÜÚßôH¾À˜ÒÇ¤v¾¤G®bÑQzƒóöì‘uÕVx•whPÖË”Ö,  ¸%@€áÖş¦· €@ò
+7t{/éÈ¤’øL®M7ïîYµóÍ=é©-æõ]ïè.ã‡n^®±Z…E}ÿ·xen¸ñ½Úo!¯P1Y €@}ÿ£E«Ø& € µ<£ûº'ß{K19ˆo½±»{Êç+&k~w˜r6@Ùÿgj–/ÌfzßÔ~2“]ïqôø¥ïî×Gˆ‘ FŒvMA ¨[à‡=%ı³Œ½Q»¯iéÂ/›%~®Ï›ÏÏGiqï–Ğü{ÍÊ•İïØå–'ıü™A–oVW}ïDP(”ğ²¡Óı¾/Éò¼7–‡ª!‰ ÄQ€ #{…6!€ Ôh¶R—5u?È£ÙÑycÍ–-ø”ñóè,À»´Ş±f|Ùû2…úüB¾?ÕlıÍ²šõ-Í}Tlı‡ Œçİ¤ëI\zÅV=ªx™×x³|Á{ª®öÅÜ«ôöqµ	H† F2ö­D \:›Ğ¯²|s®Y2ÿô÷~ŒêÒù•ÿ… ¬çß`>–ÛÌÛÄìù¿3&Ó¤äó—˜e¹””)Î,Ë¬`å«ÅY,kÍœ+Ì×“°o÷ÌƒAÑ¼¿Â,ÏÌöÌÌüjF=—c—ñ ÄT€ë9cºch €@g˜gò­ƒïâ=+Ì²çš¥nSŞ€ŒW“õ‹34_üAíqÓ’ıJÅš÷ó.5/™w©üë
+Ëóÿ¦Ë©>£zÖ/¯—Ãê;ÉøïÕòî@F/—3™óŒú;yæ­rŠ¶—Õçx“ïü•Y:ÿ‡JÿNõí§6ŸbÏOÓ÷Í/Ö·(3²¿›¡< Ğlâ?¸ÍŞ.ÛC @`pö,DfÔ_éPMP‘=P÷ıËu şU}/Òç}=Á…w‡ñFM6—äÊ‡öiRÃ²'+v¸«'ÛŸbLşŠP}§)İ\xæQ“6ÍÌÍér§Lsİª'C}<XÓ7û«îÿ£ù/¨İ•~wWp‘¹ŞÌ]´@ùù ,	@ Æ1Ş94@ 9s^4Ó²gèşslìUÚ3»´ì^}æ™¹™ÓÍÜ¹µßUaƒ}ñ²Ó:›zÕ×•ñ¸–]b¼Ñ“uiUÏÓ¬ª®™=oÑwLÖ³A….ù*Ÿ¼:;²ÄÌÉıKùæ@ 8ô¾V5Î­¥m € Ô¸~ÉxóJû‘ºGâÕ&ŸyÔÌ]ø¨‚ş_¾TÜFO}‡˜¼ÿœÑú¤ùÜåOªÎbİáo{ïÈ®|ƒÙgÓåX­&“ù“qÀïÌ…î#  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  € u	xu•¢ € ƒ¸şúVóòsŸ4yºñÌŒñÆ«ºÇŒñ6YómsÙâ{S=ë:.pMî Ó?-PÈŒú‰™3çÅ`4U€ £©ÜlpP`Iî,ãå¯3¾TÕŞ{ŞM&ói3;÷tÕ2,@ ’ÀÒÜ»ßù]-:$X<<{¬¹$÷Û`4U ÓÔ­±1@ ·–-8Ã˜üK‚ÏìÂ6ÅÈ¾ÿ~“ï\c–.İ?È#@-•¹áfÙÂÆhÜ„ƒ‹Zë°š"@€Ñf6‚ 8(°tÑ‰&oVê2¨–Bï=óˆi1ÓÍœì~fŞâ	f\fœñ¼9ºdjoa¹o5ş+·?Ç›.ıêò’ÜëÍcùõ&Ÿ¿ÄøAL +şÕî 1 €@šö-Sp1ª«GŞÃf¿ì$İkq—ñr]g.>“k3s-7&{VÏÙÿ³Üü]šèË,_pñ:©±õÖBÍyÁd²ç(Ìèâ-QP€ c€p¬†  PC`Éü“ôËòŒB	{à—i™el@Qiš›[£ƒÃ/‹òùùœÅ4H„–.¸ÆtúßÔØİ•íİc†·oæän6¾ç‡‹’F è0¢³gË €@š.unµ™³à¡Ğ|ïdKæûºøo4Ëóïé]ˆüc… Õ,4¯=îTsñOõréÌlôB!æ	`4Ïš-!€ .	œtÖÏ~#HWK\šÛ®Ë¤~,Î{ïÒ$xŞ“ÆËê^Å‹Ì¬Y\¶!@L0b²#h {nñ©>.fÉ¼«®¾yæÎrz_å‚Ğ{IÔ½å‹˜G øt=Ù#>í¡% € ‰ÈŸêÂïÍìÙ»BóÕ“¾¿9´ğ­Æ¾œïÂ»0Z@Òa9‹n¬«÷ÙN,U…hŒ g0ãJ­ €€»98è¼o~¤ûJ´ìz1šmûÊûZ…å € ñ Àˆß>¡E €@²|ï€ Ù¤ûJ\z©^ÀçuÅ2¦§ “ €@Ü0â¾‡h 4/
+¼ûÕ|Ïï)ïwr£_xF â!@€ı@+@ 	x#ƒÎø^?ï¡•ïÌöÔTH@ îqßC´Hš€¾,ÊÛ¿æ‡ÊgÂõô¯J#€ D'@€=[F Ò)à™AÇ<³_î+áçì“ÆÅ¼ìóAš €@b0³«h( ßï	0Œÿêº[}İ°ñzkFÏãE;²¡zê®…‚ € `D¼Ø< :Œ÷xOŸ¼zÒ}¤öì}kPÂ3/˜¹s	0 €@r0’³¯h) ÖÌ=zÜl¾ĞXß?È\sÕ‘u5Ü7“zÊywÏó{æI!€ $E€ #){Šv"€ Iø\Î¾ûâWAsÛ÷şM®•ğÍC‹ï
+¥I"€ $H€ #A;‹¦"€ Éğnëi«w~OºJjÉü©Æø]—Syº#3ì§UJ’  sŒ˜ï š‡ $R`Lëõº][oæ¶“ÿF³lÁ§ºÒşÿÎ\‹.‡º¶g‰÷3{ş#=ó¤@ ’$@€‘¤½E[@ ¤\8ïYãe¾47o®5ËœÌ6¸¸ß¿ÎøşÉ…,{ö¢%³¨¸˜o@ ä	´$¯É´@ Ş(
+»ß©3z:”?ÂäÍ/ÌÒùß0™ìí¦³ó“õ3ëóŸîZ^ì‘w¹¹4÷ëâß € ÉàFòö-F ’!0{ö.3,sšÛõØZûß|BÁÅ-Ê»ßtúß,	.<ï:3wÑÒdtV"€ T À¨&C> €Àà.Ím7#³zülæóztíŠzæQİƒq¶‚‹©¸œL@ D	ô¼15QÍ¦± € ‰øâÕ‡˜={§©İoT@qÎ^<¦s›Wz¯9ÿü}‰ëF @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ ’+à%·é´èX2ßµÅ¼Åü[ëDãpP€7ÜéÍër¦y›bK €  €  vŒ´ïaú‡  €  €@0šˆÍ¦@ @ H» FÚ÷0ıC @ @ ‰MÄfS €  € ¤] %í¤ €@UîT•† rfıû÷§U¥|7GÕ=Î`D%Ïv@ @ H¡ F
+w*]B @ @ *Œ¨äÙ. €  € ) ÀHáN¥K €  € D%@€•<ÛE @ @ …)Ü©t	@ @ ¨0¢’g» €  € ¤P€ #…;•.!€  €  • FTòl@ @ 
+`¤p§Ò%@ @ ¢ ÀˆJí"€  €  BŒîTº„  €  €@TQÉ³]@ @ R(@€‘ÂJ—@ @ ˆJ€ #*y¶‹  €  €@
+0R¸Sé €  € Q	`D%Ïv@ @ H¡ F
+w*]B @ @ *Œ¨äÙ. €  € ) ÀHáN¥K €  € D%@€•<ÛE @ @ …)Ü©t	@ @ ¨0¢’g» €  € ¤P€ #…;•.!€  €  • FTòl@ @ 
+`¤p§Ò%@ @ ¢ ÀˆJí"€  €  BŒîTº„  €  €@TQÉ³]@ @ R(@€‘ÂJ—@ @ ˆJ€ #*y¶‹  €  €@
+0R¸Sé €  € Q	`D%Ïv@ @ H¡ F
+w*]B @ @ *Œ¨äÙ. €  € ) ÀHáN¥K €  € D%ĞÕ†Ù. DéÓ§P»í§aÓøñãw­Zµª³a b@ (@€Ñ@\ªF ô	´µµ]áûşåìÙîİ»OTı6rÔ  €@£¸DªQ²Ô‹  €  €€ƒîtºŒ  €  €@£0%K½ €  € 8(@€áàN§Ë €  € 4J€ £Q²Ô‹  €  €€ƒ<EÊÁN—@ qçåôyl0[hmmıÃ`Ög]@ ¢ ÀˆRŸm#€@ê²Ùì6l¸?u£C € Ô)À%RuBQ@ @ ú ÀèÛˆ €  €  P§ FPC @ @ ¾0ú6¢ €  € Ô)@€Q'Å@ @ @ oŒ¾(  €  € u
+`Ô	E1@ @ è[€äv   -¦IDAT £o#J €  €  €@uBQ@ @ ú ÀèÛˆ €  €  P§ FPC @ @ ¾0ú6¢ €  € Ô)@€Q'Å@ @ @ oŒ¾(  €  € u
+`Ô	E1@ @ è[ ¥ï"”@ HšÀŒ3FïÜ¹óTß÷Èçó‡{·G}xJŸG6mÚ´Nó~ÒúT­½.õµšA£ó]3v­¿?Ôï †{ûœ#€@Š¦M›vTGGÇ;vì˜¥àbl±«J“fÒ¤IOLœ8ñÛcÇ]±víZx$rr©¯Qí ×Œ]ëoTãŠí¦_€K¤Ò¿é!8"0yòäYûöí{PÁÄyáà¢B÷RŞ¢]»vmÔÕ›*,}–K}jg¸fìZ£Wl×Î`¸±Ÿéeš®¿¾Õ¼üÜ'MŞŸn<óc¼ñêîcÆø›¬ù¶¹lñ=iî>}ëĞÁÑÇt)Ô·ûéñf$ëuFcêæÍ›éçº‘w©¯Q!»fìZ£Wl×Î`¸³¯éi–äÎ2»Ÿ{XÁÅ—Ô½ß¼ÉøşAúLSú£¦ÃÜm–.ø‘Y{M»OŸºtpt²‚‹¯•y´ë>‹ïè3Cù¯Íf³“•>OŸûÊÊÓüO¦OŸşª²üXÎºÔ×¨v€kÆ®õ7ªqÅvİà†[û›Ş¦I`Ù‚3L>ÿC=ÇÙ­Àb»Îb©3]? øşûM¾óµféÒ·›¹s_H}1fæÌ™ÙmÛ¶}GÃCÛPœ±qãÆÍ¡<›ÜœËånºí¶Û.Ô%T_Ğ|aŒ(ıú¶¶¶Åšÿg[(®“K}j¸fìZ£Wl×=Î`¸·Ïéq–.:ÑäÍJ]Á…g1-fº™“İÏÌ[<ÁŒËŒ37G—Lí-t×7Çÿ•[Ÿão>û?Ô‡­[·k„b–ÎPt(}Z…à¢PDF^—CÙ3^Ë‹ëØoÕññ©S§Î‹[Ú¥¾Feïš±kıj\±]÷8ØpoŸÓãTì[¦CÂQ]]ñ6ûe'é^‹»Œ—Ëò>“k3sé 2{–ÎftåÿRş]*ºO'Â—‡g(¬Ø²eË/Ãy•Òz‚Ô#„–µêéS—†æã˜t©¯Qù»fìZ£Wl×1Çv8İMÀ’ù'é2({]½bÓi2-³Œ(*MsskTÆ^
+Ó5åóó9‹QÄHş÷”)SW/^êI{kk«=;Ñç¤ÇÓv(¹®¬àÙÊóÊòb1ëR_£wÍØµşF5®Ø®›nîwzlBÍ_mæ,x(4ß;Ù’¹FAÆ¾®şÍòü{z"'‰:CU2ıxİºuº§¾éÀüJ†ƒÓ×è2©‰õ­İÜR.õµ¹²=[sÍØµşöìiR4^€ £ñÆl¡85¨ĞÏ~#HWK\š³7}ÿ(Xœ÷Ş¤I$]àôptÉÓáùzÒZçár:ƒQRgxYÄé’v¥¼¯QQ»fìZ£Wl×Aw:]N°À’œ½™÷B<](•yW]½ñÌ=åô¾¦Ät_ÊôæpGôä¨»ÃóµÒö†n½íûÕsl¸œæßCÚ¥¾Fåíš±kıj\±]w0Üİ÷ô<‘ù“BÍş½™={Wh¾zÒ÷Ã+}«±/çcJ´€^w¸:0:Ô‰—7lØğhh¾jrâÄ‰SuyÈ&dX^Hy±{³·K}-ßÍšwÍØµş6k±ŠE	¾H‚€gšé›ßé¾-ûı¶§ˆmûÊ{æI%Tàeí~¢l¾â¬¬ÎÑåEkHôŒ¥Ò’¯ÓK÷zŞ­Rº,ª9—úŠqsSÍqf+
+`8ºãévB|ï€ åÙ¤ûJ\zénİ‡aßĞ5eLO=Å<¾%  ¡äå÷R”wÆ^¢3‹ôı}}F„–¯	¥mrØ¾}ûş¢,/ÒY—ú´kÆ®õ7ªqÅvİ ÀpwßÓó$
+xùP`à½Ø¯.x~Oy¿“3ıÂ‹_a	cÂ­Òüğ|8­ÀbÔäÉ“W*o~8_Y7L˜0át}ï	ç+À(©;¼,Š´K}Â×nÓ5c×úÕ¸b»î
+`¸»ïéy"¼‘A³}¯ë-İAF_‰PùÎlO=}­ÆòX
+(((^®ÔĞ“N:éPåÛ›¹Ï..×ºJ_¨7z_°jÕªN-?ªÖèşŒòº‹«FòíR_#ÖF]3v­¿Q+¶ë®@Ü®³uwOĞsêğÃ—EùcëY¥§L¨|&\OO	RÉ(ÿV-¥¼õ:k1¹½½ıÇÊïzò˜:°zIŸ)¸øY¨¼.¡3ç3™L¬—úZÜÍşvÍØµş6{<±=8ƒÁ@ Ié¹Æ3ûÕİt?gÿÖ{½ìóu¯KÁX
+(HÈ–5ÌÏ+¶ø¢ìcŒƒàBé'ô9eÓ¦MáàÂöŒF0åóùòºƒeQ$\êk¾v›®»Öß¨ÆÛuW€ Ãİ}OÏ“(Pr½ÿêº»pİ°ñzk†”ïÈö*A&‰$	(x(¹¬Im/<²Vù•Sp³ÒÁ¥p: ZßÚÚ:Ug.~]¡Ÿ£Ây:ƒQ^wxqÓÓ.õµé¸İtÍØµşF5®Ø®»îî{zDŒ÷xO³½zÒ}¤öì}kPÂ3/˜¹s	0d&0”š£û-F*¸°ÅÂ²^}üøñ§®[·n{Y~aVåƒ@Äfè…}%uWZ§™y.õµ™®ám¹fìZÃûš4Í Àh†2Û@`¨Z3÷èb†|¡:ß?È\sÕ‘uUí›I=å¼»u=DÉå4=ËH%E ü IAÂQzúÓİjÿ¬pt6bá–-[>|ûí·W|(@.—Ë¨®ğûìMŞ±0ÒÜ×ğ¾kfÚ¥ñd]]ëo3ÇÛBÀ
+`0H’Àçröİ¿
+šÜ¾÷o‚t­„o>Zl¯ËgJ¸€²ÿ\Ö…iÊI@íÑçİo±¨¬\ÉìêÕ«Õzá~äGılI¡ˆg\êkTÔ®»Öß¨ÆÛuW€ Ãİ}OÏ+àİÖÓtïüt•Ô’ùSõ”û®Ë©<İ‰‘öÓ*%ÉN€ÎL<\­¹
+,ş¬ËœNÕı7W+SÌ×½%gÁ´îk×®-y/F±lTß.õãæ0¦šãÌVÜ ÀpwßÓó¤
+Œi½^·kÛÇŠjòßh–-øTWºÂÿß™kÑµ ×ö,ñ~`fÏ¤gTRFµUmo¯Ğş‡†>uÃ†÷WXÖ+KÅ±e™U—²rM›u©¯MC-ÛkÆ®õ·lw3‹@Ã0NÌbç=k¼ÌWƒZóæZ³|Á©Á|1aƒ‹ûıëôŠŞ“YöìEK¦æå2ÅUù¿€Î2t(8ø}¸¥šÿÅˆ#NÑÍÜç×JëR‘·—-ÿMÙ|ä³.õ5*l×Œ]ëoTãŠíº+¾îÖ]z@Ò¼Q
+v¿Sg0ôt(„É›_˜¥ó¿a2ÙÛu‡î3&ëgÖç?İµ¼Ø9ïrsiî×Å9¾S!°F½8.Ô“í÷İwß®Ğ|Í¤‚ûHÛéáB
+Rlƒ¦N:­££cŠêÛ©3*wõ'è©²ñØöµJ{“˜[ãŒ'»bÛß$ÚŒ@X€ #¬A¤Ì½Ë¬Èföu®S“é~ÇÅ'\|¢Ğ…Î²‡DyŞufî¢¥Iéí¬O@ï?QpQ¨ô&Nœ8NOz1”W5©ƒ¶Zxh¨À‹º'cP˜>}ú«ÚÚÚnRpñ~[¯ÚgöîİÛ®vÍS»¾ÚV¿’qì«^fx°:qn¸#ò³|×«¯ûÂùIHÇÑ¸QãÉî¸õ7mã)	c66N€K¤gKÍ4VàÒÜv32«§e>¯ÿTV¾)×3ê¿¢g+¸ø—Æ6†Ú£ĞÓîÓvŸ+n[ó#uóêG‹ó}}ë`ø³eeVöÀXÁÅWÔBpª{¸Ò×L™2¥¾§…V,&ãØWõsºW„?jï?Ö°ØçfÇÑ¸QãÉÚÆ­¿iOÍ¿l/^ñÚ´ş	ØÇÖÎ»r¶Ù:AÄõ™g2™kMÆû´.“z§9à°c\ü°•R:)ö:r¡›øÑÁîÕ:}_}Ğ¯¥³t@sZ¨œ¯_t¯	Í÷;©³Ç¨Îsª­¨¶-¨¶¬¯ü¸õµ»½'VhwbŸÒ7ãF'»ßâÖ_5)Uã©ÂßY	`8´³éjŠ>wù3
+$n)\5çÊ‹ÍœE_5³İiÎ??q—i¤x/5¤kúöËª88‹¡ôh½(o¥Şê¾ô©dÛ
+.Ş¡ƒı¯‡3\Ü¢ÇÚ>ÎëoZÁÎÄ>Ö9næÌ™ölÆ€¦8õµ»©; Œ“q£Ç“İ‡qê¯š“ºñÔıwÂ—ƒîtºŒ éĞ¯°m
+Â÷aØÎßŞŞşŸÖÙŒ£uVÁ³û‹°>×(¸¸CeÆ…^ĞòËBóMî¨µ¢¶Ñ¶jÕªöZej-‹Y_íı%%„Ú/©ı÷ÖêCÜ—ÅÌ¸¡ãÉî‹8õ7ã)îãö5N€›¼gKÍ €@Stæá{
+×Æ.mpœ‰ì¼ûd)ûïıH;tPÜ©ù©ÇÃùIk{›Tß.(­²şUòëÎK_uƒüaº‘ı ²†ÿ<©÷_„ûãfŒ'Ûï8ô7Íã)<¶H»#Àwö5=E L˜0a¶îW¨‹e+<Éi¬ú{*»S—¡ÌÔÖ®_ÔvÊÏ¦ª¶¿î·¶¶~n(¶‡¾ªŸ'TèKbï¿(ïKŒ›5lß£îoÚÇSùøb>ıéßÇôĞ¥G
+ìeNïÕçjuÙµĞç':à?aãÆ·Ô*Ûße:(ü¦‚–¿Õzv¯Û®mı— Ş:ïÂ(T‡¾ê>—’Ë£lÃäy{wŸÿc‹ØŒñd·uÓ>¬1“[\"åÖş¦· rÙ—‡­ÑôìğYú©Ïá:À·2~JÿèÒ“•*÷Œæ2mÚ´é?Uñ¾ímoÛÿCÙ­ƒ·ßwQ«÷µ$ÀPõ ^røt­ö&qYÄÆ²f'»±ûëÄxJâß m˜ ÆÀÜXˆµ€ÎfØ'BÙOdÓ½÷ŞûB36Q_KÕÏÔ\UiŸEd\Ò”f'»ÑúëÔx*Ù±Ì¤R€K¤R¹[é €@£ì™Õ}TYı©0ÊúÊì
+0†“ªb#@€›]AC@ ’ °gÏãÃíÔåQ;>úèûÃy¤¨W€ñT¯å’$@€‘¤½E[@ â P~9Ë{“pF)ÀxJän£Ñµ0jé°@ Şå„\ÕÛˆœúOõ[Q2!	ÙQ4@ 6áÂüÈ‘#›–Ñ$
+0’¸×hsM"U“‡… € ôÌœ93»uëÖÊ)Üs¡û/»ç{í)A
+úOõ[Q2YÉÚ_ñlí¹1fWFÏÚÏ3yÒÌÎı±jCïÌµ˜æ5&ßyˆñ²Ï›Ñ<e.¼poÕò,@ b$Ğ}¯ÅÛcÔ$š’`ÆS‚wM¯)@€Q“‡…À²EÇšü¾;»æ½?˜y‹&›ë—Œ7»÷\g^ê<ÛøÃ
+Ë<ï‡ú>;XÏ&|ß3K¯<ÃxŸ2÷wşµñM¶°Ü×=‘»ŸõÍ’›4ÿ3æ ›«K|_õ¼»°^Æ;ÏÌYtk!]éÿ–.¸IeOï.{µÊ^W©X!oÙü&o.(¤=o©™»è‹UË² @ @ OîÁè“ˆLŞãÏdV®Ìš¶=ÿ¡ùs0t•¨ìÙe~dLç­*wz\Ëú:çaü)úÜ¤`c½Y;¬¸¨ìÛ!]Û÷½®@£¬@aÖ¶Ë7ïÊæéJ%»ò|ï½AYß_W½ K@ @ ê À¨G‰2¥¾Ÿ5[s‚‚S»xmÆxwÏ[m|ïñ ğwr#Ì‹ù{tÀV§ë•UöF•] ï/ë³9Xæ›M>¿É\{Õ¡A^1‘º‰2ÿbv¯ï'š¦v½*”ŠY±bth¾'YÈ÷'2<ó¼™›µA €  €À ¸Djx¯z¸Qğ{ÌŸk9î—fÖ¬ŞÏ€ÿ³¿XËO9]læd¾d¼\>”gt†ã	¹EÈ0}löîıº–ŸQRföüß™¥Ôò#Ä¼Ù,]º¿™;÷…’2v¦Óûkm3”í7»Ş©ŒŞ—Tuì>©°ÍBiïç½Úª…$ €  €@}œÁ¨Ï‰R½¼Íèo3soª\|~ñ1&ï_Ô³š÷3oñµâç,Z­`åâ ¬½”jI®ëŠ Ó&üî³~Æø{«İdi/yÒ‰OOxñì“^tï¹QĞQaòıĞ™LèI…²d!€  € Ô%@€Q…z	xf‰¹pŞ³½ò‹ûf) è_
+F^›éº‘º¸¼ü{Î"].e~d{çé áõ™ppĞ]àšÜA:#1±kÎÿîî¸£;İtõ¡:Fë.[\Æ7 €  €À@0¢æú:½°(ÓıD©*¾ù`Ïï63+×Ş3_%åyÿ,ñ½³Œ}¤mxù…ÎJt²ü
+÷aìË¿'jZ†ßn¼LñíºÇ˜¥¹×†«2×^;RóS»ò¼_™Ï]şLÉrf@ @ $Pz 7 *XÉ=ï)sIî¹šıöü7(éš<ÿ×5Ëz-¿6ş¾î9?³Ñ¬™?›s/é‘¶ë5o/:Á\ŸÛ¯ğ»ÏTx›Kço3+r»Õû?Ïxy{™”n0ïö¾¤àB÷g¦Ğ™‘âr¾ @GGÇú‰»O¤°L&sÚ¦M›zÎØ°VC @ 
+Œ(Ô“¿ÍÒ›´Ëûscn”y¾slm‡z¦	ùGÌcö…_—¥†­#£û0ò
+0ì»4ÚÌÛ”Óu–Â¾kcÙÂZWe¼®¼KsÛuc¸RåOÖÍá6ø¸ÁVÑ5…Î€x—GYøF Hœ€Ş>üÙgŸÕà†·­]»¶ë*‚oˆê“/P<K~OèA|ÚZÔãœzÚóêüã=35Rö2ª%óŸR‰£¥ü¼ê)›2YWwåî¡è
+&V\y|á	Tvç/²s6=YŸSÍÊÜğàR-ßtİàí™İæs¯-È„  €@¶mÛö	ß÷¿ÜÈ¶Û3«ªŸ3«DNQİÜƒ‘¢›®Œè(}|ìöì‘uµ­pÏ…×ó/SZ­äÒ…è	QÛõy¡›´óÅË£ÚÌÑ™{‚íeºïÃğÍhóxáŒ‡1×_ßªå'u—¹3:‚•H €  € T€ c r¬W]à3¹6İõ°»§@ç›{Ò5R[Ìë{î‹P9ßüo¯Ò§k ü5…|ûÄ¨âKôüîGÑzæ%ÃeF—H™î§]å»‚—wèŒ†?¢P‡Çı½ŒÉ@ @ !@€1<V­)ĞsCu>\Í’Å…¦§œPö?¤Ê“ŠAîÕèØ}ŠY¾ÜŞïqJW5%—Gér)½Ô¯Dƒğ¨ü÷_ıùF @ †@€{0† ‘**	x·è,ÁñİKŞkV®\\ñ…|áUıü™Á¬oV›óÏ/>R*È.$FXcv¿Òõt(û²<÷HíVX6¼õöÒÂš³«õ;ÿAíy‹Y{énğ~ÜÌÍõB½V$ŞºÎùVÏóª¿½Ë$'ŸÏÿv ë± € q ÀˆÃ^Hc2ÃVš|ûBøë­şT³õ7ËÔÍK«vuiî£]A@w	Ï»¹jYû‚¿%¶(`˜¤Ï;ôT©ıe=ó¹ø
+{“xéä·Şa¼—;Õ–¬n?S-:Yixpö¢TŠ¹:¶lÙ²AÅì‡	@ *`T@!kfÏÿYºğFcòŸ,Ô–Ï_b–å2srßíUû²ÜÉ&Ÿÿjï™µfÎ•?2sY½ö2)`èeyÎLØ€ÁÏô>{aWœ;÷$÷«À)Æ÷–ê{´ÍÖz<£ Áÿ!€ $Y@OxZ£³«ç¦Zÿƒö3˜:X¢ FQ‚ï¡ØÏ»Ô¼dŞ¥ƒÿ×*Ïwş›ô?£#û5zñİŸô=^ù'éÌÅ{õíu5ÀÛ©Yœ§û&lÈP}jÉÿÌt˜+,´¨ş®wn´äÃ§-]7£{3òö>ÿ€®^»›¹³´s € $O`ãÆ¿W«ígÀÓ¤I“ì«	0,ÈŠanòkZû4©aÙ“;ÜÕS±?Eg5®PPğU]:µHŸÓ”î
+.<ó¨É›¦û"¶ö”¯’šœİ µ^–Úôäì}Á|y"“->î3¶}L €  € C*@€1¤œTÖKà’ÜsæÀCßc¼ìÇtVbS¯å]kÙ%Æ=ÙÌÿH•2¥Ù§æ:¸ü<ÈôÍ™B^Sš¸,÷ ¶ñtißÎ„  €  0ä\"5ä¤)­Ğ —1õ³]OƒºIkİd®_2Ş¼Ò~¤ñó‡˜¼ÿœÑú¤ùÜåO÷yIT¥MÎ]tv¥ìªysõ¼Ä¯j! €  € F€ c0z¬Ûû¨àÅwİ«_¤[)˜@ @ R!À%R©Øt@ @ x`Äc?Ğ
+@ @ R!@€‘ŠİH'@ @ ˆ‡ F<ö­@ @ @ ©Øt@ @ x`Äc?Ğ
+@ @ R!@€‘ŠİH'@ @ ˆ‡ F<ö­@ @ @ ©Øt@ @ xğ&ïxìZ ÄF`ÆŒ£wîÜyªïûGäóùÃ=ÏÛ£Æ=¥Ï#›6mZ§y?6dC\êë ©¼ºkÆ®õwÀƒS-@€‘êİKç@ ú¦M›vTGGÇ;vì˜¥àblqM¥‹I3iÒ¤'&Nœøí±cÇ®X»v­<9¹Ô×¨vkÆ®õ7ªqÅv“!À%RÉØO´h¨ÀäÉ“gíÛ·ïAç…ƒ‹
+=Jy‹víÚµQToª°<öY.õ5ªáš±kıj\±İä`$g_ÑR@ !:8ú˜.…úU>®x³’õ:£ñ†~¬yQ—ú¶kÆ®õ7ªqÅv“%@€‘¬ıEk@ !ĞÁÑÉ
+.¾VVi»î³ø>3”ÿÚl6;Yéóô¹¯¬œH~2}úôW•åÇrÖ¥¾Fµ\3v­¿Q+¶›<îÁHŞ>£Å €ÀÌœ93»mÛ¶ï¨²á¡
+·+ 8cãÆ›Cy6¹9—ËİtÛm·]¨K¨¾ ùÂTJ¿¾­­m±æÿÙŠëäR_£Ú®»Öß¨ÆÛM¦ g0’¹ßh5 0h­[·k„bE:CÑ¡ôi‚‹BùÍ›7I3Ë‹ëØoÕññ©S§Î‹[Ú¥¾Feïš±kıj\±İd
+`$s¿Ñjª\“;È,YğÁgÙ²ş\W_½^–¤Qàòp§(¬Ø²eË/Ãy•Òz‚Ô#„–µêéS—†æã˜t©¯Qù»fìZ£Wl7	Üi4ªKsï6í¿ÒoÊß>-{­ZÎ
+L™2åxuşu!€öÖÖV{v¢ÏI§íP0r]YÁ³•ç•åÅbÖ¥¾Fîš±kıj\±İä
+`$wßÑrzVæ†›eWÓ¹F™‡ô, …@eÎÎÎ³Ê–üxİºuÛËòªÎxà?ĞÂ¶P×è2©‰¡ùØ$]êkTè®»Öß¨ÆÛM® Fr÷-G K`Iîõæ±üz“Ï_b|Ë_ÙU±8=Ü*]òtGx¾´ÖùC¸œÎ`”Ô^qº¤])ïkTÔ®»Öß¨ÆÛM¨ FBwÍF  °|ÁyÆëÔ5óş[óyÁd²ç(ÌèDjİ—2½9¼\Oº;<_+moèÖÛ¾ïQ=Ç†Ëiş-áù8¤]êkTŞ®»Öß¨ÆÛM¶ F²÷­wY`é‚kL§ÿMµİÅàİc†·oæän6¾ç»LCßkèåx‡«D÷¸)”}yÃ†Ö^«kéÄ‰§êòM:È:±¼¼òb÷fo—úZ¾?š5ïš±kımÖ8b;é ÀH×ş¤7N	tÿzlÏVdÌBóÚãN5_ñT/‚Î,ÁF/ç3ŞX&ğDÙ|ÅYX£Ë‹Ö*8¸bİ4®—îÅíıJ.õµÊnix¶kÆ®õ·áˆ¤O€ #}û”¹$àyO/;İÌY¼ÈÌšÅeQ.íûAôUABÉ;+Êï¥(¯Ú^¢3‹ôı}}F„–Û‡
+„§aûöíû‹pFÔi—ú•µkÆ®õ7ªqÅv“-@€‘ìıGë]ğ¼™{IÔ½.3Ğ÷ş(H^Kó;Âóá´‹Q“'O^©¼ùá|dİ0aÂ„Óõ½'œ¯ £¤îğ²(Ò.õ5
+_»M×Œ]ëoTãŠí&[€ #ÙûÖ»,0gÑæs¹}d;y²TŸHnPPP¼\Ià¤“N²ïP±7sŸ]\®uí™²õFïV­ZÕ©eáGÕİŸQ^wqÕH¾]êk$ÀÚ¨kÆ®õ7ªqÅv“-·ke“­Ië@ ”ÿ«&¿RŞlµ˜ÜŞŞşcåïUÑÕKú|HÁÅÏBåw+}Pq>“ÉÄ*Àp©¯Å}Ğìo×Œ]ëo³ÇÛK‡ g0Ò±é P·€‚„lYá’(¶ø¢îR™ ¸Pú	}NÙ´iS8¸°¿^—Üû“ÏçËëÖjÑM.õ5*e×Œ]ëoTãŠí&[€ #ÙûÖ#€ ıPğPrY“*(<²Vù•Sp³Ò#‹ë€j}kkëT¹øu1/ô=*”6:ƒQ^wxqÓÓ.õµé¸İtÍØµşF5®Øn²0’½ÿh= Ğo%A€æÇè~‹‘
+.l`±°¬Âï?şÔuëÖm/Ë/Ìª|ˆØ½°¯¤îJë43Ï¥¾6Ó5¼-×Œ]ëox_“F ^Œz¥(‡ ¤D ü IAÂQzúÓİêŞ¬pu6bá–-[>|ûí·ïçÓ¹\.£ºÂ/ì³7yÇ:ÀHs_‹û¥Ùß.'këZ›=Ø^:¸É;û‘^ € uè ûÏe…§)/ÈÒ”}ôìÇt¿ÅÍAf…ÄêÕ«ÕzáÿäGıl…¢‘e¹Ô×¨]3v­¿Q+¶›lÎ`${ÿÑz@ ß:3ñpµ•\üY—9ªû-jv}İ«qd¸­ûÄÚµkmp›É¥¾F…îš±kıj\±İd`${ÿÑz@ ß£FÚª•Ú+¬øĞğáÃ§nØ°áş
+Ëze) 8¶,³jàRV®i³.õµi¨erÍØµş–ínf¨K€ £.&
+!€ éĞY†¿÷Hó¿1bÄ)º™ûáüZi]*òö²å¿)›|Ö¥¾F…íš±kıj\±İd`${ÿÑz@` kÊVÜ~ß}÷í*Ë«:«àÂ¾!~z¸€‚”ò:Ã‹ëJO:uÚÄ‰/Ô­>ròÉ'—\‚UW••·+}­ÜÔÄæÆÖ˜1•Ø1EÃ,¾9/Áİ é € ıP0ğ	…Öù€ìÇé©Q/†òª&uĞ6CxQ÷dØ—óhš>}ú«ÚÚÚnêèèx¿­@m3{÷îmW›æ©M_P¥İ+Å­¯¶Yz™áÁú:·»‰…/ùÙ;í¯W÷…ó“£±kc*	ã„6º#Àwö5=E =íé>Í<WÌĞıHİ¼úÑâ|_ß:şlY™Õƒ90Vpñµ¡\„ê®ô5S¦Lù›P^¿“që«í€ú:]†+ÂeÿÓ`û3„+ÄÑØµ15„»“ª´ Æ 	© H€½\Åµá–ë`÷jÌ¿>œW)­_ßgé ù´Ğ2_¿`_šïWRg)Q}çT[IíZPmY=ùqêk¨½'†ÒÅäO‹‰¤}ÇÍØÑ1•´aC{S,@€‘âK×@ ZúÕùËZœÅPz´^”·Roõ_úTR…‚‹wè€ÿëáL·è±¶„óú“V 3±òÇÍœ9ÓÍğ—¾†:ª Ãö+NÆ©Ğğ"‰@´Ñú³u@ 2ıêÜ¦à |†mËñííí¿Q ñiÍ8Zg<û±¿ës‚‹;Tf\¨Ñ/hùe¡ù$wÔZIõ·­Zµª½V™¾–Å¨¯…¦ªO%†öÃKZpo_ıˆóò˜;7¦â<6h›{ÜäíŞ>§Ç €@  3ßSàp¼2.2@(¸ÁÎ+Ğ°O–²ÿ­içÃ“Š;5ÿ!Õñx8¿¿imk“êÚ¥ƒî±UÖ½³J~¿²ãĞWÛ`İ ˜nf?¨¬ñ?Oêıá~ÄÅØµ1Ş¤ÿ{wğGÅÜE%äè1Áä°HñîÉ‹ä!"ˆ•^üü<TĞƒÒ“ƒ&ôR%Á­!L|zØYÃ¦Ílò{óæ³°4ÓìÌï½Ï[Ê|»³»2x#ÃÔ@`Õ{Ÿ¾úÒŞİÙÅıƒO­úğWK`kkëÃ8Áÿ<ºê>Å¨wëNúãş¿pz—¡ìÆ	åÃŞ×Øˆë¿cÅWR.ÔıÏşÚÚÚû×8ì¥»´îµ+*z½sIq£}ÿÅb/Œ§öœZœm­ŒÖ°>ÄåGÿFPè.sz'î?-+§{Õ"î_ÇIÿÃÃÃ¯–=öE~'„_D`y/öùåÙ~Oc‡q2şÖ‹|ùßUkfè5ŞçÒ»<ª«9<¿½ªö±ü>ƒqg5¥çÔXêœ€K¤¦3k @`©@œu_–ö ¾ä®;~7îİİ½'ù§ñço ~KO¾ŒÇ=í•ßîÇAïïìì¼¶±±ñÏĞ÷],+°q¯½€AêÇø’Ãß—Õ;Æß56¾ ›ĞsjŒO50
+Wk¸@¼šÑ}"Twor;88øë¶nÔk/`D¯e.ºlnŒ{¥Là9Õë×Ö.‘j=ë @€ÀdºWg¢Ù7.0zµI€ÀŒ	Y‹ CàôôôÍùJâò¨?777¿Ÿÿ;? @`ìÆØ'¨~“ÀâåQº7E©µ @à*ã*!¿'@€ «X.Z­# D@ÀH2e @€À$æÆÙúúúw“èZ“LJÀ§HMjÜš%@€ V»»»/Ÿœœ<‰õ/Şsï¿øuÿVõX— 7% `Ü”¬ã @€ 9gïµx{î¯üH€ ’.‘*9VM @€ h# `´q·* @€ ’FÉ±jŠ  @€@£»U	 @€ ”0JUS @€ ÚmÜ­J€  @ ¤€€Qr¬š"@€  ĞF@ÀhãnU @€ %Œ’cÕ @€ 6¾É»»U	 @€ +ØŞŞşìüüü£!‹ı‡ìn_=¯`ô8l @€  0D@À¢g_ @€ zFÃ @€ CŒ!zö%@€  @ ' `ô8l @€  0DÀ§HÑ³/ @ ±@|Ô7³ÙìñM–qvvöè&ïØµŒZóÔ 01ããã¢åîîF …€K¤RŒA @€ j5æ¨ @€ )ŒcP @€ F9ê‚  @€@
+#ÅA€  @ †€€Qcº @€  B@ÀH1E @€ ¨! `Ô˜£. @€ ¤0RŒA @€ j5æ¨ @€ )ŒcP @€ F9ê‚  @€@
+#ÅA€  @ †€€Qcº @€  B@ÀH1E @€ ¨! `Ô˜£. @€ ¤0RŒA @€ j5æ¨ @€ )ŒcP @€ F9ê‚  @€@
+#ÅA€  @ †€€Qcº @€  B@ÀH1E @€ ¨! `Ô˜£. @€ ¤0RŒA @€ j5æ¨ @€ )ŒcP @€ F9ê‚  @€@
+#ÅA€  @ †€€Qcº @€  B@ÀH1E @€ ¨! `Ô˜£. @€ ¤0RŒA @€ j5æ¨ @€ )ŒcP @€ F9ê‚  @€@
+#ÅA€  @ †€€Qcº @€  B@ÀH1E @€ ¨! `Ô˜£. @€ ¤0RŒA @€ j5æ¨ @€ )ŒcP @€ F9ê‚  @€@
+WRT¡´¸÷ñù­,»wwv+ëX„ Ï+p[ÿş=o=WJÀ+¥Æ© @€ mŒ¶şV'@€  PJ@À(5NÍ @€ h+ `´õ·: @€ RF©qj†  @€@[ÿ °J#¯dbĞ    IEND®B`‚Yimage/pngO‚bplist00Ô
+X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯/'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€.€€ €Ó()$+,WNS.base[NS.relative€ €€_Bhttps://docs.swift.org/swift-book/_images/subscriptMatrix01_2x.pngÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃÒz±È ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
+€€€€€€€€€€€€€€€€¯OPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-ModifiedYimage/pngZSAMEORIGIN_hit-stale, missQ2_vhttps/1.1 jptyo7-edge-lx-001.ts.apple.com (acdn/137.13246), https/1.1 jptyo7-edge-bx-015.ts.apple.com (acdn/137.13246)UApple]1; mode=block_/7b2b3fa3-84cd-4730-85ae-28e86a6242ab-5174882907_max-age=180, public_Fri, 28 Jan 2022 11:54:27 GMT_#max-age=31536000; includeSubdomainsU28232Zkeep-alive_`
+
+YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE1lpbWFnZS9wbmehFV8QHVRodSwgMjcgSmFuIDIwMjIgMTg6NDU6NTUgR01UoRdfEBQiNmU0OC01ZDY5NGJhNzA5ZWMwIqEZUTKhG18Qdmh0dHBzLzEuMSBqcHR5bzctZWRnZS1seC0wMDEudHMuYXBwbGUuY29tIChhY2RuLzEzNy4xMzI0NiksIGh0dHBzLzEuMSBqcHR5bzctZWRnZS1ieC0wMTUudHMuYXBwbGUuY29tIChhY2RuLzEzNy4xMzI0NimhHVVBcHBsZaEfXTE7IG1vZGU9YmxvY2uhIV8QLzdiMmIzZmEzLTg0Y2QtNDczMC04NWFlLTI4ZTg2YTYyNDJhYi01MTc0ODgyOTA3oSNfEBNtYXgtYWdlPTE4MCwgcHVibGljoSVfEB1GcmksIDI4IEphbiAyMDIyIDExOjU0OjI3IEdNVKEnXxAjbWF4LWFnZT0zMTUzNjAwMDsgaW5jbHVkZVN1YmRvbWFpbnOhKVUyODIzMqErWmtlZXAtYWxpdmWhLVdub3NuaWZmoS9VYnl0ZXOhMVpTQU1FT1JJR0lOoTNfEA9oaXQtc3RhbGUsIG1pc3MACAAtADoASABNAFEAVQBcAG8AdwCFAIoApgC1AMAA2QDnAPkBAQEDAQ0BDwEvATEBSAFKAUwBTgHHAckBzwHRAd8B4QITAhUCKwItAk0CTwJ1AncCfQJ/AooCjAKUApYCnAKeAqkCqwAAAAAAAAIBAAAAAAAAADQAAAAAAAAAAAAAAAAAAAK9Wnosniff_"6e48-5d694ba709ec0"Ubytes_Thu, 27 Jan 2022 18:45:55 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionaryÒ/0Š‹_NSHTTPURLResponse£Œ3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d – œ · Ù û ş #ELnqt–¸»½¿ÁÃÅÇÉËÌÎĞÒÔÛãïñóõ:?JSY\enpryŒ¡£¥§©«­¯±³µ·¹»½¿ÁÃÅÚÜŞàâäæèêìîğòôöøúüş '+/6IQ_d€š£¼ÁÏİçò…“ÅÛû!'2	–		µ	»	Û	à	ö	ú
+
+
+ 
+$
+8                           
+F_Bhttps://docs.swift.org/swift-book/_images/subscriptMatrix01_2x.pngÔ,(-.O&[‰PNG
+
+   IHDR  v   ü   co   sRGB ®Îé   DeXIfMM *    ‡i                           v        ü    âòË  %ÅIDATxí	”E½‡g’É*;I»aŸ,	’(/$l"8(.ÈDOTô=Ex§€Š,Ù|¢KHNXDÂ’L °=’ b$Ä8Y™¬ïWÃô¥nÏİº§{ªîíïÓÓµş«ê«ê_WW/SßØØ¸µÎã_KKK½ÇÕ£j€@	ø®›=2Ø'4€@M@Økº{i E{{6C 5M a¯éî¥q€@	 ìYìuÚÔ4ú¸wwyZ¥¦Çƒ < WŸ™±{ĞyT€@’ö$ib€€v:*@ H’ Â$MlA ğ€ ÂîA'P@ I@Ø“¤‰-@ @Ø=èª @ I{’4±@À»@  $I aO’&¶  x@ a÷ ¨  $	 ìIÒÄ   ìtU€  $„=IšØ‚  à„İƒN 
+€ ’$€°'I[€ < €°{Ğ	T€@’ö$ib€€v:*@ H’ Â$MlA ğ€ ÂîA'P@ I@Ø“¤‰-@ @Ø=èª @ I{’4±@À»@  $I aO’&¶  x@ a÷ ¨  $	 ìIÒÄ   ìtU€  $„=IšØ‚  à„İƒN 
+€ ’$€°'I[€ < €°{Ğ	T€@’ö$ib€€v:*@ H’ Â$MlA ğ€ ÂîA'P@ I@Ø“¤‰-@ @Ø=èª @ I{’4±@À»@  $I aO’&¶  x@ a÷ ¨  $	 ìIÒÄ   ìtU€  $„=IšØ‚  à„İƒN 
+€ ’$€°'I[€ < €°{Ğ	T€@’ö$ib€€v:*@ H’ Â$MlA ğ€ ÂîA'P@ I@Ø“¤‰-@ @Ø=èª @ I{’4±@À»@  $I aO’&¶  x@ a÷ ¨  $	 ìIÒÄ  lãAª¶
+'NìßÚÚ:aëÖ­C¶lÙ²G}}ız5æ-m¯,X°`ü[«¶q¡Šg©­¡¦ã…@Õ¨ollŒ%>---õU×Ú„*ÜÔÔ4lÓ¦MËÜéõEÌ.Uø­¼jÎœ9Fğ«ò—¥¶úĞAãÇßfÍš5ßV]>c×§gÏyæ™ÙaÕâ5jÔ'5ñùYõÕdé3.|!	[Õ`#®>3cØ»¤§oÜ¸ñfeÛ¶LÖaŠ¿\é‰ãóçÏ©Lzï¢³ÔVà‹÷¡k×®½Uu9,\M z…ÃªÈ¿—êzPBõí—š6Ã{„îÕw¶fP–r¢n[=H'‚æ‘#GîgúîÎR[]÷ÅäÉ“43û‘Ä{¶N¢îº~]-_ÇÌ®]µAşhö
+yIèÔ ½)”|ƒ.oÓ6Qá{ëry”Üçh›JgN3t™½](ÜKo–Úêº$èãŞ}÷İçTÿ’¨×ä´‡<a—ÿ¸›8mtİgÕP~M¤¤ÁO™2¥ç’%Kn“İŞ–íåòãµî¹Ğ
+3Î…Ó¦M»}æÌ™ê@½Fşö“§Üûê2û‡òİ$òõ—¥¶ºìäh<\©qñ5máûU«T·(W….›RIÙ9a— ÿKkä­$iâ`Æ^»Å‹Ÿe„9HªÁ¹IîÉD½=‰„}‹ïÏåùqÇìeãËcÆŒÙİóÍ¥¶ºb¯+¢Iº÷ò¢ÆÃªCXÔ¥°¡c›]Õ/érÕÎœ°ËınÒö±×™ ÂŞ™I¡ïÛœWé© ¿Øa…Üz"æ ÏZqzšæ"Ëï£3KmíVşæjH÷ZîĞ’Şl<$TøëòBãê\mfÆ^3?9a—{yÍ4Ìã† ìe:gôèÑ‡(É>V²f6^ö§Ç7é$pm(ái
+ÏÒBIÜx³ÔV„u5Ô ¾ÿ¼]vÇÌüêŞ½{$AÌŠË{¹Gy~+÷Nµ9'ìª,ÂŞ=†°—¼yóæ“BIîŸ7o^ÅƒsÇwü£ò¯µlì¦å˜FËï3Kmõúß$ØMô‹š››ß÷¤N‰VÃ<ñ#ƒ¹ûy–b%\ØÂ^˜‹zœíÑë!Û_‰[yŞ°ÓipçÙ´ã»óêUãmu‰ºMl/ÖR]c±û4.+—dÙ+V¬ØÅ¶§vW<)²óáF a/ÁKl–Lò^¬Ğ“0O”È’en”®\¹òIÙaGÈ°í÷Á¥¶ºä-a3Âª›ëW˜¥:—ué²Õ^{¦aïêuu<îX‚³ntí¡èşV’uO?ıôk–¿¨SÏ'ÑÒÆ}ÌNv)ì€¢Ed©­×IÌÍrËQ·ª]/ÊNÇ@°ëÆqÑ¥M„vİa‡ZgÏİµÒç@Øóy„}û‡–†ü½É3q«¼OÁºk¾	âÙŒ-Km-Ò-éGô¼ìÄ<º5MÎº™±ë8ÈÔ=…ÜRŒnÖŸ á¯ÈÃµ¦'Æ¶[¾|yŸÉÿ¸¶ûöÜsÏ»¦OŸ^3~ªMİòc)¦fÊ¼gÎå£Dróœºù¨ÚåÚßõ‡Cùzé3yk¡øn÷f©­İ7Ãa·›¯¥Ìå:FúI¼ï¨? ¸oi› -÷V¶µ¢íN½ø„Ò›oÍğ‹@ a/Kk€-ÿJÛo»Í`Õ‹'w+ìv¸öÃ‡?Nû¼/<JØólÛy\¸³ÔV|³Z¦®4ò„]şAba¾‰“÷Øg1>Jw¤âşªcëËÅÒŞ™ ÂŞ™I.Dbßu¹HËqÄG–×Ü$=-V^sùx¡ÖU/0—’Š³y¬Ól%l;ÈêdŸ¥¶:œÑB5®ò„]ãşQ¡øX€Cñ/j3Ö3Ÿßø­¶Eò‡—^è„p³fùçùØ—&À{	>ã°ø¾N®™Ä¨6Ü¯p3iÿi`®Öv†DıÁ Lû÷´íøµÖ¶D9Ùg©­N g´P«‚K:>îQÜ:F:½Á=vìØë×¯7Ÿã8ßÆ¦ôWuÔQ÷<ùä“EoÀÚé³ìfÆ^¢÷5øz†¢?¼¤iúlæ&ONÔå^ªm¬şƒ’-êæ1¯¼Yˆf aÛÊæî—¥¶º£œ½’5®òfì"°U“š¯IĞOÕ‹YDİš;wîÅ}Ué&+ÿ‹ÚöëÖ­»Êòã,B a/ÆK´ó–OÔşè£ÂëuY8Mâü{¹û&4›õ¹1´/aÖ¾Ÿå®Ó Û¶£»İ¥¶v;Ü¨q•'ì÷WhÒsc%H:&G—†Ò~AÇŞèPŞ„=ÄöJ¨óÄWşZOï«e=<àîÚyç'ûÜ€}0eèé€<Ûv¹.ÜYj«¾.ó³fæm6ùIÃ†›…Å€®ÓØO”N‹b#‹iYc/ÑëFì$È¹rÓÓ,O(`d.PÚK5»¸Ü³İúŒo}Ÿ½¿mK7‘¼v»~µÜV»op§K@K*yúê
+‘
+4ïzè‰33ÃÏÍò56?ÉH#ì%:]èPt“-~~óãÙõß‡ÒåygÍš5XùlÖ[ú÷ïïÕ ,µ5¯sğxO@3ı4ÊÕSÇİŞ9‚XŠ)ˆåƒ@ÍÄ_.­ÁõÜ­§—u“_kñCm;Ê»T3sRğæ—¥¶zŠTJ`‘P“t|5ÒÆm@Ø-ag¿~ı+lC8\şçõıì1únÌüq‚$ä#BEO¡tİæÍR[»*%B`èĞ¡­:†ò>˜¦ë™Ïó+BÀ^(’$»Áf}O7J_ÕáÀ€‚Ø£zòåÓæ‘¬ ¬Ü^ù
+¥y1äwîÍR[ÃÎHÌŒRSsõ1b“ù·‘Q›ÿæ›o×1dkU›&U«£ÚÉRzV–Ú¥­ææONØå^QÔÍ£‘ãíurÈ»¡dÇUêÖ—ğšôÑ¤Ñ²Õª«‡Çõ4NÉïØTh×Ë¶VXw’u‘@ÒcJßy9_‚|]P-ùo’;ï¥£ ®Ô^ã<|Å»¬Tzâô@JpÎ¥8Ywésÿ&×É«ƒe¢Í'‚ß*­¹›—šbıôUÈít¢¸Oƒ½Y®ÕsG[[Û«ª“ù˜R—~¾µµK!sÅRSsìJh¬¤­Ş«Ä­q™wÅ+ÿ“•äËr„½LïëéóVÉ40ûêFã¹½Dü¡4³ôØÆPXÅŞµk×Ş¨:|*”¡·üWë3¨Ÿ…GòúÖÖH•'qli)=-f–í§¿vÓÛÚ'F©¨Æô¾ïØyäĞöãîL aïÌ$/Ä¬=KÈjJ¬¯0Î+äÖ >]ƒp²·U³«-$§få{ÉùÖ{ÁŸêuIÁˆ
+}jk…U&Y	¤9¦4ÖÍxÏ»:Õø½³©©é€JªmŞÿĞ˜¾AiÍÄ%ø=/ÇôÀÃ¾0„½0—¼PÍdÍ:anÖ.w=W{wÇWóÒ‰úÑ”7~³× ¿WG>k‡EqëÓX&ıºaee’wö¥­kFHºaL]¦z¯³ê¾­^ò{PË‰á«N+I]­½õRß:DèøÙ¬úÓ•+ŞÀV­ïÍ?†øğÕÊ­ÜÈkeÌ{—Tñsf¶ªØ*´ïiÀÍÖ]ú¥&Né†kgn™ËGû‘¬Ë?JÜ^×>ÖO'‹ct²x¤DæVÙß¾D|EQ>´µ¢ŠVa"±½EÕ.{òÕX;KéìclºÆY¹wæhâpk,İ1¦TÆ5no+P¯§ö[µëeµ÷¹w’ûP¹ÍÆ|=ïûJò_£ñımí3ó‹«Ï<SáÑóA>DÉ¿eeÙ¶ãRÑ|éqÂÏ¾V|»SƒÕ¼6g>ã[Ô!•µ@¶Öhàl7ÜùÏcƒ¢‡øĞÖèµ®‚mŸğ+­øå-™VccƒDöîSZk¿]'´«şg‡0Nşqv»l·Vm›Ó«W¯Øa¸‹`)¦8›N1úOHßÕ »J0ÈÚ:‰ºÒ¶jV?EbYj¦İ©¬Bš­¬Rß,§z­ÖóõSÅÅ	sİÖ8u&Otİ5¦ô1¯sU»5NWF¬¥¹*>O'‡O477wúme&9Â¡«ÍB’@GY&i{®TVàÍÚfHlÕ‡î-•6JœÄ[4ĞOU×:òmP9HğOèYöv³>´5
+ÒÆ'ĞcÊÜ˜W9×iÖ½ÆëõÚòŞ$×^ñæø¹§OŸ>“¨ß,w§ÉT8ş	°Æş!‹È.]^¦L'iªm‰«Y}KÂûŠ.qïÖ@NõEŠqãÆm?hĞ ÷$Âæ<ÕŸë¶¦Ú8Œçt×˜2Ÿ¿Ö»ûé˜9ÀlªÀ^ïµÚ–ëØù[ß¾}ÿôÔSO™ûR™şÅ]cGØ3=lh< à3¸ÂÎRŒÏ½Jİ  Ä €°Ç€F@ >@Ø}îê@ „=4²@ ğ™ ÂîsïP7@ 1 ì1 ‘€€ÏvŸ{‡ºA ˆA a,€ |&€°ûÜ;Ô€@{hd  à3„İçŞ¡n€ b@Øc@#  Ÿ	 ì>÷uƒ  ƒ ÂY  øL a÷¹w¨  öĞÈ@Àg»Ï½Cİ  Ä €°Ç€F@ >@Ø}îê@ „=4²@ ğ™ ÂîsïP7@ 1 ì1 ‘€€ÏvŸ{‡ºA ˆA a,€ |&€°ûÜ;Ô€@{hd  à3„İçŞ¡n€ b@Øc@#  Ÿ	 ì>÷uƒ  ƒ ÂY  øL a÷¹w¨  öĞÈ@Àg»Ï½Cİ  Ä €°Ç€F@ >@Ø}îê@ „=4²@ ğ™ ÂîsïP7@ 1l#Y:466ö«¯¯ßO^³íµuëÖw´Ùl---+´¯™ß´iÓz<ôĞCÃ7mÚt°Ú¹¿Ú½¬G/Éÿ’Úºªfê°!'NìßÚÚ:A|‡lÙ²e1^¯ê¼¥í•Ì“«Ãê%^tÖÚ›8Àë%N±‹æúvk6J]ı¨Q£ÎÒşjäŞÚŠqX¡ñúvØáê‡~ø½j2fÌ˜¦Í›7ÿXímTúiÇÛùvÚi§ŸÎ=»­H‚‹hjj¦äÅŠ>]œI¶Tá·8ğª9sæÁ¯Ú_ÖÚÛ•Š«Ï{êô#uàıLÛèÙÌÌöÒã?ş×šõn‰ÏiÒ±cÇlkk»Rm=_©tÉîuµuªf—8­|®1uºfç7«ÊÛVXíç{õêuÆüùó_ª0½WÉ²ÖŞ®Â+ì•°]­_Õç=zô	: ŸŠ(ê¦İƒÌ;kÖ¬U„#<rèúõë_R[¿¦:G#{©­34ÿ³ZÚê²¹³ÅëªC¥¢nª{ĞÆ›Gi–ÿªê—µöºìœ(­Ëz:-[Ë»ë ¼]•/»üYË-h–zLÏ=÷Óş?”æB…=®°òGã§Âá¾ù%æõš©ß¦zÕí/j×wµ§m«­†ÒÕ)ş‡:ˆG…ÃñH@xÔ˜¸éÃv×±»MÛDùöÖ˜%÷9Úæ†Ò™ÁŒñãÇo
+÷Ö›µöºî–bÊôÀ”)Sz.^¼x’’ê@37IÏ]¸páŒ ,¼×¬uŠÂ~©m{+nUCCÃ!óæÍ{Ã
+óÊ©“Ï÷ë¬Jµ©½—ì¹ç×LŸ>}³sê =EynÔ¶k.°®îÿ´|˜Öƒ×Za8EÀŒ©%K–,¯}- Ë%äÇ?óÌ3­°v§¹q=sæÌ•şä&cê—ë5¿Nï›?kíM’Ü¥˜»í¶Û´8Y¶lÙeqòU[LÔõ½ Ş:˜Œ¸¤ê¡ ¬Ğ^|í¾ûî¯)ïV|İˆ\£¸Ç¬0oœW&÷«B½‚J©½©­×,Z´¨èMöüã/<øYµõsÊ\Õì ‚o+nA`‹ıúöíûy¹Î	xˆñ&¹Ç‹sKfïurÜ*óu¬öQøQVÜ!C†¹ıí·ß^m…yçÌZ{“ì€¸úœ;û'Y™Z²%!>ÚnÄëg: çØaÅÜº‰xÚ{ìxùO°ı>¹%Ä§¨>ı¬:µh¦nÏŞ­¨|§Úú¨Úö+;T¬Ì“4ü:ø¾$NWé)³¿Øa…ÜººDŒŸµâÔgY~_Yk¯ó~@ØËt¤<aWò?–Éşs(`hÈïWm=Ö®ŒÖÑo-¶üb§ÜÊ?3pwìù3ïÕMøCaÄ-ÏıÜòujæ¾I'kC	NSXp•ŠrïÍZ{İÿ {‰8âˆ#ú*ú mæÙl³->|x§5P…—úı5ilzù“@Uì…¿¤W7Ÿ³ÈŞˆÉ“'7ØaYwë
+ğ¤ƒûuÏey(¬¨wÇw4û¾ÅnZBóöÊ(kí-ÚqİÁ›§%€777¿¯èØItÉl{Ëº%nyO.È¿¤l&G	4ãş·ê—{>Zş£TEK+×¬Ycgé¥7)™<ØDêê³½b\ò^6p+Ïæ¤øå66£N8‚ìiï³ÖŞ´yVda¯S—å-Gè |½KÖRÌ¬{¹'âóşûï±ó©­ÿì89ÚÁ™uK€ëõÔ‘¹Ìıô$Ì9O‡¹¹½råÊ¶¨›,ò\&«“è¬µ×	ä"…2›*&‰`=glNœ'‡lÍ
+ùkÆ«yŸ´£{‘íÏº[¢¾‡ØŸeX÷ôÓO¿V	=ö6FËÄô°pz…óÁŸµöúÀ<¨ÂHa¿víZó4@nÆ®ìßõ”Ém)åÜ¤™égŞTµ¿¶=¸ëö1XòôJ ÏÛ9büÑ‚	t3¶cQ$ÚYpÖÚët¸`„=L$¿²>ša™çüÍ‡Ú:07Ë1UO™lèª©^Rúª„'÷š»ÚûO5pzM5²‹“İmò¿aûÃns²Ô8º\û»´™gØƒßÃ£cßKŸØ%æÜ›µö:nU€5vFgÇ'Gy4ˆûè©ıµĞLı,…×ÁD›WÅÏ4Ïµµ´×Œr?µõ'v›ä¿L7š7ÚaYw‹É ›ü+m¿í– ÷ÓÉò…f‡kİ «¾oèÍÕµÊŸ{	{m;+wÖÚëŠs¡röBT*ÓM¬£5p®—+<°`K»SÛuõ—ƒÀZÚR{~§ÍìÛŸu#6ü” :³{q`Ãa]!zÌvğ†ÌMR{o³üSÅõ:muânÆVNØµşî°g­½…úÒUK1)’×Àş•z¸Z3×šuóáû	Nî†Ú¼Rş/¥ˆµjM‹KX|Íã´y?ÍÒGIÔ(ĞõÕâz‚Æ‘ığ{vF½L¶mG;qg­½N )a/&‰`ì©šI-ÖRÅ:^ÏMÂ¦O6ôaªÿV}>mÕi‹æ eVÎç!¹K;®1r†ÆÌãr²Ò-•{¬®ø´ÂÌ4Í=›ÜOK€aÛ¹8W¬µ×çBå²SˆJaš‰·è <%H*7,‡h0›×ÅÍšóÇµo?qÊ=BÛ/%ğcõO¾RÏv«-ç©MíïØOÕ×	g†Âğv/³|bÿÚ}T¸ù¯\—Jœ/µ#5–š{÷î}r‘7SsK_&N¨aÛ¶)'î¬µ×	ä"…"ìEÀ”ÖóÇæÓ½÷K§—I–Ø›ÿ@t\FîÏë&—yõSAX5î%ê¦ş7„êşÍÔ
+ÃkP›¹ù˜ÏVˆçí
+<=ñã®wŞùKÅşÕ ìä}šBï„=kíõŸS/K1)á—ğÿM7¹—ùËí"t@¤ÙYŞ‹<v¼ïnsÕ¡:şNíÈ]úë qâ‰'Nõ½î®ëg„Î®ƒÓ‰ş	…å‰ºfß—ê$ùÙb¢nîmÈVûl?°§IDí Üå>kíuÉ:\6Â&’°_‚w™ø£¶Y]rÿÄöW‹[W!“= Í-Î—ÿÌjú®®x‹“¹Ê³M
+hœ¬×f‹Í›ñÁ^ÿfq°òÙWÛ[ú÷ïÿnïË>kíõ…»©ÂroÁÓ 7o Ú¿ÃÍ?‹¶|w›Gğ4+47ğ¶ê*zQkÀÇkvYğ±½ ûh&^ôé(±|GË)t•÷ûr¼41j§QŞ¥ú¤ïz;ÌwÖÚëó {@"Å½¾zøœ¾MvºÏ½¥i‡ûè6ÿ[Sõ}P'¨=¬ú½¡ÁÇêFpÑ—l¬´8E _¿~‹µ+ôæñó:AÑòİüJ@i,¥+zÂ¥ëVoÖÚÛ­pË†°—”D´™MIsŸÃ56å¯
+a7ŸGĞ§xÍË2Z,ŞÕìr¢Dım+g›$Ê¯ÚÉä´OŸ>c£ü\õÅQ¶¹_ù½ğf­½^@ï¨„½NçS½¼¨‹Şî{@96¨Œ.-ÓúçŸ”½à]t@æ²È÷r.¢B‡Ö»›ô5ÅÑ²ÛªÙŞãQ„¡Â"êÌM:=«ş[¥Ï	‰Ê[#QŸ¬Ùe@Uj“tuæ;/öIrùÜ¹só>b_Š‘Æùôïx;úÄØìò/¥1åm{»ÌcÌØKw¹tîl:¨b=¦hÖ§•wW»($bÍvÍ²ˆìû$êÍ²w­ìŞÑÖÖöªNBß²í'á~à®—ıÜ³ú²ÙfHÔ£ı·‘$*S#6$Â3BM9Y}·m(¬¨Wâ;Q‘¹oÉ½Jkîæ¥¦Ø¿4Ç”íªŠ2"ì¥;ë);Úˆ\”ƒ0È«WÄOÜûuºKõ±¸†ìõ–ÿjıIû-ĞP’h^µóbå8?È¥t³NFŸÑÒÇ‚0öÑ	èé•¹Êµ"È©¾ì+®_üåöño„ÒÌRŸtécki)ÛâW“^„½D·î²Ë.fvÕj%ÙM÷GÍp*^Â’@®<?¶l˜×ÁgÄy’D¶ö’œiÛ²İ:è/±ıqİº"8GyhçW¹_Ñ2TM~ÒngÚn³î,!ÿ©]úí
+”÷µÃ
+¹õşÃéê‡ÉVœùşÕ–?²3í1å[{#ªÒ{‰3/ˆèÀÉ[âĞuŒf8ÿkˆYÛ£ÌZùïSÜWø±BkÔáWñË™j— 4–Ixà”)SÌì=öOu>A™iP.Ö‰è;w|šÅ^§Ü¹Y»Üıuw·Y²+fU¢~´N 7Ûñê—{õxä³vXTwwŒ)ŸÚ•Oµ¦7òÿğ^„Vè@¯¼ª“j{“Äù<»:¨Ìã‹whû“„ú5=ú·XK.ÛéàÛ[i÷VüÙÚ²óÈ½Eá“t0>
+¯È«ƒûÙ/•·Uı’{Î¼"£V¢›g*(ï;$ªó3
+ëô%B+k)ç#jï¥d1Ncêsw†Ú¾JBû=ñ­ûKMœÒ×Î,‰] ­A[ğû·£Ôß¯qöi© N¾´7¨OµìãêsÅK
+Õ"zê\¸xñâCd»)°¯ƒÒ°3KçèFfÙìŸâmoàWÔ‰úôkd»ØËM]ZÿÖ¬ñJ“'ê¦\•7Úìcşş3_MgÓ8øZ3¦ì+ÂmÕÇíßà‘à®Qœc}Ã 4ÌUgÈF—DİØM{Lu÷¥½A}j}ÏRL=lşİ6Ûls¬¨)yœ·,_Ö¬şDÍ®òÖ­+(:/‰ò¯’È~3/°Ã£º­nhhèÒ÷Zd»g!Û„¥C`øğáßU¿]%ëfæä­­“¨+m«fõSº2A°[“ö˜²Ëò¡½v}jÙ°WØ»º4^­ƒéûz™de¹¥cÖT.÷r%øªŞ<=(©ÏÙê@¼Eö©²ûZGáæßî="8<gÙË5øø4aØ¬1õY˜¤í¹R–ÌxÓ6C'ïC5–î-•6j\w)_Ú•O5¦g=f¯™o½hùe_-_˜§öÓföæòÙ¼Şı²fø/Mš4éÍ4?5nÜ¸íô^­şƒlqÌÔOëĞ‡©Á'iªm¬Í÷_ŞÒ‰ü-™Ü-^&ª¿îS>´7U˜	»Æ°' € Ò WØYŠI£7°	@À!„İ!|Š†  „=ªØ„  à Âî>EC Hƒ ÂUlB pH awŸ¢! ¤A aOƒ*6! 8$€°;„OÑ€ Ò €°§A›€ @ØÂ§h@ i@ØÓ ŠM@ 	 ìáS4  4 ìiPÅ&  ‡v‡ğ)€@ö4¨b€€C»Cø@ {T±	@À!„İ!|Š†  „=ªØ„  à Âî>EC Hƒ ÂUlB pH awŸ¢! ¤A aOƒ*6! 8$€°;„OÑ€ Ò €°§A›€ @ØÂ§h@ i@ØÓ ŠM@ 	 ìáS4  4 ìiPÅ&  ‡v‡ğ)€@ö4¨b€€C»Cø@ {T±	@À!„İ!|Š†  „=ªØ„  à Âî>EC Hƒ ÂUlB pH awŸ¢! ¤A aOƒ*6! 8$€°;„OÑ€ Ò €°§A›€ @ØÂ§h@ i@ØÓ ŠM@ 	 ìáS4  4 ìiPÅ&  ‡v‡ğ)€@ö4¨b€€C»Cø@ {T±	@À!„İ!|Š†  „=ªØ„  à Âî>EC Hƒ ÂUlB pH awŸ¢! ¤A aOƒ*6! 8$€°;„OÑ€ Ò €°§A›€ @ØÂ§h@ i@ØÓ ŠM@ 	 ìáS4  4 ìiPÅ&  ‡v‡ğ)€@ö4¨b€€C»Cø@ {T±	@À!„İ!|Š†  „=ªØ„  à Âî>EC Hƒ@}ccãÖ4'e³¥¥¥>)[Ø  ßu“{½Œ@ @Ø=êª@ 	{±@À#»GAU  $A aO‚"6  xDàÿæn‰–”ÿ    IEND®B`‚Obplist00Ô
+X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯/'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€.€€ €Ó()$+,WNS.base[NS.relative€ €€_Bhttps://docs.swift.org/swift-book/_images/subscriptMatrix02_2x.pngÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃÒz±ÌÀ ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
+€€€€€€€€€€€€€€€€¯OPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-ModifiedYimage/pngZSAMEORIGIN_hit-stale, hit-staleQ2_vhttps/1.1 jptyo7-edge-lx-010.ts.apple.com (acdn/137.13246), https/1.1 jptyo7-edge-bx-011.ts.apple.com (acdn/137.13246)UApple]1; mode=block_/fc6a706a-259d-4e82-ab8c-c3aa8568ba11-5181865976_max-age=180, public_Fri, 28 Jan 2022 11:54:27 GMT_#max-age=31536000; includeSubdomainsT9819Zkeep-alive_h
+
+YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE1lpbWFnZS9wbmehFV8QHVRodSwgMjcgSmFuIDIwMjIgMTg6NDU6NTUgR01UoRdfEBQiMjY1Yi01ZDY5NGJhNzA5ZWMwIqEZUTKhG18Qdmh0dHBzLzEuMSBqcHR5bzctZWRnZS1seC0wMTAudHMuYXBwbGUuY29tIChhY2RuLzEzNy4xMzI0NiksIGh0dHBzLzEuMSBqcHR5bzctZWRnZS1ieC0wMTEudHMuYXBwbGUuY29tIChhY2RuLzEzNy4xMzI0NimhHVVBcHBsZaEfXTE7IG1vZGU9YmxvY2uhIV8QL2ZjNmE3MDZhLTI1OWQtNGU4Mi1hYjhjLWMzYWE4NTY4YmExMS01MTgxODY1OTc2oSNfEBNtYXgtYWdlPTE4MCwgcHVibGljoSVfEB1GcmksIDI4IEphbiAyMDIyIDExOjU0OjI3IEdNVKEnXxAjbWF4LWFnZT0zMTUzNjAwMDsgaW5jbHVkZVN1YmRvbWFpbnOhKVQ5ODE5oStaa2VlcC1hbGl2ZaEtV25vc25pZmahL1VieXRlc6ExWlNBTUVPUklHSU6hM18QFGhpdC1zdGFsZSwgaGl0LXN0YWxlAAgALQA6AEgATQBRAFUAXABvAHcAhQCKAKYAtQDAANkA5wD5AQEBAwENAQ8BLwExAUgBSgFMAU4BxwHJAc8B0QHfAeECEwIVAisCLQJNAk8CdQJ3AnwCfgKJAosCkwKVApsCnQKoAqoAAAAAAAACAQAAAAAAAAA0AAAAAAAAAAAAAAAAAAACwQ==Wnosniff_"265b-5d694ba709ec0"Ubytes_Thu, 27 Jan 2022 18:45:55 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionaryÒ/0Š‹_NSHTTPURLResponse£Œ3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d – œ · Ù û ş #ELnqt–¸»½¿ÁÃÅÇÉËÌÎĞÒÔÛãïñóõ:?JSY\enpryŒ¡£¥§©«­¯±³µ·¹»½¿ÁÃÅÚÜŞàâäæèêìîğòôöøúüş '+/6IQ_d€š£¼ÁÏİçò	„Š˜Êà &+6	¢	ª	Á	Ç	ç	ì
+
+
+
+
+,
+0
+D                           
+R_Bhttps://docs.swift.org/swift-book/_images/subscriptMatrix02_2x.pngÔ0123O?/*! gumshoe v3.0.0 | (c) 2015 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/gumshoe */
+!function(e, t) {
+    "function" == typeof define && define.amd ? define([], t(e)) : "object" == typeof exports ? module.exports = t(e) : e.gumshoe = t(e)
+}("undefined" != typeof global ? global : this.window || this.global, function(e) {
+    "use strict";
+    var t,
+        n,
+        a,
+        o,
+        r,
+        c,
+        s = {},
+        i = "querySelector" in document && "addEventListener" in e && "classList" in document.createElement("_"),
+        l = [],
+        u = {
+            selector: "[data-gumshoe] a",
+            selectorHeader: "[data-gumshoe-header]",
+            offset: 0,
+            activeClass: "active",
+            callback: function() {}
+        },
+        f = function(e, t, n) {
+            if ("[object Object]" === Object.prototype.toString.call(e))
+                for (var a in e)
+                    Object.prototype.hasOwnProperty.call(e, a) && t.call(n, e[a], a, e);
+            else
+                for (var o = 0, r = e.length; r > o; o++)
+                    t.call(n, e[o], o, e)
+        },
+        d = function() {
+            var e = {},
+                t = !1,
+                n = 0,
+                a = arguments.length;
+            "[object Boolean]" === Object.prototype.toString.call(arguments[0]) && (t = arguments[0], n++);
+            for (var o = function(n) {
+                for (var a in n)
+                    Object.prototype.hasOwnProperty.call(n, a) && (t && "[object Object]" === Object.prototype.toString.call(n[a]) ? e[a] = d(!0, e[a], n[a]) : e[a] = n[a])
+            }; a > n; n++) {
+                var r = arguments[n];
+                o(r)
+            }
+            return e
+        },
+        v = function(e) {
+            return Math.max(e.scrollHeight, e.offsetHeight, e.clientHeight)
+        },
+        g = function() {
+            return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight)
+        },
+        m = function(e) {
+            var n = 0;
+            if (e.offsetParent)
+                do n += e.offsetTop, e = e.offsetParent;
+                while (e);
+            return n = n - r - t.offset, n >= 0 ? n : 0
+        },
+        p = function() {
+            l.sort(function(e, t) {
+                return e.distance > t.distance ? -1 : e.distance < t.distance ? 1 : 0
+            })
+        };
+    s.setDistances = function() {
+        a = g(), r = o ? v(o) + m(o) : 0, f(l, function(e) {
+            e.distance = m(e.target)
+        }), p()
+    };
+    var h = function() {
+            var e = document.querySelectorAll(t.selector);
+            f(e, function(e) {
+                e.hash && l.push({
+                    nav: e,
+                    target: document.querySelector(e.hash),
+                    parent: "li" === e.parentNode.tagName.toLowerCase() ? e.parentNode : null,
+                    distance: 0
+                })
+            })
+        },
+        y = function(e) {
+            c && (c.nav.classList.remove(t.activeClass), c.parent && c.parent.classList.remove(t.activeClass)), e.nav.classList.add(t.activeClass), e.parent && e.parent.classList.add(t.activeClass), t.callback(e), c = {
+                nav: e.nav,
+                parent: e.parent
+            }
+        };
+    s.getCurrentNav = function() {
+        var t = e.pageYOffset;
+        if (e.innerHeight + t >= a)
+            return y(l[0]);
+        for (var n = 0, o = l.length; o > n; n++) {
+            var r = l[n];
+            if (r.distance < t)
+                return y(r)
+        }
+    };
+    var b = function() {
+        f(l, function(e) {
+            e.nav.classList.contains(t.activeClass) && (c = {
+                nav: e.nav,
+                parent: e.parent
+            })
+        })
+    };
+    s.destroy = function() {
+        t && (e.removeEventListener("resize", H, !1), e.removeEventListener("scroll", H, !1), l = [], t = null, n = null, a = null, o = null, r = null, c = null)
+    };
+    var H = function(e) {
+        n || (n = setTimeout(function() {
+            n = null, "scroll" === e.type && s.getCurrentNav(), "resize" === e.type && (s.setDistances(), s.getCurrentNav())
+        }, 66))
+    };
+    return s.init = function(n) {
+        i && (s.destroy(), t = d(u, n || {}), o = document.querySelector(t.selectorHeader), h(), 0 !== l.length && (b(), s.setDistances(), s.getCurrentNav(), e.addEventListener("resize", H, !1), e.addEventListener("scroll", H, !1)))
+    }, s
+});
+
+
+(function() {
+    gumshoe.init({
+        selector: 'nav[role="navigation"] > ul li.active ul li a',
+        selectorHeader: 'nav[role="navigation"] > ul li.active',
+        offset: 0,
+        activeClass: 'active',
+        callback: function(nav) {
+            var title = document.title + " - " + nav.target.textContent
+            var hash = "#" + nav.target.id;
+            if (window.location.hash !== hash) {
+                history.replaceState(null, title, window.location.pathname + hash);
+            }
+        }
+    });
+
+    function hasClass(element, className) {
+        if (!element || !className) {
+            return false;
+        }
+
+        var classString = element.className,
+            nameIndex = classString.indexOf(className);
+        return (nameIndex != -1);
+    }
+
+    function toggleClass(element, className) {
+        if (!element || !className) {
+            return;
+        }
+
+        var classString = element.className,
+            nameIndex = classString.indexOf(className);
+        if (nameIndex == -1) {
+            classString += ' ' + className;
+        } else {
+            classString = classString.substr(0, nameIndex) + classString.substr(nameIndex + className.length);
+        }
+        element.className = classString;
+    }
+
+    document.getElementById('menu-toggle').addEventListener('mousedown', function() {
+        toggleClass(document.getElementById('menu-toggle'), 'open');
+        toggleClass(document.querySelector('nav[role="navigation"]'), 'open');
+    });
+
+    function toggleMenu(display) {
+        var menuElement = document.getElementById('jump_to');
+        var overlayElement = document.getElementById('jump_to_overlay');
+        if (display) {
+            menuElement.className = 'open';
+            overlayElement.style.display = 'block';
+        } else {
+            menuElement.className = '';
+            overlayElement.style.display = 'none';
+        }
+    }
+
+    document.getElementById('jump_to_toggle').addEventListener('mousedown', function() {
+        toggleMenu(!hasClass(document.getElementById('jump_to'), 'open'));
+    });
+    var menuLinks = document.getElementById('jump_to').getElementsByTagName('a');
+    if (menuLinks.length == 1) {
+        document.getElementById('bashful').style.display = 'none';
+    }
+    Array.prototype.forEach.call(menuLinks, function (el, index, array) {
+        el.addEventListener('click', function(event) {
+            toggleMenu(false);
+        });
+    });
+    document.getElementById('jump_to_overlay').addEventListener('mousedown', function() {
+        toggleMenu(false);
+    });
+})();
+
+_application/javascriptOÊbplist00Ô
+X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯0'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰ŠU$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€.€€	€€/€€ €Ó()$+,WNS.base[NS.relative€ €€_Dhttps://docs.swift.org/swift-book/_static/javascripts/application.jsÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃÒz±Ñp ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
+€€€€€€€€€€€€€€€€¯NOPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified_application/javascriptZSAMEORIGIN_hit-fresh, hit-staleQ0_uhttp/1.1 jptyo7-edge-lx-004.ts.apple.com (acdn/137.13246), https/1.1 jptyo7-edge-bx-011.ts.apple.com (acdn/137.13246)UApple]1; mode=block_/fc6a706a-259d-4e82-ab8c-c3aa8568ba11-5180984814_max-age=180, public_Fri, 28 Jan 2022 11:51:28 GMT_#max-age=31536000; includeSubdomainsT7231Zkeep-alive_x
+
+YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE18QFmFwcGxpY2F0aW9uL2phdmFzY3JpcHShFV8QHVRodSwgMjcgSmFuIDIwMjIgMTg6NDU6NTUgR01UoRdfEBQiMWMzZi01ZDY5NGJhNzA5ZWMwIqEZUTChG18QdWh0dHAvMS4xIGpwdHlvNy1lZGdlLWx4LTAwNC50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KSwgaHR0cHMvMS4xIGpwdHlvNy1lZGdlLWJ4LTAxMS50cy5hcHBsZS5jb20gKGFjZG4vMTM3LjEzMjQ2KaEdVUFwcGxloR9dMTsgbW9kZT1ibG9ja6EhXxAvZmM2YTcwNmEtMjU5ZC00ZTgyLWFiOGMtYzNhYTg1NjhiYTExLTUxODA5ODQ4MTShI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHUZyaSwgMjggSmFuIDIwMjIgMTE6NTE6MjggR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpVDcyMzGhK1prZWVwLWFsaXZloS1Xbm9zbmlmZqEvVWJ5dGVzoTFaU0FNRU9SSUdJTqEzXxAUaGl0LWZyZXNoLCBoaXQtc3RhbGUACAAtADoASABNAFEAVQBcAG8AdwCFAIoApgC1AMAA2QDnAPkBAQEDARwBHgE+AUABVwFZAVsBXQHVAdcB3QHfAe0B7wIhAiMCOQI7AlsCXQKDAoUCigKMApcCmQKhAqMCqQKrArYCuAAAAAAAAAIBAAAAAAAAADQAAAAAAAAAAAAAAAAAAALPWnosniff_"1c3f-5d694ba709ec0"Ubytes_Thu, 27 Jan 2022 18:45:55 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionary_application/javascriptÒ/0‹Œ_NSHTTPURLResponse£3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d —  ¸ Ú ü ÿ!$FMoru—¹¼¾ÀÂÄÆÈÊÌÍÏÑÓÕÜäğòôö=BMV\_hqsu|„¤¦¨ª¬®°²´¶¸º¼¾ÀÂÄÆÈİßáãåçéëíïñóõ÷ùûıÿ"*.29LTbgƒ’¦¿ÄÒàù•›©Ûñ7<G	Ã	Ë	â	è
+
+
+#
+'
+4
+M
+R
+f
+j
+~                           
+Œ_Dhttps://docs.swift.org/swift-book/_static/javascripts/application.jsÕ56789:;_WebResourceFrameName_WebResourceTextEncodingNamePOvÌ<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <meta name="author" content="Apple Inc.">
+    <meta name="viewport" content="width=device-width initial-scale=1">
+    
+    <title>Subscripts â€” The Swift Programming Language (Swift 5.6)</title>
+    
+    <link rel="license" href="/LICENSE.txt">
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css">
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css">
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339"> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TheBasics.html">Language Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="TheBasics.html">The Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicOperators.html">Basic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringsAndCharacters.html">Strings and Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CollectionTypes.html">Collection Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlFlow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Closures.html">Closures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumerations.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassesAndStructures.html">Structures and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Subscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialization.html">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Deinitialization.html">Deinitialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptionalChaining.html">Optional Chaining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ErrorHandling.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TypeCasting.html">Type Casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NestedTypes.html">Nested Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Extensions.html">Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Protocols.html">Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OpaqueTypes.html">Opaque Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutomaticReferenceCounting.html">Automatic Reference Counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MemorySafety.html">Memory Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AccessControl.html">Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AdvancedOperators.html">Advanced Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ReferenceManual/AboutTheLanguageReference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">â† Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Subscripts</a><ul>
+<li><a class="reference internal" href="#ID306">Subscript Syntax</a></li>
+<li><a class="reference internal" href="#ID307">Subscript Usage</a></li>
+<li><a class="reference internal" href="#ID308">Subscript Options</a></li>
+<li><a class="reference internal" href="#ID609">Type Subscripts</a></li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="subscripts">
+<h1>Subscripts<a class="headerlink" href="#subscripts" title="Permalink to this headline">Â¶</a></h1>
+<p>Classes, structures, and enumerations can define <em>subscripts</em>, which are shortcuts for accessing the member elements of a collection, list, or sequence. You use subscripts to set and retrieve values by index without needing separate methods for setting and retrieval. For example, you access elements in an <code class="docutils literal notranslate"><span class="pre">Array</span></code> instance as <code class="docutils literal notranslate"><span class="pre">someArray[index]</span></code> and elements in a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> instance as <code class="docutils literal notranslate"><span class="pre">someDictionary[key]</span></code>.</p>
+<p>You can define multiple subscripts for a single type, and the appropriate subscript overload to use is selected based on the type of index value you pass to the subscript. Subscripts arenâ€™t limited to a single dimension, and you can define subscripts with multiple input parameters to suit your custom typeâ€™s needs.</p>
+<div class="section" id="ID306">
+<h2>Subscript Syntax<a class="headerlink" href="#ID306" title="Permalink to this headline">Â¶</a></h2>
+<p>Subscripts enable you to query instances of a type by writing one or more values in square brackets after the instance name. Their syntax is similar to both instance method syntax and computed property syntax. You write subscript definitions with the <code class="docutils literal notranslate"><span class="pre">subscript</span></code> keyword, and specify one or more input parameters and a return type, in the same way as instance methods. Unlike instance methods, subscripts can be read-write or read-only. This behavior is communicated by a getter and setter in the same way as for computed properties:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">subscript</span>(<span class="nv">index</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> {
+</li><li>    <span class="k">get</span> {
+</li><li>        <span class="c">// Return an appropriate subscript value here.</span>
+</li><li>    }
+</li><li>    <span class="k">set</span>(<span class="nv">newValue</span>) {
+</li><li>        <span class="c">// Perform a suitable setting action here.</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>The type of <code class="docutils literal notranslate"><span class="pre">newValue</span></code> is the same as the return value of the subscript. As with computed properties, you can choose not to specify the setterâ€™s <code class="docutils literal notranslate"><span class="pre">(newValue)</span></code> parameter. A default parameter called <code class="docutils literal notranslate"><span class="pre">newValue</span></code> is provided to your setter if you donâ€™t provide one yourself.</p>
+<p>As with read-only computed properties, you can simplify the declaration of a read-only subscript by removing the <code class="docutils literal notranslate"><span class="pre">get</span></code> keyword and its braces:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">subscript</span>(<span class="nv">index</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> {
+</li><li>    <span class="c">// Return an appropriate subscript value here.</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>Hereâ€™s an example of a read-only subscript implementation, which defines a <code class="docutils literal notranslate"><span class="pre">TimesTable</span></code> structure to represent an <em>n</em>-times-table of integers:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">TimesTable</span> {
+</li><li>    <span class="k">let</span> <span class="nv">multiplier</span>: <span class="nc">Int</span>
+</li><li>    <span class="k">subscript</span>(<span class="nv">index</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> {
+</li><li>        <span class="k">return</span> <span class="nv">multiplier</span> * <span class="nv">index</span>
+</li><li>    }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">threeTimesTable</span> = <span class="nv">TimesTable</span>(<span class="nv">multiplier</span>: <span class="m">3</span>)
+</li><li><span class="nv">print</span>(<span class="s">"six times three is </span>\<span class="p">(</span><span class="nv">threeTimesTable</span>[<span class="m">6</span>]<span class="p">)</span><span class="s">"</span>)
+</li><li><span class="c">// Prints "six times three is 18"</span>
+</li></ol></div></div></div>
+<p>In this example, a new instance of <code class="docutils literal notranslate"><span class="pre">TimesTable</span></code> is created to represent the three-times-table. This is indicated by passing a value of <code class="docutils literal notranslate"><span class="pre">3</span></code> to the structureâ€™s <code class="docutils literal notranslate"><span class="pre">initializer</span></code> as the value to use for the instanceâ€™s <code class="docutils literal notranslate"><span class="pre">multiplier</span></code> parameter.</p>
+<p>You can query the <code class="docutils literal notranslate"><span class="pre">threeTimesTable</span></code> instance by calling its subscript, as shown in the call to <code class="docutils literal notranslate"><span class="pre">threeTimesTable[6]</span></code>. This requests the sixth entry in the three-times-table, which returns a value of <code class="docutils literal notranslate"><span class="pre">18</span></code>, or <code class="docutils literal notranslate"><span class="pre">3</span></code> times <code class="docutils literal notranslate"><span class="pre">6</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">An <em>n</em>-times-table is based on a fixed mathematical rule. It isnâ€™t appropriate to set <code class="docutils literal notranslate"><span class="pre">threeTimesTable[someIndex]</span></code> to a new value, and so the subscript for <code class="docutils literal notranslate"><span class="pre">TimesTable</span></code> is defined as a read-only subscript.</p>
+</div>
+</div>
+<div class="section" id="ID307">
+<h2>Subscript Usage<a class="headerlink" href="#ID307" title="Permalink to this headline">Â¶</a></h2>
+<p>The exact meaning of â€œsubscriptâ€ depends on the context in which itâ€™s used. Subscripts are typically used as a shortcut for accessing the member elements in a collection, list, or sequence. You are free to implement subscripts in the most appropriate way for your particular class or structureâ€™s functionality.</p>
+<p>For example, Swiftâ€™s <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> type implements a subscript to set and retrieve the values stored in a <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> instance. You can set a value in a dictionary by providing a key of the dictionaryâ€™s key type within subscript brackets, and assigning a value of the dictionaryâ€™s value type to the subscript:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">numberOfLegs</span> = [<span class="s">"spider"</span>: <span class="m">8</span>, <span class="s">"ant"</span>: <span class="m">6</span>, <span class="s">"cat"</span>: <span class="m">4</span>]
+</li><li><span class="nv">numberOfLegs</span>[<span class="s">"bird"</span>] = <span class="m">2</span>
+</li></ol></div></div></div>
+<p>The example above defines a variable called <code class="docutils literal notranslate"><span class="pre">numberOfLegs</span></code> and initializes it with a dictionary literal containing three key-value pairs. The type of the <code class="docutils literal notranslate"><span class="pre">numberOfLegs</span></code> dictionary is inferred to be <code class="docutils literal notranslate"><span class="pre">[String:</span> <span class="pre">Int]</span></code>. After creating the dictionary, this example uses subscript assignment to add a <code class="docutils literal notranslate"><span class="pre">String</span></code> key of <code class="docutils literal notranslate"><span class="pre">"bird"</span></code> and an <code class="docutils literal notranslate"><span class="pre">Int</span></code> value of <code class="docutils literal notranslate"><span class="pre">2</span></code> to the dictionary.</p>
+<p>For more information about <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> subscripting, see <a class="reference internal" href="CollectionTypes.html#ID116"><span class="std std-ref">Accessing and Modifying a Dictionary</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Swiftâ€™s <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> type implements its key-value subscripting as a subscript that takes and returns an <em>optional</em> type. For the <code class="docutils literal notranslate"><span class="pre">numberOfLegs</span></code> dictionary above, the key-value subscript takes and returns a value of type <code class="docutils literal notranslate"><span class="pre">Int?</span></code>, or â€œoptional intâ€. The <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> type uses an optional subscript type to model the fact that not every key will have a value, and to give a way to delete a value for a key by assigning a <code class="docutils literal notranslate"><span class="pre">nil</span></code> value for that key.</p>
+</div>
+</div>
+<div class="section" id="ID308">
+<h2>Subscript Options<a class="headerlink" href="#ID308" title="Permalink to this headline">Â¶</a></h2>
+<p>Subscripts can take any number of input parameters, and these input parameters can be of any type. Subscripts can also return a value of any type.</p>
+<p>Like functions, subscripts can take a varying number of parameters and provide default values for their parameters, as discussed in <a class="reference internal" href="Functions.html#ID171"><span class="std std-ref">Variadic Parameters</span></a> and <a class="reference internal" href="Functions.html#ID169"><span class="std std-ref">Default Parameter Values</span></a>. However, unlike functions, subscripts canâ€™t use in-out parameters.</p>
+<p>A class or structure can provide as many subscript implementations as it needs, and the appropriate subscript to be used will be inferred based on the types of the value or values that are contained within the subscript brackets at the point that the subscript is used. This definition of multiple subscripts is known as <em>subscript overloading</em>.</p>
+<p>While itâ€™s most common for a subscript to take a single parameter, you can also define a subscript with multiple parameters if itâ€™s appropriate for your type. The following example defines a <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> structure, which represents a two-dimensional matrix of <code class="docutils literal notranslate"><span class="pre">Double</span></code> values. The <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> structureâ€™s subscript takes two integer parameters:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Matrix</span> {
+</li><li>    <span class="k">let</span> <span class="nv">rows</span>: <span class="nc">Int</span>, <span class="nv">columns</span>: <span class="nc">Int</span>
+</li><li>    <span class="k">var</span> <span class="nv">grid</span>: [<span class="nc">Double</span>]
+</li><li>    <span class="k">init</span>(<span class="nv">rows</span>: <span class="nc">Int</span>, <span class="nv">columns</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="k">self</span>.<span class="nv">rows</span> = <span class="nv">rows</span>
+</li><li>        <span class="k">self</span>.<span class="nv">columns</span> = <span class="nv">columns</span>
+</li><li>        <span class="nv">grid</span> = <span class="nv">Array</span>(<span class="nv">repeating</span>: <span class="m">0.0</span>, <span class="nv">count</span>: <span class="nv">rows</span> * <span class="nv">columns</span>)
+</li><li>    }
+</li><li>    <span class="k">func</span> <span class="nv">indexIsValid</span>(<span class="nv">row</span>: <span class="nc">Int</span>, <span class="nv">column</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Bool</span> {
+</li><li>        <span class="k">return</span> <span class="nv">row</span> &gt;= <span class="m">0</span> &amp;&amp; <span class="nv">row</span> &lt; <span class="nv">rows</span> &amp;&amp; <span class="nv">column</span> &gt;= <span class="m">0</span> &amp;&amp; <span class="nv">column</span> &lt; <span class="nv">columns</span>
+</li><li>    }
+</li><li>    <span class="k">subscript</span>(<span class="nv">row</span>: <span class="nc">Int</span>, <span class="nv">column</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Double</span> {
+</li><li>        <span class="k">get</span> {
+</li><li>            <span class="nv">assert</span>(<span class="nv">indexIsValid</span>(<span class="nv">row</span>: <span class="nv">row</span>, <span class="nv">column</span>: <span class="nv">column</span>), <span class="s">"Index out of range"</span>)
+</li><li>            <span class="k">return</span> <span class="nv">grid</span>[(<span class="nv">row</span> * <span class="nv">columns</span>) + <span class="nv">column</span>]
+</li><li>        }
+</li><li>        <span class="k">set</span> {
+</li><li>            <span class="nv">assert</span>(<span class="nv">indexIsValid</span>(<span class="nv">row</span>: <span class="nv">row</span>, <span class="nv">column</span>: <span class="nv">column</span>), <span class="s">"Index out of range"</span>)
+</li><li>            <span class="nv">grid</span>[(<span class="nv">row</span> * <span class="nv">columns</span>) + <span class="nv">column</span>] = <span class="nv">newValue</span>
+</li><li>        }
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p><code class="docutils literal notranslate"><span class="pre">Matrix</span></code> provides an initializer that takes two parameters called <code class="docutils literal notranslate"><span class="pre">rows</span></code> and <code class="docutils literal notranslate"><span class="pre">columns</span></code>, and creates an array thatâ€™s large enough to store <code class="docutils literal notranslate"><span class="pre">rows</span> <span class="pre">*</span> <span class="pre">columns</span></code> values of type <code class="docutils literal notranslate"><span class="pre">Double</span></code>. Each position in the matrix is given an initial value of <code class="docutils literal notranslate"><span class="pre">0.0</span></code>. To achieve this, the arrayâ€™s size, and an initial cell value of <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, are passed to an array initializer that creates and initializes a new array of the correct size. This initializer is described in more detail in <a class="reference internal" href="CollectionTypes.html#ID501"><span class="std std-ref">Creating an Array with a Default Value</span></a>.</p>
+<p>You can construct a new <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> instance by passing an appropriate row and column count to its initializer:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">matrix</span> = <span class="nv">Matrix</span>(<span class="nv">rows</span>: <span class="m">2</span>, <span class="nv">columns</span>: <span class="m">2</span>)
+</li></ol></div></div></div>
+<p>The example above creates a new <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> instance with two rows and two columns. The <code class="docutils literal notranslate"><span class="pre">grid</span></code> array for this <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> instance is effectively a flattened version of the matrix, as read from top left to bottom right:</p>
+<img alt="../_images/subscriptMatrix01_2x.png" class="align-center" src="../_images/subscriptMatrix01_2x.png" style="width: 396px;">
+<p>Values in the matrix can be set by passing row and column values into the subscript, separated by a comma:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">matrix</span>[<span class="m">0</span>, <span class="m">1</span>] = <span class="m">1.5</span>
+</li><li><span class="nv">matrix</span>[<span class="m">1</span>, <span class="m">0</span>] = <span class="m">3.2</span>
+</li></ol></div></div></div>
+<p>These two statements call the subscriptâ€™s setter to set a value of <code class="docutils literal notranslate"><span class="pre">1.5</span></code> in the top right position of the matrix (where <code class="docutils literal notranslate"><span class="pre">row</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code>), and <code class="docutils literal notranslate"><span class="pre">3.2</span></code> in the bottom left position (where <code class="docutils literal notranslate"><span class="pre">row</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>):</p>
+<img alt="../_images/subscriptMatrix02_2x.png" class="align-center" src="../_images/subscriptMatrix02_2x.png" style="width: 187px;">
+<p>The <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> subscriptâ€™s getter and setter both contain an assertion to check that the subscriptâ€™s <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code> values are valid. To assist with these assertions, <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> includes a convenience method called <code class="docutils literal notranslate"><span class="pre">indexIsValid(row:column:)</span></code>, which checks whether the requested <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code> are inside the bounds of the matrix:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">indexIsValid</span>(<span class="nv">row</span>: <span class="nc">Int</span>, <span class="nv">column</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Bool</span> {
+</li><li>    <span class="k">return</span> <span class="nv">row</span> &gt;= <span class="m">0</span> &amp;&amp; <span class="nv">row</span> &lt; <span class="nv">rows</span> &amp;&amp; <span class="nv">column</span> &gt;= <span class="m">0</span> &amp;&amp; <span class="nv">column</span> &lt; <span class="nv">columns</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>An assertion is triggered if you try to access a subscript thatâ€™s outside of the matrix bounds:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">someValue</span> = <span class="nv">matrix</span>[<span class="m">2</span>, <span class="m">2</span>]
+</li><li><span class="c">// This triggers an assert, because [2, 2] is outside of the matrix bounds.</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID609">
+<h2>Type Subscripts<a class="headerlink" href="#ID609" title="Permalink to this headline">Â¶</a></h2>
+<p>Instance subscripts, as described above, are subscripts that you call on an instance of a particular type. You can also define subscripts that are called on the type itself. This kind of subscript is called a <em>type subscript</em>. You indicate a type subscript by writing the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword before the <code class="docutils literal notranslate"><span class="pre">subscript</span></code> keyword. Classes can use the <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword instead, to allow subclasses to override the superclassâ€™s implementation of that subscript. The example below shows how you define and call a type subscript:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">Planet</span>: <span class="nc">Int</span> {
+</li><li>    <span class="k">case</span> <span class="nv">mercury</span> = <span class="m">1</span>, <span class="nv">venus</span>, <span class="nv">earth</span>, <span class="nv">mars</span>, <span class="nv">jupiter</span>, <span class="nv">saturn</span>, <span class="nv">uranus</span>, <span class="nv">neptune</span>
+</li><li>    <span class="k">static</span> <span class="k">subscript</span>(<span class="nv">n</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Planet</span> {
+</li><li>        <span class="k">return</span> <span class="nv">Planet</span>(<span class="nv">rawValue</span>: <span class="nv">n</span>)!
+</li><li>    }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">mars</span> = <span class="nv">Planet</span>[<span class="m">4</span>]
+</li><li><span class="nv">print</span>(<span class="nv">mars</span>)
+</li></ol></div></div></div>
+</div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="Methods.html">Methods</a></p>
+        <p class="next"><a href="Inheritance.html">Inheritance</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright Â© 2022 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  
+</body></html>Ytext/htmlUUTF-8_?https://docs.swift.org/swift-book/LanguageGuide/Subscripts.html            1   <   E   W   m   ƒ   ’  P]  Pf  \I  \‘  \š  oJ  oX  zé  {&  {/  ;  ŠÎ  ‹  ‹  ¼  ™K  ™Œ  ™•  ·  Âì  Ã-  Ã6  Æ`  Ñó  Ò8  ÒA  Öˆ  â!  âk  ât PÀ PÊ \P \• \ ‚ı  Ô İ «  «9 · ·N ·Y ·p · · ._ .i .o             <             .±

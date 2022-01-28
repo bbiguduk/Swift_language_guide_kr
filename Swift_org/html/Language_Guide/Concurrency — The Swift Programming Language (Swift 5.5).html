@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Concurrency &mdash; The Swift Programming Language (Swift 5.5)</title>
+    <title>Concurrency &mdash; The Swift Programming Language (Swift 5.6)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
 
     <ul>
     <ul class="current">
@@ -170,13 +170,13 @@
 <ul class="simple">
 <li>Code in the body of an asynchronous function, method, or property.</li>
 <li>Code in the static <code class="docutils literal notranslate"><span class="pre">main()</span></code> method of a structure, class, or enumeration that’s marked with <code class="docutils literal notranslate"><span class="pre">&#64;main</span></code>.</li>
-<li>Code in a detached child task, as shown in <a class="reference internal" href="#ID643"><span class="std std-ref">Unstructured Concurrency</span></a> below.</li>
+<li>Code in an unstructured child task, as shown in <a class="reference internal" href="#ID643"><span class="std std-ref">Unstructured Concurrency</span></a> below.</li>
 </ul>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>The <a class="reference external" href="https://developer.apple.com/documentation/swift/task/3814836-sleep"><code class="docutils literal notranslate"><span class="pre">Task.sleep(_:)</span></code></a> method is useful when writing simple code to learn how concurrency works. This method does nothing, but waits at least the given number of nanoseconds before it returns. Here’s a version of the <code class="docutils literal notranslate"><span class="pre">listPhotos(inGallery:)</span></code> function that uses <code class="docutils literal notranslate"><span class="pre">sleep()</span></code> to simulate waiting for a network operation:</p>
-<div class="last highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">listPhotos</span>(<span class="nv">inGallery</span> <span class="nv">name</span>: <span class="nc">String</span>) <span class="nv">async</span> -&gt; [<span class="nv">String</span>] {
-</li><li>    <span class="nv">await</span> <span class="nv">Task</span>.<span class="nv">sleep</span>(<span class="m">2</span> * <span class="m">1_000_000_000</span>)  <span class="c">// Two seconds</span>
+<p>The <a class="reference external" href="https://developer.apple.com/documentation/swift/task/3862701-sleep"><code class="docutils literal notranslate"><span class="pre">Task.sleep(nanoseconds:)</span></code></a> method is useful when writing simple code to learn how concurrency works. This method does nothing, but waits at least the given number of nanoseconds before it returns. Here’s a version of the <code class="docutils literal notranslate"><span class="pre">listPhotos(inGallery:)</span></code> function that uses <code class="docutils literal notranslate"><span class="pre">sleep(nanoseconds:)</span></code> to simulate waiting for a network operation:</p>
+<div class="last highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">listPhotos</span>(<span class="nv">inGallery</span> <span class="nv">name</span>: <span class="nc">String</span>) <span class="nv">async</span> <span class="k">throws</span> -&gt; [<span class="nv">String</span>] {
+</li><li>    <span class="k">try</span> <span class="nv">await</span> <span class="nv">Task</span>.<span class="nv">sleep</span>(<span class="nv">nanoseconds</span>: <span class="m">2</span> * <span class="m">1_000_000_000</span>)  <span class="c">// Two seconds</span>
 </li><li>    <span class="k">return</span> [<span class="s">&quot;IMG001&quot;</span>, <span class="s">&quot;IMG99&quot;</span>, <span class="s">&quot;IMG0404&quot;</span>]
 </li><li>}
 </li></ol></div></div></div>
@@ -311,6 +311,14 @@
         <p class="previous"><a href="ErrorHandling.html">Error Handling</a></p>
         <p class="next"><a href="TypeCasting.html">Type Casting</a></p>
     </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
 </main>
 
 
@@ -320,7 +328,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

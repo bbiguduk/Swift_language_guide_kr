@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Basic Operators &mdash; The Swift Programming Language (Swift 5.5)</title>
+    <title>Basic Operators &mdash; The Swift Programming Language (Swift 5.6)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
 
     <ul>
     <ul class="current">
@@ -150,7 +150,7 @@
 <li><em>Binary</em> operators operate on two targets (such as <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span></code>) and are <em>infix</em> because they appear in between their two targets.</li>
 <li><em>Ternary</em> operators operate on three targets. Like C, Swift has only one ternary operator, the ternary conditional operator (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">?</span> <span class="pre">b</span> <span class="pre">:</span> <span class="pre">c</span></code>).</li>
 </ul>
-<p>The values that operators affect are <em>operands</em>. In the expression <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span></code>, the <code class="docutils literal notranslate"><span class="pre">+</span></code> symbol is a binary operator and its two operands are the values <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
+<p>The values that operators affect are <em>operands</em>. In the expression <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span></code>, the <code class="docutils literal notranslate"><span class="pre">+</span></code> symbol is an infix operator and its two operands are the values <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
 </div>
 <div class="section" id="ID62">
 <h2>Assignment Operator<a class="headerlink" href="#ID62" title="Permalink to this headline">¶</a></h2>
@@ -197,7 +197,7 @@
 <p class="last">The remainder operator (<code class="docutils literal notranslate"><span class="pre">%</span></code>) is also known as a <em>modulo operator</em> in other languages. However, its behavior in Swift for negative numbers means that, strictly speaking, it’s a remainder rather than a modulo operation.</p>
 </div>
 <p>Here’s how the remainder operator works. To calculate <code class="docutils literal notranslate"><span class="pre">9</span> <span class="pre">%</span> <span class="pre">4</span></code>, you first work out how many <code class="docutils literal notranslate"><span class="pre">4</span></code>s will fit inside <code class="docutils literal notranslate"><span class="pre">9</span></code>:</p>
-<img alt="../_images/remainderInteger_2x.png" class="align-center" src="../_images/remainderInteger_2x.png" style="width: 337px;" />
+<img alt="../_images/remainderInteger_2x.png" class="align-center" src="../_images/remainderInteger_2x.png" style="width: 274px;" />
 <p>You can fit two <code class="docutils literal notranslate"><span class="pre">4</span></code>s inside <code class="docutils literal notranslate"><span class="pre">9</span></code>, and the remainder is <code class="docutils literal notranslate"><span class="pre">1</span></code> (shown in orange).</p>
 <p>In Swift, this would be written as:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="m">9</span> % <span class="m">4</span>    <span class="c">// equals 1</span>
@@ -505,6 +505,14 @@
         <p class="previous"><a href="TheBasics.html">The Basics</a></p>
         <p class="next"><a href="StringsAndCharacters.html">Strings and Characters</a></p>
     </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
 </main>
 
 
@@ -514,7 +522,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

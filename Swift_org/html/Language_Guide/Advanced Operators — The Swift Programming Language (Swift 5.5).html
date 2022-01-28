@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Advanced Operators &mdash; The Swift Programming Language (Swift 5.5)</title>
+    <title>Advanced Operators &mdash; The Swift Programming Language (Swift 5.6)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
 
     <ul>
     <ul class="current">
@@ -151,7 +151,7 @@
 <div class="section" id="ID30">
 <h3>Bitwise NOT Operator<a class="headerlink" href="#ID30" title="Permalink to this headline">¶</a></h3>
 <p>The <em>bitwise NOT operator</em> (<code class="docutils literal notranslate"><span class="pre">~</span></code>) inverts all bits in a number:</p>
-<img alt="../_images/bitwiseNOT_2x.png" class="align-center" src="../_images/bitwiseNOT_2x.png" style="width: 447px;" />
+<img alt="../_images/bitwiseNOT_2x.png" class="align-center" src="../_images/bitwiseNOT_2x.png" style="width: 330px;" />
 <p>The bitwise NOT operator is a prefix operator, and appears immediately before the value it operates on, without any white space:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">initialBits</span>: <span class="nc">UInt8</span> = <span class="m">0b00001111</span>
 </li><li><span class="k">let</span> <span class="nv">invertedBits</span> = ~<span class="nv">initialBits</span>  <span class="c">// equals 11110000</span>
@@ -162,7 +162,7 @@
 <div class="section" id="ID31">
 <h3>Bitwise AND Operator<a class="headerlink" href="#ID31" title="Permalink to this headline">¶</a></h3>
 <p>The <em>bitwise AND operator</em> (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>) combines the bits of two numbers. It returns a new number whose bits are set to <code class="docutils literal notranslate"><span class="pre">1</span></code> only if the bits were equal to <code class="docutils literal notranslate"><span class="pre">1</span></code> in <em>both</em> input numbers:</p>
-<img alt="../_images/bitwiseAND_2x.png" class="align-center" src="../_images/bitwiseAND_2x.png" style="width: 447px;" />
+<img alt="../_images/bitwiseAND_2x.png" class="align-center" src="../_images/bitwiseAND_2x.png" style="width: 330px;" />
 <p>In the example below, the values of <code class="docutils literal notranslate"><span class="pre">firstSixBits</span></code> and <code class="docutils literal notranslate"><span class="pre">lastSixBits</span></code> both have four middle bits equal to <code class="docutils literal notranslate"><span class="pre">1</span></code>. The bitwise AND operator combines them to make the number <code class="docutils literal notranslate"><span class="pre">00111100</span></code>, which is equal to an unsigned decimal value of <code class="docutils literal notranslate"><span class="pre">60</span></code>:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">firstSixBits</span>: <span class="nc">UInt8</span> = <span class="m">0b11111100</span>
 </li><li><span class="k">let</span> <span class="nv">lastSixBits</span>: <span class="nc">UInt8</span>  = <span class="m">0b00111111</span>
@@ -172,7 +172,7 @@
 <div class="section" id="ID32">
 <h3>Bitwise OR Operator<a class="headerlink" href="#ID32" title="Permalink to this headline">¶</a></h3>
 <p>The <em>bitwise OR operator</em> (<code class="docutils literal notranslate"><span class="pre">|</span></code>) compares the bits of two numbers. The operator returns a new number whose bits are set to <code class="docutils literal notranslate"><span class="pre">1</span></code> if the bits are equal to <code class="docutils literal notranslate"><span class="pre">1</span></code> in <em>either</em> input number:</p>
-<img alt="../_images/bitwiseOR_2x.png" class="align-center" src="../_images/bitwiseOR_2x.png" style="width: 447px;" />
+<img alt="../_images/bitwiseOR_2x.png" class="align-center" src="../_images/bitwiseOR_2x.png" style="width: 330px;" />
 <p>In the example below, the values of <code class="docutils literal notranslate"><span class="pre">someBits</span></code> and <code class="docutils literal notranslate"><span class="pre">moreBits</span></code> have different bits set to <code class="docutils literal notranslate"><span class="pre">1</span></code>. The bitwise OR operator combines them to make the number <code class="docutils literal notranslate"><span class="pre">11111110</span></code>, which equals an unsigned decimal of <code class="docutils literal notranslate"><span class="pre">254</span></code>:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">someBits</span>: <span class="nc">UInt8</span> = <span class="m">0b10110010</span>
 </li><li><span class="k">let</span> <span class="nv">moreBits</span>: <span class="nc">UInt8</span> = <span class="m">0b01011110</span>
@@ -182,7 +182,7 @@
 <div class="section" id="ID33">
 <h3>Bitwise XOR Operator<a class="headerlink" href="#ID33" title="Permalink to this headline">¶</a></h3>
 <p>The <em>bitwise XOR operator</em>, or “exclusive OR operator” (<code class="docutils literal notranslate"><span class="pre">^</span></code>), compares the bits of two numbers. The operator returns a new number whose bits are set to <code class="docutils literal notranslate"><span class="pre">1</span></code> where the input bits are different and are set to <code class="docutils literal notranslate"><span class="pre">0</span></code> where the input bits are the same:</p>
-<img alt="../_images/bitwiseXOR_2x.png" class="align-center" src="../_images/bitwiseXOR_2x.png" style="width: 447px;" />
+<img alt="../_images/bitwiseXOR_2x.png" class="align-center" src="../_images/bitwiseXOR_2x.png" style="width: 330px;" />
 <p>In the example below, the values of <code class="docutils literal notranslate"><span class="pre">firstBits</span></code> and <code class="docutils literal notranslate"><span class="pre">otherBits</span></code> each have a bit set to <code class="docutils literal notranslate"><span class="pre">1</span></code> in a location that the other does not. The bitwise XOR operator sets both of these bits to <code class="docutils literal notranslate"><span class="pre">1</span></code> in its output value. All of the other bits in <code class="docutils literal notranslate"><span class="pre">firstBits</span></code> and <code class="docutils literal notranslate"><span class="pre">otherBits</span></code> match and are set to <code class="docutils literal notranslate"><span class="pre">0</span></code> in the output value:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">firstBits</span>: <span class="nc">UInt8</span> = <span class="m">0b00010100</span>
 </li><li><span class="k">let</span> <span class="nv">otherBits</span>: <span class="nc">UInt8</span> = <span class="m">0b00000101</span>
@@ -203,7 +203,7 @@
 </ol>
 <p>This approach is known as a <em>logical shift</em>.</p>
 <p>The illustration below shows the results of <code class="docutils literal notranslate"><span class="pre">11111111</span> <span class="pre">&lt;&lt;</span> <span class="pre">1</span></code> (which is <code class="docutils literal notranslate"><span class="pre">11111111</span></code> shifted to the left by <code class="docutils literal notranslate"><span class="pre">1</span></code> place), and <code class="docutils literal notranslate"><span class="pre">11111111</span> <span class="pre">&gt;&gt;</span> <span class="pre">1</span></code> (which is <code class="docutils literal notranslate"><span class="pre">11111111</span></code> shifted to the right by <code class="docutils literal notranslate"><span class="pre">1</span></code> place). Blue numbers are shifted, gray numbers are discarded, and orange zeros are inserted:</p>
-<img alt="../_images/bitshiftUnsigned_2x.png" class="align-center" src="../_images/bitshiftUnsigned_2x.png" style="width: 649px;" />
+<img alt="../_images/bitshiftUnsigned_2x.png" class="align-center" src="../_images/bitshiftUnsigned_2x.png" style="width: 541px;" />
 <p>Here’s how bit shifting looks in Swift code:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">shiftBits</span>: <span class="nc">UInt8</span> = <span class="m">4</span>   <span class="c">// 00000100 in binary</span>
 </li><li><span class="nv">shiftBits</span> &lt;&lt; <span class="m">1</span>             <span class="c">// 00001000</span>
@@ -229,18 +229,18 @@
 <p>The shifting behavior is more complex for signed integers than for unsigned integers, because of the way signed integers are represented in binary. (The examples below are based on 8-bit signed integers for simplicity, but the same principles apply for signed integers of any size.)</p>
 <p>Signed integers use their first bit (known as the <em>sign bit</em>) to indicate whether the integer is positive or negative. A sign bit of <code class="docutils literal notranslate"><span class="pre">0</span></code> means positive, and a sign bit of <code class="docutils literal notranslate"><span class="pre">1</span></code> means negative.</p>
 <p>The remaining bits (known as the <em>value bits</em>) store the actual value. Positive numbers are stored in exactly the same way as for unsigned integers, counting upwards from <code class="docutils literal notranslate"><span class="pre">0</span></code>. Here’s how the bits inside an <code class="docutils literal notranslate"><span class="pre">Int8</span></code> look for the number <code class="docutils literal notranslate"><span class="pre">4</span></code>:</p>
-<img alt="../_images/bitshiftSignedFour_2x.png" class="align-center" src="../_images/bitshiftSignedFour_2x.png" style="width: 396px;" />
+<img alt="../_images/bitshiftSignedFour_2x.png" class="align-center" src="../_images/bitshiftSignedFour_2x.png" style="width: 275px;" />
 <p>The sign bit is <code class="docutils literal notranslate"><span class="pre">0</span></code> (meaning “positive”), and the seven value bits are just the number <code class="docutils literal notranslate"><span class="pre">4</span></code>, written in binary notation.</p>
 <p>Negative numbers, however, are stored differently. They’re stored by subtracting their absolute value from <code class="docutils literal notranslate"><span class="pre">2</span></code> to the power of <code class="docutils literal notranslate"><span class="pre">n</span></code>, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the number of value bits. An eight-bit number has seven value bits, so this means <code class="docutils literal notranslate"><span class="pre">2</span></code> to the power of <code class="docutils literal notranslate"><span class="pre">7</span></code>, or <code class="docutils literal notranslate"><span class="pre">128</span></code>.</p>
 <p>Here’s how the bits inside an <code class="docutils literal notranslate"><span class="pre">Int8</span></code> look for the number <code class="docutils literal notranslate"><span class="pre">-4</span></code>:</p>
-<img alt="../_images/bitshiftSignedMinusFour_2x.png" class="align-center" src="../_images/bitshiftSignedMinusFour_2x.png" style="width: 396px;" />
+<img alt="../_images/bitshiftSignedMinusFour_2x.png" class="align-center" src="../_images/bitshiftSignedMinusFour_2x.png" style="width: 280px;" />
 <p>This time, the sign bit is <code class="docutils literal notranslate"><span class="pre">1</span></code> (meaning “negative”), and the seven value bits have a binary value of <code class="docutils literal notranslate"><span class="pre">124</span></code> (which is <code class="docutils literal notranslate"><span class="pre">128</span> <span class="pre">-</span> <span class="pre">4</span></code>):</p>
-<img alt="../_images/bitshiftSignedMinusFourValue_2x.png" class="align-center" src="../_images/bitshiftSignedMinusFourValue_2x.png" style="width: 393px;" />
+<img alt="../_images/bitshiftSignedMinusFourValue_2x.png" class="align-center" src="../_images/bitshiftSignedMinusFourValue_2x.png" style="width: 252px;" />
 <p>This encoding for negative numbers is known as a <em>two’s complement</em> representation. It may seem an unusual way to represent negative numbers, but it has several advantages.</p>
 <p>First, you can add <code class="docutils literal notranslate"><span class="pre">-1</span></code> to <code class="docutils literal notranslate"><span class="pre">-4</span></code>, simply by performing a standard binary addition of all eight bits (including the sign bit), and discarding anything that doesn’t fit in the eight bits once you’re done:</p>
-<img alt="../_images/bitshiftSignedAddition_2x.png" class="align-center" src="../_images/bitshiftSignedAddition_2x.png" style="width: 446px;" />
+<img alt="../_images/bitshiftSignedAddition_2x.png" class="align-center" src="../_images/bitshiftSignedAddition_2x.png" style="width: 334px;" />
 <p>Second, the two’s complement representation also lets you shift the bits of negative numbers to the left and right like positive numbers, and still end up doubling them for every shift you make to the left, or halving them for every shift you make to the right. To achieve this, an extra rule is used when signed integers are shifted to the right: When you shift signed integers to the right, apply the same rules as for unsigned integers, but fill any empty bits on the left with the <em>sign bit</em>, rather than with a zero.</p>
-<img alt="../_images/bitshiftSigned_2x.png" class="align-center" src="../_images/bitshiftSigned_2x.png" style="width: 649px;" />
+<img alt="../_images/bitshiftSigned_2x.png" class="align-center" src="../_images/bitshiftSigned_2x.png" style="width: 541px;" />
 <p>This action ensures that signed integers have the same sign after they’re shifted to the right, and is known as an <em>arithmetic shift</em>.</p>
 <p>Because of the special way that positive and negative numbers are stored, shifting either of them to the right moves them closer to zero. Keeping the sign bit the same during this shift means that negative integers remain negative as their value moves closer to zero.</p>
 </div>
@@ -272,7 +272,7 @@
 </li><li><span class="c">// unsignedOverflow is now equal to 0</span>
 </li></ol></div></div></div>
 <p>The variable <code class="docutils literal notranslate"><span class="pre">unsignedOverflow</span></code> is initialized with the maximum value a <code class="docutils literal notranslate"><span class="pre">UInt8</span></code> can hold (<code class="docutils literal notranslate"><span class="pre">255</span></code>, or <code class="docutils literal notranslate"><span class="pre">11111111</span></code> in binary). It’s then incremented by <code class="docutils literal notranslate"><span class="pre">1</span></code> using the overflow addition operator (<code class="docutils literal notranslate"><span class="pre">&amp;+</span></code>). This pushes its binary representation just over the size that a <code class="docutils literal notranslate"><span class="pre">UInt8</span></code> can hold, causing it to overflow beyond its bounds, as shown in the diagram below. The value that remains within the bounds of the <code class="docutils literal notranslate"><span class="pre">UInt8</span></code> after the overflow addition is <code class="docutils literal notranslate"><span class="pre">00000000</span></code>, or zero.</p>
-<img alt="../_images/overflowAddition_2x.png" class="align-center" src="../_images/overflowAddition_2x.png" style="width: 486px;" />
+<img alt="../_images/overflowAddition_2x.png" class="align-center" src="../_images/overflowAddition_2x.png" style="width: 242px;" />
 <p>Something similar happens when an unsigned integer is allowed to overflow in the negative direction. Here’s an example using the overflow subtraction operator (<code class="docutils literal notranslate"><span class="pre">&amp;-</span></code>):</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">unsignedOverflow</span> = <span class="nv">UInt8</span>.<span class="nv">min</span>
 </li><li><span class="c">// unsignedOverflow equals 0, which is the minimum value a UInt8 can hold</span>
@@ -280,7 +280,7 @@
 </li><li><span class="c">// unsignedOverflow is now equal to 255</span>
 </li></ol></div></div></div>
 <p>The minimum value that a <code class="docutils literal notranslate"><span class="pre">UInt8</span></code> can hold is zero, or <code class="docutils literal notranslate"><span class="pre">00000000</span></code> in binary. If you subtract <code class="docutils literal notranslate"><span class="pre">1</span></code> from <code class="docutils literal notranslate"><span class="pre">00000000</span></code> using the overflow subtraction operator (<code class="docutils literal notranslate"><span class="pre">&amp;-</span></code>), the number will overflow and wrap around to <code class="docutils literal notranslate"><span class="pre">11111111</span></code>, or <code class="docutils literal notranslate"><span class="pre">255</span></code> in decimal.</p>
-<img alt="../_images/overflowUnsignedSubtraction_2x.png" class="align-center" src="../_images/overflowUnsignedSubtraction_2x.png" style="width: 486px;" />
+<img alt="../_images/overflowUnsignedSubtraction_2x.png" class="align-center" src="../_images/overflowUnsignedSubtraction_2x.png" style="width: 307px;" />
 <p>Overflow also occurs for signed integers. All addition and subtraction for signed integers is performed in bitwise fashion, with the sign bit included as part of the numbers being added or subtracted, as described in <a class="reference internal" href="#ID34"><span class="std std-ref">Bitwise Left and Right Shift Operators</span></a>.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">signedOverflow</span> = <span class="nv">Int8</span>.<span class="nv">min</span>
 </li><li><span class="c">// signedOverflow equals -128, which is the minimum value an Int8 can hold</span>
@@ -288,7 +288,7 @@
 </li><li><span class="c">// signedOverflow is now equal to 127</span>
 </li></ol></div></div></div>
 <p>The minimum value that an <code class="docutils literal notranslate"><span class="pre">Int8</span></code> can hold is <code class="docutils literal notranslate"><span class="pre">-128</span></code>, or <code class="docutils literal notranslate"><span class="pre">10000000</span></code> in binary. Subtracting <code class="docutils literal notranslate"><span class="pre">1</span></code> from this binary number with the overflow operator gives a binary value of <code class="docutils literal notranslate"><span class="pre">01111111</span></code>, which toggles the sign bit and gives positive <code class="docutils literal notranslate"><span class="pre">127</span></code>, the maximum positive value that an <code class="docutils literal notranslate"><span class="pre">Int8</span></code> can hold.</p>
-<img alt="../_images/overflowSignedSubtraction_2x.png" class="align-center" src="../_images/overflowSignedSubtraction_2x.png" style="width: 486px;" />
+<img alt="../_images/overflowSignedSubtraction_2x.png" class="align-center" src="../_images/overflowSignedSubtraction_2x.png" style="width: 311px;" />
 <p>For both signed and unsigned integers, overflow in the positive direction wraps around from the maximum valid integer value back to the minimum, and overflow in the negative direction wraps around from the minimum value to the maximum.</p>
 </div>
 </div>
@@ -326,7 +326,7 @@
 <div class="section" id="ID42">
 <h2>Operator Methods<a class="headerlink" href="#ID42" title="Permalink to this headline">¶</a></h2>
 <p>Classes and structures can provide their own implementations of existing operators. This is known as <em>overloading</em> the existing operators.</p>
-<p>The example below shows how to implement the arithmetic addition operator (<code class="docutils literal notranslate"><span class="pre">+</span></code>) for a custom structure. The arithmetic addition operator is a <em>binary operator</em> because it operates on two targets and is said to be <em>infix</em> because it appears in between those two targets.</p>
+<p>The example below shows how to implement the arithmetic addition operator (<code class="docutils literal notranslate"><span class="pre">+</span></code>) for a custom structure. The arithmetic addition operator is a binary operator because it operates on two targets and it’s an infix operator because it appears between those two targets.</p>
 <p>The example defines a <code class="docutils literal notranslate"><span class="pre">Vector2D</span></code> structure for a two-dimensional position vector <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code>, followed by a definition of an <em>operator method</em> to add together instances of the <code class="docutils literal notranslate"><span class="pre">Vector2D</span></code> structure:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Vector2D</span> {
 </li><li>    <span class="k">var</span> <span class="nv">x</span> = <span class="m">0.0</span>, <span class="nv">y</span> = <span class="m">0.0</span>
@@ -347,7 +347,7 @@
 </li><li><span class="c">// combinedVector is a Vector2D instance with values of (5.0, 5.0)</span>
 </li></ol></div></div></div>
 <p>This example adds together the vectors <code class="docutils literal notranslate"><span class="pre">(3.0,</span> <span class="pre">1.0)</span></code> and <code class="docutils literal notranslate"><span class="pre">(2.0,</span> <span class="pre">4.0)</span></code> to make the vector <code class="docutils literal notranslate"><span class="pre">(5.0,</span> <span class="pre">5.0)</span></code>, as illustrated below.</p>
-<img alt="../_images/vectorAddition_2x.png" class="align-center" src="../_images/vectorAddition_2x.png" style="width: 387px;" />
+<img alt="../_images/vectorAddition_2x.png" class="align-center" src="../_images/vectorAddition_2x.png" style="width: 477px;" />
 <div class="section" id="ID43">
 <h3>Prefix and Postfix Operators<a class="headerlink" href="#ID43" title="Permalink to this headline">¶</a></h3>
 <p>The example shown above demonstrates a custom implementation of a binary infix operator. Classes and structures can also provide implementations of the standard <em>unary operators</em>. Unary operators operate on a single target. They’re <em>prefix</em> if they precede their target (such as <code class="docutils literal notranslate"><span class="pre">-a</span></code>) and <em>postfix</em> operators if they follow their target (such as <code class="docutils literal notranslate"><span class="pre">b!</span></code>).</p>
@@ -582,6 +582,14 @@
         <p class="previous"><a href="AccessControl.html">Access Control</a></p>
         <p class="next"><a href="../ReferenceManual/AboutTheLanguageReference.html">About the Language Reference</a></p>
     </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
 </main>
 
 
@@ -591,7 +599,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

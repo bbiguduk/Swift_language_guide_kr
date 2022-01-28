@@ -445,6 +445,8 @@ print("Compiled with the Swift 5 compiler or later in a Swift mode earlier than 
 > NOTE  
 > 조건부 컴파일러 블럭의 바디에서 각 구문은 컴파일 되지 않아도 구문 분석됩니다. 그러나 컴파일러 조건이 swift\(\) 또는 compiler\(\) 플랫폼 조건을 포함하면 예외가 있습니다: 이 구문은 플랫폼 조건에서 지정한 언어 또는 컴파일러 버전이 일치하는 경우에만 분석됩니다. 이 예외는 이전 컴파일러가 최신 버전의 Swift 에 도입된 구문을 분석하지 않도록 합니다.
 
+조건부 컴파일러 블럭에서 명시적 멤버 표현식을 래핑하는 방법에 대한 자세한 내용은 [명시적 멤버 표현식 \(Explicit Member Expression\)](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#ID400) 을 참고하시기 바랍니다.
+
 > GRAMMAR OF A CONDITIONAL COMPILATION BLOCK  
 > conditional-compilation-block → [if-directive-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_if-directive-clause)  [elseif-directive-clauses](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_elseif-directive-clauses) $$_{opt}$$ [else-directive-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_else-directive-clause) $$_{opt}$$ [endif-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_endif-directive)  
 > if-directive-clause → [if-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_if-directive)  [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_compilation-condition)  [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statements) $$_{opt}$$   

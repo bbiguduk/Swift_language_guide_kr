@@ -6,7 +6,7 @@ Swift 의 _어휘 구조 \(lexical structure\)_ 는 언어의 유효한 토큰�
 
 ## 공백과 주석 \(Whitespace and Comments\)
 
-공백에는 두가지 용도가 있습니다: 소스 파일에서 토큰을 분리하고 접두사, 접미사, 그리고 이진 연산자\([연산자 \(Operators\)](lexical-structure.md#operators) 참조\)를 구분 하는데 사용하지만 그렇지 않으면 무시됩니다. 다음 문자는 공백으로 간주합니다: 공백 \(U+0020\), 줄바꿈 \(U+000A\), 캐리지 리턴 \(U+000D\), 수평탭 \(U+0009\), 수직 \(U+000B\), 폼피드\(U+000C\) 그리고 null \(U+0000\).
+공백에는 두가지 용도가 있습니다: 소스 파일에서 토큰을 분리하고 접두사, 접미사, 그리고 중위 연산자\([연산자 \(Operators\)](lexical-structure.md#operators) 참조\)를 구분 하는데 사용하지만 그렇지 않으면 무시됩니다. 다음 문자는 공백으로 간주합니다: 공백 \(U+0020\), 줄바꿈 \(U+000A\), 캐리지 리턴 \(U+000D\), 수평탭 \(U+0009\), 수직 \(U+000B\), 폼피드\(U+000C\) 그리고 null \(U+0000\).
 
 주석은 컴파일러에 의해 공백으로 처리됩니다. 한 줄 주석은 `//` 로 시작하고 줄바꿈 \(U+000A\) 또는 캐리지 리턴 \(U+000D\) 까지 계속됩니다. 여러줄 주석은 `/*` 로 시작하고 `*/` 으로 끝납니다. 여러줄 주석을 중첩할 수 있지만 주석 마커는 균형을 이루어야 합니다.
 
@@ -18,12 +18,12 @@ Swift 의 _어휘 구조 \(lexical structure\)_ 는 언어의 유효한 토큰�
 > whitespace-item → [inline-space](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_inline-space)  
 > whitespace-item → [comment](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_comment)  
 > whitespace-item → [multiline-comment](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_multiline-comment)  
-> whitespace-item → U+0000, U+000B, 또 U+000C  
+> whitespace-item → U+0000, U+000B, 또는 U+000C  
 > line-break → U+000A  
 > line-break → U+000D  
 > line-break → U+000D 다음에 U+000A  
 > inline-spaces → [inline-space](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_inline-space)  [inline-spaces](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_inline-spaces) $$_{opt}$$   
-> inline-space → U+0009 또 U+0020  
+> inline-space → U+0009 또는 U+0020  
 > comment → `//` [comment-text](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_comment-text)  [line-break](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_line-break)  
 > multiline-comment → `/*` [multiline-comment-text](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_multiline-comment-text)  `*/`   
 > comment-text → [comment-text-item](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_comment-text-item)  [comment-text](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_comment-text) $$_{opt}$$   
@@ -47,11 +47,11 @@ _식별자 \(Identifiers\)_ 는 A 부터 Z 까지 대문자 또는 소문자, �
 
 > GRAMMAR OF AN IDENTIFIER  
 > identifier → [identifier-head](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier-head)  [identifier-characters](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier-characters) $$_{opt}$$   
-> identifier → ````` [identifier-head](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier-head)  [identifier-characters](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier-characters) $$_{opt}$$ `````   
+> identifier → \` [identifier-head](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier-head)  [identifier-characters](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier-characters) $$_{opt}$$ \`   
 > identifier → [implicit-parameter-name](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_implicit-parameter-name)  
 > identifier → [property-wrapper-projection](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_property-wrapper-projection)  
 > identifier-list → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) \|  [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  `,` [identifier-list](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier-list)  
-> identifier-head → A 부터 Z 까지 대문자 또는 소문  
+> identifier-head → A 부터 Z 까지 대문자 또는 소문자 
 > identifier-head → `_`   
 > identifier-head → U+00A8, U+00AA, U+00AD, U+00AF, U+00B2–U+00B5, 또는 U+00B7–U+00BA  
 > identifier-head → U+00BC–U+00BE, U+00C0–U+00D6, U+00D8–U+00F6, 또는 U+00F8–U+00FF  

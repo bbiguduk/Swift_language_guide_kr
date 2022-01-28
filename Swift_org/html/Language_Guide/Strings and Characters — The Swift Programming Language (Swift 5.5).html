@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Strings and Characters &mdash; The Swift Programming Language (Swift 5.5)</title>
+    <title>Strings and Characters &mdash; The Swift Programming Language (Swift 5.6)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
 
     <ul>
     <ul class="current">
@@ -197,7 +197,7 @@
 </li><li><span class="s">&quot;&quot;&quot;</span>
 </li></ol></div></div></div>
 <p>A multiline string can be indented to match the surrounding code. The whitespace before the closing quotation marks (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>) tells Swift what whitespace to ignore before all of the other lines. However, if you write whitespace at the beginning of a line in addition to what’s before the closing quotation marks, that whitespace <em>is</em> included.</p>
-<img alt="../_images/multilineStringWhitespace_2x.png" class="align-center" src="../_images/multilineStringWhitespace_2x.png" style="width: 478px;" />
+<img alt="../_images/multilineStringWhitespace_2x.png" class="align-center" src="../_images/multilineStringWhitespace_2x.png" style="width: 519px;" />
 <p>In the example above, even though the entire multiline string literal is indented, the first and last lines in the string don’t begin with any whitespace. The middle line has more indentation than the closing quotation marks, so it starts with that extra four-space indentation.</p>
 </div>
 <div class="section" id="ID295">
@@ -490,7 +490,7 @@
 </li></ol></div></div></div>
 <p>Like strings, each substring has a region of memory where the characters that make up the substring are stored. The difference between strings and substrings is that, as a performance optimization, a substring can reuse part of the memory that’s used to store the original string, or part of the memory that’s used to store another substring. (Strings have a similar optimization, but if two strings share memory, they’re equal.) This performance optimization means you don’t have to pay the performance cost of copying memory until you modify either the string or substring. As mentioned above, substrings aren’t suitable for long-term storage—because they reuse the storage of the original string, the entire original string must be kept in memory as long as any of its substrings are being used.</p>
 <p>In the example above, <code class="docutils literal notranslate"><span class="pre">greeting</span></code> is a string, which means it has a region of memory where the characters that make up the string are stored. Because <code class="docutils literal notranslate"><span class="pre">beginning</span></code> is a substring of <code class="docutils literal notranslate"><span class="pre">greeting</span></code>, it reuses the memory that <code class="docutils literal notranslate"><span class="pre">greeting</span></code> uses. In contrast, <code class="docutils literal notranslate"><span class="pre">newString</span></code> is a string—when it’s created from the substring, it has its own storage. The figure below shows these relationships:</p>
-<img alt="../_images/stringSubstring_2x.png" class="align-center" src="../_images/stringSubstring_2x.png" style="width: 366px;" />
+<img alt="../_images/stringSubstring_2x.png" class="align-center" src="../_images/stringSubstring_2x.png" style="width: 382px;" />
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Both <code class="docutils literal notranslate"><span class="pre">String</span></code> and <code class="docutils literal notranslate"><span class="pre">Substring</span></code> conform to the <a class="reference external" href="https://developer.apple.com/documentation/swift/stringprotocol"><code class="docutils literal notranslate"><span class="pre">StringProtocol</span></code></a> protocol, which means it’s often convenient for string-manipulation functions to accept a <code class="docutils literal notranslate"><span class="pre">StringProtocol</span></code> value. You can call such functions with either a <code class="docutils literal notranslate"><span class="pre">String</span></code> or <code class="docutils literal notranslate"><span class="pre">Substring</span></code> value.</p>
@@ -600,7 +600,7 @@
 <div class="section" id="ID302">
 <h3>UTF-8 Representation<a class="headerlink" href="#ID302" title="Permalink to this headline">¶</a></h3>
 <p>You can access a UTF-8 representation of a <code class="docutils literal notranslate"><span class="pre">String</span></code> by iterating over its <code class="docutils literal notranslate"><span class="pre">utf8</span></code> property. This property is of type <code class="docutils literal notranslate"><span class="pre">String.UTF8View</span></code>, which is a collection of unsigned 8-bit (<code class="docutils literal notranslate"><span class="pre">UInt8</span></code>) values, one for each byte in the string’s UTF-8 representation:</p>
-<img alt="../_images/UTF8_2x.png" class="align-center" src="../_images/UTF8_2x.png" style="width: 476px;" />
+<img alt="../_images/UTF8_2x.png" class="align-center" src="../_images/UTF8_2x.png" style="width: 681px;" />
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">for</span> <span class="nv">codeUnit</span> <span class="k">in</span> <span class="nv">dogString</span>.<span class="nv">utf8</span> {
 </li><li>    <span class="nv">print</span>(<span class="s">&quot;</span>\<span class="p">(</span><span class="nv">codeUnit</span><span class="p">)</span><span class="s"> &quot;</span>, <span class="nv">terminator</span>: <span class="s">&quot;&quot;</span>)
 </li><li>}
@@ -612,7 +612,7 @@
 <div class="section" id="ID303">
 <h3>UTF-16 Representation<a class="headerlink" href="#ID303" title="Permalink to this headline">¶</a></h3>
 <p>You can access a UTF-16 representation of a <code class="docutils literal notranslate"><span class="pre">String</span></code> by iterating over its <code class="docutils literal notranslate"><span class="pre">utf16</span></code> property. This property is of type <code class="docutils literal notranslate"><span class="pre">String.UTF16View</span></code>, which is a collection of unsigned 16-bit (<code class="docutils literal notranslate"><span class="pre">UInt16</span></code>) values, one for each 16-bit code unit in the string’s UTF-16 representation:</p>
-<img alt="../_images/UTF16_2x.png" class="align-center" src="../_images/UTF16_2x.png" style="width: 477px;" />
+<img alt="../_images/UTF16_2x.png" class="align-center" src="../_images/UTF16_2x.png" style="width: 548px;" />
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">for</span> <span class="nv">codeUnit</span> <span class="k">in</span> <span class="nv">dogString</span>.<span class="nv">utf16</span> {
 </li><li>    <span class="nv">print</span>(<span class="s">&quot;</span>\<span class="p">(</span><span class="nv">codeUnit</span><span class="p">)</span><span class="s"> &quot;</span>, <span class="nv">terminator</span>: <span class="s">&quot;&quot;</span>)
 </li><li>}
@@ -627,7 +627,7 @@
 <h3>Unicode Scalar Representation<a class="headerlink" href="#ID304" title="Permalink to this headline">¶</a></h3>
 <p>You can access a Unicode scalar representation of a <code class="docutils literal notranslate"><span class="pre">String</span></code> value by iterating over its <code class="docutils literal notranslate"><span class="pre">unicodeScalars</span></code> property. This property is of type <code class="docutils literal notranslate"><span class="pre">UnicodeScalarView</span></code>, which is a collection of values of type <code class="docutils literal notranslate"><span class="pre">UnicodeScalar</span></code>.</p>
 <p>Each <code class="docutils literal notranslate"><span class="pre">UnicodeScalar</span></code> has a <code class="docutils literal notranslate"><span class="pre">value</span></code> property that returns the scalar’s 21-bit value, represented within a <code class="docutils literal notranslate"><span class="pre">UInt32</span></code> value:</p>
-<img alt="../_images/UnicodeScalar_2x.png" class="align-center" src="../_images/UnicodeScalar_2x.png" style="width: 477px;" />
+<img alt="../_images/UnicodeScalar_2x.png" class="align-center" src="../_images/UnicodeScalar_2x.png" style="width: 470px;" />
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">for</span> <span class="nv">scalar</span> <span class="k">in</span> <span class="nv">dogString</span>.<span class="nv">unicodeScalars</span> {
 </li><li>    <span class="nv">print</span>(<span class="s">&quot;</span>\<span class="p">(</span><span class="nv">scalar</span>.<span class="nv">value</span><span class="p">)</span><span class="s"> &quot;</span>, <span class="nv">terminator</span>: <span class="s">&quot;&quot;</span>)
 </li><li>}
@@ -657,6 +657,14 @@
         <p class="previous"><a href="BasicOperators.html">Basic Operators</a></p>
         <p class="next"><a href="CollectionTypes.html">Collection Types</a></p>
     </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
 </main>
 
 
@@ -666,7 +674,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Generics &mdash; The Swift Programming Language (Swift 5.5)</title>
+    <title>Generics &mdash; The Swift Programming Language (Swift 5.6)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
 
     <ul>
     <ul class="current">
@@ -229,7 +229,7 @@
 <p class="last">The concept of a stack is used by the <code class="docutils literal notranslate"><span class="pre">UINavigationController</span></code> class to model the view controllers in its navigation hierarchy. You call the <code class="docutils literal notranslate"><span class="pre">UINavigationController</span></code> class <code class="docutils literal notranslate"><span class="pre">pushViewController(_:animated:)</span></code> method to add (or push) a view controller on to the navigation stack, and its <code class="docutils literal notranslate"><span class="pre">popViewControllerAnimated(_:)</span></code> method to remove (or pop) a view controller from the navigation stack. A stack is a useful collection model whenever you need a strict “last in, first out” approach to managing a collection.</p>
 </div>
 <p>The illustration below shows the push and pop behavior for a stack:</p>
-<img alt="../_images/stackPushPop_2x.png" class="align-center" src="../_images/stackPushPop_2x.png" style="width: 664px;" />
+<img alt="../_images/stackPushPop_2x.png" class="align-center" src="../_images/stackPushPop_2x.png" style="width: 760px;" />
 <ol class="arabic simple">
 <li>There are currently three values on the stack.</li>
 <li>A fourth value is pushed onto the top of the stack.</li>
@@ -249,7 +249,7 @@
 </li><li>}
 </li></ol></div></div></div>
 <p>This structure uses an <code class="docutils literal notranslate"><span class="pre">Array</span></code> property called <code class="docutils literal notranslate"><span class="pre">items</span></code> to store the values in the stack. <code class="docutils literal notranslate"><span class="pre">Stack</span></code> provides two methods, <code class="docutils literal notranslate"><span class="pre">push</span></code> and <code class="docutils literal notranslate"><span class="pre">pop</span></code>, to push and pop values on and off the stack. These methods are marked as <code class="docutils literal notranslate"><span class="pre">mutating</span></code>, because they need to modify (or <em>mutate</em>) the structure’s <code class="docutils literal notranslate"><span class="pre">items</span></code> array.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">IntStack</span></code> type shown above can only be used with <code class="docutils literal notranslate"><span class="pre">Int</span></code> values, however. It would be much more useful to define a <em>generic</em> <code class="docutils literal notranslate"><span class="pre">Stack</span></code> class, that can manage a stack of <em>any</em> type of value.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">IntStack</span></code> type shown above can only be used with <code class="docutils literal notranslate"><span class="pre">Int</span></code> values, however. It would be much more useful to define a <em>generic</em> <code class="docutils literal notranslate"><span class="pre">Stack</span></code> structure, that can manage a stack of <em>any</em> type of value.</p>
 <p>Here’s a generic version of the same code:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Stack</span>&lt;<span class="nv">Element</span>&gt; {
 </li><li>    <span class="k">var</span> <span class="nv">items</span>: [<span class="nc">Element</span>] = []
@@ -278,13 +278,13 @@
 </li><li><span class="c">// the stack now contains 4 strings</span>
 </li></ol></div></div></div>
 <p>Here’s how <code class="docutils literal notranslate"><span class="pre">stackOfStrings</span></code> looks after pushing these four values on to the stack:</p>
-<img alt="../_images/stackPushedFourStrings_2x.png" class="align-center" src="../_images/stackPushedFourStrings_2x.png" style="width: 664px;" />
+<img alt="../_images/stackPushedFourStrings_2x.png" class="align-center" src="../_images/stackPushedFourStrings_2x.png" style="width: 760px;" />
 <p>Popping a value from the stack removes and returns the top value, <code class="docutils literal notranslate"><span class="pre">&quot;cuatro&quot;</span></code>:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">fromTheTop</span> = <span class="nv">stackOfStrings</span>.<span class="nv">pop</span>()
 </li><li><span class="c">// fromTheTop is equal to &quot;cuatro&quot;, and the stack now contains 3 strings</span>
 </li></ol></div></div></div>
 <p>Here’s how the stack looks after popping its top value:</p>
-<img alt="../_images/stackPoppedOneString_2x.png" class="align-center" src="../_images/stackPoppedOneString_2x.png" style="width: 405px;" />
+<img alt="../_images/stackPoppedOneString_2x.png" class="align-center" src="../_images/stackPoppedOneString_2x.png" style="width: 452px;" />
 </div>
 <div class="section" id="ID185">
 <h2>Extending a Generic Type<a class="headerlink" href="#ID185" title="Permalink to this headline">¶</a></h2>
@@ -717,6 +717,14 @@
         <p class="previous"><a href="Protocols.html">Protocols</a></p>
         <p class="next"><a href="OpaqueTypes.html">Opaque Types</a></p>
     </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
 </main>
 
 
@@ -726,7 +734,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

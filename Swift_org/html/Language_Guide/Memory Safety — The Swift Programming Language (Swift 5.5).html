@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Memory Safety &mdash; The Swift Programming Language (Swift 5.5)</title>
+    <title>Memory Safety &mdash; The Swift Programming Language (Swift 5.6)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
 
     <ul>
     <ul class="current">
@@ -132,7 +132,7 @@
 </li></ol></div></div></div>
 <p>A conflicting access to memory can occur when different parts of your code are trying to access the same location in memory at the same time. Multiple accesses to a location in memory at the same time can produce unpredictable or inconsistent behavior. In Swift, there are ways to modify a value that span several lines of code, making it possible to attempt to access a value in the middle of its own modification.</p>
 <p>You can see a similar problem by thinking about how you update a budget that’s written on a piece of paper. Updating the budget is a two-step process: First you add the items’ names and prices, and then you change the total amount to reflect the items currently on the list. Before and after the update, you can read any information from the budget and get a correct answer, as shown in the figure below.</p>
-<img alt="../_images/memory_shopping_2x.png" class="align-center" src="../_images/memory_shopping_2x.png" style="width: 430px;" />
+<img alt="../_images/memory_shopping_2x.png" class="align-center" src="../_images/memory_shopping_2x.png" style="width: 616px;" />
 <p>While you’re adding items to the budget, it’s in a temporary, invalid state because the total amount hasn’t been updated to reflect the newly added items. Reading the total amount during the process of adding an item gives you incorrect information.</p>
 <p>This example also demonstrates a challenge you may encounter when fixing conflicting access to memory: There are sometimes multiple ways to fix the conflict that produce different answers, and it’s not always obvious which answer is correct. In this example, depending on whether you wanted the original total amount or the updated total amount, either $5 or $320 could be the correct answer. Before you can fix the conflicting access, you have to determine what it was intended to do.</p>
 <div class="admonition note">
@@ -178,7 +178,7 @@
 </li><li><span class="c">// Error: conflicting accesses to stepSize</span>
 </li></ol></div></div></div>
 <p>In the code above, <code class="docutils literal notranslate"><span class="pre">stepSize</span></code> is a global variable, and it’s normally accessible from within <code class="docutils literal notranslate"><span class="pre">increment(_:)</span></code>. However, the read access to <code class="docutils literal notranslate"><span class="pre">stepSize</span></code> overlaps with the write access to <code class="docutils literal notranslate"><span class="pre">number</span></code>. As shown in the figure below, both <code class="docutils literal notranslate"><span class="pre">number</span></code> and <code class="docutils literal notranslate"><span class="pre">stepSize</span></code> refer to the same location in memory. The read and write accesses refer to the same memory and they overlap, producing a conflict.</p>
-<img alt="../_images/memory_increment_2x.png" class="align-center" src="../_images/memory_increment_2x.png" style="width: 384px;" />
+<img alt="../_images/memory_increment_2x.png" class="align-center" src="../_images/memory_increment_2x.png" style="width: 442px;" />
 <p>One way to solve this conflict is to make an explicit copy of <code class="docutils literal notranslate"><span class="pre">stepSize</span></code>:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="c">// Make an explicit copy.</span>
 </li><li><span class="k">var</span> <span class="nv">copyOfStepSize</span> = <span class="nv">stepSize</span>
@@ -233,13 +233,13 @@
 </li><li><span class="nv">oscar</span>.<span class="nv">shareHealth</span>(<span class="nv">with</span>: &amp;<span class="nv">maria</span>)  <span class="c">// OK</span>
 </li></ol></div></div></div>
 <p>In the example above, calling the <code class="docutils literal notranslate"><span class="pre">shareHealth(with:)</span></code> method for Oscar’s player to share health with Maria’s player doesn’t cause a conflict. There’s a write access to <code class="docutils literal notranslate"><span class="pre">oscar</span></code> during the method call because <code class="docutils literal notranslate"><span class="pre">oscar</span></code> is the value of <code class="docutils literal notranslate"><span class="pre">self</span></code> in a mutating method, and there’s a write access to <code class="docutils literal notranslate"><span class="pre">maria</span></code> for the same duration because <code class="docutils literal notranslate"><span class="pre">maria</span></code> was passed as an in-out parameter. As shown in the figure below, they access different locations in memory. Even though the two write accesses overlap in time, they don’t conflict.</p>
-<img alt="../_images/memory_share_health_maria_2x.png" class="align-center" src="../_images/memory_share_health_maria_2x.png" style="width: 506px;" />
+<img alt="../_images/memory_share_health_maria_2x.png" class="align-center" src="../_images/memory_share_health_maria_2x.png" style="width: 549px;" />
 <p>However, if you pass <code class="docutils literal notranslate"><span class="pre">oscar</span></code> as the argument to <code class="docutils literal notranslate"><span class="pre">shareHealth(with:)</span></code>, there’s a conflict:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">oscar</span>.<span class="nv">shareHealth</span>(<span class="nv">with</span>: &amp;<span class="nv">oscar</span>)
 </li><li><span class="c">// Error: conflicting accesses to oscar</span>
 </li></ol></div></div></div>
 <p>The mutating method needs write access to <code class="docutils literal notranslate"><span class="pre">self</span></code> for the duration of the method, and the in-out parameter needs write access to <code class="docutils literal notranslate"><span class="pre">teammate</span></code> for the same duration. Within the method, both <code class="docutils literal notranslate"><span class="pre">self</span></code> and <code class="docutils literal notranslate"><span class="pre">teammate</span></code> refer to the same location in memory—as shown in the figure below. The two write accesses refer to the same memory and they overlap, producing a conflict.</p>
-<img alt="../_images/memory_share_health_oscar_2x.png" class="align-center" src="../_images/memory_share_health_oscar_2x.png" style="width: 506px;" />
+<img alt="../_images/memory_share_health_oscar_2x.png" class="align-center" src="../_images/memory_share_health_oscar_2x.png" style="width: 549px;" />
 </div>
 <div class="section" id="ID571">
 <h2>Conflicting Access to Properties<a class="headerlink" href="#ID571" title="Permalink to this headline">¶</a></h2>
@@ -276,6 +276,14 @@
         <p class="previous"><a href="AutomaticReferenceCounting.html">Automatic Reference Counting</a></p>
         <p class="next"><a href="AccessControl.html">Access Control</a></p>
     </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
 </main>
 
 
@@ -285,7 +293,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>

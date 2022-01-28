@@ -221,7 +221,7 @@ print(anotherGreeting(for: "Dave"))
 [짧은 게터 선언 \(Shorthand Getter Declaration\)](properties.md#getter-shorthand-getter-declaration) 에서 살펴보겠지만 프로퍼티 게터 또한 맹목적 반환을 사용할 수 있습니다.
 
 > NOTE   
-> 암시적 반환값으로 작성하는 코드는 일부값을 반환하기 위해 필요합니다. 예를 들어 암시적 반환값으로 `fatalError("Oh no!")` 또는 `print(13)` 을 사용할 수 없습니다.
+> 암시적 반환값으로 작성하는 코드는 일부값을 반환하기 위해 필요합니다. 예를 들어 암시적 반환값으로 `print(13)` 을 사용할 수 없습니다. 그러나 `fatalError("Oh no!")` 와 같이 Swift 가 암시적 반환이 일어나지 않는 것을 아는 경우에는 사용할 수 있습니다.
 
 ## 함수 인자 라벨과 파라미터 이름 \(Function Argument Labels and Parameter Names\)
 

@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Control Flow &mdash; The Swift Programming Language (Swift 5.5)</title>
+    <title>Control Flow &mdash; The Swift Programming Language (Swift 5.6)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.5</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
 
     <ul>
     <ul class="current">
@@ -230,7 +230,7 @@
 </li><li>}
 </li></ol></div></div></div>
 <p>This example plays a simple game of <em>Snakes and Ladders</em> (also known as <em>Chutes and Ladders</em>):</p>
-<img alt="../_images/snakesAndLadders_2x.png" class="align-center" src="../_images/snakesAndLadders_2x.png" style="width: 623px;" />
+<img alt="../_images/snakesAndLadders_2x.png" class="align-center" src="../_images/snakesAndLadders_2x.png" style="width: 527px;" />
 <p>The rules of the game are as follows:</p>
 <ul class="simple">
 <li>The board has 25 squares, and the aim is to land on or beyond square 25.</li>
@@ -464,8 +464,8 @@
 </li><li>}
 </li><li><span class="c">// Prints &quot;(1, 1) is inside the box&quot;</span>
 </li></ol></div></div></div>
-<img alt="../_images/coordinateGraphSimple_2x.png" class="align-center" src="../_images/coordinateGraphSimple_2x.png" style="width: 288px;" />
-<p>The <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement determines whether the point is at the origin (0, 0), on the red x-axis, on the orange y-axis, inside the blue 4-by-4 box centered on the origin, or outside of the box.</p>
+<img alt="../_images/coordinateGraphSimple_2x.png" class="align-center" src="../_images/coordinateGraphSimple_2x.png" style="width: 474px;" />
+<p>The <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement determines whether the point is at the origin (0, 0), on the red x-axis, on the green y-axis, inside the blue 4-by-4 box centered on the origin, or outside of the box.</p>
 <p>Unlike C, Swift allows multiple <code class="docutils literal notranslate"><span class="pre">switch</span></code> cases to consider the same value or values. In fact, the point (0, 0) could match all <em>four</em> of the cases in this example. However, if multiple matches are possible, the first matching case is always used. The point (0, 0) would match <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">(0,</span> <span class="pre">0)</span></code> first, and so all other matching cases would be ignored.</p>
 </div>
 <div class="section" id="ID133">
@@ -483,8 +483,8 @@
 </li><li>}
 </li><li><span class="c">// Prints &quot;on the x-axis with an x value of 2&quot;</span>
 </li></ol></div></div></div>
-<img alt="../_images/coordinateGraphMedium_2x.png" class="align-center" src="../_images/coordinateGraphMedium_2x.png" style="width: 288px;" />
-<p>The <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement determines whether the point is on the red x-axis, on the orange y-axis, or elsewhere (on neither axis).</p>
+<img alt="../_images/coordinateGraphMedium_2x.png" class="align-center" src="../_images/coordinateGraphMedium_2x.png" style="width: 474px;" />
+<p>The <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement determines whether the point is on the red x-axis, on the green y-axis, or elsewhere (on neither axis).</p>
 <p>The three <code class="docutils literal notranslate"><span class="pre">switch</span></code> cases declare placeholder constants <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, which temporarily take on one or both tuple values from <code class="docutils literal notranslate"><span class="pre">anotherPoint</span></code>. The first case, <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">(let</span> <span class="pre">x,</span> <span class="pre">0)</span></code>, matches any point with a <code class="docutils literal notranslate"><span class="pre">y</span></code> value of <code class="docutils literal notranslate"><span class="pre">0</span></code> and assigns the point’s <code class="docutils literal notranslate"><span class="pre">x</span></code> value to the temporary constant <code class="docutils literal notranslate"><span class="pre">x</span></code>. Similarly, the second case, <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">(0,</span> <span class="pre">let</span> <span class="pre">y)</span></code>, matches any point with an <code class="docutils literal notranslate"><span class="pre">x</span></code> value of <code class="docutils literal notranslate"><span class="pre">0</span></code> and assigns the point’s <code class="docutils literal notranslate"><span class="pre">y</span></code> value to the temporary constant <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 <p>After the temporary constants are declared, they can be used within the case’s code block. Here, they’re used to print the categorization of the point.</p>
 <p>This <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement doesn’t have a <code class="docutils literal notranslate"><span class="pre">default</span></code> case. The final case, <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">let</span> <span class="pre">(x,</span> <span class="pre">y)</span></code>, declares a tuple of two placeholder constants that can match any value. Because <code class="docutils literal notranslate"><span class="pre">anotherPoint</span></code> is always a tuple of two values, this case matches all possible remaining values, and a <code class="docutils literal notranslate"><span class="pre">default</span></code> case isn’t needed to make the <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement exhaustive.</p>
@@ -504,7 +504,7 @@
 </li><li>}
 </li><li><span class="c">// Prints &quot;(1, -1) is on the line x == -y&quot;</span>
 </li></ol></div></div></div>
-<img alt="../_images/coordinateGraphComplex_2x.png" class="align-center" src="../_images/coordinateGraphComplex_2x.png" style="width: 289px;" />
+<img alt="../_images/coordinateGraphComplex_2x.png" class="align-center" src="../_images/coordinateGraphComplex_2x.png" style="width: 474px;" />
 <p>The <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement determines whether the point is on the green diagonal line where <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code>, on the purple diagonal line where <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">-y</span></code>, or neither.</p>
 <p>The three <code class="docutils literal notranslate"><span class="pre">switch</span></code> cases declare placeholder constants <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, which temporarily take on the two tuple values from <code class="docutils literal notranslate"><span class="pre">yetAnotherPoint</span></code>. These constants are used as part of a <code class="docutils literal notranslate"><span class="pre">where</span></code> clause, to create a dynamic filter. The <code class="docutils literal notranslate"><span class="pre">switch</span></code> case matches the current value of <code class="docutils literal notranslate"><span class="pre">point</span></code> only if the <code class="docutils literal notranslate"><span class="pre">where</span></code> clause’s condition evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> for that value.</p>
 <p>As in the previous example, the final case matches all possible remaining values, and so a <code class="docutils literal notranslate"><span class="pre">default</span></code> case isn’t needed to make the <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement exhaustive.</p>
@@ -649,7 +649,7 @@
 </ul>
 <p>If a particular dice roll would take you beyond square 25, you must roll again until you roll the exact number needed to land on square 25.</p>
 <p>The game board is the same as before.</p>
-<img alt="../_images/snakesAndLadders_2x.png" class="align-center" src="../_images/snakesAndLadders_2x.png" style="width: 623px;" />
+<img alt="../_images/snakesAndLadders_2x.png" class="align-center" src="../_images/snakesAndLadders_2x.png" style="width: 527px;" />
 <p>The values of <code class="docutils literal notranslate"><span class="pre">finalSquare</span></code>, <code class="docutils literal notranslate"><span class="pre">board</span></code>, <code class="docutils literal notranslate"><span class="pre">square</span></code>, and <code class="docutils literal notranslate"><span class="pre">diceRoll</span></code> are initialized in the same way as before:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">finalSquare</span> = <span class="m">25</span>
 </li><li><span class="k">var</span> <span class="nv">board</span> = [<span class="nv">Int</span>](<span class="nv">repeating</span>: <span class="m">0</span>, <span class="nv">count</span>: <span class="nv">finalSquare</span> + <span class="m">1</span>)
@@ -748,6 +748,14 @@
         <p class="previous"><a href="CollectionTypes.html">Collection Types</a></p>
         <p class="next"><a href="Functions.html">Functions</a></p>
     </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
 </main>
 
 
@@ -757,7 +765,7 @@
     <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
   </aside>
 
-  <p class="copyright">Copyright &copy; 2021 Apple Inc. All rights reserved.</p>
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
   <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
   <p class="privacy">
     <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
