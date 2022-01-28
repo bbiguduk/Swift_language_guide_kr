@@ -1,16 +1,16 @@
-# 속성 \(Attributes\)
+# 속성 (Attributes)
 
-Swift 에는 두 종류의 속성 \(attributes\) 가 있습니다—선언에 적용하는 속성과 타입에 적용하는 속성이 있습니다. 속성은 선언 또는 타입에 대한 추가적인 정보를 제공합니다. 예를 들어 함수 선언에 `discardableResult` 속성은 함수가 값을 반환하지만 반환값이 사용되지 않을 때 컴파일러는 경고를 생성하지 않는 것을 나타냅니다.
+Swift 에는 두 종류의 속성 (attributes) 가 있습니다—선언에 적용하는 속성과 타입에 적용하는 속성이 있습니다. 속성은 선언 또는 타입에 대한 추가적인 정보를 제공합니다. 예를 들어 함수 선언에 `discardableResult` 속성은 함수가 값을 반환하지만 반환값이 사용되지 않을 때 컴파일러는 경고를 생성하지 않는 것을 나타냅니다.
 
 속성을 지정하려면 `@` 기호 다음에 속성의 이름과 속성이 허용하는 인수를 작성합니다:
 
-![](../.gitbook/assets/2021-02-22-2.45.21.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오후 2.45.21.png>)
 
-어떤 선언 속성은 속성에 대한 추가 정보와 특정 선언에 어떻게 적용하지는 지정하는 인수를 허용합니다. 이러한 _속성 인수 \(attribute arguments\)_ 는 소괄호로 둘러싸이고 해당 형식은 속한 속성에 의해 정의됩니다.
+어떤 선언 속성은 속성에 대한 추가 정보와 특정 선언에 어떻게 적용하지는 지정하는 인수를 허용합니다. 이러한 _속성 인수 (attribute arguments)_ 는 소괄호로 둘러싸이고 해당 형식은 속한 속성에 의해 정의됩니다.
 
-## 선언 속성 \(Declaration Attributes\)
+## 선언 속성 (Declaration Attributes)
 
-선언 속성 \(declaration attribute\) 은 선언에만 적용할 수 있습니다.
+선언 속성 (declaration attribute) 은 선언에만 적용할 수 있습니다.
 
 ### available
 
@@ -30,40 +30,40 @@ Swift 에는 두 종류의 속성 \(attributes\) 가 있습니다—선언에 �
 * `tvOSApplicationExtension`
 * `swift`
 
-또한 별표 \(`*`\) 를 사용하여 위에 나열된 모든 플랫폼 이름에 대한 선언의 가용성을 나타낼 수도 있습니다. Swift 버전을 사용하여 지정한 가용 `available` 속성은 별표를 사용할 수 없습니다.
+또한 별표 (`*`) 를 사용하여 위에 나열된 모든 플랫폼 이름에 대한 선언의 가용성을 나타낼 수도 있습니다. Swift 버전을 사용하여 지정한 가용 `available` 속성은 별표를 사용할 수 없습니다.
 
 나머지 인수는 순서에 상관없이 나타날 수 있으며 중요한 이정표를 도입하여 선언의 라이프 사이클에 대한 추가 정보를 지정할 수 있습니다.
 
 * `unavailable` 인수는 선언이 지정된 플랫폼에서 가능하지 않음을 나타냅니다. 이 인수는 Swift 버전 가용성을 지정할 때 사용될 수 없습니다.
 * `introduced` 인수는 선언이 도입된 지정된 플랫폼 또는 언어의 첫번째 버전을 나타냅니다. 다음과 같은 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-2.47.53.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오후 2.47.53.png>)
 
-_버전 번호 \(version number\)_ 는 마침표로 구분된 하나에서 세개의 양수로 구성됩니다.
+_버전 번호 (version number)_ 는 마침표로 구분된 하나에서 세개의 양수로 구성됩니다.
 
 * `deprecated` 인수는 선언이 사용되지 않는 지정된 플랫폼 또는 언어의 첫번째 버전을 나타냅니다. 다음과 같은 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-2.48.59.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오후 2.48.59.png>)
 
-옵셔널 _버전 번호 \(version number\)_ 는 마침표로 구분된 하나에서 세개의 양수로 구성됩니다. 버전 번호를 생략하면 지원 중단된 시기에 대한 정보를 제공하지 않고 선언이 현재 지원 중단됨을 나타냅니다. 버전 숫자를 생략하면 콜론 \(`:`\) 도 생략합니다.
+옵셔널 _버전 번호 (version number)_ 는 마침표로 구분된 하나에서 세개의 양수로 구성됩니다. 버전 번호를 생략하면 지원 중단된 시기에 대한 정보를 제공하지 않고 선언이 현재 지원 중단됨을 나타냅니다. 버전 숫자를 생략하면 콜론 (`:`) 도 생략합니다.
 
 * `obsoleted` 인수는 선언이 폐기된 지정된 플랫폼 또는 언어의 첫번째 버전을 나타냅니다. 선언이 폐기되면 지정된 플랫폼 또는 언어에서 제거되고 더이상 사용이 불가능합니다. 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-2.49.34.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오후 2.49.34.png>)
 
-_버전 번호 \(version number\)_ 는 마침표로 구분된 하나에서 세개의 양수로 구성됩니다.
+_버전 번호 (version number)_ 는 마침표로 구분된 하나에서 세개의 양수로 구성됩니다.
 
 * `message` 인수는 지원 중단되거나 폐기된 선언 사용에 대한 경고나 에러를 생성할 때 컴파일러가 표시하는 텍스트 메세지를 제공합니다. 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-2.50.16.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오후 2.50.16.png>)
 
-_메세지 \(message\)_ 는 문자열 리터럴로 구성됩니다.
+_메세지 (message)_ 는 문자열 리터럴로 구성됩니다.
 
 * `renamed` 인수는 이름이 변경된 새로운 선언을 나타내는 텍스트 메세지를 제공합니다. 컴파일러는 이름이 변경된 선언 사용에 대한 에러를 생성할 때 새로운 이름을 표시합니다. 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-2.50.49.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오후 2.50.49.png>)
 
-_새로운 이름 \(new name\)_ 은 문자열 리터럴로 구성됩니다.
+_새로운 이름 (new name)_ 은 문자열 리터럴로 구성됩니다.
 
 프레임워크 또는 라이브러리의 릴리즈 간에 변경된 선언의 이름을 나타내기 위해 아래와 같이 타입 별칭 선언에 `renamed` 와 `unavailable` 인수로 `available` 속성을 적용할 수 있습니다. 이 조합으로 인해 컴파일 시 선언이 변경되었다는 에러가 발생합니다.
 
@@ -88,7 +88,7 @@ typealias MyProtocol = MyRenamedProtocol
 
 `available` 속성이 플랫폼 또는 언어 이름 인수 외에 `introduced` 인수를 지정하는 경우 아래와 같은 짧은 구문을 사용할 수 있습니다:
 
-![](../.gitbook/assets/2021-02-22-2.52.51.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오후 2.52.51.png>)
 
 `available` 속성에 대한 짧은 구문은 여러 플랫폼에 대한 가용성을 간결하게 표현합니다. 두 형식은 동일하지만 가능하면 짧은 형식을 선호합니다.
 
@@ -231,18 +231,18 @@ print(wrapper.x)
 
 ### frozen
 
-타입에 변경사항을 제한하기 위해 구조체 또는 열거형 선언에 이 속성을 적용합니다. 이 속성은 라이브러리 진화 모드 \(library evolution mode\) 로 컴파일 될 때만 허용됩니다. 이후 버전의 라이브러리는 열거형의 케이스 또는 구조체의 저장된 인스턴스 프로퍼티를 추가, 제거, 또는 재정렬로 선언을 변경할 수 없습니다. 이러한 변경은 고정되지 않은 타입 \(nonfrozen types\) 에서 허용되지만 고정된 타입 \(frozen types\) 에 대해 ABI 호환성을 깨뜨립니다.
+타입에 변경사항을 제한하기 위해 구조체 또는 열거형 선언에 이 속성을 적용합니다. 이 속성은 라이브러리 진화 모드 (library evolution mode) 로 컴파일 될 때만 허용됩니다. 이후 버전의 라이브러리는 열거형의 케이스 또는 구조체의 저장된 인스턴스 프로퍼티를 추가, 제거, 또는 재정렬로 선언을 변경할 수 없습니다. 이러한 변경은 고정되지 않은 타입 (nonfrozen types) 에서 허용되지만 고정된 타입 (frozen types) 에 대해 ABI 호환성을 깨뜨립니다.
 
-> NOTE  
-> 컴파일러가 라이브러리 진화 모드로 있지 않으면 모든 구조체와 열거형은 암시적으로 고정 \(frozen\) 이고 이 속성은 무시됩니다.
+> NOTE\
+> 컴파일러가 라이브러리 진화 모드로 있지 않으면 모든 구조체와 열거형은 암시적으로 고정 (frozen) 이고 이 속성은 무시됩니다.
 
 라이브러리 진화 모드에서 고정되지 않은 구조체와 열거형의 멤버와 상호작용하는 코드는 향후 버전의 라이브러리에서 해당 타입의 멤버 중 일부를 추가, 제거, 또는 재정렬 하더라도 다시 컴파일되지 않고 계속 작업할 수 있는 방식으로 컴파일됩니다. 컴파일러는 정보 검색 및 간접 계층 추가와 같은 기술을 사용하여 이를 가능하게 합니다. 구조체 또는 열거형을 고정으로 표시하면 성능을 얻기위해 이러한 유연성을 포기합니다: 라이브러리의 향후 버전은 타입을 제한적으로 변경할 수 있지만 컴파일러는 타입의 멤버와 상호작용하는 코드에서 추가 최적화를 수행할 수 있습니다.
 
 고정된 타입, 고정된 구조체의 저장된 프로퍼티와 고정된 열거형 케이스의 연관된 값의 타입은 public 이거나 `usableFromInline` 속성으로 표시되어야 합니다. 고정된 구조체의 프로퍼티는 프로퍼티 관찰자를 가질 수 없고 저장된 인스턴스 프로퍼티에 대해 초기값을 제공하는 표현식은 [inlinable](attributes.md#inlinable) 에서 설명한대로 인라인 가능한 함수와 동일한 제한사항을 따릅니다.
 
-커맨드 라인에서 라이브러리 진화 모드를 활성화 하려면 `-enable-library-evolution` 옵션을 Swift 컴파일러에 전달해야 합니다. Xcode 에서 가능하게 하려면 [Xcode 도움말 \(Xcode Help\)](https://help.apple.com/xcode/mac/current/#/dev04b3a04ba) 에서 설명한대로 "Build Libraries for Distribution" 빌드 설정 \(`BUILD_LIBRARY_FOR_DISTRIBUTION`\) 을 Yes 로 설정해야 합니다.
+커맨드 라인에서 라이브러리 진화 모드를 활성화 하려면 `-enable-library-evolution` 옵션을 Swift 컴파일러에 전달해야 합니다. Xcode 에서 가능하게 하려면 [Xcode 도움말 (Xcode Help)](https://help.apple.com/xcode/mac/current/#/dev04b3a04ba) 에서 설명한대로 "Build Libraries for Distribution" 빌드 설정 (`BUILD_LIBRARY_FOR_DISTRIBUTION`) 을 Yes 로 설정해야 합니다.
 
-고정된 열거형에 대한 switch 구문은 [향후 열거형 케이스 전환 \(Switching Over Future Enumeration Cases\)](statements.md#switching-over-future-enumeration-cases) 에서 설명한대로 `default` 케이스를 요구하지 않습니다. 고정된 열거를 전환할 때 `default` 또는 `@unknown default` 를 포함하면 해당 코드는 실행되지 않기 때문에 경고가 생성됩니다.
+고정된 열거형에 대한 switch 구문은 [향후 열거형 케이스 전환 (Switching Over Future Enumeration Cases)](statements.md#switching-over-future-enumeration-cases) 에서 설명한대로 `default` 케이스를 요구하지 않습니다. 고정된 열거를 전환할 때 `default` 또는 `@unknown default` 를 포함하면 해당 코드는 실행되지 않기 때문에 경고가 생성됩니다.
 
 ### GKInspectable
 
@@ -277,7 +277,7 @@ protocol ProvidesMain {
 }
 ```
 
-실행 가능하도록 만들기 위해 컴파일 한 Swift 코드는 [최상위-수준 코드 \(Top-Level Code\)](declarations.md#top-level-code) 에서 설명한대로 최상위 시작점을 포함해야 합니다.
+실행 가능하도록 만들기 위해 컴파일 한 Swift 코드는 [최상위-수준 코드 (Top-Level Code)](declarations.md#top-level-code) 에서 설명한대로 최상위 시작점을 포함해야 합니다.
 
 ### nonobjc
 
@@ -300,21 +300,21 @@ import AppKit
 NSApplicationMain(CommandLine.argc, CommandLine.unsafeArgv)
 ```
 
-실행 가능하도록 만들기 위해 컴파일 한 Swift 코드는 [최상위-수준 코드 \(Top-Level Code\)](declarations.md#top-level-code) 에서 설명한대로 하나의 최상위 시작 지점을 포함해야 합니다.
+실행 가능하도록 만들기 위해 컴파일 한 Swift 코드는 [최상위-수준 코드 (Top-Level Code)](declarations.md#top-level-code) 에서 설명한대로 하나의 최상위 시작 지점을 포함해야 합니다.
 
 ### NSCopying
 
-클래스에 저장된 변수 프로퍼티에 이 속성을 적용합니다. 이 속성을 사용하면 프로퍼티의 값 자체 대신에 `copyWithZone(_:)` 메서드에 의해 반환된 프로퍼티의 값의 _복사본 \(copy\)_ 으로 프로퍼티의 setter 가 합성됩니다. 프로퍼티의 타입은 `NSCopying` 프로토콜을 준수해야 합니다.
+클래스에 저장된 변수 프로퍼티에 이 속성을 적용합니다. 이 속성을 사용하면 프로퍼티의 값 자체 대신에 `copyWithZone(_:)` 메서드에 의해 반환된 프로퍼티의 값의 _복사본 (copy)_ 으로 프로퍼티의 setter 가 합성됩니다. 프로퍼티의 타입은 `NSCopying` 프로토콜을 준수해야 합니다.
 
 `NSCopying` 속성은 Objective-C `copy` 프로퍼티 속성와 유사하게 동작합니다.
 
 ### NSManaged
 
-코어 데이터 \(Core Data\) 가 연관된 엔티티 설명 기반으로 런타임 시 동적으로 구현을 제공하는 것을 나타내기 위해 `NSManagedObject` 를 상속하는 클래스의 인스턴스 메서드나 저장된 변수 프로퍼티에 이 속성을 적용합니다. `NSManaged` 속성으로 표시된 프로퍼티의 경우 코어 데이터 \(Core Data\) 는 런타임에 스토리지 \(storage\) 도 제공합니다. 이 속성을 적용하면 `objc` 속성도 의미합니다.
+코어 데이터 (Core Data) 가 연관된 엔티티 설명 기반으로 런타임 시 동적으로 구현을 제공하는 것을 나타내기 위해 `NSManagedObject` 를 상속하는 클래스의 인스턴스 메서드나 저장된 변수 프로퍼티에 이 속성을 적용합니다. `NSManaged` 속성으로 표시된 프로퍼티의 경우 코어 데이터 (Core Data) 는 런타임에 스토리지 (storage) 도 제공합니다. 이 속성을 적용하면 `objc` 속성도 의미합니다.
 
 ### objc
 
-Objective-C 로 표현될 수 있는 모든 선언에 이 속성을 적용합니다. 예를 들어 중첩되지 않은 클래스, 프로토콜, 제너릭이 아닌 열거형 \(정수 원시값 타입으로 제한\), 클래스의 프로퍼티, 그리고 메서드 \(getter 와 setter 포함\), 프로토콜과 프로토콜의 옵셔널 멤버, 초기화 구문, 그리고 서브 스크립트 입니다. `objc` 속성은 선언이 Objective-C 코드에서 사용 가능함을 컴파일러에게 말합니다.
+Objective-C 로 표현될 수 있는 모든 선언에 이 속성을 적용합니다. 예를 들어 중첩되지 않은 클래스, 프로토콜, 제너릭이 아닌 열거형 (정수 원시값 타입으로 제한), 클래스의 프로퍼티, 그리고 메서드 (getter 와 setter 포함), 프로토콜과 프로토콜의 옵셔널 멤버, 초기화 구문, 그리고 서브 스크립트 입니다. `objc` 속성은 선언이 Objective-C 코드에서 사용 가능함을 컴파일러에게 말합니다.
 
 확장에 이 속성을 적용하는 것은 암시적으로 `nonobjc` 속성으로 표시되지 않은 확장의 모든 멤버에 적용됩니다.
 
@@ -328,7 +328,7 @@ Objective-C 로 표현될 수 있는 모든 선언에 이 속성을 적용합니
 
 열거형에 objc 속성을 적용하면 각 열거형 케이스는 열거형 이름과 케이스 이름의 연결로 Objective-C 코드에 노출됩니다. 케이스 이름의 첫번째 문자는 대문자입니다. 예를 들어 Swift `Planet` 열거형에서 명명된 케이스 `venus` 는 명명된 케이스 `PlanetVenus` 로 Objective-C 코드로 노출됩니다.
 
-`objc` 속성은 식별자로 구성된 단일 속성 인수를 선택적으로 허용합니다. 식별자는 `objc` 속성을 적용하는 엔티티에 대해 Objective-C 로 노출될 이름을 지정합니다. 클래스, 열거형, 열거형 케이스, 프로토콜, 메서드, getter, setter, 그리고 초기화 구문 이름으로 이 인수를 사용할 수 있습니다. 클래스, 프로토콜, 또는 열거형에 대해 Objective-C 이름을 지정하는 경우 [Objective-C 를 사용한 프로그래밍 \(Programming with Objective-C\)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210) 에서 [규칙 \(Conventions\)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Conventions/Conventions.html#//apple_ref/doc/uid/TP40011210-CH10-SW1) 에서 설명한대로 세글자의 접두사를 포함합니다. 아래 예제는 프로퍼티 자체의 이름이 아닌 `isEnabled` 로 Objective-C 에 `ExampleClass` 의 `enabled` 프로퍼티에 대한 getter 를 노출합니다.
+`objc` 속성은 식별자로 구성된 단일 속성 인수를 선택적으로 허용합니다. 식별자는 `objc` 속성을 적용하는 엔티티에 대해 Objective-C 로 노출될 이름을 지정합니다. 클래스, 열거형, 열거형 케이스, 프로토콜, 메서드, getter, setter, 그리고 초기화 구문 이름으로 이 인수를 사용할 수 있습니다. 클래스, 프로토콜, 또는 열거형에 대해 Objective-C 이름을 지정하는 경우 [Objective-C 를 사용한 프로그래밍 (Programming with Objective-C)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple\_ref/doc/uid/TP40011210) 에서 [규칙 (Conventions)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Conventions/Conventions.html#//apple\_ref/doc/uid/TP40011210-CH10-SW1) 에서 설명한대로 세글자의 접두사를 포함합니다. 아래 예제는 프로퍼티 자체의 이름이 아닌 `isEnabled` 로 Objective-C 에 `ExampleClass` 의 `enabled` 프로퍼티에 대한 getter 를 노출합니다.
 
 ```swift
 class ExampleClass: NSObject {
@@ -340,9 +340,9 @@ class ExampleClass: NSObject {
 }
 ```
 
-더 자세한 내용은 [Objective-C 에 Swift 가져오기 \(Importing Swift into Objective-C\)](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_swift_into_objective-c) 를 참고 바랍니다.
+더 자세한 내용은 [Objective-C 에 Swift 가져오기 (Importing Swift into Objective-C)](https://developer.apple.com/documentation/swift/imported\_c\_and\_objective-c\_apis/importing\_swift\_into\_objective-c) 를 참고 바랍니다.
 
-> NOTE  
+> NOTE\
 > objc 속성에 인수는 해당 선언에 대한 런타임 이름도 변경할 수 있습니다. [`NSClassFromString`](https://developer.apple.com/documentation/foundation/1395135-nsclassfromstring) 과 같이 Objective-C 런타임과 상호작용하는 함수를 호출할 때와 앱의 info.plist 파일의 클래스 이름을 지정할 때 런타임 이름을 사용합니다. 인수를 전달하여 이름을 지정하면 해당 이름은 Objective-C 코드에서 이름과 런타임 이름으로 사용됩니다. 인수를 생략하면 Objective-C 코드에서 사용된 이름은 Swift 코드의 이름과 일치하고 런타임 이름은 일반 Swift 컴파일러 이름 변경 규칙을 따릅니다.
 
 ### objcMembers
@@ -353,13 +353,13 @@ class ExampleClass: NSObject {
 
 ### propertyWrapper
 
-프로퍼티 래퍼 \(protperty wrapper\) 로 해당 타입을 사용하기 위해 클래스, 구조체, 또는 열거형 선언에 이 속성을 적용합니다. 타입에 이 속성을 적용하면 타입과 동일한 이름으로 사용자 정의 속성을 생성합니다. 래퍼 타입의 인스턴스로 프로퍼티에 대한 접근을 래핑하려면 클래스, 구조체, 또는 열거형의 프로퍼티에 새로운 속성을 적용해야 합니다. 지역과 전역 변수는 프로퍼티 래퍼를 사용할 수 없습니다.
+프로퍼티 래퍼 (protperty wrapper) 로 해당 타입을 사용하기 위해 클래스, 구조체, 또는 열거형 선언에 이 속성을 적용합니다. 타입에 이 속성을 적용하면 타입과 동일한 이름으로 사용자 정의 속성을 생성합니다. 래퍼 타입의 인스턴스로 프로퍼티에 대한 접근을 래핑하려면 클래스, 구조체, 또는 열거형의 프로퍼티에 새로운 속성을 적용해야 합니다. 지역과 전역 변수는 프로퍼티 래퍼를 사용할 수 없습니다.
 
-래퍼는 `wrappedValue` 인스턴스 프로퍼티를 정의해야 합니다. 프로퍼티의 _래핑된 값 \(wrapped value\)_ 은 이 프로퍼티에 대해 getter 와 setter 를 노출하는 값입니다. 대부분의 경우 `wrappedValue` 는 계산된 값이지만 대신 저장된 값이 될 수 있습니다. 래퍼는 래핑된 값에 필요한 기본 저장소를 정의하고 관리합니다. 컴파일러는 래핑된 프로퍼티의 이름 앞에 언더바 \(`_`\) 로 래퍼 타입의 인스턴스에 대해 저장소를 합성합니다. 예를 들어 `someProperty` 에 대한 래퍼는 `_someProperty` 로 저장됩니다. 래퍼에 대한 합성된 저장소는 `private` 의 접근 제어 수준을 가집니다.
+래퍼는 `wrappedValue` 인스턴스 프로퍼티를 정의해야 합니다. 프로퍼티의 _래핑된 값 (wrapped value)_ 은 이 프로퍼티에 대해 getter 와 setter 를 노출하는 값입니다. 대부분의 경우 `wrappedValue` 는 계산된 값이지만 대신 저장된 값이 될 수 있습니다. 래퍼는 래핑된 값에 필요한 기본 저장소를 정의하고 관리합니다. 컴파일러는 래핑된 프로퍼티의 이름 앞에 언더바 (`_`) 로 래퍼 타입의 인스턴스에 대해 저장소를 합성합니다. 예를 들어 `someProperty` 에 대한 래퍼는 `_someProperty` 로 저장됩니다. 래퍼에 대한 합성된 저장소는 `private` 의 접근 제어 수준을 가집니다.
 
 프로퍼티 래퍼를 가지는 프로퍼티는 `willSet` 과 `didSet` 블럭을 포함할 수 있지만 컴파일러가 합성한 `get` 또는 `set` 블럭을 재정의할 수 없습니다.
 
-Swift 는 프로퍼티 래퍼의 초기화에 대해 두가지의 구문 설탕 \(syntactic sugar\) 을 제공합니다. 래핑된 값의 정의에 할당 구문을 사용하여 할당의 오른쪽에 있는 표현식을 프로퍼티 래퍼의 초기화 구문의 `wrappedValue` 파라미터에 대한 인수로 전달할 수 있습니다. 프로퍼티에 속성을 적용할 때 속성에 인수를 제공할 수도 있으며 이 인수는 프로퍼티 래퍼의 초기화 구문으로 전달됩니다. 예를 들어 아래 코드에서 `SomeStruct` 는 `SomeWrapper` 가 정의한 각 초기화 구문을 호출합니다.
+Swift 는 프로퍼티 래퍼의 초기화에 대해 두가지의 구문 설탕 (syntactic sugar) 을 제공합니다. 래핑된 값의 정의에 할당 구문을 사용하여 할당의 오른쪽에 있는 표현식을 프로퍼티 래퍼의 초기화 구문의 `wrappedValue` 파라미터에 대한 인수로 전달할 수 있습니다. 프로퍼티에 속성을 적용할 때 속성에 인수를 제공할 수도 있으며 이 인수는 프로퍼티 래퍼의 초기화 구문으로 전달됩니다. 예를 들어 아래 코드에서 `SomeStruct` 는 `SomeWrapper` 가 정의한 각 초기화 구문을 호출합니다.
 
 ```swift
 @propertyWrapper
@@ -393,7 +393,7 @@ struct SomeStruct {
 }
 ```
 
-래핑된 프로퍼티에 대한 _계획된 값 \(projected value\)_ 은 프로퍼티 래퍼가 추가 기능을 노출하기 위해 사용할 수 있는 두번째 값입니다. 프로퍼티 래퍼 타입의 작성자는 계획된 값의 의미를 결정하고 계획된 값이 노출하는 인터페이스를 정의할 책임이 있습니다. 프로퍼티 래퍼에서 값을 계획하려면 래퍼 타입에 `projectedValue` 인스턴스 프로퍼티를 정의합니다. 컴파일러는 래핑된 프로퍼티의 이름 앞에 달러 기호 \(`$`\) 로 계획된 값에 대한 식별자를 합성합니다. 예를 들어 `someProperty` 에 대한 계획된 값은 `$someProperty` 입니다. 계획된 값은 기존의 래핑된 프로퍼티와 동일한 접근 제어 수준을 가집니다.
+래핑된 프로퍼티에 대한 _계획된 값 (projected value)_ 은 프로퍼티 래퍼가 추가 기능을 노출하기 위해 사용할 수 있는 두번째 값입니다. 프로퍼티 래퍼 타입의 작성자는 계획된 값의 의미를 결정하고 계획된 값이 노출하는 인터페이스를 정의할 책임이 있습니다. 프로퍼티 래퍼에서 값을 계획하려면 래퍼 타입에 `projectedValue` 인스턴스 프로퍼티를 정의합니다. 컴파일러는 래핑된 프로퍼티의 이름 앞에 달러 기호 (`$`) 로 계획된 값에 대한 식별자를 합성합니다. 예를 들어 `someProperty` 에 대한 계획된 값은 `$someProperty` 입니다. 계획된 값은 기존의 래핑된 프로퍼티와 동일한 접근 제어 수준을 가집니다.
 
 ```swift
 @propertyWrapper
@@ -418,41 +418,41 @@ s.$x.wrapper  // WrapperWithProjection value
 
 ### resultBuilder
 
-결과 빌더 \(result builder\) 로 타입을 사용하기 위해 클래스, 구조체, 열거형에 이 속성을 적용합니다. _결과 빌더 \(result builder\)_ 는 데이터 구조체를 단계별로 빌드하는 타입입니다. 자연스럽고 선언적인 방법으로 중첩된 데이터 구조체를 생성하기 위해 도메인-특정 언어 \(DSL\) 를 구현하기 위해 결과 빌더를 사용합니다. `resultBuilder` 속성을 어떻게 사용하는지에 대한 예제는 [결과 빌더 \(Result Builders\)](../language-guide-1/advanced-operators.md#result-builders) 를 참고 바랍니다.
+결과 빌더 (result builder) 로 타입을 사용하기 위해 클래스, 구조체, 열거형에 이 속성을 적용합니다. _결과 빌더 (result builder)_ 는 데이터 구조체를 단계별로 빌드하는 타입입니다. 자연스럽고 선언적인 방법으로 중첩된 데이터 구조체를 생성하기 위해 도메인-특정 언어 (DSL) 를 구현하기 위해 결과 빌더를 사용합니다. `resultBuilder` 속성을 어떻게 사용하는지에 대한 예제는 [결과 빌더 (Result Builders)](../language-guide-1/advanced-operators.md#result-builders) 를 참고 바랍니다.
 
-#### 결과-빌딩 메서드 \(Result-Building Methods\)
+#### 결과-빌딩 메서드 (Result-Building Methods)
 
-결과 빌더는 아래 설명한대로 정적 메서드를 구현합니다. 결과 빌더의 모든 기능은 정적 메서드를 통해 노출되므로 해당 타입의 인스턴스를 초기화 하지 않습니다. `buildBlock(_:)` 메서드는 필수입니다. DSL 에서 추가 기능을 활성화 하는 다른 메서드는 옵셔널 입니다. 결과 빌더 타입의 선언은 프로토콜 준수를 포함할 필요가 없습니다. 
+결과 빌더는 아래 설명한대로 정적 메서드를 구현합니다. 결과 빌더의 모든 기능은 정적 메서드를 통해 노출되므로 해당 타입의 인스턴스를 초기화 하지 않습니다. `buildBlock(_:)` 메서드는 필수입니다. DSL 에서 추가 기능을 활성화 하는 다른 메서드는 옵셔널 입니다. 결과 빌더 타입의 선언은 프로토콜 준수를 포함할 필요가 없습니다.&#x20;
 
 정적 메서드의 설명은 기호로 세가지 타입을 사용합니다. `Expression` 타입은 결과 빌더의 입력의 타입에 대한 기호이고 `Component` 는 부분 결과의 타입에 대한 기호이며 `FinalResult` 는 결과 빌더가 생성하는 결과의 타입에 대한 기호입니다. 이러한 타입을 결과 빌더가 사용하는 실제 타입으로 바꿉니다. 결과-빌딩 메서드가 `Expression` 또는 `FinalResult` 에 대한 타입을 지정하지 않으면 `Component` 와 기본적으로 동일합니다.
 
 결과-빌딩 메서드는 다음과 같습니다:
 
-`static func buildBlock(_ components: Component...) -> Component`   
+`static func buildBlock(_ components: Component...) -> Component` \
 부분 결과의 배열을 단일 부분 결과로 결합합니다. 결과 빌더는 이 메서드를 구현해야 합니다.
 
-`static func buildOptional(_ component: Component?) -> Component`   
+`static func buildOptional(_ component: Component?) -> Component` \
 `nil` 이 가능한 부분 결과로 부터 부분 결과를 빌드합니다. `else` 절을 포함하지 않은 `if` 구문을 지원하려면 이 메서드를 구현해야 합니다.
 
-`static func buildEither(first: Component) -> Component`   
+`static func buildEither(first: Component) -> Component` \
 일부 조건에 따라 다양한 값의 부분 결과를 빌드합니다. `switch` 구문과 `else` 절을 포함하는 `if` 구문을 제공하려면 이 메서드와 `buildEither(second:)` 를 모두 구현해야 합니다.
 
-`static func buildEither(second: Component) -> Component`   
+`static func buildEither(second: Component) -> Component` \
 일부 조건에 따라 다양한 값의 부분 결과를 빌드합니다. `switch` 구문과 `else` 절을 포함하는 `if` 구문을 제공하려면 이 메서드와 `buildEither(first:)` 를 모두 구현해야 합니다.
 
-`static func buildArray(_ components: [Component]) -> Component`   
+`static func buildArray(_ components: [Component]) -> Component` \
 부분 결과의 배열로 부터 부분 결과를 빌드합니다. `for` 루프를 지원하려면 이 메서드를 구현해야 합니다.
 
-`static func buildExpression(_ expression: Expression) -> Component`   
+`static func buildExpression(_ expression: Expression) -> Component` \
 표현식에서 부분 결과를 빌드합니다. 이 메서드를 구현하여 전처리—예를 들어 표현식을 내부 타입으로 변환—를 수행하거나 사용하는 곳에서 타입 유추를 위한 추가 정보를 제공하기 위해 구현할 수 있습니다.
 
-`static func buildFinalResult(_ component: Component) -> FinalResult`   
+`static func buildFinalResult(_ component: Component) -> FinalResult` \
 부분 결과로 부터 최종 결과를 빌드합니다. 부분과 최종 결과에 대한 다른 타입을 사용하는 결과 빌더의 부분으로 이 메서드를 구현하거나 결과를 반환하기 전에 결과에 대해 다른 후처리를 진행하기 위해 이 메서드를 구현할 수 있습니다.
 
-`static func buildLimitedAvailability(_ component: Component) -> Component`   
+`static func buildLimitedAvailability(_ component: Component) -> Component` \
 가용성 검사를 수행하는 컴파일러-제어 구문의 외부에서 타입 정보를 전파하거나 지우는 부분 결과를 빌드합니다. 조건부 간의 다양한 타입 정보를 지우기 위해 사용할 수 있습니다.
 
-예를 들어 아래 코드는 정수의 배열을 빌드하는 간다한 결과 빌더를 정의합니다. 이 코드는 타입 별칭으로 `Component` 와 `Expression` 을 정의하여 아래 예제를 위의 메서드의 목록보다 쉽게 일치하도록 만듭니다. 
+예를 들어 아래 코드는 정수의 배열을 빌드하는 간다한 결과 빌더를 정의합니다. 이 코드는 타입 별칭으로 `Component` 와 `Expression` 을 정의하여 아래 예제를 위의 메서드의 목록보다 쉽게 일치하도록 만듭니다.&#x20;
 
 ```swift
 @resultBuilder
@@ -481,7 +481,7 @@ struct ArrayBuilder {
 }
 ```
 
-#### 결과 변환 \(Result Transformations\)
+#### 결과 변환 (Result Transformations)
 
 다음 구문 변환은 결과-빌더 구문을 사용하는 코드에서 결과 빌더 타입의 정적 메서드를 호출하는 코드로 변환하기 위해 재귀적으로 적용됩니다:
 
@@ -663,7 +663,7 @@ let manualArray = ArrayBuilder.buildArray(temporary)
 
 가능할 때마다 변환이 통합됩니다. 예를 들어 표현식 `4 + 5 * 6` 은 해당 함수를 여러번 호출하는 대신 `buildExpression(4 + 5 * 6)` 으로 됩니다. 마찬가지로 중첩된 분기 구문은 `buildEither` 메서드에 대한 호출의 단일 이진 트리가 됩니다.
 
-#### 사용자 정의 결과-빌더 속성 \(Custom Result-Builder Attributes\)
+#### 사용자 정의 결과-빌더 속성 (Custom Result-Builder Attributes)
 
 결과 빌더 타입을 생성하면 동일한 이름의 사용자 정의 속성을 생성합니다. 다음 위치에 해당 속성을 적용할 수 있습니다:
 
@@ -687,7 +687,7 @@ let manualArray = ArrayBuilder.buildArray(temporary)
 
 이 속성을 사용하지 않으면 [`UIApplicationMain(_:_:_:_:)`](https://developer.apple.com/documentation/uikit/1622933-uiapplicationmain) 함수를 호출하는 최상위 수준의 코드를 가지는 `main.swift` 파일을 제공해야 합니다. 예를 들어 주 클래스로 `UIApplication` 의 사용자 정의 하위클래스를 사용하면 이 속성을 사용하는 것 대신에 `UIApplicationMain(_:_:_:_:)` 함수를 호출합니다.
 
-실행 가능하도록 만들기 위해 컴파일 한 Swift 코드는 [최상위-수준 코드 \(Top-Level Code\)](declarations.md#top-level-code) 에서 설명한대로 하나의 최상위-수준 시작 지점을 포함해야 합니다.
+실행 가능하도록 만들기 위해 컴파일 한 Swift 코드는 [최상위-수준 코드 (Top-Level Code)](declarations.md#top-level-code) 에서 설명한대로 하나의 최상위-수준 시작 지점을 포함해야 합니다.
 
 ### usableFromInline
 
@@ -703,55 +703,54 @@ let manualArray = ArrayBuilder.buildArray(temporary)
 
 예를 들어 Swift 표준 라이브러리는 최상위-수준 [`min(_:_:)`](https://developer.apple.com/documentation/swift/1538339-min/) 함수와 비교 가능한 요소가 있는 시퀀스에 대한 [`min()`](https://developer.apple.com/documentation/swift/sequence/1641174-min) 메서드 모두 포함합니다. 시퀀스 메서드는 Sequence 확장 내에서 하나 또는 다른 것을 사용하려고 할 때 혼동을 줄이기 위해 `warn_unqualified_access` 속성으로 선언됩니다.
 
-### 인터페이스 빌더에 사용되는 선언 속성 \(Declaration Attributes Used by Interface Builder\)
+### 인터페이스 빌더에 사용되는 선언 속성 (Declaration Attributes Used by Interface Builder)
 
-인터페이스 빌더 \(Interface Builder\) 속성은 Xcode 와 동기화 하기위해 인터페이스 빌더에서 사용되는 선언 속성입니다. Swift 는 다음의 인터페이스 빌더 속성을 제공합니다: `IBAction`, `IBSegueAction`, `IBOutlet`, `IBDesignable`, 그리고 `IBInspectable`. 이 속성은 개념적으로 Objective-C 와 동일합니다.
+인터페이스 빌더 (Interface Builder) 속성은 Xcode 와 동기화 하기위해 인터페이스 빌더에서 사용되는 선언 속성입니다. Swift 는 다음의 인터페이스 빌더 속성을 제공합니다: `IBAction`, `IBSegueAction`, `IBOutlet`, `IBDesignable`, 그리고 `IBInspectable`. 이 속성은 개념적으로 Objective-C 와 동일합니다.
 
 클래스의 프로퍼티 선언에 `IBOutlet` 과 `IBInspectable` 속성을 적용합니다. 클래스의 메서드 선언에 `IBAction` 과 `IBSegueAction` 속성을 클래스 선언에 `IBDesignable` 속성을 적용합니다.
 
 `IBAction`, `IBSegueAction`, `IBOutlet`, `IBDesignable`, 또는 `IBInspectable` 속성을 적용하는 것은 `objc` 속성을 의미합니다.
 
-## 타입 속성 \(Type Attributes\)
+## 타입 속성 (Type Attributes)
 
-타입에만 타입 속성 \(type attributes\) 를 적용할 수 있습니다.
+타입에만 타입 속성 (type attributes) 를 적용할 수 있습니다.
 
 ### autoclosure
 
-인수 없이 해당 표현식을 클로저에 자동으로 래핑하여 표현식의 평가를 지연하기 위해 이 속성을 적용합니다. 메서드 또는 함수 선언의 파라미터의 타입에 인수를 사용하지 않고 표현식의 타입의 값을 반환하는 함수 타입 인 파라미터에 적용합니다. `autoclosure` 속성을 어떻게 사용하는지에 대한 예제는 [자동 클로 \(Autoclosures\) ](../language-guide-1/closures.md#autoclosures)와 [함수 타입 \(Function Type\)](types.md#function-type) 을 참고 바랍니다.
+인수 없이 해당 표현식을 클로저에 자동으로 래핑하여 표현식의 평가를 지연하기 위해 이 속성을 적용합니다. 메서드 또는 함수 선언의 파라미터의 타입에 인수를 사용하지 않고 표현식의 타입의 값을 반환하는 함수 타입 인 파라미터에 적용합니다. `autoclosure` 속성을 어떻게 사용하는지에 대한 예제는 [자동 클로 (Autoclosures) ](../language-guide-1/closures.md#autoclosures)와 [함수 타입 (Function Type)](types.md#function-type) 을 참고 바랍니다.
 
 ### convention
 
-호출 규칙 \(calling conventions\) 을 나타내기 위해 함수의 타입에 이 속성을 적용합니다.
+호출 규칙 (calling conventions) 을 나타내기 위해 함수의 타입에 이 속성을 적용합니다.
 
 `convention` 속성은 항상 다음의 인수 중 하나에 나타납니다:
 
 * `swift` 인수는 Swift 함수 참조를 나타냅니다. 이것은 Swift 에서 함수 값에 대한 표준 호출 규칙입니다.
-* `block` 인수는 Objective-C 호환 블럭 참조를 나타냅니다. 함수 값은 객체 내에 호출 함수 \(invocation function\) 을 포함하는 `id`-호환성 Objective-C 객체 인 블럭 객체에 대한 참조로 표시됩니다. 호출 함수는 C 호출 규칙을 사용합니다.
+* `block` 인수는 Objective-C 호환 블럭 참조를 나타냅니다. 함수 값은 객체 내에 호출 함수 (invocation function) 을 포함하는 `id`-호환성 Objective-C 객체 인 블럭 객체에 대한 참조로 표시됩니다. 호출 함수는 C 호출 규칙을 사용합니다.
 * `c` 인수는 C 함수 참조를 나타냅니다. 함수 값은 컨텍스트를 전달하지 않으며 C 호출 규칙을 사용합니다.
 
 몇가지 예외를 제외하고 모든 호출 규칙의 함수는 다른 호출 규칙이 필요할 때 사용될 수 있습니다. 제너릭이 아닌 전역 함수, 지역 변수를 캡처하지 않는 지역 함수 또는 지역 변수를 캡처하지 않는 클로저는 C 호출 규칙으로 변환될 수 있습니다. 다른 Swift 함수는 C 호출 규칙으로 변환될 수 없습니다. Objective-C 블럭 호출 규칙을 가지는 함수는 C 호출 규칙으로 변환될 수 없습니다.
 
 ### escaping
 
-나중에 실행하기 위해 파라미터의 값이 저장될 수 있음을 나타내기 위해 메서드 또는 함수 선언의 파라미터의 타입에 이 속성을 적용합니다. 이는 값이 호출 수명보다 오래 지속될 수 있음을 의미합니다. `escaping` 타입 속성을 가지는 함수 타입 파라미터는 프로퍼티나 메서드에 대해 `self.` 의 명시적 사용을 요구합니다. `escaping` 속성을 어떻게 사용하는지에 대한 예제는 [이스케이프 클로저 \(Escaping Closures\)](../language-guide-1/closures.md#escaping-closures) 를 참고 바랍니다.
+나중에 실행하기 위해 파라미터의 값이 저장될 수 있음을 나타내기 위해 메서드 또는 함수 선언의 파라미터의 타입에 이 속성을 적용합니다. 이는 값이 호출 수명보다 오래 지속될 수 있음을 의미합니다. `escaping` 타입 속성을 가지는 함수 타입 파라미터는 프로퍼티나 메서드에 대해 `self.` 의 명시적 사용을 요구합니다. `escaping` 속성을 어떻게 사용하는지에 대한 예제는 [이스케이프 클로저 (Escaping Closures)](../language-guide-1/closures.md#escaping-closures) 를 참고 바랍니다.
 
-## Switch 케이스 속성 \(Switch Case Attributes\)
+## Switch 케이스 속성 (Switch Case Attributes)
 
 switch 케이스에만 switch 케이스 속성을 적용할 수 있습니다.
 
 ### unknown
 
-코드가 컴파일 될 때 알려진 열거형의 케이스와 일치하지 않는 것으로 예상됨을 나타내기 위해 switch 케이스에 이 속성을 적용합니다. `unknown` 속성을 어떻게 사용하는지에 대한 예제는 [향후 열거형 케이스 전환 \(Switching Over Future Enumeration Cases\)](statements.md#switching-over-future-enumeration-cases) 를 참고 바랍니다.
+코드가 컴파일 될 때 알려진 열거형의 케이스와 일치하지 않는 것으로 예상됨을 나타내기 위해 switch 케이스에 이 속성을 적용합니다. `unknown` 속성을 어떻게 사용하는지에 대한 예제는 [향후 열거형 케이스 전환 (Switching Over Future Enumeration Cases)](statements.md#switching-over-future-enumeration-cases) 를 참고 바랍니다.
 
-> GRAMMAR OF AN ATTRIBUTE  
-> attribute → `@` [attribute-name](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attribute-name)  [attribute-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attribute-argument-clause) $$_{opt}$$   
-> attribute-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  
-> attribute-argument-clause → `(` [balanced-tokens](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_balanced-tokens) $$_{opt}$$ `)`   
-> attributes → [attribute](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attribute)  [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$   
-> balanced-tokens → [balanced-token](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_balanced-token)  [balanced-tokens](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_balanced-tokens) $$_{opt}$$   
-> balanced-token → `(` [balanced-tokens](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_balanced-tokens) $$_{opt}$$ `)`   
-> balanced-token → `[` [balanced-tokens](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_balanced-tokens) $$_{opt}$$ `]`   
-> balanced-token → `{` [balanced-tokens](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_balanced-tokens) $$_{opt}$$ `}`   
-> balanced-token → 모든 식별자, 키워드, 리터럴, 또는 연산자  
+> GRAMMAR OF AN ATTRIBUTE\
+> attribute → `@` [attribute-name](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attribute-name)  [attribute-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attribute-argument-clause) $$_{opt}$$ \
+> attribute-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_identifier)\
+> attribute-argument-clause → `(` [balanced-tokens](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_balanced-tokens) $$_{opt}$$ `)` \
+> attributes → [attribute](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attribute)  [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attributes) $$_{opt}$$ \
+> balanced-tokens → [balanced-token](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_balanced-token)  [balanced-tokens](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_balanced-tokens) $$_{opt}$$ \
+> balanced-token → `(` [balanced-tokens](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_balanced-tokens) $$_{opt}$$ `)` \
+> balanced-token → `[` [balanced-tokens](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_balanced-tokens) $$_{opt}$$ `]` \
+> balanced-token → `{` [balanced-tokens](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_balanced-tokens) $$_{opt}$$ `}` \
+> balanced-token → 모든 식별자, 키워드, 리터럴, 또는 연산자\
 > balanced-token → 다음을 제외한 모든 구두점  `(`,  `)`,  `[`,  `]`,  `{`, 또  `}`
-

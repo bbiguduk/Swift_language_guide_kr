@@ -1,103 +1,103 @@
-# 구문 \(Statements\)
+# 구문 (Statements)
 
-Swift 에서 간단한 구문 \(simple statements\), 컴파일러 제어 구문 \(compiler control statements\), 그리고 제어 흐름 구문 \(control flow statements\) 의 세가지 구문이 있습니다. 간단한 구문은 가장 일반적이고 표현식 또는 선언으로 구성됩니다. 컴파일러 제어 구문은 프로그램이 컴파일러의 동작 측면을 변경할 수 있고 조건부 컴파일러 및 라인 제어 구문을 포함할 수 있습니다.
+Swift 에서 간단한 구문 (simple statements), 컴파일러 제어 구문 (compiler control statements), 그리고 제어 흐름 구문 (control flow statements) 의 세가지 구문이 있습니다. 간단한 구문은 가장 일반적이고 표현식 또는 선언으로 구성됩니다. 컴파일러 제어 구문은 프로그램이 컴파일러의 동작 측면을 변경할 수 있고 조건부 컴파일러 및 라인 제어 구문을 포함할 수 있습니다.
 
-제어 흐름 구문은 프로그램에서 실행의 흐름을 제어하기 위해 사용됩니다. Swift 에서 루프 구문 \(loop statements\), 분기 구문 \(branch statements\), 그리고 제어 전송 구문 \(control transfer statements\) 를 포함하는 제어 흐름 구문의 몇가지 타입이 있습니다. 루프 제어문은 반복적으로 실행되는 코드의 블럭을 허용하고, 분기 구문은 조건이 일치 할 때만 실행되도록 코드의 블럭을 허용하고, 제어 전송 구문은 코드가 실행되는 순서를 변경하는 방법을 제공합니다. 또한 Swift 는 범위를 도입하고 에러를 잡고 처리하는 `do` 구문과 현재 범위가 종료하기 직전에 정리 동작을 실행하는 `defer` 구문을 제공합니다.
+제어 흐름 구문은 프로그램에서 실행의 흐름을 제어하기 위해 사용됩니다. Swift 에서 루프 구문 (loop statements), 분기 구문 (branch statements), 그리고 제어 전송 구문 (control transfer statements) 를 포함하는 제어 흐름 구문의 몇가지 타입이 있습니다. 루프 제어문은 반복적으로 실행되는 코드의 블럭을 허용하고, 분기 구문은 조건이 일치 할 때만 실행되도록 코드의 블럭을 허용하고, 제어 전송 구문은 코드가 실행되는 순서를 변경하는 방법을 제공합니다. 또한 Swift 는 범위를 도입하고 에러를 잡고 처리하는 `do` 구문과 현재 범위가 종료하기 직전에 정리 동작을 실행하는 `defer` 구문을 제공합니다.
 
-세미콜론 \(`;`\) 은 모든 구문에 선택적으로 나타날 수 있고 같은 줄에 여러 구문을 구분하기 위해 사용될 수 있습니다.
+세미콜론 (`;`) 은 모든 구문에 선택적으로 나타날 수 있고 같은 줄에 여러 구문을 구분하기 위해 사용될 수 있습니다.
 
-> GRAMMAR OF A STATEMENT  
-> statement → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `;` $$_{opt}$$   
-> statement → [declaration](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_declaration)  `;` $$_{opt}$$   
-> statement → [loop-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_loop-statement)  `;` $$_{opt}$$   
-> statement → [branch-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_branch-statement)  `;` $$_{opt}$$   
-> statement → [labeled-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_labeled-statement)  `;` $$_{opt}$$   
-> statement → [control-transfer-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_control-transfer-statement)  `;` $$_{opt}$$   
-> statement → [defer-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_defer-statement)  `;` $$_{opt}$$   
-> statement → [do-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_do-statement)  `;` $$_{opt}$$   
-> statement → [compiler-control-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_compiler-control-statement)  
-> statements → [statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statement)  [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statements) $$_{opt}$$
+> GRAMMAR OF A STATEMENT\
+> statement → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_expression) `;` $$_{opt}$$\
+> statement → [declaration](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_declaration) `;` $$_{opt}$$\
+> statement → [loop-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_loop-statement) `;` $$_{opt}$$\
+> statement → [branch-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_branch-statement) `;` $$_{opt}$$\
+> statement → [labeled-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_labeled-statement) `;` $$_{opt}$$\
+> statement → [control-transfer-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_control-transfer-statement) `;` $$_{opt}$$\
+> statement → [defer-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_defer-statement) `;` $$_{opt}$$\
+> statement → [do-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_do-statement) `;` $$_{opt}$$\
+> statement → [compiler-control-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_compiler-control-statement)\
+> statements → [statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statement) [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statements) $$_{opt}$$
 
-## 루프 구문 \(Loop Statements\)
+## 루프 구문 (Loop Statements)
 
-루프 구문 \(Loop statements\) 은 루프에 지정한 조건에 따라 반복적으로 실행되는 코드의 블럭을 허용합니다. Swift 는 `for`-`in` 구문, `while` 구문, 그리고 `repeat`-`while` 구문과 같이 세가지 루프 구문을 가집니다.
+루프 구문 (Loop statements) 은 루프에 지정한 조건에 따라 반복적으로 실행되는 코드의 블럭을 허용합니다. Swift 는 `for`-`in` 구문, `while` 구문, 그리고 `repeat`-`while` 구문과 같이 세가지 루프 구문을 가집니다.
 
-루프 구문에서 제어 흐름은 `break` 구문과 `continue` 구문에 의해 변경될 수 있고 아래에 [중단 구문 \(Break Statement\)](statements.md#break-statement) 과 [계속 구문 \(Continue Statement\)](statements.md#continue-statement) 에 설명되어 있습니다.
+루프 구문에서 제어 흐름은 `break` 구문과 `continue` 구문에 의해 변경될 수 있고 아래에 [중단 구문 (Break Statement)](statements.md#break-statement) 과 [계속 구문 (Continue Statement)](statements.md#continue-statement) 에 설명되어 있습니다.
 
-> GRAMMAR OF A LOOP STATEMENT  
-> loop-statement → [for-in-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_for-in-statement)  
-> loop-statement → [while-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_while-statement)  
-> loop-statement → [repeat-while-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_repeat-while-statement)
+> GRAMMAR OF A LOOP STATEMENT\
+> loop-statement → [for-in-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_for-in-statement)\
+> loop-statement → [while-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_while-statement)\
+> loop-statement → [repeat-while-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_repeat-while-statement)
 
-### For-In 구문 \(For-In Statement\)
+### For-In 구문 (For-In Statement)
 
 `for`-`in` 구문은 [`Sequence`](https://developer.apple.com/documentation/swift/sequence) 프로토콜을 준수하는 콜렉션 또는 모든 타입에서 각 아이템에 대해 한번 실행되기 위해 코드의 블럭을 허용합니다.
 
 `for`-`in` 구문은 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-10.09.29.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.09.29.png>)
 
-`makeIterator()` 메서드는 [`IteratorProtocol`](https://developer.apple.com/documentation/swift/iteratorprotocol) 프로토콜을 준수하는 타입인 반복기 타입의 값을 포함하기 위해 _콜렉션_ 표현식 \(_collection_ expression\) 에서 호출됩니다. 프로그램은 반복기에서 `next()` 메서드를 호출하여 루프를 실행합니다. 값이 `nil` 을 반환하지 않으면 _항목 \(item\)_ 패턴에 할당되고 프로그램은 _구문 \(statements\)_ 를 실행한 다음에 루프의 시작된 부분에서 계속 실행합니다. 그렇지 않으면 프로그램은 할당 또는 _구문 \(statements\)_ 실행을 수행하지 않고 `for`-`in` 구문 실행을 종료합니다.
+`makeIterator()` 메서드는 [`IteratorProtocol`](https://developer.apple.com/documentation/swift/iteratorprotocol) 프로토콜을 준수하는 타입인 반복기 타입의 값을 포함하기 위해 _콜렉션_ 표현식 (_collection_ expression) 에서 호출됩니다. 프로그램은 반복기에서 `next()` 메서드를 호출하여 루프를 실행합니다. 값이 `nil` 을 반환하지 않으면 _항목 (item)_ 패턴에 할당되고 프로그램은 _구문 (statements)_ 를 실행한 다음에 루프의 시작된 부분에서 계속 실행합니다. 그렇지 않으면 프로그램은 할당 또는 _구문 (statements)_ 실행을 수행하지 않고 `for`-`in` 구문 실행을 종료합니다.
 
-> GRAMMAR OF A FOR-IN STATEMENT  
-> for-in-statement → `for` `case` $$_{opt}$$ [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar_pattern)  `in` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  [where-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_where-clause) $$_{opt}$$ [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_code-block)
+> GRAMMAR OF A FOR-IN STATEMENT\
+> for-in-statement → `for` `case` $$_{opt}$$ [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar\_pattern) `in` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_expression) [where-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_where-clause) $$_{opt}$$ [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_code-block)
 
-### While 구문 \(While Statement\)
+### While 구문 (While Statement)
 
 `while` 구문은 조건이 참으로 남아있는 한 반복적으로 실행되기 위해 코드의 블럭을 허용합니다.
 
 `while` 구문은 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-10.10.30.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.10.30.png>)
 
 `while` 구문은 다음과 같이 실행됩니다:
 
-1. _조건 \(condition\)_ 은 평가됩니다. `true` 이면 2번이 계속 실행됩니다. `false` 이면 프로그램은 `while` 구문 실행을 종료합니다.
-2. 프로그램은 _구문 \(statements\)_ 을 실행하고 실행은 1번으로 돌아갑니다.
+1. _조건 (condition)_ 은 평가됩니다. `true` 이면 2번이 계속 실행됩니다. `false` 이면 프로그램은 `while` 구문 실행을 종료합니다.
+2. 프로그램은 _구문 (statements)_ 을 실행하고 실행은 1번으로 돌아갑니다.
 
-_조건 \(condition\)_ 의 값이 _구문 \(statements\)_ 이 실행되기 전에 평가되므로 `while` 구문의 _구문 \(statements\)_ 은 0번 또는 더 많이 실행될 수 있습니다.
+_조건 (condition)_ 의 값이 _구문 (statements)_ 이 실행되기 전에 평가되므로 `while` 구문의 _구문 (statements)_ 은 0번 또는 더 많이 실행될 수 있습니다.
 
-_조건 \(condition\)_ 의 값은 타입 `Bool` 이거나 `Bool` 에 브릿지된 타입이어야 합니다. 조건은 [옵셔널 바인딩 \(Optional Binding\)](../language-guide-1/the-basics.md#optional-binding) 에서 설명한대로 옵셔널 바인딩 선언일 수도 있습니다.
+_조건 (condition)_ 의 값은 타입 `Bool` 이거나 `Bool` 에 브릿지된 타입이어야 합니다. 조건은 [옵셔널 바인딩 (Optional Binding)](../language-guide-1/the-basics.md#optional-binding) 에서 설명한대로 옵셔널 바인딩 선언일 수도 있습니다.
 
-> GRAMMAR OF A WHILE STATEMENT  
-> while-statement → `while` [condition-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_condition-list)  [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_code-block)  
-> condition-list → [condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_condition) \|  [condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_condition)  `,` [condition-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_condition-list)  
-> condition → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) \|  [availability-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-condition) \|  [case-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_case-condition) \|  [optional-binding-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_optional-binding-condition)  
-> case-condition → `case` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar_pattern)  [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_initializer)  
-> optional-binding-condition → `let` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar_pattern)  [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_initializer) \|  `var` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar_pattern)  [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_initializer)
+> GRAMMAR OF A WHILE STATEMENT\
+> while-statement → `while` [condition-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_condition-list) [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_code-block)\
+> condition-list → [condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_condition) | [condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_condition) `,` [condition-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_condition-list)\
+> condition → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_expression) | [availability-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_availability-condition) | [case-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_case-condition) | [optional-binding-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_optional-binding-condition)\
+> case-condition → `case` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar\_pattern) [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer)\
+> optional-binding-condition → `let` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar\_pattern) [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer) | `var` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar\_pattern) [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer)
 
-### Repeat-While 구문 \(Repeat-While Statement\)
+### Repeat-While 구문 (Repeat-While Statement)
 
 `repeat`-`while` 구문은 조건이 참인 경우에 한하여 한 번 이상 실행되기 위한 코드의 블럭을 허용합니다.
 
 `repeat`-`while` 구문은 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-10.12.34.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.12.34.png>)
 
 `repeat`-`while` 구문은 다음과 같이 실행됩니다:
 
-1. 프로그램은 _구문 \(statements\)_ 를 실행하고 2번이 계속 실행됩니다.
-2. _조건 \(condition\)_ 이 평가됩니다. `true` 이면 실행은 1번으로 돌아갑니다. `false` 이면 프로그램은 `repeat`-`while` 구문 실행이 종료됩니다.
+1. 프로그램은 _구문 (statements)_ 를 실행하고 2번이 계속 실행됩니다.
+2. _조건 (condition)_ 이 평가됩니다. `true` 이면 실행은 1번으로 돌아갑니다. `false` 이면 프로그램은 `repeat`-`while` 구문 실행이 종료됩니다.
 
-_조건 \(condition\)_ 의 값이 평가되기 때문에 후에 _구문 \(statements\)_ 이 실행되고 `repeat`-`while` 구문에서 _구문 \(statements\)_ 은 적어도 한 번은 실행됩니다.
+_조건 (condition)_ 의 값이 평가되기 때문에 후에 _구문 (statements)_ 이 실행되고 `repeat`-`while` 구문에서 _구문 (statements)_ 은 적어도 한 번은 실행됩니다.
 
-_조건 \(condition\)_ 의 값은 타입 `Bool` 이거나 `Bool` 로 브릿지된 타입이어야 합니다. 조건은 [옵셔널 바인딩 \(Optional Binding\)](../language-guide-1/the-basics.md#optional-binding) 에서 설명한대로 옵셔널 바인딩 선언일 수도 있습니다.
+_조건 (condition)_ 의 값은 타입 `Bool` 이거나 `Bool` 로 브릿지된 타입이어야 합니다. 조건은 [옵셔널 바인딩 (Optional Binding)](../language-guide-1/the-basics.md#optional-binding) 에서 설명한대로 옵셔널 바인딩 선언일 수도 있습니다.
 
-> GRAMMAR OF A REPEAT-WHILE STATEMENT  
-> repeat-while-statement → `repeat` [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_code-block)  `while` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)
+> GRAMMAR OF A REPEAT-WHILE STATEMENT\
+> repeat-while-statement → `repeat` [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_code-block) `while` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_expression)
 
-## 분기 구문 \(Branch Statements\)
+## 분기 구문 (Branch Statements)
 
-분기 구문 \(Branch statements\) 은 프로그램이 하나 이상의 조건의 값에 따라 코드의 특정 부분을 실행하는 것을 허용합니다. 분기 구문에서 지정된 조건의 값은 프로그램 분기 방법 및 코드의 어떤 블럭이 실행되는지 제어합니다. Swift 는 `if` 구문, `guard` 구문, 그리고 `switch` 구문의 세가지 분기 구문을 가지고 있습니다.
+분기 구문 (Branch statements) 은 프로그램이 하나 이상의 조건의 값에 따라 코드의 특정 부분을 실행하는 것을 허용합니다. 분기 구문에서 지정된 조건의 값은 프로그램 분기 방법 및 코드의 어떤 블럭이 실행되는지 제어합니다. Swift 는 `if` 구문, `guard` 구문, 그리고 `switch` 구문의 세가지 분기 구문을 가지고 있습니다.
 
-`if` 구문 또는 `switch` 구문에서 제어 흐름은 `break` 구문에 의해 변경될 수 있고 아래 [중단 구문 \(Break Statement\)](statements.md#break-statement) 에 설명되어 있습니다.
+`if` 구문 또는 `switch` 구문에서 제어 흐름은 `break` 구문에 의해 변경될 수 있고 아래 [중단 구문 (Break Statement)](statements.md#break-statement) 에 설명되어 있습니다.
 
-> GRAMMAR OF A BRANCH STATEMENT  
-> branch-statement → [if-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_if-statement)  
-> branch-statement → [guard-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_guard-statement)  
-> branch-statement → [switch-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_switch-statement)
+> GRAMMAR OF A BRANCH STATEMENT\
+> branch-statement → [if-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_if-statement)\
+> branch-statement → [guard-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_guard-statement)\
+> branch-statement → [switch-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_switch-statement)
 
-### If 구문 \(If Statement\)
+### If 구문 (If Statement)
 
 `if` 구문은 하나 이상의 조건의 평가를 기반으로 코드 실행에 사용됩니다.
 
@@ -105,31 +105,31 @@ _조건 \(condition\)_ 의 값은 타입 `Bool` 이거나 `Bool` 로 브릿지�
 
 첫번째 형식은 조건이 참이고 다음의 형식을 가지고 있을 때만 코드가 실행되도록 합니다:
 
-![](../.gitbook/assets/2021-02-22-10.13.57.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.13.57.png>)
 
-`if` 구문의 두번째 형식은 추가로 `else` 키워드로 도입된 _else 절 \(else clause\)_ 을 제공하고 조건이 참일 때 코드의 한 부분을 실행하고 동일한 조건이 거짓일 때 코드의 다른 부분을 실행하는데 사용됩니다. 하나의 else 절이 있는 경우에 `if` 구문은 다음의 형식을 가집니다:
+`if` 구문의 두번째 형식은 추가로 `else` 키워드로 도입된 _else 절 (else clause)_ 을 제공하고 조건이 참일 때 코드의 한 부분을 실행하고 동일한 조건이 거짓일 때 코드의 다른 부분을 실행하는데 사용됩니다. 하나의 else 절이 있는 경우에 `if` 구문은 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-10.14.32.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.14.32.png>)
 
 `if` 구문의 else 절은 둘 이상의 조건을 검사하기 위해 다른 `if` 구문을 포함할 수 있습니다. 이러한 방법으로 연결된 `if` 구문은 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-10.15.35.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.15.35.png>)
 
-`if` 구문에서 모든 조건의 값은 타입 `Bool` 이거나 `Bool` 로 브릿지된 타입이어야 합니다. 조건은 [옵셔널 바인딩 \(Optional Binding\)](../language-guide-1/the-basics.md#optional-binding) 에서 설명한대로 옵셔널 바인딩 선언일 수도 있습니다.
+`if` 구문에서 모든 조건의 값은 타입 `Bool` 이거나 `Bool` 로 브릿지된 타입이어야 합니다. 조건은 [옵셔널 바인딩 (Optional Binding)](../language-guide-1/the-basics.md#optional-binding) 에서 설명한대로 옵셔널 바인딩 선언일 수도 있습니다.
 
-> GRAMMAR OF AN IF STATEMENT  
-> if-statement → `if` [condition-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_condition-list)  [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_code-block)  [else-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_else-clause) $$_{opt}$$   
-> else-clause → `else` [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_code-block) \|  `else` [if-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_if-statement)
+> GRAMMAR OF AN IF STATEMENT\
+> if-statement → `if` [condition-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_condition-list) [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_code-block) [else-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_else-clause) $$_{opt}$$\
+> else-clause → `else` [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_code-block) | `else` [if-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_if-statement)
 
-### Guard 구문 \(Guard Statement\)
+### Guard 구문 (Guard Statement)
 
 `guard` 구문은 하나 이상의 조건이 충족되지 않을 때 범위 밖으로 프로그램 제어를 전송하기 위해 사용됩니다.
 
 `guard` 구문은 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-10.16.41.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.16.41.png>)
 
-`guard` 구문의 모든 조건의 값은 타입 `Bool` 이거나 `Bool` 로 브릿지된 타입이어야 합니다. 조건은 [옵셔널 바인딩 \(Optional Binding\)](../language-guide-1/the-basics.md#optional-binding) 에서 설명한대로 옵셔널 바인딩 선언일 수도 있습니다.
+`guard` 구문의 모든 조건의 값은 타입 `Bool` 이거나 `Bool` 로 브릿지된 타입이어야 합니다. 조건은 [옵셔널 바인딩 (Optional Binding)](../language-guide-1/the-basics.md#optional-binding) 에서 설명한대로 옵셔널 바인딩 선언일 수도 있습니다.
 
 `guard` 구문 조건에서 옵셔널 바인딩 선언으로 할당된 모든 상수 또는 변수 값은 guard 구문을 둘러싼 범위 내에서 사용될 수 있습니다.
 
@@ -140,24 +140,24 @@ _조건 \(condition\)_ 의 값은 타입 `Bool` 이거나 `Bool` 로 브릿지�
 * `continue`
 * `throw`
 
-제어 전송 구문은 아래 [제어 전송 구문 \(Control Transfer Statements\)](statements.md#control-transfer-statements) 에서 설명되어 있습니다. Never 반환 타입이 있는 함수에 자세한 내용은 [Never 반환 함수 \(Functions that Never Return\)](declarations.md#functions-that-never-return) 을 참고 바랍니다.
+제어 전송 구문은 아래 [제어 전송 구문 (Control Transfer Statements)](statements.md#control-transfer-statements) 에서 설명되어 있습니다. Never 반환 타입이 있는 함수에 자세한 내용은 [Never 반환 함수 (Functions that Never Return)](declarations.md#functions-that-never-return) 을 참고 바랍니다.
 
-> GRAMMAR OF A GUARD STATEMENT  
-> guard-statement → `guard` [condition-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_condition-list)  `else` [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_code-block)
+> GRAMMAR OF A GUARD STATEMENT\
+> guard-statement → `guard` [condition-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_condition-list) `else` [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_code-block)
 
-### Switch 구문 \(Switch Statement\)
+### Switch 구문 (Switch Statement)
 
 `switch` 구문은 제어 표현식의 값에 따라 특정 코드의 블럭이 실행됩니다.
 
 `switch` 구문은 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-10.17.41.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.17.41.png>)
 
-`switch` 구문의 _제어 표현식 \(control expression\)_ 은 평가된 다음에 각 케이스에 지정한 패턴과 비교됩니다. 일치하는 항목이 있으면 프로그램은 해당 케이스의 범위내에 _구문 \(statements\)_ 을 실행합니다. 각 케이스의 범위는 비어 있을 수 없습니다. 결과적으로 각 케이스 라벨의 콜론 \(`:`\) 다음에 적어도 하나의 구문이 포함되어야 합니다. 일치하는 케이스의 바디에서 코드를 실행하지 않으려면 단일 `break` 구문을 사용해야 합니다.
+`switch` 구문의 _제어 표현식 (control expression)_ 은 평가된 다음에 각 케이스에 지정한 패턴과 비교됩니다. 일치하는 항목이 있으면 프로그램은 해당 케이스의 범위내에 _구문 (statements)_ 을 실행합니다. 각 케이스의 범위는 비어 있을 수 없습니다. 결과적으로 각 케이스 라벨의 콜론 (`:`) 다음에 적어도 하나의 구문이 포함되어야 합니다. 일치하는 케이스의 바디에서 코드를 실행하지 않으려면 단일 `break` 구문을 사용해야 합니다.
 
-코드가 분기할 수 있는 표현식의 값은 매우 유연합니다. 예를 들어 정수와 문자와 같은 스칼라 타입의 값을 제외하고 코드는 부동 소수점 숫자, 문자열, 튜플, 사용자 정의 클래스의 인스턴스, 그리고 옵셔널을 포함하는 모든 타입의 값으로 분기할 수 있습니다. _제어 표현식 \(control expression\)_ 의 값은 열거형의 케이스의 값과 일치하고 지정된 값 범위에 포함되는지 확인할 수도 있습니다. `switch` 구문에서 값의 이러한 여러가지 타입을 어떻게 사용하는지에 대한 예제는 [제어 흐름 \(Control Flow\)](../language-guide-1/control-flow.md) 에 [Switch](../language-guide-1/control-flow.md#switch) 를 참고 바랍니다.
+코드가 분기할 수 있는 표현식의 값은 매우 유연합니다. 예를 들어 정수와 문자와 같은 스칼라 타입의 값을 제외하고 코드는 부동 소수점 숫자, 문자열, 튜플, 사용자 정의 클래스의 인스턴스, 그리고 옵셔널을 포함하는 모든 타입의 값으로 분기할 수 있습니다. _제어 표현식 (control expression)_ 의 값은 열거형의 케이스의 값과 일치하고 지정된 값 범위에 포함되는지 확인할 수도 있습니다. `switch` 구문에서 값의 이러한 여러가지 타입을 어떻게 사용하는지에 대한 예제는 [제어 흐름 (Control Flow)](../language-guide-1/control-flow.md) 에 [Switch](../language-guide-1/control-flow.md#switch) 를 참고 바랍니다.
 
-`switch` 케이스는 각 패턴 후에 선택적으로 `where` 절을 포함할 수 있습니다. _where 절 \(where clause\)_ 은 `where` 키워드 다음에 표현식을 붙여 도입되고 케이스에 패턴이 _제어 표현식 \(control expression\)_ 에 일치되는지 간주되기 전에 추가 조건을 제공하는데 사용됩니다. `where` 절이 있는 경우 연관된 케이스 내에 _구문 \(statements\)_ 은 _제어 표현식 \(control expression\)_ 의 값이 케이스의 패턴 중 하나와 일치하고 `where` 절의 표현식이 `true` 로 평가될 때만 실행됩니다. 예를 들어 _제어 표현식 \(control expression\)_ 은 `(1, 1)` 과 같이 동일한 값의 두 요소가 포함된 튜플인 경우에만 아래 예제의 케이스는 일치됩니다.
+`switch` 케이스는 각 패턴 후에 선택적으로 `where` 절을 포함할 수 있습니다. _where 절 (where clause)_ 은 `where` 키워드 다음에 표현식을 붙여 도입되고 케이스에 패턴이 _제어 표현식 (control expression)_ 에 일치되는지 간주되기 전에 추가 조건을 제공하는데 사용됩니다. `where` 절이 있는 경우 연관된 케이스 내에 _구문 (statements)_ 은 _제어 표현식 (control expression)_ 의 값이 케이스의 패턴 중 하나와 일치하고 `where` 절의 표현식이 `true` 로 평가될 때만 실행됩니다. 예를 들어 _제어 표현식 (control expression)_ 은 `(1, 1)` 과 같이 동일한 값의 두 요소가 포함된 튜플인 경우에만 아래 예제의 케이스는 일치됩니다.
 
 ```swift
 case let (x, y) where x == y:
@@ -167,15 +167,15 @@ case let (x, y) where x == y:
 
 `switch` 구문은 `default` 키워드로 도입되는 기본 케이스를 포함할 수도 있습니다. 기본 케이스 내에 코드는 제어 표현식이 일치하는 케이스가 없는 경우에만 실행됩니다. `switch` 구문은 오직 하나의 기본 케이스만 포함되고 `switch` 구문의 마지막에 위치해야 합니다.
 
-패턴-일치 동작 \(pattern-matching operations\) 의 실제 실행 순서, 그리고 특별히 케이스의 패턴의 평가 순서가 지정되지 않았지만 `switch` 구문의 패턴 일치는 소스 코드가 나타나는 순서대로 소스 순서대로 평가가 수행되도록 동작합니다. 결과적으로 여러 케이스에 동일한 값으로 평가되는 패턴이 포함되어 제어 표현식의 값과 일치할 수 있는 경우 프로그램은 소스 순서대로 일치하는 첫번째 케이스 내의 코드만 실행합니다.
+패턴-일치 동작 (pattern-matching operations) 의 실제 실행 순서, 그리고 특별히 케이스의 패턴의 평가 순서가 지정되지 않았지만 `switch` 구문의 패턴 일치는 소스 코드가 나타나는 순서대로 소스 순서대로 평가가 수행되도록 동작합니다. 결과적으로 여러 케이스에 동일한 값으로 평가되는 패턴이 포함되어 제어 표현식의 값과 일치할 수 있는 경우 프로그램은 소스 순서대로 일치하는 첫번째 케이스 내의 코드만 실행합니다.
 
-#### Switch 구문은 완벽해야 함 \(Switch Statements Must Be Exhaustive\)
+#### Switch 구문은 완벽해야 함 (Switch Statements Must Be Exhaustive)
 
-Swift 에서 제어 표현식의 타입에서 가능한 모든 값은 적어도 하나의 케이스의 패턴의 값과 일치해야 합니다. 이것이 가능하지 않은 경우 \(예를 들어 제어 표현식의 타입이 `Int` 인 경우\) 요구사항을 충족하기 위해 기본 케이스를 포함할 수 있습니다.
+Swift 에서 제어 표현식의 타입에서 가능한 모든 값은 적어도 하나의 케이스의 패턴의 값과 일치해야 합니다. 이것이 가능하지 않은 경우 (예를 들어 제어 표현식의 타입이 `Int` 인 경우) 요구사항을 충족하기 위해 기본 케이스를 포함할 수 있습니다.
 
-#### 향후 열거형 케이스 전환 \(Switching Over Future Enumeration Cases\)
+#### 향후 열거형 케이스 전환 (Switching Over Future Enumeration Cases)
 
-_비고정 열거형 \(nonfrozen enumeration\)_ 은 앱을 컴파일하고 출시한 후에도 나중에 새로운 열거형 케이스를 얻을 수 있는 특별한 종류의 열거형입니다. 비고정 열거형을 전환하려면 추가 고려사항이 필요합니다. 라이브러리 작성자가 비고정으로 열거형을 표시할 때 새로운 열거형 케이스를 추가할 권한이 있으며 해당 열거형과 상호작용하는 모든 코드는 다시 컴파일되지 않고 향후 케이스를 처리할 수 있습니다. 라이브러리 진화 모드에서 컴파일된 코드, 표준 라이브러리의 코드, Apple 프레임워크용 Swift 오버레이, 그리고 C 그리고 Objective-C 코드는 비고정 열거형을 선언할 수 있습니다. 고정과 비고정 열거형에 대한 자세한 내용은 [고정 \(frozen\)](attributes.md#frozen) 을 참고 바랍니다.
+_비고정 열거형 (nonfrozen enumeration)_ 은 앱을 컴파일하고 출시한 후에도 나중에 새로운 열거형 케이스를 얻을 수 있는 특별한 종류의 열거형입니다. 비고정 열거형을 전환하려면 추가 고려사항이 필요합니다. 라이브러리 작성자가 비고정으로 열거형을 표시할 때 새로운 열거형 케이스를 추가할 권한이 있으며 해당 열거형과 상호작용하는 모든 코드는 다시 컴파일되지 않고 향후 케이스를 처리할 수 있습니다. 라이브러리 진화 모드에서 컴파일된 코드, 표준 라이브러리의 코드, Apple 프레임워크용 Swift 오버레이, 그리고 C 그리고 Objective-C 코드는 비고정 열거형을 선언할 수 있습니다. 고정과 비고정 열거형에 대한 자세한 내용은 [고정 (frozen)](attributes.md#frozen) 을 참고 바랍니다.
 
 비고정 열거형 값을 변경할 때 열서형의 모든 케이스가 해당 전환 케이스가 있더라도 기본 케이스를 포함해야 합니다.향후에 추가된 열거형 케이스에만 일치되는 기본 케이스를 나타내기 위해 기본 케이스에 `@unknown` 속성을 적용할 수 있습니다. Swift 는 컴파일 시에 모든 열거형 케이스와 일치하는 기본 케이스가 있다면 경고를 발생시킵니다. 향후 이 경고는 라이브러리 작성자가 해당 스위치 케이스가 없는 열거형에 새로운 케이스를 추가했음을 알려줍니다.
 
@@ -196,59 +196,59 @@ case .suppressed:
 // Prints "Generate a default mirror for all ancestor classes."
 ```
 
-#### 실행이 암시적으로 케이스를 통과하지 않음 \(Execution Does Not Fall Through Cases Implicitly\)
+#### 실행이 암시적으로 케이스를 통과하지 않음 (Execution Does Not Fall Through Cases Implicitly)
 
-일치한 케이스 내에 코드 실행이 완료되면 프로그램은 `switch` 구문을 종료합니다. 프로그램 실행이 계속되지 않거나 다음 케이스 또는 기본 케이스로 "이동 \(fall through\)" 되지 않습니다. 이 말은 한 케이스에서 다음 케이스로 계속해서 실행을 하려면 계속해서 실행되기 원하는 케이스에 간단하게 `fallthrough` 키워드로 구성된 `fallthrough` 구문을 명시적으로 포함해야 합니다. `fallthrough` 구문에 대한 자세한 내용은 아래의 [이동 구문 \(Fallthrough Statement\)](statements.md#fallthrough-statement) 을 참고 바랍니다.
+일치한 케이스 내에 코드 실행이 완료되면 프로그램은 `switch` 구문을 종료합니다. 프로그램 실행이 계속되지 않거나 다음 케이스 또는 기본 케이스로 "이동 (fall through)" 되지 않습니다. 이 말은 한 케이스에서 다음 케이스로 계속해서 실행을 하려면 계속해서 실행되기 원하는 케이스에 간단하게 `fallthrough` 키워드로 구성된 `fallthrough` 구문을 명시적으로 포함해야 합니다. `fallthrough` 구문에 대한 자세한 내용은 아래의 [이동 구문 (Fallthrough Statement)](statements.md#fallthrough-statement) 을 참고 바랍니다.
 
-> GRAMMAR OF A SWITCH STATEMENT  
-> switch-statement → `switch` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  `{` [switch-cases](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_switch-cases) $$_{opt}$$ `}`   
-> switch-cases → [switch-case](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_switch-case)  [switch-cases](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_switch-cases) $$_{opt}$$   
-> switch-case → [case-label](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_case-label)  [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statements)  
-> switch-case → [default-label](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_default-label)  [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statements)  
-> switch-case → [conditional-switch-case](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_conditional-switch-case)  
-> case-label → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ `case` [case-item-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_case-item-list)  `:`   
-> case-item-list → [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar_pattern)  [where-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_where-clause) $$_{opt}$$ \|  [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar_pattern)  [where-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_where-clause) $$_{opt}$$ `,` [case-item-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_case-item-list)  
-> default-label → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ `default` `:`   
-> where-clause → `where` [where-expression](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_where-expression)  
-> where-expression → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)  
-> conditional-switch-case → [switch-if-directive-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_switch-if-directive-clause)  [switch-elseif-directive-clauses](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_switch-elseif-directive-clauses) $$_{opt}$$ [switch-else-directive-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_switch-else-directive-clause) $$_{opt}$$ [endif-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_endif-directive)  
-> switch-if-directive-clause → [if-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_if-directive)  [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_compilation-condition)  [switch-cases](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_switch-cases) $$_{opt}$$   
-> switch-elseif-directive-clauses → [elseif-directive-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_elseif-directive-clause)  [switch-elseif-directive-clauses](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_switch-elseif-directive-clauses) $$_{opt}$$   
-> switch-elseif-directive-clause → [elseif-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_elseif-directive)  [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_compilation-condition)  [switch-cases](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_switch-cases) $$_{opt}$$   
-> switch-else-directive-clause → [else-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_else-directive)  [switch-cases](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_switch-cases) $$_{opt}$$
+> GRAMMAR OF A SWITCH STATEMENT\
+> switch-statement → `switch` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_expression) `{` [switch-cases](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_switch-cases) $$_{opt}$$ `}`\
+> switch-cases → [switch-case](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_switch-case) [switch-cases](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_switch-cases) $$_{opt}$$\
+> switch-case → [case-label](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_case-label) [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statements)\
+> switch-case → [default-label](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_default-label) [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statements)\
+> switch-case → [conditional-switch-case](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_conditional-switch-case)\
+> case-label → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attributes) $$_{opt}$$ `case` [case-item-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_case-item-list) `:`\
+> case-item-list → [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar\_pattern) [where-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_where-clause) $$_{opt}$$ | [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar\_pattern) [where-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_where-clause) $$_{opt}$$ `,` [case-item-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_case-item-list)\
+> default-label → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attributes) $$_{opt}$$ `default` `:`\
+> where-clause → `where` [where-expression](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_where-expression)\
+> where-expression → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_expression)\
+> conditional-switch-case → [switch-if-directive-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_switch-if-directive-clause) [switch-elseif-directive-clauses](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_switch-elseif-directive-clauses) $$_{opt}$$ [switch-else-directive-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_switch-else-directive-clause) $$_{opt}$$ [endif-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_endif-directive)\
+> switch-if-directive-clause → [if-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_if-directive) [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_compilation-condition) [switch-cases](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_switch-cases) $$_{opt}$$\
+> switch-elseif-directive-clauses → [elseif-directive-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_elseif-directive-clause) [switch-elseif-directive-clauses](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_switch-elseif-directive-clauses) $$_{opt}$$\
+> switch-elseif-directive-clause → [elseif-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_elseif-directive) [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_compilation-condition) [switch-cases](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_switch-cases) $$_{opt}$$\
+> switch-else-directive-clause → [else-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_else-directive) [switch-cases](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_switch-cases) $$_{opt}$$
 
-## 라벨 구문 \(Labeled Statement\)
+## 라벨 구문 (Labeled Statement)
 
-접두사로 루프 구문, `if` 구문, `switch` 구문, 또는 `do` 구문을 라벨의 이름 뒤에 콜론 \(`:`\) 으로 구성된 _구문 라벨 \(statement label\)_ 을 붙일 수 있습니다. 아래 [중단 구문 \(Break Statement\)](statements.md#break-statement) 과 [계속 구문 \(Continue Statement\)](statements.md#continue-statement) 에서 설명한대로 루프 구문 또는 `switch` 구문에서 제어 흐름을 변경하려는 방법을 명시하려면 `break` 와 `continue` 구문과 함께 구문 라벨을 사용해야 합니다.
+접두사로 루프 구문, `if` 구문, `switch` 구문, 또는 `do` 구문을 라벨의 이름 뒤에 콜론 (`:`) 으로 구성된 _구문 라벨 (statement label)_ 을 붙일 수 있습니다. 아래 [중단 구문 (Break Statement)](statements.md#break-statement) 과 [계속 구문 (Continue Statement)](statements.md#continue-statement) 에서 설명한대로 루프 구문 또는 `switch` 구문에서 제어 흐름을 변경하려는 방법을 명시하려면 `break` 와 `continue` 구문과 함께 구문 라벨을 사용해야 합니다.
 
 라벨 구문의 범위는 구문 라벨 다음에 오는 전체 구문입니다. 라벨 구문을 중첩할 수 있지만 각 구문 라벨의 이름은 고유해야 합니다.
 
-구문 라벨을 어떻게 사용하는지 자세한 내용과 예제는 [제어 흐름 \(Control Flow\)](../language-guide-1/control-flow.md) 에 [라벨 구문 \(Labeled Statements\)](../language-guide-1/control-flow.md#labeled-statements) 을 참고 바랍니다.
+구문 라벨을 어떻게 사용하는지 자세한 내용과 예제는 [제어 흐름 (Control Flow)](../language-guide-1/control-flow.md) 에 [라벨 구문 (Labeled Statements)](../language-guide-1/control-flow.md#labeled-statements) 을 참고 바랍니다.
 
-> GRAMMAR OF A LABELED STATEMENT  
-> labeled-statement → [statement-label](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statement-label)  [loop-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_loop-statement)  
-> labeled-statement → [statement-label](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statement-label)  [if-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_if-statement)  
-> labeled-statement → [statement-label](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statement-label)  [switch-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_switch-statement)  
-> labeled-statement → [statement-label](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statement-label)  [do-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_do-statement)  
-> statement-label → [label-name](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_label-name)  `:`   
-> label-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)
+> GRAMMAR OF A LABELED STATEMENT\
+> labeled-statement → [statement-label](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statement-label) [loop-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_loop-statement)\
+> labeled-statement → [statement-label](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statement-label) [if-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_if-statement)\
+> labeled-statement → [statement-label](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statement-label) [switch-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_switch-statement)\
+> labeled-statement → [statement-label](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statement-label) [do-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_do-statement)\
+> statement-label → [label-name](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_label-name) `:`\
+> label-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_identifier)
 
-## 제어 전송 구문 \(Control Transfer Statements\)
+## 제어 전송 구문 (Control Transfer Statements)
 
-제어 전송 구문 \(Control transfer statements\) 은 프로그램 제어를 한 코드에서 다른 코드로 무조건 전송하여 프로그램의 코드가 실행되는 순서를 변경할 수 있습니다. Swift 는 `break` 구문, `continue` 구문, `fallthrough` 구문, `return` 구문, 그리고 `throw` 구문의 다섯가지 제어 전송 구문이 있습니다.
+제어 전송 구문 (Control transfer statements) 은 프로그램 제어를 한 코드에서 다른 코드로 무조건 전송하여 프로그램의 코드가 실행되는 순서를 변경할 수 있습니다. Swift 는 `break` 구문, `continue` 구문, `fallthrough` 구문, `return` 구문, 그리고 `throw` 구문의 다섯가지 제어 전송 구문이 있습니다.
 
-> GRAMMAR OF A CONTROL TRANSFER STATEMENT  
-> control-transfer-statement → [break-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_break-statement)  
-> control-transfer-statement → [continue-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_continue-statement)  
-> control-transfer-statement → [fallthrough-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_fallthrough-statement)  
-> control-transfer-statement → [return-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_return-statement)  
-> control-transfer-statement → [throw-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_throw-statement)
+> GRAMMAR OF A CONTROL TRANSFER STATEMENT\
+> control-transfer-statement → [break-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_break-statement)\
+> control-transfer-statement → [continue-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_continue-statement)\
+> control-transfer-statement → [fallthrough-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_fallthrough-statement)\
+> control-transfer-statement → [return-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_return-statement)\
+> control-transfer-statement → [throw-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_throw-statement)
 
-### Break 구문 \(Break Statement\)
+### Break 구문 (Break Statement)
 
 `break` 구문은 루프, `if` 구문, 또는 `switch` 구문의 프로그램 실행을 종료합니다. `break` 구문은 아래에서 본대로 `break` 키워드로만 구성되거나 `break` 키워드 다음에 구문 라벨의 이름으로 구성될 수 있습니다.
 
-![](../.gitbook/assets/2021-02-22-10.22.25.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.22.25.png>)
 
 `break` 구문 다음에 구문 라벨의 이름이 오면 라벨로 명명된 루프, `if` 구문, 또는 `switch` 구문의 프로그램 실행을 종료합니다.
 
@@ -256,16 +256,16 @@ case .suppressed:
 
 두 경우 모두 프로그램 제어는 루프나 `switch` 구문 다음 코드의 첫번째 줄로 전송됩니다.
 
-break 구문을 어떻게 사용하는지에 대한 예제는 [제어 흐름 \(Control Flow\)](../language-guide-1/control-flow.md) 에 [Break](../language-guide-1/control-flow.md#break) 과 [라벨 구문 \(Labeled Statements\)](../language-guide-1/control-flow.md#labeled-statements) 를 참고 바랍니다.
+break 구문을 어떻게 사용하는지에 대한 예제는 [제어 흐름 (Control Flow)](../language-guide-1/control-flow.md) 에 [Break](../language-guide-1/control-flow.md#break) 과 [라벨 구문 (Labeled Statements)](../language-guide-1/control-flow.md#labeled-statements) 를 참고 바랍니다.
 
-> GRAMMAR OF A BREAK STATEMENT  
-> break-statement → `break` [label-name](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_label-name) $$_{opt}$$
+> GRAMMAR OF A BREAK STATEMENT\
+> break-statement → `break` [label-name](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_label-name) $$_{opt}$$
 
-### Continue 구문 \(Continue Statement\)
+### Continue 구문 (Continue Statement)
 
 `continue` 구문은 루프 구문의 현재 반복의 프로그램 실행을 종료하지만 루프 구문의 실행을 멈추지 않습니다. `continue` 구문은 아래에서 보는대로 `continue` 키워드로만 구성되거나 `continue` 키워드 다음에 구문 라벨의 이름으로 구성될 수 있습니다.
 
-![](../.gitbook/assets/2021-02-22-10.23.20.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.23.20.png>)
 
 `continue` 구문 다음에 구문 라벨의 이름이 따라오면 라벨로 명명된 루프 구문의 현재 반복의 프로그램 실행을 종료합니다.
 
@@ -275,41 +275,41 @@ break 구문을 어떻게 사용하는지에 대한 예제는 [제어 흐름 \(C
 
 `for` 구문에서 증가 표현식은 루프의 바디가 실행된 후에 평가되므로 `continue` 구문 후에도 계속 계산됩니다.
 
-`continue` 구문 사용에 대한 예제는 [제어 흐름 \(Control Flow\)](../language-guide-1/control-flow.md) 에 [Continue](../language-guide-1/control-flow.md#continue) 와 [라벨 구문 \(Labeled Statements\)](../language-guide-1/control-flow.md#labeled-statements) 를 참고 바랍니다.
+`continue` 구문 사용에 대한 예제는 [제어 흐름 (Control Flow)](../language-guide-1/control-flow.md) 에 [Continue](../language-guide-1/control-flow.md#continue) 와 [라벨 구문 (Labeled Statements)](../language-guide-1/control-flow.md#labeled-statements) 를 참고 바랍니다.
 
-> GRAMMAR OF A CONTINUE STATEMENT  
-> continue-statement → `continue` [label-name](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_label-name) $$_{opt}$$
+> GRAMMAR OF A CONTINUE STATEMENT\
+> continue-statement → `continue` [label-name](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_label-name) $$_{opt}$$
 
-### Fallthrough 구문 \(Fallthrough Statement\)
+### Fallthrough 구문 (Fallthrough Statement)
 
 `fallthrough` 구문은 `fallthrough` 키워드로 구성되고 `switch` 구문의 케이스 블럭에서만 발생합니다. `fallthrough` 구문은 `switch` 구문의 한 케이스에서 다음 케이스로 계속해서 프로그램이 실행되도록 합니다. `switch` 구문의 제어 표현식의 값이 케이스 라벨의 패턴과 일치하지 않아도 다음 케이스는 계속 실행됩니다.
 
 `fallthrough` 구문은 케이스 블럭의 마지막 구문 뿐만 아니라 `switch` 구문 내 어디든 나타날 수 있지만 마지막 케이스 블럭에서는 사용될 수 없습니다. 또한 패턴에 값 바인딩 패턴이 포함된 케이스 블럭으로 제어를 전송할 수 없습니다.
 
-`switch` 구문에서 `fallthrough` 구문을 사용하는 방법에 대한 예제는 [제어 흐름 \(Control Flow\)](../language-guide-1/control-flow.md) 에 [제어 전송 구문 \(Control Transfer Statements\)](../language-guide-1/control-flow.md#control-transfer-statements) 를 참고 바랍니다.
+`switch` 구문에서 `fallthrough` 구문을 사용하는 방법에 대한 예제는 [제어 흐름 (Control Flow)](../language-guide-1/control-flow.md) 에 [제어 전송 구문 (Control Transfer Statements)](../language-guide-1/control-flow.md#control-transfer-statements) 를 참고 바랍니다.
 
-> GRAMMAR OF A FALLTHROUGH STATEMENT  
+> GRAMMAR OF A FALLTHROUGH STATEMENT\
 > fallthrough-statement → `fallthrough`
 
-### Retrun 구문 \(Return Statement\)
+### Retrun 구문 (Return Statement)
 
 `return` 구문은 함수 또는 메서드 정의의 바디에서 발생하고 호출한 함수 또는 메서드를 반환하기 위해 실행합니다. 함수 또는 메서드 호출 다음에서 계속해서 실행됩니다.
 
 `return` 구문은 아래에 보는대로 `return` 키워드만으로 구성되거나 `return` 키워드 다음에 표현식으로 구성될 수 있습니다.
 
-![](../.gitbook/assets/2021-02-22-10.37.21.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.37.21.png>)
 
 `return` 구문 다음에 표현식이 오면 표현식의 값은 호출한 함수 또는 메서드에 반환됩니다. 표현식의 값이 함수 또는 메서드 선언에 선언된 반환 타입의 값과 일치하지 않으면 표현식의 값은 호출한 함수 또는 메서드에 반환되기 전에 반환 타입을 변환합니다.
 
-> NOTE  
-> [실패 가능한 초기화 구문 \(Failable Initializers\)](declarations.md#failable-initializers) 에서 설명한대로 `return` 구문의 특수한 형식 \(`return nil`\) 은 초기화 실패를 나타내기 위해 실패 가능한 초기화 구문에서 사용될 수 있습니다.
+> NOTE\
+> [실패 가능한 초기화 구문 (Failable Initializers)](declarations.md#failable-initializers) 에서 설명한대로 `return` 구문의 특수한 형식 (`return nil`) 은 초기화 실패를 나타내기 위해 실패 가능한 초기화 구문에서 사용될 수 있습니다.
 
-`return` 구문 다음에 표현식이 없으면 반환값이 없는 함수 또는 메서드에 반환하기 위해서만 사용될 수 있습니다 \(즉, 함수 또는 메서드의 반환 타입이 `Void` 또는 `()` 인 경우에 해당됩니다\).
+`return` 구문 다음에 표현식이 없으면 반환값이 없는 함수 또는 메서드에 반환하기 위해서만 사용될 수 있습니다 (즉, 함수 또는 메서드의 반환 타입이 `Void` 또는 `()` 인 경우에 해당됩니다).
 
-> GRAMMAR OF A RETURN STATEMENT  
-> return-statement → `return` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) $$_{opt}$$
+> GRAMMAR OF A RETURN STATEMENT\
+> return-statement → `return` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_expression) $$_{opt}$$
 
-### Throw 구문 \(Throw Statement\)
+### Throw 구문 (Throw Statement)
 
 `throw` 구문은 던지는 함수 또는 메서드의 바디에서 발생하거나 타입에 `throws` 키워드가 표시된 클로저 표현식의 바디에서 발생합니다.
 
@@ -317,22 +317,22 @@ break 구문을 어떻게 사용하는지에 대한 예제는 [제어 흐름 \(C
 
 `throw` 구문은 아래에서 보는대로 `throw` 키워드 다음에 표현식으로 구성됩니다.
 
-![](../.gitbook/assets/2021-02-22-10.39.08.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.39.08.png>)
 
-_표현식 \(expression\)_ 의 값은 `Error` 프로토콜을 준수하는 타입이어야 합니다.
+_표현식 (expression)_ 의 값은 `Error` 프로토콜을 준수하는 타입이어야 합니다.
 
-`throw` 구문을 어떻게 사용하는지에 대한 예제는 [에처 처리 \(Error Handling\)](../language-guide-1/error-handling.md) 에 [던지기 함수를 이용한 에러 전파 \(Propagating Errors Using Throwing Functions\)](../language-guide-1/error-handling.md#propagating-errors-using-throwing-functions) 을 참고 바랍니다.
+`throw` 구문을 어떻게 사용하는지에 대한 예제는 [에처 처리 (Error Handling)](../language-guide-1/error-handling.md) 에 [던지기 함수를 이용한 에러 전파 (Propagating Errors Using Throwing Functions)](../language-guide-1/error-handling.md#propagating-errors-using-throwing-functions) 을 참고 바랍니다.
 
-> GRAMMAR OF A THROW STATEMENT  
-> throw-statement → `throw` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)
+> GRAMMAR OF A THROW STATEMENT\
+> throw-statement → `throw` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_expression)
 
-## Defer 구문 \(Defer Statement\)
+## Defer 구문 (Defer Statement)
 
 `defer` 구문은 `defer` 구문이 나타나는 범위의 바깥으로 프로그램 제어가 전송되기 직전에 실행되는 코드에 사용됩니다.
 
 `defer` 구문은 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-10.40.00.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.40.00.png>)
 
 `defer` 구문 내에 구문은 프로그램 제어가 전송되는 것과 관계없이 실행됩니다. 이것은 예를 들어 `defer` 구문은 파일 닫기와 같은 수동 리소스 관리를 수행하고 에러가 발생하더라도 수행되어야 하는 수행해야 하는 작업이 있는 경우에 사용될 수 있습니다.
 
@@ -352,18 +352,18 @@ f()
 
 `defer` 구문에 구문은 `defer` 구문 바깥으로 프로그램 제어를 전송할 수 없습니다.
 
-> GRAMMAR OF A DEFER STATEMENT  
-> defer-statement → `defer` [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_code-block)
+> GRAMMAR OF A DEFER STATEMENT\
+> defer-statement → `defer` [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_code-block)
 
-## Do 구문 \(Do Statement\)
+## Do 구문 (Do Statement)
 
 `do` 구문은 새로운 범위를 도입하기 위해 사용되고 정의된 에러 조건과 일치하는 패턴을 포함하는 하나 이상의 `catch` 절을 선택적으로 포함할 수 있습니다. `do` 구문의 범위에서 선언된 변수와 상수는 해당 범위 내에서만 접근할 수 있습니다.
 
-Swift 에서 `do` 구문은 코드 블럭을 구분하는데 사용되는 C 의 중괄호 \(`{}`\) 와 유사하며 런타임시 성능 비용이 발생하지 않습니다.
+Swift 에서 `do` 구문은 코드 블럭을 구분하는데 사용되는 C 의 중괄호 (`{}`) 와 유사하며 런타임시 성능 비용이 발생하지 않습니다.
 
 `do` 구문은 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-10.41.19.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.41.19.png>)
 
 `do` 코드 블럭의 구문에서 에러가 발생하면 프로그렘 제어는 패턴이 에러와 일치하는 첫번째 `catch` 절로 전송됩니다. 일치하는 절이 없으면 에러를 주변 범위로 전파합니다. 에러를 최상위 수준에서 처리되지 않으면 프로그램 실행은 런타임 에러와 함께 멈춥니다.
 
@@ -371,48 +371,48 @@ Swift 에서 `do` 구문은 코드 블럭을 구분하는데 사용되는 C 의 
 
 여러 패턴을 가지는 `catch` 절은 패턴 중 하나가 에러와 일치하는 경우에 에러와 일치합니다. `catch` 절에 여러 패턴을 포함하는 경우 모든 패턴은 동일한 상수 또는 변수 바인딩이 포함되어야 하며 각 바인딩 된 변수 또는 상수는 모든 `catch` 절의 패턴에서 동일한 타입을 가져야 합니다.
 
-에러가 처리되도록 보장하려면 와일드카드 패턴 \(`_`\) 과 같이 모든 에러를 일치하는 패턴으로 `catch` 절을 사용해야 합니다. `catch` 절에 패턴을 지정하지 않으면 `catch` 절은 모든 에러와 일치하고 `error` 라는 이름의 지역 상수에 바인딩 됩니다. `catch` 절에서 사용할 수 있는 패턴에 대한 자세한 내용은 [패턴 \(Patterns\)](patterns.md) 를 참고 바랍니다.
+에러가 처리되도록 보장하려면 와일드카드 패턴 (`_`) 과 같이 모든 에러를 일치하는 패턴으로 `catch` 절을 사용해야 합니다. `catch` 절에 패턴을 지정하지 않으면 `catch` 절은 모든 에러와 일치하고 `error` 라는 이름의 지역 상수에 바인딩 됩니다. `catch` 절에서 사용할 수 있는 패턴에 대한 자세한 내용은 [패턴 (Patterns)](patterns.md) 를 참고 바랍니다.
 
-여러 `catch` 절과 `do` 구문을 사용하는 방법에 대한 예제는 [에러 처리 \(Handling Errors\)](../language-guide-1/error-handling.md#handling-errors) 를 참고 바랍니다.
+여러 `catch` 절과 `do` 구문을 사용하는 방법에 대한 예제는 [에러 처리 (Handling Errors)](../language-guide-1/error-handling.md#handling-errors) 를 참고 바랍니다.
 
-> GRAMMAR OF A DO STATEMENT  
-> do-statement → `do` [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_code-block)  [catch-clauses](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_catch-clauses) $$_{opt}$$   
-> catch-clauses → [catch-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_catch-clause)  [catch-clauses](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_catch-clauses) $$_{opt}$$   
-> catch-clause → `catch` [catch-pattern-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_catch-pattern-list) $$_{opt}$$ [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_code-block)  
-> catch-pattern-list → [catch-pattern](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_catch-pattern) \|  [catch-pattern](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_catch-pattern)  `,` [catch-pattern-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_catch-pattern-list)  
-> catch-pattern → [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar_pattern)  [where-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_where-clause) $$_{opt}$$
+> GRAMMAR OF A DO STATEMENT\
+> do-statement → `do` [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_code-block) [catch-clauses](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_catch-clauses) $$_{opt}$$\
+> catch-clauses → [catch-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_catch-clause) [catch-clauses](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_catch-clauses) $$_{opt}$$\
+> catch-clause → `catch` [catch-pattern-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_catch-pattern-list) $$_{opt}$$ [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_code-block)\
+> catch-pattern-list → [catch-pattern](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_catch-pattern) | [catch-pattern](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_catch-pattern) `,` [catch-pattern-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_catch-pattern-list)\
+> catch-pattern → [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar\_pattern) [where-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_where-clause) $$_{opt}$$
 
-## 컴파일러 제어 구문 \(Compiler Control Statements\)
+## 컴파일러 제어 구문 (Compiler Control Statements)
 
-컴파일러 제어 구문은 컴파일러의 동작 측면을 변경할 수 있습니다. Swift 는 조건부 컴파일 블럭 \(conditional compilation block\), 라인 제어 구문 \(line control statement\), 그리고 컴파일-시간 진단 구문 \(compile-time diagnostic statement\) 의 세가지 컴파일러 제어 구문을 가지고 있습니다.
+컴파일러 제어 구문은 컴파일러의 동작 측면을 변경할 수 있습니다. Swift 는 조건부 컴파일 블럭 (conditional compilation block), 라인 제어 구문 (line control statement), 그리고 컴파일-시간 진단 구문 (compile-time diagnostic statement) 의 세가지 컴파일러 제어 구문을 가지고 있습니다.
 
-> GRAMMAR OF A COMPILER CONTROL STATEMENT  
-> compiler-control-statement → [conditional-compilation-block](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_conditional-compilation-block)  
-> compiler-control-statement → [line-control-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_line-control-statement)  
-> compiler-control-statement → [diagnostic-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_diagnostic-statement)
+> GRAMMAR OF A COMPILER CONTROL STATEMENT\
+> compiler-control-statement → [conditional-compilation-block](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_conditional-compilation-block)\
+> compiler-control-statement → [line-control-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_line-control-statement)\
+> compiler-control-statement → [diagnostic-statement](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_diagnostic-statement)
 
-### 조건부 컴파일 블럭 \(Conditional Compilation Block\)
+### 조건부 컴파일 블럭 (Conditional Compilation Block)
 
-조건부 컴파일 블럭 \(conditional compilation block\) 은 하나 이상의 컴파일러 조건의 값에 따라 코드를 조건부로 컴파일 할 수 있습니다.
+조건부 컴파일 블럭 (conditional compilation block) 은 하나 이상의 컴파일러 조건의 값에 따라 코드를 조건부로 컴파일 할 수 있습니다.
 
 모든 조건부 컴파일 블럭은 `#if` 컴파일 지시문으로 시작하고 `#endif` 컴파일 지시문으로 끝납니다. 간단한 조건부 컴파일 블럭은 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-10.42.55.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.42.55.png>)
 
-`if` 구문의 조건과 다르게 _컴파일러 조건 \(compilation condition\)_ 은 컴파일 시에 평가됩니다. 결과적으로 _구문 \(statements\)_ 은 컴파일 시에 _컴파일러 조건 \(compilation condition\)_ 이 `true` 로 평가될 때만 컴파일되고 실행됩니다.
+`if` 구문의 조건과 다르게 _컴파일러 조건 (compilation condition)_ 은 컴파일 시에 평가됩니다. 결과적으로 _구문 (statements)_ 은 컴파일 시에 _컴파일러 조건 (compilation condition)_ 이 `true` 로 평가될 때만 컴파일되고 실행됩니다.
 
-_컴파일러 조건 \(compilation condition\)_ 은 `true` 와 `false` 불린 리터럴 \(Boolean literals\), `-D` 명령줄 플래그를 사용한 식별자, 또는 아래 표에 나열된 플랫폼 조건이 포함될 수 있습니다.
+_컴파일러 조건 (compilation condition)_ 은 `true` 와 `false` 불린 리터럴 (Boolean literals), `-D` 명령줄 플래그를 사용한 식별자, 또는 아래 표에 나열된 플랫폼 조건이 포함될 수 있습니다.
 
-| 플랫폼 조건 | 유효 인수 |
-| :---: | :---: |
-| `os()` | `macOS`, `iOS`, `watchOS`, `tvOS`, `Linux`, `Windows` |
-| `arch()` | `i386`, `x86_64`, `arm`, `arm64` |
-| `swift()` | `>=` 또는 `<` 다음에 버전 번호 |
-| `compiler()` | `>=` 또는 `<` 다음에 버전 번호 |
-| `canImport()` | 모듈 이름 |
-| `targetEnvironment()` | `simulator`, `macCatalyst` |
+|         플랫폼 조건        |                         유효 인수                         |
+| :-------------------: | :---------------------------------------------------: |
+|         `os()`        | `macOS`, `iOS`, `watchOS`, `tvOS`, `Linux`, `Windows` |
+|        `arch()`       |            `i386`, `x86_64`, `arm`, `arm64`           |
+|       `swift()`       |                 `>=` 또는 `<` 다음에 버전 번호                 |
+|      `compiler()`     |                 `>=` 또는 `<` 다음에 버전 번호                 |
+|     `canImport()`     |                         모듈 이름                         |
+| `targetEnvironment()` |               `simulator`, `macCatalyst`              |
 
-`swift()` 와 `compiler()` 플랫폼 조건에 대한 버전 번호는 버전 번호의 각 부분을 점 \(`.`\) 으로 구분하여 메이저 번호, 선택적으로 마이너 번호, 선택적으로 패치 번호, 등으로 구성됩니다. 비교 연산자와 버전 번호 사이에 공백이 없어야 합니다. `compiler()` 에 대한 버전은 컴파일러에 전달된 Swift 버전 설정과 상관없이 컴파일러 버전입니다. swift\(\) 에 대한 버전은 현재 컴파일 되는 언어 버전입니다. 예를 들어 Swift 4.2 모드에서 Swift 5 컴파일러를 사용하여 코드를 컴파일 한다면 컴파일러 버전은 5 이고 언어 버전은 4.2 입니다. 이러한 설정으로 다음의 코드는 세가지 메세지를 모두 출력합니다:
+`swift()` 와 `compiler()` 플랫폼 조건에 대한 버전 번호는 버전 번호의 각 부분을 점 (`.`) 으로 구분하여 메이저 번호, 선택적으로 마이너 번호, 선택적으로 패치 번호, 등으로 구성됩니다. 비교 연산자와 버전 번호 사이에 공백이 없어야 합니다. `compiler()` 에 대한 버전은 컴파일러에 전달된 Swift 버전 설정과 상관없이 컴파일러 버전입니다. swift() 에 대한 버전은 현재 컴파일 되는 언어 버전입니다. 예를 들어 Swift 4.2 모드에서 Swift 5 컴파일러를 사용하여 코드를 컴파일 한다면 컴파일러 버전은 5 이고 언어 버전은 4.2 입니다. 이러한 설정으로 다음의 코드는 세가지 메세지를 모두 출력합니다:
 
 ```swift
 #if compiler(>=5)
@@ -433,88 +433,88 @@ print("Compiled with the Swift 5 compiler or later in a Swift mode earlier than 
 
 `targetEnvironment()` 플랫폼 조건은 지정한 환경에 대해 코드가 컴파일 되면 `true` 를 반환하고 그렇지 않으면 `false` 를 반환합니다.
 
-> NOTE  
+> NOTE\
 > `arch(arm)` 플랫폼 조건은 ARM 64 기기에 대해 `true` 를 반환하지 않습니다. `arch(i386)` 플랫폼 조건은 32-비트 iOS 시뮬레이터에 대해 코드가 컴파일 될 때 `true` 를 반환합니다.
 
 논리 연산자 `&&`, `||`, 그리고 `!` 사용하여 컴파일러 조건을 결합하고 부정할 수 있고 그룹화를 위한 소괄호를 사용할 수 있습니다. 이러한 연산자는 불린 표현식을 결합하는데 사용되는 논리 연산자와 동일한 연관성과 우선순위를 갖습니다.
 
 `if` 구문과 유사하게 다른 컴파일러 조건에 대해 검사하기 위해 여러 조건부 분기를 추가할 수 있습니다. `#elseif` 절을 사용하여 원하는 만큼 추가 분기를 추가할 수 있습니다. `#else` 절을 사용하여 마지막 추가 분기를 추가할 수도 있습니다. 여러개 분기를 포함하는 조건부 컴파일러 블럭 형식은 다음과 같습니다:
 
-![](../.gitbook/assets/2021-02-22-10.47.08.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.47.08.png>)
 
-> NOTE  
-> 조건부 컴파일러 블럭의 바디에서 각 구문은 컴파일 되지 않아도 구문 분석됩니다. 그러나 컴파일러 조건이 swift\(\) 또는 compiler\(\) 플랫폼 조건을 포함하면 예외가 있습니다: 이 구문은 플랫폼 조건에서 지정한 언어 또는 컴파일러 버전이 일치하는 경우에만 분석됩니다. 이 예외는 이전 컴파일러가 최신 버전의 Swift 에 도입된 구문을 분석하지 않도록 합니다.
+> NOTE\
+> 조건부 컴파일러 블럭의 바디에서 각 구문은 컴파일 되지 않아도 구문 분석됩니다. 그러나 컴파일러 조건이 swift() 또는 compiler() 플랫폼 조건을 포함하면 예외가 있습니다: 이 구문은 플랫폼 조건에서 지정한 언어 또는 컴파일러 버전이 일치하는 경우에만 분석됩니다. 이 예외는 이전 컴파일러가 최신 버전의 Swift 에 도입된 구문을 분석하지 않도록 합니다.
 
-조건부 컴파일러 블럭에서 명시적 멤버 표현식을 래핑하는 방법에 대한 자세한 내용은 [명시적 멤버 표현식 \(Explicit Member Expression\)](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#ID400) 을 참고하시기 바랍니다.
+조건부 컴파일러 블럭에서 명시적 멤버 표현식을 래핑하는 방법에 대한 자세한 내용은 [명시적 멤버 표현식 (Explicit Member Expression)](expressions.md#explicit-member-expression) 을 참고하시기 바랍니다.
 
-> GRAMMAR OF A CONDITIONAL COMPILATION BLOCK  
-> conditional-compilation-block → [if-directive-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_if-directive-clause)  [elseif-directive-clauses](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_elseif-directive-clauses) $$_{opt}$$ [else-directive-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_else-directive-clause) $$_{opt}$$ [endif-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_endif-directive)  
-> if-directive-clause → [if-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_if-directive)  [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_compilation-condition)  [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statements) $$_{opt}$$   
-> elseif-directive-clauses → [elseif-directive-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_elseif-directive-clause)  [elseif-directive-clauses](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_elseif-directive-clauses) $$_{opt}$$   
-> elseif-directive-clause → [elseif-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_elseif-directive)  [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_compilation-condition)  [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statements) $$_{opt}$$   
-> else-directive-clause → [else-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_else-directive)  [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statements) $$_{opt}$$   
-> if-directive → `#if`   
-> elseif-directive → `#elseif`   
-> else-directive → `#else`   
-> endif-directive → `#endif`   
-> compilation-condition → [platform-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_platform-condition)  
-> compilation-condition → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  
-> compilation-condition → [boolean-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_boolean-literal)  
-> compilation-condition → `(` [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_compilation-condition)  `)`   
-> compilation-condition → `!` [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_compilation-condition)  
-> compilation-condition → [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_compilation-condition)  `&&` [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_compilation-condition)  
-> compilation-condition → [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_compilation-condition)  `||` [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_compilation-condition)  
-> platform-condition → `os` `(` [operating-system](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_operating-system)  `)`   
-> platform-condition → `arch` `(` [architecture](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_architecture)  `)`   
-> platform-condition → `swift` `(` `>=` [swift-version](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_swift-version)  `)` \|  `swift` `(` `<` [swift-version](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_swift-version)  `)`   
-> platform-condition → `compiler` `(` `>=` [swift-version](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_swift-version)  `)` \|  `compiler` `(` `<` [swift-version](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_swift-version)  `)`   
-> platform-condition → `canImport` `(` [module-name](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_module-name)  `)`   
-> platform-condition → `targetEnvironment` `(` [environment](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_environment)  `)`   
-> operating-system → `macOS` \|  `iOS` \|  `watchOS` \|  `tvOS` \|  `Linux` \|  `Windows`   
-> architecture → `i386` \|  `x86_64` \|  `arm` \|  `arm64`   
-> swift-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits)  [swift-version-continuation](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_swift-version-continuation) $$_{opt}$$   
-> swift-version-continuation → `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits)  [swift-version-continuation](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_swift-version-continuation) $$_{opt}$$   
-> module-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  
-> environment → `simulator` \|  `macCatalyst`
+> GRAMMAR OF A CONDITIONAL COMPILATION BLOCK\
+> conditional-compilation-block → [if-directive-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_if-directive-clause) [elseif-directive-clauses](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_elseif-directive-clauses) $$_{opt}$$ [else-directive-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_else-directive-clause) $$_{opt}$$ [endif-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_endif-directive)\
+> if-directive-clause → [if-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_if-directive) [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_compilation-condition) [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statements) $$_{opt}$$\
+> elseif-directive-clauses → [elseif-directive-clause](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_elseif-directive-clause) [elseif-directive-clauses](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_elseif-directive-clauses) $$_{opt}$$\
+> elseif-directive-clause → [elseif-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_elseif-directive) [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_compilation-condition) [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statements) $$_{opt}$$\
+> else-directive-clause → [else-directive](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_else-directive) [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statements) $$_{opt}$$\
+> if-directive → `#if`\
+> elseif-directive → `#elseif`\
+> else-directive → `#else`\
+> endif-directive → `#endif`\
+> compilation-condition → [platform-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_platform-condition)\
+> compilation-condition → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_identifier)\
+> compilation-condition → [boolean-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_boolean-literal)\
+> compilation-condition → `(` [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_compilation-condition) `)`\
+> compilation-condition → `!` [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_compilation-condition)\
+> compilation-condition → [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_compilation-condition) `&&` [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_compilation-condition)\
+> compilation-condition → [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_compilation-condition) `||` [compilation-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_compilation-condition)\
+> platform-condition → `os` `(` [operating-system](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_operating-system) `)`\
+> platform-condition → `arch` `(` [architecture](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_architecture) `)`\
+> platform-condition → `swift` `(` `>=` [swift-version](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_swift-version) `)` | `swift` `(` `<` [swift-version](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_swift-version) `)`\
+> platform-condition → `compiler` `(` `>=` [swift-version](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_swift-version) `)` | `compiler` `(` `<` [swift-version](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_swift-version) `)`\
+> platform-condition → `canImport` `(` [module-name](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_module-name) `)`\
+> platform-condition → `targetEnvironment` `(` [environment](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_environment) `)`\
+> operating-system → `macOS` | `iOS` | `watchOS` | `tvOS` | `Linux` | `Windows`\
+> architecture → `i386` | `x86_64` | `arm` | `arm64`\
+> swift-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits) [swift-version-continuation](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_swift-version-continuation) $$_{opt}$$\
+> swift-version-continuation → `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits) [swift-version-continuation](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_swift-version-continuation) $$_{opt}$$\
+> module-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_identifier)\
+> environment → `simulator` | `macCatalyst`
 
-### 라인 제어 구문 \(Line Control Statement\)
+### 라인 제어 구문 (Line Control Statement)
 
-라인 제어 구문 \(line control statement\) 은 컴파일 되는 소스 코드의 라인 숫자와 파일 이름이 다를 수 있는 라인 숫자와 파일 이름을 지정하는데 사용됩니다. Swift 에서 진단과 디버깅을 목적으로 사용하는 소스 코드 위치를 변경하기 위해 라인 제어 구문을 사용합니다.
+라인 제어 구문 (line control statement) 은 컴파일 되는 소스 코드의 라인 숫자와 파일 이름이 다를 수 있는 라인 숫자와 파일 이름을 지정하는데 사용됩니다. Swift 에서 진단과 디버깅을 목적으로 사용하는 소스 코드 위치를 변경하기 위해 라인 제어 구문을 사용합니다.
 
 라인 제어 구문은 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-10.52.02.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.52.02.png>)
 
-라인 제어 구문의 첫번째 형식은 라인 제어 구문 다음에 코드의 라인에서 시작하여 `#line`, `#file`, `#fileID`, 그리고 `#filePath` 리터럴 표현식의 값을 변경합니다. _라인 숫자 \(line number\)_ 는 `#line` 의 값을 변경하고 0 보다 큰 모든 정수 리터럴 입니다. _파일 경로 \(file path\)_ 는 `#file`, `#fileID`, 그리고 `#filePath` 의 값을 변경하고 문자열 리터럴 입니다. 지정한 문자열은 `#filePath` 의 값이 되고 문자열의 마지막 구성요소는 `#fileID` 의 값으로 사용됩니다. `#file`, `#fileID`, 그리고 `#filePath` 에 자세한 내용은 [리터럴 표현식 \(Literal Expression\)](expressions.md#literal-expression) 을 참고 바랍니다.
+라인 제어 구문의 첫번째 형식은 라인 제어 구문 다음에 코드의 라인에서 시작하여 `#line`, `#file`, `#fileID`, 그리고 `#filePath` 리터럴 표현식의 값을 변경합니다. _라인 숫자 (line number)_ 는 `#line` 의 값을 변경하고 0 보다 큰 모든 정수 리터럴 입니다. _파일 경로 (file path)_ 는 `#file`, `#fileID`, 그리고 `#filePath` 의 값을 변경하고 문자열 리터럴 입니다. 지정한 문자열은 `#filePath` 의 값이 되고 문자열의 마지막 구성요소는 `#fileID` 의 값으로 사용됩니다. `#file`, `#fileID`, 그리고 `#filePath` 에 자세한 내용은 [리터럴 표현식 (Literal Expression)](expressions.md#literal-expression) 을 참고 바랍니다.
 
 라인 제어 구문의 두번째 형식 인 `#sourceLocation()` 은 소스 코드 위치를 기본 라인 숫자와 파일 경로로 초기화 합니다.
 
-> GRAMMAR OF A LINE CONTROL STATEMENT  
-> line-control-statement → `#sourceLocation` `(` `file:` [file-path](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_file-path)  `,` `line:` [line-number](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_line-number)  `)`   
-> line-control-statement → `#sourceLocation` `(` `)`   
-> line-number → 0 보다 큰 10진 정수  
-> file-path → [static-string-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_static-string-literal)
+> GRAMMAR OF A LINE CONTROL STATEMENT\
+> line-control-statement → `#sourceLocation` `(` `file:` [file-path](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_file-path) `,` `line:` [line-number](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_line-number) `)`\
+> line-control-statement → `#sourceLocation` `(` `)`\
+> line-number → 0 보다 큰 10진 정수\
+> file-path → [static-string-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_static-string-literal)
 
-### 컴파일-시간 진단 구문 \(Compile-Time Diagnostic Statement\)
+### 컴파일-시간 진단 구문 (Compile-Time Diagnostic Statement)
 
-컴파일-시간 진단 구문 \(compile-time diagnostic statement\) 은 컴파일 동안 컴파일러에서 에러 또는 경고가 발생합니다. 컴파일-시간 진단 구문은 다음의 형식을 가집니다:
+컴파일-시간 진단 구문 (compile-time diagnostic statement) 은 컴파일 동안 컴파일러에서 에러 또는 경고가 발생합니다. 컴파일-시간 진단 구문은 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-10.53.25.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.53.25.png>)
 
-첫번째 형식은 치명적인 에러로 _에러 메세지 \(error message\)_ 를 내보내고 컴파일 프로세스를 중단합니다. 두번째 형식은 치명적이지 않은 경고로 _경고 메세지 \(warning message\)_ 를 내보냅니다. 정적 문자열 리터럴 \(static string literal\) 로 진단 메세지를 작성합니다. 정적 문자열 리터럴은 문자열 보간 또는 연결과 같은 기능을 사용할 수 없지만 여러줄 문자열 리터럴 구문은 사용할 수 있습니다.
+첫번째 형식은 치명적인 에러로 _에러 메세지 (error message)_ 를 내보내고 컴파일 프로세스를 중단합니다. 두번째 형식은 치명적이지 않은 경고로 _경고 메세지 (warning message)_ 를 내보냅니다. 정적 문자열 리터럴 (static string literal) 로 진단 메세지를 작성합니다. 정적 문자열 리터럴은 문자열 보간 또는 연결과 같은 기능을 사용할 수 없지만 여러줄 문자열 리터럴 구문은 사용할 수 있습니다.
 
-> GRAMMAR OF A COMPILE-TIME DIAGNOSTIC STATEMENT  
-> diagnostic-statement → `#error` `(` [diagnostic-message](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_diagnostic-message)  `)`   
-> diagnostic-statement → `#warning` `(` [diagnostic-message](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_diagnostic-message)  `)`   
-> diagnostic-message → [static-string-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_static-string-literal)
+> GRAMMAR OF A COMPILE-TIME DIAGNOSTIC STATEMENT\
+> diagnostic-statement → `#error` `(` [diagnostic-message](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_diagnostic-message) `)`\
+> diagnostic-statement → `#warning` `(` [diagnostic-message](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_diagnostic-message) `)`\
+> diagnostic-message → [static-string-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_static-string-literal)
 
-## 가용성 조건 \(Availability Condition\)
+## 가용성 조건 (Availability Condition)
 
-_가용성 조건 \(availability condition\)_ 은 지정된 플랫폼 인수를 기반으로 런타임 시에 API 의 가용성을 조사하기 위해 `if`, `while`, 그리고 `guard` 구문의 조건으로 사용됩니다.
+_가용성 조건 (availability condition)_ 은 지정된 플랫폼 인수를 기반으로 런타임 시에 API 의 가용성을 조사하기 위해 `if`, `while`, 그리고 `guard` 구문의 조건으로 사용됩니다.
 
 가용성 조건은 다음의 형식을 가집니다:
 
-![](../.gitbook/assets/2021-02-22-10.54.34.png)
+![](<../.gitbook/assets/스크린샷 2021-02-22 오전 10.54.34.png>)
 
 런타임 시 API 가 사용가능 여부에 따라 코드의 블럭을 실행하기 위해 가용성 조건을 사용합니다. 컴파일러는 코드의 블럭이 가능한 API 인 경우 가용성 조건에서 정보를 사용합니다.
 
@@ -522,17 +522,16 @@ _가용성 조건 \(availability condition\)_ 은 지정된 플랫폼 인수를 
 
 불린 조건과 다르게 `&&` 와 `||` 와 같은 논리 연산자를 사용하여 가용성 조건을 결합할 수 없습니다.
 
-> GRAMMAR OF AN AVAILABILITY CONDITION  
-> availability-condition → `#available` `(` [availability-arguments](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-arguments)  `)`   
-> availability-arguments → [availability-argument](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-argument) \|  [availability-argument](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-argument)  `,` [availability-arguments](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-arguments)  
-> availability-argument → [platform-name](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_platform-name)  [platform-version](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_platform-version)  
-> availability-argument → `*`   
-> platform-name → `iOS` \|  `iOSApplicationExtension`   
-> platform-name → `macOS` \|  `macOSApplicationExtension`   
-> platform-name → `macCatalyst` \|  `macCatalystApplicationExtension`   
-> platform-name → `watchOS`   
-> platform-name → `tvOS`   
-> platform-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits)  
-> platform-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits)  `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits)  
-> platform-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits)  `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits)  `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits)
-
+> GRAMMAR OF AN AVAILABILITY CONDITION\
+> availability-condition → `#available` `(` [availability-arguments](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_availability-arguments) `)`\
+> availability-arguments → [availability-argument](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_availability-argument) | [availability-argument](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_availability-argument) `,` [availability-arguments](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_availability-arguments)\
+> availability-argument → [platform-name](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_platform-name) [platform-version](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_platform-version)\
+> availability-argument → `*`\
+> platform-name → `iOS` | `iOSApplicationExtension`\
+> platform-name → `macOS` | `macOSApplicationExtension`\
+> platform-name → `macCatalyst` | `macCatalystApplicationExtension`\
+> platform-name → `watchOS`\
+> platform-name → `tvOS`\
+> platform-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits)\
+> platform-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits) `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits)\
+> platform-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits) `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits) `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits)
