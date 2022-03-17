@@ -1,0 +1,737 @@
+
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Apple Inc." />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    
+    <title>The Basics &mdash; The Swift Programming Language (Swift 5.6)</title>
+    
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css" />
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339" /> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TheBasics.html">Language Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">The Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicOperators.html">Basic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringsAndCharacters.html">Strings and Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CollectionTypes.html">Collection Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlFlow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Closures.html">Closures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumerations.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassesAndStructures.html">Structures and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscripts.html">Subscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialization.html">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Deinitialization.html">Deinitialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptionalChaining.html">Optional Chaining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ErrorHandling.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TypeCasting.html">Type Casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NestedTypes.html">Nested Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Extensions.html">Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Protocols.html">Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OpaqueTypes.html">Opaque Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutomaticReferenceCounting.html">Automatic Reference Counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MemorySafety.html">Memory Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AccessControl.html">Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AdvancedOperators.html">Advanced Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ReferenceManual/AboutTheLanguageReference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">The Basics</a><ul>
+<li><a class="reference internal" href="#ID310">Constants and Variables</a><ul>
+<li><a class="reference internal" href="#ID311">Declaring Constants and Variables</a></li>
+<li><a class="reference internal" href="#ID312">Type Annotations</a></li>
+<li><a class="reference internal" href="#ID313">Naming Constants and Variables</a></li>
+<li><a class="reference internal" href="#ID314">Printing Constants and Variables</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID315">Comments</a></li>
+<li><a class="reference internal" href="#ID316">Semicolons</a></li>
+<li><a class="reference internal" href="#ID317">Integers</a><ul>
+<li><a class="reference internal" href="#ID318">Integer Bounds</a></li>
+<li><a class="reference internal" href="#ID319">Int</a></li>
+<li><a class="reference internal" href="#ID320">UInt</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID321">Floating-Point Numbers</a></li>
+<li><a class="reference internal" href="#ID322">Type Safety and Type Inference</a></li>
+<li><a class="reference internal" href="#ID323">Numeric Literals</a></li>
+<li><a class="reference internal" href="#ID324">Numeric Type Conversion</a><ul>
+<li><a class="reference internal" href="#ID325">Integer Conversion</a></li>
+<li><a class="reference internal" href="#ID326">Integer and Floating-Point Conversion</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID327">Type Aliases</a></li>
+<li><a class="reference internal" href="#ID328">Booleans</a></li>
+<li><a class="reference internal" href="#ID329">Tuples</a></li>
+<li><a class="reference internal" href="#ID330">Optionals</a><ul>
+<li><a class="reference internal" href="#ID331">nil</a></li>
+<li><a class="reference internal" href="#ID332">If Statements and Forced Unwrapping</a></li>
+<li><a class="reference internal" href="#ID333">Optional Binding</a></li>
+<li><a class="reference internal" href="#ID334">Implicitly Unwrapped Optionals</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID515">Error Handling</a></li>
+<li><a class="reference internal" href="#ID335">Assertions and Preconditions</a><ul>
+<li><a class="reference internal" href="#ID336">Debugging with Assertions</a></li>
+<li><a class="reference internal" href="#ID554">Enforcing Preconditions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="the-basics">
+<h1>The Basics<a class="headerlink" href="#the-basics" title="Permalink to this headline">¶</a></h1>
+<p>Swift is a new programming language for iOS, macOS, watchOS, and tvOS app development. Nonetheless, many parts of Swift will be familiar from your experience of developing in C and Objective-C.</p>
+<p>Swift provides its own versions of all fundamental C and Objective-C types, including <code class="docutils literal notranslate"><span class="pre">Int</span></code> for integers, <code class="docutils literal notranslate"><span class="pre">Double</span></code> and <code class="docutils literal notranslate"><span class="pre">Float</span></code> for floating-point values, <code class="docutils literal notranslate"><span class="pre">Bool</span></code> for Boolean values, and <code class="docutils literal notranslate"><span class="pre">String</span></code> for textual data. Swift also provides powerful versions of the three primary collection types, <code class="docutils literal notranslate"><span class="pre">Array</span></code>, <code class="docutils literal notranslate"><span class="pre">Set</span></code>, and <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>, as described in <a class="reference internal" href="CollectionTypes.html"><span class="doc">Collection Types</span></a>.</p>
+<p>Like C, Swift uses variables to store and refer to values by an identifying name. Swift also makes extensive use of variables whose values can’t be changed. These are known as constants, and are much more powerful than constants in C. Constants are used throughout Swift to make code safer and clearer in intent when you work with values that don’t need to change.</p>
+<p>In addition to familiar types, Swift introduces advanced types not found in Objective-C, such as tuples. Tuples enable you to create and pass around groupings of values. You can use a tuple to return multiple values from a function as a single compound value.</p>
+<p>Swift also introduces optional types, which handle the absence of a value. Optionals say either “there <em>is</em> a value, and it equals <em>x</em>” or “there <em>isn’t</em> a value at all”. Using optionals is similar to using <code class="docutils literal notranslate"><span class="pre">nil</span></code> with pointers in Objective-C, but they work for any type, not just classes. Not only are optionals safer and more expressive than <code class="docutils literal notranslate"><span class="pre">nil</span></code> pointers in Objective-C, they’re at the heart of many of Swift’s most powerful features.</p>
+<p>Swift is a <em>type-safe</em> language, which means the language helps you to be clear about the types of values your code can work with. If part of your code requires a <code class="docutils literal notranslate"><span class="pre">String</span></code>, type safety prevents you from passing it an <code class="docutils literal notranslate"><span class="pre">Int</span></code> by mistake. Likewise, type safety prevents you from accidentally passing an optional <code class="docutils literal notranslate"><span class="pre">String</span></code> to a piece of code that requires a non-optional <code class="docutils literal notranslate"><span class="pre">String</span></code>. Type safety helps you catch and fix errors as early as possible in the development process.</p>
+<div class="section" id="ID310">
+<h2>Constants and Variables<a class="headerlink" href="#ID310" title="Permalink to this headline">¶</a></h2>
+<p>Constants and variables associate a name (such as <code class="docutils literal notranslate"><span class="pre">maximumNumberOfLoginAttempts</span></code> or <code class="docutils literal notranslate"><span class="pre">welcomeMessage</span></code>) with a value of a particular type (such as the number <code class="docutils literal notranslate"><span class="pre">10</span></code> or the string <code class="docutils literal notranslate"><span class="pre">&quot;Hello&quot;</span></code>). The value of a <em>constant</em> can’t be changed once it’s set, whereas a <em>variable</em> can be set to a different value in the future.</p>
+<div class="section" id="ID311">
+<h3>Declaring Constants and Variables<a class="headerlink" href="#ID311" title="Permalink to this headline">¶</a></h3>
+<p>Constants and variables must be declared before they’re used. You declare constants with the <code class="docutils literal notranslate"><span class="pre">let</span></code> keyword and variables with the <code class="docutils literal notranslate"><span class="pre">var</span></code> keyword. Here’s an example of how constants and variables can be used to track the number of login attempts a user has made:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">maximumNumberOfLoginAttempts</span> = <span class="m">10</span>
+</li><li><span class="k">var</span> <span class="nv">currentLoginAttempt</span> = <span class="m">0</span>
+</li></ol></div></div></div>
+<p>This code can be read as:</p>
+<p>“Declare a new constant called <code class="docutils literal notranslate"><span class="pre">maximumNumberOfLoginAttempts</span></code>, and give it a value of <code class="docutils literal notranslate"><span class="pre">10</span></code>. Then, declare a new variable called <code class="docutils literal notranslate"><span class="pre">currentLoginAttempt</span></code>, and give it an initial value of <code class="docutils literal notranslate"><span class="pre">0</span></code>.”</p>
+<p>In this example, the maximum number of allowed login attempts is declared as a constant, because the maximum value never changes. The current login attempt counter is declared as a variable, because this value must be incremented after each failed login attempt.</p>
+<p>You can declare multiple constants or multiple variables on a single line, separated by commas:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">x</span> = <span class="m">0.0</span>, <span class="nv">y</span> = <span class="m">0.0</span>, <span class="nv">z</span> = <span class="m">0.0</span>
+</li></ol></div></div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If a stored value in your code won’t change, always declare it as a constant with the <code class="docutils literal notranslate"><span class="pre">let</span></code> keyword. Use variables only for storing values that need to be able to change.</p>
+</div>
+</div>
+<div class="section" id="ID312">
+<h3>Type Annotations<a class="headerlink" href="#ID312" title="Permalink to this headline">¶</a></h3>
+<p>You can provide a <em>type annotation</em> when you declare a constant or variable, to be clear about the kind of values the constant or variable can store. Write a type annotation by placing a colon after the constant or variable name, followed by a space, followed by the name of the type to use.</p>
+<p>This example provides a type annotation for a variable called <code class="docutils literal notranslate"><span class="pre">welcomeMessage</span></code>, to indicate that the variable can store <code class="docutils literal notranslate"><span class="pre">String</span></code> values:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">welcomeMessage</span>: <span class="nc">String</span>
+</li></ol></div></div></div>
+<p>The colon in the declaration means “…of type…,” so the code above can be read as:</p>
+<p>“Declare a variable called <code class="docutils literal notranslate"><span class="pre">welcomeMessage</span></code> that’s of type <code class="docutils literal notranslate"><span class="pre">String</span></code>.”</p>
+<p>The phrase “of type <code class="docutils literal notranslate"><span class="pre">String</span></code>” means “can store any <code class="docutils literal notranslate"><span class="pre">String</span></code> value.” Think of it as meaning “the type of thing” (or “the kind of thing”) that can be stored.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">welcomeMessage</span></code> variable can now be set to any string value without error:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">welcomeMessage</span> = <span class="s">&quot;Hello&quot;</span>
+</li></ol></div></div></div>
+<p>You can define multiple related variables of the same type on a single line, separated by commas, with a single type annotation after the final variable name:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">red</span>, <span class="nv">green</span>, <span class="nv">blue</span>: <span class="nc">Double</span>
+</li></ol></div></div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">It’s rare that you need to write type annotations in practice. If you provide an initial value for a constant or variable at the point that it’s defined, Swift can almost always infer the type to be used for that constant or variable, as described in <a class="reference internal" href="#ID322"><span class="std std-ref">Type Safety and Type Inference</span></a>. In the <code class="docutils literal notranslate"><span class="pre">welcomeMessage</span></code> example above, no initial value is provided, and so the type of the <code class="docutils literal notranslate"><span class="pre">welcomeMessage</span></code> variable is specified with a type annotation rather than being inferred from an initial value.</p>
+</div>
+</div>
+<div class="section" id="ID313">
+<h3>Naming Constants and Variables<a class="headerlink" href="#ID313" title="Permalink to this headline">¶</a></h3>
+<p>Constant and variable names can contain almost any character, including Unicode characters:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">π</span> = <span class="m">3.14159</span>
+</li><li><span class="k">let</span> <span class="nv">你好</span> = <span class="s">&quot;你好世界&quot;</span>
+</li><li><span class="k">let</span> <span class="nv">🐶🐮</span> = <span class="s">&quot;dogcow&quot;</span>
+</li></ol></div></div></div>
+<p>Constant and variable names can’t contain whitespace characters, mathematical symbols, arrows, private-use Unicode scalar values, or line- and box-drawing characters. Nor can they begin with a number, although numbers may be included elsewhere within the name.</p>
+<p>Once you’ve declared a constant or variable of a certain type, you can’t declare it again with the same name, or change it to store values of a different type. Nor can you change a constant into a variable or a variable into a constant.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you need to give a constant or variable the same name as a reserved Swift keyword, surround the keyword with backticks (<code class="docutils literal notranslate"><span class="pre">`</span></code>) when using it as a name. However, avoid using keywords as names unless you have absolutely no choice.</p>
+</div>
+<p>You can change the value of an existing variable to another value of a compatible type. In this example, the value of <code class="docutils literal notranslate"><span class="pre">friendlyWelcome</span></code> is changed from <code class="docutils literal notranslate"><span class="pre">&quot;Hello!&quot;</span></code> to <code class="docutils literal notranslate"><span class="pre">&quot;Bonjour!&quot;</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">friendlyWelcome</span> = <span class="s">&quot;Hello!&quot;</span>
+</li><li><span class="nv">friendlyWelcome</span> = <span class="s">&quot;Bonjour!&quot;</span>
+</li><li><span class="c">// friendlyWelcome is now &quot;Bonjour!&quot;</span>
+</li></ol></div></div></div>
+<p>Unlike a variable, the value of a constant can’t be changed after it’s set. Attempting to do so is reported as an error when your code is compiled:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">languageName</span> = <span class="s">&quot;Swift&quot;</span>
+</li><li><span class="nv">languageName</span> = <span class="s">&quot;Swift++&quot;</span>
+</li><li><span class="c">// This is a compile-time error: languageName cannot be changed.</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID314">
+<h3>Printing Constants and Variables<a class="headerlink" href="#ID314" title="Permalink to this headline">¶</a></h3>
+<p>You can print the current value of a constant or variable with the <code class="docutils literal notranslate"><span class="pre">print(_:separator:terminator:)</span></code> function:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="nv">friendlyWelcome</span>)
+</li><li><span class="c">// Prints &quot;Bonjour!&quot;</span>
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">print(_:separator:terminator:)</span></code> function is a global function that prints one or more values to an appropriate output. In Xcode, for example, the <code class="docutils literal notranslate"><span class="pre">print(_:separator:terminator:)</span></code> function prints its output in Xcode’s “console” pane. The <code class="docutils literal notranslate"><span class="pre">separator</span></code> and <code class="docutils literal notranslate"><span class="pre">terminator</span></code> parameter have default values, so you can omit them when you call this function. By default, the function terminates the line it prints by adding a line break. To print a value without a line break after it, pass an empty string as the terminator—for example, <code class="docutils literal notranslate"><span class="pre">print(someValue,</span> <span class="pre">terminator:</span> <span class="pre">&quot;&quot;)</span></code>. For information about parameters with default values, see <a class="reference internal" href="Functions.html#ID169"><span class="std std-ref">Default Parameter Values</span></a>.</p>
+<p>Swift uses <em>string interpolation</em> to include the name of a constant or variable as a placeholder in a longer string, and to prompt Swift to replace it with the current value of that constant or variable. Wrap the name in parentheses and escape it with a backslash before the opening parenthesis:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="s">&quot;The current value of friendlyWelcome is </span>\<span class="p">(</span><span class="nv">friendlyWelcome</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;The current value of friendlyWelcome is Bonjour!&quot;</span>
+</li></ol></div></div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">All options you can use with string interpolation are described in <a class="reference internal" href="StringsAndCharacters.html#ID292"><span class="std std-ref">String Interpolation</span></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="ID315">
+<h2>Comments<a class="headerlink" href="#ID315" title="Permalink to this headline">¶</a></h2>
+<p>Use comments to include nonexecutable text in your code, as a note or reminder to yourself. Comments are ignored by the Swift compiler when your code is compiled.</p>
+<p>Comments in Swift are very similar to comments in C. Single-line comments begin with two forward-slashes (<code class="docutils literal notranslate"><span class="pre">//</span></code>):</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="c">// This is a comment.</span>
+</li></ol></div></div></div>
+<p>Multiline comments start with a forward-slash followed by an asterisk (<code class="docutils literal notranslate"><span class="pre">/*</span></code>) and end with an asterisk followed by a forward-slash (<code class="docutils literal notranslate"><span class="pre">*/</span></code>):</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="c">/* This is also a comment</span>
+</li><li><span class="c">but is written over multiple lines. */</span>
+</li></ol></div></div></div>
+<p>Unlike multiline comments in C, multiline comments in Swift can be nested inside other multiline comments. You write nested comments by starting a multiline comment block and then starting a second multiline comment within the first block. The second block is then closed, followed by the first block:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="c">/* This is the start of the first multiline comment.</span>
+</li><li><span class="c"> /* This is the second, nested multiline comment. */</span>
+</li><li><span class="c">This is the end of the first multiline comment. */</span>
+</li></ol></div></div></div>
+<p>Nested multiline comments enable you to comment out large blocks of code quickly and easily, even if the code already contains multiline comments.</p>
+</div>
+<div class="section" id="ID316">
+<h2>Semicolons<a class="headerlink" href="#ID316" title="Permalink to this headline">¶</a></h2>
+<p>Unlike many other languages, Swift doesn’t require you to write a semicolon (<code class="docutils literal notranslate"><span class="pre">;</span></code>) after each statement in your code, although you can do so if you wish. However, semicolons <em>are</em> required if you want to write multiple separate statements on a single line:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">cat</span> = <span class="s">&quot;🐱&quot;</span>; <span class="nv">print</span>(<span class="nv">cat</span>)
+</li><li><span class="c">// Prints &quot;🐱&quot;</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID317">
+<h2>Integers<a class="headerlink" href="#ID317" title="Permalink to this headline">¶</a></h2>
+<p><em>Integers</em> are whole numbers with no fractional component, such as <code class="docutils literal notranslate"><span class="pre">42</span></code> and <code class="docutils literal notranslate"><span class="pre">-23</span></code>. Integers are either <em>signed</em> (positive, zero, or negative) or <em>unsigned</em> (positive or zero).</p>
+<p>Swift provides signed and unsigned integers in 8, 16, 32, and 64 bit forms. These integers follow a naming convention similar to C, in that an 8-bit unsigned integer is of type <code class="docutils literal notranslate"><span class="pre">UInt8</span></code>, and a 32-bit signed integer is of type <code class="docutils literal notranslate"><span class="pre">Int32</span></code>. Like all types in Swift, these integer types have capitalized names.</p>
+<div class="section" id="ID318">
+<h3>Integer Bounds<a class="headerlink" href="#ID318" title="Permalink to this headline">¶</a></h3>
+<p>You can access the minimum and maximum values of each integer type with its <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> properties:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">minValue</span> = <span class="nv">UInt8</span>.<span class="nv">min</span>  <span class="c">// minValue is equal to 0, and is of type UInt8</span>
+</li><li><span class="k">let</span> <span class="nv">maxValue</span> = <span class="nv">UInt8</span>.<span class="nv">max</span>  <span class="c">// maxValue is equal to 255, and is of type UInt8</span>
+</li></ol></div></div></div>
+<p>The values of these properties are of the appropriate-sized number type (such as <code class="docutils literal notranslate"><span class="pre">UInt8</span></code> in the example above) and can therefore be used in expressions alongside other values of the same type.</p>
+</div>
+<div class="section" id="ID319">
+<h3>Int<a class="headerlink" href="#ID319" title="Permalink to this headline">¶</a></h3>
+<p>In most cases, you don’t need to pick a specific size of integer to use in your code. Swift provides an additional integer type, <code class="docutils literal notranslate"><span class="pre">Int</span></code>, which has the same size as the current platform’s native word size:</p>
+<ul class="simple">
+<li>On a 32-bit platform, <code class="docutils literal notranslate"><span class="pre">Int</span></code> is the same size as <code class="docutils literal notranslate"><span class="pre">Int32</span></code>.</li>
+<li>On a 64-bit platform, <code class="docutils literal notranslate"><span class="pre">Int</span></code> is the same size as <code class="docutils literal notranslate"><span class="pre">Int64</span></code>.</li>
+</ul>
+<p>Unless you need to work with a specific size of integer, always use <code class="docutils literal notranslate"><span class="pre">Int</span></code> for integer values in your code. This aids code consistency and interoperability. Even on 32-bit platforms, <code class="docutils literal notranslate"><span class="pre">Int</span></code> can store any value between <code class="docutils literal notranslate"><span class="pre">-2,147,483,648</span></code> and <code class="docutils literal notranslate"><span class="pre">2,147,483,647</span></code>, and is large enough for many integer ranges.</p>
+</div>
+<div class="section" id="ID320">
+<h3>UInt<a class="headerlink" href="#ID320" title="Permalink to this headline">¶</a></h3>
+<p>Swift also provides an unsigned integer type, <code class="docutils literal notranslate"><span class="pre">UInt</span></code>, which has the same size as the current platform’s native word size:</p>
+<ul class="simple">
+<li>On a 32-bit platform, <code class="docutils literal notranslate"><span class="pre">UInt</span></code> is the same size as <code class="docutils literal notranslate"><span class="pre">UInt32</span></code>.</li>
+<li>On a 64-bit platform, <code class="docutils literal notranslate"><span class="pre">UInt</span></code> is the same size as <code class="docutils literal notranslate"><span class="pre">UInt64</span></code>.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use <code class="docutils literal notranslate"><span class="pre">UInt</span></code> only when you specifically need an unsigned integer type with the same size as the platform’s native word size. If this isn’t the case, <code class="docutils literal notranslate"><span class="pre">Int</span></code> is preferred, even when the values to be stored are known to be nonnegative. A consistent use of <code class="docutils literal notranslate"><span class="pre">Int</span></code> for integer values aids code interoperability, avoids the need to convert between different number types, and matches integer type inference, as described in <a class="reference internal" href="#ID322"><span class="std std-ref">Type Safety and Type Inference</span></a>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="ID321">
+<h2>Floating-Point Numbers<a class="headerlink" href="#ID321" title="Permalink to this headline">¶</a></h2>
+<p><em>Floating-point numbers</em> are numbers with a fractional component, such as <code class="docutils literal notranslate"><span class="pre">3.14159</span></code>, <code class="docutils literal notranslate"><span class="pre">0.1</span></code>, and <code class="docutils literal notranslate"><span class="pre">-273.15</span></code>.</p>
+<p>Floating-point types can represent a much wider range of values than integer types, and can store numbers that are much larger or smaller than can be stored in an <code class="docutils literal notranslate"><span class="pre">Int</span></code>. Swift provides two signed floating-point number types:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">Double</span></code> represents a 64-bit floating-point number.</li>
+<li><code class="docutils literal notranslate"><span class="pre">Float</span></code> represents a 32-bit floating-point number.</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last"><code class="docutils literal notranslate"><span class="pre">Double</span></code> has a precision of at least 15 decimal digits, whereas the precision of <code class="docutils literal notranslate"><span class="pre">Float</span></code> can be as little as 6 decimal digits. The appropriate floating-point type to use depends on the nature and range of values you need to work with in your code. In situations where either type would be appropriate, <code class="docutils literal notranslate"><span class="pre">Double</span></code> is preferred.</p>
+</div>
+</div>
+<div class="section" id="ID322">
+<h2>Type Safety and Type Inference<a class="headerlink" href="#ID322" title="Permalink to this headline">¶</a></h2>
+<p>Swift is a <em>type-safe</em> language. A type safe language encourages you to be clear about the types of values your code can work with. If part of your code requires a <code class="docutils literal notranslate"><span class="pre">String</span></code>, you can’t pass it an <code class="docutils literal notranslate"><span class="pre">Int</span></code> by mistake.</p>
+<p>Because Swift is type safe, it performs <em>type checks</em> when compiling your code and flags any mismatched types as errors. This enables you to catch and fix errors as early as possible in the development process.</p>
+<p>Type-checking helps you avoid errors when you’re working with different types of values. However, this doesn’t mean that you have to specify the type of every constant and variable that you declare. If you don’t specify the type of value you need, Swift uses <em>type inference</em> to work out the appropriate type. Type inference enables a compiler to deduce the type of a particular expression automatically when it compiles your code, simply by examining the values you provide.</p>
+<p>Because of type inference, Swift requires far fewer type declarations than languages such as C or Objective-C. Constants and variables are still explicitly typed, but much of the work of specifying their type is done for you.</p>
+<p>Type inference is particularly useful when you declare a constant or variable with an initial value. This is often done by assigning a <em>literal value</em> (or <em>literal</em>) to the constant or variable at the point that you declare it. (A literal value is a value that appears directly in your source code, such as <code class="docutils literal notranslate"><span class="pre">42</span></code> and <code class="docutils literal notranslate"><span class="pre">3.14159</span></code> in the examples below.)</p>
+<p>For example, if you assign a literal value of <code class="docutils literal notranslate"><span class="pre">42</span></code> to a new constant without saying what type it is, Swift infers that you want the constant to be an <code class="docutils literal notranslate"><span class="pre">Int</span></code>, because you have initialized it with a number that looks like an integer:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">meaningOfLife</span> = <span class="m">42</span>
+</li><li><span class="c">// meaningOfLife is inferred to be of type Int</span>
+</li></ol></div></div></div>
+<p>Likewise, if you don’t specify a type for a floating-point literal, Swift infers that you want to create a <code class="docutils literal notranslate"><span class="pre">Double</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">pi</span> = <span class="m">3.14159</span>
+</li><li><span class="c">// pi is inferred to be of type Double</span>
+</li></ol></div></div></div>
+<p>Swift always chooses <code class="docutils literal notranslate"><span class="pre">Double</span></code> (rather than <code class="docutils literal notranslate"><span class="pre">Float</span></code>) when inferring the type of floating-point numbers.</p>
+<p>If you combine integer and floating-point literals in an expression, a type of <code class="docutils literal notranslate"><span class="pre">Double</span></code> will be inferred from the context:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">anotherPi</span> = <span class="m">3</span> + <span class="m">0.14159</span>
+</li><li><span class="c">// anotherPi is also inferred to be of type Double</span>
+</li></ol></div></div></div>
+<p>The literal value of <code class="docutils literal notranslate"><span class="pre">3</span></code> has no explicit type in and of itself, and so an appropriate output type of <code class="docutils literal notranslate"><span class="pre">Double</span></code> is inferred from the presence of a floating-point literal as part of the addition.</p>
+</div>
+<div class="section" id="ID323">
+<h2>Numeric Literals<a class="headerlink" href="#ID323" title="Permalink to this headline">¶</a></h2>
+<p>Integer literals can be written as:</p>
+<ul class="simple">
+<li>A <em>decimal</em> number, with no prefix</li>
+<li>A <em>binary</em> number, with a <code class="docutils literal notranslate"><span class="pre">0b</span></code> prefix</li>
+<li>An <em>octal</em> number, with a <code class="docutils literal notranslate"><span class="pre">0o</span></code> prefix</li>
+<li>A <em>hexadecimal</em> number, with a <code class="docutils literal notranslate"><span class="pre">0x</span></code> prefix</li>
+</ul>
+<p>All of these integer literals have a decimal value of <code class="docutils literal notranslate"><span class="pre">17</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">decimalInteger</span> = <span class="m">17</span>
+</li><li><span class="k">let</span> <span class="nv">binaryInteger</span> = <span class="m">0b10001</span>       <span class="c">// 17 in binary notation</span>
+</li><li><span class="k">let</span> <span class="nv">octalInteger</span> = <span class="m">0o21</span>           <span class="c">// 17 in octal notation</span>
+</li><li><span class="k">let</span> <span class="nv">hexadecimalInteger</span> = <span class="m">0x11</span>     <span class="c">// 17 in hexadecimal notation</span>
+</li></ol></div></div></div>
+<p>Floating-point literals can be decimal (with no prefix), or hexadecimal (with a <code class="docutils literal notranslate"><span class="pre">0x</span></code> prefix). They must always have a number (or hexadecimal number) on both sides of the decimal point. Decimal floats can also have an optional <em>exponent</em>, indicated by an uppercase or lowercase <code class="docutils literal notranslate"><span class="pre">e</span></code>; hexadecimal floats must have an exponent, indicated by an uppercase or lowercase <code class="docutils literal notranslate"><span class="pre">p</span></code>.</p>
+<p>For decimal numbers with an exponent of <code class="docutils literal notranslate"><span class="pre">exp</span></code>, the base number is multiplied by 10<sup>exp</sup>:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">1.25e2</span></code> means 1.25 x 10<sup>2</sup>, or <code class="docutils literal notranslate"><span class="pre">125.0</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">1.25e-2</span></code> means 1.25 x 10<sup>-2</sup>, or <code class="docutils literal notranslate"><span class="pre">0.0125</span></code>.</li>
+</ul>
+<p>For hexadecimal numbers with an exponent of <code class="docutils literal notranslate"><span class="pre">exp</span></code>, the base number is multiplied by 2<sup>exp</sup>:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">0xFp2</span></code> means 15 x 2<sup>2</sup>, or <code class="docutils literal notranslate"><span class="pre">60.0</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">0xFp-2</span></code> means 15 x 2<sup>-2</sup>, or <code class="docutils literal notranslate"><span class="pre">3.75</span></code>.</li>
+</ul>
+<p>All of these floating-point literals have a decimal value of <code class="docutils literal notranslate"><span class="pre">12.1875</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">decimalDouble</span> = <span class="m">12.1875</span>
+</li><li><span class="k">let</span> <span class="nv">exponentDouble</span> = <span class="m">1.21875e1</span>
+</li><li><span class="k">let</span> <span class="nv">hexadecimalDouble</span> = <span class="m">0xC.3p0</span>
+</li></ol></div></div></div>
+<p>Numeric literals can contain extra formatting to make them easier to read. Both integers and floats can be padded with extra zeros and can contain underscores to help with readability. Neither type of formatting affects the underlying value of the literal:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">paddedDouble</span> = <span class="m">000123.456</span>
+</li><li><span class="k">let</span> <span class="nv">oneMillion</span> = <span class="m">1_000_000</span>
+</li><li><span class="k">let</span> <span class="nv">justOverOneMillion</span> = <span class="m">1_000_000.000_000_1</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID324">
+<h2>Numeric Type Conversion<a class="headerlink" href="#ID324" title="Permalink to this headline">¶</a></h2>
+<p>Use the <code class="docutils literal notranslate"><span class="pre">Int</span></code> type for all general-purpose integer constants and variables in your code, even if they’re known to be nonnegative. Using the default integer type in everyday situations means that integer constants and variables are immediately interoperable in your code and will match the inferred type for integer literal values.</p>
+<p>Use other integer types only when they’re specifically needed for the task at hand, because of explicitly sized data from an external source, or for performance, memory usage, or other necessary optimization. Using explicitly sized types in these situations helps to catch any accidental value overflows and implicitly documents the nature of the data being used.</p>
+<div class="section" id="ID325">
+<h3>Integer Conversion<a class="headerlink" href="#ID325" title="Permalink to this headline">¶</a></h3>
+<p>The range of numbers that can be stored in an integer constant or variable is different for each numeric type. An <code class="docutils literal notranslate"><span class="pre">Int8</span></code> constant or variable can store numbers between <code class="docutils literal notranslate"><span class="pre">-128</span></code> and <code class="docutils literal notranslate"><span class="pre">127</span></code>, whereas a <code class="docutils literal notranslate"><span class="pre">UInt8</span></code> constant or variable can store numbers between <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">255</span></code>. A number that won’t fit into a constant or variable of a sized integer type is reported as an error when your code is compiled:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">cannotBeNegative</span>: <span class="nc">UInt8</span> = <span class="m">-1</span>
+</li><li><span class="c">// UInt8 can&#39;t store negative numbers, and so this will report an error</span>
+</li><li><span class="k">let</span> <span class="nv">tooBig</span>: <span class="nc">Int8</span> = <span class="nv">Int8</span>.<span class="nv">max</span> + <span class="m">1</span>
+</li><li><span class="c">// Int8 can&#39;t store a number larger than its maximum value,</span>
+</li><li><span class="c">// and so this will also report an error</span>
+</li></ol></div></div></div>
+<p>Because each numeric type can store a different range of values, you must opt in to numeric type conversion on a case-by-case basis. This opt-in approach prevents hidden conversion errors and helps make type conversion intentions explicit in your code.</p>
+<p>To convert one specific number type to another, you initialize a new number of the desired type with the existing value. In the example below, the constant <code class="docutils literal notranslate"><span class="pre">twoThousand</span></code> is of type <code class="docutils literal notranslate"><span class="pre">UInt16</span></code>, whereas the constant <code class="docutils literal notranslate"><span class="pre">one</span></code> is of type <code class="docutils literal notranslate"><span class="pre">UInt8</span></code>. They can’t be added together directly, because they’re not of the same type. Instead, this example calls <code class="docutils literal notranslate"><span class="pre">UInt16(one)</span></code> to create a new <code class="docutils literal notranslate"><span class="pre">UInt16</span></code> initialized with the value of <code class="docutils literal notranslate"><span class="pre">one</span></code>, and uses this value in place of the original:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">twoThousand</span>: <span class="nc">UInt16</span> = <span class="m">2_000</span>
+</li><li><span class="k">let</span> <span class="nv">one</span>: <span class="nc">UInt8</span> = <span class="m">1</span>
+</li><li><span class="k">let</span> <span class="nv">twoThousandAndOne</span> = <span class="nv">twoThousand</span> + <span class="nv">UInt16</span>(<span class="nv">one</span>)
+</li></ol></div></div></div>
+<p>Because both sides of the addition are now of type <code class="docutils literal notranslate"><span class="pre">UInt16</span></code>, the addition is allowed. The output constant (<code class="docutils literal notranslate"><span class="pre">twoThousandAndOne</span></code>) is inferred to be of type <code class="docutils literal notranslate"><span class="pre">UInt16</span></code>, because it’s the sum of two <code class="docutils literal notranslate"><span class="pre">UInt16</span></code> values.</p>
+<p><code class="docutils literal notranslate"><span class="pre">SomeType(ofInitialValue)</span></code> is the default way to call the initializer of a Swift type and pass in an initial value. Behind the scenes, <code class="docutils literal notranslate"><span class="pre">UInt16</span></code> has an initializer that accepts a <code class="docutils literal notranslate"><span class="pre">UInt8</span></code> value, and so this initializer is used to make a new <code class="docutils literal notranslate"><span class="pre">UInt16</span></code> from an existing <code class="docutils literal notranslate"><span class="pre">UInt8</span></code>. You can’t pass in <em>any</em> type here, however—it has to be a type for which <code class="docutils literal notranslate"><span class="pre">UInt16</span></code> provides an initializer. Extending existing types to provide initializers that accept new types (including your own type definitions) is covered in <a class="reference internal" href="Extensions.html"><span class="doc">Extensions</span></a>.</p>
+</div>
+<div class="section" id="ID326">
+<h3>Integer and Floating-Point Conversion<a class="headerlink" href="#ID326" title="Permalink to this headline">¶</a></h3>
+<p>Conversions between integer and floating-point numeric types must be made explicit:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">three</span> = <span class="m">3</span>
+</li><li><span class="k">let</span> <span class="nv">pointOneFourOneFiveNine</span> = <span class="m">0.14159</span>
+</li><li><span class="k">let</span> <span class="nv">pi</span> = <span class="nv">Double</span>(<span class="nv">three</span>) + <span class="nv">pointOneFourOneFiveNine</span>
+</li><li><span class="c">// pi equals 3.14159, and is inferred to be of type Double</span>
+</li></ol></div></div></div>
+<p>Here, the value of the constant <code class="docutils literal notranslate"><span class="pre">three</span></code> is used to create a new value of type <code class="docutils literal notranslate"><span class="pre">Double</span></code>, so that both sides of the addition are of the same type. Without this conversion in place, the addition would not be allowed.</p>
+<p>Floating-point to integer conversion must also be made explicit. An integer type can be initialized with a <code class="docutils literal notranslate"><span class="pre">Double</span></code> or <code class="docutils literal notranslate"><span class="pre">Float</span></code> value:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">integerPi</span> = <span class="nv">Int</span>(<span class="nv">pi</span>)
+</li><li><span class="c">// integerPi equals 3, and is inferred to be of type Int</span>
+</li></ol></div></div></div>
+<p>Floating-point values are always truncated when used to initialize a new integer value in this way. This means that <code class="docutils literal notranslate"><span class="pre">4.75</span></code> becomes <code class="docutils literal notranslate"><span class="pre">4</span></code>, and <code class="docutils literal notranslate"><span class="pre">-3.9</span></code> becomes <code class="docutils literal notranslate"><span class="pre">-3</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The rules for combining numeric constants and variables are different from the rules for numeric literals. The literal value <code class="docutils literal notranslate"><span class="pre">3</span></code> can be added directly to the literal value <code class="docutils literal notranslate"><span class="pre">0.14159</span></code>, because number literals don’t have an explicit type in and of themselves. Their type is inferred only at the point that they’re evaluated by the compiler.</p>
+</div>
+</div>
+</div>
+<div class="section" id="ID327">
+<h2>Type Aliases<a class="headerlink" href="#ID327" title="Permalink to this headline">¶</a></h2>
+<p><em>Type aliases</em> define an alternative name for an existing type. You define type aliases with the <code class="docutils literal notranslate"><span class="pre">typealias</span></code> keyword.</p>
+<p>Type aliases are useful when you want to refer to an existing type by a name that’s contextually more appropriate, such as when working with data of a specific size from an external source:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">typealias</span> <span class="nv">AudioSample</span> = <span class="nc">UInt16</span>
+</li></ol></div></div></div>
+<p>Once you define a type alias, you can use the alias anywhere you might use the original name:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">maxAmplitudeFound</span> = <span class="nv">AudioSample</span>.<span class="nv">min</span>
+</li><li><span class="c">// maxAmplitudeFound is now 0</span>
+</li></ol></div></div></div>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">AudioSample</span></code> is defined as an alias for <code class="docutils literal notranslate"><span class="pre">UInt16</span></code>. Because it’s an alias, the call to <code class="docutils literal notranslate"><span class="pre">AudioSample.min</span></code> actually calls <code class="docutils literal notranslate"><span class="pre">UInt16.min</span></code>, which provides an initial value of <code class="docutils literal notranslate"><span class="pre">0</span></code> for the <code class="docutils literal notranslate"><span class="pre">maxAmplitudeFound</span></code> variable.</p>
+</div>
+<div class="section" id="ID328">
+<h2>Booleans<a class="headerlink" href="#ID328" title="Permalink to this headline">¶</a></h2>
+<p>Swift has a basic <em>Boolean</em> type, called <code class="docutils literal notranslate"><span class="pre">Bool</span></code>. Boolean values are referred to as <em>logical</em>, because they can only ever be true or false. Swift provides two Boolean constant values, <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">orangesAreOrange</span> = <span class="k">true</span>
+</li><li><span class="k">let</span> <span class="nv">turnipsAreDelicious</span> = <span class="k">false</span>
+</li></ol></div></div></div>
+<p>The types of <code class="docutils literal notranslate"><span class="pre">orangesAreOrange</span></code> and <code class="docutils literal notranslate"><span class="pre">turnipsAreDelicious</span></code> have been inferred as <code class="docutils literal notranslate"><span class="pre">Bool</span></code> from the fact that they were initialized with Boolean literal values. As with <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">Double</span></code> above, you don’t need to declare constants or variables as <code class="docutils literal notranslate"><span class="pre">Bool</span></code> if you set them to <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> as soon as you create them. Type inference helps make Swift code more concise and readable when it initializes constants or variables with other values whose type is already known.</p>
+<p>Boolean values are particularly useful when you work with conditional statements such as the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="nv">turnipsAreDelicious</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Mmm, tasty turnips!&quot;</span>)
+</li><li>} <span class="k">else</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Eww, turnips are horrible.&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;Eww, turnips are horrible.&quot;</span>
+</li></ol></div></div></div>
+<p>Conditional statements such as the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement are covered in more detail in <a class="reference internal" href="ControlFlow.html"><span class="doc">Control Flow</span></a>.</p>
+<p>Swift’s type safety prevents non-Boolean values from being substituted for <code class="docutils literal notranslate"><span class="pre">Bool</span></code>. The following example reports a compile-time error:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">i</span> = <span class="m">1</span>
+</li><li><span class="k">if</span> <span class="nv">i</span> {
+</li><li>    <span class="c">// this example will not compile, and will report an error</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>However, the alternative example below is valid:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">i</span> = <span class="m">1</span>
+</li><li><span class="k">if</span> <span class="nv">i</span> == <span class="m">1</span> {
+</li><li>    <span class="c">// this example will compile successfully</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>The result of the <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">1</span></code> comparison is of type <code class="docutils literal notranslate"><span class="pre">Bool</span></code>, and so this second example passes the type-check. Comparisons like <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">==</span> <span class="pre">1</span></code> are discussed in <a class="reference internal" href="BasicOperators.html"><span class="doc">Basic Operators</span></a>.</p>
+<p>As with other examples of type safety in Swift, this approach avoids accidental errors and ensures that the intention of a particular section of code is always clear.</p>
+</div>
+<div class="section" id="ID329">
+<h2>Tuples<a class="headerlink" href="#ID329" title="Permalink to this headline">¶</a></h2>
+<p><em>Tuples</em> group multiple values into a single compound value. The values within a tuple can be of any type and don’t have to be of the same type as each other.</p>
+<p>In this example, <code class="docutils literal notranslate"><span class="pre">(404,</span> <span class="pre">&quot;Not</span> <span class="pre">Found&quot;)</span></code> is a tuple that describes an <em>HTTP status code</em>. An HTTP status code is a special value returned by a web server whenever you request a web page. A status code of <code class="docutils literal notranslate"><span class="pre">404</span> <span class="pre">Not</span> <span class="pre">Found</span></code> is returned if you request a webpage that doesn’t exist.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">http404Error</span> = (<span class="m">404</span>, <span class="s">&quot;Not Found&quot;</span>)
+</li><li><span class="c">// http404Error is of type (Int, String), and equals (404, &quot;Not Found&quot;)</span>
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">(404,</span> <span class="pre">&quot;Not</span> <span class="pre">Found&quot;)</span></code> tuple groups together an <code class="docutils literal notranslate"><span class="pre">Int</span></code> and a <code class="docutils literal notranslate"><span class="pre">String</span></code> to give the HTTP status code two separate values: a number and a human-readable description. It can be described as “a tuple of type <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">String)</span></code>”.</p>
+<p>You can create tuples from any permutation of types, and they can contain as many different types as you like. There’s nothing stopping you from having a tuple of type <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">Int,</span> <span class="pre">Int)</span></code>, or <code class="docutils literal notranslate"><span class="pre">(String,</span> <span class="pre">Bool)</span></code>, or indeed any other permutation you require.</p>
+<p>You can <em>decompose</em> a tuple’s contents into separate constants or variables, which you then access as usual:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> (<span class="nv">statusCode</span>, <span class="nv">statusMessage</span>) = <span class="nv">http404Error</span>
+</li><li><span class="nv">print</span>(<span class="s">&quot;The status code is </span>\<span class="p">(</span><span class="nv">statusCode</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;The status code is 404&quot;</span>
+</li><li><span class="nv">print</span>(<span class="s">&quot;The status message is </span>\<span class="p">(</span><span class="nv">statusMessage</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;The status message is Not Found&quot;</span>
+</li></ol></div></div></div>
+<p>If you only need some of the tuple’s values, ignore parts of the tuple with an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>) when you decompose the tuple:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> (<span class="nv">justTheStatusCode</span>, <span class="k">_</span>) = <span class="nv">http404Error</span>
+</li><li><span class="nv">print</span>(<span class="s">&quot;The status code is </span>\<span class="p">(</span><span class="nv">justTheStatusCode</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;The status code is 404&quot;</span>
+</li></ol></div></div></div>
+<p>Alternatively, access the individual element values in a tuple using index numbers starting at zero:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="s">&quot;The status code is </span>\<span class="p">(</span><span class="nv">http404Error</span>.<span class="m">0</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;The status code is 404&quot;</span>
+</li><li><span class="nv">print</span>(<span class="s">&quot;The status message is </span>\<span class="p">(</span><span class="nv">http404Error</span>.<span class="m">1</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;The status message is Not Found&quot;</span>
+</li></ol></div></div></div>
+<p>You can name the individual elements in a tuple when the tuple is defined:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">http200Status</span> = (<span class="nv">statusCode</span>: <span class="m">200</span>, <span class="nv">description</span>: <span class="s">&quot;OK&quot;</span>)
+</li></ol></div></div></div>
+<p>If you name the elements in a tuple, you can use the element names to access the values of those elements:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="s">&quot;The status code is </span>\<span class="p">(</span><span class="nv">http200Status</span>.<span class="nv">statusCode</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;The status code is 200&quot;</span>
+</li><li><span class="nv">print</span>(<span class="s">&quot;The status message is </span>\<span class="p">(</span><span class="nv">http200Status</span>.<span class="nv">description</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;The status message is OK&quot;</span>
+</li></ol></div></div></div>
+<p>Tuples are particularly useful as the return values of functions. A function that tries to retrieve a web page might return the <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">String)</span></code> tuple type to describe the success or failure of the page retrieval. By returning a tuple with two distinct values, each of a different type, the function provides more useful information about its outcome than if it could only return a single value of a single type. For more information, see <a class="reference internal" href="Functions.html#ID164"><span class="std std-ref">Functions with Multiple Return Values</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Tuples are useful for simple groups of related values. They’re not suited to the creation of complex data structures. If your data structure is likely to be more complex, model it as a class or structure, rather than as a tuple. For more information, see <a class="reference internal" href="ClassesAndStructures.html"><span class="doc">Structures and Classes</span></a>.</p>
+</div>
+</div>
+<div class="section" id="ID330">
+<h2>Optionals<a class="headerlink" href="#ID330" title="Permalink to this headline">¶</a></h2>
+<p>You use <em>optionals</em> in situations where a value may be absent. An optional represents two possibilities: Either there <em>is</em> a value, and you can unwrap the optional to access that value, or there <em>isn’t</em> a value at all.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The concept of optionals doesn’t exist in C or Objective-C. The nearest thing in Objective-C is the ability to return <code class="docutils literal notranslate"><span class="pre">nil</span></code> from a method that would otherwise return an object, with <code class="docutils literal notranslate"><span class="pre">nil</span></code> meaning “the absence of a valid object.” However, this only works for objects—it doesn’t work for structures, basic C types, or enumeration values. For these types, Objective-C methods typically return a special value (such as <code class="docutils literal notranslate"><span class="pre">NSNotFound</span></code>) to indicate the absence of a value. This approach assumes that the method’s caller knows there’s a special value to test against and remembers to check for it. Swift’s optionals let you indicate the absence of a value for <em>any type at all</em>, without the need for special constants.</p>
+</div>
+<p>Here’s an example of how optionals can be used to cope with the absence of a value. Swift’s <code class="docutils literal notranslate"><span class="pre">Int</span></code> type has an initializer which tries to convert a <code class="docutils literal notranslate"><span class="pre">String</span></code> value into an <code class="docutils literal notranslate"><span class="pre">Int</span></code> value. However, not every string can be converted into an integer. The string <code class="docutils literal notranslate"><span class="pre">&quot;123&quot;</span></code> can be converted into the numeric value <code class="docutils literal notranslate"><span class="pre">123</span></code>, but the string <code class="docutils literal notranslate"><span class="pre">&quot;hello,</span> <span class="pre">world&quot;</span></code> doesn’t have an obvious numeric value to convert to.</p>
+<p>The example below uses the initializer to try to convert a <code class="docutils literal notranslate"><span class="pre">String</span></code> into an <code class="docutils literal notranslate"><span class="pre">Int</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">possibleNumber</span> = <span class="s">&quot;123&quot;</span>
+</li><li><span class="k">let</span> <span class="nv">convertedNumber</span> = <span class="nv">Int</span>(<span class="nv">possibleNumber</span>)
+</li><li><span class="c">// convertedNumber is inferred to be of type &quot;Int?&quot;, or &quot;optional Int&quot;</span>
+</li></ol></div></div></div>
+<p>Because the initializer might fail, it returns an <em>optional</em> <code class="docutils literal notranslate"><span class="pre">Int</span></code>, rather than an <code class="docutils literal notranslate"><span class="pre">Int</span></code>. An optional <code class="docutils literal notranslate"><span class="pre">Int</span></code> is written as <code class="docutils literal notranslate"><span class="pre">Int?</span></code>, not <code class="docutils literal notranslate"><span class="pre">Int</span></code>. The question mark indicates that the value it contains is optional, meaning that it might contain <em>some</em> <code class="docutils literal notranslate"><span class="pre">Int</span></code> value, or it might contain <em>no value at all</em>. (It can’t contain anything else, such as a <code class="docutils literal notranslate"><span class="pre">Bool</span></code> value or a <code class="docutils literal notranslate"><span class="pre">String</span></code> value. It’s either an <code class="docutils literal notranslate"><span class="pre">Int</span></code>, or it’s nothing at all.)</p>
+<div class="section" id="ID331">
+<h3>nil<a class="headerlink" href="#ID331" title="Permalink to this headline">¶</a></h3>
+<p>You set an optional variable to a valueless state by assigning it the special value <code class="docutils literal notranslate"><span class="pre">nil</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">serverResponseCode</span>: <span class="nc">Int</span>? = <span class="m">404</span>
+</li><li><span class="c">// serverResponseCode contains an actual Int value of 404</span>
+</li><li><span class="nv">serverResponseCode</span> = <span class="k">nil</span>
+</li><li><span class="c">// serverResponseCode now contains no value</span>
+</li></ol></div></div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You can’t use <code class="docutils literal notranslate"><span class="pre">nil</span></code> with non-optional constants and variables. If a constant or variable in your code needs to work with the absence of a value under certain conditions, always declare it as an optional value of the appropriate type.</p>
+</div>
+<p>If you define an optional variable without providing a default value, the variable is automatically set to <code class="docutils literal notranslate"><span class="pre">nil</span></code> for you:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">surveyAnswer</span>: <span class="nc">String</span>?
+</li><li><span class="c">// surveyAnswer is automatically set to nil</span>
+</li></ol></div></div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Swift’s <code class="docutils literal notranslate"><span class="pre">nil</span></code> isn’t the same as <code class="docutils literal notranslate"><span class="pre">nil</span></code> in Objective-C. In Objective-C, <code class="docutils literal notranslate"><span class="pre">nil</span></code> is a pointer to a nonexistent object. In Swift, <code class="docutils literal notranslate"><span class="pre">nil</span></code> isn’t a pointer—it’s the absence of a value of a certain type. Optionals of <em>any</em> type can be set to <code class="docutils literal notranslate"><span class="pre">nil</span></code>, not just object types.</p>
+</div>
+</div>
+<div class="section" id="ID332">
+<h3>If Statements and Forced Unwrapping<a class="headerlink" href="#ID332" title="Permalink to this headline">¶</a></h3>
+<p>You can use an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to find out whether an optional contains a value by comparing the optional against <code class="docutils literal notranslate"><span class="pre">nil</span></code>. You perform this comparison with the “equal to” operator (<code class="docutils literal notranslate"><span class="pre">==</span></code>) or the “not equal to” operator (<code class="docutils literal notranslate"><span class="pre">!=</span></code>).</p>
+<p>If an optional has a value, it’s considered to be “not equal to” <code class="docutils literal notranslate"><span class="pre">nil</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="nv">convertedNumber</span> != <span class="k">nil</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;convertedNumber contains some integer value.&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;convertedNumber contains some integer value.&quot;</span>
+</li></ol></div></div></div>
+<p>Once you’re sure that the optional <em>does</em> contain a value, you can access its underlying value by adding an exclamation point (<code class="docutils literal notranslate"><span class="pre">!</span></code>) to the end of the optional’s name. The exclamation point effectively says, “I know that this optional definitely has a value; please use it.” This is known as <em>forced unwrapping</em> of the optional’s value:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="nv">convertedNumber</span> != <span class="k">nil</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;convertedNumber has an integer value of </span>\<span class="p">(</span><span class="nv">convertedNumber</span>!<span class="p">)</span><span class="s">.&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;convertedNumber has an integer value of 123.&quot;</span>
+</li></ol></div></div></div>
+<p>For more about the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement, see <a class="reference internal" href="ControlFlow.html"><span class="doc">Control Flow</span></a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Trying to use <code class="docutils literal notranslate"><span class="pre">!</span></code> to access a nonexistent optional value triggers a runtime error. Always make sure that an optional contains a non-<code class="docutils literal notranslate"><span class="pre">nil</span></code> value before using <code class="docutils literal notranslate"><span class="pre">!</span></code> to force-unwrap its value.</p>
+</div>
+</div>
+<div class="section" id="ID333">
+<h3>Optional Binding<a class="headerlink" href="#ID333" title="Permalink to this headline">¶</a></h3>
+<p>You use <em>optional binding</em> to find out whether an optional contains a value, and if so, to make that value available as a temporary constant or variable. Optional binding can be used with <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> statements to check for a value inside an optional, and to extract that value into a constant or variable, as part of a single action. <code class="docutils literal notranslate"><span class="pre">if</span></code> and <code class="docutils literal notranslate"><span class="pre">while</span></code> statements are described in more detail in <a class="reference internal" href="ControlFlow.html"><span class="doc">Control Flow</span></a>.</p>
+<p>Write an optional binding for an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement as follows:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="k">let</span> <span class="gi">constantName</span> = <span class="gi">someOptional</span> {
+</li><li>    <span class="gi">statements</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>You can rewrite the <code class="docutils literal notranslate"><span class="pre">possibleNumber</span></code> example from the <a class="reference internal" href="#ID330"><span class="std std-ref">Optionals</span></a> section to use optional binding rather than forced unwrapping:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="k">let</span> <span class="nv">actualNumber</span> = <span class="nv">Int</span>(<span class="nv">possibleNumber</span>) {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;The string \&quot;</span>\<span class="p">(</span><span class="nv">possibleNumber</span><span class="p">)</span><span class="s">\&quot; has an integer value of </span>\<span class="p">(</span><span class="nv">actualNumber</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li>} <span class="k">else</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;The string \&quot;</span>\<span class="p">(</span><span class="nv">possibleNumber</span><span class="p">)</span><span class="s">\&quot; couldn&#39;t be converted to an integer&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;The string &quot;123&quot; has an integer value of 123&quot;</span>
+</li></ol></div></div></div>
+<p>This code can be read as:</p>
+<p>“If the optional <code class="docutils literal notranslate"><span class="pre">Int</span></code> returned by <code class="docutils literal notranslate"><span class="pre">Int(possibleNumber)</span></code> contains a value, set a new constant called <code class="docutils literal notranslate"><span class="pre">actualNumber</span></code> to the value contained in the optional.”</p>
+<p>If the conversion is successful, the <code class="docutils literal notranslate"><span class="pre">actualNumber</span></code> constant becomes available for use within the first branch of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. It has already been initialized with the value contained <em>within</em> the optional, and so you don’t use the <code class="docutils literal notranslate"><span class="pre">!</span></code> suffix to access its value. In this example, <code class="docutils literal notranslate"><span class="pre">actualNumber</span></code> is simply used to print the result of the conversion.</p>
+<p>You can use both constants and variables with optional binding. If you wanted to manipulate the value of <code class="docutils literal notranslate"><span class="pre">actualNumber</span></code> within the first branch of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement, you could write <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">var</span> <span class="pre">actualNumber</span></code> instead, and the value contained within the optional would be made available as a variable rather than a constant.</p>
+<p>You can include as many optional bindings and Boolean conditions in a single <code class="docutils literal notranslate"><span class="pre">if</span></code> statement as you need to, separated by commas. If any of the values in the optional bindings are <code class="docutils literal notranslate"><span class="pre">nil</span></code> or any Boolean condition evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the whole <code class="docutils literal notranslate"><span class="pre">if</span></code> statement’s condition is considered to be <code class="docutils literal notranslate"><span class="pre">false</span></code>. The following <code class="docutils literal notranslate"><span class="pre">if</span></code> statements are equivalent:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="k">let</span> <span class="nv">firstNumber</span> = <span class="nv">Int</span>(<span class="s">&quot;4&quot;</span>), <span class="k">let</span> <span class="nv">secondNumber</span> = <span class="nv">Int</span>(<span class="s">&quot;42&quot;</span>), <span class="nv">firstNumber</span> &lt; <span class="nv">secondNumber</span> &amp;&amp; <span class="nv">secondNumber</span> &lt; <span class="m">100</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;</span>\<span class="p">(</span><span class="nv">firstNumber</span><span class="p">)</span><span class="s"> &lt; </span>\<span class="p">(</span><span class="nv">secondNumber</span><span class="p">)</span><span class="s"> &lt; 100&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;4 &lt; 42 &lt; 100&quot;</span>
+</li><li>
+</li><li><span class="k">if</span> <span class="k">let</span> <span class="nv">firstNumber</span> = <span class="nv">Int</span>(<span class="s">&quot;4&quot;</span>) {
+</li><li>    <span class="k">if</span> <span class="k">let</span> <span class="nv">secondNumber</span> = <span class="nv">Int</span>(<span class="s">&quot;42&quot;</span>) {
+</li><li>        <span class="k">if</span> <span class="nv">firstNumber</span> &lt; <span class="nv">secondNumber</span> &amp;&amp; <span class="nv">secondNumber</span> &lt; <span class="m">100</span> {
+</li><li>            <span class="nv">print</span>(<span class="s">&quot;</span>\<span class="p">(</span><span class="nv">firstNumber</span><span class="p">)</span><span class="s"> &lt; </span>\<span class="p">(</span><span class="nv">secondNumber</span><span class="p">)</span><span class="s"> &lt; 100&quot;</span>)
+</li><li>        }
+</li><li>    }
+</li><li>}
+</li><li><span class="c">// Prints &quot;4 &lt; 42 &lt; 100&quot;</span>
+</li></ol></div></div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Constants and variables created with optional binding in an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement are available only within the body of the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement. In contrast, the constants and variables created with a <code class="docutils literal notranslate"><span class="pre">guard</span></code> statement are available in the lines of code that follow the <code class="docutils literal notranslate"><span class="pre">guard</span></code> statement, as described in <a class="reference internal" href="ControlFlow.html#ID525"><span class="std std-ref">Early Exit</span></a>.</p>
+</div>
+</div>
+<div class="section" id="ID334">
+<h3>Implicitly Unwrapped Optionals<a class="headerlink" href="#ID334" title="Permalink to this headline">¶</a></h3>
+<p>As described above, optionals indicate that a constant or variable is allowed to have “no value”. Optionals can be checked with an <code class="docutils literal notranslate"><span class="pre">if</span></code> statement to see if a value exists, and can be conditionally unwrapped with optional binding to access the optional’s value if it does exist.</p>
+<p>Sometimes it’s clear from a program’s structure that an optional will <em>always</em> have a value, after that value is first set. In these cases, it’s useful to remove the need to check and unwrap the optional’s value every time it’s accessed, because it can be safely assumed to have a value all of the time.</p>
+<p>These kinds of optionals are defined as <em>implicitly unwrapped optionals</em>. You write an implicitly unwrapped optional by placing an exclamation point (<code class="docutils literal notranslate"><span class="pre">String!</span></code>) rather than a question mark (<code class="docutils literal notranslate"><span class="pre">String?</span></code>) after the type that you want to make optional. Rather than placing an exclamation point after the optional’s name when you use it, you place an exclamation point after the optional’s type when you declare it.</p>
+<p>Implicitly unwrapped optionals are useful when an optional’s value is confirmed to exist immediately after the optional is first defined and can definitely be assumed to exist at every point thereafter. The primary use of implicitly unwrapped optionals in Swift is during class initialization, as described in <a class="reference internal" href="AutomaticReferenceCounting.html#ID55"><span class="std std-ref">Unowned References and Implicitly Unwrapped Optional Properties</span></a>.</p>
+<p>An implicitly unwrapped optional is a normal optional behind the scenes, but can also be used like a non-optional value, without the need to unwrap the optional value each time it’s accessed. The following example shows the difference in behavior between an optional string and an implicitly unwrapped optional string when accessing their wrapped value as an explicit <code class="docutils literal notranslate"><span class="pre">String</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">possibleString</span>: <span class="nc">String</span>? = <span class="s">&quot;An optional string.&quot;</span>
+</li><li><span class="k">let</span> <span class="nv">forcedString</span>: <span class="nc">String</span> = <span class="nv">possibleString</span>! <span class="c">// requires an exclamation point</span>
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">assumedString</span>: <span class="nc">String</span>! = <span class="s">&quot;An implicitly unwrapped optional string.&quot;</span>
+</li><li><span class="k">let</span> <span class="nv">implicitString</span>: <span class="nc">String</span> = <span class="nv">assumedString</span> <span class="c">// no need for an exclamation point</span>
+</li></ol></div></div></div>
+<p>You can think of an implicitly unwrapped optional as giving permission for the optional to be force-unwrapped if needed. When you use an implicitly unwrapped optional value, Swift first tries to use it as an ordinary optional value; if it can’t be used as an optional, Swift force-unwraps the value. In the code above, the optional value <code class="docutils literal notranslate"><span class="pre">assumedString</span></code> is force-unwrapped before assigning its value to <code class="docutils literal notranslate"><span class="pre">implicitString</span></code> because <code class="docutils literal notranslate"><span class="pre">implicitString</span></code> has an explicit, non-optional type of <code class="docutils literal notranslate"><span class="pre">String</span></code>. In code below, <code class="docutils literal notranslate"><span class="pre">optionalString</span></code> doesn’t have an explicit type so it’s an ordinary optional.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">optionalString</span> = <span class="nv">assumedString</span>
+</li><li><span class="c">// The type of optionalString is &quot;String?&quot; and assumedString isn&#39;t force-unwrapped.</span>
+</li></ol></div></div></div>
+<p>If an implicitly unwrapped optional is <code class="docutils literal notranslate"><span class="pre">nil</span></code> and you try to access its wrapped value, you’ll trigger a runtime error. The result is exactly the same as if you place an exclamation point after a normal optional that doesn’t contain a value.</p>
+<p>You can check whether an implicitly unwrapped optional is <code class="docutils literal notranslate"><span class="pre">nil</span></code> the same way you check a normal optional:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="nv">assumedString</span> != <span class="k">nil</span> {
+</li><li>    <span class="nv">print</span>(<span class="nv">assumedString</span>!)
+</li><li>}
+</li><li><span class="c">// Prints &quot;An implicitly unwrapped optional string.&quot;</span>
+</li></ol></div></div></div>
+<p>You can also use an implicitly unwrapped optional with optional binding, to check and unwrap its value in a single statement:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="k">let</span> <span class="nv">definiteString</span> = <span class="nv">assumedString</span> {
+</li><li>    <span class="nv">print</span>(<span class="nv">definiteString</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;An implicitly unwrapped optional string.&quot;</span>
+</li></ol></div></div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Don’t use an implicitly unwrapped optional when there’s a possibility of a variable becoming <code class="docutils literal notranslate"><span class="pre">nil</span></code> at a later point. Always use a normal optional type if you need to check for a <code class="docutils literal notranslate"><span class="pre">nil</span></code> value during the lifetime of a variable.</p>
+</div>
+</div>
+</div>
+<div class="section" id="ID515">
+<h2>Error Handling<a class="headerlink" href="#ID515" title="Permalink to this headline">¶</a></h2>
+<p>You use <em>error handling</em> to respond to error conditions your program may encounter during execution.</p>
+<p>In contrast to optionals, which can use the presence or absence of a value to communicate success or failure of a function, error handling allows you to determine the underlying cause of failure, and, if necessary, propagate the error to another part of your program.</p>
+<p>When a function encounters an error condition, it <em>throws</em> an error. That function’s caller can then <em>catch</em> the error and respond appropriately.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">canThrowAnError</span>() <span class="k">throws</span> {
+</li><li>    <span class="c">// this function may or may not throw an error</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>A function indicates that it can throw an error by including the <code class="docutils literal notranslate"><span class="pre">throws</span></code> keyword in its declaration. When you call a function that can throw an error, you prepend the <code class="docutils literal notranslate"><span class="pre">try</span></code> keyword to the expression.</p>
+<p>Swift automatically propagates errors out of their current scope until they’re handled by a <code class="docutils literal notranslate"><span class="pre">catch</span></code> clause.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">do</span> {
+</li><li>    <span class="k">try</span> <span class="nv">canThrowAnError</span>()
+</li><li>    <span class="c">// no error was thrown</span>
+</li><li>} <span class="k">catch</span> {
+</li><li>    <span class="c">// an error was thrown</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>A <code class="docutils literal notranslate"><span class="pre">do</span></code> statement creates a new containing scope, which allows errors to be propagated to one or more <code class="docutils literal notranslate"><span class="pre">catch</span></code> clauses.</p>
+<p>Here’s an example of how error handling can be used to respond to different error conditions:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">makeASandwich</span>() <span class="k">throws</span> {
+</li><li>    <span class="c">// ...</span>
+</li><li>}
+</li><li>
+</li><li><span class="k">do</span> {
+</li><li>    <span class="k">try</span> <span class="nv">makeASandwich</span>()
+</li><li>    <span class="nv">eatASandwich</span>()
+</li><li>} <span class="k">catch</span> <span class="nv">SandwichError</span>.<span class="nv">outOfCleanDishes</span> {
+</li><li>    <span class="nv">washDishes</span>()
+</li><li>} <span class="k">catch</span> <span class="nv">SandwichError</span>.<span class="nv">missingIngredients</span>(<span class="k">let</span> <span class="nv">ingredients</span>) {
+</li><li>    <span class="nv">buyGroceries</span>(<span class="nv">ingredients</span>)
+</li><li>}
+</li></ol></div></div></div>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">makeASandwich()</span></code> function will throw an error if no clean dishes are available or if any ingredients are missing. Because <code class="docutils literal notranslate"><span class="pre">makeASandwich()</span></code> can throw an error, the function call is wrapped in a <code class="docutils literal notranslate"><span class="pre">try</span></code> expression. By wrapping the function call in a <code class="docutils literal notranslate"><span class="pre">do</span></code> statement, any errors that are thrown will be propagated to the provided <code class="docutils literal notranslate"><span class="pre">catch</span></code> clauses.</p>
+<p>If no error is thrown, the <code class="docutils literal notranslate"><span class="pre">eatASandwich()</span></code> function is called. If an error is thrown and it matches the <code class="docutils literal notranslate"><span class="pre">SandwichError.outOfCleanDishes</span></code> case, then the <code class="docutils literal notranslate"><span class="pre">washDishes()</span></code> function will be called. If an error is thrown and it matches the <code class="docutils literal notranslate"><span class="pre">SandwichError.missingIngredients</span></code> case, then the <code class="docutils literal notranslate"><span class="pre">buyGroceries(_:)</span></code> function is called with the associated <code class="docutils literal notranslate"><span class="pre">[String]</span></code> value captured by the <code class="docutils literal notranslate"><span class="pre">catch</span></code> pattern.</p>
+<p>Throwing, catching, and propagating errors is covered in greater detail in <a class="reference internal" href="ErrorHandling.html"><span class="doc">Error Handling</span></a>.</p>
+</div>
+<div class="section" id="ID335">
+<h2>Assertions and Preconditions<a class="headerlink" href="#ID335" title="Permalink to this headline">¶</a></h2>
+<p><em>Assertions</em> and <em>preconditions</em> are checks that happen at runtime. You use them to make sure an essential condition is satisfied before executing any further code. If the Boolean condition in the assertion or precondition evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>, code execution continues as usual. If the condition evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>, the current state of the program is invalid; code execution ends, and your app is terminated.</p>
+<p>You use assertions and preconditions to express the assumptions you make and the expectations you have while coding, so you can include them as part of your code. Assertions help you find mistakes and incorrect assumptions during development, and preconditions help you detect issues in production.</p>
+<p>In addition to verifying your expectations at runtime, assertions and preconditions also become a useful form of documentation within the code. Unlike the error conditions discussed in <a class="reference internal" href="#ID515"><span class="std std-ref">Error Handling</span></a> above, assertions and preconditions aren’t used for recoverable or expected errors. Because a failed assertion or precondition indicates an invalid program state, there’s no way to catch a failed assertion.</p>
+<p>Using assertions and preconditions isn’t a substitute for designing your code in such a way that invalid conditions are unlikely to arise. However, using them to enforce valid data and state causes your app to terminate more predictably if an invalid state occurs, and helps make the problem easier to debug. Stopping execution as soon as an invalid state is detected also helps limit the damage caused by that invalid state.</p>
+<p>The difference between assertions and preconditions is in when they’re checked: Assertions are checked only in debug builds, but preconditions are checked in both debug and production builds. In production builds, the condition inside an assertion isn’t evaluated. This means you can use as many assertions as you want during your development process, without impacting performance in production.</p>
+<div class="section" id="ID336">
+<h3>Debugging with Assertions<a class="headerlink" href="#ID336" title="Permalink to this headline">¶</a></h3>
+<p>You write an assertion by calling the <a class="reference external" href="https://developer.apple.com/documentation/swift/1541112-assert"><code class="docutils literal notranslate"><span class="pre">assert(_:_:file:line:)</span></code></a> function from the Swift standard library. You pass this function an expression that evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> and a message to display if the result of the condition is <code class="docutils literal notranslate"><span class="pre">false</span></code>. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">age</span> = <span class="m">-3</span>
+</li><li><span class="nv">assert</span>(<span class="nv">age</span> &gt;= <span class="m">0</span>, <span class="s">&quot;A person&#39;s age can&#39;t be less than zero.&quot;</span>)
+</li><li><span class="c">// This assertion fails because -3 isn&#39;t &gt;= 0.</span>
+</li></ol></div></div></div>
+<p>In this example, code execution continues if <code class="docutils literal notranslate"><span class="pre">age</span> <span class="pre">&gt;=</span> <span class="pre">0</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>, that is, if the value of <code class="docutils literal notranslate"><span class="pre">age</span></code> is nonnegative. If the value of <code class="docutils literal notranslate"><span class="pre">age</span></code> is negative, as in the code above, then <code class="docutils literal notranslate"><span class="pre">age</span> <span class="pre">&gt;=</span> <span class="pre">0</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code>, and the assertion fails, terminating the application.</p>
+<p>You can omit the assertion message—for example, when it would just repeat the condition as prose.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">assert</span>(<span class="nv">age</span> &gt;= <span class="m">0</span>)
+</li></ol></div></div></div>
+<p>If the code already checks the condition, you use the <a class="reference external" href="https://developer.apple.com/documentation/swift/1539616-assertionfailure"><code class="docutils literal notranslate"><span class="pre">assertionFailure(_:file:line:)</span></code></a> function to indicate that an assertion has failed. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="nv">age</span> &gt; <span class="m">10</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;You can ride the roller-coaster or the ferris wheel.&quot;</span>)
+</li><li>} <span class="k">else</span> <span class="k">if</span> <span class="nv">age</span> &gt;= <span class="m">0</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;You can ride the ferris wheel.&quot;</span>)
+</li><li>} <span class="k">else</span> {
+</li><li>    <span class="nv">assertionFailure</span>(<span class="s">&quot;A person&#39;s age can&#39;t be less than zero.&quot;</span>)
+</li><li>}
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID554">
+<h3>Enforcing Preconditions<a class="headerlink" href="#ID554" title="Permalink to this headline">¶</a></h3>
+<p>Use a precondition whenever a condition has the potential to be false, but must <em>definitely</em> be true for your code to continue execution. For example, use a precondition to check that a subscript isn’t out of bounds, or to check that a function has been passed a valid value.</p>
+<p>You write a precondition by calling the <a class="reference external" href="https://developer.apple.com/documentation/swift/1540960-precondition"><code class="docutils literal notranslate"><span class="pre">precondition(_:_:file:line:)</span></code></a> function. You pass this function an expression that evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> or <code class="docutils literal notranslate"><span class="pre">false</span></code> and a message to display if the result of the condition is <code class="docutils literal notranslate"><span class="pre">false</span></code>. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="c">// In the implementation of a subscript...</span>
+</li><li><span class="nv">precondition</span>(<span class="nv">index</span> &gt; <span class="m">0</span>, <span class="s">&quot;Index must be greater than zero.&quot;</span>)
+</li></ol></div></div></div>
+<p>You can also call the <a class="reference external" href="https://developer.apple.com/documentation/swift/1539374-preconditionfailure"><code class="docutils literal notranslate"><span class="pre">preconditionFailure(_:file:line:)</span></code></a> function to indicate that a failure has occurred—for example, if the default case of a switch was taken, but all valid input data should have been handled by one of the switch’s other cases.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>If you compile in unchecked mode (<code class="docutils literal notranslate"><span class="pre">-Ounchecked</span></code>), preconditions aren’t checked. The compiler assumes that preconditions are always true, and it optimizes your code accordingly. However, the <code class="docutils literal notranslate"><span class="pre">fatalError(_:file:line:)</span></code> function always halts execution, regardless of optimization settings.</p>
+<p class="last">You can use the <code class="docutils literal notranslate"><span class="pre">fatalError(_:file:line:)</span></code> function during prototyping and early development to create stubs for functionality that hasn’t been implemented yet, by writing <code class="docutils literal notranslate"><span class="pre">fatalError(&quot;Unimplemented&quot;)</span></code> as the stub implementation. Because fatal errors are never optimized out, unlike assertions or preconditions, you can be sure that execution always halts if it encounters a stub implementation.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="../GuidedTour/GuidedTour.html">A Swift Tour</a></p>
+        <p class="next"><a href="BasicOperators.html">Basic Operators</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  </body>
+</html>

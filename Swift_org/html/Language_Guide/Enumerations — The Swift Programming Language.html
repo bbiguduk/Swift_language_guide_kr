@@ -1,0 +1,396 @@
+
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Apple Inc." />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    
+    <title>Enumerations &mdash; The Swift Programming Language (Swift 5.6)</title>
+    
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css" />
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339" /> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TheBasics.html">Language Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="TheBasics.html">The Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicOperators.html">Basic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringsAndCharacters.html">Strings and Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CollectionTypes.html">Collection Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlFlow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Closures.html">Closures</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassesAndStructures.html">Structures and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscripts.html">Subscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialization.html">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Deinitialization.html">Deinitialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptionalChaining.html">Optional Chaining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ErrorHandling.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TypeCasting.html">Type Casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NestedTypes.html">Nested Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Extensions.html">Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Protocols.html">Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OpaqueTypes.html">Opaque Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutomaticReferenceCounting.html">Automatic Reference Counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MemorySafety.html">Memory Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AccessControl.html">Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AdvancedOperators.html">Advanced Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ReferenceManual/AboutTheLanguageReference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Enumerations</a><ul>
+<li><a class="reference internal" href="#ID146">Enumeration Syntax</a></li>
+<li><a class="reference internal" href="#ID147">Matching Enumeration Values with a Switch Statement</a></li>
+<li><a class="reference internal" href="#ID581">Iterating over Enumeration Cases</a></li>
+<li><a class="reference internal" href="#ID148">Associated Values</a></li>
+<li><a class="reference internal" href="#ID149">Raw Values</a><ul>
+<li><a class="reference internal" href="#ID535">Implicitly Assigned Raw Values</a></li>
+<li><a class="reference internal" href="#ID150">Initializing from a Raw Value</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID536">Recursive Enumerations</a></li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="enumerations">
+<h1>Enumerations<a class="headerlink" href="#enumerations" title="Permalink to this headline">¶</a></h1>
+<p>An <em>enumeration</em> defines a common type for a group of related values and enables you to work with those values in a type-safe way within your code.</p>
+<p>If you are familiar with C, you will know that C enumerations assign related names to a set of integer values. Enumerations in Swift are much more flexible, and don’t have to provide a value for each case of the enumeration. If a value (known as a <em>raw</em> value) is provided for each enumeration case, the value can be a string, a character, or a value of any integer or floating-point type.</p>
+<p>Alternatively, enumeration cases can specify associated values of <em>any</em> type to be stored along with each different case value, much as unions or variants do in other languages. You can define a common set of related cases as part of one enumeration, each of which has a different set of values of appropriate types associated with it.</p>
+<p>Enumerations in Swift are first-class types in their own right. They adopt many features traditionally supported only by classes, such as computed properties to provide additional information about the enumeration’s current value, and instance methods to provide functionality related to the values the enumeration represents. Enumerations can also define initializers to provide an initial case value; can be extended to expand their functionality beyond their original implementation; and can conform to protocols to provide standard functionality.</p>
+<p>For more about these capabilities, see <a class="reference internal" href="Properties.html"><span class="doc">Properties</span></a>, <a class="reference internal" href="Methods.html"><span class="doc">Methods</span></a>, <a class="reference internal" href="Initialization.html"><span class="doc">Initialization</span></a>, <a class="reference internal" href="Extensions.html"><span class="doc">Extensions</span></a>, and <a class="reference internal" href="Protocols.html"><span class="doc">Protocols</span></a>.</p>
+<div class="section" id="ID146">
+<h2>Enumeration Syntax<a class="headerlink" href="#ID146" title="Permalink to this headline">¶</a></h2>
+<p>You introduce enumerations with the <code class="docutils literal notranslate"><span class="pre">enum</span></code> keyword and place their entire definition within a pair of braces:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">SomeEnumeration</span> {
+</li><li>    <span class="c">// enumeration definition goes here</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>Here’s an example for the four main points of a compass:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">CompassPoint</span> {
+</li><li>    <span class="k">case</span> <span class="nv">north</span>
+</li><li>    <span class="k">case</span> <span class="nv">south</span>
+</li><li>    <span class="k">case</span> <span class="nv">east</span>
+</li><li>    <span class="k">case</span> <span class="nv">west</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>The values defined in an enumeration (such as <code class="docutils literal notranslate"><span class="pre">north</span></code>, <code class="docutils literal notranslate"><span class="pre">south</span></code>, <code class="docutils literal notranslate"><span class="pre">east</span></code>, and <code class="docutils literal notranslate"><span class="pre">west</span></code>) are its <em>enumeration cases</em>. You use the <code class="docutils literal notranslate"><span class="pre">case</span></code> keyword to introduce new enumeration cases.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Swift enumeration cases don’t have an integer value set by default, unlike languages like C and Objective-C. In the <code class="docutils literal notranslate"><span class="pre">CompassPoint</span></code> example above, <code class="docutils literal notranslate"><span class="pre">north</span></code>, <code class="docutils literal notranslate"><span class="pre">south</span></code>, <code class="docutils literal notranslate"><span class="pre">east</span></code> and <code class="docutils literal notranslate"><span class="pre">west</span></code> don’t implicitly equal <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code>. Instead, the different enumeration cases are values in their own right, with an explicitly defined type of <code class="docutils literal notranslate"><span class="pre">CompassPoint</span></code>.</p>
+</div>
+<p>Multiple cases can appear on a single line, separated by commas:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">Planet</span> {
+</li><li>    <span class="k">case</span> <span class="nv">mercury</span>, <span class="nv">venus</span>, <span class="nv">earth</span>, <span class="nv">mars</span>, <span class="nv">jupiter</span>, <span class="nv">saturn</span>, <span class="nv">uranus</span>, <span class="nv">neptune</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>Each enumeration definition defines a new type. Like other types in Swift, their names (such as <code class="docutils literal notranslate"><span class="pre">CompassPoint</span></code> and <code class="docutils literal notranslate"><span class="pre">Planet</span></code>) start with a capital letter. Give enumeration types singular rather than plural names, so that they read as self-evident:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">directionToHead</span> = <span class="nv">CompassPoint</span>.<span class="nv">west</span>
+</li></ol></div></div></div>
+<p>The type of <code class="docutils literal notranslate"><span class="pre">directionToHead</span></code> is inferred when it’s initialized with one of the possible values of <code class="docutils literal notranslate"><span class="pre">CompassPoint</span></code>. Once <code class="docutils literal notranslate"><span class="pre">directionToHead</span></code> is declared as a <code class="docutils literal notranslate"><span class="pre">CompassPoint</span></code>, you can set it to a different <code class="docutils literal notranslate"><span class="pre">CompassPoint</span></code> value using a shorter dot syntax:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">directionToHead</span> = .<span class="nv">east</span>
+</li></ol></div></div></div>
+<p>The type of <code class="docutils literal notranslate"><span class="pre">directionToHead</span></code> is already known, and so you can drop the type when setting its value. This makes for highly readable code when working with explicitly typed enumeration values.</p>
+</div>
+<div class="section" id="ID147">
+<h2>Matching Enumeration Values with a Switch Statement<a class="headerlink" href="#ID147" title="Permalink to this headline">¶</a></h2>
+<p>You can match individual enumeration values with a <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">directionToHead</span> = .<span class="nv">south</span>
+</li><li><span class="k">switch</span> <span class="nv">directionToHead</span> {
+</li><li><span class="k">case</span> .<span class="nv">north</span>:
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Lots of planets have a north&quot;</span>)
+</li><li><span class="k">case</span> .<span class="nv">south</span>:
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Watch out for penguins&quot;</span>)
+</li><li><span class="k">case</span> .<span class="nv">east</span>:
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Where the sun rises&quot;</span>)
+</li><li><span class="k">case</span> .<span class="nv">west</span>:
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Where the skies are blue&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;Watch out for penguins&quot;</span>
+</li></ol></div></div></div>
+<p>You can read this code as:</p>
+<p>“Consider the value of <code class="docutils literal notranslate"><span class="pre">directionToHead</span></code>. In the case where it equals <code class="docutils literal notranslate"><span class="pre">.north</span></code>, print <code class="docutils literal notranslate"><span class="pre">&quot;Lots</span> <span class="pre">of</span> <span class="pre">planets</span> <span class="pre">have</span> <span class="pre">a</span> <span class="pre">north&quot;</span></code>. In the case where it equals <code class="docutils literal notranslate"><span class="pre">.south</span></code>, print <code class="docutils literal notranslate"><span class="pre">&quot;Watch</span> <span class="pre">out</span> <span class="pre">for</span> <span class="pre">penguins&quot;</span></code>.”</p>
+<p>…and so on.</p>
+<p>As described in <a class="reference internal" href="ControlFlow.html"><span class="doc">Control Flow</span></a>, a <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement must be exhaustive when considering an enumeration’s cases. If the <code class="docutils literal notranslate"><span class="pre">case</span></code> for <code class="docutils literal notranslate"><span class="pre">.west</span></code> is omitted, this code doesn’t compile, because it doesn’t consider the complete list of <code class="docutils literal notranslate"><span class="pre">CompassPoint</span></code> cases. Requiring exhaustiveness ensures that enumeration cases aren’t accidentally omitted.</p>
+<p>When it isn’t appropriate to provide a <code class="docutils literal notranslate"><span class="pre">case</span></code> for every enumeration case, you can provide a <code class="docutils literal notranslate"><span class="pre">default</span></code> case to cover any cases that aren’t addressed explicitly:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">somePlanet</span> = <span class="nv">Planet</span>.<span class="nv">earth</span>
+</li><li><span class="k">switch</span> <span class="nv">somePlanet</span> {
+</li><li><span class="k">case</span> .<span class="nv">earth</span>:
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Mostly harmless&quot;</span>)
+</li><li><span class="k">default</span>:
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Not a safe place for humans&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;Mostly harmless&quot;</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID581">
+<h2>Iterating over Enumeration Cases<a class="headerlink" href="#ID581" title="Permalink to this headline">¶</a></h2>
+<p>For some enumerations, it’s useful to have a collection of all of that enumeration’s cases. You enable this by writing <code class="docutils literal notranslate"><span class="pre">:</span> <span class="pre">CaseIterable</span></code> after the enumeration’s name. Swift exposes a collection of all the cases as an <code class="docutils literal notranslate"><span class="pre">allCases</span></code> property of the enumeration type. Here’s an example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">Beverage</span>: <span class="nc">CaseIterable</span> {
+</li><li>    <span class="k">case</span> <span class="nv">coffee</span>, <span class="nv">tea</span>, <span class="nv">juice</span>
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">numberOfChoices</span> = <span class="nv">Beverage</span>.<span class="nv">allCases</span>.<span class="nv">count</span>
+</li><li><span class="nv">print</span>(<span class="s">&quot;</span>\<span class="p">(</span><span class="nv">numberOfChoices</span><span class="p">)</span><span class="s"> beverages available&quot;</span>)
+</li><li><span class="c">// Prints &quot;3 beverages available&quot;</span>
+</li></ol></div></div></div>
+<p>In the example above, you write <code class="docutils literal notranslate"><span class="pre">Beverage.allCases</span></code> to access a collection that contains all of the cases of the <code class="docutils literal notranslate"><span class="pre">Beverage</span></code> enumeration. You can use <code class="docutils literal notranslate"><span class="pre">allCases</span></code> like any other collection—the collection’s elements are instances of the enumeration type, so in this case they’re <code class="docutils literal notranslate"><span class="pre">Beverage</span></code> values. The example above counts how many cases there are, and the example below uses a <code class="docutils literal notranslate"><span class="pre">for</span></code>-<code class="docutils literal notranslate"><span class="pre">in</span></code> loop to iterate over all the cases.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">for</span> <span class="nv">beverage</span> <span class="k">in</span> <span class="nv">Beverage</span>.<span class="nv">allCases</span> {
+</li><li>    <span class="nv">print</span>(<span class="nv">beverage</span>)
+</li><li>}
+</li><li><span class="c">// coffee</span>
+</li><li><span class="c">// tea</span>
+</li><li><span class="c">// juice</span>
+</li></ol></div></div></div>
+<p>The syntax used in the examples above marks the enumeration as conforming to the <a class="reference external" href="https://developer.apple.com/documentation/swift/caseiterable"><code class="docutils literal notranslate"><span class="pre">CaseIterable</span></code></a> protocol. For information about protocols, see <a class="reference internal" href="Protocols.html"><span class="doc">Protocols</span></a>.</p>
+</div>
+<div class="section" id="ID148">
+<h2>Associated Values<a class="headerlink" href="#ID148" title="Permalink to this headline">¶</a></h2>
+<p>The examples in the previous section show how the cases of an enumeration are a defined (and typed) value in their own right. You can set a constant or variable to <code class="docutils literal notranslate"><span class="pre">Planet.earth</span></code>, and check for this value later. However, it’s sometimes useful to be able to store values of other types alongside these case values. This additional information is called an <em>associated value</em>, and it varies each time you use that case as a value in your code.</p>
+<p>You can define Swift enumerations to store associated values of any given type, and the value types can be different for each case of the enumeration if needed. Enumerations similar to these are known as <em>discriminated unions</em>, <em>tagged unions</em>, or <em>variants</em> in other programming languages.</p>
+<p>For example, suppose an inventory tracking system needs to track products by two different types of barcode. Some products are labeled with 1D barcodes in UPC format, which uses the numbers <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">9</span></code>. Each barcode has a number system digit, followed by five manufacturer code digits and five product code digits. These are followed by a check digit to verify that the code has been scanned correctly:</p>
+<img alt="../_images/barcode_UPC_2x.png" class="align-center" src="../_images/barcode_UPC_2x.png" style="width: 252px;" />
+<p>Other products are labeled with 2D barcodes in QR code format, which can use any ISO 8859-1 character and can encode a string up to 2,953 characters long:</p>
+<img alt="../_images/barcode_QR_2x.png" class="align-center" src="../_images/barcode_QR_2x.png" style="width: 169px;" />
+<p>It’s convenient for an inventory tracking system to store UPC barcodes as a tuple of four integers, and QR code barcodes as a string of any length.</p>
+<p>In Swift, an enumeration to define product barcodes of either type might look like this:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">Barcode</span> {
+</li><li>    <span class="k">case</span> <span class="nv">upc</span>(<span class="nv">Int</span>, <span class="nv">Int</span>, <span class="nv">Int</span>, <span class="nv">Int</span>)
+</li><li>    <span class="k">case</span> <span class="nv">qrCode</span>(<span class="nv">String</span>)
+</li><li>}
+</li></ol></div></div></div>
+<p>This can be read as:</p>
+<p>“Define an enumeration type called <code class="docutils literal notranslate"><span class="pre">Barcode</span></code>, which can take either a value of <code class="docutils literal notranslate"><span class="pre">upc</span></code> with an associated value of type (<code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">Int</span></code>), or a value of <code class="docutils literal notranslate"><span class="pre">qrCode</span></code> with an associated value of type <code class="docutils literal notranslate"><span class="pre">String</span></code>.”</p>
+<p>This definition doesn’t provide any actual <code class="docutils literal notranslate"><span class="pre">Int</span></code> or <code class="docutils literal notranslate"><span class="pre">String</span></code> values—it just defines the <em>type</em> of associated values that <code class="docutils literal notranslate"><span class="pre">Barcode</span></code> constants and variables can store when they’re equal to <code class="docutils literal notranslate"><span class="pre">Barcode.upc</span></code> or <code class="docutils literal notranslate"><span class="pre">Barcode.qrCode</span></code>.</p>
+<p>You can then create new barcodes using either type:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">productBarcode</span> = <span class="nv">Barcode</span>.<span class="nv">upc</span>(<span class="m">8</span>, <span class="m">85909</span>, <span class="m">51226</span>, <span class="m">3</span>)
+</li></ol></div></div></div>
+<p>This example creates a new variable called <code class="docutils literal notranslate"><span class="pre">productBarcode</span></code> and assigns it a value of <code class="docutils literal notranslate"><span class="pre">Barcode.upc</span></code> with an associated tuple value of <code class="docutils literal notranslate"><span class="pre">(8,</span> <span class="pre">85909,</span> <span class="pre">51226,</span> <span class="pre">3)</span></code>.</p>
+<p>You can assign the same product a different type of barcode:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">productBarcode</span> = .<span class="nv">qrCode</span>(<span class="s">&quot;ABCDEFGHIJKLMNOP&quot;</span>)
+</li></ol></div></div></div>
+<p>At this point, the original <code class="docutils literal notranslate"><span class="pre">Barcode.upc</span></code> and its integer values are replaced by the new <code class="docutils literal notranslate"><span class="pre">Barcode.qrCode</span></code> and its string value. Constants and variables of type <code class="docutils literal notranslate"><span class="pre">Barcode</span></code> can store either a <code class="docutils literal notranslate"><span class="pre">.upc</span></code> or a <code class="docutils literal notranslate"><span class="pre">.qrCode</span></code> (together with their associated values), but they can store only one of them at any given time.</p>
+<p>You can check the different barcode types using a switch statement, similar to the example in <a class="reference internal" href="#ID147"><span class="std std-ref">Matching Enumeration Values with a Switch Statement</span></a>. This time, however, the associated values are extracted as part of the switch statement. You extract each associated value as a constant (with the <code class="docutils literal notranslate"><span class="pre">let</span></code> prefix) or a variable (with the <code class="docutils literal notranslate"><span class="pre">var</span></code> prefix) for use within the <code class="docutils literal notranslate"><span class="pre">switch</span></code> case’s body:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">switch</span> <span class="nv">productBarcode</span> {
+</li><li><span class="k">case</span> .<span class="nv">upc</span>(<span class="k">let</span> <span class="nv">numberSystem</span>, <span class="k">let</span> <span class="nv">manufacturer</span>, <span class="k">let</span> <span class="nv">product</span>, <span class="k">let</span> <span class="nv">check</span>):
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;UPC: </span>\<span class="p">(</span><span class="nv">numberSystem</span><span class="p">)</span><span class="s">, </span>\<span class="p">(</span><span class="nv">manufacturer</span><span class="p">)</span><span class="s">, </span>\<span class="p">(</span><span class="nv">product</span><span class="p">)</span><span class="s">, </span>\<span class="p">(</span><span class="nv">check</span><span class="p">)</span><span class="s">.&quot;</span>)
+</li><li><span class="k">case</span> .<span class="nv">qrCode</span>(<span class="k">let</span> <span class="nv">productCode</span>):
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;QR code: </span>\<span class="p">(</span><span class="nv">productCode</span><span class="p">)</span><span class="s">.&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;QR code: ABCDEFGHIJKLMNOP.&quot;</span>
+</li></ol></div></div></div>
+<p>If all of the associated values for an enumeration case are extracted as constants, or if all are extracted as variables, you can place a single <code class="docutils literal notranslate"><span class="pre">var</span></code> or <code class="docutils literal notranslate"><span class="pre">let</span></code> annotation before the case name, for brevity:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">switch</span> <span class="nv">productBarcode</span> {
+</li><li><span class="k">case</span> <span class="k">let</span> .<span class="nv">upc</span>(<span class="nv">numberSystem</span>, <span class="nv">manufacturer</span>, <span class="nv">product</span>, <span class="nv">check</span>):
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;UPC : </span>\<span class="p">(</span><span class="nv">numberSystem</span><span class="p">)</span><span class="s">, </span>\<span class="p">(</span><span class="nv">manufacturer</span><span class="p">)</span><span class="s">, </span>\<span class="p">(</span><span class="nv">product</span><span class="p">)</span><span class="s">, </span>\<span class="p">(</span><span class="nv">check</span><span class="p">)</span><span class="s">.&quot;</span>)
+</li><li><span class="k">case</span> <span class="k">let</span> .<span class="nv">qrCode</span>(<span class="nv">productCode</span>):
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;QR code: </span>\<span class="p">(</span><span class="nv">productCode</span><span class="p">)</span><span class="s">.&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;QR code: ABCDEFGHIJKLMNOP.&quot;</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID149">
+<h2>Raw Values<a class="headerlink" href="#ID149" title="Permalink to this headline">¶</a></h2>
+<p>The barcode example in <a class="reference internal" href="#ID148"><span class="std std-ref">Associated Values</span></a> shows how cases of an enumeration can declare that they store associated values of different types. As an alternative to associated values, enumeration cases can come prepopulated with default values (called <em>raw values</em>), which are all of the same type.</p>
+<p>Here’s an example that stores raw ASCII values alongside named enumeration cases:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">ASCIIControlCharacter</span>: <span class="nc">Character</span> {
+</li><li>    <span class="k">case</span> <span class="nv">tab</span> = <span class="s">&quot;\t&quot;</span>
+</li><li>    <span class="k">case</span> <span class="nv">lineFeed</span> = <span class="s">&quot;\n&quot;</span>
+</li><li>    <span class="k">case</span> <span class="nv">carriageReturn</span> = <span class="s">&quot;\r&quot;</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>Here, the raw values for an enumeration called <code class="docutils literal notranslate"><span class="pre">ASCIIControlCharacter</span></code> are defined to be of type <code class="docutils literal notranslate"><span class="pre">Character</span></code>, and are set to some of the more common ASCII control characters. <code class="docutils literal notranslate"><span class="pre">Character</span></code> values are described in <a class="reference internal" href="StringsAndCharacters.html"><span class="doc">Strings and Characters</span></a>.</p>
+<p>Raw values can be strings, characters, or any of the integer or floating-point number types. Each raw value must be unique within its enumeration declaration.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Raw values are <em>not</em> the same as associated values. Raw values are set to prepopulated values when you first define the enumeration in your code, like the three ASCII codes above. The raw value for a particular enumeration case is always the same. Associated values are set when you create a new constant or variable based on one of the enumeration’s cases, and can be different each time you do so.</p>
+</div>
+<div class="section" id="ID535">
+<h3>Implicitly Assigned Raw Values<a class="headerlink" href="#ID535" title="Permalink to this headline">¶</a></h3>
+<p>When you’re working with enumerations that store integer or string raw values, you don’t have to explicitly assign a raw value for each case. When you don’t, Swift automatically assigns the values for you.</p>
+<p>For example, when integers are used for raw values, the implicit value for each case is one more than the previous case. If the first case doesn’t have a value set, its value is <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
+<p>The enumeration below is a refinement of the earlier <code class="docutils literal notranslate"><span class="pre">Planet</span></code> enumeration, with integer raw values to represent each planet’s order from the sun:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">Planet</span>: <span class="nc">Int</span> {
+</li><li>    <span class="k">case</span> <span class="nv">mercury</span> = <span class="m">1</span>, <span class="nv">venus</span>, <span class="nv">earth</span>, <span class="nv">mars</span>, <span class="nv">jupiter</span>, <span class="nv">saturn</span>, <span class="nv">uranus</span>, <span class="nv">neptune</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>In the example above, <code class="docutils literal notranslate"><span class="pre">Planet.mercury</span></code> has an explicit raw value of <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">Planet.venus</span></code> has an implicit raw value of <code class="docutils literal notranslate"><span class="pre">2</span></code>, and so on.</p>
+<p>When strings are used for raw values, the implicit value for each case is the text of that case’s name.</p>
+<p>The enumeration below is a refinement of the earlier <code class="docutils literal notranslate"><span class="pre">CompassPoint</span></code> enumeration, with string raw values to represent each direction’s name:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">CompassPoint</span>: <span class="nc">String</span> {
+</li><li>    <span class="k">case</span> <span class="nv">north</span>, <span class="nv">south</span>, <span class="nv">east</span>, <span class="nv">west</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>In the example above, <code class="docutils literal notranslate"><span class="pre">CompassPoint.south</span></code> has an implicit raw value of <code class="docutils literal notranslate"><span class="pre">&quot;south&quot;</span></code>, and so on.</p>
+<p>You access the raw value of an enumeration case with its <code class="docutils literal notranslate"><span class="pre">rawValue</span></code> property:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">earthsOrder</span> = <span class="nv">Planet</span>.<span class="nv">earth</span>.<span class="nv">rawValue</span>
+</li><li><span class="c">// earthsOrder is 3</span>
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">sunsetDirection</span> = <span class="nv">CompassPoint</span>.<span class="nv">west</span>.<span class="nv">rawValue</span>
+</li><li><span class="c">// sunsetDirection is &quot;west&quot;</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID150">
+<h3>Initializing from a Raw Value<a class="headerlink" href="#ID150" title="Permalink to this headline">¶</a></h3>
+<p>If you define an enumeration with a raw-value type, the enumeration automatically receives an initializer that takes a value of the raw value’s type (as a parameter called <code class="docutils literal notranslate"><span class="pre">rawValue</span></code>) and returns either an enumeration case or <code class="docutils literal notranslate"><span class="pre">nil</span></code>. You can use this initializer to try to create a new instance of the enumeration.</p>
+<p>This example identifies Uranus from its raw value of <code class="docutils literal notranslate"><span class="pre">7</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">possiblePlanet</span> = <span class="nv">Planet</span>(<span class="nv">rawValue</span>: <span class="m">7</span>)
+</li><li><span class="c">// possiblePlanet is of type Planet? and equals Planet.uranus</span>
+</li></ol></div></div></div>
+<p>Not all possible <code class="docutils literal notranslate"><span class="pre">Int</span></code> values will find a matching planet, however. Because of this, the raw value initializer always returns an <em>optional</em> enumeration case. In the example above, <code class="docutils literal notranslate"><span class="pre">possiblePlanet</span></code> is of type <code class="docutils literal notranslate"><span class="pre">Planet?</span></code>, or “optional <code class="docutils literal notranslate"><span class="pre">Planet</span></code>.”</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The raw value initializer is a failable initializer, because not every raw value will return an enumeration case. For more information, see <a class="reference internal" href="../ReferenceManual/Declarations.html#ID376"><span class="std std-ref">Failable Initializers</span></a>.</p>
+</div>
+<p>If you try to find a planet with a position of <code class="docutils literal notranslate"><span class="pre">11</span></code>, the optional <code class="docutils literal notranslate"><span class="pre">Planet</span></code> value returned by the raw value initializer will be <code class="docutils literal notranslate"><span class="pre">nil</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">positionToFind</span> = <span class="m">11</span>
+</li><li><span class="k">if</span> <span class="k">let</span> <span class="nv">somePlanet</span> = <span class="nv">Planet</span>(<span class="nv">rawValue</span>: <span class="nv">positionToFind</span>) {
+</li><li>    <span class="k">switch</span> <span class="nv">somePlanet</span> {
+</li><li>    <span class="k">case</span> .<span class="nv">earth</span>:
+</li><li>        <span class="nv">print</span>(<span class="s">&quot;Mostly harmless&quot;</span>)
+</li><li>    <span class="k">default</span>:
+</li><li>        <span class="nv">print</span>(<span class="s">&quot;Not a safe place for humans&quot;</span>)
+</li><li>    }
+</li><li>} <span class="k">else</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;There isn&#39;t a planet at position </span>\<span class="p">(</span><span class="nv">positionToFind</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;There isn&#39;t a planet at position 11&quot;</span>
+</li></ol></div></div></div>
+<p>This example uses optional binding to try to access a planet with a raw value of <code class="docutils literal notranslate"><span class="pre">11</span></code>. The statement <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">let</span> <span class="pre">somePlanet</span> <span class="pre">=</span> <span class="pre">Planet(rawValue:</span> <span class="pre">11)</span></code> creates an optional <code class="docutils literal notranslate"><span class="pre">Planet</span></code>, and sets <code class="docutils literal notranslate"><span class="pre">somePlanet</span></code> to the value of that optional <code class="docutils literal notranslate"><span class="pre">Planet</span></code> if it can be retrieved. In this case, it isn’t possible to retrieve a planet with a position of <code class="docutils literal notranslate"><span class="pre">11</span></code>, and so the <code class="docutils literal notranslate"><span class="pre">else</span></code> branch is executed instead.</p>
+</div>
+</div>
+<div class="section" id="ID536">
+<h2>Recursive Enumerations<a class="headerlink" href="#ID536" title="Permalink to this headline">¶</a></h2>
+<p>A <em>recursive enumeration</em> is an enumeration that has another instance of the enumeration as the associated value for one or more of the enumeration cases. You indicate that an enumeration case is recursive by writing <code class="docutils literal notranslate"><span class="pre">indirect</span></code> before it, which tells the compiler to insert the necessary layer of indirection.</p>
+<p>For example, here is an enumeration that stores simple arithmetic expressions:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">ArithmeticExpression</span> {
+</li><li>    <span class="k">case</span> <span class="nv">number</span>(<span class="nv">Int</span>)
+</li><li>    <span class="k">indirect</span> <span class="k">case</span> <span class="nv">addition</span>(<span class="nv">ArithmeticExpression</span>, <span class="nv">ArithmeticExpression</span>)
+</li><li>    <span class="k">indirect</span> <span class="k">case</span> <span class="nv">multiplication</span>(<span class="nv">ArithmeticExpression</span>, <span class="nv">ArithmeticExpression</span>)
+</li><li>}
+</li></ol></div></div></div>
+<p>You can also write <code class="docutils literal notranslate"><span class="pre">indirect</span></code> before the beginning of the enumeration to enable indirection for all of the enumeration’s cases that have an associated value:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">indirect</span> <span class="k">enum</span> <span class="nv">ArithmeticExpression</span> {
+</li><li>    <span class="k">case</span> <span class="nv">number</span>(<span class="nv">Int</span>)
+</li><li>    <span class="k">case</span> <span class="nv">addition</span>(<span class="nv">ArithmeticExpression</span>, <span class="nv">ArithmeticExpression</span>)
+</li><li>    <span class="k">case</span> <span class="nv">multiplication</span>(<span class="nv">ArithmeticExpression</span>, <span class="nv">ArithmeticExpression</span>)
+</li><li>}
+</li></ol></div></div></div>
+<p>This enumeration can store three kinds of arithmetic expressions: a plain number, the addition of two expressions, and the multiplication of two expressions. The <code class="docutils literal notranslate"><span class="pre">addition</span></code> and <code class="docutils literal notranslate"><span class="pre">multiplication</span></code> cases have associated values that are also arithmetic expressions—these associated values make it possible to nest expressions. For example, the expression <code class="docutils literal notranslate"><span class="pre">(5</span> <span class="pre">+</span> <span class="pre">4)</span> <span class="pre">*</span> <span class="pre">2</span></code> has a number on the right-hand side of the multiplication and another expression on the left-hand side of the multiplication. Because the data is nested, the enumeration used to store the data also needs to support nesting—this means the enumeration needs to be recursive. The code below shows the <code class="docutils literal notranslate"><span class="pre">ArithmeticExpression</span></code> recursive enumeration being created for <code class="docutils literal notranslate"><span class="pre">(5</span> <span class="pre">+</span> <span class="pre">4)</span> <span class="pre">*</span> <span class="pre">2</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">five</span> = <span class="nv">ArithmeticExpression</span>.<span class="nv">number</span>(<span class="m">5</span>)
+</li><li><span class="k">let</span> <span class="nv">four</span> = <span class="nv">ArithmeticExpression</span>.<span class="nv">number</span>(<span class="m">4</span>)
+</li><li><span class="k">let</span> <span class="nv">sum</span> = <span class="nv">ArithmeticExpression</span>.<span class="nv">addition</span>(<span class="nv">five</span>, <span class="nv">four</span>)
+</li><li><span class="k">let</span> <span class="nv">product</span> = <span class="nv">ArithmeticExpression</span>.<span class="nv">multiplication</span>(<span class="nv">sum</span>, <span class="nv">ArithmeticExpression</span>.<span class="nv">number</span>(<span class="m">2</span>))
+</li></ol></div></div></div>
+<p>A recursive function is a straightforward way to work with data that has a recursive structure. For example, here’s a function that evaluates an arithmetic expression:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">evaluate</span>(<span class="k">_</span> <span class="nv">expression</span>: <span class="nc">ArithmeticExpression</span>) -&gt; <span class="nc">Int</span> {
+</li><li>    <span class="k">switch</span> <span class="nv">expression</span> {
+</li><li>    <span class="k">case</span> <span class="k">let</span> .<span class="nv">number</span>(<span class="nv">value</span>):
+</li><li>        <span class="k">return</span> <span class="nv">value</span>
+</li><li>    <span class="k">case</span> <span class="k">let</span> .<span class="nv">addition</span>(<span class="nv">left</span>, <span class="nv">right</span>):
+</li><li>        <span class="k">return</span> <span class="nv">evaluate</span>(<span class="nv">left</span>) + <span class="nv">evaluate</span>(<span class="nv">right</span>)
+</li><li>    <span class="k">case</span> <span class="k">let</span> .<span class="nv">multiplication</span>(<span class="nv">left</span>, <span class="nv">right</span>):
+</li><li>        <span class="k">return</span> <span class="nv">evaluate</span>(<span class="nv">left</span>) * <span class="nv">evaluate</span>(<span class="nv">right</span>)
+</li><li>    }
+</li><li>}
+</li><li>
+</li><li><span class="nv">print</span>(<span class="nv">evaluate</span>(<span class="nv">product</span>))
+</li><li><span class="c">// Prints &quot;18&quot;</span>
+</li></ol></div></div></div>
+<p>This function evaluates a plain number by simply returning the associated value. It evaluates an addition or multiplication by evaluating the expression on the left-hand side, evaluating the expression on the right-hand side, and then adding them or multiplying them.</p>
+</div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="Closures.html">Closures</a></p>
+        <p class="next"><a href="ClassesAndStructures.html">Structures and Classes</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  </body>
+</html>

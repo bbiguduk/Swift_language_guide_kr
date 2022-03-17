@@ -1,0 +1,266 @@
+
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Apple Inc." />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    
+    <title>Patterns &mdash; The Swift Programming Language (Swift 5.6)</title>
+    
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css" />
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339" /> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LanguageGuide/TheBasics.html">Language Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="AboutTheLanguageReference.html">Language Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="AboutTheLanguageReference.html">About the Language Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LexicalStructure.html">Lexical Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Types.html">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Expressions.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Statements.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Declarations.html">Declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Attributes.html">Attributes</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GenericParametersAndArguments.html">Generic Parameters and Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zzSummaryOfTheGrammar.html">Summary of the Grammar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Patterns</a><ul>
+<li><a class="reference internal" href="#ID420">Wildcard Pattern</a></li>
+<li><a class="reference internal" href="#ID421">Identifier Pattern</a></li>
+<li><a class="reference internal" href="#ID422">Value-Binding Pattern</a></li>
+<li><a class="reference internal" href="#ID423">Tuple Pattern</a></li>
+<li><a class="reference internal" href="#ID424">Enumeration Case Pattern</a></li>
+<li><a class="reference internal" href="#ID520">Optional Pattern</a></li>
+<li><a class="reference internal" href="#ID425">Type-Casting Patterns</a></li>
+<li><a class="reference internal" href="#ID426">Expression Pattern</a></li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="patterns">
+<h1>Patterns<a class="headerlink" href="#patterns" title="Permalink to this headline">¶</a></h1>
+<p>A <em>pattern</em> represents the structure of a single value or a composite value. For example, the structure of a tuple <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span></code> is a comma-separated list of two elements. Because patterns represent the structure of a value rather than any one particular value, you can match them with a variety of values. For instance, the pattern <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code> matches the tuple <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">2)</span></code> and any other two-element tuple. In addition to matching a pattern with a value, you can extract part or all of a composite value and bind each part to a constant or variable name.</p>
+<p>In Swift, there are two basic kinds of patterns: those that successfully match any kind of value, and those that may fail to match a specified value at runtime.</p>
+<p>The first kind of pattern is used for destructuring values in simple variable, constant, and optional bindings. These include wildcard patterns, identifier patterns, and any value binding or tuple patterns containing them. You can specify a type annotation for these patterns to constrain them to match only values of a certain type.</p>
+<p>The second kind of pattern is used for full pattern matching, where the values you’re trying to match against may not be there at runtime. These include enumeration case patterns, optional patterns, expression patterns, and type-casting patterns. You use these patterns in a case label of a <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement, a <code class="docutils literal notranslate"><span class="pre">catch</span></code> clause of a <code class="docutils literal notranslate"><span class="pre">do</span></code> statement, or in the case condition of an <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>, <code class="docutils literal notranslate"><span class="pre">guard</span></code>, or <code class="docutils literal notranslate"><span class="pre">for</span></code>-<code class="docutils literal notranslate"><span class="pre">in</span></code> statement.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a pattern</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_wildcard-pattern">wildcard-pattern</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-annotation">type-annotation</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1169"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_identifier-pattern">identifier-pattern</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-annotation">type-annotation</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1170"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_value-binding-pattern">value-binding-pattern</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1171"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_tuple-pattern">tuple-pattern</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-annotation">type-annotation</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1172"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_enum-case-pattern">enum-case-pattern</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1173"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_optional-pattern">optional-pattern</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1174"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_type-casting-pattern">type-casting-pattern</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_pattern_1175"></a>pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_expression-pattern">expression-pattern</a></span> </p></div></div><div class="section" id="ID420">
+<h2>Wildcard Pattern<a class="headerlink" href="#ID420" title="Permalink to this headline">¶</a></h2>
+<p>A <em>wildcard pattern</em> matches and ignores any value and consists of an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>). Use a wildcard pattern when you don’t care about the values being matched against. For example, the following code iterates through the closed range <code class="docutils literal notranslate"><span class="pre">1...3</span></code>, ignoring the current value of the range on each iteration of the loop:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">for</span> <span class="k">_</span> <span class="k">in</span> <span class="m">1</span>...<span class="m">3</span> {
+</li><li>    <span class="c">// Do something three times.</span>
+</li><li>}
+</li></ol></div></div></div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a wildcard pattern</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_wildcard-pattern"></a>wildcard-pattern</span><span class="arrow"> → </span> <code>_</code></p></div></div></div>
+<div class="section" id="ID421">
+<h2>Identifier Pattern<a class="headerlink" href="#ID421" title="Permalink to this headline">¶</a></h2>
+<p>An <em>identifier pattern</em> matches any value and binds the matched value to a variable or constant name. For example, in the following constant declaration, <code class="docutils literal notranslate"><span class="pre">someValue</span></code> is an identifier pattern that matches the value <code class="docutils literal notranslate"><span class="pre">42</span></code> of type <code class="docutils literal notranslate"><span class="pre">Int</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">someValue</span> = <span class="m">42</span>
+</li></ol></div></div></div>
+<p>When the match succeeds, the value <code class="docutils literal notranslate"><span class="pre">42</span></code> is bound (assigned) to the constant name <code class="docutils literal notranslate"><span class="pre">someValue</span></code>.</p>
+<p>When the pattern on the left-hand side of a variable or constant declaration is an identifier pattern, the identifier pattern is implicitly a subpattern of a value-binding pattern.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an identifier pattern</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_identifier-pattern"></a>identifier-pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span> </p></div></div></div>
+<div class="section" id="ID422">
+<h2>Value-Binding Pattern<a class="headerlink" href="#ID422" title="Permalink to this headline">¶</a></h2>
+<p>A <em>value-binding pattern</em> binds matched values to variable or constant names. Value-binding patterns that bind a matched value to the name of a constant begin with the <code class="docutils literal notranslate"><span class="pre">let</span></code> keyword; those that bind to the name of variable begin with the <code class="docutils literal notranslate"><span class="pre">var</span></code> keyword.</p>
+<p>Identifiers patterns within a value-binding pattern bind new named variables or constants to their matching values. For example, you can decompose the elements of a tuple and bind the value of each element to a corresponding identifier pattern.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">point</span> = (<span class="m">3</span>, <span class="m">2</span>)
+</li><li><span class="k">switch</span> <span class="nv">point</span> {
+</li><li>    <span class="c">// Bind x and y to the elements of point.</span>
+</li><li><span class="k">case</span> <span class="k">let</span> (<span class="nv">x</span>, <span class="nv">y</span>):
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;The point is at (</span>\<span class="p">(</span><span class="nv">x</span><span class="p">)</span><span class="s">, </span>\<span class="p">(</span><span class="nv">y</span><span class="p">)</span><span class="s">).&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;The point is at (3, 2).&quot;</span>
+</li></ol></div></div></div>
+<p>In the example above, <code class="docutils literal notranslate"><span class="pre">let</span></code> distributes to each identifier pattern in the tuple pattern <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y)</span></code>. Because of this behavior, the <code class="docutils literal notranslate"><span class="pre">switch</span></code> cases <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">let</span> <span class="pre">(x,</span> <span class="pre">y):</span></code> and <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">(let</span> <span class="pre">x,</span> <span class="pre">let</span> <span class="pre">y):</span></code> match the same values.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a value-binding pattern</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_value-binding-pattern"></a>value-binding-pattern</span><span class="arrow"> → </span> <code>var</code> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_pattern">pattern</a></span>  |  <code>let</code> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_pattern">pattern</a></span> </p></div></div></div>
+<div class="section" id="ID423">
+<h2>Tuple Pattern<a class="headerlink" href="#ID423" title="Permalink to this headline">¶</a></h2>
+<p>A <em>tuple pattern</em> is a comma-separated list of zero or more patterns, enclosed in parentheses. Tuple patterns match values of corresponding tuple types.</p>
+<p>You can constrain a tuple pattern to match certain kinds of tuple types by using type annotations. For example, the tuple pattern <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y):</span> <span class="pre">(Int,</span> <span class="pre">Int)</span></code> in the constant declaration <code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">(x,</span> <span class="pre">y):</span> <span class="pre">(Int,</span> <span class="pre">Int)</span> <span class="pre">=</span> <span class="pre">(1,</span> <span class="pre">2)</span></code> matches only tuple types in which both elements are of type <code class="docutils literal notranslate"><span class="pre">Int</span></code>.</p>
+<p>When a tuple pattern is used as the pattern in a <code class="docutils literal notranslate"><span class="pre">for</span></code>-<code class="docutils literal notranslate"><span class="pre">in</span></code> statement or in a variable or constant declaration, it can contain only wildcard patterns, identifier patterns, optional patterns, or other tuple patterns that contain those. For example, the following code isn’t valid because the element <code class="docutils literal notranslate"><span class="pre">0</span></code> in the tuple pattern <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">0)</span></code> is an expression pattern:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">points</span> = [(<span class="m">0</span>, <span class="m">0</span>), (<span class="m">1</span>, <span class="m">0</span>), (<span class="m">1</span>, <span class="m">1</span>), (<span class="m">2</span>, <span class="m">0</span>), (<span class="m">2</span>, <span class="m">1</span>)]
+</li><li><span class="c">// This code isn&#39;t valid.</span>
+</li><li><span class="k">for</span> (<span class="nv">x</span>, <span class="m">0</span>) <span class="k">in</span> <span class="nv">points</span> {
+</li><li>    <span class="c">/* ... */</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>The parentheses around a tuple pattern that contains a single element have no effect. The pattern matches values of that single element’s type. For example, the following are equivalent:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">a</span> = <span class="m">2</span>        <span class="c">// a: Int = 2</span>
+</li><li><span class="k">let</span> (<span class="nv">a</span>) = <span class="m">2</span>      <span class="c">// a: Int = 2</span>
+</li><li><span class="k">let</span> (<span class="nv">a</span>): <span class="nc">Int</span> = <span class="m">2</span> <span class="c">// a: Int = 2</span>
+</li></ol></div></div></div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a tuple pattern</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_tuple-pattern"></a>tuple-pattern</span><span class="arrow"> → </span> <code>(</code> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_tuple-pattern-element-list">tuple-pattern-element-list</a></span> <sub>opt</sub> <code>)</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_tuple-pattern-element-list"></a>tuple-pattern-element-list</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_tuple-pattern-element">tuple-pattern-element</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_tuple-pattern-element">tuple-pattern-element</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_tuple-pattern-element-list">tuple-pattern-element-list</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_tuple-pattern-element"></a>tuple-pattern-element</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_pattern">pattern</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span>  <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_pattern">pattern</a></span> </p></div></div></div>
+<div class="section" id="ID424">
+<h2>Enumeration Case Pattern<a class="headerlink" href="#ID424" title="Permalink to this headline">¶</a></h2>
+<p>An <em>enumeration case pattern</em> matches a case of an existing enumeration type. Enumeration case patterns appear in <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement case labels and in the case conditions of <code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">while</span></code>, <code class="docutils literal notranslate"><span class="pre">guard</span></code>, and <code class="docutils literal notranslate"><span class="pre">for</span></code>-<code class="docutils literal notranslate"><span class="pre">in</span></code> statements.</p>
+<p>If the enumeration case you’re trying to match has any associated values, the corresponding enumeration case pattern must specify a tuple pattern that contains one element for each associated value. For an example that uses a <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement to match enumeration cases containing associated values, see <a class="reference internal" href="../LanguageGuide/Enumerations.html#ID148"><span class="std std-ref">Associated Values</span></a>.</p>
+<p>An enumeration case pattern also matches values of that case wrapped in an optional. This simplified syntax lets you omit an optional pattern. Note that, because <code class="docutils literal notranslate"><span class="pre">Optional</span></code> is implemented as an enumeration, <code class="docutils literal notranslate"><span class="pre">.none</span></code> and <code class="docutils literal notranslate"><span class="pre">.some</span></code> can appear in the same switch as the cases of the enumeration type.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">SomeEnum</span> { <span class="k">case</span> <span class="nv">left</span>, <span class="nv">right</span> }
+</li><li><span class="k">let</span> <span class="nv">x</span>: <span class="nc">SomeEnum</span>? = .<span class="nv">left</span>
+</li><li><span class="k">switch</span> <span class="nv">x</span> {
+</li><li><span class="k">case</span> .<span class="nv">left</span>:
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Turn left&quot;</span>)
+</li><li><span class="k">case</span> .<span class="nv">right</span>:
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Turn right&quot;</span>)
+</li><li><span class="k">case</span> <span class="k">nil</span>:
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Keep going straight&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;Turn left&quot;</span>
+</li></ol></div></div></div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an enumeration case pattern</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_enum-case-pattern"></a>enum-case-pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-identifier">type-identifier</a></span> <sub>opt</sub> <code>.</code> <span class="syntactic-category"><a href="../ReferenceManual/Declarations.html#grammar_enum-case-name">enum-case-name</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_tuple-pattern">tuple-pattern</a></span> <sub>opt</sub></p></div></div></div>
+<div class="section" id="ID520">
+<h2>Optional Pattern<a class="headerlink" href="#ID520" title="Permalink to this headline">¶</a></h2>
+<p>An <em>optional pattern</em> matches values wrapped in a <code class="docutils literal notranslate"><span class="pre">some(Wrapped)</span></code> case of an <code class="docutils literal notranslate"><span class="pre">Optional&lt;Wrapped&gt;</span></code> enumeration. Optional patterns consist of an identifier pattern followed immediately by a question mark and appear in the same places as enumeration case patterns.</p>
+<p>Because optional patterns are syntactic sugar for <code class="docutils literal notranslate"><span class="pre">Optional</span></code> enumeration case patterns, the following are equivalent:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">someOptional</span>: <span class="nc">Int</span>? = <span class="m">42</span>
+</li><li><span class="c">// Match using an enumeration case pattern.</span>
+</li><li><span class="k">if</span> <span class="k">case</span> .<span class="nv">some</span>(<span class="k">let</span> <span class="nv">x</span>) = <span class="nv">someOptional</span> {
+</li><li>    <span class="nv">print</span>(<span class="nv">x</span>)
+</li><li>}
+</li><li>
+</li><li><span class="c">// Match using an optional pattern.</span>
+</li><li><span class="k">if</span> <span class="k">case</span> <span class="k">let</span> <span class="nv">x</span>? = <span class="nv">someOptional</span> {
+</li><li>    <span class="nv">print</span>(<span class="nv">x</span>)
+</li><li>}
+</li></ol></div></div></div>
+<p>The optional pattern provides a convenient way to iterate over an array of optional values in a <code class="docutils literal notranslate"><span class="pre">for</span></code>-<code class="docutils literal notranslate"><span class="pre">in</span></code> statement, executing the body of the loop only for non-<code class="docutils literal notranslate"><span class="pre">nil</span></code> elements.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">arrayOfOptionalInts</span>: [<span class="nc">Int</span>?] = [<span class="k">nil</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="k">nil</span>, <span class="m">5</span>]
+</li><li><span class="c">// Match only non-nil values.</span>
+</li><li><span class="k">for</span> <span class="k">case</span> <span class="k">let</span> <span class="nv">number</span>? <span class="k">in</span> <span class="nv">arrayOfOptionalInts</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Found a </span>\<span class="p">(</span><span class="nv">number</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Found a 2</span>
+</li><li><span class="c">// Found a 3</span>
+</li><li><span class="c">// Found a 5</span>
+</li></ol></div></div></div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an optional pattern</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_optional-pattern"></a>optional-pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_identifier-pattern">identifier-pattern</a></span>  <code>?</code></p></div></div></div>
+<div class="section" id="ID425">
+<h2>Type-Casting Patterns<a class="headerlink" href="#ID425" title="Permalink to this headline">¶</a></h2>
+<p>There are two type-casting patterns, the <code class="docutils literal notranslate"><span class="pre">is</span></code> pattern and the <code class="docutils literal notranslate"><span class="pre">as</span></code> pattern. The <code class="docutils literal notranslate"><span class="pre">is</span></code> pattern appears only in <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement case labels. The <code class="docutils literal notranslate"><span class="pre">is</span></code> and <code class="docutils literal notranslate"><span class="pre">as</span></code> patterns have the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">is</span> <span class="gi">type</span>
+</li><li><span class="gi">pattern</span> <span class="k">as</span> <span class="gi">type</span>
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">is</span></code> pattern matches a value if the type of that value at runtime is the same as the type specified in the right-hand side of the <code class="docutils literal notranslate"><span class="pre">is</span></code> pattern—or a subclass of that type. The <code class="docutils literal notranslate"><span class="pre">is</span></code> pattern behaves like the <code class="docutils literal notranslate"><span class="pre">is</span></code> operator in that they both perform a type cast but discard the returned type.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">as</span></code> pattern matches a value if the type of that value at runtime is the same as the type specified in the right-hand side of the <code class="docutils literal notranslate"><span class="pre">as</span></code> pattern—or a subclass of that type. If the match succeeds, the type of the matched value is cast to the <em>pattern</em> specified in the right-hand side of the <code class="docutils literal notranslate"><span class="pre">as</span></code> pattern.</p>
+<p>For an example that uses a <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement to match values with <code class="docutils literal notranslate"><span class="pre">is</span></code> and <code class="docutils literal notranslate"><span class="pre">as</span></code> patterns, see <a class="reference internal" href="../LanguageGuide/TypeCasting.html#ID342"><span class="std std-ref">Type Casting for Any and AnyObject</span></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a type casting pattern</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type-casting-pattern"></a>type-casting-pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_is-pattern">is-pattern</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_as-pattern">as-pattern</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_is-pattern"></a>is-pattern</span><span class="arrow"> → </span> <code>is</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_as-pattern"></a>as-pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Patterns.html#grammar_pattern">pattern</a></span>  <code>as</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span> </p></div></div></div>
+<div class="section" id="ID426">
+<h2>Expression Pattern<a class="headerlink" href="#ID426" title="Permalink to this headline">¶</a></h2>
+<p>An <em>expression pattern</em> represents the value of an expression. Expression patterns appear only in <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement case labels.</p>
+<p>The expression represented by the expression pattern is compared with the value of an input expression using the Swift standard library <code class="docutils literal notranslate"><span class="pre">~=</span></code> operator. The matches succeeds if the <code class="docutils literal notranslate"><span class="pre">~=</span></code> operator returns <code class="docutils literal notranslate"><span class="pre">true</span></code>. By default, the <code class="docutils literal notranslate"><span class="pre">~=</span></code> operator compares two values of the same type using the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator. It can also match a value with a range of values, by checking whether the value is contained within the range, as the following example shows.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">point</span> = (<span class="m">1</span>, <span class="m">2</span>)
+</li><li><span class="k">switch</span> <span class="nv">point</span> {
+</li><li><span class="k">case</span> (<span class="m">0</span>, <span class="m">0</span>):
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;(0, 0) is at the origin.&quot;</span>)
+</li><li><span class="k">case</span> (<span class="m">-2</span>...<span class="m">2</span>, <span class="m">-2</span>...<span class="m">2</span>):
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;(</span>\<span class="p">(</span><span class="nv">point</span>.<span class="m">0</span><span class="p">)</span><span class="s">, </span>\<span class="p">(</span><span class="nv">point</span>.<span class="m">1</span><span class="p">)</span><span class="s">) is near the origin.&quot;</span>)
+</li><li><span class="k">default</span>:
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;The point is at (</span>\<span class="p">(</span><span class="nv">point</span>.<span class="m">0</span><span class="p">)</span><span class="s">, </span>\<span class="p">(</span><span class="nv">point</span>.<span class="m">1</span><span class="p">)</span><span class="s">).&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;(1, 2) is near the origin.&quot;</span>
+</li></ol></div></div></div>
+<p>You can overload the <code class="docutils literal notranslate"><span class="pre">~=</span></code> operator to provide custom expression matching behavior. For example, you can rewrite the above example to compare the <code class="docutils literal notranslate"><span class="pre">point</span></code> expression with a string representations of points.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="c">// Overload the ~= operator to match a string with an integer.</span>
+</li><li><span class="k">func</span> ~= (<span class="nv">pattern</span>: <span class="nc">String</span>, <span class="nv">value</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Bool</span> {
+</li><li>    <span class="k">return</span> <span class="nv">pattern</span> == <span class="s">&quot;</span>\<span class="p">(</span><span class="nv">value</span><span class="p">)</span><span class="s">&quot;</span>
+</li><li>}
+</li><li><span class="k">switch</span> <span class="nv">point</span> {
+</li><li><span class="k">case</span> (<span class="s">&quot;0&quot;</span>, <span class="s">&quot;0&quot;</span>):
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;(0, 0) is at the origin.&quot;</span>)
+</li><li><span class="k">default</span>:
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;The point is at (</span>\<span class="p">(</span><span class="nv">point</span>.<span class="m">0</span><span class="p">)</span><span class="s">, </span>\<span class="p">(</span><span class="nv">point</span>.<span class="m">1</span><span class="p">)</span><span class="s">).&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;The point is at (1, 2).&quot;</span>
+</li></ol></div></div></div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an expression pattern</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_expression-pattern"></a>expression-pattern</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span> </p></div></div></div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="Attributes.html">Attributes</a></p>
+        <p class="next"><a href="GenericParametersAndArguments.html">Generic Parameters and Arguments</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  </body>
+</html>

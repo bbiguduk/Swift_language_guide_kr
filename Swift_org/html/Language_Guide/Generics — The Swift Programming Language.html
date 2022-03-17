@@ -1,0 +1,739 @@
+
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Apple Inc." />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    
+    <title>Generics &mdash; The Swift Programming Language (Swift 5.6)</title>
+    
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css" />
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339" /> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TheBasics.html">Language Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="TheBasics.html">The Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicOperators.html">Basic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringsAndCharacters.html">Strings and Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CollectionTypes.html">Collection Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlFlow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Closures.html">Closures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumerations.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassesAndStructures.html">Structures and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscripts.html">Subscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialization.html">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Deinitialization.html">Deinitialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptionalChaining.html">Optional Chaining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ErrorHandling.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TypeCasting.html">Type Casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NestedTypes.html">Nested Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Extensions.html">Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Protocols.html">Protocols</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OpaqueTypes.html">Opaque Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutomaticReferenceCounting.html">Automatic Reference Counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MemorySafety.html">Memory Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AccessControl.html">Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AdvancedOperators.html">Advanced Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ReferenceManual/AboutTheLanguageReference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Generics</a><ul>
+<li><a class="reference internal" href="#ID180">The Problem That Generics Solve</a></li>
+<li><a class="reference internal" href="#ID181">Generic Functions</a></li>
+<li><a class="reference internal" href="#ID182">Type Parameters</a></li>
+<li><a class="reference internal" href="#ID183">Naming Type Parameters</a></li>
+<li><a class="reference internal" href="#ID184">Generic Types</a></li>
+<li><a class="reference internal" href="#ID185">Extending a Generic Type</a></li>
+<li><a class="reference internal" href="#ID186">Type Constraints</a><ul>
+<li><a class="reference internal" href="#ID187">Type Constraint Syntax</a></li>
+<li><a class="reference internal" href="#ID188">Type Constraints in Action</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID189">Associated Types</a><ul>
+<li><a class="reference internal" href="#ID190">Associated Types in Action</a></li>
+<li><a class="reference internal" href="#ID191">Extending an Existing Type to Specify an Associated Type</a></li>
+<li><a class="reference internal" href="#ID560">Adding Constraints to an Associated Type</a></li>
+<li><a class="reference internal" href="#ID575">Using a Protocol in Its Associated Type’s Constraints</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID192">Generic Where Clauses</a></li>
+<li><a class="reference internal" href="#ID553">Extensions with a Generic Where Clause</a></li>
+<li><a class="reference internal" href="#ID628">Contextual Where Clauses</a></li>
+<li><a class="reference internal" href="#ID557">Associated Types with a Generic Where Clause</a></li>
+<li><a class="reference internal" href="#ID558">Generic Subscripts</a></li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="generics">
+<h1>Generics<a class="headerlink" href="#generics" title="Permalink to this headline">¶</a></h1>
+<p><em>Generic code</em> enables you to write flexible, reusable functions and types that can work with any type, subject to requirements that you define. You can write code that avoids duplication and expresses its intent in a clear, abstracted manner.</p>
+<p>Generics are one of the most powerful features of Swift, and much of the Swift standard library is built with generic code. In fact, you’ve been using generics throughout the <em>Language Guide</em>, even if you didn’t realize it. For example, Swift’s <code class="docutils literal notranslate"><span class="pre">Array</span></code> and <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> types are both generic collections. You can create an array that holds <code class="docutils literal notranslate"><span class="pre">Int</span></code> values, or an array that holds <code class="docutils literal notranslate"><span class="pre">String</span></code> values, or indeed an array for any other type that can be created in Swift. Similarly, you can create a dictionary to store values of any specified type, and there are no limitations on what that type can be.</p>
+<div class="section" id="ID180">
+<h2>The Problem That Generics Solve<a class="headerlink" href="#ID180" title="Permalink to this headline">¶</a></h2>
+<p>Here’s a standard, nongeneric function called <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code>, which swaps two <code class="docutils literal notranslate"><span class="pre">Int</span></code> values:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">swapTwoInts</span>(<span class="k">_</span> <span class="nv">a</span>: <span class="k">inout</span> <span class="nc">Int</span>, <span class="k">_</span> <span class="nv">b</span>: <span class="k">inout</span> <span class="nc">Int</span>) {
+</li><li>    <span class="k">let</span> <span class="nv">temporaryA</span> = <span class="nv">a</span>
+</li><li>    <span class="nv">a</span> = <span class="nv">b</span>
+</li><li>    <span class="nv">b</span> = <span class="nv">temporaryA</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>This function makes use of in-out parameters to swap the values of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, as described in <a class="reference internal" href="Functions.html#ID173"><span class="std std-ref">In-Out Parameters</span></a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code> function swaps the original value of <code class="docutils literal notranslate"><span class="pre">b</span></code> into <code class="docutils literal notranslate"><span class="pre">a</span></code>, and the original value of <code class="docutils literal notranslate"><span class="pre">a</span></code> into <code class="docutils literal notranslate"><span class="pre">b</span></code>. You can call this function to swap the values in two <code class="docutils literal notranslate"><span class="pre">Int</span></code> variables:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">someInt</span> = <span class="m">3</span>
+</li><li><span class="k">var</span> <span class="nv">anotherInt</span> = <span class="m">107</span>
+</li><li><span class="nv">swapTwoInts</span>(&amp;<span class="nv">someInt</span>, &amp;<span class="nv">anotherInt</span>)
+</li><li><span class="nv">print</span>(<span class="s">&quot;someInt is now </span>\<span class="p">(</span><span class="nv">someInt</span><span class="p">)</span><span class="s">, and anotherInt is now </span>\<span class="p">(</span><span class="nv">anotherInt</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;someInt is now 107, and anotherInt is now 3&quot;</span>
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code> function is useful, but it can only be used with <code class="docutils literal notranslate"><span class="pre">Int</span></code> values. If you want to swap two <code class="docutils literal notranslate"><span class="pre">String</span></code> values, or two <code class="docutils literal notranslate"><span class="pre">Double</span></code> values, you have to write more functions, such as the <code class="docutils literal notranslate"><span class="pre">swapTwoStrings(_:_:)</span></code> and <code class="docutils literal notranslate"><span class="pre">swapTwoDoubles(_:_:)</span></code> functions shown below:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">swapTwoStrings</span>(<span class="k">_</span> <span class="nv">a</span>: <span class="k">inout</span> <span class="nc">String</span>, <span class="k">_</span> <span class="nv">b</span>: <span class="k">inout</span> <span class="nc">String</span>) {
+</li><li>    <span class="k">let</span> <span class="nv">temporaryA</span> = <span class="nv">a</span>
+</li><li>    <span class="nv">a</span> = <span class="nv">b</span>
+</li><li>    <span class="nv">b</span> = <span class="nv">temporaryA</span>
+</li><li>}
+</li><li>
+</li><li><span class="k">func</span> <span class="nv">swapTwoDoubles</span>(<span class="k">_</span> <span class="nv">a</span>: <span class="k">inout</span> <span class="nc">Double</span>, <span class="k">_</span> <span class="nv">b</span>: <span class="k">inout</span> <span class="nc">Double</span>) {
+</li><li>    <span class="k">let</span> <span class="nv">temporaryA</span> = <span class="nv">a</span>
+</li><li>    <span class="nv">a</span> = <span class="nv">b</span>
+</li><li>    <span class="nv">b</span> = <span class="nv">temporaryA</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>You may have noticed that the bodies of the <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code>, <code class="docutils literal notranslate"><span class="pre">swapTwoStrings(_:_:)</span></code>, and <code class="docutils literal notranslate"><span class="pre">swapTwoDoubles(_:_:)</span></code> functions are identical. The only difference is the type of the values that they accept (<code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, and <code class="docutils literal notranslate"><span class="pre">Double</span></code>).</p>
+<p>It’s more useful, and considerably more flexible, to write a single function that swaps two values of <em>any</em> type. Generic code enables you to write such a function. (A generic version of these functions is defined below.)</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In all three functions, the types of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> must be the same. If <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> aren’t of the same type, it isn’t possible to swap their values. Swift is a type-safe language, and doesn’t allow (for example) a variable of type <code class="docutils literal notranslate"><span class="pre">String</span></code> and a variable of type <code class="docutils literal notranslate"><span class="pre">Double</span></code> to swap values with each other. Attempting to do so results in a compile-time error.</p>
+</div>
+</div>
+<div class="section" id="ID181">
+<h2>Generic Functions<a class="headerlink" href="#ID181" title="Permalink to this headline">¶</a></h2>
+<p><em>Generic functions</em> can work with any type. Here’s a generic version of the <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code> function from above, called <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">swapTwoValues</span>&lt;<span class="nv">T</span>&gt;(<span class="k">_</span> <span class="nv">a</span>: <span class="k">inout</span> <span class="nc">T</span>, <span class="k">_</span> <span class="nv">b</span>: <span class="k">inout</span> <span class="nc">T</span>) {
+</li><li>    <span class="k">let</span> <span class="nv">temporaryA</span> = <span class="nv">a</span>
+</li><li>    <span class="nv">a</span> = <span class="nv">b</span>
+</li><li>    <span class="nv">b</span> = <span class="nv">temporaryA</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>The body of the <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> function is identical to the body of the <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code> function. However, the first line of <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> is slightly different from <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code>. Here’s how the first lines compare:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">swapTwoInts</span>(<span class="k">_</span> <span class="nv">a</span>: <span class="k">inout</span> <span class="nc">Int</span>, <span class="k">_</span> <span class="nv">b</span>: <span class="k">inout</span> <span class="nc">Int</span>)
+</li><li><span class="k">func</span> <span class="nv">swapTwoValues</span>&lt;<span class="nv">T</span>&gt;(<span class="k">_</span> <span class="nv">a</span>: <span class="k">inout</span> <span class="nc">T</span>, <span class="k">_</span> <span class="nv">b</span>: <span class="k">inout</span> <span class="nc">T</span>)
+</li></ol></div></div></div>
+<p>The generic version of the function uses a <em>placeholder</em> type name (called <code class="docutils literal notranslate"><span class="pre">T</span></code>, in this case) instead of an <em>actual</em> type name (such as <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, or <code class="docutils literal notranslate"><span class="pre">Double</span></code>). The placeholder type name doesn’t say anything about what <code class="docutils literal notranslate"><span class="pre">T</span></code> must be, but it <em>does</em> say that both <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> must be of the same type <code class="docutils literal notranslate"><span class="pre">T</span></code>, whatever <code class="docutils literal notranslate"><span class="pre">T</span></code> represents. The actual type to use in place of <code class="docutils literal notranslate"><span class="pre">T</span></code> is determined each time the <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> function is called.</p>
+<p>The other difference between a generic function and a nongeneric function is that the generic function’s name (<code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code>) is followed by the placeholder type name (<code class="docutils literal notranslate"><span class="pre">T</span></code>) inside angle brackets (<code class="docutils literal notranslate"><span class="pre">&lt;T&gt;</span></code>). The brackets tell Swift that <code class="docutils literal notranslate"><span class="pre">T</span></code> is a placeholder type name within the <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> function definition. Because <code class="docutils literal notranslate"><span class="pre">T</span></code> is a placeholder, Swift doesn’t look for an actual type called <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> function can now be called in the same way as <code class="docutils literal notranslate"><span class="pre">swapTwoInts</span></code>, except that it can be passed two values of <em>any</em> type, as long as both of those values are of the same type as each other. Each time <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> is called, the type to use for <code class="docutils literal notranslate"><span class="pre">T</span></code> is inferred from the types of values passed to the function.</p>
+<p>In the two examples below, <code class="docutils literal notranslate"><span class="pre">T</span></code> is inferred to be <code class="docutils literal notranslate"><span class="pre">Int</span></code> and <code class="docutils literal notranslate"><span class="pre">String</span></code> respectively:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">someInt</span> = <span class="m">3</span>
+</li><li><span class="k">var</span> <span class="nv">anotherInt</span> = <span class="m">107</span>
+</li><li><span class="nv">swapTwoValues</span>(&amp;<span class="nv">someInt</span>, &amp;<span class="nv">anotherInt</span>)
+</li><li><span class="c">// someInt is now 107, and anotherInt is now 3</span>
+</li><li>
+</li><li><span class="k">var</span> <span class="nv">someString</span> = <span class="s">&quot;hello&quot;</span>
+</li><li><span class="k">var</span> <span class="nv">anotherString</span> = <span class="s">&quot;world&quot;</span>
+</li><li><span class="nv">swapTwoValues</span>(&amp;<span class="nv">someString</span>, &amp;<span class="nv">anotherString</span>)
+</li><li><span class="c">// someString is now &quot;world&quot;, and anotherString is now &quot;hello&quot;</span>
+</li></ol></div></div></div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> function defined above is inspired by a generic function called <code class="docutils literal notranslate"><span class="pre">swap</span></code>, which is part of the Swift standard library, and is automatically made available for you to use in your apps. If you need the behavior of the <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> function in your own code, you can use Swift’s existing <code class="docutils literal notranslate"><span class="pre">swap(_:_:)</span></code> function rather than providing your own implementation.</p>
+</div>
+</div>
+<div class="section" id="ID182">
+<h2>Type Parameters<a class="headerlink" href="#ID182" title="Permalink to this headline">¶</a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> example above, the placeholder type <code class="docutils literal notranslate"><span class="pre">T</span></code> is an example of a <em>type parameter</em>. Type parameters specify and name a placeholder type, and are written immediately after the function’s name, between a pair of matching angle brackets (such as <code class="docutils literal notranslate"><span class="pre">&lt;T&gt;</span></code>).</p>
+<p>Once you specify a type parameter, you can use it to define the type of a function’s parameters (such as the <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> parameters of the <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> function), or as the function’s return type, or as a type annotation within the body of the function. In each case, the type parameter is replaced with an <em>actual</em> type whenever the function is called. (In the <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> example above, <code class="docutils literal notranslate"><span class="pre">T</span></code> was replaced with <code class="docutils literal notranslate"><span class="pre">Int</span></code> the first time the function was called, and was replaced with <code class="docutils literal notranslate"><span class="pre">String</span></code> the second time it was called.)</p>
+<p>You can provide more than one type parameter by writing multiple type parameter names within the angle brackets, separated by commas.</p>
+</div>
+<div class="section" id="ID183">
+<h2>Naming Type Parameters<a class="headerlink" href="#ID183" title="Permalink to this headline">¶</a></h2>
+<p>In most cases, type parameters have descriptive names, such as <code class="docutils literal notranslate"><span class="pre">Key</span></code> and <code class="docutils literal notranslate"><span class="pre">Value</span></code> in <code class="docutils literal notranslate"><span class="pre">Dictionary&lt;Key,</span> <span class="pre">Value&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">Element</span></code> in <code class="docutils literal notranslate"><span class="pre">Array&lt;Element&gt;</span></code>, which tells the reader about the relationship between the type parameter and the generic type or function it’s used in. However, when there isn’t a meaningful relationship between them, it’s traditional to name them using single letters such as <code class="docutils literal notranslate"><span class="pre">T</span></code>, <code class="docutils literal notranslate"><span class="pre">U</span></code>, and <code class="docutils literal notranslate"><span class="pre">V</span></code>, such as <code class="docutils literal notranslate"><span class="pre">T</span></code> in the <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> function above.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Always give type parameters upper camel case names (such as <code class="docutils literal notranslate"><span class="pre">T</span></code> and <code class="docutils literal notranslate"><span class="pre">MyTypeParameter</span></code>) to indicate that they’re a placeholder for a <em>type</em>, not a value.</p>
+</div>
+</div>
+<div class="section" id="ID184">
+<h2>Generic Types<a class="headerlink" href="#ID184" title="Permalink to this headline">¶</a></h2>
+<p>In addition to generic functions, Swift enables you to define your own <em>generic types</em>. These are custom classes, structures, and enumerations that can work with <em>any</em> type, in a similar way to <code class="docutils literal notranslate"><span class="pre">Array</span></code> and <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>.</p>
+<p>This section shows you how to write a generic collection type called <code class="docutils literal notranslate"><span class="pre">Stack</span></code>. A stack is an ordered set of values, similar to an array, but with a more restricted set of operations than Swift’s <code class="docutils literal notranslate"><span class="pre">Array</span></code> type. An array allows new items to be inserted and removed at any location in the array. A stack, however, allows new items to be appended only to the end of the collection (known as <em>pushing</em> a new value on to the stack). Similarly, a stack allows items to be removed only from the end of the collection (known as <em>popping</em> a value off the stack).</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The concept of a stack is used by the <code class="docutils literal notranslate"><span class="pre">UINavigationController</span></code> class to model the view controllers in its navigation hierarchy. You call the <code class="docutils literal notranslate"><span class="pre">UINavigationController</span></code> class <code class="docutils literal notranslate"><span class="pre">pushViewController(_:animated:)</span></code> method to add (or push) a view controller on to the navigation stack, and its <code class="docutils literal notranslate"><span class="pre">popViewControllerAnimated(_:)</span></code> method to remove (or pop) a view controller from the navigation stack. A stack is a useful collection model whenever you need a strict “last in, first out” approach to managing a collection.</p>
+</div>
+<p>The illustration below shows the push and pop behavior for a stack:</p>
+<img alt="../_images/stackPushPop_2x.png" class="align-center" src="../_images/stackPushPop_2x.png" style="width: 760px;" />
+<ol class="arabic simple">
+<li>There are currently three values on the stack.</li>
+<li>A fourth value is pushed onto the top of the stack.</li>
+<li>The stack now holds four values, with the most recent one at the top.</li>
+<li>The top item in the stack is popped.</li>
+<li>After popping a value, the stack once again holds three values.</li>
+</ol>
+<p>Here’s how to write a nongeneric version of a stack, in this case for a stack of <code class="docutils literal notranslate"><span class="pre">Int</span></code> values:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">IntStack</span> {
+</li><li>    <span class="k">var</span> <span class="nv">items</span>: [<span class="nc">Int</span>] = []
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">push</span>(<span class="k">_</span> <span class="nv">item</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="nv">items</span>.<span class="nv">append</span>(<span class="nv">item</span>)
+</li><li>    }
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">pop</span>() -&gt; <span class="nc">Int</span> {
+</li><li>        <span class="k">return</span> <span class="nv">items</span>.<span class="nv">removeLast</span>()
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>This structure uses an <code class="docutils literal notranslate"><span class="pre">Array</span></code> property called <code class="docutils literal notranslate"><span class="pre">items</span></code> to store the values in the stack. <code class="docutils literal notranslate"><span class="pre">Stack</span></code> provides two methods, <code class="docutils literal notranslate"><span class="pre">push</span></code> and <code class="docutils literal notranslate"><span class="pre">pop</span></code>, to push and pop values on and off the stack. These methods are marked as <code class="docutils literal notranslate"><span class="pre">mutating</span></code>, because they need to modify (or <em>mutate</em>) the structure’s <code class="docutils literal notranslate"><span class="pre">items</span></code> array.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">IntStack</span></code> type shown above can only be used with <code class="docutils literal notranslate"><span class="pre">Int</span></code> values, however. It would be much more useful to define a <em>generic</em> <code class="docutils literal notranslate"><span class="pre">Stack</span></code> structure, that can manage a stack of <em>any</em> type of value.</p>
+<p>Here’s a generic version of the same code:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Stack</span>&lt;<span class="nv">Element</span>&gt; {
+</li><li>    <span class="k">var</span> <span class="nv">items</span>: [<span class="nc">Element</span>] = []
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">push</span>(<span class="k">_</span> <span class="nv">item</span>: <span class="nc">Element</span>) {
+</li><li>        <span class="nv">items</span>.<span class="nv">append</span>(<span class="nv">item</span>)
+</li><li>    }
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">pop</span>() -&gt; <span class="nc">Element</span> {
+</li><li>        <span class="k">return</span> <span class="nv">items</span>.<span class="nv">removeLast</span>()
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>Note how the generic version of <code class="docutils literal notranslate"><span class="pre">Stack</span></code> is essentially the same as the nongeneric version, but with a type parameter called <code class="docutils literal notranslate"><span class="pre">Element</span></code> instead of an actual type of <code class="docutils literal notranslate"><span class="pre">Int</span></code>. This type parameter is written within a pair of angle brackets (<code class="docutils literal notranslate"><span class="pre">&lt;Element&gt;</span></code>) immediately after the structure’s name.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Element</span></code> defines a placeholder name for a type to be provided later. This future type can be referred to as <code class="docutils literal notranslate"><span class="pre">Element</span></code> anywhere within the structure’s definition. In this case, <code class="docutils literal notranslate"><span class="pre">Element</span></code> is used as a placeholder in three places:</p>
+<ul class="simple">
+<li>To create a property called <code class="docutils literal notranslate"><span class="pre">items</span></code>, which is initialized with an empty array of values of type <code class="docutils literal notranslate"><span class="pre">Element</span></code></li>
+<li>To specify that the <code class="docutils literal notranslate"><span class="pre">push(_:)</span></code> method has a single parameter called <code class="docutils literal notranslate"><span class="pre">item</span></code>, which must be of type <code class="docutils literal notranslate"><span class="pre">Element</span></code></li>
+<li>To specify that the value returned by the <code class="docutils literal notranslate"><span class="pre">pop()</span></code> method will be a value of type <code class="docutils literal notranslate"><span class="pre">Element</span></code></li>
+</ul>
+<p>Because it’s a generic type, <code class="docutils literal notranslate"><span class="pre">Stack</span></code> can be used to create a stack of <em>any</em> valid type in Swift, in a similar manner to <code class="docutils literal notranslate"><span class="pre">Array</span></code> and <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>.</p>
+<p>You create a new <code class="docutils literal notranslate"><span class="pre">Stack</span></code> instance by writing the type to be stored in the stack within angle brackets. For example, to create a new stack of strings, you write <code class="docutils literal notranslate"><span class="pre">Stack&lt;String&gt;()</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">stackOfStrings</span> = <span class="nv">Stack</span>&lt;<span class="nc">String</span>&gt;()
+</li><li><span class="nv">stackOfStrings</span>.<span class="nv">push</span>(<span class="s">&quot;uno&quot;</span>)
+</li><li><span class="nv">stackOfStrings</span>.<span class="nv">push</span>(<span class="s">&quot;dos&quot;</span>)
+</li><li><span class="nv">stackOfStrings</span>.<span class="nv">push</span>(<span class="s">&quot;tres&quot;</span>)
+</li><li><span class="nv">stackOfStrings</span>.<span class="nv">push</span>(<span class="s">&quot;cuatro&quot;</span>)
+</li><li><span class="c">// the stack now contains 4 strings</span>
+</li></ol></div></div></div>
+<p>Here’s how <code class="docutils literal notranslate"><span class="pre">stackOfStrings</span></code> looks after pushing these four values on to the stack:</p>
+<img alt="../_images/stackPushedFourStrings_2x.png" class="align-center" src="../_images/stackPushedFourStrings_2x.png" style="width: 760px;" />
+<p>Popping a value from the stack removes and returns the top value, <code class="docutils literal notranslate"><span class="pre">&quot;cuatro&quot;</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">fromTheTop</span> = <span class="nv">stackOfStrings</span>.<span class="nv">pop</span>()
+</li><li><span class="c">// fromTheTop is equal to &quot;cuatro&quot;, and the stack now contains 3 strings</span>
+</li></ol></div></div></div>
+<p>Here’s how the stack looks after popping its top value:</p>
+<img alt="../_images/stackPoppedOneString_2x.png" class="align-center" src="../_images/stackPoppedOneString_2x.png" style="width: 452px;" />
+</div>
+<div class="section" id="ID185">
+<h2>Extending a Generic Type<a class="headerlink" href="#ID185" title="Permalink to this headline">¶</a></h2>
+<p>When you extend a generic type, you don’t provide a type parameter list as part of the extension’s definition. Instead, the type parameter list from the <em>original</em> type definition is available within the body of the extension, and the original type parameter names are used to refer to the type parameters from the original definition.</p>
+<p>The following example extends the generic <code class="docutils literal notranslate"><span class="pre">Stack</span></code> type to add a read-only computed property called <code class="docutils literal notranslate"><span class="pre">topItem</span></code>, which returns the top item on the stack without popping it from the stack:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">Stack</span> {
+</li><li>    <span class="k">var</span> <span class="nv">topItem</span>: <span class="nc">Element</span>? {
+</li><li>        <span class="k">return</span> <span class="nv">items</span>.<span class="nv">isEmpty</span> ? <span class="k">nil</span> : <span class="nv">items</span>[<span class="nv">items</span>.<span class="nv">count</span> - <span class="m">1</span>]
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">topItem</span></code> property returns an optional value of type <code class="docutils literal notranslate"><span class="pre">Element</span></code>. If the stack is empty, <code class="docutils literal notranslate"><span class="pre">topItem</span></code> returns <code class="docutils literal notranslate"><span class="pre">nil</span></code>; if the stack isn’t empty, <code class="docutils literal notranslate"><span class="pre">topItem</span></code> returns the final item in the <code class="docutils literal notranslate"><span class="pre">items</span></code> array.</p>
+<p>Note that this extension doesn’t define a type parameter list. Instead, the <code class="docutils literal notranslate"><span class="pre">Stack</span></code> type’s existing type parameter name, <code class="docutils literal notranslate"><span class="pre">Element</span></code>, is used within the extension to indicate the optional type of the <code class="docutils literal notranslate"><span class="pre">topItem</span></code> computed property.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">topItem</span></code> computed property can now be used with any <code class="docutils literal notranslate"><span class="pre">Stack</span></code> instance to access and query its top item without removing it.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="k">let</span> <span class="nv">topItem</span> = <span class="nv">stackOfStrings</span>.<span class="nv">topItem</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;The top item on the stack is </span>\<span class="p">(</span><span class="nv">topItem</span><span class="p">)</span><span class="s">.&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;The top item on the stack is tres.&quot;</span>
+</li></ol></div></div></div>
+<p>Extensions of a generic type can also include requirements that instances of the extended type must satisfy in order to gain the new functionality, as discussed in <a class="reference internal" href="#ID553"><span class="std std-ref">Extensions with a Generic Where Clause</span></a> below.</p>
+</div>
+<div class="section" id="ID186">
+<h2>Type Constraints<a class="headerlink" href="#ID186" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> function and the <code class="docutils literal notranslate"><span class="pre">Stack</span></code> type can work with any type. However, it’s sometimes useful to enforce certain <em>type constraints</em> on the types that can be used with generic functions and generic types. Type constraints specify that a type parameter must inherit from a specific class, or conform to a particular protocol or protocol composition.</p>
+<p>For example, Swift’s <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> type places a limitation on the types that can be used as keys for a dictionary. As described in <a class="reference internal" href="CollectionTypes.html#ID113"><span class="std std-ref">Dictionaries</span></a>, the type of a dictionary’s keys must be <em>hashable</em>. That is, it must provide a way to make itself uniquely representable. <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> needs its keys to be hashable so that it can check whether it already contains a value for a particular key. Without this requirement, <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> couldn’t tell whether it should insert or replace a value for a particular key, nor would it be able to find a value for a given key that’s already in the dictionary.</p>
+<p>This requirement is enforced by a type constraint on the key type for <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>, which specifies that the key type must conform to the <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> protocol, a special protocol defined in the Swift standard library. All of Swift’s basic types (such as <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">Double</span></code>, and <code class="docutils literal notranslate"><span class="pre">Bool</span></code>) are hashable by default. For information about making your own custom types conform to the <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> protocol, see <a class="reference external" href="https://developer.apple.com/documentation/swift/hashable#2849490">Conforming to the Hashable Protocol</a>.</p>
+<p>You can define your own type constraints when creating custom generic types, and these constraints provide much of the power of generic programming. Abstract concepts like <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> characterize types in terms of their conceptual characteristics, rather than their concrete type.</p>
+<div class="section" id="ID187">
+<h3>Type Constraint Syntax<a class="headerlink" href="#ID187" title="Permalink to this headline">¶</a></h3>
+<p>You write type constraints by placing a single class or protocol constraint after a type parameter’s name, separated by a colon, as part of the type parameter list. The basic syntax for type constraints on a generic function is shown below (although the syntax is the same for generic types):</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">someFunction</span>&lt;<span class="nv">T</span>: <span class="nc">SomeClass</span>, <span class="nv">U</span>: <span class="nc">SomeProtocol</span>&gt;(<span class="nv">someT</span>: <span class="nc">T</span>, <span class="nv">someU</span>: <span class="nc">U</span>) {
+</li><li>    <span class="c">// function body goes here</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>The hypothetical function above has two type parameters. The first type parameter, <code class="docutils literal notranslate"><span class="pre">T</span></code>, has a type constraint that requires <code class="docutils literal notranslate"><span class="pre">T</span></code> to be a subclass of <code class="docutils literal notranslate"><span class="pre">SomeClass</span></code>. The second type parameter, <code class="docutils literal notranslate"><span class="pre">U</span></code>, has a type constraint that requires <code class="docutils literal notranslate"><span class="pre">U</span></code> to conform to the protocol <code class="docutils literal notranslate"><span class="pre">SomeProtocol</span></code>.</p>
+</div>
+<div class="section" id="ID188">
+<h3>Type Constraints in Action<a class="headerlink" href="#ID188" title="Permalink to this headline">¶</a></h3>
+<p>Here’s a nongeneric function called <code class="docutils literal notranslate"><span class="pre">findIndex(ofString:in:)</span></code>, which is given a <code class="docutils literal notranslate"><span class="pre">String</span></code> value to find and an array of <code class="docutils literal notranslate"><span class="pre">String</span></code> values within which to find it. The <code class="docutils literal notranslate"><span class="pre">findIndex(ofString:in:)</span></code> function returns an optional <code class="docutils literal notranslate"><span class="pre">Int</span></code> value, which will be the index of the first matching string in the array if it’s found, or <code class="docutils literal notranslate"><span class="pre">nil</span></code> if the string can’t be found:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">findIndex</span>(<span class="nv">ofString</span> <span class="nv">valueToFind</span>: <span class="nc">String</span>, <span class="nv">in</span> <span class="nv">array</span>: [<span class="nc">String</span>]) -&gt; <span class="nc">Int</span>? {
+</li><li>    <span class="k">for</span> (<span class="nv">index</span>, <span class="nv">value</span>) <span class="k">in</span> <span class="nv">array</span>.<span class="nv">enumerated</span>() {
+</li><li>        <span class="k">if</span> <span class="nv">value</span> == <span class="nv">valueToFind</span> {
+</li><li>            <span class="k">return</span> <span class="nv">index</span>
+</li><li>        }
+</li><li>    }
+</li><li>    <span class="k">return</span> <span class="k">nil</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">findIndex(ofString:in:)</span></code> function can be used to find a string value in an array of strings:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">strings</span> = [<span class="s">&quot;cat&quot;</span>, <span class="s">&quot;dog&quot;</span>, <span class="s">&quot;llama&quot;</span>, <span class="s">&quot;parakeet&quot;</span>, <span class="s">&quot;terrapin&quot;</span>]
+</li><li><span class="k">if</span> <span class="k">let</span> <span class="nv">foundIndex</span> = <span class="nv">findIndex</span>(<span class="nv">ofString</span>: <span class="s">&quot;llama&quot;</span>, <span class="nv">in</span>: <span class="nv">strings</span>) {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;The index of llama is </span>\<span class="p">(</span><span class="nv">foundIndex</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;The index of llama is 2&quot;</span>
+</li></ol></div></div></div>
+<p>The principle of finding the index of a value in an array isn’t useful only for strings, however. You can write the same functionality as a generic function by replacing any mention of strings with values of some type <code class="docutils literal notranslate"><span class="pre">T</span></code> instead.</p>
+<p>Here’s how you might expect a generic version of <code class="docutils literal notranslate"><span class="pre">findIndex(ofString:in:)</span></code>, called <code class="docutils literal notranslate"><span class="pre">findIndex(of:in:)</span></code>, to be written. Note that the return type of this function is still <code class="docutils literal notranslate"><span class="pre">Int?</span></code>, because the function returns an optional index number, not an optional value from the array. Be warned, though—this function doesn’t compile, for reasons explained after the example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">findIndex</span>&lt;<span class="nv">T</span>&gt;(<span class="nv">of</span> <span class="nv">valueToFind</span>: <span class="nc">T</span>, <span class="nv">in</span> <span class="nv">array</span>:[<span class="nc">T</span>]) -&gt; <span class="nc">Int</span>? {
+</li><li>    <span class="k">for</span> (<span class="nv">index</span>, <span class="nv">value</span>) <span class="k">in</span> <span class="nv">array</span>.<span class="nv">enumerated</span>() {
+</li><li>        <span class="k">if</span> <span class="nv">value</span> == <span class="nv">valueToFind</span> {
+</li><li>            <span class="k">return</span> <span class="nv">index</span>
+</li><li>        }
+</li><li>    }
+</li><li>    <span class="k">return</span> <span class="k">nil</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>This function doesn’t compile as written above. The problem lies with the equality check, “<code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">value</span> <span class="pre">==</span> <span class="pre">valueToFind</span></code>”. Not every type in Swift can be compared with the equal to operator (<code class="docutils literal notranslate"><span class="pre">==</span></code>). If you create your own class or structure to represent a complex data model, for example, then the meaning of “equal to” for that class or structure isn’t something that Swift can guess for you. Because of this, it isn’t possible to guarantee that this code will work for <em>every</em> possible type <code class="docutils literal notranslate"><span class="pre">T</span></code>, and an appropriate error is reported when you try to compile the code.</p>
+<p>All is not lost, however. The Swift standard library defines a protocol called <code class="docutils literal notranslate"><span class="pre">Equatable</span></code>, which requires any conforming type to implement the equal to operator (<code class="docutils literal notranslate"><span class="pre">==</span></code>) and the not equal to operator (<code class="docutils literal notranslate"><span class="pre">!=</span></code>) to compare any two values of that type. All of Swift’s standard types automatically support the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol.</p>
+<p>Any type that’s <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> can be used safely with the <code class="docutils literal notranslate"><span class="pre">findIndex(of:in:)</span></code> function, because it’s guaranteed to support the equal to operator. To express this fact, you write a type constraint of <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> as part of the type parameter’s definition when you define the function:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">findIndex</span>&lt;<span class="nv">T</span>: <span class="nc">Equatable</span>&gt;(<span class="nv">of</span> <span class="nv">valueToFind</span>: <span class="nc">T</span>, <span class="nv">in</span> <span class="nv">array</span>:[<span class="nc">T</span>]) -&gt; <span class="nc">Int</span>? {
+</li><li>    <span class="k">for</span> (<span class="nv">index</span>, <span class="nv">value</span>) <span class="k">in</span> <span class="nv">array</span>.<span class="nv">enumerated</span>() {
+</li><li>        <span class="k">if</span> <span class="nv">value</span> == <span class="nv">valueToFind</span> {
+</li><li>            <span class="k">return</span> <span class="nv">index</span>
+</li><li>        }
+</li><li>    }
+</li><li>    <span class="k">return</span> <span class="k">nil</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>The single type parameter for <code class="docutils literal notranslate"><span class="pre">findIndex(of:in:)</span></code> is written as <code class="docutils literal notranslate"><span class="pre">T:</span> <span class="pre">Equatable</span></code>, which means “any type <code class="docutils literal notranslate"><span class="pre">T</span></code> that conforms to the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol.”</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">findIndex(of:in:)</span></code> function now compiles successfully and can be used with any type that’s <code class="docutils literal notranslate"><span class="pre">Equatable</span></code>, such as <code class="docutils literal notranslate"><span class="pre">Double</span></code> or <code class="docutils literal notranslate"><span class="pre">String</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">doubleIndex</span> = <span class="nv">findIndex</span>(<span class="nv">of</span>: <span class="m">9.3</span>, <span class="nv">in</span>: [<span class="m">3.14159</span>, <span class="m">0.1</span>, <span class="m">0.25</span>])
+</li><li><span class="c">// doubleIndex is an optional Int with no value, because 9.3 isn&#39;t in the array</span>
+</li><li><span class="k">let</span> <span class="nv">stringIndex</span> = <span class="nv">findIndex</span>(<span class="nv">of</span>: <span class="s">&quot;Andrea&quot;</span>, <span class="nv">in</span>: [<span class="s">&quot;Mike&quot;</span>, <span class="s">&quot;Malcolm&quot;</span>, <span class="s">&quot;Andrea&quot;</span>])
+</li><li><span class="c">// stringIndex is an optional Int containing a value of 2</span>
+</li></ol></div></div></div>
+</div>
+</div>
+<div class="section" id="ID189">
+<h2>Associated Types<a class="headerlink" href="#ID189" title="Permalink to this headline">¶</a></h2>
+<p>When defining a protocol, it’s sometimes useful to declare one or more associated types as part of the protocol’s definition. An <em>associated type</em> gives a placeholder name to a type that’s used as part of the protocol. The actual type to use for that associated type isn’t specified until the protocol is adopted. Associated types are specified with the <code class="docutils literal notranslate"><span class="pre">associatedtype</span></code> keyword.</p>
+<div class="section" id="ID190">
+<h3>Associated Types in Action<a class="headerlink" href="#ID190" title="Permalink to this headline">¶</a></h3>
+<p>Here’s an example of a protocol called <code class="docutils literal notranslate"><span class="pre">Container</span></code>, which declares an associated type called <code class="docutils literal notranslate"><span class="pre">Item</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">Container</span> {
+</li><li>    <span class="k">associatedtype</span> <span class="nv">Item</span>
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">append</span>(<span class="k">_</span> <span class="nv">item</span>: <span class="nc">Item</span>)
+</li><li>    <span class="k">var</span> <span class="nv">count</span>: <span class="nc">Int</span> { <span class="k">get</span> }
+</li><li>    <span class="k">subscript</span>(<span class="nv">i</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Item</span> { <span class="k">get</span> }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol defines three required capabilities that any container must provide:</p>
+<ul class="simple">
+<li>It must be possible to add a new item to the container with an <code class="docutils literal notranslate"><span class="pre">append(_:)</span></code> method.</li>
+<li>It must be possible to access a count of the items in the container through a <code class="docutils literal notranslate"><span class="pre">count</span></code> property that returns an <code class="docutils literal notranslate"><span class="pre">Int</span></code> value.</li>
+<li>It must be possible to retrieve each item in the container with a subscript that takes an <code class="docutils literal notranslate"><span class="pre">Int</span></code> index value.</li>
+</ul>
+<p>This protocol doesn’t specify how the items in the container should be stored or what type they’re allowed to be. The protocol only specifies the three bits of functionality that any type must provide in order to be considered a <code class="docutils literal notranslate"><span class="pre">Container</span></code>. A conforming type can provide additional functionality, as long as it satisfies these three requirements.</p>
+<p>Any type that conforms to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol must be able to specify the type of values it stores. Specifically, it must ensure that only items of the right type are added to the container, and it must be clear about the type of the items returned by its subscript.</p>
+<p>To define these requirements, the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol needs a way to refer to the type of the elements that a container will hold, without knowing what that type is for a specific container. The <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol needs to specify that any value passed to the <code class="docutils literal notranslate"><span class="pre">append(_:)</span></code> method must have the same type as the container’s element type, and that the value returned by the container’s subscript will be of the same type as the container’s element type.</p>
+<p>To achieve this, the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol declares an associated type called <code class="docutils literal notranslate"><span class="pre">Item</span></code>, written as <code class="docutils literal notranslate"><span class="pre">associatedtype</span> <span class="pre">Item</span></code>. The protocol doesn’t define what <code class="docutils literal notranslate"><span class="pre">Item</span></code> is—that information is left for any conforming type to provide. Nonetheless, the <code class="docutils literal notranslate"><span class="pre">Item</span></code> alias provides a way to refer to the type of the items in a <code class="docutils literal notranslate"><span class="pre">Container</span></code>, and to define a type for use with the <code class="docutils literal notranslate"><span class="pre">append(_:)</span></code> method and subscript, to ensure that the expected behavior of any <code class="docutils literal notranslate"><span class="pre">Container</span></code> is enforced.</p>
+<p>Here’s a version of the nongeneric <code class="docutils literal notranslate"><span class="pre">IntStack</span></code> type from <a class="reference internal" href="#ID184"><span class="std std-ref">Generic Types</span></a> above, adapted to conform to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">IntStack</span>: <span class="nc">Container</span> {
+</li><li>    <span class="c">// original IntStack implementation</span>
+</li><li>    <span class="k">var</span> <span class="nv">items</span>: [<span class="nc">Int</span>] = []
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">push</span>(<span class="k">_</span> <span class="nv">item</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="nv">items</span>.<span class="nv">append</span>(<span class="nv">item</span>)
+</li><li>    }
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">pop</span>() -&gt; <span class="nc">Int</span> {
+</li><li>        <span class="k">return</span> <span class="nv">items</span>.<span class="nv">removeLast</span>()
+</li><li>    }
+</li><li>    <span class="c">// conformance to the Container protocol</span>
+</li><li>    <span class="k">typealias</span> <span class="nv">Item</span> = <span class="nc">Int</span>
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">append</span>(<span class="k">_</span> <span class="nv">item</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="k">self</span>.<span class="nv">push</span>(<span class="nv">item</span>)
+</li><li>    }
+</li><li>    <span class="k">var</span> <span class="nv">count</span>: <span class="nc">Int</span> {
+</li><li>        <span class="k">return</span> <span class="nv">items</span>.<span class="nv">count</span>
+</li><li>    }
+</li><li>    <span class="k">subscript</span>(<span class="nv">i</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> {
+</li><li>        <span class="k">return</span> <span class="nv">items</span>[<span class="nv">i</span>]
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">IntStack</span></code> type implements all three of the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol’s requirements, and in each case wraps part of the <code class="docutils literal notranslate"><span class="pre">IntStack</span></code> type’s existing functionality to satisfy these requirements.</p>
+<p>Moreover, <code class="docutils literal notranslate"><span class="pre">IntStack</span></code> specifies that for this implementation of <code class="docutils literal notranslate"><span class="pre">Container</span></code>, the appropriate <code class="docutils literal notranslate"><span class="pre">Item</span></code> to use is a type of <code class="docutils literal notranslate"><span class="pre">Int</span></code>. The definition of <code class="docutils literal notranslate"><span class="pre">typealias</span> <span class="pre">Item</span> <span class="pre">=</span> <span class="pre">Int</span></code> turns the abstract type of <code class="docutils literal notranslate"><span class="pre">Item</span></code> into a concrete type of <code class="docutils literal notranslate"><span class="pre">Int</span></code> for this implementation of the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol.</p>
+<p>Thanks to Swift’s type inference, you don’t actually need to declare a concrete <code class="docutils literal notranslate"><span class="pre">Item</span></code> of <code class="docutils literal notranslate"><span class="pre">Int</span></code> as part of the definition of <code class="docutils literal notranslate"><span class="pre">IntStack</span></code>. Because <code class="docutils literal notranslate"><span class="pre">IntStack</span></code> conforms to all of the requirements of the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol, Swift can infer the appropriate <code class="docutils literal notranslate"><span class="pre">Item</span></code> to use, simply by looking at the type of the <code class="docutils literal notranslate"><span class="pre">append(_:)</span></code> method’s <code class="docutils literal notranslate"><span class="pre">item</span></code> parameter and the return type of the subscript. Indeed, if you delete the <code class="docutils literal notranslate"><span class="pre">typealias</span> <span class="pre">Item</span> <span class="pre">=</span> <span class="pre">Int</span></code> line from the code above, everything still works, because it’s clear what type should be used for <code class="docutils literal notranslate"><span class="pre">Item</span></code>.</p>
+<p>You can also make the generic <code class="docutils literal notranslate"><span class="pre">Stack</span></code> type conform to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Stack</span>&lt;<span class="nv">Element</span>&gt;: <span class="nc">Container</span> {
+</li><li>    <span class="c">// original Stack&lt;Element&gt; implementation</span>
+</li><li>    <span class="k">var</span> <span class="nv">items</span>: [<span class="nc">Element</span>] = []
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">push</span>(<span class="k">_</span> <span class="nv">item</span>: <span class="nc">Element</span>) {
+</li><li>        <span class="nv">items</span>.<span class="nv">append</span>(<span class="nv">item</span>)
+</li><li>    }
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">pop</span>() -&gt; <span class="nc">Element</span> {
+</li><li>        <span class="k">return</span> <span class="nv">items</span>.<span class="nv">removeLast</span>()
+</li><li>    }
+</li><li>    <span class="c">// conformance to the Container protocol</span>
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">append</span>(<span class="k">_</span> <span class="nv">item</span>: <span class="nc">Element</span>) {
+</li><li>        <span class="k">self</span>.<span class="nv">push</span>(<span class="nv">item</span>)
+</li><li>    }
+</li><li>    <span class="k">var</span> <span class="nv">count</span>: <span class="nc">Int</span> {
+</li><li>        <span class="k">return</span> <span class="nv">items</span>.<span class="nv">count</span>
+</li><li>    }
+</li><li>    <span class="k">subscript</span>(<span class="nv">i</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Element</span> {
+</li><li>        <span class="k">return</span> <span class="nv">items</span>[<span class="nv">i</span>]
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>This time, the type parameter <code class="docutils literal notranslate"><span class="pre">Element</span></code> is used as the type of the <code class="docutils literal notranslate"><span class="pre">append(_:)</span></code> method’s <code class="docutils literal notranslate"><span class="pre">item</span></code> parameter and the return type of the subscript. Swift can therefore infer that <code class="docutils literal notranslate"><span class="pre">Element</span></code> is the appropriate type to use as the <code class="docutils literal notranslate"><span class="pre">Item</span></code> for this particular container.</p>
+</div>
+<div class="section" id="ID191">
+<h3>Extending an Existing Type to Specify an Associated Type<a class="headerlink" href="#ID191" title="Permalink to this headline">¶</a></h3>
+<p>You can extend an existing type to add conformance to a protocol, as described in <a class="reference internal" href="Protocols.html#ID277"><span class="std std-ref">Adding Protocol Conformance with an Extension</span></a>. This includes a protocol with an associated type.</p>
+<p>Swift’s <code class="docutils literal notranslate"><span class="pre">Array</span></code> type already provides an <code class="docutils literal notranslate"><span class="pre">append(_:)</span></code> method, a <code class="docutils literal notranslate"><span class="pre">count</span></code> property, and a subscript with an <code class="docutils literal notranslate"><span class="pre">Int</span></code> index to retrieve its elements. These three capabilities match the requirements of the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol. This means that you can extend <code class="docutils literal notranslate"><span class="pre">Array</span></code> to conform to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol simply by declaring that <code class="docutils literal notranslate"><span class="pre">Array</span></code> adopts the protocol. You do this with an empty extension, as described in <a class="reference internal" href="Protocols.html#ID278"><span class="std std-ref">Declaring Protocol Adoption with an Extension</span></a>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">Array</span>: <span class="nc">Container</span> {}
+</li></ol></div></div></div>
+<p>Array’s existing <code class="docutils literal notranslate"><span class="pre">append(_:)</span></code> method and subscript enable Swift to infer the appropriate type to use for <code class="docutils literal notranslate"><span class="pre">Item</span></code>, just as for the generic <code class="docutils literal notranslate"><span class="pre">Stack</span></code> type above. After defining this extension, you can use any <code class="docutils literal notranslate"><span class="pre">Array</span></code> as a <code class="docutils literal notranslate"><span class="pre">Container</span></code>.</p>
+</div>
+<div class="section" id="ID560">
+<h3>Adding Constraints to an Associated Type<a class="headerlink" href="#ID560" title="Permalink to this headline">¶</a></h3>
+<p>You can add type constraints to an associated type in a protocol to require that conforming types satisfy those constraints. For example, the following code defines a version of <code class="docutils literal notranslate"><span class="pre">Container</span></code> that requires the items in the container to be equatable.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">Container</span> {
+</li><li>    <span class="k">associatedtype</span> <span class="nv">Item</span>: <span class="nc">Equatable</span>
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">append</span>(<span class="k">_</span> <span class="nv">item</span>: <span class="nc">Item</span>)
+</li><li>    <span class="k">var</span> <span class="nv">count</span>: <span class="nc">Int</span> { <span class="k">get</span> }
+</li><li>    <span class="k">subscript</span>(<span class="nv">i</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Item</span> { <span class="k">get</span> }
+</li><li>}
+</li></ol></div></div></div>
+<p>To conform to this version of <code class="docutils literal notranslate"><span class="pre">Container</span></code>, the container’s <code class="docutils literal notranslate"><span class="pre">Item</span></code> type has to conform to the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol.</p>
+</div>
+<div class="section" id="ID575">
+<h3>Using a Protocol in Its Associated Type’s Constraints<a class="headerlink" href="#ID575" title="Permalink to this headline">¶</a></h3>
+<p>A protocol can appear as part of its own requirements. For example, here’s a protocol that refines the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol, adding the requirement of a <code class="docutils literal notranslate"><span class="pre">suffix(_:)</span></code> method. The <code class="docutils literal notranslate"><span class="pre">suffix(_:)</span></code> method returns a given number of elements from the end of the container, storing them in an instance of the <code class="docutils literal notranslate"><span class="pre">Suffix</span></code> type.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">SuffixableContainer</span>: <span class="nc">Container</span> {
+</li><li>    <span class="k">associatedtype</span> <span class="nv">Suffix</span>: <span class="nc">SuffixableContainer</span> <span class="k">where</span> <span class="nc">Suffix</span>.<span class="nc">Item</span> == <span class="nc">Item</span>
+</li><li>    <span class="k">func</span> <span class="nv">suffix</span>(<span class="k">_</span> <span class="nv">size</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Suffix</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>In this protocol, <code class="docutils literal notranslate"><span class="pre">Suffix</span></code> is an associated type, like the <code class="docutils literal notranslate"><span class="pre">Item</span></code> type in the <code class="docutils literal notranslate"><span class="pre">Container</span></code> example above. <code class="docutils literal notranslate"><span class="pre">Suffix</span></code> has two constraints: It must conform to the <code class="docutils literal notranslate"><span class="pre">SuffixableContainer</span></code> protocol (the protocol currently being defined), and its <code class="docutils literal notranslate"><span class="pre">Item</span></code> type must be the same as the container’s <code class="docutils literal notranslate"><span class="pre">Item</span></code> type. The constraint on <code class="docutils literal notranslate"><span class="pre">Item</span></code> is a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause, which is discussed in <a class="reference internal" href="#ID557"><span class="std std-ref">Associated Types with a Generic Where Clause</span></a> below.</p>
+<p>Here’s an extension of the <code class="docutils literal notranslate"><span class="pre">Stack</span></code> type from <a class="reference internal" href="#ID184"><span class="std std-ref">Generic Types</span></a> above that adds conformance to the <code class="docutils literal notranslate"><span class="pre">SuffixableContainer</span></code> protocol:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">Stack</span>: <span class="nc">SuffixableContainer</span> {
+</li><li>    <span class="k">func</span> <span class="nv">suffix</span>(<span class="k">_</span> <span class="nv">size</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Stack</span> {
+</li><li>        <span class="k">var</span> <span class="nv">result</span> = <span class="nv">Stack</span>()
+</li><li>        <span class="k">for</span> <span class="nv">index</span> <span class="k">in</span> (<span class="nv">count</span>-<span class="nv">size</span>)..&lt;<span class="nv">count</span> {
+</li><li>            <span class="nv">result</span>.<span class="nv">append</span>(<span class="k">self</span>[<span class="nv">index</span>])
+</li><li>        }
+</li><li>        <span class="k">return</span> <span class="nv">result</span>
+</li><li>    }
+</li><li>    <span class="c">// Inferred that Suffix is Stack.</span>
+</li><li>}
+</li><li><span class="k">var</span> <span class="nv">stackOfInts</span> = <span class="nv">Stack</span>&lt;<span class="nc">Int</span>&gt;()
+</li><li><span class="nv">stackOfInts</span>.<span class="nv">append</span>(<span class="m">10</span>)
+</li><li><span class="nv">stackOfInts</span>.<span class="nv">append</span>(<span class="m">20</span>)
+</li><li><span class="nv">stackOfInts</span>.<span class="nv">append</span>(<span class="m">30</span>)
+</li><li><span class="k">let</span> <span class="nv">suffix</span> = <span class="nv">stackOfInts</span>.<span class="nv">suffix</span>(<span class="m">2</span>)
+</li><li><span class="c">// suffix contains 20 and 30</span>
+</li></ol></div></div></div>
+<p>In the example above, the <code class="docutils literal notranslate"><span class="pre">Suffix</span></code> associated type for <code class="docutils literal notranslate"><span class="pre">Stack</span></code> is also <code class="docutils literal notranslate"><span class="pre">Stack</span></code>, so the suffix operation on <code class="docutils literal notranslate"><span class="pre">Stack</span></code> returns another <code class="docutils literal notranslate"><span class="pre">Stack</span></code>. Alternatively, a type that conforms to <code class="docutils literal notranslate"><span class="pre">SuffixableContainer</span></code> can have a <code class="docutils literal notranslate"><span class="pre">Suffix</span></code> type that’s different from itself—meaning the suffix operation can return a different type. For example, here’s an extension to the nongeneric <code class="docutils literal notranslate"><span class="pre">IntStack</span></code> type that adds <code class="docutils literal notranslate"><span class="pre">SuffixableContainer</span></code> conformance, using <code class="docutils literal notranslate"><span class="pre">Stack&lt;Int&gt;</span></code> as its suffix type instead of <code class="docutils literal notranslate"><span class="pre">IntStack</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">IntStack</span>: <span class="nc">SuffixableContainer</span> {
+</li><li>    <span class="k">func</span> <span class="nv">suffix</span>(<span class="k">_</span> <span class="nv">size</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Stack</span>&lt;<span class="nc">Int</span>&gt; {
+</li><li>        <span class="k">var</span> <span class="nv">result</span> = <span class="nv">Stack</span>&lt;<span class="nc">Int</span>&gt;()
+</li><li>        <span class="k">for</span> <span class="nv">index</span> <span class="k">in</span> (<span class="nv">count</span>-<span class="nv">size</span>)..&lt;<span class="nv">count</span> {
+</li><li>            <span class="nv">result</span>.<span class="nv">append</span>(<span class="k">self</span>[<span class="nv">index</span>])
+</li><li>        }
+</li><li>        <span class="k">return</span> <span class="nv">result</span>
+</li><li>    }
+</li><li>    <span class="c">// Inferred that Suffix is Stack&lt;Int&gt;.</span>
+</li><li>}
+</li></ol></div></div></div>
+</div>
+</div>
+<div class="section" id="ID192">
+<h2>Generic Where Clauses<a class="headerlink" href="#ID192" title="Permalink to this headline">¶</a></h2>
+<p>Type constraints, as described in <a class="reference internal" href="#ID186"><span class="std std-ref">Type Constraints</span></a>, enable you to define requirements on the type parameters associated with a generic function, subscript, or type.</p>
+<p>It can also be useful to define requirements for associated types. You do this by defining a <em>generic where clause</em>. A generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause enables you to require that an associated type must conform to a certain protocol, or that certain type parameters and associated types must be the same. A generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause starts with the <code class="docutils literal notranslate"><span class="pre">where</span></code> keyword, followed by constraints for associated types or equality relationships between types and associated types. You write a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause right before the opening curly brace of a type or function’s body.</p>
+<p>The example below defines a generic function called <code class="docutils literal notranslate"><span class="pre">allItemsMatch</span></code>, which checks to see if two <code class="docutils literal notranslate"><span class="pre">Container</span></code> instances contain the same items in the same order. The function returns a Boolean value of <code class="docutils literal notranslate"><span class="pre">true</span></code> if all items match and a value of <code class="docutils literal notranslate"><span class="pre">false</span></code> if they don’t.</p>
+<p>The two containers to be checked don’t have to be the same type of container (although they can be), but they do have to hold the same type of items. This requirement is expressed through a combination of type constraints and a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">allItemsMatch</span>&lt;<span class="nv">C1</span>: <span class="nc">Container</span>, <span class="nv">C2</span>: <span class="nc">Container</span>&gt;
+</li><li>    (<span class="k">_</span> <span class="nv">someContainer</span>: <span class="nc">C1</span>, <span class="k">_</span> <span class="nv">anotherContainer</span>: <span class="nc">C2</span>) -&gt; <span class="nc">Bool</span>
+</li><li>    <span class="k">where</span> <span class="nc">C1</span>.<span class="nc">Item</span> == <span class="nc">C2</span>.<span class="nc">Item</span>, <span class="nc">C1</span>.<span class="nc">Item</span>: <span class="nc">Equatable</span> {
+</li><li>
+</li><li>        <span class="c">// Check that both containers contain the same number of items.</span>
+</li><li>        <span class="k">if</span> <span class="nv">someContainer</span>.<span class="nv">count</span> != <span class="nv">anotherContainer</span>.<span class="nv">count</span> {
+</li><li>            <span class="k">return</span> <span class="k">false</span>
+</li><li>        }
+</li><li>
+</li><li>        <span class="c">// Check each pair of items to see if they&#39;re equivalent.</span>
+</li><li>        <span class="k">for</span> <span class="nv">i</span> <span class="k">in</span> <span class="m">0</span>..&lt;<span class="nv">someContainer</span>.<span class="nv">count</span> {
+</li><li>            <span class="k">if</span> <span class="nv">someContainer</span>[<span class="nv">i</span>] != <span class="nv">anotherContainer</span>[<span class="nv">i</span>] {
+</li><li>                <span class="k">return</span> <span class="k">false</span>
+</li><li>            }
+</li><li>        }
+</li><li>
+</li><li>        <span class="c">// All items match, so return true.</span>
+</li><li>        <span class="k">return</span> <span class="k">true</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>This function takes two arguments called <code class="docutils literal notranslate"><span class="pre">someContainer</span></code> and <code class="docutils literal notranslate"><span class="pre">anotherContainer</span></code>. The <code class="docutils literal notranslate"><span class="pre">someContainer</span></code> argument is of type <code class="docutils literal notranslate"><span class="pre">C1</span></code>, and the <code class="docutils literal notranslate"><span class="pre">anotherContainer</span></code> argument is of type <code class="docutils literal notranslate"><span class="pre">C2</span></code>. Both <code class="docutils literal notranslate"><span class="pre">C1</span></code> and <code class="docutils literal notranslate"><span class="pre">C2</span></code> are type parameters for two container types to be determined when the function is called.</p>
+<p>The following requirements are placed on the function’s two type parameters:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">C1</span></code> must conform to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol (written as <code class="docutils literal notranslate"><span class="pre">C1:</span> <span class="pre">Container</span></code>).</li>
+<li><code class="docutils literal notranslate"><span class="pre">C2</span></code> must also conform to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol (written as <code class="docutils literal notranslate"><span class="pre">C2:</span> <span class="pre">Container</span></code>).</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">Item</span></code> for <code class="docutils literal notranslate"><span class="pre">C1</span></code> must be the same as the <code class="docutils literal notranslate"><span class="pre">Item</span></code> for <code class="docutils literal notranslate"><span class="pre">C2</span></code> (written as <code class="docutils literal notranslate"><span class="pre">C1.Item</span> <span class="pre">==</span> <span class="pre">C2.Item</span></code>).</li>
+<li>The <code class="docutils literal notranslate"><span class="pre">Item</span></code> for <code class="docutils literal notranslate"><span class="pre">C1</span></code> must conform to the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol (written as <code class="docutils literal notranslate"><span class="pre">C1.Item:</span> <span class="pre">Equatable</span></code>).</li>
+</ul>
+<p>The first and second requirements are defined in the function’s type parameter list, and the third and fourth requirements are defined in the function’s generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause.</p>
+<p>These requirements mean:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">someContainer</span></code> is a container of type <code class="docutils literal notranslate"><span class="pre">C1</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">anotherContainer</span></code> is a container of type <code class="docutils literal notranslate"><span class="pre">C2</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">someContainer</span></code> and <code class="docutils literal notranslate"><span class="pre">anotherContainer</span></code> contain the same type of items.</li>
+<li>The items in <code class="docutils literal notranslate"><span class="pre">someContainer</span></code> can be checked with the not equal operator (<code class="docutils literal notranslate"><span class="pre">!=</span></code>) to see if they’re different from each other.</li>
+</ul>
+<p>The third and fourth requirements combine to mean that the items in <code class="docutils literal notranslate"><span class="pre">anotherContainer</span></code> can <em>also</em> be checked with the <code class="docutils literal notranslate"><span class="pre">!=</span></code> operator, because they’re exactly the same type as the items in <code class="docutils literal notranslate"><span class="pre">someContainer</span></code>.</p>
+<p>These requirements enable the <code class="docutils literal notranslate"><span class="pre">allItemsMatch(_:_:)</span></code> function to compare the two containers, even if they’re of a different container type.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">allItemsMatch(_:_:)</span></code> function starts by checking that both containers contain the same number of items. If they contain a different number of items, there’s no way that they can match, and the function returns <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>After making this check, the function iterates over all of the items in <code class="docutils literal notranslate"><span class="pre">someContainer</span></code> with a <code class="docutils literal notranslate"><span class="pre">for</span></code>-<code class="docutils literal notranslate"><span class="pre">in</span></code> loop and the half-open range operator (<code class="docutils literal notranslate"><span class="pre">..&lt;</span></code>). For each item, the function checks whether the item from <code class="docutils literal notranslate"><span class="pre">someContainer</span></code> isn’t equal to the corresponding item in <code class="docutils literal notranslate"><span class="pre">anotherContainer</span></code>. If the two items aren’t equal, then the two containers don’t match, and the function returns <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>If the loop finishes without finding a mismatch, the two containers match, and the function returns <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
+<p>Here’s how the <code class="docutils literal notranslate"><span class="pre">allItemsMatch(_:_:)</span></code> function looks in action:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">stackOfStrings</span> = <span class="nv">Stack</span>&lt;<span class="nc">String</span>&gt;()
+</li><li><span class="nv">stackOfStrings</span>.<span class="nv">push</span>(<span class="s">&quot;uno&quot;</span>)
+</li><li><span class="nv">stackOfStrings</span>.<span class="nv">push</span>(<span class="s">&quot;dos&quot;</span>)
+</li><li><span class="nv">stackOfStrings</span>.<span class="nv">push</span>(<span class="s">&quot;tres&quot;</span>)
+</li><li>
+</li><li><span class="k">var</span> <span class="nv">arrayOfStrings</span> = [<span class="s">&quot;uno&quot;</span>, <span class="s">&quot;dos&quot;</span>, <span class="s">&quot;tres&quot;</span>]
+</li><li>
+</li><li><span class="k">if</span> <span class="nv">allItemsMatch</span>(<span class="nv">stackOfStrings</span>, <span class="nv">arrayOfStrings</span>) {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;All items match.&quot;</span>)
+</li><li>} <span class="k">else</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Not all items match.&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;All items match.&quot;</span>
+</li></ol></div></div></div>
+<p>The example above creates a <code class="docutils literal notranslate"><span class="pre">Stack</span></code> instance to store <code class="docutils literal notranslate"><span class="pre">String</span></code> values, and pushes three strings onto the stack. The example also creates an <code class="docutils literal notranslate"><span class="pre">Array</span></code> instance initialized with an array literal containing the same three strings as the stack. Even though the stack and the array are of a different type, they both conform to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol, and both contain the same type of values. You can therefore call the <code class="docutils literal notranslate"><span class="pre">allItemsMatch(_:_:)</span></code> function with these two containers as its arguments. In the example above, the <code class="docutils literal notranslate"><span class="pre">allItemsMatch(_:_:)</span></code> function correctly reports that all of the items in the two containers match.</p>
+</div>
+<div class="section" id="ID553">
+<h2>Extensions with a Generic Where Clause<a class="headerlink" href="#ID553" title="Permalink to this headline">¶</a></h2>
+<p>You can also use a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause as part of an extension. The example below extends the generic <code class="docutils literal notranslate"><span class="pre">Stack</span></code> structure from the previous examples to add an <code class="docutils literal notranslate"><span class="pre">isTop(_:)</span></code> method.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">Stack</span> <span class="k">where</span> <span class="nc">Element</span>: <span class="nc">Equatable</span> {
+</li><li>    <span class="k">func</span> <span class="nv">isTop</span>(<span class="k">_</span> <span class="nv">item</span>: <span class="nc">Element</span>) -&gt; <span class="nc">Bool</span> {
+</li><li>        <span class="k">guard</span> <span class="k">let</span> <span class="nv">topItem</span> = <span class="nv">items</span>.<span class="nv">last</span> <span class="k">else</span> {
+</li><li>            <span class="k">return</span> <span class="k">false</span>
+</li><li>        }
+</li><li>        <span class="k">return</span> <span class="nv">topItem</span> == <span class="nv">item</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>This new <code class="docutils literal notranslate"><span class="pre">isTop(_:)</span></code> method first checks that the stack isn’t empty, and then compares the given item against the stack’s topmost item. If you tried to do this without a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause, you would have a problem: The implementation of <code class="docutils literal notranslate"><span class="pre">isTop(_:)</span></code> uses the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator, but the definition of <code class="docutils literal notranslate"><span class="pre">Stack</span></code> doesn’t require its items to be equatable, so using the <code class="docutils literal notranslate"><span class="pre">==</span></code> operator results in a compile-time error. Using a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause lets you add a new requirement to the extension, so that the extension adds the <code class="docutils literal notranslate"><span class="pre">isTop(_:)</span></code> method only when the items in the stack are equatable.</p>
+<p>Here’s how the <code class="docutils literal notranslate"><span class="pre">isTop(_:)</span></code> method looks in action:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="nv">stackOfStrings</span>.<span class="nv">isTop</span>(<span class="s">&quot;tres&quot;</span>) {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Top element is tres.&quot;</span>)
+</li><li>} <span class="k">else</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Top element is something else.&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;Top element is tres.&quot;</span>
+</li></ol></div></div></div>
+<p>If you try to call the <code class="docutils literal notranslate"><span class="pre">isTop(_:)</span></code> method on a stack whose elements aren’t equatable, you’ll get a compile-time error.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">NotEquatable</span> { }
+</li><li><span class="k">var</span> <span class="nv">notEquatableStack</span> = <span class="nv">Stack</span>&lt;<span class="nc">NotEquatable</span>&gt;()
+</li><li><span class="k">let</span> <span class="nv">notEquatableValue</span> = <span class="nv">NotEquatable</span>()
+</li><li><span class="nv">notEquatableStack</span>.<span class="nv">push</span>(<span class="nv">notEquatableValue</span>)
+</li><li><span class="nv">notEquatableStack</span>.<span class="nv">isTop</span>(<span class="nv">notEquatableValue</span>)  <span class="c">// Error</span>
+</li></ol></div></div></div>
+<p>You can use a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause with extensions to a protocol. The example below extends the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol from the previous examples to add a <code class="docutils literal notranslate"><span class="pre">startsWith(_:)</span></code> method.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">Container</span> <span class="k">where</span> <span class="nc">Item</span>: <span class="nc">Equatable</span> {
+</li><li>    <span class="k">func</span> <span class="nv">startsWith</span>(<span class="k">_</span> <span class="nv">item</span>: <span class="nc">Item</span>) -&gt; <span class="nc">Bool</span> {
+</li><li>        <span class="k">return</span> <span class="nv">count</span> &gt;= <span class="m">1</span> &amp;&amp; <span class="k">self</span>[<span class="m">0</span>] == <span class="nv">item</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">startsWith(_:)</span></code> method first makes sure that the container has at least one item, and then it checks whether the first item in the container matches the given item. This new <code class="docutils literal notranslate"><span class="pre">startsWith(_:)</span></code> method can be used with any type that conforms to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol, including the stacks and arrays used above, as long as the container’s items are equatable.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> [<span class="m">9</span>, <span class="m">9</span>, <span class="m">9</span>].<span class="nv">startsWith</span>(<span class="m">42</span>) {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Starts with 42.&quot;</span>)
+</li><li>} <span class="k">else</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Starts with something else.&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;Starts with something else.&quot;</span>
+</li></ol></div></div></div>
+<p>The generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause in the example above requires <code class="docutils literal notranslate"><span class="pre">Item</span></code> to conform to a protocol, but you can also write a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clauses that require <code class="docutils literal notranslate"><span class="pre">Item</span></code> to be a specific type. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">Container</span> <span class="k">where</span> <span class="nc">Item</span> == <span class="nc">Double</span> {
+</li><li>    <span class="k">func</span> <span class="nv">average</span>() -&gt; <span class="nc">Double</span> {
+</li><li>        <span class="k">var</span> <span class="nv">sum</span> = <span class="m">0.0</span>
+</li><li>        <span class="k">for</span> <span class="nv">index</span> <span class="k">in</span> <span class="m">0</span>..&lt;<span class="nv">count</span> {
+</li><li>            <span class="nv">sum</span> += <span class="k">self</span>[<span class="nv">index</span>]
+</li><li>        }
+</li><li>        <span class="k">return</span> <span class="nv">sum</span> / <span class="nv">Double</span>(<span class="nv">count</span>)
+</li><li>    }
+</li><li>}
+</li><li><span class="nv">print</span>([<span class="m">1260.0</span>, <span class="m">1200.0</span>, <span class="m">98.6</span>, <span class="m">37.0</span>].<span class="nv">average</span>())
+</li><li><span class="c">// Prints &quot;648.9&quot;</span>
+</li></ol></div></div></div>
+<p>This example adds an <code class="docutils literal notranslate"><span class="pre">average()</span></code> method to containers whose <code class="docutils literal notranslate"><span class="pre">Item</span></code> type is <code class="docutils literal notranslate"><span class="pre">Double</span></code>. It iterates over the items in the container to add them up, and divides by the container’s count to compute the average. It explicitly converts the count from <code class="docutils literal notranslate"><span class="pre">Int</span></code> to <code class="docutils literal notranslate"><span class="pre">Double</span></code> to be able to do floating-point division.</p>
+<p>You can include multiple requirements in a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause that’s part of an extension, just like you can for a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause that you write elsewhere. Separate each requirement in the list with a comma.</p>
+</div>
+<div class="section" id="ID628">
+<h2>Contextual Where Clauses<a class="headerlink" href="#ID628" title="Permalink to this headline">¶</a></h2>
+<p>You can write a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause as part of a declaration that doesn’t have its own generic type constraints, when you’re already working in the context of generic types. For example, you can write a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause on a subscript of a generic type or on a method in an extension to a generic type. The <code class="docutils literal notranslate"><span class="pre">Container</span></code> structure is generic, and the <code class="docutils literal notranslate"><span class="pre">where</span></code> clauses in the example below specify what type constraints have to be satisfied to make these new methods available on a container.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">Container</span> {
+</li><li>    <span class="k">func</span> <span class="nv">average</span>() -&gt; <span class="nc">Double</span> <span class="k">where</span> <span class="nv">Item</span> == <span class="nv">Int</span> {
+</li><li>        <span class="k">var</span> <span class="nv">sum</span> = <span class="m">0.0</span>
+</li><li>        <span class="k">for</span> <span class="nv">index</span> <span class="k">in</span> <span class="m">0</span>..&lt;<span class="nv">count</span> {
+</li><li>            <span class="nv">sum</span> += <span class="nv">Double</span>(<span class="k">self</span>[<span class="nv">index</span>])
+</li><li>        }
+</li><li>        <span class="k">return</span> <span class="nv">sum</span> / <span class="nv">Double</span>(<span class="nv">count</span>)
+</li><li>    }
+</li><li>    <span class="k">func</span> <span class="nv">endsWith</span>(<span class="k">_</span> <span class="nv">item</span>: <span class="nc">Item</span>) -&gt; <span class="nc">Bool</span> <span class="k">where</span> <span class="nv">Item</span>: <span class="nv">Equatable</span> {
+</li><li>        <span class="k">return</span> <span class="nv">count</span> &gt;= <span class="m">1</span> &amp;&amp; <span class="k">self</span>[<span class="nv">count</span>-<span class="m">1</span>] == <span class="nv">item</span>
+</li><li>    }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">numbers</span> = [<span class="m">1260</span>, <span class="m">1200</span>, <span class="m">98</span>, <span class="m">37</span>]
+</li><li><span class="nv">print</span>(<span class="nv">numbers</span>.<span class="nv">average</span>())
+</li><li><span class="c">// Prints &quot;648.75&quot;</span>
+</li><li><span class="nv">print</span>(<span class="nv">numbers</span>.<span class="nv">endsWith</span>(<span class="m">37</span>))
+</li><li><span class="c">// Prints &quot;true&quot;</span>
+</li></ol></div></div></div>
+<p>This example adds an <code class="docutils literal notranslate"><span class="pre">average()</span></code> method to <code class="docutils literal notranslate"><span class="pre">Container</span></code> when the items are integers, and it adds an <code class="docutils literal notranslate"><span class="pre">endsWith(_:)</span></code> method when the items are equatable. Both functions include a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause that adds type constraints to the generic <code class="docutils literal notranslate"><span class="pre">Item</span></code> type parameter from the original declaration of <code class="docutils literal notranslate"><span class="pre">Container</span></code>.</p>
+<p>If you want to write this code without using contextual <code class="docutils literal notranslate"><span class="pre">where</span></code> clauses, you write two extensions, one for each generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause. The example above and the example below have the same behavior.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">Container</span> <span class="k">where</span> <span class="nc">Item</span> == <span class="nc">Int</span> {
+</li><li>    <span class="k">func</span> <span class="nv">average</span>() -&gt; <span class="nc">Double</span> {
+</li><li>        <span class="k">var</span> <span class="nv">sum</span> = <span class="m">0.0</span>
+</li><li>        <span class="k">for</span> <span class="nv">index</span> <span class="k">in</span> <span class="m">0</span>..&lt;<span class="nv">count</span> {
+</li><li>            <span class="nv">sum</span> += <span class="nv">Double</span>(<span class="k">self</span>[<span class="nv">index</span>])
+</li><li>        }
+</li><li>        <span class="k">return</span> <span class="nv">sum</span> / <span class="nv">Double</span>(<span class="nv">count</span>)
+</li><li>    }
+</li><li>}
+</li><li><span class="k">extension</span> <span class="nc">Container</span> <span class="k">where</span> <span class="nc">Item</span>: <span class="nc">Equatable</span> {
+</li><li>    <span class="k">func</span> <span class="nv">endsWith</span>(<span class="k">_</span> <span class="nv">item</span>: <span class="nc">Item</span>) -&gt; <span class="nc">Bool</span> {
+</li><li>        <span class="k">return</span> <span class="nv">count</span> &gt;= <span class="m">1</span> &amp;&amp; <span class="k">self</span>[<span class="nv">count</span>-<span class="m">1</span>] == <span class="nv">item</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>In the version of this example that uses contextual <code class="docutils literal notranslate"><span class="pre">where</span></code> clauses, the implementation of <code class="docutils literal notranslate"><span class="pre">average()</span></code> and <code class="docutils literal notranslate"><span class="pre">endsWith(_:)</span></code> are both in the same extension because each method’s generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause states the requirements that need to be satisfied to make that method available. Moving those requirements to the extensions’ generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clauses makes the methods available in the same situations, but requires one extension per requirement.</p>
+</div>
+<div class="section" id="ID557">
+<h2>Associated Types with a Generic Where Clause<a class="headerlink" href="#ID557" title="Permalink to this headline">¶</a></h2>
+<p>You can include a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause on an associated type. For example, suppose you want to make a version of <code class="docutils literal notranslate"><span class="pre">Container</span></code> that includes an iterator, like what the <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> protocol uses in the standard library. Here’s how you write that:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">Container</span> {
+</li><li>    <span class="k">associatedtype</span> <span class="nv">Item</span>
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">append</span>(<span class="k">_</span> <span class="nv">item</span>: <span class="nc">Item</span>)
+</li><li>    <span class="k">var</span> <span class="nv">count</span>: <span class="nc">Int</span> { <span class="k">get</span> }
+</li><li>    <span class="k">subscript</span>(<span class="nv">i</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Item</span> { <span class="k">get</span> }
+</li><li>
+</li><li>    <span class="k">associatedtype</span> <span class="nv">Iterator</span>: <span class="nc">IteratorProtocol</span> <span class="k">where</span> <span class="nc">Iterator</span>.<span class="nc">Element</span> == <span class="nc">Item</span>
+</li><li>    <span class="k">func</span> <span class="nv">makeIterator</span>() -&gt; <span class="nc">Iterator</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>The generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause on <code class="docutils literal notranslate"><span class="pre">Iterator</span></code> requires that the iterator must traverse over elements of the same item type as the container’s items, regardless of the iterator’s type. The <code class="docutils literal notranslate"><span class="pre">makeIterator()</span></code> function provides access to a container’s iterator.</p>
+<p>For a protocol that inherits from another protocol, you add a constraint to an inherited associated type by including the generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause in the protocol declaration. For example, the following code declares a <code class="docutils literal notranslate"><span class="pre">ComparableContainer</span></code> protocol that requires <code class="docutils literal notranslate"><span class="pre">Item</span></code> to conform to <code class="docutils literal notranslate"><span class="pre">Comparable</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">ComparableContainer</span>: <span class="nc">Container</span> <span class="k">where</span> <span class="nc">Item</span>: <span class="nc">Comparable</span> { }
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID558">
+<h2>Generic Subscripts<a class="headerlink" href="#ID558" title="Permalink to this headline">¶</a></h2>
+<p>Subscripts can be generic, and they can include generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clauses. You write the placeholder type name inside angle brackets after <code class="docutils literal notranslate"><span class="pre">subscript</span></code>, and you write a generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause right before the opening curly brace of the subscript’s body. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">Container</span> {
+</li><li>    <span class="k">subscript</span>&lt;<span class="nv">Indices</span>: <span class="nc">Sequence</span>&gt;(<span class="nv">indices</span>: <span class="nc">Indices</span>) -&gt; [<span class="nc">Item</span>]
+</li><li>        <span class="k">where</span> <span class="nc">Indices</span>.<span class="nc">Iterator</span>.<span class="nc">Element</span> == <span class="nc">Int</span> {
+</li><li>            <span class="k">var</span> <span class="nv">result</span>: [<span class="nc">Item</span>] = []
+</li><li>            <span class="k">for</span> <span class="nv">index</span> <span class="k">in</span> <span class="nv">indices</span> {
+</li><li>                <span class="nv">result</span>.<span class="nv">append</span>(<span class="k">self</span>[<span class="nv">index</span>])
+</li><li>            }
+</li><li>            <span class="k">return</span> <span class="nv">result</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>This extension to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol adds a subscript that takes a sequence of indices and returns an array containing the items at each given index. This generic subscript is constrained as follows:</p>
+<ul class="simple">
+<li>The generic parameter <code class="docutils literal notranslate"><span class="pre">Indices</span></code> in angle brackets has to be a type that conforms to the <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> protocol from the standard library.</li>
+<li>The subscript takes a single parameter, <code class="docutils literal notranslate"><span class="pre">indices</span></code>, which is an instance of that <code class="docutils literal notranslate"><span class="pre">Indices</span></code> type.</li>
+<li>The generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause requires that the iterator for the sequence must traverse over elements of type <code class="docutils literal notranslate"><span class="pre">Int</span></code>. This ensures that the indices in the sequence are the same type as the indices used for a container.</li>
+</ul>
+<p>Taken together, these constraints mean that the value passed for the <code class="docutils literal notranslate"><span class="pre">indices</span></code> parameter is a sequence of integers.</p>
+</div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="Protocols.html">Protocols</a></p>
+        <p class="next"><a href="OpaqueTypes.html">Opaque Types</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  </body>
+</html>

@@ -1,0 +1,989 @@
+
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Apple Inc." />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    
+    <title>Expressions &mdash; The Swift Programming Language (Swift 5.6)</title>
+    
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css" />
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339" /> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LanguageGuide/TheBasics.html">Language Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="AboutTheLanguageReference.html">Language Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="AboutTheLanguageReference.html">About the Language Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LexicalStructure.html">Lexical Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Types.html">Types</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Statements.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Declarations.html">Declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Attributes.html">Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Patterns.html">Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GenericParametersAndArguments.html">Generic Parameters and Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zzSummaryOfTheGrammar.html">Summary of the Grammar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Expressions</a><ul>
+<li><a class="reference internal" href="#ID384">Prefix Expressions</a><ul>
+<li><a class="reference internal" href="#ID631">In-Out Expression</a></li>
+<li><a class="reference internal" href="#ID516">Try Operator</a></li>
+<li><a class="reference internal" href="#ID646">Await Operator</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID385">Infix Expressions</a><ul>
+<li><a class="reference internal" href="#ID386">Assignment Operator</a></li>
+<li><a class="reference internal" href="#ID387">Ternary Conditional Operator</a></li>
+<li><a class="reference internal" href="#ID388">Type-Casting Operators</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID389">Primary Expressions</a><ul>
+<li><a class="reference internal" href="#ID390">Literal Expression</a></li>
+<li><a class="reference internal" href="#ID391">Self Expression</a></li>
+<li><a class="reference internal" href="#ID392">Superclass Expression</a></li>
+<li><a class="reference internal" href="#ID393">Closure Expression</a><ul>
+<li><a class="reference internal" href="#ID544">Capture Lists</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID394">Implicit Member Expression</a></li>
+<li><a class="reference internal" href="#ID395">Parenthesized Expression</a></li>
+<li><a class="reference internal" href="#ID552">Tuple Expression</a></li>
+<li><a class="reference internal" href="#ID396">Wildcard Expression</a></li>
+<li><a class="reference internal" href="#ID563">Key-Path Expression</a></li>
+<li><a class="reference internal" href="#ID547">Selector Expression</a></li>
+<li><a class="reference internal" href="#ID549">Key-Path String Expression</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID397">Postfix Expressions</a><ul>
+<li><a class="reference internal" href="#ID398">Function Call Expression</a><ul>
+<li><a class="reference internal" href="#ID632">Implicit Conversion to a Pointer Type</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID399">Initializer Expression</a></li>
+<li><a class="reference internal" href="#ID400">Explicit Member Expression</a></li>
+<li><a class="reference internal" href="#ID401">Postfix Self Expression</a></li>
+<li><a class="reference internal" href="#ID403">Subscript Expression</a></li>
+<li><a class="reference internal" href="#ID404">Forced-Value Expression</a></li>
+<li><a class="reference internal" href="#ID405">Optional-Chaining Expression</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="expressions">
+<h1>Expressions<a class="headerlink" href="#expressions" title="Permalink to this headline">¶</a></h1>
+<p>In Swift, there are four kinds of expressions: prefix expressions, infix expressions, primary expressions, and postfix expressions. Evaluating an expression returns a value, causes a side effect, or both.</p>
+<p>Prefix and infix expressions let you apply operators to smaller expressions. Primary expressions are conceptually the simplest kind of expression, and they provide a way to access values. Postfix expressions, like prefix and infix expressions, let you build up more complex expressions using postfixes such as function calls and member access. Each kind of expression is described in detail in the sections below.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_expression"></a>expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_try-operator">try-operator</a></span> <sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_await-operator">await-operator</a></span> <sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_prefix-expression">prefix-expression</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_infix-expressions">infix-expressions</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_expression-list"></a>expression-list</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression-list">expression-list</a></span> </p></div></div><div class="section" id="ID384">
+<h2>Prefix Expressions<a class="headerlink" href="#ID384" title="Permalink to this headline">¶</a></h2>
+<p><em>Prefix expressions</em> combine an optional prefix operator with an expression. Prefix operators take one argument, the expression that follows them.</p>
+<p>For information about the behavior of these operators, see <a class="reference internal" href="../LanguageGuide/BasicOperators.html"><span class="doc">Basic Operators</span></a> and <a class="reference internal" href="../LanguageGuide/AdvancedOperators.html"><span class="doc">Advanced Operators</span></a>.</p>
+<p>For information about the operators provided by the Swift standard library, see <a class="reference external" href="https://developer.apple.com/documentation/swift/operator_declarations">Operator Declarations</a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a prefix expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_prefix-expression"></a>prefix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_prefix-operator">prefix-operator</a></span> <sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_prefix-expression_1060"></a>prefix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_in-out-expression">in-out-expression</a></span> </p></div></div><div class="section" id="ID631">
+<h3>In-Out Expression<a class="headerlink" href="#ID631" title="Permalink to this headline">¶</a></h3>
+<p>An <em>in-out expression</em> marks a variable that’s being passed as an in-out argument to a function call expression.</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>&amp;<span class="gi">expression</span>
+</li></ol></div></div></div>
+<p>For more information about in-out parameters and to see an example, see <a class="reference internal" href="../LanguageGuide/Functions.html#ID173"><span class="std std-ref">In-Out Parameters</span></a>.</p>
+<p>In-out expressions are also used when providing a non-pointer argument in a context where a pointer is needed, as described in <a class="reference internal" href="#ID632"><span class="std std-ref">Implicit Conversion to a Pointer Type</span></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an in-out expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_in-out-expression"></a>in-out-expression</span><span class="arrow"> → </span> <code>&amp;</code> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span> </p></div></div></div>
+<div class="section" id="ID516">
+<h3>Try Operator<a class="headerlink" href="#ID516" title="Permalink to this headline">¶</a></h3>
+<p>A <em>try expression</em> consists of the <code class="docutils literal notranslate"><span class="pre">try</span></code> operator followed by an expression that can throw an error. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">try</span> <span class="gi">expression</span>
+</li></ol></div></div></div>
+<p>The value of a <code class="docutils literal notranslate"><span class="pre">try</span></code> expression is the value of the <em>expression</em>.</p>
+<p>An <em>optional-try expression</em> consists of the <code class="docutils literal notranslate"><span class="pre">try?</span></code> operator followed by an expression that can throw an error. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">try</span>? <span class="gi">expression</span>
+</li></ol></div></div></div>
+<p>If the <em>expression</em> doesn’t throw an error, the value of the optional-try expression is an optional containing the value of the <em>expression</em>. Otherwise, the value of the optional-try expression is <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p>A <em>forced-try expression</em> consists of the <code class="docutils literal notranslate"><span class="pre">try!</span></code> operator followed by an expression that can throw an error. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">try</span>! <span class="gi">expression</span>
+</li></ol></div></div></div>
+<p>The value of a forced-try expression is the value of the <em>expression</em>. If the <em>expression</em> throws an error, a runtime error is produced.</p>
+<p>When the expression on the left-hand side of an infix operator is marked with <code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">try?</span></code>, or <code class="docutils literal notranslate"><span class="pre">try!</span></code>, that operator applies to the whole infix expression. That said, you can use parentheses to be explicit about the scope of the operator’s application.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="c">// try applies to both function calls</span>
+</li><li><span class="nv">sum</span> = <span class="k">try</span> <span class="nv">someThrowingFunction</span>() + <span class="nv">anotherThrowingFunction</span>()
+</li><li>
+</li><li><span class="c">// try applies to both function calls</span>
+</li><li><span class="nv">sum</span> = <span class="k">try</span> (<span class="nv">someThrowingFunction</span>() + <span class="nv">anotherThrowingFunction</span>())
+</li><li>
+</li><li><span class="c">// Error: try applies only to the first function call</span>
+</li><li><span class="nv">sum</span> = (<span class="k">try</span> <span class="nv">someThrowingFunction</span>()) + <span class="nv">anotherThrowingFunction</span>()
+</li></ol></div></div></div>
+<p>A <code class="docutils literal notranslate"><span class="pre">try</span></code> expression can’t appear on the right-hand side of an infix operator, unless the infix operator is the assignment operator or the <code class="docutils literal notranslate"><span class="pre">try</span></code> expression is enclosed in parentheses.</p>
+<p>If an expression includes both the <code class="docutils literal notranslate"><span class="pre">try</span></code> and <code class="docutils literal notranslate"><span class="pre">await</span></code> operator, the <code class="docutils literal notranslate"><span class="pre">try</span></code> operator must appear first.</p>
+<p>For more information and to see examples of how to use <code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">try?</span></code>, and <code class="docutils literal notranslate"><span class="pre">try!</span></code>, see <a class="reference internal" href="../LanguageGuide/ErrorHandling.html"><span class="doc">Error Handling</span></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a try expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_try-operator"></a>try-operator</span><span class="arrow"> → </span> <code>try</code> |  <code>try</code> <code>?</code> |  <code>try</code> <code>!</code></p></div></div></div>
+<div class="section" id="ID646">
+<h3>Await Operator<a class="headerlink" href="#ID646" title="Permalink to this headline">¶</a></h3>
+<p>An <em>await expression</em> consists of the <code class="docutils literal notranslate"><span class="pre">await</span></code> operator followed by an expression that uses the result of an asynchronous operation. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">await</span> <span class="gi">expression</span>
+</li></ol></div></div></div>
+<p>The value of an <code class="docutils literal notranslate"><span class="pre">await</span></code> expression is the value of the <em>expression</em>.</p>
+<p>An expression marked with <code class="docutils literal notranslate"><span class="pre">await</span></code> is called a <em>potential suspension point</em>. Execution of an asynchronous function can be suspended at each expression that’s marked with <code class="docutils literal notranslate"><span class="pre">await</span></code>. In addition, execution of concurrent code is never suspended at any other point. This means code between potential suspension points can safely update state that requires temporarily breaking invariants, provided that it completes the update before the next potential suspension point.</p>
+<p>An <code class="docutils literal notranslate"><span class="pre">await</span></code> expression can appear only within an asynchronous context, such as the trailing closure passed to the <code class="docutils literal notranslate"><span class="pre">async(priority:operation:)</span></code> function. It can’t appear in the body of a <code class="docutils literal notranslate"><span class="pre">defer</span></code> statement, or in an autoclosure of synchronous function type.</p>
+<p>When the expression on the left-hand side of an infix operator is marked with the <code class="docutils literal notranslate"><span class="pre">await</span></code> operator, that operator applies to the whole infix expression. That said, you can use parentheses to be explicit about the scope of the operator’s application.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="c">// await applies to both function calls</span>
+</li><li><span class="nv">sum</span> = <span class="nv">await</span> <span class="nv">someAsyncFunction</span>() + <span class="nv">anotherAsyncFunction</span>()
+</li><li>
+</li><li><span class="c">// await applies to both function calls</span>
+</li><li><span class="nv">sum</span> = <span class="nv">await</span> (<span class="nv">someAsyncFunction</span>() + <span class="nv">anotherAsyncFunction</span>())
+</li><li>
+</li><li><span class="c">// Error: await applies only to the first function call</span>
+</li><li><span class="nv">sum</span> = (<span class="nv">await</span> <span class="nv">someAsyncFunction</span>()) + <span class="nv">anotherAsyncFunction</span>()
+</li></ol></div></div></div>
+<p>An <code class="docutils literal notranslate"><span class="pre">await</span></code> expression can’t appear on the right-hand side of an infix operator, unless the infix operator is the assignment operator or the <code class="docutils literal notranslate"><span class="pre">await</span></code> expression is enclosed in parentheses.</p>
+<p>If an expression includes both the <code class="docutils literal notranslate"><span class="pre">await</span></code> and <code class="docutils literal notranslate"><span class="pre">try</span></code> operator, the <code class="docutils literal notranslate"><span class="pre">try</span></code> operator must appear first.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an await expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_await-operator"></a>await-operator</span><span class="arrow"> → </span> <code>await</code></p></div></div></div>
+</div>
+<div class="section" id="ID385">
+<h2>Infix Expressions<a class="headerlink" href="#ID385" title="Permalink to this headline">¶</a></h2>
+<p><em>Infix expressions</em> combine an infix binary operator with the expression that it takes as its left- and right-hand arguments. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="gi">left-hand argument</span> <span class="gi">operator</span> <span class="gi">right-hand argument</span>
+</li></ol></div></div></div>
+<p>For information about the behavior of these operators, see <a class="reference internal" href="../LanguageGuide/BasicOperators.html"><span class="doc">Basic Operators</span></a> and <a class="reference internal" href="../LanguageGuide/AdvancedOperators.html"><span class="doc">Advanced Operators</span></a>.</p>
+<p>For information about the operators provided by the Swift standard library, see <a class="reference external" href="https://developer.apple.com/documentation/swift/operator_declarations">Operator Declarations</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">At parse time, an expression made up of infix operators is represented as a flat list. This list is transformed into a tree by applying operator precedence. For example, the expression <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span> <span class="pre">*</span> <span class="pre">5</span></code> is initially understood as a flat list of five items, <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, and <code class="docutils literal notranslate"><span class="pre">5</span></code>. This process transforms it into the tree (2 + (3 * 5)).</p>
+</div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an infix expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_infix-expression"></a>infix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_infix-operator">infix-operator</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_prefix-expression">prefix-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_infix-expression_1061"></a>infix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_assignment-operator">assignment-operator</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_try-operator">try-operator</a></span> <sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_prefix-expression">prefix-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_infix-expression_1062"></a>infix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_conditional-operator">conditional-operator</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_try-operator">try-operator</a></span> <sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_prefix-expression">prefix-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_infix-expression_1063"></a>infix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_type-casting-operator">type-casting-operator</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_infix-expressions"></a>infix-expressions</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_infix-expression">infix-expression</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_infix-expressions">infix-expressions</a></span> <sub>opt</sub></p></div></div><div class="section" id="ID386">
+<h3>Assignment Operator<a class="headerlink" href="#ID386" title="Permalink to this headline">¶</a></h3>
+<p>The <em>assignment operator</em> sets a new value for a given expression. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="gi">expression</span> = <span class="gi">value</span>
+</li></ol></div></div></div>
+<p>The value of the <em>expression</em> is set to the value obtained by evaluating the <em>value</em>. If the <em>expression</em> is a tuple, the <em>value</em> must be a tuple with the same number of elements. (Nested tuples are allowed.) Assignment is performed from each part of the <em>value</em> to the corresponding part of the <em>expression</em>. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>(<span class="nv">a</span>, <span class="k">_</span>, (<span class="nv">b</span>, <span class="nv">c</span>)) = (<span class="s">&quot;test&quot;</span>, <span class="m">9.45</span>, (<span class="m">12</span>, <span class="m">3</span>))
+</li><li><span class="c">// a is &quot;test&quot;, b is 12, c is 3, and 9.45 is ignored</span>
+</li></ol></div></div></div>
+<p>The assignment operator doesn’t return any value.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an assignment operator</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_assignment-operator"></a>assignment-operator</span><span class="arrow"> → </span> <code>=</code></p></div></div></div>
+<div class="section" id="ID387">
+<h3>Ternary Conditional Operator<a class="headerlink" href="#ID387" title="Permalink to this headline">¶</a></h3>
+<p>The <em>ternary conditional operator</em> evaluates to one of two given values based on the value of a condition. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="gi">condition</span> ? <span class="gi">expression used if true</span> : <span class="gi">expression used if false</span>
+</li></ol></div></div></div>
+<p>If the <em>condition</em> evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>, the conditional operator evaluates the first expression and returns its value. Otherwise, it evaluates the second expression and returns its value. The unused expression isn’t evaluated.</p>
+<p>For an example that uses the ternary conditional operator, see <a class="reference internal" href="../LanguageGuide/BasicOperators.html#ID71"><span class="std std-ref">Ternary Conditional Operator</span></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a conditional operator</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_conditional-operator"></a>conditional-operator</span><span class="arrow"> → </span> <code>?</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  <code>:</code></p></div></div></div>
+<div class="section" id="ID388">
+<h3>Type-Casting Operators<a class="headerlink" href="#ID388" title="Permalink to this headline">¶</a></h3>
+<p>There are four type-casting operators: the <code class="docutils literal notranslate"><span class="pre">is</span></code> operator, the <code class="docutils literal notranslate"><span class="pre">as</span></code> operator, the <code class="docutils literal notranslate"><span class="pre">as?</span></code> operator, and the <code class="docutils literal notranslate"><span class="pre">as!</span></code> operator.</p>
+<p>They have the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="gi">expression</span> <span class="k">is</span> <span class="gi">type</span>
+</li><li><span class="gi">expression</span> <span class="k">as</span> <span class="gi">type</span>
+</li><li><span class="gi">expression</span> <span class="k">as</span>? <span class="gi">type</span>
+</li><li><span class="gi">expression</span> <span class="k">as</span>! <span class="gi">type</span>
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">is</span></code> operator checks at runtime whether the <em>expression</em> can be cast to the specified <em>type</em>. It returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if the <em>expression</em> can be cast to the specified <em>type</em>; otherwise, it returns <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">as</span></code> operator performs a cast when it’s known at compile time that the cast always succeeds, such as upcasting or bridging. Upcasting lets you use an expression as an instance of its type’s supertype, without using an intermediate variable. The following approaches are equivalent:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">f</span>(<span class="k">_</span> <span class="nv">any</span>: <span class="k">Any</span>) { <span class="nv">print</span>(<span class="s">&quot;Function for Any&quot;</span>) }
+</li><li><span class="k">func</span> <span class="nv">f</span>(<span class="k">_</span> <span class="nv">int</span>: <span class="nc">Int</span>) { <span class="nv">print</span>(<span class="s">&quot;Function for Int&quot;</span>) }
+</li><li><span class="k">let</span> <span class="nv">x</span> = <span class="m">10</span>
+</li><li><span class="nv">f</span>(<span class="nv">x</span>)
+</li><li><span class="c">// Prints &quot;Function for Int&quot;</span>
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">y</span>: <span class="k">Any</span> = <span class="nv">x</span>
+</li><li><span class="nv">f</span>(<span class="nv">y</span>)
+</li><li><span class="c">// Prints &quot;Function for Any&quot;</span>
+</li><li>
+</li><li><span class="nv">f</span>(<span class="nv">x</span> <span class="k">as</span> <span class="k">Any</span>)
+</li><li><span class="c">// Prints &quot;Function for Any&quot;</span>
+</li></ol></div></div></div>
+<p>Bridging lets you use an expression of a Swift standard library type such as <code class="docutils literal notranslate"><span class="pre">String</span></code> as its corresponding Foundation type such as <code class="docutils literal notranslate"><span class="pre">NSString</span></code> without needing to create a new instance. For more information on bridging, see <a class="reference external" href="https://developer.apple.com/documentation/swift/imported_c_and_objective_c_apis/working_with_foundation_types">Working with Foundation Types</a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">as?</span></code> operator performs a conditional cast of the <em>expression</em> to the specified <em>type</em>. The <code class="docutils literal notranslate"><span class="pre">as?</span></code> operator returns an optional of the specified <em>type</em>. At runtime, if the cast succeeds, the value of <em>expression</em> is wrapped in an optional and returned; otherwise, the value returned is <code class="docutils literal notranslate"><span class="pre">nil</span></code>. If casting to the specified <em>type</em> is guaranteed to fail or is guaranteed to succeed, a compile-time error is raised.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">as!</span></code> operator performs a forced cast of the <em>expression</em> to the specified <em>type</em>. The <code class="docutils literal notranslate"><span class="pre">as!</span></code> operator returns a value of the specified <em>type</em>, not an optional type. If the cast fails, a runtime error is raised. The behavior of <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">as!</span> <span class="pre">T</span></code> is the same as the behavior of <code class="docutils literal notranslate"><span class="pre">(x</span> <span class="pre">as?</span> <span class="pre">T)!</span></code>.</p>
+<p>For more information about type casting and to see examples that use the type-casting operators, see <a class="reference internal" href="../LanguageGuide/TypeCasting.html"><span class="doc">Type Casting</span></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a type-casting operator</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type-casting-operator"></a>type-casting-operator</span><span class="arrow"> → </span> <code>is</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type-casting-operator_1064"></a>type-casting-operator</span><span class="arrow"> → </span> <code>as</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type-casting-operator_1065"></a>type-casting-operator</span><span class="arrow"> → </span> <code>as</code> <code>?</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type-casting-operator_1066"></a>type-casting-operator</span><span class="arrow"> → </span> <code>as</code> <code>!</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span> </p></div></div></div>
+</div>
+<div class="section" id="ID389">
+<h2>Primary Expressions<a class="headerlink" href="#ID389" title="Permalink to this headline">¶</a></h2>
+<p><em>Primary expressions</em> are the most basic kind of expression. They can be used as expressions on their own, and they can be combined with other tokens to make prefix expressions, infix expressions, and postfix expressions.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a primary expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_primary-expression"></a>primary-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-clause">generic-argument-clause</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_primary-expression_1067"></a>primary-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_literal-expression">literal-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_primary-expression_1068"></a>primary-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_self-expression">self-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_primary-expression_1069"></a>primary-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_superclass-expression">superclass-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_primary-expression_1070"></a>primary-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_closure-expression">closure-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_primary-expression_1071"></a>primary-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_parenthesized-expression">parenthesized-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_primary-expression_1072"></a>primary-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_tuple-expression">tuple-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_primary-expression_1073"></a>primary-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_implicit-member-expression">implicit-member-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_primary-expression_1074"></a>primary-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_wildcard-expression">wildcard-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_primary-expression_1075"></a>primary-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_key-path-expression">key-path-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_primary-expression_1076"></a>primary-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_selector-expression">selector-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_primary-expression_1077"></a>primary-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_key-path-string-expression">key-path-string-expression</a></span> </p></div></div><div class="section" id="ID390">
+<h3>Literal Expression<a class="headerlink" href="#ID390" title="Permalink to this headline">¶</a></h3>
+<p>A <em>literal expression</em> consists of either an ordinary literal (such as a string or a number), an array or dictionary literal, a playground literal, or one of the following special literals:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="14%" />
+<col width="21%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Literal</th>
+<th class="head">Type</th>
+<th class="head">Value</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">#file</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">String</span></code></td>
+<td>The path to the file in which it appears.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">#fileID</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">String</span></code></td>
+<td>The name of the file and module in which it appears.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">#filePath</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">String</span></code></td>
+<td>The path to the file in which it appears.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">#line</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">Int</span></code></td>
+<td>The line number on which it appears.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">#column</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">Int</span></code></td>
+<td>The column number in which it begins.</td>
+</tr>
+<tr class="row-odd"><td><code class="docutils literal notranslate"><span class="pre">#function</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">String</span></code></td>
+<td>The name of the declaration in which it appears.</td>
+</tr>
+<tr class="row-even"><td><code class="docutils literal notranslate"><span class="pre">#dsohandle</span></code></td>
+<td><code class="docutils literal notranslate"><span class="pre">UnsafeRawPointer</span></code></td>
+<td>The dynamic shared object (DSO) handle in use where it appears.</td>
+</tr>
+</tbody>
+</table>
+<p>The string value of <code class="docutils literal notranslate"><span class="pre">#file</span></code> depends on the language version, to enable migration from the old <code class="docutils literal notranslate"><span class="pre">#filePath</span></code> behavior to the new <code class="docutils literal notranslate"><span class="pre">#fileID</span></code> behavior. Currently, <code class="docutils literal notranslate"><span class="pre">#file</span></code> has the same value as <code class="docutils literal notranslate"><span class="pre">#filePath</span></code>. In a future version of Swift, <code class="docutils literal notranslate"><span class="pre">#file</span></code> will have the same value as <code class="docutils literal notranslate"><span class="pre">#fileID</span></code> instead. To adopt the future behavior, replace <code class="docutils literal notranslate"><span class="pre">#file</span></code> with <code class="docutils literal notranslate"><span class="pre">#fileID</span></code> or <code class="docutils literal notranslate"><span class="pre">#filePath</span></code> as appropriate.</p>
+<p>The string value of a <code class="docutils literal notranslate"><span class="pre">#fileID</span></code> expression has the form <em>module</em>/<em>file</em>, where <em>file</em> is the name of the file in which the expression appears and <em>module</em> is the name of the module that this file is part of. The string value of a <code class="docutils literal notranslate"><span class="pre">#filePath</span></code> expression is the full file-system path to the file in which the expression appears. Both of these values can be changed by <code class="docutils literal notranslate"><span class="pre">#sourceLocation</span></code>, as described in <a class="reference internal" href="Statements.html#ID540"><span class="std std-ref">Line Control Statement</span></a>. Because <code class="docutils literal notranslate"><span class="pre">#fileID</span></code> doesn’t embed the full path to the source file, unlike <code class="docutils literal notranslate"><span class="pre">#filePath</span></code>, it gives you better privacy and reduces the size of the compiled binary. Avoid using <code class="docutils literal notranslate"><span class="pre">#filePath</span></code> outside of tests, build scripts, or other code that doesn’t become part of the shipping program.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">To parse a <code class="docutils literal notranslate"><span class="pre">#fileID</span></code> expression, read the module name as the text before the first slash (<code class="docutils literal notranslate"><span class="pre">/</span></code>) and the filename as the text after the last slash. In the future, the string might contain multiple slashes, such as <code class="docutils literal notranslate"><span class="pre">MyModule/some/disambiguation/MyFile.swift</span></code>.</p>
+</div>
+<p>Inside a function, the value of <code class="docutils literal notranslate"><span class="pre">#function</span></code> is the name of that function, inside a method it’s the name of that method, inside a property getter or setter it’s the name of that property, inside special members like <code class="docutils literal notranslate"><span class="pre">init</span></code> or <code class="docutils literal notranslate"><span class="pre">subscript</span></code> it’s the name of that keyword, and at the top level of a file it’s the name of the current module.</p>
+<p>When used as the default value of a function or method parameter, the special literal’s value is determined when the default value expression is evaluated at the call site.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">logFunctionName</span>(<span class="nv">string</span>: <span class="nc">String</span> = <span class="k">#function</span>) {
+</li><li>    <span class="nv">print</span>(<span class="nv">string</span>)
+</li><li>}
+</li><li><span class="k">func</span> <span class="nv">myFunction</span>() {
+</li><li>    <span class="nv">logFunctionName</span>() <span class="c">// Prints &quot;myFunction()&quot;.</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>An <em>array literal</em> is an ordered collection of values. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>[<span class="gi">value 1</span>, <span class="gi">value 2</span>, <span class="gi">...</span>]
+</li></ol></div></div></div>
+<p>The last expression in the array can be followed by an optional comma. The value of an array literal has type <code class="docutils literal notranslate"><span class="pre">[T]</span></code>, where <code class="docutils literal notranslate"><span class="pre">T</span></code> is the type of the expressions inside it. If there are expressions of multiple types, <code class="docutils literal notranslate"><span class="pre">T</span></code> is their closest common supertype. Empty array literals are written using an empty pair of square brackets and can be used to create an empty array of a specified type.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">emptyArray</span>: [<span class="nc">Double</span>] = []
+</li></ol></div></div></div>
+<p>A <em>dictionary literal</em> is an unordered collection of key-value pairs. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>[<span class="gi">key 1</span>: <span class="gi">value 1</span>, <span class="gi">key 2</span>: <span class="gi">value 2</span>, <span class="gi">...</span>]
+</li></ol></div></div></div>
+<p>The last expression in the dictionary can be followed by an optional comma. The value of a dictionary literal has type <code class="docutils literal notranslate"><span class="pre">[Key:</span> <span class="pre">Value]</span></code>, where <code class="docutils literal notranslate"><span class="pre">Key</span></code> is the type of its key expressions and <code class="docutils literal notranslate"><span class="pre">Value</span></code> is the type of its value expressions. If there are expressions of multiple types, <code class="docutils literal notranslate"><span class="pre">Key</span></code> and <code class="docutils literal notranslate"><span class="pre">Value</span></code> are the closest common supertype for their respective values. An empty dictionary literal is written as a colon inside a pair of brackets (<code class="docutils literal notranslate"><span class="pre">[:]</span></code>) to distinguish it from an empty array literal. You can use an empty dictionary literal to create an empty dictionary literal of specified key and value types.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">emptyDictionary</span>: [<span class="nc">String</span>: <span class="nc">Double</span>] = [:]
+</li></ol></div></div></div>
+<p>A <em>playground literal</em> is used by Xcode to create an interactive representation of a color, file, or image within the program editor. Playground literals in plain text outside of Xcode are represented using a special literal syntax.</p>
+<p>For information on using playground literals in Xcode, see <a class="reference external" href="https://help.apple.com/xcode/mac/current/#/dev4c60242fc">Add a color, file, or image literal</a> in Xcode Help.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a literal expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_literal-expression"></a>literal-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_literal">literal</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_literal-expression_1078"></a>literal-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_array-literal">array-literal</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_dictionary-literal">dictionary-literal</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_playground-literal">playground-literal</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_literal-expression_1079"></a>literal-expression</span><span class="arrow"> → </span> <code>#file</code> |  <code>#fileID</code> |  <code>#filePath</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_literal-expression_1080"></a>literal-expression</span><span class="arrow"> → </span> <code>#line</code> |  <code>#column</code> |  <code>#function</code> |  <code>#dsohandle</code></p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_array-literal"></a>array-literal</span><span class="arrow"> → </span> <code>[</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_array-literal-items">array-literal-items</a></span> <sub>opt</sub> <code>]</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_array-literal-items"></a>array-literal-items</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_array-literal-item">array-literal-item</a></span>  <code>,</code><sub>opt</sub> |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_array-literal-item">array-literal-item</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_array-literal-items">array-literal-items</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_array-literal-item"></a>array-literal-item</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span> </p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_dictionary-literal"></a>dictionary-literal</span><span class="arrow"> → </span> <code>[</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_dictionary-literal-items">dictionary-literal-items</a></span>  <code>]</code> |  <code>[</code> <code>:</code> <code>]</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_dictionary-literal-items"></a>dictionary-literal-items</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_dictionary-literal-item">dictionary-literal-item</a></span>  <code>,</code><sub>opt</sub> |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_dictionary-literal-item">dictionary-literal-item</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_dictionary-literal-items">dictionary-literal-items</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_dictionary-literal-item"></a>dictionary-literal-item</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span> </p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_playground-literal"></a>playground-literal</span><span class="arrow"> → </span> <code>#colorLiteral</code> <code>(</code> <code>red</code> <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  <code>,</code> <code>green</code> <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  <code>,</code> <code>blue</code> <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  <code>,</code> <code>alpha</code> <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  <code>)</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_playground-literal_1081"></a>playground-literal</span><span class="arrow"> → </span> <code>#fileLiteral</code> <code>(</code> <code>resourceName</code> <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  <code>)</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_playground-literal_1082"></a>playground-literal</span><span class="arrow"> → </span> <code>#imageLiteral</code> <code>(</code> <code>resourceName</code> <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  <code>)</code></p></div></div></div>
+<div class="section" id="ID391">
+<h3>Self Expression<a class="headerlink" href="#ID391" title="Permalink to this headline">¶</a></h3>
+<p>The <code class="docutils literal notranslate"><span class="pre">self</span></code> expression is an explicit reference to the current type or instance of the type in which it occurs. It has the following forms:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">self</span>
+</li><li><span class="k">self</span>.<span class="gi">member name</span>
+</li><li><span class="k">self</span>[<span class="gi">subscript index</span>]
+</li><li><span class="k">self</span>(<span class="gi">initializer arguments</span>)
+</li><li><span class="k">self</span>.<span class="nv">init</span>(<span class="gi">initializer arguments</span>)
+</li></ol></div></div></div>
+<p>In an initializer, subscript, or instance method, <code class="docutils literal notranslate"><span class="pre">self</span></code> refers to the current instance of the type in which it occurs. In a type method, <code class="docutils literal notranslate"><span class="pre">self</span></code> refers to the current type in which it occurs.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">self</span></code> expression is used to specify scope when accessing members, providing disambiguation when there’s another variable of the same name in scope, such as a function parameter. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SomeClass</span> {
+</li><li>    <span class="k">var</span> <span class="nv">greeting</span>: <span class="nc">String</span>
+</li><li>    <span class="k">init</span>(<span class="nv">greeting</span>: <span class="nc">String</span>) {
+</li><li>        <span class="k">self</span>.<span class="nv">greeting</span> = <span class="nv">greeting</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>In a mutating method of a value type, you can assign a new instance of that value type to <code class="docutils literal notranslate"><span class="pre">self</span></code>. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Point</span> {
+</li><li>    <span class="k">var</span> <span class="nv">x</span> = <span class="m">0.0</span>, <span class="nv">y</span> = <span class="m">0.0</span>
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">moveBy</span>(<span class="nv">x</span> <span class="nv">deltaX</span>: <span class="nc">Double</span>, <span class="nv">y</span> <span class="nv">deltaY</span>: <span class="nc">Double</span>) {
+</li><li>        <span class="k">self</span> = <span class="nv">Point</span>(<span class="nv">x</span>: <span class="nv">x</span> + <span class="nv">deltaX</span>, <span class="nv">y</span>: <span class="nv">y</span> + <span class="nv">deltaY</span>)
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a self expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_self-expression"></a>self-expression</span><span class="arrow"> → </span> <code>self</code> |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_self-method-expression">self-method-expression</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_self-subscript-expression">self-subscript-expression</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_self-initializer-expression">self-initializer-expression</a></span> </p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_self-method-expression"></a>self-method-expression</span><span class="arrow"> → </span> <code>self</code> <code>.</code> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_self-subscript-expression"></a>self-subscript-expression</span><span class="arrow"> → </span> <code>self</code> <code>[</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_function-call-argument-list">function-call-argument-list</a></span>  <code>]</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_self-initializer-expression"></a>self-initializer-expression</span><span class="arrow"> → </span> <code>self</code> <code>.</code> <code>init</code></p></div></div></div>
+<div class="section" id="ID392">
+<h3>Superclass Expression<a class="headerlink" href="#ID392" title="Permalink to this headline">¶</a></h3>
+<p>A <em>superclass expression</em> lets a class interact with its superclass. It has one of the following forms:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">super</span>.<span class="gi">member name</span>
+</li><li><span class="k">super</span>[<span class="gi">subscript index</span>]
+</li><li><span class="k">super</span>.<span class="nv">init</span>(<span class="gi">initializer arguments</span>)
+</li></ol></div></div></div>
+<p>The first form is used to access a member of the superclass. The second form is used to access the superclass’s subscript implementation. The third form is used to access an initializer of the superclass.</p>
+<p>Subclasses can use a superclass expression in their implementation of members, subscripting, and initializers to make use of the implementation in their superclass.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a superclass expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_superclass-expression"></a>superclass-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_superclass-method-expression">superclass-method-expression</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_superclass-subscript-expression">superclass-subscript-expression</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_superclass-initializer-expression">superclass-initializer-expression</a></span> </p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_superclass-method-expression"></a>superclass-method-expression</span><span class="arrow"> → </span> <code>super</code> <code>.</code> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_superclass-subscript-expression"></a>superclass-subscript-expression</span><span class="arrow"> → </span> <code>super</code> <code>[</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_function-call-argument-list">function-call-argument-list</a></span>  <code>]</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_superclass-initializer-expression"></a>superclass-initializer-expression</span><span class="arrow"> → </span> <code>super</code> <code>.</code> <code>init</code></p></div></div></div>
+<div class="section" id="ID393">
+<h3>Closure Expression<a class="headerlink" href="#ID393" title="Permalink to this headline">¶</a></h3>
+<p>A <em>closure expression</em> creates a closure, also known as a <em>lambda</em> or an <em>anonymous function</em> in other programming languages. Like a function declaration, a closure contains statements, and it captures constants and variables from its enclosing scope. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>{ (<span class="gi">parameters</span>) -&gt; <span class="gi">return type</span> <span class="k">in</span>
+</li><li>    <span class="gi">statements</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>The <em>parameters</em> have the same form as the parameters in a function declaration, as described in <a class="reference internal" href="Declarations.html#ID362"><span class="std std-ref">Function Declaration</span></a>.</p>
+<p>There are several special forms that allow closures to be written more concisely:</p>
+<ul class="simple">
+<li>A closure can omit the types of its parameters, its return type, or both. If you omit the parameter names and both types, omit the <code class="docutils literal notranslate"><span class="pre">in</span></code> keyword before the statements. If the omitted types can’t be inferred, a compile-time error is raised.</li>
+<li>A closure may omit names for its parameters. Its parameters are then implicitly named <code class="docutils literal notranslate"><span class="pre">$</span></code> followed by their position: <code class="docutils literal notranslate"><span class="pre">$0</span></code>, <code class="docutils literal notranslate"><span class="pre">$1</span></code>, <code class="docutils literal notranslate"><span class="pre">$2</span></code>, and so on.</li>
+<li>A closure that consists of only a single expression is understood to return the value of that expression. The contents of this expression are also considered when performing type inference on the surrounding expression.</li>
+</ul>
+<p>The following closure expressions are equivalent:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">myFunction</span> { (<span class="nv">x</span>: <span class="nc">Int</span>, <span class="nv">y</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> <span class="k">in</span>
+</li><li>    <span class="k">return</span> <span class="nv">x</span> + <span class="nv">y</span>
+</li><li>}
+</li><li>
+</li><li><span class="nv">myFunction</span> { <span class="nv">x</span>, <span class="nv">y</span> <span class="k">in</span>
+</li><li>    <span class="k">return</span> <span class="nv">x</span> + <span class="nv">y</span>
+</li><li>}
+</li><li>
+</li><li><span class="nv">myFunction</span> { <span class="k">return</span> <span class="nv">$0</span> + <span class="nv">$1</span> }
+</li><li>
+</li><li><span class="nv">myFunction</span> { <span class="nv">$0</span> + <span class="nv">$1</span> }
+</li></ol></div></div></div>
+<p>For information about passing a closure as an argument to a function, see <a class="reference internal" href="#ID398"><span class="std std-ref">Function Call Expression</span></a>.</p>
+<p>Closure expressions can be used without being stored in a variable or constant, such as when you immediately use a closure as part of a function call. The closure expressions passed to <code class="docutils literal notranslate"><span class="pre">myFunction</span></code> in code above are examples of this kind of immediate use. As a result, whether a closure expression is escaping or nonescaping depends on the surrounding context of the expression. A closure expression is nonescaping if it’s called immediately or passed as a nonescaping function argument. Otherwise, the closure expression is escaping.</p>
+<p>For more information about escaping closures, see <a class="reference internal" href="../LanguageGuide/Closures.html#ID546"><span class="std std-ref">Escaping Closures</span></a>.</p>
+<div class="section" id="ID544">
+<h4>Capture Lists<a class="headerlink" href="#ID544" title="Permalink to this headline">¶</a></h4>
+<p>By default, a closure expression captures constants and variables from its surrounding scope with strong references to those values. You can use a <em>capture list</em> to explicitly control how values are captured in a closure.</p>
+<p>A capture list is written as a comma-separated list of expressions surrounded by square brackets, before the list of parameters. If you use a capture list, you must also use the <code class="docutils literal notranslate"><span class="pre">in</span></code> keyword, even if you omit the parameter names, parameter types, and return type.</p>
+<p>The entries in the capture list are initialized when the closure is created. For each entry in the capture list, a constant is initialized to the value of the constant or variable that has the same name in the surrounding scope. For example in the code below, <code class="docutils literal notranslate"><span class="pre">a</span></code> is included in the capture list but <code class="docutils literal notranslate"><span class="pre">b</span></code> is not, which gives them different behavior.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">a</span> = <span class="m">0</span>
+</li><li><span class="k">var</span> <span class="nv">b</span> = <span class="m">0</span>
+</li><li><span class="k">let</span> <span class="nv">closure</span> = { [<span class="nv">a</span>] <span class="k">in</span>
+</li><li>    <span class="nv">print</span>(<span class="nv">a</span>, <span class="nv">b</span>)
+</li><li>}
+</li><li>
+</li><li><span class="nv">a</span> = <span class="m">10</span>
+</li><li><span class="nv">b</span> = <span class="m">10</span>
+</li><li><span class="nv">closure</span>()
+</li><li><span class="c">// Prints &quot;0 10&quot;</span>
+</li></ol></div></div></div>
+<p>There are two different things named <code class="docutils literal notranslate"><span class="pre">a</span></code>, the variable in the surrounding scope and the constant in the closure’s scope, but only one variable named <code class="docutils literal notranslate"><span class="pre">b</span></code>. The <code class="docutils literal notranslate"><span class="pre">a</span></code> in the inner scope is initialized with the value of the <code class="docutils literal notranslate"><span class="pre">a</span></code> in the outer scope when the closure is created, but their values aren’t connected in any special way. This means that a change to the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> in the outer scope doesn’t affect the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> in the inner scope, nor does a change to <code class="docutils literal notranslate"><span class="pre">a</span></code> inside the closure affect the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> outside the closure. In contrast, there’s only one variable named <code class="docutils literal notranslate"><span class="pre">b</span></code>—the <code class="docutils literal notranslate"><span class="pre">b</span></code> in the outer scope—so changes from inside or outside the closure are visible in both places.</p>
+<p>This distinction isn’t visible when the captured variable’s type has reference semantics. For example, there are two things named <code class="docutils literal notranslate"><span class="pre">x</span></code> in the code below, a variable in the outer scope and a constant in the inner scope, but they both refer to the same object because of reference semantics.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SimpleClass</span> {
+</li><li>    <span class="k">var</span> <span class="nv">value</span>: <span class="nc">Int</span> = <span class="m">0</span>
+</li><li>}
+</li><li><span class="k">var</span> <span class="nv">x</span> = <span class="nv">SimpleClass</span>()
+</li><li><span class="k">var</span> <span class="nv">y</span> = <span class="nv">SimpleClass</span>()
+</li><li><span class="k">let</span> <span class="nv">closure</span> = { [<span class="nv">x</span>] <span class="k">in</span>
+</li><li>    <span class="nv">print</span>(<span class="nv">x</span>.<span class="nv">value</span>, <span class="nv">y</span>.<span class="nv">value</span>)
+</li><li>}
+</li><li>
+</li><li><span class="nv">x</span>.<span class="nv">value</span> = <span class="m">10</span>
+</li><li><span class="nv">y</span>.<span class="nv">value</span> = <span class="m">10</span>
+</li><li><span class="nv">closure</span>()
+</li><li><span class="c">// Prints &quot;10 10&quot;</span>
+</li></ol></div></div></div>
+<p>If the type of the expression’s value is a class, you can mark the expression in a capture list with <code class="docutils literal notranslate"><span class="pre">weak</span></code> or <code class="docutils literal notranslate"><span class="pre">unowned</span></code> to capture a weak or unowned reference to the expression’s value.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">myFunction</span> { <span class="nv">print</span>(<span class="k">self</span>.<span class="nv">title</span>) }                    <span class="c">// implicit strong capture</span>
+</li><li><span class="nv">myFunction</span> { [<span class="k">self</span>] <span class="k">in</span> <span class="nv">print</span>(<span class="k">self</span>.<span class="nv">title</span>) }          <span class="c">// explicit strong capture</span>
+</li><li><span class="nv">myFunction</span> { [<span class="k">weak</span> <span class="k">self</span>] <span class="k">in</span> <span class="nv">print</span>(<span class="k">self</span>!.<span class="nv">title</span>) }    <span class="c">// weak capture</span>
+</li><li><span class="nv">myFunction</span> { [<span class="k">unowned</span> <span class="k">self</span>] <span class="k">in</span> <span class="nv">print</span>(<span class="k">self</span>.<span class="nv">title</span>) }  <span class="c">// unowned capture</span>
+</li></ol></div></div></div>
+<p>You can also bind an arbitrary expression to a named value in a capture list. The expression is evaluated when the closure is created, and the value is captured with the specified strength. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="c">// Weak capture of &quot;self.parent&quot; as &quot;parent&quot;</span>
+</li><li><span class="nv">myFunction</span> { [<span class="k">weak</span> <span class="nv">parent</span> = <span class="k">self</span>.<span class="nv">parent</span>] <span class="k">in</span> <span class="nv">print</span>(<span class="nv">parent</span>!.<span class="nv">title</span>) }
+</li></ol></div></div></div>
+<p>For more information and examples of closure expressions, see <a class="reference internal" href="../LanguageGuide/Closures.html#ID95"><span class="std std-ref">Closure Expressions</span></a>. For more information and examples of capture lists, see <a class="reference internal" href="../LanguageGuide/AutomaticReferenceCounting.html#ID57"><span class="std std-ref">Resolving Strong Reference Cycles for Closures</span></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a closure expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_closure-expression"></a>closure-expression</span><span class="arrow"> → </span> <code>{</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_closure-signature">closure-signature</a></span> <sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Statements.html#grammar_statements">statements</a></span> <sub>opt</sub> <code>}</code></p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_closure-signature"></a>closure-signature</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_capture-list">capture-list</a></span> <sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_closure-parameter-clause">closure-parameter-clause</a></span>  <code>throws</code><sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Declarations.html#grammar_function-result">function-result</a></span> <sub>opt</sub> <code>in</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_closure-signature_1083"></a>closure-signature</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_capture-list">capture-list</a></span>  <code>in</code></p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_closure-parameter-clause"></a>closure-parameter-clause</span><span class="arrow"> → </span> <code>(</code> <code>)</code> |  <code>(</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_closure-parameter-list">closure-parameter-list</a></span>  <code>)</code> |  <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier-list">identifier-list</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_closure-parameter-list"></a>closure-parameter-list</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_closure-parameter">closure-parameter</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_closure-parameter">closure-parameter</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_closure-parameter-list">closure-parameter-list</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_closure-parameter"></a>closure-parameter</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_closure-parameter-name">closure-parameter-name</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-annotation">type-annotation</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_closure-parameter_1084"></a>closure-parameter</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_closure-parameter-name">closure-parameter-name</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-annotation">type-annotation</a></span>  <code>...</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_closure-parameter-name"></a>closure-parameter-name</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span> </p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_capture-list"></a>capture-list</span><span class="arrow"> → </span> <code>[</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_capture-list-items">capture-list-items</a></span>  <code>]</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_capture-list-items"></a>capture-list-items</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_capture-list-item">capture-list-item</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_capture-list-item">capture-list-item</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_capture-list-items">capture-list-items</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_capture-list-item"></a>capture-list-item</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_capture-specifier">capture-specifier</a></span> <sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_capture-list-item_1085"></a>capture-list-item</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_capture-specifier">capture-specifier</a></span> <sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span>  <code>=</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_capture-list-item_1086"></a>capture-list-item</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_capture-specifier">capture-specifier</a></span> <sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_self-expression">self-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_capture-specifier"></a>capture-specifier</span><span class="arrow"> → </span> <code>weak</code> |  <code>unowned</code> |  <code>unowned(safe)</code> |  <code>unowned(unsafe)</code></p></div></div></div>
+</div>
+<div class="section" id="ID394">
+<h3>Implicit Member Expression<a class="headerlink" href="#ID394" title="Permalink to this headline">¶</a></h3>
+<p>An <em>implicit member expression</em> is an abbreviated way to access a member of a type, such as an enumeration case or a type method, in a context where type inference can determine the implied type. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>.<span class="gi">member name</span>
+</li></ol></div></div></div>
+<p>For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">x</span> = <span class="nv">MyEnumeration</span>.<span class="nv">someValue</span>
+</li><li><span class="nv">x</span> = .<span class="nv">anotherValue</span>
+</li></ol></div></div></div>
+<p>If the inferred type is an optional, you can also use a member of the non-optional type in an implicit member expression.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">someOptional</span>: <span class="nc">MyEnumeration</span>? = .<span class="nv">someValue</span>
+</li></ol></div></div></div>
+<p>Implicit member expressions can be followed by a postfix operator or other postfix syntax listed in <a class="reference internal" href="#ID397"><span class="std std-ref">Postfix Expressions</span></a>. This is called a <em>chained implicit member expression</em>. Although it’s common for all of the chained postfix expressions to have the same type, the only requirement is that the whole chained implicit member expression needs to be convertible to the type implied by its context. Specifically, if the implied type is an optional you can use a value of the non-optional type, and if the implied type is a class type you can use a value of one of its subclasses. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SomeClass</span> {
+</li><li>    <span class="k">static</span> <span class="k">var</span> <span class="nv">shared</span> = <span class="nv">SomeClass</span>()
+</li><li>    <span class="k">static</span> <span class="k">var</span> <span class="nv">sharedSubclass</span> = <span class="nv">SomeSubclass</span>()
+</li><li>    <span class="k">var</span> <span class="nv">a</span> = <span class="nv">AnotherClass</span>()
+</li><li>}
+</li><li><span class="k">class</span> <span class="nv">SomeSubclass</span>: <span class="nc">SomeClass</span> { }
+</li><li><span class="k">class</span> <span class="nv">AnotherClass</span> {
+</li><li>    <span class="k">static</span> <span class="k">var</span> <span class="nv">s</span> = <span class="nv">SomeClass</span>()
+</li><li>    <span class="k">func</span> <span class="nv">f</span>() -&gt; <span class="nc">SomeClass</span> { <span class="k">return</span> <span class="nv">AnotherClass</span>.<span class="nv">s</span> }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">x</span>: <span class="nc">SomeClass</span> = .<span class="nv">shared</span>.<span class="nv">a</span>.<span class="nv">f</span>()
+</li><li><span class="k">let</span> <span class="nv">y</span>: <span class="nc">SomeClass</span>? = .<span class="nv">shared</span>
+</li><li><span class="k">let</span> <span class="nv">z</span>: <span class="nc">SomeClass</span> = .<span class="nv">sharedSubclass</span>
+</li></ol></div></div></div>
+<p>In the code above, the type of <code class="docutils literal notranslate"><span class="pre">x</span></code> matches the type implied by its context exactly, the type of <code class="docutils literal notranslate"><span class="pre">y</span></code> is convertible from <code class="docutils literal notranslate"><span class="pre">SomeClass</span></code> to <code class="docutils literal notranslate"><span class="pre">SomeClass?</span></code>, and the type of <code class="docutils literal notranslate"><span class="pre">z</span></code> is convertible from <code class="docutils literal notranslate"><span class="pre">SomeSubclass</span></code> to <code class="docutils literal notranslate"><span class="pre">SomeClass</span></code>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a implicit member expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_implicit-member-expression"></a>implicit-member-expression</span><span class="arrow"> → </span> <code>.</code> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_implicit-member-expression_1087"></a>implicit-member-expression</span><span class="arrow"> → </span> <code>.</code> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span>  <code>.</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span> </p></div></div></div>
+<div class="section" id="ID395">
+<h3>Parenthesized Expression<a class="headerlink" href="#ID395" title="Permalink to this headline">¶</a></h3>
+<p>A <em>parenthesized expression</em> consists of an expression surrounded by parentheses. You can use parentheses to specify the precedence of operations by explicitly grouping expressions. Grouping parentheses don’t change an expression’s type—for example, the type of <code class="docutils literal notranslate"><span class="pre">(1)</span></code> is simply <code class="docutils literal notranslate"><span class="pre">Int</span></code>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a parenthesized expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_parenthesized-expression"></a>parenthesized-expression</span><span class="arrow"> → </span> <code>(</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  <code>)</code></p></div></div></div>
+<div class="section" id="ID552">
+<h3>Tuple Expression<a class="headerlink" href="#ID552" title="Permalink to this headline">¶</a></h3>
+<p>A <em>tuple expression</em> consists of a comma-separated list of expressions surrounded by parentheses. Each expression can have an optional identifier before it, separated by a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>). It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>(<span class="gi">identifier 1</span>: <span class="gi">expression 1</span>, <span class="gi">identifier 2</span>: <span class="gi">expression 2</span>, <span class="gi">...</span>)
+</li></ol></div></div></div>
+<p>Each identifier in a tuple expression must be unique within the scope of the tuple expression. In a nested tuple expression, identifiers at the same level of nesting must be unique. For example, <code class="docutils literal notranslate"><span class="pre">(a:</span> <span class="pre">10,</span> <span class="pre">a:</span> <span class="pre">20)</span></code> is invalid because the label <code class="docutils literal notranslate"><span class="pre">a</span></code> appears twice at the same level. However, <code class="docutils literal notranslate"><span class="pre">(a:</span> <span class="pre">10,</span> <span class="pre">b:</span> <span class="pre">(a:</span> <span class="pre">1,</span> <span class="pre">x:</span> <span class="pre">2))</span></code> is valid—although <code class="docutils literal notranslate"><span class="pre">a</span></code> appears twice, it appears once in the outer tuple and once in the inner tuple.</p>
+<p>A tuple expression can contain zero expressions, or it can contain two or more expressions. A single expression inside parentheses is a parenthesized expression.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Both an empty tuple expression and an empty tuple type are written <code class="docutils literal notranslate"><span class="pre">()</span></code> in Swift. Because <code class="docutils literal notranslate"><span class="pre">Void</span></code> is a type alias for <code class="docutils literal notranslate"><span class="pre">()</span></code>, you can use it to write an empty tuple type. However, like all type aliases, <code class="docutils literal notranslate"><span class="pre">Void</span></code> is always a type—you can’t use it to write an empty tuple expression.</p>
+</div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a tuple expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_tuple-expression"></a>tuple-expression</span><span class="arrow"> → </span> <code>(</code> <code>)</code> |  <code>(</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_tuple-element">tuple-element</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_tuple-element-list">tuple-element-list</a></span>  <code>)</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_tuple-element-list"></a>tuple-element-list</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_tuple-element">tuple-element</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_tuple-element">tuple-element</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_tuple-element-list">tuple-element-list</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_tuple-element"></a>tuple-element</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span>  <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span> </p></div></div></div>
+<div class="section" id="ID396">
+<h3>Wildcard Expression<a class="headerlink" href="#ID396" title="Permalink to this headline">¶</a></h3>
+<p>A <em>wildcard expression</em> is used to explicitly ignore a value during an assignment. For example, in the following assignment 10 is assigned to <code class="docutils literal notranslate"><span class="pre">x</span></code> and 20 is ignored:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>(<span class="nv">x</span>, <span class="k">_</span>) = (<span class="m">10</span>, <span class="m">20</span>)
+</li><li><span class="c">// x is 10, and 20 is ignored</span>
+</li></ol></div></div></div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a wildcard expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_wildcard-expression"></a>wildcard-expression</span><span class="arrow"> → </span> <code>_</code></p></div></div></div>
+<div class="section" id="ID563">
+<h3>Key-Path Expression<a class="headerlink" href="#ID563" title="Permalink to this headline">¶</a></h3>
+<p>A <em>key-path expression</em> refers to a property or subscript of a type. You use key-path expressions in dynamic programming tasks, such as key-value observing. They have the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>\<span class="gi">type name</span>.<span class="gi">path</span>
+</li></ol></div></div></div>
+<p>The <em>type name</em> is the name of a concrete type, including any generic parameters, such as <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">[Int]</span></code>, or <code class="docutils literal notranslate"><span class="pre">Set&lt;Int&gt;</span></code>.</p>
+<p>The <em>path</em> consists of property names, subscripts, optional-chaining expressions, and forced unwrapping expressions. Each of these key-path components can be repeated as many times as needed, in any order.</p>
+<p>At compile time, a key-path expression is replaced by an instance of the <a class="reference external" href="https://developer.apple.com/documentation/swift/keypath"><code class="docutils literal notranslate"><span class="pre">KeyPath</span></code></a> class.</p>
+<p>To access a value using a key path, pass the key path to the <code class="docutils literal notranslate"><span class="pre">subscript(keyPath:)</span></code> subscript, which is available on all types. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">SomeStructure</span> {
+</li><li>    <span class="k">var</span> <span class="nv">someValue</span>: <span class="nc">Int</span>
+</li><li>}
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">s</span> = <span class="nv">SomeStructure</span>(<span class="nv">someValue</span>: <span class="m">12</span>)
+</li><li><span class="k">let</span> <span class="nv">pathToProperty</span> = \<span class="nv">SomeStructure</span>.<span class="nv">someValue</span>
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">value</span> = <span class="nv">s</span>[<span class="nv">keyPath</span>: <span class="nv">pathToProperty</span>]
+</li><li><span class="c">// value is 12</span>
+</li></ol></div></div></div>
+<p>The <em>type name</em> can be omitted in contexts where type inference can determine the implied type. The following code uses <code class="docutils literal notranslate"><span class="pre">\.someProperty</span></code> instead of <code class="docutils literal notranslate"><span class="pre">\SomeClass.someProperty</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SomeClass</span>: <span class="nc">NSObject</span> {
+</li><li>    <span class="k">@objc</span> <span class="k">dynamic</span> <span class="k">var</span> <span class="nv">someProperty</span>: <span class="nc">Int</span>
+</li><li>    <span class="k">init</span>(<span class="nv">someProperty</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="k">self</span>.<span class="nv">someProperty</span> = <span class="nv">someProperty</span>
+</li><li>    }
+</li><li>}
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">c</span> = <span class="nv">SomeClass</span>(<span class="nv">someProperty</span>: <span class="m">10</span>)
+</li><li><span class="nv">c</span>.<span class="nv">observe</span>(\.<span class="nv">someProperty</span>) { <span class="nv">object</span>, <span class="nv">change</span> <span class="k">in</span>
+</li><li>    <span class="c">// ...</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>The <em>path</em> can refer to <code class="docutils literal notranslate"><span class="pre">self</span></code> to create the identity key path (<code class="docutils literal notranslate"><span class="pre">\.self</span></code>). The identity key path refers to a whole instance, so you can use it to access and change all of the data stored in a variable in a single step. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">compoundValue</span> = (<span class="nv">a</span>: <span class="m">1</span>, <span class="nv">b</span>: <span class="m">2</span>)
+</li><li><span class="c">// Equivalent to compoundValue = (a: 10, b: 20)</span>
+</li><li><span class="nv">compoundValue</span>[<span class="nv">keyPath</span>: \.<span class="k">self</span>] = (<span class="nv">a</span>: <span class="m">10</span>, <span class="nv">b</span>: <span class="m">20</span>)
+</li></ol></div></div></div>
+<p>The <em>path</em> can contain multiple property names, separated by periods, to refer to a property of a property’s value. This code uses the key path expression <code class="docutils literal notranslate"><span class="pre">\OuterStructure.outer.someValue</span></code> to access the <code class="docutils literal notranslate"><span class="pre">someValue</span></code> property of the <code class="docutils literal notranslate"><span class="pre">OuterStructure</span></code> type’s <code class="docutils literal notranslate"><span class="pre">outer</span></code> property:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">OuterStructure</span> {
+</li><li>    <span class="k">var</span> <span class="nv">outer</span>: <span class="nc">SomeStructure</span>
+</li><li>    <span class="k">init</span>(<span class="nv">someValue</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="k">self</span>.<span class="nv">outer</span> = <span class="nv">SomeStructure</span>(<span class="nv">someValue</span>: <span class="nv">someValue</span>)
+</li><li>    }
+</li><li>}
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">nested</span> = <span class="nv">OuterStructure</span>(<span class="nv">someValue</span>: <span class="m">24</span>)
+</li><li><span class="k">let</span> <span class="nv">nestedKeyPath</span> = \<span class="nv">OuterStructure</span>.<span class="nv">outer</span>.<span class="nv">someValue</span>
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">nestedValue</span> = <span class="nv">nested</span>[<span class="nv">keyPath</span>: <span class="nv">nestedKeyPath</span>]
+</li><li><span class="c">// nestedValue is 24</span>
+</li></ol></div></div></div>
+<p>The <em>path</em> can include subscripts using brackets, as long as the subscript’s parameter type conforms to the <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> protocol. This example uses a subscript in a key path to access the second element of an array:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">greetings</span> = [<span class="s">&quot;hello&quot;</span>, <span class="s">&quot;hola&quot;</span>, <span class="s">&quot;bonjour&quot;</span>, <span class="s">&quot;안녕&quot;</span>]
+</li><li><span class="k">let</span> <span class="nv">myGreeting</span> = <span class="nv">greetings</span>[<span class="nv">keyPath</span>: \[<span class="nv">String</span>].[<span class="m">1</span>]]
+</li><li><span class="c">// myGreeting is &#39;hola&#39;</span>
+</li></ol></div></div></div>
+<p>The value used in a subscript can be a named value or a literal. Values are captured in key paths using value semantics. The following code uses the variable <code class="docutils literal notranslate"><span class="pre">index</span></code> in both a key-path expression and in a closure to access the third element of the <code class="docutils literal notranslate"><span class="pre">greetings</span></code> array. When <code class="docutils literal notranslate"><span class="pre">index</span></code> is modified, the key-path expression still references the third element, while the closure uses the new index.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">index</span> = <span class="m">2</span>
+</li><li><span class="k">let</span> <span class="nv">path</span> = \[<span class="nv">String</span>].[<span class="nv">index</span>]
+</li><li><span class="k">let</span> <span class="nv">fn</span>: ([<span class="nc">String</span>]) -&gt; <span class="nc">String</span> = { <span class="nv">strings</span> <span class="k">in</span> <span class="nv">strings</span>[<span class="nv">index</span>] }
+</li><li>
+</li><li><span class="nv">print</span>(<span class="nv">greetings</span>[<span class="nv">keyPath</span>: <span class="nv">path</span>])
+</li><li><span class="c">// Prints &quot;bonjour&quot;</span>
+</li><li><span class="nv">print</span>(<span class="nv">fn</span>(<span class="nv">greetings</span>))
+</li><li><span class="c">// Prints &quot;bonjour&quot;</span>
+</li><li>
+</li><li><span class="c">// Setting &#39;index&#39; to a new value doesn&#39;t affect &#39;path&#39;</span>
+</li><li><span class="nv">index</span> += <span class="m">1</span>
+</li><li><span class="nv">print</span>(<span class="nv">greetings</span>[<span class="nv">keyPath</span>: <span class="nv">path</span>])
+</li><li><span class="c">// Prints &quot;bonjour&quot;</span>
+</li><li>
+</li><li><span class="c">// Because &#39;fn&#39; closes over &#39;index&#39;, it uses the new value</span>
+</li><li><span class="nv">print</span>(<span class="nv">fn</span>(<span class="nv">greetings</span>))
+</li><li><span class="c">// Prints &quot;안녕&quot;</span>
+</li></ol></div></div></div>
+<p>The <em>path</em> can use optional chaining and forced unwrapping. This code uses optional chaining in a key path to access a property of an optional string:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">firstGreeting</span>: <span class="nc">String</span>? = <span class="nv">greetings</span>.<span class="nv">first</span>
+</li><li><span class="nv">print</span>(<span class="nv">firstGreeting</span>?.<span class="nv">count</span> <span class="k">as</span> <span class="k">Any</span>)
+</li><li><span class="c">// Prints &quot;Optional(5)&quot;</span>
+</li><li>
+</li><li><span class="c">// Do the same thing using a key path.</span>
+</li><li><span class="k">let</span> <span class="nv">count</span> = <span class="nv">greetings</span>[<span class="nv">keyPath</span>: \[<span class="nv">String</span>].<span class="nv">first</span>?.<span class="nv">count</span>]
+</li><li><span class="nv">print</span>(<span class="nv">count</span> <span class="k">as</span> <span class="k">Any</span>)
+</li><li><span class="c">// Prints &quot;Optional(5)&quot;</span>
+</li></ol></div></div></div>
+<p>You can mix and match components of key paths to access values that are deeply nested within a type. The following code accesses different values and properties of a dictionary of arrays by using key-path expressions that combine these components.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">interestingNumbers</span> = [<span class="s">&quot;prime&quot;</span>: [<span class="m">2</span>, <span class="m">3</span>, <span class="m">5</span>, <span class="m">7</span>, <span class="m">11</span>, <span class="m">13</span>, <span class="m">17</span>],
+</li><li>                          <span class="s">&quot;triangular&quot;</span>: [<span class="m">1</span>, <span class="m">3</span>, <span class="m">6</span>, <span class="m">10</span>, <span class="m">15</span>, <span class="m">21</span>, <span class="m">28</span>],
+</li><li>                          <span class="s">&quot;hexagonal&quot;</span>: [<span class="m">1</span>, <span class="m">6</span>, <span class="m">15</span>, <span class="m">28</span>, <span class="m">45</span>, <span class="m">66</span>, <span class="m">91</span>]]
+</li><li><span class="nv">print</span>(<span class="nv">interestingNumbers</span>[<span class="nv">keyPath</span>: \[<span class="nv">String</span>: [<span class="nv">Int</span>]].[<span class="s">&quot;prime&quot;</span>]] <span class="k">as</span> <span class="k">Any</span>)
+</li><li><span class="c">// Prints &quot;Optional([2, 3, 5, 7, 11, 13, 17])&quot;</span>
+</li><li><span class="nv">print</span>(<span class="nv">interestingNumbers</span>[<span class="nv">keyPath</span>: \[<span class="nv">String</span>: [<span class="nv">Int</span>]].[<span class="s">&quot;prime&quot;</span>]![<span class="m">0</span>]])
+</li><li><span class="c">// Prints &quot;2&quot;</span>
+</li><li><span class="nv">print</span>(<span class="nv">interestingNumbers</span>[<span class="nv">keyPath</span>: \[<span class="nv">String</span>: [<span class="nv">Int</span>]].[<span class="s">&quot;hexagonal&quot;</span>]!.<span class="nv">count</span>])
+</li><li><span class="c">// Prints &quot;7&quot;</span>
+</li><li><span class="nv">print</span>(<span class="nv">interestingNumbers</span>[<span class="nv">keyPath</span>: \[<span class="nv">String</span>: [<span class="nv">Int</span>]].[<span class="s">&quot;hexagonal&quot;</span>]!.<span class="nv">count</span>.<span class="nv">bitWidth</span>])
+</li><li><span class="c">// Prints &quot;64&quot;</span>
+</li></ol></div></div></div>
+<p>You can use a key path expression in contexts where you would normally provide a function or closure. Specifically, you can use a key path expression whose root type is <code class="docutils literal notranslate"><span class="pre">SomeType</span></code> and whose path produces a value of type <code class="docutils literal notranslate"><span class="pre">Value</span></code>, instead of a function or closure of type <code class="docutils literal notranslate"><span class="pre">(SomeType)</span> <span class="pre">-&gt;</span> <span class="pre">Value</span></code>.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Task</span> {
+</li><li>    <span class="k">var</span> <span class="nv">description</span>: <span class="nc">String</span>
+</li><li>    <span class="k">var</span> <span class="nv">completed</span>: <span class="nc">Bool</span>
+</li><li>}
+</li><li><span class="k">var</span> <span class="nv">toDoList</span> = [
+</li><li>    <span class="nv">Task</span>(<span class="nv">description</span>: <span class="s">&quot;Practice ping-pong.&quot;</span>, <span class="nv">completed</span>: <span class="k">false</span>),
+</li><li>    <span class="nv">Task</span>(<span class="nv">description</span>: <span class="s">&quot;Buy a pirate costume.&quot;</span>, <span class="nv">completed</span>: <span class="k">true</span>),
+</li><li>    <span class="nv">Task</span>(<span class="nv">description</span>: <span class="s">&quot;Visit Boston in the Fall.&quot;</span>, <span class="nv">completed</span>: <span class="k">false</span>),
+</li><li>]
+</li><li>
+</li><li><span class="c">// Both approaches below are equivalent.</span>
+</li><li><span class="k">let</span> <span class="nv">descriptions</span> = <span class="nv">toDoList</span>.<span class="nv">filter</span>(\.<span class="nv">completed</span>).<span class="nv">map</span>(\.<span class="nv">description</span>)
+</li><li><span class="k">let</span> <span class="nv">descriptions2</span> = <span class="nv">toDoList</span>.<span class="nv">filter</span> { <span class="nv">$0</span>.<span class="nv">completed</span> }.<span class="nv">map</span> { <span class="nv">$0</span>.<span class="nv">description</span> }
+</li></ol></div></div></div>
+<p>Any side effects of a key path expression are evaluated only at the point where the expression is evaluated. For example, if you make a function call inside a subscript in a key path expression, the function is called only once as part of evaluating the expression, not every time the key path is used.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">makeIndex</span>() -&gt; <span class="nc">Int</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Made an index&quot;</span>)
+</li><li>    <span class="k">return</span> <span class="m">0</span>
+</li><li>}
+</li><li><span class="c">// The line below calls makeIndex().</span>
+</li><li><span class="k">let</span> <span class="nv">taskKeyPath</span> = \[<span class="nv">Task</span>][<span class="nv">makeIndex</span>()]
+</li><li><span class="c">// Prints &quot;Made an index&quot;</span>
+</li><li>
+</li><li><span class="c">// Using taskKeyPath doesn&#39;t call makeIndex() again.</span>
+</li><li><span class="k">let</span> <span class="nv">someTask</span> = <span class="nv">toDoList</span>[<span class="nv">keyPath</span>: <span class="nv">taskKeyPath</span>]
+</li></ol></div></div></div>
+<p>For more information about using key paths in code that interacts with Objective-C APIs, see <a class="reference external" href="https://developer.apple.com/documentation/swift/using_objective_c_runtime_features_in_swift">Using Objective-C Runtime Features in Swift</a>. For information about key-value coding and key-value observing, see <a class="reference external" href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueCoding/index.html#//apple_ref/doc/uid/10000107i">Key-Value Coding Programming Guide</a> and <a class="reference external" href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple_ref/doc/uid/10000177i">Key-Value Observing Programming Guide</a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a key-path expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_key-path-expression"></a>key-path-expression</span><span class="arrow"> → </span> <code>\</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span> <sub>opt</sub> <code>.</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_key-path-components">key-path-components</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_key-path-components"></a>key-path-components</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_key-path-component">key-path-component</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_key-path-component">key-path-component</a></span>  <code>.</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_key-path-components">key-path-components</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_key-path-component"></a>key-path-component</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_key-path-postfixes">key-path-postfixes</a></span> <sub>opt</sub> |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_key-path-postfixes">key-path-postfixes</a></span> </p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_key-path-postfixes"></a>key-path-postfixes</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_key-path-postfix">key-path-postfix</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_key-path-postfixes">key-path-postfixes</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_key-path-postfix"></a>key-path-postfix</span><span class="arrow"> → </span> <code>?</code> |  <code>!</code> |  <code>self</code> |  <code>[</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_function-call-argument-list">function-call-argument-list</a></span>  <code>]</code></p></div></div></div>
+<div class="section" id="ID547">
+<h3>Selector Expression<a class="headerlink" href="#ID547" title="Permalink to this headline">¶</a></h3>
+<p>A selector expression lets you access the selector used to refer to a method or to a property’s getter or setter in Objective-C. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">#selector</span>(<span class="gi">method name</span>)
+</li><li><span class="k">#selector</span>(<span class="k">getter</span>: <span class="gi">property name</span>)
+</li><li><span class="k">#selector</span>(<span class="k">setter</span>: <span class="gi">property name</span>)
+</li></ol></div></div></div>
+<p>The <em>method name</em> and <em>property name</em> must be a reference to a method or a property that’s available in the Objective-C runtime. The value of a selector expression is an instance of the <code class="docutils literal notranslate"><span class="pre">Selector</span></code> type. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SomeClass</span>: <span class="nc">NSObject</span> {
+</li><li>    <span class="k">@objc</span> <span class="k">let</span> <span class="nv">property</span>: <span class="nc">String</span>
+</li><li>
+</li><li>    <span class="k">@objc(doSomethingWithInt:)</span>
+</li><li>    <span class="k">func</span> <span class="nv">doSomething</span>(<span class="k">_</span> <span class="nv">x</span>: <span class="nc">Int</span>) { }
+</li><li>
+</li><li>    <span class="k">init</span>(<span class="nv">property</span>: <span class="nc">String</span>) {
+</li><li>        <span class="k">self</span>.<span class="nv">property</span> = <span class="nv">property</span>
+</li><li>    }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">selectorForMethod</span> = <span class="k">#selector</span>(<span class="nv">SomeClass</span>.<span class="nv">doSomething</span>(<span class="k">_</span>:))
+</li><li><span class="k">let</span> <span class="nv">selectorForPropertyGetter</span> = <span class="k">#selector</span>(<span class="k">getter</span>: <span class="nv">SomeClass</span>.<span class="nv">property</span>)
+</li></ol></div></div></div>
+<p>When creating a selector for a property’s getter, the <em>property name</em> can be a reference to a variable or constant property. In contrast, when creating a selector for a property’s setter, the <em>property name</em> must be a reference to a variable property only.</p>
+<p>The <em>method name</em> can contain parentheses for grouping, as well the <code class="docutils literal notranslate"><span class="pre">as</span></code> operator to disambiguate between methods that share a name but have different type signatures. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">SomeClass</span> {
+</li><li>    <span class="k">@objc(doSomethingWithString:)</span>
+</li><li>    <span class="k">func</span> <span class="nv">doSomething</span>(<span class="k">_</span> <span class="nv">x</span>: <span class="nc">String</span>) { }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">anotherSelector</span> = <span class="k">#selector</span>(<span class="nv">SomeClass</span>.<span class="nv">doSomething</span>(<span class="k">_</span>:) <span class="k">as</span> (<span class="nc">SomeClass</span>) -&gt; (<span class="nc">String</span>) -&gt; <span class="nc">Void</span>)
+</li></ol></div></div></div>
+<p>Because a selector is created at compile time, not at runtime, the compiler can check that a method or property exists and that they’re exposed to the Objective-C runtime.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Although the <em>method name</em> and the <em>property name</em> are expressions, they’re never evaluated.</p>
+</div>
+<p>For more information about using selectors in Swift code that interacts with Objective-C APIs, see <a class="reference external" href="https://developer.apple.com/documentation/swift/using_objective_c_runtime_features_in_swift">Using Objective-C Runtime Features in Swift</a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a selector expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_selector-expression"></a>selector-expression</span><span class="arrow"> → </span> <code>#selector</code> <code>(</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  <code>)</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_selector-expression_1088"></a>selector-expression</span><span class="arrow"> → </span> <code>#selector</code> <code>(</code> <code>getter:</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  <code>)</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_selector-expression_1089"></a>selector-expression</span><span class="arrow"> → </span> <code>#selector</code> <code>(</code> <code>setter:</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  <code>)</code></p></div></div></div>
+<div class="section" id="ID549">
+<h3>Key-Path String Expression<a class="headerlink" href="#ID549" title="Permalink to this headline">¶</a></h3>
+<p>A key-path string expression lets you access the string used to refer to a property in Objective-C, for use in key-value coding and key-value observing APIs. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">#keyPath</span>(<span class="gi">property name</span>)
+</li></ol></div></div></div>
+<p>The <em>property name</em> must be a reference to a property that’s available in the Objective-C runtime. At compile time, the key-path string expression is replaced by a string literal. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SomeClass</span>: <span class="nc">NSObject</span> {
+</li><li>    <span class="k">@objc</span> <span class="k">var</span> <span class="nv">someProperty</span>: <span class="nc">Int</span>
+</li><li>    <span class="k">init</span>(<span class="nv">someProperty</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="k">self</span>.<span class="nv">someProperty</span> = <span class="nv">someProperty</span>
+</li><li>    }
+</li><li>}
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">c</span> = <span class="nv">SomeClass</span>(<span class="nv">someProperty</span>: <span class="m">12</span>)
+</li><li><span class="k">let</span> <span class="nv">keyPath</span> = <span class="k">#keyPath</span>(<span class="nv">SomeClass</span>.<span class="nv">someProperty</span>)
+</li><li>
+</li><li><span class="k">if</span> <span class="k">let</span> <span class="nv">value</span> = <span class="nv">c</span>.<span class="nv">value</span>(<span class="nv">forKey</span>: <span class="nv">keyPath</span>) {
+</li><li>    <span class="nv">print</span>(<span class="nv">value</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;12&quot;</span>
+</li></ol></div></div></div>
+<p>When you use a key-path string expression within a class, you can refer to a property of that class by writing just the property name, without the class name.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">SomeClass</span> {
+</li><li>    <span class="k">func</span> <span class="nv">getSomeKeyPath</span>() -&gt; <span class="nc">String</span> {
+</li><li>        <span class="k">return</span> <span class="k">#keyPath</span>(<span class="nv">someProperty</span>)
+</li><li>    }
+</li><li>}
+</li><li><span class="nv">print</span>(<span class="nv">keyPath</span> == <span class="nv">c</span>.<span class="nv">getSomeKeyPath</span>())
+</li><li><span class="c">// Prints &quot;true&quot;</span>
+</li></ol></div></div></div>
+<p>Because the key path string is created at compile time, not at runtime, the compiler can check that the property exists and that the property is exposed to the Objective-C runtime.</p>
+<p>For more information about using key paths in Swift code that interacts with Objective-C APIs, see <a class="reference external" href="https://developer.apple.com/documentation/swift/using_objective_c_runtime_features_in_swift">Using Objective-C Runtime Features in Swift</a>. For information about key-value coding and key-value observing, see <a class="reference external" href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueCoding/index.html#//apple_ref/doc/uid/10000107i">Key-Value Coding Programming Guide</a> and <a class="reference external" href="https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple_ref/doc/uid/10000177i">Key-Value Observing Programming Guide</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Although the <em>property name</em> is an expression, it’s never evaluated.</p>
+</div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a key-path string expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_key-path-string-expression"></a>key-path-string-expression</span><span class="arrow"> → </span> <code>#keyPath</code> <code>(</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  <code>)</code></p></div></div></div>
+</div>
+<div class="section" id="ID397">
+<h2>Postfix Expressions<a class="headerlink" href="#ID397" title="Permalink to this headline">¶</a></h2>
+<p><em>Postfix expressions</em> are formed by applying a postfix operator or other postfix syntax to an expression. Syntactically, every primary expression is also a postfix expression.</p>
+<p>For information about the behavior of these operators, see <a class="reference internal" href="../LanguageGuide/BasicOperators.html"><span class="doc">Basic Operators</span></a> and <a class="reference internal" href="../LanguageGuide/AdvancedOperators.html"><span class="doc">Advanced Operators</span></a>.</p>
+<p>For information about the operators provided by the Swift standard library, see <a class="reference external" href="https://developer.apple.com/documentation/swift/operator_declarations">Operator Declarations</a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a postfix expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_postfix-expression"></a>postfix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_primary-expression">primary-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_postfix-expression_1090"></a>postfix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_postfix-operator">postfix-operator</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_postfix-expression_1091"></a>postfix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_function-call-expression">function-call-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_postfix-expression_1092"></a>postfix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_initializer-expression">initializer-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_postfix-expression_1093"></a>postfix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_explicit-member-expression">explicit-member-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_postfix-expression_1094"></a>postfix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-self-expression">postfix-self-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_postfix-expression_1095"></a>postfix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_subscript-expression">subscript-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_postfix-expression_1096"></a>postfix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_forced-value-expression">forced-value-expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_postfix-expression_1097"></a>postfix-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_optional-chaining-expression">optional-chaining-expression</a></span> </p></div></div><div class="section" id="ID398">
+<h3>Function Call Expression<a class="headerlink" href="#ID398" title="Permalink to this headline">¶</a></h3>
+<p>A <em>function call expression</em> consists of a function name followed by a comma-separated list of the function’s arguments in parentheses. Function call expressions have the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="gi">function name</span>(<span class="gi">argument value 1</span>, <span class="gi">argument value 2</span>)
+</li></ol></div></div></div>
+<p>The <em>function name</em> can be any expression whose value is of a function type.</p>
+<p>If the function definition includes names for its parameters, the function call must include names before its argument values, separated by a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>). This kind of function call expression has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="gi">function name</span>(<span class="gi">argument name 1</span>: <span class="gi">argument value 1</span>, <span class="gi">argument name 2</span>: <span class="gi">argument value 2</span>)
+</li></ol></div></div></div>
+<p>A function call expression can include trailing closures in the form of closure expressions immediately after the closing parenthesis. The trailing closures are understood as arguments to the function, added after the last parenthesized argument. The first closure expression is unlabeled; any additional closure expressions are preceded by their argument labels. The example below shows the equivalent version of function calls that do and don’t use trailing closure syntax:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="c">// someFunction takes an integer and a closure as its arguments</span>
+</li><li><span class="nv">someFunction</span>(<span class="nv">x</span>: <span class="nv">x</span>, <span class="nv">f</span>: { <span class="nv">$0</span> == <span class="m">13</span> })
+</li><li><span class="nv">someFunction</span>(<span class="nv">x</span>: <span class="nv">x</span>) { <span class="nv">$0</span> == <span class="m">13</span> }
+</li><li>
+</li><li><span class="c">// anotherFunction takes an integer and two closures as its arguments</span>
+</li><li><span class="nv">anotherFunction</span>(<span class="nv">x</span>: <span class="nv">x</span>, <span class="nv">f</span>: { <span class="nv">$0</span> == <span class="m">13</span> }, <span class="nv">g</span>: { <span class="nv">print</span>(<span class="m">99</span>) })
+</li><li><span class="nv">anotherFunction</span>(<span class="nv">x</span>: <span class="nv">x</span>) { <span class="nv">$0</span> == <span class="m">13</span> } <span class="nv">g</span>: { <span class="nv">print</span>(<span class="m">99</span>) }
+</li></ol></div></div></div>
+<p>If the trailing closure is the function’s only argument, you can omit the parentheses.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="c">// someMethod takes a closure as its only argument</span>
+</li><li><span class="nv">myData</span>.<span class="nv">someMethod</span>() { <span class="nv">$0</span> == <span class="m">13</span> }
+</li><li><span class="nv">myData</span>.<span class="nv">someMethod</span> { <span class="nv">$0</span> == <span class="m">13</span> }
+</li></ol></div></div></div>
+<p>To include the trailing closures in the arguments, the compiler examines the function’s parameters from left to right as follows:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="13%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Trailing Closure</th>
+<th class="head">Parameter</th>
+<th class="head">Action</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Labeled</td>
+<td>Labeled</td>
+<td>If the labels are the same, the closure matches the parameter; otherwise, the parameter is skipped.</td>
+</tr>
+<tr class="row-odd"><td>Labeled</td>
+<td>Unlabeled</td>
+<td>The parameter is skipped.</td>
+</tr>
+<tr class="row-even"><td>Unlabeled</td>
+<td>Labeled or unlabeled</td>
+<td>If the parameter structurally resembles a function type, as defined below, the closure matches the parameter; otherwise, the parameter is skipped.</td>
+</tr>
+</tbody>
+</table>
+<p>The trailing closure is passed as the argument for the parameter that it matches. Parameters that were skipped during the scanning process don’t have an argument passed to them—for example, they can use a default parameter. After finding a match, scanning continues with the next trailing closure and the next parameter. At the end of the matching process, all trailing closures must have a match.</p>
+<p>A parameter <em>structurally resembles</em> a function type if the parameter isn’t an in-out parameter, and the parameter is one of the following:</p>
+<ul class="simple">
+<li>A parameter whose type is a function type, like <code class="docutils literal notranslate"><span class="pre">(Bool)</span> <span class="pre">-&gt;</span> <span class="pre">Int</span></code></li>
+<li>An autoclosure parameter whose wrapped expression’s type is a function type, like <code class="docutils literal notranslate"><span class="pre">&#64;autoclosure</span> <span class="pre">()</span> <span class="pre">-&gt;</span> <span class="pre">((Bool)</span> <span class="pre">-&gt;</span> <span class="pre">Int)</span></code></li>
+<li>A variadic parameter whose array element type is a function type, like <code class="docutils literal notranslate"><span class="pre">((Bool)</span> <span class="pre">-&gt;</span> <span class="pre">Int)...</span></code></li>
+<li>A parameter whose type is wrapped in one or more layers of optional, like <code class="docutils literal notranslate"><span class="pre">Optional&lt;(Bool)</span> <span class="pre">-&gt;</span> <span class="pre">Int&gt;</span></code></li>
+<li>A parameter whose type combines these allowed types, like <code class="docutils literal notranslate"><span class="pre">(Optional&lt;(Bool)</span> <span class="pre">-&gt;</span> <span class="pre">Int&gt;)...</span></code></li>
+</ul>
+<p>When a trailing closure is matched to a parameter whose type structurally resembles a function type, but isn’t a function, the closure is wrapped as needed. For example, if the parameter’s type is an optional type, the closure is wrapped in <code class="docutils literal notranslate"><span class="pre">Optional</span></code> automatically.</p>
+<p>To ease migration of code from versions of Swift prior to 5.3—which performed this matching from right to left—the compiler checks both the left-to-right and right-to-left orderings. If the scan directions produce different results, the old right-to-left ordering is used and the compiler generates a warning. A future version of Swift will always use the left-to-right ordering.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">typealias</span> <span class="nv">Callback</span> = (<span class="nc">Int</span>) -&gt; <span class="nc">Int</span>
+</li><li><span class="k">func</span> <span class="nv">someFunction</span>(<span class="nv">firstClosure</span>: <span class="nc">Callback</span>? = <span class="k">nil</span>,
+</li><li>                  <span class="nv">secondClosure</span>: <span class="nc">Callback</span>? = <span class="k">nil</span>) {
+</li><li>    <span class="k">let</span> <span class="nv">first</span> = <span class="nv">firstClosure</span>?(<span class="m">10</span>)
+</li><li>    <span class="k">let</span> <span class="nv">second</span> = <span class="nv">secondClosure</span>?(<span class="m">20</span>)
+</li><li>    <span class="nv">print</span>(<span class="nv">first</span> ?? <span class="s">&quot;-&quot;</span>, <span class="nv">second</span> ?? <span class="s">&quot;-&quot;</span>)
+</li><li>}
+</li><li>
+</li><li><span class="nv">someFunction</span>()  <span class="c">// Prints &quot;- -&quot;</span>
+</li><li><span class="nv">someFunction</span> { <span class="k">return</span> <span class="nv">$0</span> + <span class="m">100</span> }  <span class="c">// Ambiguous</span>
+</li><li><span class="nv">someFunction</span> { <span class="k">return</span> <span class="nv">$0</span> } <span class="nv">secondClosure</span>: { <span class="k">return</span> <span class="nv">$0</span> }  <span class="c">// Prints &quot;10 20&quot;</span>
+</li></ol></div></div></div>
+<p>In the example above, the function call marked “Ambiguous” prints “- 120” and produces a compiler warning on Swift 5.3. A future version of Swift will print “110 -”.</p>
+<p>A class, structure, or enumeration type can enable syntactic sugar for function call syntax by declaring one of several methods, as described in <a class="reference internal" href="Declarations.html#ID622"><span class="std std-ref">Methods with Special Names</span></a>.</p>
+<div class="section" id="ID632">
+<h4>Implicit Conversion to a Pointer Type<a class="headerlink" href="#ID632" title="Permalink to this headline">¶</a></h4>
+<p>In a function call expression, if the argument and parameter have a different type, the compiler tries to make their types match by applying one of the implicit conversions in the following list:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">inout</span> <span class="pre">SomeType</span></code> can become <code class="docutils literal notranslate"><span class="pre">UnsafePointer&lt;SomeType&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">UnsafeMutablePointer&lt;SomeType&gt;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">inout</span> <span class="pre">Array&lt;SomeType&gt;</span></code> can become <code class="docutils literal notranslate"><span class="pre">UnsafePointer&lt;SomeType&gt;</span></code> or <code class="docutils literal notranslate"><span class="pre">UnsafeMutablePointer&lt;SomeType&gt;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">Array&lt;SomeType&gt;</span></code> can become <code class="docutils literal notranslate"><span class="pre">UnsafePointer&lt;SomeType&gt;</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">String</span></code> can become <code class="docutils literal notranslate"><span class="pre">UnsafePointer&lt;CChar&gt;</span></code></li>
+</ul>
+<p>The following two function calls are equivalent:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">unsafeFunction</span>(<span class="nv">pointer</span>: <span class="nc">UnsafePointer</span>&lt;<span class="nc">Int</span>&gt;) {
+</li><li>    <span class="c">// ...</span>
+</li><li>}
+</li><li><span class="k">var</span> <span class="nv">myNumber</span> = <span class="m">1234</span>
+</li><li>
+</li><li><span class="nv">unsafeFunction</span>(<span class="nv">pointer</span>: &amp;<span class="nv">myNumber</span>)
+</li><li><span class="nv">withUnsafePointer</span>(<span class="nv">to</span>: <span class="nv">myNumber</span>) { <span class="nv">unsafeFunction</span>(<span class="nv">pointer</span>: <span class="nv">$0</span>) }
+</li></ol></div></div></div>
+<p>A pointer that’s created by these implicit conversions is valid only for the duration of the function call. To avoid undefined behavior, ensure that your code never persists the pointer after the function call ends.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">When implicitly converting an array to an unsafe pointer, Swift ensures that the array’s storage is contiguous by converting or copying the array as needed. For example, you can use this syntax with an array that was bridged to <code class="docutils literal notranslate"><span class="pre">Array</span></code> from an <code class="docutils literal notranslate"><span class="pre">NSArray</span></code> subclass that makes no API contract about its storage. If you need to guarantee that the array’s storage is already contiguous, so the implicit conversion never needs to do this work, use <code class="docutils literal notranslate"><span class="pre">ContiguousArray</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Array</span></code>.</p>
+</div>
+<p>Using <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> instead of an explicit function like <code class="docutils literal notranslate"><span class="pre">withUnsafePointer(to:)</span></code> can help make calls to low-level C functions more readable, especially when the function takes several pointer arguments. However, when calling functions from other Swift code, avoid using <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> instead of using the unsafe APIs explicitly.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a function call expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_function-call-expression"></a>function-call-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_function-call-argument-clause">function-call-argument-clause</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_function-call-expression_1098"></a>function-call-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_function-call-argument-clause">function-call-argument-clause</a></span> <sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_trailing-closures">trailing-closures</a></span> </p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_function-call-argument-clause"></a>function-call-argument-clause</span><span class="arrow"> → </span> <code>(</code> <code>)</code> |  <code>(</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_function-call-argument-list">function-call-argument-list</a></span>  <code>)</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_function-call-argument-list"></a>function-call-argument-list</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_function-call-argument">function-call-argument</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_function-call-argument">function-call-argument</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_function-call-argument-list">function-call-argument-list</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_function-call-argument"></a>function-call-argument</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span>  <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_expression">expression</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_function-call-argument_1099"></a>function-call-argument</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_operator">operator</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span>  <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_operator">operator</a></span> </p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_trailing-closures"></a>trailing-closures</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_closure-expression">closure-expression</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_labeled-trailing-closures">labeled-trailing-closures</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_labeled-trailing-closures"></a>labeled-trailing-closures</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_labeled-trailing-closure">labeled-trailing-closure</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_labeled-trailing-closures">labeled-trailing-closures</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_labeled-trailing-closure"></a>labeled-trailing-closure</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span>  <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_closure-expression">closure-expression</a></span> </p></div></div></div>
+</div>
+<div class="section" id="ID399">
+<h3>Initializer Expression<a class="headerlink" href="#ID399" title="Permalink to this headline">¶</a></h3>
+<p>An <em>initializer expression</em> provides access to a type’s initializer. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="gi">expression</span>.<span class="nv">init</span>(<span class="gi">initializer arguments</span>)
+</li></ol></div></div></div>
+<p>You use the initializer expression in a function call expression to initialize a new instance of a type. You also use an initializer expression to delegate to the initializer of a superclass.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SomeSubClass</span>: <span class="nc">SomeSuperClass</span> {
+</li><li>    <span class="k">override</span> <span class="k">init</span>() {
+</li><li>        <span class="c">// subclass initialization goes here</span>
+</li><li>        <span class="k">super</span>.<span class="nv">init</span>()
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>Like a function, an initializer can be used as a value. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="c">// Type annotation is required because String has multiple initializers.</span>
+</li><li><span class="k">let</span> <span class="nv">initializer</span>: (<span class="nc">Int</span>) -&gt; <span class="nc">String</span> = <span class="nv">String</span>.<span class="nv">init</span>
+</li><li><span class="k">let</span> <span class="nv">oneTwoThree</span> = [<span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>].<span class="nv">map</span>(<span class="nv">initializer</span>).<span class="nv">reduce</span>(<span class="s">&quot;&quot;</span>, +)
+</li><li><span class="nv">print</span>(<span class="nv">oneTwoThree</span>)
+</li><li><span class="c">// Prints &quot;123&quot;</span>
+</li></ol></div></div></div>
+<p>If you specify a type by name, you can access the type’s initializer without using an initializer expression. In all other cases, you must use an initializer expression.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">s1</span> = <span class="nv">SomeType</span>.<span class="nv">init</span>(<span class="nv">data</span>: <span class="m">3</span>)  <span class="c">// Valid</span>
+</li><li><span class="k">let</span> <span class="nv">s2</span> = <span class="nv">SomeType</span>(<span class="nv">data</span>: <span class="m">1</span>)       <span class="c">// Also valid</span>
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">s3</span> = <span class="nv">type</span>(<span class="nv">of</span>: <span class="nv">someValue</span>).<span class="nv">init</span>(<span class="nv">data</span>: <span class="m">7</span>)  <span class="c">// Valid</span>
+</li><li><span class="k">let</span> <span class="nv">s4</span> = <span class="nv">type</span>(<span class="nv">of</span>: <span class="nv">someValue</span>)(<span class="nv">data</span>: <span class="m">5</span>)       <span class="c">// Error</span>
+</li></ol></div></div></div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an initializer expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_initializer-expression"></a>initializer-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span>  <code>.</code> <code>init</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_initializer-expression_1100"></a>initializer-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span>  <code>.</code> <code>init</code> <code>(</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_argument-names">argument-names</a></span>  <code>)</code></p></div></div></div>
+<div class="section" id="ID400">
+<h3>Explicit Member Expression<a class="headerlink" href="#ID400" title="Permalink to this headline">¶</a></h3>
+<p>An <em>explicit member expression</em> allows access to the members of a named type, a tuple, or a module. It consists of a period (<code class="docutils literal notranslate"><span class="pre">.</span></code>) between the item and the identifier of its member.</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="gi">expression</span>.<span class="gi">member name</span>
+</li></ol></div></div></div>
+<p>The members of a named type are named as part of the type’s declaration or extension. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SomeClass</span> {
+</li><li>    <span class="k">var</span> <span class="nv">someProperty</span> = <span class="m">42</span>
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">c</span> = <span class="nv">SomeClass</span>()
+</li><li><span class="k">let</span> <span class="nv">y</span> = <span class="nv">c</span>.<span class="nv">someProperty</span>  <span class="c">// Member access</span>
+</li></ol></div></div></div>
+<p>The members of a tuple are implicitly named using integers in the order they appear, starting from zero. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">t</span> = (<span class="m">10</span>, <span class="m">20</span>, <span class="m">30</span>)
+</li><li><span class="nv">t</span>.<span class="m">0</span> = <span class="nv">t</span>.<span class="m">1</span>
+</li><li><span class="c">// Now t is (20, 20, 30)</span>
+</li></ol></div></div></div>
+<p>The members of a module access the top-level declarations of that module.</p>
+<p>Types declared with the <code class="docutils literal notranslate"><span class="pre">dynamicMemberLookup</span></code> attribute include members that are looked up at runtime, as described in <a class="reference internal" href="Attributes.html"><span class="doc">Attributes</span></a>.</p>
+<p>To distinguish between methods or initializers whose names differ only by the names of their arguments, include the argument names in parentheses, with each argument name followed by a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>). Write an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>) for an argument with no name. To distinguish between overloaded methods, use a type annotation. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SomeClass</span> {
+</li><li>    <span class="k">func</span> <span class="nv">someMethod</span>(<span class="nv">x</span>: <span class="nc">Int</span>, <span class="nv">y</span>: <span class="nc">Int</span>) {}
+</li><li>    <span class="k">func</span> <span class="nv">someMethod</span>(<span class="nv">x</span>: <span class="nc">Int</span>, <span class="nv">z</span>: <span class="nc">Int</span>) {}
+</li><li>    <span class="k">func</span> <span class="nv">overloadedMethod</span>(<span class="nv">x</span>: <span class="nc">Int</span>, <span class="nv">y</span>: <span class="nc">Int</span>) {}
+</li><li>    <span class="k">func</span> <span class="nv">overloadedMethod</span>(<span class="nv">x</span>: <span class="nc">Int</span>, <span class="nv">y</span>: <span class="nc">Bool</span>) {}
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">instance</span> = <span class="nv">SomeClass</span>()
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">a</span> = <span class="nv">instance</span>.<span class="nv">someMethod</span>              <span class="c">// Ambiguous</span>
+</li><li><span class="k">let</span> <span class="nv">b</span> = <span class="nv">instance</span>.<span class="nv">someMethod</span>(<span class="nv">x</span>:<span class="nv">y</span>:)        <span class="c">// Unambiguous</span>
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">d</span> = <span class="nv">instance</span>.<span class="nv">overloadedMethod</span>        <span class="c">// Ambiguous</span>
+</li><li><span class="k">let</span> <span class="nv">d</span> = <span class="nv">instance</span>.<span class="nv">overloadedMethod</span>(<span class="nv">x</span>:<span class="nv">y</span>:)  <span class="c">// Still ambiguous</span>
+</li><li><span class="k">let</span> <span class="nv">d</span>: (<span class="nc">Int</span>, <span class="nc">Bool</span>) -&gt; <span class="nc">Void</span>  = <span class="nv">instance</span>.<span class="nv">overloadedMethod</span>(<span class="nv">x</span>:<span class="nv">y</span>:)  <span class="c">// Unambiguous</span>
+</li></ol></div></div></div>
+<p>If a period appears at the beginning of a line, it’s understood as part of an explicit member expression, not as an implicit member expression. For example, the following listing shows chained method calls split over several lines:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">x</span> = [<span class="m">10</span>, <span class="m">3</span>, <span class="m">20</span>, <span class="m">15</span>, <span class="m">4</span>]
+</li><li>    .<span class="nv">sorted</span>()
+</li><li>    .<span class="nv">filter</span> { <span class="nv">$0</span> &gt; <span class="m">5</span> }
+</li><li>    .<span class="nv">map</span> { <span class="nv">$0</span> * <span class="m">100</span> }
+</li></ol></div></div></div>
+<p>You can combine this multiline chained syntax with compiler control statements to control when each method is called. For example, the following code uses a different filtering rule on iOS:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">numbers</span> = [<span class="m">10</span>, <span class="m">20</span>, <span class="m">33</span>, <span class="m">43</span>, <span class="m">50</span>]
+</li><li><span class="k">#if</span> <span class="nv">os</span>(<span class="nv">iOS</span>)
+</li><li>.<span class="nv">filter</span> { <span class="nv">$0</span> &lt; <span class="m">40</span> }
+</li><li><span class="k">#else</span>
+</li><li>.<span class="nv">filter</span> { <span class="nv">$0</span> &gt; <span class="m">25</span> }
+</li><li><span class="k">#endif</span>
+</li></ol></div></div></div>
+<p>Between <code class="docutils literal notranslate"><span class="pre">#if</span></code>, <code class="docutils literal notranslate"><span class="pre">#endif</span></code>, and other compilation directives, the conditional compilation block can contain an implicit member expression followed by zero or more postfixes, to form a postfix expression. It can also contain another conditional compilation block, or a combination of these expressions and blocks.</p>
+<p>You can use this syntax anywhere that you can write an explicit member expression, not just in top-level code.</p>
+<p>In the conditional compilation block, the branch for the <code class="docutils literal notranslate"><span class="pre">#if</span></code> compilation directive must contain at least one expression. The other branches can be empty.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an explicit member expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_explicit-member-expression"></a>explicit-member-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span>  <code>.</code> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_decimal-digits">decimal-digits</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_explicit-member-expression_1101"></a>explicit-member-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span>  <code>.</code> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-clause">generic-argument-clause</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_explicit-member-expression_1102"></a>explicit-member-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span>  <code>.</code> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span>  <code>(</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_argument-names">argument-names</a></span>  <code>)</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_explicit-member-expression_1103"></a>explicit-member-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Statements.html#grammar_conditional-compilation-block">conditional-compilation-block</a></span> </p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_argument-names"></a>argument-names</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_argument-name">argument-name</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_argument-names">argument-names</a></span> <sub>opt</sub></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_argument-name"></a>argument-name</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span>  <code>:</code></p></div></div></div>
+<div class="section" id="ID401">
+<h3>Postfix Self Expression<a class="headerlink" href="#ID401" title="Permalink to this headline">¶</a></h3>
+<p>A postfix <code class="docutils literal notranslate"><span class="pre">self</span></code> expression consists of an expression or the name of a type, immediately followed by <code class="docutils literal notranslate"><span class="pre">.self</span></code>. It has the following forms:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="gi">expression</span>.<span class="k">self</span>
+</li><li><span class="gi">type</span>.<span class="k">self</span>
+</li></ol></div></div></div>
+<p>The first form evaluates to the value of the <em>expression</em>. For example, <code class="docutils literal notranslate"><span class="pre">x.self</span></code> evaluates to <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>The second form evaluates to the value of the <em>type</em>. Use this form to access a type as a value. For example, because <code class="docutils literal notranslate"><span class="pre">SomeClass.self</span></code> evaluates to the <code class="docutils literal notranslate"><span class="pre">SomeClass</span></code> type itself, you can pass it to a function or method that accepts a type-level argument.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a postfix self expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_postfix-self-expression"></a>postfix-self-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span>  <code>.</code> <code>self</code></p></div></div></div>
+<div class="section" id="ID403">
+<h3>Subscript Expression<a class="headerlink" href="#ID403" title="Permalink to this headline">¶</a></h3>
+<p>A <em>subscript expression</em> provides subscript access using the getter and setter of the corresponding subscript declaration. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="gi">expression</span>[<span class="gi">index expressions</span>]
+</li></ol></div></div></div>
+<p>To evaluate the value of a subscript expression, the subscript getter for the <em>expression</em>’s type is called with the <em>index expressions</em> passed as the subscript parameters. To set its value, the subscript setter is called in the same way.</p>
+<p>For information about subscript declarations, see <a class="reference internal" href="Declarations.html#ID373"><span class="std std-ref">Protocol Subscript Declaration</span></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a subscript expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_subscript-expression"></a>subscript-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span>  <code>[</code> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_function-call-argument-list">function-call-argument-list</a></span>  <code>]</code></p></div></div></div>
+<div class="section" id="ID404">
+<h3>Forced-Value Expression<a class="headerlink" href="#ID404" title="Permalink to this headline">¶</a></h3>
+<p>A <em>forced-value expression</em> unwraps an optional value that you are certain isn’t <code class="docutils literal notranslate"><span class="pre">nil</span></code>. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="gi">expression</span>!
+</li></ol></div></div></div>
+<p>If the value of the <em>expression</em> isn’t <code class="docutils literal notranslate"><span class="pre">nil</span></code>, the optional value is unwrapped and returned with the corresponding non-optional type. Otherwise, a runtime error is raised.</p>
+<p>The unwrapped value of a forced-value expression can be modified, either by mutating the value itself, or by assigning to one of the value’s members. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">x</span>: <span class="nc">Int</span>? = <span class="m">0</span>
+</li><li><span class="nv">x</span>! += <span class="m">1</span>
+</li><li><span class="c">// x is now 1</span>
+</li><li>
+</li><li><span class="k">var</span> <span class="nv">someDictionary</span> = [<span class="s">&quot;a&quot;</span>: [<span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>], <span class="s">&quot;b&quot;</span>: [<span class="m">10</span>, <span class="m">20</span>]]
+</li><li><span class="nv">someDictionary</span>[<span class="s">&quot;a&quot;</span>]![<span class="m">0</span>] = <span class="m">100</span>
+</li><li><span class="c">// someDictionary is now [&quot;a&quot;: [100, 2, 3], &quot;b&quot;: [10, 20]]</span>
+</li></ol></div></div></div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a forced-value expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_forced-value-expression"></a>forced-value-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span>  <code>!</code></p></div></div></div>
+<div class="section" id="ID405">
+<h3>Optional-Chaining Expression<a class="headerlink" href="#ID405" title="Permalink to this headline">¶</a></h3>
+<p>An <em>optional-chaining expression</em> provides a simplified syntax for using optional values in postfix expressions. It has the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="gi">expression</span>?
+</li></ol></div></div></div>
+<p>The postfix <code class="docutils literal notranslate"><span class="pre">?</span></code> operator makes an optional-chaining expression from an expression without changing the expression’s value.</p>
+<p>Optional-chaining expressions must appear within a postfix expression, and they cause the postfix expression to be evaluated in a special way. If the value of the optional-chaining expression is <code class="docutils literal notranslate"><span class="pre">nil</span></code>, all of the other operations in the postfix expression are ignored and the entire postfix expression evaluates to <code class="docutils literal notranslate"><span class="pre">nil</span></code>. If the value of the optional-chaining expression isn’t <code class="docutils literal notranslate"><span class="pre">nil</span></code>, the value of the optional-chaining expression is unwrapped and used to evaluate the rest of the postfix expression. In either case, the value of the postfix expression is still of an optional type.</p>
+<p>If a postfix expression that contains an optional-chaining expression is nested inside other postfix expressions, only the outermost expression returns an optional type. In the example below, when <code class="docutils literal notranslate"><span class="pre">c</span></code> isn’t <code class="docutils literal notranslate"><span class="pre">nil</span></code>, its value is unwrapped and used to evaluate <code class="docutils literal notranslate"><span class="pre">.property</span></code>, the value of which is used to evaluate <code class="docutils literal notranslate"><span class="pre">.performAction()</span></code>. The entire expression <code class="docutils literal notranslate"><span class="pre">c?.property.performAction()</span></code> has a value of an optional type.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">c</span>: <span class="nc">SomeClass</span>?
+</li><li><span class="k">var</span> <span class="nv">result</span>: <span class="nc">Bool</span>? = <span class="nv">c</span>?.<span class="nv">property</span>.<span class="nv">performAction</span>()
+</li></ol></div></div></div>
+<p>The following example shows the behavior of the example above without using optional chaining.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">result</span>: <span class="nc">Bool</span>?
+</li><li><span class="k">if</span> <span class="k">let</span> <span class="nv">unwrappedC</span> = <span class="nv">c</span> {
+</li><li>    <span class="nv">result</span> = <span class="nv">unwrappedC</span>.<span class="nv">property</span>.<span class="nv">performAction</span>()
+</li><li>}
+</li></ol></div></div></div>
+<p>The unwrapped value of an optional-chaining expression can be modified, either by mutating the value itself, or by assigning to one of the value’s members. If the value of the optional-chaining expression is <code class="docutils literal notranslate"><span class="pre">nil</span></code>, the expression on the right-hand side of the assignment operator isn’t evaluated. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">someFunctionWithSideEffects</span>() -&gt; <span class="nc">Int</span> {
+</li><li>    <span class="k">return</span> <span class="m">42</span>  <span class="c">// No actual side effects.</span>
+</li><li>}
+</li><li><span class="k">var</span> <span class="nv">someDictionary</span> = [<span class="s">&quot;a&quot;</span>: [<span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>], <span class="s">&quot;b&quot;</span>: [<span class="m">10</span>, <span class="m">20</span>]]
+</li><li>
+</li><li><span class="nv">someDictionary</span>[<span class="s">&quot;not here&quot;</span>]?[<span class="m">0</span>] = <span class="nv">someFunctionWithSideEffects</span>()
+</li><li><span class="c">// someFunctionWithSideEffects isn&#39;t evaluated</span>
+</li><li><span class="c">// someDictionary is still [&quot;a&quot;: [1, 2, 3], &quot;b&quot;: [10, 20]]</span>
+</li><li>
+</li><li><span class="nv">someDictionary</span>[<span class="s">&quot;a&quot;</span>]?[<span class="m">0</span>] = <span class="nv">someFunctionWithSideEffects</span>()
+</li><li><span class="c">// someFunctionWithSideEffects is evaluated and returns 42</span>
+</li><li><span class="c">// someDictionary is now [&quot;a&quot;: [42, 2, 3], &quot;b&quot;: [10, 20]]</span>
+</li></ol></div></div></div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an optional-chaining expression</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_optional-chaining-expression"></a>optional-chaining-expression</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Expressions.html#grammar_postfix-expression">postfix-expression</a></span>  <code>?</code></p></div></div></div>
+</div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="Types.html">Types</a></p>
+        <p class="next"><a href="Statements.html">Statements</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  </body>
+</html>

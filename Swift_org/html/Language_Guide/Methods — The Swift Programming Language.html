@@ -1,0 +1,346 @@
+
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Apple Inc." />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    
+    <title>Methods &mdash; The Swift Programming Language (Swift 5.6)</title>
+    
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css" />
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339" /> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TheBasics.html">Language Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="TheBasics.html">The Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicOperators.html">Basic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringsAndCharacters.html">Strings and Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CollectionTypes.html">Collection Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlFlow.html">Control Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Closures.html">Closures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumerations.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassesAndStructures.html">Structures and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscripts.html">Subscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialization.html">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Deinitialization.html">Deinitialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptionalChaining.html">Optional Chaining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ErrorHandling.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TypeCasting.html">Type Casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NestedTypes.html">Nested Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Extensions.html">Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Protocols.html">Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OpaqueTypes.html">Opaque Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutomaticReferenceCounting.html">Automatic Reference Counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MemorySafety.html">Memory Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AccessControl.html">Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AdvancedOperators.html">Advanced Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ReferenceManual/AboutTheLanguageReference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Methods</a><ul>
+<li><a class="reference internal" href="#ID235">Instance Methods</a><ul>
+<li><a class="reference internal" href="#ID238">The self Property</a></li>
+<li><a class="reference internal" href="#ID239">Modifying Value Types from Within Instance Methods</a></li>
+<li><a class="reference internal" href="#ID240">Assigning to self Within a Mutating Method</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID241">Type Methods</a></li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="methods">
+<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h1>
+<p><em>Methods</em> are functions that are associated with a particular type. Classes, structures, and enumerations can all define instance methods, which encapsulate specific tasks and functionality for working with an instance of a given type. Classes, structures, and enumerations can also define type methods, which are associated with the type itself. Type methods are similar to class methods in Objective-C.</p>
+<p>The fact that structures and enumerations can define methods in Swift is a major difference from C and Objective-C. In Objective-C, classes are the only types that can define methods. In Swift, you can choose whether to define a class, structure, or enumeration, and still have the flexibility to define methods on the type you create.</p>
+<div class="section" id="ID235">
+<h2>Instance Methods<a class="headerlink" href="#ID235" title="Permalink to this headline">¶</a></h2>
+<p><em>Instance methods</em> are functions that belong to instances of a particular class, structure, or enumeration. They support the functionality of those instances, either by providing ways to access and modify instance properties, or by providing functionality related to the instance’s purpose. Instance methods have exactly the same syntax as functions, as described in <a class="reference internal" href="Functions.html"><span class="doc">Functions</span></a>.</p>
+<p>You write an instance method within the opening and closing braces of the type it belongs to. An instance method has implicit access to all other instance methods and properties of that type. An instance method can be called only on a specific instance of the type it belongs to. It can’t be called in isolation without an existing instance.</p>
+<p>Here’s an example that defines a simple <code class="docutils literal notranslate"><span class="pre">Counter</span></code> class, which can be used to count the number of times an action occurs:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Counter</span> {
+</li><li>    <span class="k">var</span> <span class="nv">count</span> = <span class="m">0</span>
+</li><li>    <span class="k">func</span> <span class="nv">increment</span>() {
+</li><li>        <span class="nv">count</span> += <span class="m">1</span>
+</li><li>    }
+</li><li>    <span class="k">func</span> <span class="nv">increment</span>(<span class="nv">by</span> <span class="nv">amount</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="nv">count</span> += <span class="nv">amount</span>
+</li><li>    }
+</li><li>    <span class="k">func</span> <span class="nv">reset</span>() {
+</li><li>        <span class="nv">count</span> = <span class="m">0</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Counter</span></code> class defines three instance methods:</p>
+<ul class="simple">
+<li><code class="docutils literal notranslate"><span class="pre">increment()</span></code> increments the counter by <code class="docutils literal notranslate"><span class="pre">1</span></code>.</li>
+<li><code class="docutils literal notranslate"><span class="pre">increment(by:</span> <span class="pre">Int)</span></code> increments the counter by a specified integer amount.</li>
+<li><code class="docutils literal notranslate"><span class="pre">reset()</span></code> resets the counter to zero.</li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">Counter</span></code> class also declares a variable property, <code class="docutils literal notranslate"><span class="pre">count</span></code>, to keep track of the current counter value.</p>
+<p>You call instance methods with the same dot syntax as properties:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">counter</span> = <span class="nv">Counter</span>()
+</li><li><span class="c">// the initial counter value is 0</span>
+</li><li><span class="nv">counter</span>.<span class="nv">increment</span>()
+</li><li><span class="c">// the counter&#39;s value is now 1</span>
+</li><li><span class="nv">counter</span>.<span class="nv">increment</span>(<span class="nv">by</span>: <span class="m">5</span>)
+</li><li><span class="c">// the counter&#39;s value is now 6</span>
+</li><li><span class="nv">counter</span>.<span class="nv">reset</span>()
+</li><li><span class="c">// the counter&#39;s value is now 0</span>
+</li></ol></div></div></div>
+<p>Function parameters can have both a name (for use within the function’s body) and an argument label (for use when calling the function), as described in <a class="reference internal" href="Functions.html#ID166"><span class="std std-ref">Function Argument Labels and Parameter Names</span></a>. The same is true for method parameters, because methods are just functions that are associated with a type.</p>
+<div class="section" id="ID238">
+<h3>The self Property<a class="headerlink" href="#ID238" title="Permalink to this headline">¶</a></h3>
+<p>Every instance of a type has an implicit property called <code class="docutils literal notranslate"><span class="pre">self</span></code>, which is exactly equivalent to the instance itself. You use the <code class="docutils literal notranslate"><span class="pre">self</span></code> property to refer to the current instance within its own instance methods.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">increment()</span></code> method in the example above could have been written like this:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">increment</span>() {
+</li><li>    <span class="k">self</span>.<span class="nv">count</span> += <span class="m">1</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>In practice, you don’t need to write <code class="docutils literal notranslate"><span class="pre">self</span></code> in your code very often. If you don’t explicitly write <code class="docutils literal notranslate"><span class="pre">self</span></code>, Swift assumes that you are referring to a property or method of the current instance whenever you use a known property or method name within a method. This assumption is demonstrated by the use of <code class="docutils literal notranslate"><span class="pre">count</span></code> (rather than <code class="docutils literal notranslate"><span class="pre">self.count</span></code>) inside the three instance methods for <code class="docutils literal notranslate"><span class="pre">Counter</span></code>.</p>
+<p>The main exception to this rule occurs when a parameter name for an instance method has the same name as a property of that instance. In this situation, the parameter name takes precedence, and it becomes necessary to refer to the property in a more qualified way. You use the <code class="docutils literal notranslate"><span class="pre">self</span></code> property to distinguish between the parameter name and the property name.</p>
+<p>Here, <code class="docutils literal notranslate"><span class="pre">self</span></code> disambiguates between a method parameter called <code class="docutils literal notranslate"><span class="pre">x</span></code> and an instance property that’s also called <code class="docutils literal notranslate"><span class="pre">x</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Point</span> {
+</li><li>    <span class="k">var</span> <span class="nv">x</span> = <span class="m">0.0</span>, <span class="nv">y</span> = <span class="m">0.0</span>
+</li><li>    <span class="k">func</span> <span class="nv">isToTheRightOf</span>(<span class="nv">x</span>: <span class="nc">Double</span>) -&gt; <span class="nc">Bool</span> {
+</li><li>        <span class="k">return</span> <span class="k">self</span>.<span class="nv">x</span> &gt; <span class="nv">x</span>
+</li><li>    }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">somePoint</span> = <span class="nv">Point</span>(<span class="nv">x</span>: <span class="m">4.0</span>, <span class="nv">y</span>: <span class="m">5.0</span>)
+</li><li><span class="k">if</span> <span class="nv">somePoint</span>.<span class="nv">isToTheRightOf</span>(<span class="nv">x</span>: <span class="m">1.0</span>) {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;This point is to the right of the line where x == 1.0&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;This point is to the right of the line where x == 1.0&quot;</span>
+</li></ol></div></div></div>
+<p>Without the <code class="docutils literal notranslate"><span class="pre">self</span></code> prefix, Swift would assume that both uses of <code class="docutils literal notranslate"><span class="pre">x</span></code> referred to the method parameter called <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</div>
+<div class="section" id="ID239">
+<h3>Modifying Value Types from Within Instance Methods<a class="headerlink" href="#ID239" title="Permalink to this headline">¶</a></h3>
+<p>Structures and enumerations are <em>value types</em>. By default, the properties of a value type can’t be modified from within its instance methods.</p>
+<p>However, if you need to modify the properties of your structure or enumeration within a particular method, you can opt in to <em>mutating</em> behavior for that method. The method can then mutate (that is, change) its properties from within the method, and any changes that it makes are written back to the original structure when the method ends. The method can also assign a completely new instance to its implicit <code class="docutils literal notranslate"><span class="pre">self</span></code> property, and this new instance will replace the existing one when the method ends.</p>
+<p>You can opt in to this behavior by placing the <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword before the <code class="docutils literal notranslate"><span class="pre">func</span></code> keyword for that method:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Point</span> {
+</li><li>    <span class="k">var</span> <span class="nv">x</span> = <span class="m">0.0</span>, <span class="nv">y</span> = <span class="m">0.0</span>
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">moveBy</span>(<span class="nv">x</span> <span class="nv">deltaX</span>: <span class="nc">Double</span>, <span class="nv">y</span> <span class="nv">deltaY</span>: <span class="nc">Double</span>) {
+</li><li>        <span class="nv">x</span> += <span class="nv">deltaX</span>
+</li><li>        <span class="nv">y</span> += <span class="nv">deltaY</span>
+</li><li>    }
+</li><li>}
+</li><li><span class="k">var</span> <span class="nv">somePoint</span> = <span class="nv">Point</span>(<span class="nv">x</span>: <span class="m">1.0</span>, <span class="nv">y</span>: <span class="m">1.0</span>)
+</li><li><span class="nv">somePoint</span>.<span class="nv">moveBy</span>(<span class="nv">x</span>: <span class="m">2.0</span>, <span class="nv">y</span>: <span class="m">3.0</span>)
+</li><li><span class="nv">print</span>(<span class="s">&quot;The point is now at (</span>\<span class="p">(</span><span class="nv">somePoint</span>.<span class="nv">x</span><span class="p">)</span><span class="s">, </span>\<span class="p">(</span><span class="nv">somePoint</span>.<span class="nv">y</span><span class="p">)</span><span class="s">)&quot;</span>)
+</li><li><span class="c">// Prints &quot;The point is now at (3.0, 4.0)&quot;</span>
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Point</span></code> structure above defines a mutating <code class="docutils literal notranslate"><span class="pre">moveBy(x:y:)</span></code> method, which moves a <code class="docutils literal notranslate"><span class="pre">Point</span></code> instance by a certain amount. Instead of returning a new point, this method actually modifies the point on which it’s called. The <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword is added to its definition to enable it to modify its properties.</p>
+<p>Note that you can’t call a mutating method on a constant of structure type, because its properties can’t be changed, even if they’re variable properties, as described in <a class="reference internal" href="Properties.html#ID256"><span class="std std-ref">Stored Properties of Constant Structure Instances</span></a>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">fixedPoint</span> = <span class="nv">Point</span>(<span class="nv">x</span>: <span class="m">3.0</span>, <span class="nv">y</span>: <span class="m">3.0</span>)
+</li><li><span class="nv">fixedPoint</span>.<span class="nv">moveBy</span>(<span class="nv">x</span>: <span class="m">2.0</span>, <span class="nv">y</span>: <span class="m">3.0</span>)
+</li><li><span class="c">// this will report an error</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID240">
+<h3>Assigning to self Within a Mutating Method<a class="headerlink" href="#ID240" title="Permalink to this headline">¶</a></h3>
+<p>Mutating methods can assign an entirely new instance to the implicit <code class="docutils literal notranslate"><span class="pre">self</span></code> property. The <code class="docutils literal notranslate"><span class="pre">Point</span></code> example shown above could have been written in the following way instead:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Point</span> {
+</li><li>    <span class="k">var</span> <span class="nv">x</span> = <span class="m">0.0</span>, <span class="nv">y</span> = <span class="m">0.0</span>
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">moveBy</span>(<span class="nv">x</span> <span class="nv">deltaX</span>: <span class="nc">Double</span>, <span class="nv">y</span> <span class="nv">deltaY</span>: <span class="nc">Double</span>) {
+</li><li>        <span class="k">self</span> = <span class="nv">Point</span>(<span class="nv">x</span>: <span class="nv">x</span> + <span class="nv">deltaX</span>, <span class="nv">y</span>: <span class="nv">y</span> + <span class="nv">deltaY</span>)
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>This version of the mutating <code class="docutils literal notranslate"><span class="pre">moveBy(x:y:)</span></code> method creates a new structure whose <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> values are set to the target location. The end result of calling this alternative version of the method will be exactly the same as for calling the earlier version.</p>
+<p>Mutating methods for enumerations can set the implicit <code class="docutils literal notranslate"><span class="pre">self</span></code> parameter to be a different case from the same enumeration:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">TriStateSwitch</span> {
+</li><li>    <span class="k">case</span> <span class="nv">off</span>, <span class="nv">low</span>, <span class="nv">high</span>
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">next</span>() {
+</li><li>        <span class="k">switch</span> <span class="k">self</span> {
+</li><li>        <span class="k">case</span> .<span class="nv">off</span>:
+</li><li>            <span class="k">self</span> = .<span class="nv">low</span>
+</li><li>        <span class="k">case</span> .<span class="nv">low</span>:
+</li><li>            <span class="k">self</span> = .<span class="nv">high</span>
+</li><li>        <span class="k">case</span> .<span class="nv">high</span>:
+</li><li>            <span class="k">self</span> = .<span class="nv">off</span>
+</li><li>        }
+</li><li>    }
+</li><li>}
+</li><li><span class="k">var</span> <span class="nv">ovenLight</span> = <span class="nv">TriStateSwitch</span>.<span class="nv">low</span>
+</li><li><span class="nv">ovenLight</span>.<span class="nv">next</span>()
+</li><li><span class="c">// ovenLight is now equal to .high</span>
+</li><li><span class="nv">ovenLight</span>.<span class="nv">next</span>()
+</li><li><span class="c">// ovenLight is now equal to .off</span>
+</li></ol></div></div></div>
+<p>This example defines an enumeration for a three-state switch. The switch cycles between three different power states (<code class="docutils literal notranslate"><span class="pre">off</span></code>, <code class="docutils literal notranslate"><span class="pre">low</span></code> and <code class="docutils literal notranslate"><span class="pre">high</span></code>) every time its <code class="docutils literal notranslate"><span class="pre">next()</span></code> method is called.</p>
+</div>
+</div>
+<div class="section" id="ID241">
+<h2>Type Methods<a class="headerlink" href="#ID241" title="Permalink to this headline">¶</a></h2>
+<p>Instance methods, as described above, are methods that you call on an instance of a particular type. You can also define methods that are called on the type itself. These kinds of methods are called <em>type methods</em>. You indicate type methods by writing the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword before the method’s <code class="docutils literal notranslate"><span class="pre">func</span></code> keyword. Classes can use the <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword instead, to allow subclasses to override the superclass’s implementation of that method.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">In Objective-C, you can define type-level methods only for Objective-C classes. In Swift, you can define type-level methods for all classes, structures, and enumerations. Each type method is explicitly scoped to the type it supports.</p>
+</div>
+<p>Type methods are called with dot syntax, like instance methods. However, you call type methods on the type, not on an instance of that type. Here’s how you call a type method on a class called <code class="docutils literal notranslate"><span class="pre">SomeClass</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SomeClass</span> {
+</li><li>    <span class="k">class</span> <span class="k">func</span> <span class="nv">someTypeMethod</span>() {
+</li><li>        <span class="c">// type method implementation goes here</span>
+</li><li>    }
+</li><li>}
+</li><li><span class="nv">SomeClass</span>.<span class="nv">someTypeMethod</span>()
+</li></ol></div></div></div>
+<p>Within the body of a type method, the implicit <code class="docutils literal notranslate"><span class="pre">self</span></code> property refers to the type itself, rather than an instance of that type. This means that you can use <code class="docutils literal notranslate"><span class="pre">self</span></code> to disambiguate between type properties and type method parameters, just as you do for instance properties and instance method parameters.</p>
+<p>More generally, any unqualified method and property names that you use within the body of a type method will refer to other type-level methods and properties. A type method can call another type method with the other method’s name, without needing to prefix it with the type name. Similarly, type methods on structures and enumerations can access type properties by using the type property’s name without a type name prefix.</p>
+<p>The example below defines a structure called <code class="docutils literal notranslate"><span class="pre">LevelTracker</span></code>, which tracks a player’s progress through the different levels or stages of a game. It’s a single-player game, but can store information for multiple players on a single device.</p>
+<p>All of the game’s levels (apart from level one) are locked when the game is first played. Every time a player finishes a level, that level is unlocked for all players on the device. The <code class="docutils literal notranslate"><span class="pre">LevelTracker</span></code> structure uses type properties and methods to keep track of which levels of the game have been unlocked. It also tracks the current level for an individual player.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">LevelTracker</span> {
+</li><li>    <span class="k">static</span> <span class="k">var</span> <span class="nv">highestUnlockedLevel</span> = <span class="m">1</span>
+</li><li>    <span class="k">var</span> <span class="nv">currentLevel</span> = <span class="m">1</span>
+</li><li>
+</li><li>    <span class="k">static</span> <span class="k">func</span> <span class="nv">unlock</span>(<span class="k">_</span> <span class="nv">level</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="k">if</span> <span class="nv">level</span> &gt; <span class="nv">highestUnlockedLevel</span> { <span class="nv">highestUnlockedLevel</span> = <span class="nv">level</span> }
+</li><li>    }
+</li><li>
+</li><li>    <span class="k">static</span> <span class="k">func</span> <span class="nv">isUnlocked</span>(<span class="k">_</span> <span class="nv">level</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Bool</span> {
+</li><li>        <span class="k">return</span> <span class="nv">level</span> &lt;= <span class="nv">highestUnlockedLevel</span>
+</li><li>    }
+</li><li>
+</li><li>    <span class="k">@discardableResult</span>
+</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">advance</span>(<span class="nv">to</span> <span class="nv">level</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Bool</span> {
+</li><li>        <span class="k">if</span> <span class="nv">LevelTracker</span>.<span class="nv">isUnlocked</span>(<span class="nv">level</span>) {
+</li><li>            <span class="nv">currentLevel</span> = <span class="nv">level</span>
+</li><li>            <span class="k">return</span> <span class="k">true</span>
+</li><li>        } <span class="k">else</span> {
+</li><li>            <span class="k">return</span> <span class="k">false</span>
+</li><li>        }
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">LevelTracker</span></code> structure keeps track of the highest level that any player has unlocked. This value is stored in a type property called <code class="docutils literal notranslate"><span class="pre">highestUnlockedLevel</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">LevelTracker</span></code> also defines two type functions to work with the <code class="docutils literal notranslate"><span class="pre">highestUnlockedLevel</span></code> property. The first is a type function called <code class="docutils literal notranslate"><span class="pre">unlock(_:)</span></code>, which updates the value of <code class="docutils literal notranslate"><span class="pre">highestUnlockedLevel</span></code> whenever a new level is unlocked. The second is a convenience type function called <code class="docutils literal notranslate"><span class="pre">isUnlocked(_:)</span></code>, which returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if a particular level number is already unlocked. (Note that these type methods can access the <code class="docutils literal notranslate"><span class="pre">highestUnlockedLevel</span></code> type property without your needing to write it as <code class="docutils literal notranslate"><span class="pre">LevelTracker.highestUnlockedLevel</span></code>.)</p>
+<p>In addition to its type property and type methods, <code class="docutils literal notranslate"><span class="pre">LevelTracker</span></code> tracks an individual player’s progress through the game. It uses an instance property called <code class="docutils literal notranslate"><span class="pre">currentLevel</span></code> to track the level that a player is currently playing.</p>
+<p>To help manage the <code class="docutils literal notranslate"><span class="pre">currentLevel</span></code> property, <code class="docutils literal notranslate"><span class="pre">LevelTracker</span></code> defines an instance method called <code class="docutils literal notranslate"><span class="pre">advance(to:)</span></code>. Before updating <code class="docutils literal notranslate"><span class="pre">currentLevel</span></code>, this method checks whether the requested new level is already unlocked. The <code class="docutils literal notranslate"><span class="pre">advance(to:)</span></code> method returns a Boolean value to indicate whether or not it was actually able to set <code class="docutils literal notranslate"><span class="pre">currentLevel</span></code>. Because it’s not necessarily a mistake for code that calls the <code class="docutils literal notranslate"><span class="pre">advance(to:)</span></code> method to ignore the return value, this function is marked with the <code class="docutils literal notranslate"><span class="pre">&#64;discardableResult</span></code> attribute. For more information about this attribute, see <a class="reference internal" href="../ReferenceManual/Attributes.html"><span class="doc">Attributes</span></a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">LevelTracker</span></code> structure is used with the <code class="docutils literal notranslate"><span class="pre">Player</span></code> class, shown below, to track and update the progress of an individual player:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Player</span> {
+</li><li>    <span class="k">var</span> <span class="nv">tracker</span> = <span class="nv">LevelTracker</span>()
+</li><li>    <span class="k">let</span> <span class="nv">playerName</span>: <span class="nc">String</span>
+</li><li>    <span class="k">func</span> <span class="nv">complete</span>(<span class="nv">level</span>: <span class="nc">Int</span>) {
+</li><li>        <span class="nv">LevelTracker</span>.<span class="nv">unlock</span>(<span class="nv">level</span> + <span class="m">1</span>)
+</li><li>        <span class="nv">tracker</span>.<span class="nv">advance</span>(<span class="nv">to</span>: <span class="nv">level</span> + <span class="m">1</span>)
+</li><li>    }
+</li><li>    <span class="k">init</span>(<span class="nv">name</span>: <span class="nc">String</span>) {
+</li><li>        <span class="nv">playerName</span> = <span class="nv">name</span>
+</li><li>    }
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Player</span></code> class creates a new instance of <code class="docutils literal notranslate"><span class="pre">LevelTracker</span></code> to track that player’s progress. It also provides a method called <code class="docutils literal notranslate"><span class="pre">complete(level:)</span></code>, which is called whenever a player completes a particular level. This method unlocks the next level for all players and updates the player’s progress to move them to the next level. (The Boolean return value of <code class="docutils literal notranslate"><span class="pre">advance(to:)</span></code> is ignored, because the level is known to have been unlocked by the call to <code class="docutils literal notranslate"><span class="pre">LevelTracker.unlock(_:)</span></code> on the previous line.)</p>
+<p>You can create an instance of the <code class="docutils literal notranslate"><span class="pre">Player</span></code> class for a new player, and see what happens when the player completes level one:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">player</span> = <span class="nv">Player</span>(<span class="nv">name</span>: <span class="s">&quot;Argyrios&quot;</span>)
+</li><li><span class="nv">player</span>.<span class="nv">complete</span>(<span class="nv">level</span>: <span class="m">1</span>)
+</li><li><span class="nv">print</span>(<span class="s">&quot;highest unlocked level is now </span>\<span class="p">(</span><span class="nv">LevelTracker</span>.<span class="nv">highestUnlockedLevel</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;highest unlocked level is now 2&quot;</span>
+</li></ol></div></div></div>
+<p>If you create a second player, whom you try to move to a level that’s not yet unlocked by any player in the game, the attempt to set the player’s current level fails:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">player</span> = <span class="nv">Player</span>(<span class="nv">name</span>: <span class="s">&quot;Beto&quot;</span>)
+</li><li><span class="k">if</span> <span class="nv">player</span>.<span class="nv">tracker</span>.<span class="nv">advance</span>(<span class="nv">to</span>: <span class="m">6</span>) {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;player is now on level 6&quot;</span>)
+</li><li>} <span class="k">else</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;level 6 hasn&#39;t yet been unlocked&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;level 6 hasn&#39;t yet been unlocked&quot;</span>
+</li></ol></div></div></div>
+</div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="Properties.html">Properties</a></p>
+        <p class="next"><a href="Subscripts.html">Subscripts</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  </body>
+</html>
