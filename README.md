@@ -12,7 +12,7 @@
 
 ### 업데이트
 
-* [Swift 5.6, 2022-01-29](revision-history/document-revision-history.md#2022-01-29)
+* [Swift 5.6, 2022-03-17](revision-history/document-revision-history.md#2022-03-17)
 * [Swift 5.5, 2021-08-14](revision-history/document-revision-history.md#2021-08-14)
 * [Swift 5.4, 2021-02-20](revision-history/document-revision-history.md#2021-02-20)
 * [Swift 5.3, 2020-10-23](revision-history/document-revision-history.md#2020-10-23)
