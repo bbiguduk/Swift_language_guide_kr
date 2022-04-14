@@ -1,5 +1,18 @@
 # 버전 호환성 \(Version Compatibility\)
 
+<!--
+This book describes Swift 5.6, the default version of Swift that’s included in Xcode 13. You can use Xcode 13 to build targets that are written in either Swift 5.6, Swift 4.2, or Swift 4.
+
+When you use Xcode 13 to build Swift 4 and Swift 4.2 code, most Swift 5.6 functionality is available. That said, the following changes are available only to code that uses Swift 5.6 or later:
+
+Functions that return an opaque type require the Swift 5.1 runtime.
+The try? expression doesn’t introduce an extra level of optionality to expressions that already return optionals.
+Large integer literal initialization expressions are inferred to be of the correct integer type. For example, UInt64(0xffff_ffff_ffff_ffff) evaluates to the correct value rather than overflowing.
+Concurrency requires Swift 5.6 or later, and a version of the Swift standard library that provides the corresponding concurrency types. On Apple platforms, set a deployment target of at least iOS 15, macOS 12, tvOS 15, or watchOS 8.0.
+
+A target written in Swift 5.6 can depend on a target that’s written in Swift 4.2 or Swift 4, and vice versa. This means, if you have a large project that’s divided into multiple frameworks, you can migrate your code from Swift 4 to Swift 5.6 one framework at a time.
+-->
+
 이 문서는 Xcode 13 에 포함된 Swift 의 기본 버전인 Swift 5.6 에 대해 설명합니다. Xcode 13 를 사용하여 Swift 5.6, Swift 4.2 또는 Swift 4 로 작성된 대상을 빌드할 수 있습니다.
 
 Xcode 13 를 사용하여 Swift 4 와 Swift 4.2 코드를 사용하면 Swift 5.6 대부분의 기능을 사용할 수 있습니다. 즉, 다음 변경사항은 Swift 5.6 이후 버전에서만 사용 가능합니다:
