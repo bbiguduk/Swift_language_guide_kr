@@ -446,7 +446,7 @@ The literal value of 3 has no explicit type in and of itself, and so an appropri
 
 `3` 인 리터럴 값에는 명시적인 타입이 없으므로 추가로 부동 소수점 리터럴이 존재하는 경우 `Double` 이 유추됩니다.
 
-## 숫자 리터럴 \(Numberic Literals\)
+## 숫자 리터럴 \(Numeric Literals\)
 
 <!--
 Integer literals can be written as:
