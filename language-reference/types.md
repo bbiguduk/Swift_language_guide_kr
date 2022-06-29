@@ -200,12 +200,17 @@ var operation: (Int, Int) -> Int               // OK
 <!--
 If a function type includes more than a single arrow (->), the function types are grouped from right to left. For example, the function type (Int) -> (Int) -> Int is understood as (Int) -> ((Int) -> Int)—that is, a function that takes an Int and returns another function that takes and returns an Int.
 
-Function types that can throw or rethrow an error must be marked with the throws keyword. The throws keyword is part of a function’s type, and nonthrowing functions are subtypes of throwing functions. As a result, you can use a nonthrowing function in the same places as a throwing one. Throwing and rethrowing functions are described in Throwing Functions and Methods and Rethrowing Functions and Methods.
+
+Function types for functions that can throw or rethrow an error must be marked with the throws keyword. The throws keyword is part of a function’s type, and nonthrowing functions are subtypes of throwing functions. As a result, you can use a nonthrowing function in the same places as a throwing one. Throwing and rethrowing functions are described in Throwing Functions and Methods and Rethrowing Functions and Methods.
+
+Function types for asynchronous functions must be marked with the async keyword. The async keyword is part of a function’s type, and synchronous functions are subtypes of asynchronous functions. As a result, you can use a synchronous function in the same places as an asynchronous one. For information about asynchronous functions, see Asynchronous Functions and Methods.
 -->
 
 함수 타입에 하나 이상의 화살표 (`->`) 를 포함하는 경우 함수 타입은 오른쪽에서 왼쪽으로 그룹화 됩니다. 예를 들어 함수 타입 `(Int) -> (Int) -> Int` 는 `(Int) -> ((Int) -> Int)` 로 이해됩니다—이 함수는 `Int` 를 가지며 `Int` 를 가지고 반환하는 다른 함수를 반환합니다.
 
-에러를 발생 시키거나 다시 발생 시킬 수 있는 함수 타입은 `throws` 키워드로 표시되어야 합니다. `throws` 키워드는 함수 타입의 일부분이며 던지지 않는 함수 (nonthrowing functions) 는 던지는 함수 (throwing functions) 의 하위 타입 (subtypes) 입니다. 결과적으로 던지는 함수로 같은 위치에서 던지지 않는 함수를 사용할 수 있습니다. 던지는 함수와 던지지 않는 함수는 [던지는 함수와 메서드 (Throwing Functions and Methods)](declarations.md#throwing-functions-and-methods) 와 [다시 던지는 함수와 메서드 (Rethrowing Functions and Methods)](declarations.md#rethrowing-functions-and-methods) 에 설명되어 있습니다.
+에러를 발생 시키거나 다시 발생 시킬 수 있는 함수에 대한 함수 타입은 `throws` 키워드로 표시되어야 합니다. `throws` 키워드는 함수 타입의 일부분이며 던지지 않는 함수 (nonthrowing functions) 는 던지는 함수 (throwing functions) 의 하위 타입 (subtypes) 입니다. 결과적으로 던지는 함수로 같은 위치에서 던지지 않는 함수를 사용할 수 있습니다. 던지는 함수와 던지지 않는 함수는 [던지는 함수와 메서드 (Throwing Functions and Methods)](declarations.md#throwing-functions-and-methods) 와 [다시 던지는 함수와 메서드 (Rethrowing Functions and Methods)](declarations.md#rethrowing-functions-and-methods) 에 설명되어 있습니다.
+
+비동기 함수에 대한 함수 타입은 `async` 키워드로 표시되어야 합니다. `async` 키워드는 함수의 타입의 부분이며, 동기 함수는 비동기 함수의 하위 타입 (subtypes) 입니다. 결과적으로 비동기 함수와 같은 위치에서 동기 함수를 사용할 수 있습니다. 비동기 함수에 대한 더 자세한 설명은 [비동기 함수와 메서드 (Asynchronous Functions and Methods)](declarations.md#asynchronous-functions-and-methods) 를 참고 바랍니다.
 
 ### 비이스케이프 클로저에 대한 제한사항 (Restrictions for Nonescaping Closures)
 
@@ -248,7 +253,7 @@ If you need to avoid this restriction, mark one of the parameters as escaping, o
 제한사항을 피해야 하는 경우 파라미터 중 하나를 이스케이프로 표시하거나 `withoutActuallyEscaping(_:do:)` 함수를 이용하여 이스케이프 함수로 비이스케이프 함수 파라미터 중 하나를 임시로 변경해야 합니다. 메모리에 충돌 접근을 피하는 것에 대한 자세한 내용은 [메모리 안정성 (Memory Safety)](../language-guide-1/memory-safety.md) 를 참고 바랍니다.
 
 > GRAMMAR OF A FUNCTION TYPE\
-> function-type → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attributes) $$_{opt}$$ [function-type-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_function-type-argument-clause) `throws` $$_{opt}$$ `->` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type)\
+> function-type → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attributes) $$_{opt}$$ [function-type-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_function-type-argument-clause) `async` $$_{opt}$$ `throws` $$_{opt}$$ `->` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type)\
 > function-type-argument-clause → `(` `)`\
 > function-type-argument-clause → `(` [function-type-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_function-type-argument-list) `...` $$_{opt}$$ `)`\
 > function-type-argument-list → [function-type-argument](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_function-type-argument) | [function-type-argument](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_function-type-argument) `,` [function-type-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_function-type-argument-list)\
@@ -724,7 +729,7 @@ _타입 상속 절 (type inheritance clause)_ 은 명명된 타입이 상속하�
 
 > GRAMMAR OF A TYPE INHERITANCE CLAUSE\
 > type-inheritance-clause → `:` [type-inheritance-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type-inheritance-list)\
-> type-inheritance-list → [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type-identifier) | [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type-identifier) `,` [type-inheritance-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type-inheritance-list)
+> type-inheritance-list → [attributes](attributes.md#unknown) $$_{opt}$$ [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type-identifier) | [attributes](attributes.md#unknown) $$_{opt}$$ [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type-identifier) `,` [type-inheritance-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type-inheritance-list)
 
 ## 타입 추론 (Type Inference)
 

@@ -47,7 +47,7 @@ let myConstant = 42
 <!--
 A constant or variable must have the same type as the value you want to assign to it. However, you don’t always have to write the type explicitly. Providing a value when you create a constant or variable lets the compiler infer its type. In the example above, the compiler infers that myVariable is an integer because its initial value is an integer.
 
-If the initial value doesn’t provide enough information (or if isn’t an initial value), specify the type by writing it after the variable, separated by a colon.
+If the initial value doesn’t provide enough information (or if thered isn’t an initial value), specify the type by writing it after the variable, separated by a colon.
 -->
 
 상수 또는 변수는 할당하려는 값과 동일한 타입이어야 합니다. 하지만 항상 타입을 명시해야 하는 것은 아닙니다. 상수 또는 변수를 생성할 때 값을 제공하면 컴파일러는 타입을 유추합니다. 위의 예제에서 `myVariable` 의 초기값이 정수이므로 컴파일러는 정수로 유추합니다.
@@ -238,6 +238,18 @@ Another way to handle optional values is to provide a default value using the ??
 let nickname: String? = nil
 let fullName: String = "John Appleseed"
 let informalGreeting = "Hi \(nickname ?? fullName)"
+```
+
+<!--
+You can use a shorter spelling to unwrap a value, using the same name for that unwrapped value.
+-->
+
+더 짧게 같은 이름으로 언래핑된 값을 사용할 수 있습니다.
+
+```swift
+if let nickname {
+    print("Hey, \(nickname)")
+}
 ```
 
 <!--
@@ -882,6 +894,67 @@ Write a function that returns an array containing a full deck of cards, with one
 > EXPERIMENT  
 > 랭크와 카드의 각 조합에 대한 카드 한장으로 전체 카드 덱을 포함하는 배열을 반환하는 함수를 작성하십시오.
 
+## 동시성 \(Concurrency\)
+
+<!--
+Use async to mark a function that runs asynchronously.
+-->
+
+비동기적으로 실행되는 함수를 나타내기 위해 `async` 를 사용합니다.
+
+```swift
+func fetchUserID(from server: String) async -> Int {
+    if server == "primary" {
+        return 97
+    }
+    return 501
+}
+```
+
+<!--
+You mark a call to an asynchronous function by writing await in front of it.
+-->
+
+앞에 `await` 를 작성하여 비동기 함수를 호출하는 것을 나타냅니다.
+
+```swift
+func fetchUsername(from server: String) async -> String {
+    let userID = await fetchUserID(from: server)
+    if userID == 501 {
+        return "John Appleseed"
+    }
+    return "Guest"
+}
+```
+
+<!--
+Use async let to call an asynchronous function, letting it run in parallel with other asynchronous code. When you use the value it returns, write await.
+-->
+
+비동기 함수를 호출하기 위해 `async let` 을 사용하여 다른 비동기 코드와 병렬로 실행할 수 있습니다. `await` 를 작성하여 반환된 값을 사용합니다.
+
+```swift
+func connectUser(to server: String) async {
+    async let userID = fetchUserID(from: server)
+    async let username = fetchUsername(from: server)
+    let greeting = await "Hello \(username), user ID \(userID)"
+    print(greeting)
+}
+```
+
+<!--
+Use Task to call asynchronous functions from synchronous code, without waiting for them to return.
+-->
+
+비동기 함수의 반환을 기다리지 않고 동기 코드에서 비동기 함수를 호출하려면 `Task` 를 사용합니다.
+
+```swift
+Task {
+    await connectUser(to: "primary")
+}
+// Prints "Hello Guest, user ID 97"
+```
+
 ## 프로토콜과 확장 \(Protocols and Extensions\)
 
 <!--
@@ -898,7 +971,7 @@ protocol ExampleProtocol {
 ```
 
 <!--
-Classes, enumerations, and structs can all adopt protocols.
+Classes, enumerations, and structures can all adopt protocols.
 -->
 
 클래스, 열거형, 그리고 구조체는 프로토콜을 채택할 수 있습니다.

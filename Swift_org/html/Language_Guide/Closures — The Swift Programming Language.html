@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Closures &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Closures &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -129,21 +129,21 @@
 <p><em>Closures</em> are self-contained blocks of functionality that can be passed around and used in your code. Closures in Swift are similar to blocks in C and Objective-C and to lambdas in other programming languages.</p>
 <p>Closures can capture and store references to any constants and variables from the context in which they’re defined. This is known as <em>closing over</em> those constants and variables. Swift handles all of the memory management of capturing for you.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Don’t worry if you aren’t familiar with the concept of capturing. It’s explained in detail below in <a class="reference internal" href="#ID103"><span class="std std-ref">Capturing Values</span></a>.</p>
+<p class="admonition-title">Note</p>
+<p>Don’t worry if you aren’t familiar with the concept of capturing. It’s explained in detail below in <a class="reference internal" href="#ID103"><span class="std std-ref">Capturing Values</span></a>.</p>
 </div>
 <p>Global and nested functions, as introduced in <a class="reference internal" href="Functions.html"><span class="doc">Functions</span></a>, are actually special cases of closures. Closures take one of three forms:</p>
 <ul class="simple">
-<li>Global functions are closures that have a name and don’t capture any values.</li>
-<li>Nested functions are closures that have a name and can capture values from their enclosing function.</li>
-<li>Closure expressions are unnamed closures written in a lightweight syntax that can capture values from their surrounding context.</li>
+<li><p>Global functions are closures that have a name and don’t capture any values.</p></li>
+<li><p>Nested functions are closures that have a name and can capture values from their enclosing function.</p></li>
+<li><p>Closure expressions are unnamed closures written in a lightweight syntax that can capture values from their surrounding context.</p></li>
 </ul>
 <p>Swift’s closure expressions have a clean, clear style, with optimizations that encourage brief, clutter-free syntax in common scenarios. These optimizations include:</p>
 <ul class="simple">
-<li>Inferring parameter and return value types from context</li>
-<li>Implicit returns from single-expression closures</li>
-<li>Shorthand argument names</li>
-<li>Trailing closure syntax</li>
+<li><p>Inferring parameter and return value types from context</p></li>
+<li><p>Implicit returns from single-expression closures</p></li>
+<li><p>Shorthand argument names</p></li>
+<li><p>Trailing closure syntax</p></li>
 </ul>
 <div class="section" id="ID95">
 <h2>Closure Expressions<a class="headerlink" href="#ID95" title="Permalink to this headline">¶</a></h2>
@@ -270,8 +270,8 @@
 <p>In this example, the variable <code class="docutils literal notranslate"><span class="pre">number</span></code> is initialized with the value of the closure’s <code class="docutils literal notranslate"><span class="pre">number</span></code> parameter, so that the value can be modified within the closure body. (The parameters to functions and closures are always constants.) The closure expression also specifies a return type of <code class="docutils literal notranslate"><span class="pre">String</span></code>, to indicate the type that will be stored in the mapped output array.</p>
 <p>The closure expression builds a string called <code class="docutils literal notranslate"><span class="pre">output</span></code> each time it’s called. It calculates the last digit of <code class="docutils literal notranslate"><span class="pre">number</span></code> by using the remainder operator (<code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">%</span> <span class="pre">10</span></code>), and uses this digit to look up an appropriate string in the <code class="docutils literal notranslate"><span class="pre">digitNames</span></code> dictionary. The closure can be used to create a string representation of any integer greater than zero.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The call to the <code class="docutils literal notranslate"><span class="pre">digitNames</span></code> dictionary’s subscript is followed by an exclamation point (<code class="docutils literal notranslate"><span class="pre">!</span></code>), because dictionary subscripts return an optional value to indicate that the dictionary lookup can fail if the key doesn’t exist. In the example above, it’s guaranteed that <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">%</span> <span class="pre">10</span></code> will always be a valid subscript key for the <code class="docutils literal notranslate"><span class="pre">digitNames</span></code> dictionary, and so an exclamation point is used to force-unwrap the <code class="docutils literal notranslate"><span class="pre">String</span></code> value stored in the subscript’s optional return value.</p>
+<p class="admonition-title">Note</p>
+<p>The call to the <code class="docutils literal notranslate"><span class="pre">digitNames</span></code> dictionary’s subscript is followed by an exclamation point (<code class="docutils literal notranslate"><span class="pre">!</span></code>), because dictionary subscripts return an optional value to indicate that the dictionary lookup can fail if the key doesn’t exist. In the example above, it’s guaranteed that <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">%</span> <span class="pre">10</span></code> will always be a valid subscript key for the <code class="docutils literal notranslate"><span class="pre">digitNames</span></code> dictionary, and so an exclamation point is used to force-unwrap the <code class="docutils literal notranslate"><span class="pre">String</span></code> value stored in the subscript’s optional return value.</p>
 </div>
 <p>The string retrieved from the <code class="docutils literal notranslate"><span class="pre">digitNames</span></code> dictionary is added to the <em>front</em> of <code class="docutils literal notranslate"><span class="pre">output</span></code>, effectively building a string version of the number in reverse. (The expression <code class="docutils literal notranslate"><span class="pre">number</span> <span class="pre">%</span> <span class="pre">10</span></code> gives a value of <code class="docutils literal notranslate"><span class="pre">6</span></code> for <code class="docutils literal notranslate"><span class="pre">16</span></code>, <code class="docutils literal notranslate"><span class="pre">8</span></code> for <code class="docutils literal notranslate"><span class="pre">58</span></code>, and <code class="docutils literal notranslate"><span class="pre">0</span></code> for <code class="docutils literal notranslate"><span class="pre">510</span></code>.)</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">number</span></code> variable is then divided by <code class="docutils literal notranslate"><span class="pre">10</span></code>. Because it’s an integer, it’s rounded down during the division, so <code class="docutils literal notranslate"><span class="pre">16</span></code> becomes <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">58</span></code> becomes <code class="docutils literal notranslate"><span class="pre">5</span></code>, and <code class="docutils literal notranslate"><span class="pre">510</span></code> becomes <code class="docutils literal notranslate"><span class="pre">51</span></code>.</p>
@@ -294,6 +294,10 @@
 </li><li>}
 </li></ol></div></div></div>
 <p>In this example, the <code class="docutils literal notranslate"><span class="pre">loadPicture(from:completion:onFailure:)</span></code> function dispatches its network task into the background, and calls one of the two completion handlers when the network task finishes. Writing the function this way lets you cleanly separate the code that’s responsible for handling a network failure from the code that updates the user interface after a successful download, instead of using just one closure that handles both circumstances.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Completion handlers can become hard to read, especially when you have to nest multiple handlers. An alternate approach is to use asynchronous code, as described in <a class="reference internal" href="Concurrency.html"><span class="doc">Concurrency</span></a>.</p>
+</div>
 </div>
 <div class="section" id="ID103">
 <h2>Capturing Values<a class="headerlink" href="#ID103" title="Permalink to this headline">¶</a></h2>
@@ -320,9 +324,9 @@
 </li></ol></div></div></div>
 <p>The <code class="docutils literal notranslate"><span class="pre">incrementer()</span></code> function doesn’t have any parameters, and yet it refers to <code class="docutils literal notranslate"><span class="pre">runningTotal</span></code> and <code class="docutils literal notranslate"><span class="pre">amount</span></code> from within its function body. It does this by capturing a <em>reference</em> to <code class="docutils literal notranslate"><span class="pre">runningTotal</span></code> and <code class="docutils literal notranslate"><span class="pre">amount</span></code> from the surrounding function and using them within its own function body. Capturing by reference ensures that <code class="docutils literal notranslate"><span class="pre">runningTotal</span></code> and <code class="docutils literal notranslate"><span class="pre">amount</span></code> don’t disappear when the call to <code class="docutils literal notranslate"><span class="pre">makeIncrementer</span></code> ends, and also ensures that <code class="docutils literal notranslate"><span class="pre">runningTotal</span></code> is available the next time the <code class="docutils literal notranslate"><span class="pre">incrementer</span></code> function is called.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>As an optimization, Swift may instead capture and store a <em>copy</em> of a value if that value isn’t mutated by a closure, and if the value isn’t mutated after the closure is created.</p>
-<p class="last">Swift also handles all memory management involved in disposing of variables when they’re no longer needed.</p>
+<p>Swift also handles all memory management involved in disposing of variables when they’re no longer needed.</p>
 </div>
 <p>Here’s an example of <code class="docutils literal notranslate"><span class="pre">makeIncrementer</span></code> in action:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">incrementByTen</span> = <span class="nv">makeIncrementer</span>(<span class="nv">forIncrement</span>: <span class="m">10</span>)
@@ -345,8 +349,8 @@
 </li><li><span class="c">// returns a value of 40</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you assign a closure to a property of a class instance, and the closure captures that instance by referring to the instance or its members, you will create a strong reference cycle between the closure and the instance. Swift uses <em>capture lists</em> to break these strong reference cycles. For more information, see <a class="reference internal" href="AutomaticReferenceCounting.html#ID56"><span class="std std-ref">Strong Reference Cycles for Closures</span></a>.</p>
+<p class="admonition-title">Note</p>
+<p>If you assign a closure to a property of a class instance, and the closure captures that instance by referring to the instance or its members, you will create a strong reference cycle between the closure and the instance. Swift uses <em>capture lists</em> to break these strong reference cycles. For more information, see <a class="reference internal" href="AutomaticReferenceCounting.html#ID56"><span class="std std-ref">Strong Reference Cycles for Closures</span></a>.</p>
 </div>
 </div>
 <div class="section" id="ID104">
@@ -452,8 +456,8 @@
 </li><li><span class="c">// Prints &quot;Now serving Ewa!&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Overusing autoclosures can make your code hard to understand. The context and function name should make it clear that evaluation is being deferred.</p>
+<p class="admonition-title">Note</p>
+<p>Overusing autoclosures can make your code hard to understand. The context and function name should make it clear that evaluation is being deferred.</p>
 </div>
 <p>If you want an autoclosure that’s allowed to escape, use both the <code class="docutils literal notranslate"><span class="pre">&#64;autoclosure</span></code> and <code class="docutils literal notranslate"><span class="pre">&#64;escaping</span></code> attributes. The <code class="docutils literal notranslate"><span class="pre">&#64;escaping</span></code> attribute is described above in <a class="reference internal" href="#ID546"><span class="std std-ref">Escaping Closures</span></a>.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="c">// customersInLine is [&quot;Barry&quot;, &quot;Daniella&quot;]</span>
@@ -481,6 +485,14 @@
     <div class="next_previous">
         <p class="previous"><a href="Functions.html">Functions</a></p>
         <p class="next"><a href="Enumerations.html">Enumerations</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Protocols &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Protocols &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -246,8 +246,8 @@
 <p>It’s sometimes necessary for a method to modify (or <em>mutate</em>) the instance it belongs to. For instance methods on value types (that is, structures and enumerations) you place the <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword before a method’s <code class="docutils literal notranslate"><span class="pre">func</span></code> keyword to indicate that the method is allowed to modify the instance it belongs to and any properties of that instance. This process is described in <a class="reference internal" href="Methods.html#ID239"><span class="std std-ref">Modifying Value Types from Within Instance Methods</span></a>.</p>
 <p>If you define a protocol instance method requirement that’s intended to mutate instances of any type that adopts the protocol, mark the method with the <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword as part of the protocol’s definition. This enables structures and enumerations to adopt the protocol and satisfy that method requirement.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you mark a protocol instance method requirement as <code class="docutils literal notranslate"><span class="pre">mutating</span></code>, you don’t need to write the <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword when writing an implementation of that method for a class. The <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword is only used by structures and enumerations.</p>
+<p class="admonition-title">Note</p>
+<p>If you mark a protocol instance method requirement as <code class="docutils literal notranslate"><span class="pre">mutating</span></code>, you don’t need to write the <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword when writing an implementation of that method for a class. The <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword is only used by structures and enumerations.</p>
 </div>
 <p>The example below defines a protocol called <code class="docutils literal notranslate"><span class="pre">Togglable</span></code>, which defines a single instance method requirement called <code class="docutils literal notranslate"><span class="pre">toggle</span></code>. As its name suggests, the <code class="docutils literal notranslate"><span class="pre">toggle()</span></code> method is intended to toggle or invert the state of any conforming type, typically by modifying a property of that type.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">toggle()</span></code> method is marked with the <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword as part of the <code class="docutils literal notranslate"><span class="pre">Togglable</span></code> protocol definition, to indicate that the method is expected to mutate the state of a conforming instance when it’s called:</p>
@@ -292,8 +292,8 @@
 <p>The use of the <code class="docutils literal notranslate"><span class="pre">required</span></code> modifier ensures that you provide an explicit or inherited implementation of the initializer requirement on all subclasses of the conforming class, such that they also conform to the protocol.</p>
 <p>For more information on required initializers, see <a class="reference internal" href="Initialization.html#ID231"><span class="std std-ref">Required Initializers</span></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You don’t need to mark protocol initializer implementations with the <code class="docutils literal notranslate"><span class="pre">required</span></code> modifier on classes that are marked with the <code class="docutils literal notranslate"><span class="pre">final</span></code> modifier, because final classes can’t subclassed. For more about the <code class="docutils literal notranslate"><span class="pre">final</span></code> modifier, see <a class="reference internal" href="Inheritance.html#ID202"><span class="std std-ref">Preventing Overrides</span></a>.</p>
+<p class="admonition-title">Note</p>
+<p>You don’t need to mark protocol initializer implementations with the <code class="docutils literal notranslate"><span class="pre">required</span></code> modifier on classes that are marked with the <code class="docutils literal notranslate"><span class="pre">final</span></code> modifier, because final classes can’t subclassed. For more about the <code class="docutils literal notranslate"><span class="pre">final</span></code> modifier, see <a class="reference internal" href="Inheritance.html#ID202"><span class="std std-ref">Preventing Overrides</span></a>.</p>
 </div>
 <p>If a subclass overrides a designated initializer from a superclass, and also implements a matching initializer requirement from a protocol, mark the initializer implementation with both the <code class="docutils literal notranslate"><span class="pre">required</span></code> and <code class="docutils literal notranslate"><span class="pre">override</span></code> modifiers:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">SomeProtocol</span> {
@@ -325,13 +325,13 @@
 <p>Protocols don’t actually implement any functionality themselves. Nonetheless, you can use protocols as a fully fledged types in your code. Using a protocol as a type is sometimes called an <em>existential type</em>, which comes from the phrase “there exists a type <em>T</em> such that <em>T</em> conforms to the protocol”.</p>
 <p>You can use a protocol in many places where other types are allowed, including:</p>
 <ul class="simple">
-<li>As a parameter type or return type in a function, method, or initializer</li>
-<li>As the type of a constant, variable, or property</li>
-<li>As the type of items in an array, dictionary, or other container</li>
+<li><p>As a parameter type or return type in a function, method, or initializer</p></li>
+<li><p>As the type of a constant, variable, or property</p></li>
+<li><p>As the type of items in an array, dictionary, or other container</p></li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Because protocols are types, begin their names with a capital letter (such as <code class="docutils literal notranslate"><span class="pre">FullyNamed</span></code> and <code class="docutils literal notranslate"><span class="pre">RandomNumberGenerator</span></code>) to match the names of other types in Swift (such as <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, and <code class="docutils literal notranslate"><span class="pre">Double</span></code>).</p>
+<p class="admonition-title">Note</p>
+<p>Because protocols are types, begin their names with a capital letter (such as <code class="docutils literal notranslate"><span class="pre">FullyNamed</span></code> and <code class="docutils literal notranslate"><span class="pre">RandomNumberGenerator</span></code>) to match the names of other types in Swift (such as <code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, and <code class="docutils literal notranslate"><span class="pre">Double</span></code>).</p>
 </div>
 <p>Here’s an example of a protocol used as a type:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Dice</span> {
@@ -456,8 +456,8 @@
 <h2>Adding Protocol Conformance with an Extension<a class="headerlink" href="#ID277" title="Permalink to this headline">¶</a></h2>
 <p>You can extend an existing type to adopt and conform to a new protocol, even if you don’t have access to the source code for the existing type. Extensions can add new properties, methods, and subscripts to an existing type, and are therefore able to add any requirements that a protocol may demand. For more about extensions, see <a class="reference internal" href="Extensions.html"><span class="doc">Extensions</span></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Existing instances of a type automatically adopt and conform to a protocol when that conformance is added to the instance’s type in an extension.</p>
+<p class="admonition-title">Note</p>
+<p>Existing instances of a type automatically adopt and conform to a protocol when that conformance is added to the instance’s type in an extension.</p>
 </div>
 <p>For example, this protocol, called <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code>, can be implemented by any type that has a way to be represented as text. This might be a description of itself, or a text version of its current state:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">TextRepresentable</span> {
@@ -519,8 +519,8 @@
 </li><li><span class="c">// Prints &quot;A hamster named Simon&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Types don’t automatically adopt a protocol just by satisfying its requirements. They must always explicitly declare their adoption of the protocol.</p>
+<p class="admonition-title">Note</p>
+<p>Types don’t automatically adopt a protocol just by satisfying its requirements. They must always explicitly declare their adoption of the protocol.</p>
 </div>
 </div>
 </div>
@@ -529,9 +529,9 @@
 <p>Swift can automatically provide the protocol conformance for <code class="docutils literal notranslate"><span class="pre">Equatable</span></code>, <code class="docutils literal notranslate"><span class="pre">Hashable</span></code>, and <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> in many simple cases. Using this synthesized implementation means you don’t have to write repetitive boilerplate code to implement the protocol requirements yourself.</p>
 <p>Swift provides a synthesized implementation of <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> for the following kinds of custom types:</p>
 <ul class="simple">
-<li>Structures that have only stored properties that conform to the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol</li>
-<li>Enumerations that have only associated types that conform to the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol</li>
-<li>Enumerations that have no associated types</li>
+<li><p>Structures that have only stored properties that conform to the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol</p></li>
+<li><p>Enumerations that have only associated types that conform to the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol</p></li>
+<li><p>Enumerations that have no associated types</p></li>
 </ul>
 <p>To receive a synthesized implementation of <code class="docutils literal notranslate"><span class="pre">==</span></code>, declare conformance to <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> in the file that contains the original declaration, without implementing an <code class="docutils literal notranslate"><span class="pre">==</span></code> operator yourself. The <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol provides a default implementation of <code class="docutils literal notranslate"><span class="pre">!=</span></code>.</p>
 <p>The example below defines a <code class="docutils literal notranslate"><span class="pre">Vector3D</span></code> structure for a three-dimensional position vector <code class="docutils literal notranslate"><span class="pre">(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code>, similar to the <code class="docutils literal notranslate"><span class="pre">Vector2D</span></code> structure. Because the <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">y</span></code>, and <code class="docutils literal notranslate"><span class="pre">z</span></code> properties are all of an <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> type, <code class="docutils literal notranslate"><span class="pre">Vector3D</span></code> receives synthesized implementations of the equivalence operators.</p>
@@ -548,9 +548,9 @@
 </li></ol></div></div></div>
 <p>Swift provides a synthesized implementation of <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> for the following kinds of custom types:</p>
 <ul class="simple">
-<li>Structures that have only stored properties that conform to the <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> protocol</li>
-<li>Enumerations that have only associated types that conform to the <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> protocol</li>
-<li>Enumerations that have no associated types</li>
+<li><p>Structures that have only stored properties that conform to the <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> protocol</p></li>
+<li><p>Enumerations that have only associated types that conform to the <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> protocol</p></li>
+<li><p>Enumerations that have no associated types</p></li>
 </ul>
 <p>To receive a synthesized implementation of <code class="docutils literal notranslate"><span class="pre">hash(into:)</span></code>, declare conformance to <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> in the file that contains the original declaration, without implementing a <code class="docutils literal notranslate"><span class="pre">hash(into:)</span></code> method yourself.</p>
 <p>Swift provides a synthesized implementation of <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> for enumerations that don’t have a raw value. If the enumeration has associated types, they must all conform to the <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> protocol. To receive a synthesized implementation of <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, declare conformance to <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> in the file that contains the original enumeration declaration, without implementing a <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> operator yourself. The <code class="docutils literal notranslate"><span class="pre">Comparable</span></code> protocol’s default implementation of <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, and <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> provides the remaining comparison operators.</p>
@@ -619,9 +619,9 @@
 </li></ol></div></div></div>
 <p>This extension states that it adopts the <code class="docutils literal notranslate"><span class="pre">PrettyTextRepresentable</span></code> protocol and provides an implementation of the <code class="docutils literal notranslate"><span class="pre">prettyTextualDescription</span></code> property for the <code class="docutils literal notranslate"><span class="pre">SnakesAndLadders</span></code> type. Anything that’s <code class="docutils literal notranslate"><span class="pre">PrettyTextRepresentable</span></code> must also be <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code>, and so the implementation of <code class="docutils literal notranslate"><span class="pre">prettyTextualDescription</span></code> starts by accessing the <code class="docutils literal notranslate"><span class="pre">textualDescription</span></code> property from the <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code> protocol to begin an output string. It appends a colon and a line break, and uses this as the start of its pretty text representation. It then iterates through the array of board squares, and appends a geometric shape to represent the contents of each square:</p>
 <ul class="simple">
-<li>If the square’s value is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, it’s the base of a ladder, and is represented by <code class="docutils literal notranslate"><span class="pre">▲</span></code>.</li>
-<li>If the square’s value is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, it’s the head of a snake, and is represented by <code class="docutils literal notranslate"><span class="pre">▼</span></code>.</li>
-<li>Otherwise, the square’s value is <code class="docutils literal notranslate"><span class="pre">0</span></code>, and it’s a “free” square, represented by <code class="docutils literal notranslate"><span class="pre">○</span></code>.</li>
+<li><p>If the square’s value is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, it’s the base of a ladder, and is represented by <code class="docutils literal notranslate"><span class="pre">▲</span></code>.</p></li>
+<li><p>If the square’s value is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, it’s the head of a snake, and is represented by <code class="docutils literal notranslate"><span class="pre">▼</span></code>.</p></li>
+<li><p>Otherwise, the square’s value is <code class="docutils literal notranslate"><span class="pre">0</span></code>, and it’s a “free” square, represented by <code class="docutils literal notranslate"><span class="pre">○</span></code>.</p></li>
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">prettyTextualDescription</span></code> property can now be used to print a pretty text description of any <code class="docutils literal notranslate"><span class="pre">SnakesAndLadders</span></code> instance:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="nv">game</span>.<span class="nv">prettyTextualDescription</span>)
@@ -638,8 +638,8 @@
 </li></ol></div></div></div>
 <p>In the example above, <code class="docutils literal notranslate"><span class="pre">SomeClassOnlyProtocol</span></code> can only be adopted by class types. It’s a compile-time error to write a structure or enumeration definition that tries to adopt <code class="docutils literal notranslate"><span class="pre">SomeClassOnlyProtocol</span></code>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Use a class-only protocol when the behavior defined by that protocol’s requirements assumes or requires that a conforming type has reference semantics rather than value semantics. For more about reference and value semantics, see <a class="reference internal" href="ClassesAndStructures.html#ID88"><span class="std std-ref">Structures and Enumerations Are Value Types</span></a> and <a class="reference internal" href="ClassesAndStructures.html#ID89"><span class="std std-ref">Classes Are Reference Types</span></a>.</p>
+<p class="admonition-title">Note</p>
+<p>Use a class-only protocol when the behavior defined by that protocol’s requirements assumes or requires that a conforming type has reference semantics rather than value semantics. For more about reference and value semantics, see <a class="reference internal" href="ClassesAndStructures.html#ID88"><span class="std std-ref">Structures and Enumerations Are Value Types</span></a> and <a class="reference internal" href="ClassesAndStructures.html#ID89"><span class="std std-ref">Classes Are Reference Types</span></a>.</p>
 </div>
 </div>
 <div class="section" id="ID282">
@@ -698,9 +698,9 @@
 <h2>Checking for Protocol Conformance<a class="headerlink" href="#ID283" title="Permalink to this headline">¶</a></h2>
 <p>You can use the <code class="docutils literal notranslate"><span class="pre">is</span></code> and <code class="docutils literal notranslate"><span class="pre">as</span></code> operators described in <a class="reference internal" href="TypeCasting.html"><span class="doc">Type Casting</span></a> to check for protocol conformance, and to cast to a specific protocol. Checking for and casting to a protocol follows exactly the same syntax as checking for and casting to a type:</p>
 <ul class="simple">
-<li>The <code class="docutils literal notranslate"><span class="pre">is</span></code> operator returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if an instance conforms to a protocol and returns <code class="docutils literal notranslate"><span class="pre">false</span></code> if it doesn’t.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">as?</span></code> version of the downcast operator returns an optional value of the protocol’s type, and this value is <code class="docutils literal notranslate"><span class="pre">nil</span></code> if the instance doesn’t conform to that protocol.</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">as!</span></code> version of the downcast operator forces the downcast to the protocol type and triggers a runtime error if the downcast doesn’t succeed.</li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">is</span></code> operator returns <code class="docutils literal notranslate"><span class="pre">true</span></code> if an instance conforms to a protocol and returns <code class="docutils literal notranslate"><span class="pre">false</span></code> if it doesn’t.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">as?</span></code> version of the downcast operator returns an optional value of the protocol’s type, and this value is <code class="docutils literal notranslate"><span class="pre">nil</span></code> if the instance doesn’t conform to that protocol.</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">as!</span></code> version of the downcast operator forces the downcast to the protocol type and triggers a runtime error if the downcast doesn’t succeed.</p></li>
 </ul>
 <p>This example defines a protocol called <code class="docutils literal notranslate"><span class="pre">HasArea</span></code>, with a single property requirement of a gettable <code class="docutils literal notranslate"><span class="pre">Double</span></code> property called <code class="docutils literal notranslate"><span class="pre">area</span></code>:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">protocol</span> <span class="nv">HasArea</span> {
@@ -762,8 +762,8 @@
 </li></ol></div></div></div>
 <p>The <code class="docutils literal notranslate"><span class="pre">CounterDataSource</span></code> protocol defines an optional method requirement called <code class="docutils literal notranslate"><span class="pre">increment(forCount:)</span></code> and an optional property requirement called <code class="docutils literal notranslate"><span class="pre">fixedIncrement</span></code>. These requirements define two different ways for data sources to provide an appropriate increment amount for a <code class="docutils literal notranslate"><span class="pre">Counter</span></code> instance.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Strictly speaking, you can write a custom class that conforms to <code class="docutils literal notranslate"><span class="pre">CounterDataSource</span></code> without implementing <em>either</em> protocol requirement. They’re both optional, after all. Although technically allowed, this wouldn’t make for a very good data source.</p>
+<p class="admonition-title">Note</p>
+<p>Strictly speaking, you can write a custom class that conforms to <code class="docutils literal notranslate"><span class="pre">CounterDataSource</span></code> without implementing <em>either</em> protocol requirement. They’re both optional, after all. Although technically allowed, this wouldn’t make for a very good data source.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">Counter</span></code> class, defined below, has an optional <code class="docutils literal notranslate"><span class="pre">dataSource</span></code> property of type <code class="docutils literal notranslate"><span class="pre">CounterDataSource?</span></code>:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Counter</span> {
@@ -852,8 +852,8 @@
 <h3>Providing Default Implementations<a class="headerlink" href="#ID529" title="Permalink to this headline">¶</a></h3>
 <p>You can use protocol extensions to provide a default implementation to any method or computed property requirement of that protocol. If a conforming type provides its own implementation of a required method or property, that implementation will be used instead of the one provided by the extension.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Protocol requirements with default implementations provided by extensions are distinct from optional protocol requirements. Although conforming types don’t have to provide their own implementation of either, requirements with default implementations can be called without optional chaining.</p>
+<p class="admonition-title">Note</p>
+<p>Protocol requirements with default implementations provided by extensions are distinct from optional protocol requirements. Although conforming types don’t have to provide their own implementation of either, requirements with default implementations can be called without optional chaining.</p>
 </div>
 <p>For example, the <code class="docutils literal notranslate"><span class="pre">PrettyTextRepresentable</span></code> protocol, which inherits the <code class="docutils literal notranslate"><span class="pre">TextRepresentable</span></code> protocol can provide a default implementation of its required <code class="docutils literal notranslate"><span class="pre">prettyTextualDescription</span></code> property to simply return the result of accessing the <code class="docutils literal notranslate"><span class="pre">textualDescription</span></code> property:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">PrettyTextRepresentable</span>  {
@@ -890,8 +890,8 @@
 </li><li><span class="c">// Prints &quot;false&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If a conforming type satisfies the requirements for multiple constrained extensions that provide implementations for the same method or property, Swift uses the implementation corresponding to the most specialized constraints.</p>
+<p class="admonition-title">Note</p>
+<p>If a conforming type satisfies the requirements for multiple constrained extensions that provide implementations for the same method or property, Swift uses the implementation corresponding to the most specialized constraints.</p>
 </div>
 </div>
 </div>
@@ -902,6 +902,14 @@
     <div class="next_previous">
         <p class="previous"><a href="Extensions.html">Extensions</a></p>
         <p class="next"><a href="Generics.html">Generics</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

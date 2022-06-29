@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Strings and Characters &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Strings and Characters &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -151,9 +151,9 @@
 <p>Swift’s <code class="docutils literal notranslate"><span class="pre">String</span></code> and <code class="docutils literal notranslate"><span class="pre">Character</span></code> types provide a fast, Unicode-compliant way to work with text in your code. The syntax for string creation and manipulation is lightweight and readable, with a string literal syntax that’s similar to C. String concatenation is as simple as combining two strings with the <code class="docutils literal notranslate"><span class="pre">+</span></code> operator, and string mutability is managed by choosing between a constant or a variable, just like any other value in Swift. You can also use strings to insert constants, variables, literals, and expressions into longer strings, in a process known as string interpolation. This makes it easy to create custom string values for display, storage, and printing.</p>
 <p>Despite this simplicity of syntax, Swift’s <code class="docutils literal notranslate"><span class="pre">String</span></code> type is a fast, modern string implementation. Every string is composed of encoding-independent Unicode characters, and provides support for accessing those characters in various Unicode representations.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>Swift’s <code class="docutils literal notranslate"><span class="pre">String</span></code> type is bridged with Foundation’s <code class="docutils literal notranslate"><span class="pre">NSString</span></code> class. Foundation also extends <code class="docutils literal notranslate"><span class="pre">String</span></code> to expose methods defined by <code class="docutils literal notranslate"><span class="pre">NSString</span></code>. This means, if you import Foundation, you can access those <code class="docutils literal notranslate"><span class="pre">NSString</span></code> methods on <code class="docutils literal notranslate"><span class="pre">String</span></code> without casting.</p>
-<p class="last">For more information about using <code class="docutils literal notranslate"><span class="pre">String</span></code> with Foundation and Cocoa, see <a class="reference external" href="https://developer.apple.com/documentation/swift/string#2919514">Bridging Between String and NSString</a>.</p>
+<p>For more information about using <code class="docutils literal notranslate"><span class="pre">String</span></code> with Foundation and Cocoa, see <a class="reference external" href="https://developer.apple.com/documentation/swift/string#2919514">Bridging Between String and NSString</a>.</p>
 </div>
 <div class="section" id="ID286">
 <h2>String Literals<a class="headerlink" href="#ID286" title="Permalink to this headline">¶</a></h2>
@@ -197,15 +197,15 @@
 </li><li><span class="s">&quot;&quot;&quot;</span>
 </li></ol></div></div></div>
 <p>A multiline string can be indented to match the surrounding code. The whitespace before the closing quotation marks (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>) tells Swift what whitespace to ignore before all of the other lines. However, if you write whitespace at the beginning of a line in addition to what’s before the closing quotation marks, that whitespace <em>is</em> included.</p>
-<img alt="../_images/multilineStringWhitespace_2x.png" class="align-center" src="../_images/multilineStringWhitespace_2x.png" style="width: 519px;" />
+<img alt="../_images/multilineStringWhitespace_2x.png" class="align-center" src="../_images/multilineStringWhitespace_2x.png" style="width: 519.0px;" />
 <p>In the example above, even though the entire multiline string literal is indented, the first and last lines in the string don’t begin with any whitespace. The middle line has more indentation than the closing quotation marks, so it starts with that extra four-space indentation.</p>
 </div>
 <div class="section" id="ID295">
 <h3>Special Characters in String Literals<a class="headerlink" href="#ID295" title="Permalink to this headline">¶</a></h3>
 <p>String literals can include the following special characters:</p>
 <ul class="simple">
-<li>The escaped special characters <code class="docutils literal notranslate"><span class="pre">\0</span></code> (null character), <code class="docutils literal notranslate"><span class="pre">\\</span></code> (backslash), <code class="docutils literal notranslate"><span class="pre">\t</span></code> (horizontal tab), <code class="docutils literal notranslate"><span class="pre">\n</span></code> (line feed), <code class="docutils literal notranslate"><span class="pre">\r</span></code> (carriage return), <code class="docutils literal notranslate"><span class="pre">\&quot;</span></code> (double quotation mark) and <code class="docutils literal notranslate"><span class="pre">\'</span></code> (single quotation mark)</li>
-<li>An arbitrary Unicode scalar value, written as <code class="docutils literal notranslate"><span class="pre">\u{</span></code><em>n</em><code class="docutils literal notranslate"><span class="pre">}</span></code>, where <em>n</em> is a 1–8 digit hexadecimal number (Unicode is discussed in <a class="reference internal" href="#ID293"><span class="std std-ref">Unicode</span></a> below)</li>
+<li><p>The escaped special characters <code class="docutils literal notranslate"><span class="pre">\0</span></code> (null character), <code class="docutils literal notranslate"><span class="pre">\\</span></code> (backslash), <code class="docutils literal notranslate"><span class="pre">\t</span></code> (horizontal tab), <code class="docutils literal notranslate"><span class="pre">\n</span></code> (line feed), <code class="docutils literal notranslate"><span class="pre">\r</span></code> (carriage return), <code class="docutils literal notranslate"><span class="pre">\&quot;</span></code> (double quotation mark) and <code class="docutils literal notranslate"><span class="pre">\'</span></code> (single quotation mark)</p></li>
+<li><p>An arbitrary Unicode scalar value, written as <code class="docutils literal notranslate"><span class="pre">\u{</span></code><em>n</em><code class="docutils literal notranslate"><span class="pre">}</span></code>, where <em>n</em> is a 1–8 digit hexadecimal number (Unicode is discussed in <a class="reference internal" href="#ID293"><span class="std std-ref">Unicode</span></a> below)</p></li>
 </ul>
 <p>The code below shows four examples of these special characters. The <code class="docutils literal notranslate"><span class="pre">wiseWords</span></code> constant contains two escaped double quotation marks. The <code class="docutils literal notranslate"><span class="pre">dollarSign</span></code>, <code class="docutils literal notranslate"><span class="pre">blackHeart</span></code>, and <code class="docutils literal notranslate"><span class="pre">sparklingHeart</span></code> constants demonstrate the Unicode scalar format:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">wiseWords</span> = <span class="s">&quot;\&quot;Imagination is more important than knowledge\&quot; - Einstein&quot;</span>
@@ -258,8 +258,8 @@
 </li><li><span class="c">// this reports a compile-time error - a constant string cannot be modified</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This approach is different from string mutation in Objective-C and Cocoa, where you choose between two classes (<code class="docutils literal notranslate"><span class="pre">NSString</span></code> and <code class="docutils literal notranslate"><span class="pre">NSMutableString</span></code>) to indicate whether a string can be mutated.</p>
+<p class="admonition-title">Note</p>
+<p>This approach is different from string mutation in Objective-C and Cocoa, where you choose between two classes (<code class="docutils literal notranslate"><span class="pre">NSString</span></code> and <code class="docutils literal notranslate"><span class="pre">NSMutableString</span></code>) to indicate whether a string can be mutated.</p>
 </div>
 </div>
 <div class="section" id="ID289">
@@ -310,8 +310,8 @@
 </li><li><span class="c">// welcome now equals &quot;hello there!&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You can’t append a <code class="docutils literal notranslate"><span class="pre">String</span></code> or <code class="docutils literal notranslate"><span class="pre">Character</span></code> to an existing <code class="docutils literal notranslate"><span class="pre">Character</span></code> variable, because a <code class="docutils literal notranslate"><span class="pre">Character</span></code> value must contain a single character only.</p>
+<p class="admonition-title">Note</p>
+<p>You can’t append a <code class="docutils literal notranslate"><span class="pre">String</span></code> or <code class="docutils literal notranslate"><span class="pre">Character</span></code> to an existing <code class="docutils literal notranslate"><span class="pre">Character</span></code> variable, because a <code class="docutils literal notranslate"><span class="pre">Character</span></code> value must contain a single character only.</p>
 </div>
 <p>If you’re using multiline string literals to build up the lines of a longer string, you want every line in the string to end with a line break, including the last line. For example:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">badStart</span> = <span class="s">&quot;&quot;&quot;</span>
@@ -357,8 +357,8 @@
 </li><li><span class="c">// Prints &quot;6 times 7 is 42.&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The expressions you write inside parentheses within an interpolated string can’t contain an unescaped backslash (<code class="docutils literal notranslate"><span class="pre">\</span></code>), a carriage return, or a line feed. However, they can contain other string literals.</p>
+<p class="admonition-title">Note</p>
+<p>The expressions you write inside parentheses within an interpolated string can’t contain an unescaped backslash (<code class="docutils literal notranslate"><span class="pre">\</span></code>), a carriage return, or a line feed. However, they can contain other string literals.</p>
 </div>
 </div>
 <div class="section" id="ID293">
@@ -412,9 +412,9 @@
 </li><li><span class="c">// Prints &quot;the number of characters in café is 4&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>Extended grapheme clusters can be composed of multiple Unicode scalars. This means that different characters—and different representations of the same character—can require different amounts of memory to store. Because of this, characters in Swift don’t each take up the same amount of memory within a string’s representation. As a result, the number of characters in a string can’t be calculated without iterating through the string to determine its extended grapheme cluster boundaries. If you are working with particularly long string values, be aware that the <code class="docutils literal notranslate"><span class="pre">count</span></code> property must iterate over the Unicode scalars in the entire string in order to determine the characters for that string.</p>
-<p class="last">The count of the characters returned by the <code class="docutils literal notranslate"><span class="pre">count</span></code> property isn’t always the same as the <code class="docutils literal notranslate"><span class="pre">length</span></code> property of an <code class="docutils literal notranslate"><span class="pre">NSString</span></code> that contains the same characters. The length of an <code class="docutils literal notranslate"><span class="pre">NSString</span></code> is based on the number of 16-bit code units within the string’s UTF-16 representation and not the number of Unicode extended grapheme clusters within the string.</p>
+<p>The count of the characters returned by the <code class="docutils literal notranslate"><span class="pre">count</span></code> property isn’t always the same as the <code class="docutils literal notranslate"><span class="pre">length</span></code> property of an <code class="docutils literal notranslate"><span class="pre">NSString</span></code> that contains the same characters. The length of an <code class="docutils literal notranslate"><span class="pre">NSString</span></code> is based on the number of 16-bit code units within the string’s UTF-16 representation and not the number of Unicode extended grapheme clusters within the string.</p>
 </div>
 </div>
 <div class="section" id="ID494">
@@ -449,8 +449,8 @@
 </li><li><span class="c">// Prints &quot;G u t e n   T a g ! &quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You can use the <code class="docutils literal notranslate"><span class="pre">startIndex</span></code> and <code class="docutils literal notranslate"><span class="pre">endIndex</span></code> properties and the <code class="docutils literal notranslate"><span class="pre">index(before:)</span></code>, <code class="docutils literal notranslate"><span class="pre">index(after:)</span></code>, and <code class="docutils literal notranslate"><span class="pre">index(_:offsetBy:)</span></code> methods on any type that conforms to the <code class="docutils literal notranslate"><span class="pre">Collection</span></code> protocol. This includes <code class="docutils literal notranslate"><span class="pre">String</span></code>, as shown here, as well as collection types such as <code class="docutils literal notranslate"><span class="pre">Array</span></code>, <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>, and <code class="docutils literal notranslate"><span class="pre">Set</span></code>.</p>
+<p class="admonition-title">Note</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">startIndex</span></code> and <code class="docutils literal notranslate"><span class="pre">endIndex</span></code> properties and the <code class="docutils literal notranslate"><span class="pre">index(before:)</span></code>, <code class="docutils literal notranslate"><span class="pre">index(after:)</span></code>, and <code class="docutils literal notranslate"><span class="pre">index(_:offsetBy:)</span></code> methods on any type that conforms to the <code class="docutils literal notranslate"><span class="pre">Collection</span></code> protocol. This includes <code class="docutils literal notranslate"><span class="pre">String</span></code>, as shown here, as well as collection types such as <code class="docutils literal notranslate"><span class="pre">Array</span></code>, <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>, and <code class="docutils literal notranslate"><span class="pre">Set</span></code>.</p>
 </div>
 </div>
 <div class="section" id="ID496">
@@ -472,8 +472,8 @@
 </li><li><span class="c">// welcome now equals &quot;hello&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You can use the <code class="docutils literal notranslate"><span class="pre">insert(_:at:)</span></code>, <code class="docutils literal notranslate"><span class="pre">insert(contentsOf:at:)</span></code>, <code class="docutils literal notranslate"><span class="pre">remove(at:)</span></code>, and <code class="docutils literal notranslate"><span class="pre">removeSubrange(_:)</span></code> methods on any type that conforms to the <code class="docutils literal notranslate"><span class="pre">RangeReplaceableCollection</span></code> protocol. This includes <code class="docutils literal notranslate"><span class="pre">String</span></code>, as shown here, as well as collection types such as <code class="docutils literal notranslate"><span class="pre">Array</span></code>, <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>, and <code class="docutils literal notranslate"><span class="pre">Set</span></code>.</p>
+<p class="admonition-title">Note</p>
+<p>You can use the <code class="docutils literal notranslate"><span class="pre">insert(_:at:)</span></code>, <code class="docutils literal notranslate"><span class="pre">insert(contentsOf:at:)</span></code>, <code class="docutils literal notranslate"><span class="pre">remove(at:)</span></code>, and <code class="docutils literal notranslate"><span class="pre">removeSubrange(_:)</span></code> methods on any type that conforms to the <code class="docutils literal notranslate"><span class="pre">RangeReplaceableCollection</span></code> protocol. This includes <code class="docutils literal notranslate"><span class="pre">String</span></code>, as shown here, as well as collection types such as <code class="docutils literal notranslate"><span class="pre">Array</span></code>, <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>, and <code class="docutils literal notranslate"><span class="pre">Set</span></code>.</p>
 </div>
 </div>
 </div>
@@ -490,10 +490,10 @@
 </li></ol></div></div></div>
 <p>Like strings, each substring has a region of memory where the characters that make up the substring are stored. The difference between strings and substrings is that, as a performance optimization, a substring can reuse part of the memory that’s used to store the original string, or part of the memory that’s used to store another substring. (Strings have a similar optimization, but if two strings share memory, they’re equal.) This performance optimization means you don’t have to pay the performance cost of copying memory until you modify either the string or substring. As mentioned above, substrings aren’t suitable for long-term storage—because they reuse the storage of the original string, the entire original string must be kept in memory as long as any of its substrings are being used.</p>
 <p>In the example above, <code class="docutils literal notranslate"><span class="pre">greeting</span></code> is a string, which means it has a region of memory where the characters that make up the string are stored. Because <code class="docutils literal notranslate"><span class="pre">beginning</span></code> is a substring of <code class="docutils literal notranslate"><span class="pre">greeting</span></code>, it reuses the memory that <code class="docutils literal notranslate"><span class="pre">greeting</span></code> uses. In contrast, <code class="docutils literal notranslate"><span class="pre">newString</span></code> is a string—when it’s created from the substring, it has its own storage. The figure below shows these relationships:</p>
-<img alt="../_images/stringSubstring_2x.png" class="align-center" src="../_images/stringSubstring_2x.png" style="width: 382px;" />
+<img alt="../_images/stringSubstring_2x.png" class="align-center" src="../_images/stringSubstring_2x.png" style="width: 382.0px;" />
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Both <code class="docutils literal notranslate"><span class="pre">String</span></code> and <code class="docutils literal notranslate"><span class="pre">Substring</span></code> conform to the <a class="reference external" href="https://developer.apple.com/documentation/swift/stringprotocol"><code class="docutils literal notranslate"><span class="pre">StringProtocol</span></code></a> protocol, which means it’s often convenient for string-manipulation functions to accept a <code class="docutils literal notranslate"><span class="pre">StringProtocol</span></code> value. You can call such functions with either a <code class="docutils literal notranslate"><span class="pre">String</span></code> or <code class="docutils literal notranslate"><span class="pre">Substring</span></code> value.</p>
+<p class="admonition-title">Note</p>
+<p>Both <code class="docutils literal notranslate"><span class="pre">String</span></code> and <code class="docutils literal notranslate"><span class="pre">Substring</span></code> conform to the <a class="reference external" href="https://developer.apple.com/documentation/swift/stringprotocol"><code class="docutils literal notranslate"><span class="pre">StringProtocol</span></code></a> protocol, which means it’s often convenient for string-manipulation functions to accept a <code class="docutils literal notranslate"><span class="pre">StringProtocol</span></code> value. You can call such functions with either a <code class="docutils literal notranslate"><span class="pre">String</span></code> or <code class="docutils literal notranslate"><span class="pre">Substring</span></code> value.</p>
 </div>
 </div>
 <div class="section" id="ID298">
@@ -533,8 +533,8 @@
 </li><li><span class="c">// Prints &quot;These two characters aren&#39;t equivalent.&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">String and character comparisons in Swift aren’t locale-sensitive.</p>
+<p class="admonition-title">Note</p>
+<p>String and character comparisons in Swift aren’t locale-sensitive.</p>
 </div>
 </div>
 <div class="section" id="ID300">
@@ -579,8 +579,8 @@
 </li><li><span class="c">// Prints &quot;6 mansion scenes; 2 cell scenes&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The <code class="docutils literal notranslate"><span class="pre">hasPrefix(_:)</span></code> and <code class="docutils literal notranslate"><span class="pre">hasSuffix(_:)</span></code> methods perform a character-by-character canonical equivalence comparison between the extended grapheme clusters in each string, as described in <a class="reference internal" href="#ID299"><span class="std std-ref">String and Character Equality</span></a>.</p>
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">hasPrefix(_:)</span></code> and <code class="docutils literal notranslate"><span class="pre">hasSuffix(_:)</span></code> methods perform a character-by-character canonical equivalence comparison between the extended grapheme clusters in each string, as described in <a class="reference internal" href="#ID299"><span class="std std-ref">String and Character Equality</span></a>.</p>
 </div>
 </div>
 </div>
@@ -590,9 +590,9 @@
 <p>Swift provides several different ways to access Unicode representations of strings. You can iterate over the string with a <code class="docutils literal notranslate"><span class="pre">for</span></code>-<code class="docutils literal notranslate"><span class="pre">in</span></code> statement, to access its individual <code class="docutils literal notranslate"><span class="pre">Character</span></code> values as Unicode extended grapheme clusters. This process is described in <a class="reference internal" href="#ID290"><span class="std std-ref">Working with Characters</span></a>.</p>
 <p>Alternatively, access a <code class="docutils literal notranslate"><span class="pre">String</span></code> value in one of three other Unicode-compliant representations:</p>
 <ul class="simple">
-<li>A collection of UTF-8 code units (accessed with the string’s <code class="docutils literal notranslate"><span class="pre">utf8</span></code> property)</li>
-<li>A collection of UTF-16 code units (accessed with the string’s <code class="docutils literal notranslate"><span class="pre">utf16</span></code> property)</li>
-<li>A collection of 21-bit Unicode scalar values, equivalent to the string’s UTF-32 encoding form (accessed with the string’s <code class="docutils literal notranslate"><span class="pre">unicodeScalars</span></code> property)</li>
+<li><p>A collection of UTF-8 code units (accessed with the string’s <code class="docutils literal notranslate"><span class="pre">utf8</span></code> property)</p></li>
+<li><p>A collection of UTF-16 code units (accessed with the string’s <code class="docutils literal notranslate"><span class="pre">utf16</span></code> property)</p></li>
+<li><p>A collection of 21-bit Unicode scalar values, equivalent to the string’s UTF-32 encoding form (accessed with the string’s <code class="docutils literal notranslate"><span class="pre">unicodeScalars</span></code> property)</p></li>
 </ul>
 <p>Each example below shows a different representation of the following string, which is made up of the characters <code class="docutils literal notranslate"><span class="pre">D</span></code>, <code class="docutils literal notranslate"><span class="pre">o</span></code>, <code class="docutils literal notranslate"><span class="pre">g</span></code>, <code class="docutils literal notranslate"><span class="pre">‼</span></code> (<code class="docutils literal notranslate"><span class="pre">DOUBLE</span> <span class="pre">EXCLAMATION</span> <span class="pre">MARK</span></code>, or Unicode scalar <code class="docutils literal notranslate"><span class="pre">U+203C</span></code>), and the 🐶 character (<code class="docutils literal notranslate"><span class="pre">DOG</span> <span class="pre">FACE</span></code>, or Unicode scalar <code class="docutils literal notranslate"><span class="pre">U+1F436</span></code>):</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">dogString</span> = <span class="s">&quot;Dog‼🐶&quot;</span>
@@ -600,7 +600,7 @@
 <div class="section" id="ID302">
 <h3>UTF-8 Representation<a class="headerlink" href="#ID302" title="Permalink to this headline">¶</a></h3>
 <p>You can access a UTF-8 representation of a <code class="docutils literal notranslate"><span class="pre">String</span></code> by iterating over its <code class="docutils literal notranslate"><span class="pre">utf8</span></code> property. This property is of type <code class="docutils literal notranslate"><span class="pre">String.UTF8View</span></code>, which is a collection of unsigned 8-bit (<code class="docutils literal notranslate"><span class="pre">UInt8</span></code>) values, one for each byte in the string’s UTF-8 representation:</p>
-<img alt="../_images/UTF8_2x.png" class="align-center" src="../_images/UTF8_2x.png" style="width: 681px;" />
+<img alt="../_images/UTF8_2x.png" class="align-center" src="../_images/UTF8_2x.png" style="width: 681.0px;" />
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">for</span> <span class="nv">codeUnit</span> <span class="k">in</span> <span class="nv">dogString</span>.<span class="nv">utf8</span> {
 </li><li>    <span class="nv">print</span>(<span class="s">&quot;</span>\<span class="p">(</span><span class="nv">codeUnit</span><span class="p">)</span><span class="s"> &quot;</span>, <span class="nv">terminator</span>: <span class="s">&quot;&quot;</span>)
 </li><li>}
@@ -612,7 +612,7 @@
 <div class="section" id="ID303">
 <h3>UTF-16 Representation<a class="headerlink" href="#ID303" title="Permalink to this headline">¶</a></h3>
 <p>You can access a UTF-16 representation of a <code class="docutils literal notranslate"><span class="pre">String</span></code> by iterating over its <code class="docutils literal notranslate"><span class="pre">utf16</span></code> property. This property is of type <code class="docutils literal notranslate"><span class="pre">String.UTF16View</span></code>, which is a collection of unsigned 16-bit (<code class="docutils literal notranslate"><span class="pre">UInt16</span></code>) values, one for each 16-bit code unit in the string’s UTF-16 representation:</p>
-<img alt="../_images/UTF16_2x.png" class="align-center" src="../_images/UTF16_2x.png" style="width: 548px;" />
+<img alt="../_images/UTF16_2x.png" class="align-center" src="../_images/UTF16_2x.png" style="width: 548.0px;" />
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">for</span> <span class="nv">codeUnit</span> <span class="k">in</span> <span class="nv">dogString</span>.<span class="nv">utf16</span> {
 </li><li>    <span class="nv">print</span>(<span class="s">&quot;</span>\<span class="p">(</span><span class="nv">codeUnit</span><span class="p">)</span><span class="s"> &quot;</span>, <span class="nv">terminator</span>: <span class="s">&quot;&quot;</span>)
 </li><li>}
@@ -627,7 +627,7 @@
 <h3>Unicode Scalar Representation<a class="headerlink" href="#ID304" title="Permalink to this headline">¶</a></h3>
 <p>You can access a Unicode scalar representation of a <code class="docutils literal notranslate"><span class="pre">String</span></code> value by iterating over its <code class="docutils literal notranslate"><span class="pre">unicodeScalars</span></code> property. This property is of type <code class="docutils literal notranslate"><span class="pre">UnicodeScalarView</span></code>, which is a collection of values of type <code class="docutils literal notranslate"><span class="pre">UnicodeScalar</span></code>.</p>
 <p>Each <code class="docutils literal notranslate"><span class="pre">UnicodeScalar</span></code> has a <code class="docutils literal notranslate"><span class="pre">value</span></code> property that returns the scalar’s 21-bit value, represented within a <code class="docutils literal notranslate"><span class="pre">UInt32</span></code> value:</p>
-<img alt="../_images/UnicodeScalar_2x.png" class="align-center" src="../_images/UnicodeScalar_2x.png" style="width: 470px;" />
+<img alt="../_images/UnicodeScalar_2x.png" class="align-center" src="../_images/UnicodeScalar_2x.png" style="width: 470.0px;" />
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">for</span> <span class="nv">scalar</span> <span class="k">in</span> <span class="nv">dogString</span>.<span class="nv">unicodeScalars</span> {
 </li><li>    <span class="nv">print</span>(<span class="s">&quot;</span>\<span class="p">(</span><span class="nv">scalar</span>.<span class="nv">value</span><span class="p">)</span><span class="s"> &quot;</span>, <span class="nv">terminator</span>: <span class="s">&quot;&quot;</span>)
 </li><li>}
@@ -656,6 +656,14 @@
     <div class="next_previous">
         <p class="previous"><a href="BasicOperators.html">Basic Operators</a></p>
         <p class="next"><a href="CollectionTypes.html">Collection Types</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

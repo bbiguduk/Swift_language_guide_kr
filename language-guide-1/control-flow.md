@@ -1147,3 +1147,50 @@ iOS에서 위의 특정 가용성 조건의 `if` 구문의 바디는 iOS 10 이�
 
 ![Availability Condition](../.gitbook/assets/05_availabilitycondition.png)
 
+<!--
+When you use an availability condition with a guard statement, it refines the availability information that’s used for the rest of the code in that code block.
+-->
+
+`guard` 구문과 함께 가용성 조건을 사용할 때 이것은 코드 블럭에서 나머지 코드에 대한 가용성 정보를 구체화 합니다.
+
+```swift
+@available(macOS 10.12, *)
+struct ColorPreference {
+    var bestColor = "blue"
+}
+
+func chooseBestColor() -> String {
+    guard #available(macOS 10.12, *) else {
+        return "gray"
+    }
+    let colors = ColorPreference()
+    return colors.bestColor
+}
+```
+
+<!--
+In the example above, the ColorPreference structure requires macOS 10.12 or later. The chooseBestColor() function begins with an availability guard. If the platform version is too old to use ColorPreference, it falls back to behavior that’s always available. After the guard statement, you can use APIs that require macOS 10.12 or later.
+
+In addition to #available, Swift also supports the opposite check using an unavailability condition. For example, the following two checks do the same thing:
+-->
+
+위의 예제에서 `ColorPreference` 구조체는 macOS 10.12 이상을 요구합니다. `chooseBestColor()` 함수는 가용성 가드로 시작합니다. 플랫폼 버전이 `ColorPreference` 를 사용하기에 너무 예전 버전이면 항상 사용 가능한 동작으로 대체됩니다. `guard` 구문 이후는 macOS 10.12 이상 버전을 요구하는 API 를 사용할 수 있습니다.
+
+`#available` 이외에도 Swift 는 비가용성 조건을 사용하여 반대로 확인할 수도 있습니다. 예를 들어, 아래의 내용은 동일한 내용을 확인합니다:
+
+```swift
+if #available(iOS 10, *) {
+} else {
+    // Fallback code
+}
+
+if #unavailable(iOS 10) {
+    // Fallback code
+}
+```
+
+<!--
+Using the #unavailable form helps make your code more readable when the check contains only fallback code.
+-->
+
+`#unavailable` 를 사용하는 형식은 대체 코드만을 포함할 때 더 읽기 쉬운 코드로 만들어 줍니다.

@@ -402,6 +402,14 @@ In this example, the loadPicture(from:completion:onFailure:) function dispatches
 
 이 예제에서 `loadPicture(from:completion:onFailure:)` 함수는 네트워크 작업을 백그라운드로 전달하고 네트워크 작업이 완료되면 두 완료 처리기 중 하나를 호출합니다. 이러한 방식으로 함수를 작성하면 두 상황을 모두 처리하는 하나의 클로저를 사용하는 대신 성공적인 다운로드 후 사용자 인터페이스를 업데이트 하는 코드에서 네트워크 오류를 처리하는 코드를 명확하게 분리할 수 있습니다.
 
+<!--
+NOTE
+Completion handlers can become hard to read, especially when you have to nest multiple handlers. An alternate approach is to use asynchronous code, as described in Concurrency.
+-->
+
+> NOTE
+> 완료 핸들러 \(Completion handlers\) 는 특히 여러 핸들러가 중첩되어 있으면 읽기 어려울 수 있습니다. 이것을 대체하기 위해선 [동시성 \(Concurrency\)](concurrency.md) 에서 설명되어진 것과 같이 비동기 코드를 사용하면 됩니다.
+
 ## 캡처값 \(Capturing Values\)
 
 <!--

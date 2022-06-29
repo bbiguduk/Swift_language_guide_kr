@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Error Handling &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Error Handling &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -125,8 +125,8 @@
 <p>Some operations aren’t guaranteed to always complete execution or produce a useful output. Optionals are used to represent the absence of a value, but when an operation fails, it’s often useful to understand what caused the failure, so that your code can respond accordingly.</p>
 <p>As an example, consider the task of reading and processing data from a file on disk. There are a number of ways this task can fail, including the file not existing at the specified path, the file not having read permissions, or the file not being encoded in a compatible format. Distinguishing among these different situations allows a program to resolve some errors and to communicate to the user any errors it can’t resolve.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Error handling in Swift interoperates with error handling patterns that use the <code class="docutils literal notranslate"><span class="pre">NSError</span></code> class in Cocoa and Objective-C. For more information about this class, see <a class="reference external" href="https://developer.apple.com/documentation/swift/cocoa_design_patterns/handling_cocoa_errors_in_swift">Handling Cocoa Errors in Swift</a>.</p>
+<p class="admonition-title">Note</p>
+<p>Error handling in Swift interoperates with error handling patterns that use the <code class="docutils literal notranslate"><span class="pre">NSError</span></code> class in Cocoa and Objective-C. For more information about this class, see <a class="reference external" href="https://developer.apple.com/documentation/swift/cocoa_design_patterns/handling_cocoa_errors_in_swift">Handling Cocoa Errors in Swift</a>.</p>
 </div>
 <div class="section" id="ID509">
 <h2>Representing and Throwing Errors<a class="headerlink" href="#ID509" title="Permalink to this headline">¶</a></h2>
@@ -148,8 +148,8 @@
 <p>There are four ways to handle errors in Swift. You can propagate the error from a function to the code that calls that function, handle the error using a <code class="docutils literal notranslate"><span class="pre">do</span></code>-<code class="docutils literal notranslate"><span class="pre">catch</span></code> statement, handle the error as an optional value, or assert that the error will not occur. Each approach is described in a section below.</p>
 <p>When a function throws an error, it changes the flow of your program, so it’s important that you can quickly identify places in your code that can throw errors. To identify these places in your code, write the <code class="docutils literal notranslate"><span class="pre">try</span></code> keyword—or the <code class="docutils literal notranslate"><span class="pre">try?</span></code> or <code class="docutils literal notranslate"><span class="pre">try!</span></code> variation—before a piece of code that calls a function, method, or initializer that can throw an error. These keywords are described in the sections below.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Error handling in Swift resembles exception handling in other languages, with the use of the <code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">catch</span></code> and <code class="docutils literal notranslate"><span class="pre">throw</span></code> keywords. Unlike exception handling in many languages—including Objective-C—error handling in Swift doesn’t involve unwinding the call stack, a process that can be computationally expensive. As such, the performance characteristics of a <code class="docutils literal notranslate"><span class="pre">throw</span></code> statement are comparable to those of a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement.</p>
+<p class="admonition-title">Note</p>
+<p>Error handling in Swift resembles exception handling in other languages, with the use of the <code class="docutils literal notranslate"><span class="pre">try</span></code>, <code class="docutils literal notranslate"><span class="pre">catch</span></code> and <code class="docutils literal notranslate"><span class="pre">throw</span></code> keywords. Unlike exception handling in many languages—including Objective-C—error handling in Swift doesn’t involve unwinding the call stack, a process that can be computationally expensive. As such, the performance characteristics of a <code class="docutils literal notranslate"><span class="pre">throw</span></code> statement are comparable to those of a <code class="docutils literal notranslate"><span class="pre">return</span></code> statement.</p>
 </div>
 <div class="section" id="ID510">
 <h3>Propagating Errors Using Throwing Functions<a class="headerlink" href="#ID510" title="Permalink to this headline">¶</a></h3>
@@ -160,8 +160,8 @@
 </li></ol></div></div></div>
 <p>A throwing function propagates errors that are thrown inside of it to the scope from which it’s called.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Only throwing functions can propagate errors. Any errors thrown inside a nonthrowing function must be handled inside the function.</p>
+<p class="admonition-title">Note</p>
+<p>Only throwing functions can propagate errors. Any errors thrown inside a nonthrowing function must be handled inside the function.</p>
 </div>
 <p>In the example below, the <code class="docutils literal notranslate"><span class="pre">VendingMachine</span></code> class has a <code class="docutils literal notranslate"><span class="pre">vend(itemNamed:)</span></code> method that throws an appropriate <code class="docutils literal notranslate"><span class="pre">VendingMachineError</span></code> if the requested item isn’t available, is out of stock, or has a cost that exceeds the current deposited amount:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Item</span> {
@@ -340,8 +340,8 @@
 </li></ol></div></div></div>
 <p>The above example uses a <code class="docutils literal notranslate"><span class="pre">defer</span></code> statement to ensure that the <code class="docutils literal notranslate"><span class="pre">open(_:)</span></code> function has a corresponding call to <code class="docutils literal notranslate"><span class="pre">close(_:)</span></code>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You can use a <code class="docutils literal notranslate"><span class="pre">defer</span></code> statement even when no error handling code is involved.</p>
+<p class="admonition-title">Note</p>
+<p>You can use a <code class="docutils literal notranslate"><span class="pre">defer</span></code> statement even when no error handling code is involved.</p>
 </div>
 </div>
 </div>
@@ -351,6 +351,14 @@
     <div class="next_previous">
         <p class="previous"><a href="OptionalChaining.html">Optional Chaining</a></p>
         <p class="next"><a href="Concurrency.html">Concurrency</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

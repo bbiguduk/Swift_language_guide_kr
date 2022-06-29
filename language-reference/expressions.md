@@ -555,6 +555,18 @@ _클로저 표현식 (closure expression)_ 은 다른 프로그래밍 언어에�
 <!--
 The parameters have the same form as the parameters in a function declaration, as described in Function Declaration.
 
+Writing throws or async in a closure expression explicitly marks a closure as throwing or asynchronous.
+-->
+
+_파라미터 (parameters)_ 는 [함수 선언 (Function Declaration)](declarations.md#function-declaration) 에서 설명 했듯이 함수 선언에서 파라미터 형식과 동일합니다.
+
+클로저 표현식에 명시적으로 `throws` 또는 `async` 작성하는 것은 클로저를 throwing 또는 비동기를 나타냅니다.
+
+![](<../.gitbook/assets/closure_expression.png>)
+
+<!--
+If the body of a closure includes a try expression, the closure is understood to be throwing. Likewise, if it includes an await expression, it’s understood to be asynchronous.
+
 There are several special forms that allow closures to be written more concisely:
 
 * A closure can omit the types of its parameters, its return type, or both. If you omit the parameter names and both types, omit the in keyword before the statements. If the omitted types can’t be inferred, a compile-time error is raised.
@@ -564,7 +576,7 @@ There are several special forms that allow closures to be written more concisely
 The following closure expressions are equivalent:
 -->
 
-_파라미터 (parameters)_ 는 [함수 선언 (Function Declaration)](declarations.md#function-declaration) 에서 설명 했듯이 함수 선언에서 파라미터 형식과 동일합니다.
+클로저의 바디에 try 표현식이 포함되어 있다면 클로저는 throwing 으로 이해됩니다. 마찬가지로 클로저에 `await` 표현식이 포함되어 있다면 그것은 비동기로 이해됩니다.
 
 클로저를 보다 간결하게 작성할 수 있는 몇가지 특별한 형식이 있습니다:
 
@@ -688,7 +700,7 @@ For more information and examples of closure expressions, see Closure Expression
 클로저 표현식에 자세한 내용과 예제는 [클로저 표현식 (Closure Expressions)](../language-guide-1/closures.md#closure-expressions) 를 참고 바랍니다. 캡처 목록에 자세한 내용과 예제는 [클로저에 대한 강한 참조 사이클 해결 (Resolving Strong Reference Cycles for Closures)](../language-guide-1/automatic-reference-counting.md#resolving-strong-reference-cycles-for-closures) 를 참고 바랍니다.
 
 > GRAMMAR OF A CLOSURE EXPRESSION\
-> closure-expression → `{` [closure-signature](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_closure-signature) $$_{opt}$$ [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statements) $$_{opt}$$ `}`\
+> closure-expression → `{` [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ [closure-signature](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_closure-signature) $$_{opt}$$ [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statements) $$_{opt}$$ `}`\
 > closure-signature → [capture-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_capture-list) opt [closure-parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_closure-parameter-clause) `throws` $$_{opt}$$ [function-result](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_function-result) $$_{opt}$$ `in`\
 > closure-signature → [capture-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_capture-list) `in`\
 > closure-parameter-clause → `(` `)` | `(` [closure-parameter-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_closure-parameter-list) `)` | [identifier-list](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_identifier-list)\

@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Nested Types &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Nested Types &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -162,8 +162,8 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">Rank</span></code> enumeration describes the thirteen possible playing card ranks, together with a raw <code class="docutils literal notranslate"><span class="pre">Int</span></code> value to represent their face value. (This raw <code class="docutils literal notranslate"><span class="pre">Int</span></code> value isn’t used for the Jack, Queen, King, and Ace cards.)</p>
 <p>As mentioned above, the <code class="docutils literal notranslate"><span class="pre">Rank</span></code> enumeration defines a further nested structure of its own, called <code class="docutils literal notranslate"><span class="pre">Values</span></code>. This structure encapsulates the fact that most cards have one value, but the Ace card has two values. The <code class="docutils literal notranslate"><span class="pre">Values</span></code> structure defines two properties to represent this:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">first</span></code>, of type <code class="docutils literal notranslate"><span class="pre">Int</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">second</span></code>, of type <code class="docutils literal notranslate"><span class="pre">Int?</span></code>, or “optional <code class="docutils literal notranslate"><span class="pre">Int</span></code>”</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">first</span></code>, of type <code class="docutils literal notranslate"><span class="pre">Int</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">second</span></code>, of type <code class="docutils literal notranslate"><span class="pre">Int?</span></code>, or “optional <code class="docutils literal notranslate"><span class="pre">Int</span></code>”</p></li>
 </ul>
 <p><code class="docutils literal notranslate"><span class="pre">Rank</span></code> also defines a computed property, <code class="docutils literal notranslate"><span class="pre">values</span></code>, which returns an instance of the <code class="docutils literal notranslate"><span class="pre">Values</span></code> structure. This computed property considers the rank of the card and initializes a new <code class="docutils literal notranslate"><span class="pre">Values</span></code> instance with appropriate values based on its rank. It uses special values for <code class="docutils literal notranslate"><span class="pre">jack</span></code>, <code class="docutils literal notranslate"><span class="pre">queen</span></code>, <code class="docutils literal notranslate"><span class="pre">king</span></code>, and <code class="docutils literal notranslate"><span class="pre">ace</span></code>. For the numeric cards, it uses the rank’s raw <code class="docutils literal notranslate"><span class="pre">Int</span></code> value.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">BlackjackCard</span></code> structure itself has two properties—<code class="docutils literal notranslate"><span class="pre">rank</span></code> and <code class="docutils literal notranslate"><span class="pre">suit</span></code>. It also defines a computed property called <code class="docutils literal notranslate"><span class="pre">description</span></code>, which uses the values stored in <code class="docutils literal notranslate"><span class="pre">rank</span></code> and <code class="docutils literal notranslate"><span class="pre">suit</span></code> to build a description of the name and value of the card. The <code class="docutils literal notranslate"><span class="pre">description</span></code> property uses optional binding to check whether there’s a second value to display, and if so, inserts additional description detail for that second value.</p>
@@ -189,6 +189,14 @@
     <div class="next_previous">
         <p class="previous"><a href="TypeCasting.html">Type Casting</a></p>
         <p class="next"><a href="Extensions.html">Extensions</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

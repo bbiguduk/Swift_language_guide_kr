@@ -364,7 +364,7 @@ let twoByTwo = Size(width: 2.0, height: 2.0)
 ```
 
 <!--
-When you call a memberwise initializer, you can omit values for any properties that have default values. In the example above, the Size structure has a default value for both its height and width properties. You can omit either property or both properties, and the initializer uses the default value for anything you omit—for example:
+When you call a memberwise initializer, you can omit values for any properties that have default values. In the example above, the Size structure has a default value for both its height and width properties. You can omit either property or both properties, and the initializer uses the default value for anything you omit. For example:
 -->
 
 멤버별 초기화 구문을 호출할 때 기본값을 가지는 모든 프로퍼티의 값은 생략할 수 있습니다. 위의 예제에서 `Size` 구조체는 `height` 와 `width` 프로퍼티 둘다 기본값을 가지고 있습니다. 하나 또는 프로퍼티 둘다 생략할 수 있고 초기화 구문은 생략한 값을 기본값으로 사용합니다. 예를 들어:
@@ -856,12 +856,12 @@ print("Bicycle: \(bicycle.description)")
 ```
 
 <!--
-If a subclass initializer performs no customization in phase 2 of the initialization process, and the superclass has a zero-argument designated initializer, you can omit a call to super.init() after assigning values to all of the subclass’s stored properties.
+If a subclass initializer performs no customization in phase 2 of the initialization process, and the superclass has a synchronous, zero-argument designated initializer, you can omit a call to super.init() after assigning values to all of the subclass’s stored properties. If the superclass’s initializer is asynchronous, you need to write await super.init() explicitly.
 
 This example defines another subclass of Vehicle, called Hoverboard. In its initializer, the Hoverboard class sets only its color property. Instead of making an explicit call to super.init(), this initializer relies on an implicit call to its superclass’s initializer to complete the process.
 -->
 
-하위 클래스 초기화 구문이 초기화 프로세스의 2 단계에서 사용자 정의 없이 수행되고 상위 클래스가 인자가 없는 지정된 초기화 구문을 가지고 있다면 모든 하위 클래스의 저장된 프로퍼티에 값을 할당한 후에 `super.init()` 호출을 생략할 수 있습니다.
+하위 클래스 초기화 구문이 초기화 프로세스의 2 단계에서 사용자 정의 없이 수행되고 상위 클래스가 동기적이며 인자가 없는 지정된 초기화 구문을 가지고 있다면 모든 하위 클래스의 저장된 프로퍼티에 값을 할당한 후에 `super.init()` 호출을 생략할 수 있습니다. 상위 클래스의 초기화 구문이 비동기적이라면 명시적으로 `await super.init()` 을 작성해야 합니다.
 
 아래 예제는 `Hoverboard` 라는 `Vehicle` 의 다른 하위 클래스를 정의합니다. 초기화 구문에서 `Hoverboard` 클래스는 `color` 프로퍼티만 설정합니다. 이 초기화 구문은 `super.init()` 을 명시적으로 호출하는 대신에 상위 클래스의 초기화 구문을 암시적으로 호출함으로써 프로세스를 완료합니다.
 

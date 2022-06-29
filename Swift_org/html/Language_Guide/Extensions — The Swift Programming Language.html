@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Extensions &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Extensions &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -124,17 +124,17 @@
 <p><em>Extensions</em> add new functionality to an existing class, structure, enumeration, or protocol type. This includes the ability to extend types for which you don’t have access to the original source code (known as <em>retroactive modeling</em>). Extensions are similar to categories in Objective-C. (Unlike Objective-C categories, Swift extensions don’t have names.)</p>
 <p>Extensions in Swift can:</p>
 <ul class="simple">
-<li>Add computed instance properties and computed type properties</li>
-<li>Define instance methods and type methods</li>
-<li>Provide new initializers</li>
-<li>Define subscripts</li>
-<li>Define and use new nested types</li>
-<li>Make an existing type conform to a protocol</li>
+<li><p>Add computed instance properties and computed type properties</p></li>
+<li><p>Define instance methods and type methods</p></li>
+<li><p>Provide new initializers</p></li>
+<li><p>Define subscripts</p></li>
+<li><p>Define and use new nested types</p></li>
+<li><p>Make an existing type conform to a protocol</p></li>
 </ul>
 <p>In Swift, you can even extend a protocol to provide implementations of its requirements or add additional functionality that conforming types can take advantage of. For more details, see <a class="reference internal" href="Protocols.html#ID521"><span class="std std-ref">Protocol Extensions</span></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Extensions can add new functionality to a type, but they can’t override existing functionality.</p>
+<p class="admonition-title">Note</p>
+<p>Extensions can add new functionality to a type, but they can’t override existing functionality.</p>
 </div>
 <div class="section" id="ID470">
 <h2>Extension Syntax<a class="headerlink" href="#ID470" title="Permalink to this headline">¶</a></h2>
@@ -151,8 +151,8 @@
 <p>Adding protocol conformance in this way is described in <a class="reference internal" href="Protocols.html#ID277"><span class="std std-ref">Adding Protocol Conformance with an Extension</span></a>.</p>
 <p>An extension can be used to extend an existing generic type, as described in <a class="reference internal" href="Generics.html#ID185"><span class="std std-ref">Extending a Generic Type</span></a>. You can also extend a generic type to conditionally add functionality, as described in <a class="reference internal" href="Generics.html#ID553"><span class="std std-ref">Extensions with a Generic Where Clause</span></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you define an extension to add new functionality to an existing type, the new functionality will be available on all existing instances of that type, even if they were created before the extension was defined.</p>
+<p class="admonition-title">Note</p>
+<p>If you define an extension to add new functionality to an existing type, the new functionality will be available on all existing instances of that type, even if they were created before the extension was defined.</p>
 </div>
 </div>
 <div class="section" id="ID152">
@@ -181,8 +181,8 @@
 </li><li><span class="c">// Prints &quot;A marathon is 42195.0 meters long&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Extensions can add new computed properties, but they can’t add stored properties, or add property observers to existing properties.</p>
+<p class="admonition-title">Note</p>
+<p>Extensions can add new computed properties, but they can’t add stored properties, or add property observers to existing properties.</p>
 </div>
 </div>
 <div class="section" id="ID153">
@@ -223,8 +223,8 @@
 </li><li><span class="c">// centerRect&#39;s origin is (2.5, 2.5) and its size is (3.0, 3.0)</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you provide a new initializer with an extension, you are still responsible for making sure that each instance is fully initialized once the initializer completes.</p>
+<p class="admonition-title">Note</p>
+<p>If you provide a new initializer with an extension, you are still responsible for making sure that each instance is fully initialized once the initializer completes.</p>
 </div>
 </div>
 <div class="section" id="ID154">
@@ -266,8 +266,8 @@
 <h2>Subscripts<a class="headerlink" href="#ID156" title="Permalink to this headline">¶</a></h2>
 <p>Extensions can add new subscripts to an existing type. This example adds an integer subscript to Swift’s built-in <code class="docutils literal notranslate"><span class="pre">Int</span></code> type. This subscript <code class="docutils literal notranslate"><span class="pre">[n]</span></code> returns the decimal digit <code class="docutils literal notranslate"><span class="pre">n</span></code> places in from the right of the number:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">123456789[0]</span></code> returns <code class="docutils literal notranslate"><span class="pre">9</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">123456789[1]</span></code> returns <code class="docutils literal notranslate"><span class="pre">8</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">123456789[0]</span></code> returns <code class="docutils literal notranslate"><span class="pre">9</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">123456789[1]</span></code> returns <code class="docutils literal notranslate"><span class="pre">8</span></code></p></li>
 </ul>
 <p>…and so on:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">extension</span> <span class="nc">Int</span> {
@@ -334,8 +334,8 @@
 </li></ol></div></div></div>
 <p>This function, <code class="docutils literal notranslate"><span class="pre">printIntegerKinds(_:)</span></code>, takes an input array of <code class="docutils literal notranslate"><span class="pre">Int</span></code> values and iterates over those values in turn. For each integer in the array, the function considers the <code class="docutils literal notranslate"><span class="pre">kind</span></code> computed property for that integer, and prints an appropriate description.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last"><code class="docutils literal notranslate"><span class="pre">number.kind</span></code> is already known to be of type <code class="docutils literal notranslate"><span class="pre">Int.Kind</span></code>. Because of this, all of the <code class="docutils literal notranslate"><span class="pre">Int.Kind</span></code> case values can be written in shorthand form inside the <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement, such as <code class="docutils literal notranslate"><span class="pre">.negative</span></code> rather than <code class="docutils literal notranslate"><span class="pre">Int.Kind.negative</span></code>.</p>
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">number.kind</span></code> is already known to be of type <code class="docutils literal notranslate"><span class="pre">Int.Kind</span></code>. Because of this, all of the <code class="docutils literal notranslate"><span class="pre">Int.Kind</span></code> case values can be written in shorthand form inside the <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement, such as <code class="docutils literal notranslate"><span class="pre">.negative</span></code> rather than <code class="docutils literal notranslate"><span class="pre">Int.Kind.negative</span></code>.</p>
 </div>
 </div>
 </div>
@@ -345,6 +345,14 @@
     <div class="next_previous">
         <p class="previous"><a href="NestedTypes.html">Nested Types</a></p>
         <p class="next"><a href="Protocols.html">Protocols</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

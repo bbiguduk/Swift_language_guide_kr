@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Structures and Classes &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Structures and Classes &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -128,33 +128,33 @@
 <p><em>Structures</em> and <em>classes</em> are general-purpose, flexible constructs that become the building blocks of your program’s code. You define properties and methods to add functionality to your structures and classes using the same syntax you use to define constants, variables, and functions.</p>
 <p>Unlike other programming languages, Swift doesn’t require you to create separate interface and implementation files for custom structures and classes. In Swift, you define a structure or class in a single file, and the external interface to that class or structure is automatically made available for other code to use.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">An instance of a class is traditionally known as an <em>object</em>. However, Swift structures and classes are much closer in functionality than in other languages, and much of this chapter describes functionality that applies to instances of <em>either</em> a class or a structure type. Because of this, the more general term <em>instance</em> is used.</p>
+<p class="admonition-title">Note</p>
+<p>An instance of a class is traditionally known as an <em>object</em>. However, Swift structures and classes are much closer in functionality than in other languages, and much of this chapter describes functionality that applies to instances of <em>either</em> a class or a structure type. Because of this, the more general term <em>instance</em> is used.</p>
 </div>
 <div class="section" id="ID83">
 <h2>Comparing Structures and Classes<a class="headerlink" href="#ID83" title="Permalink to this headline">¶</a></h2>
 <p>Structures and classes in Swift have many things in common. Both can:</p>
 <ul class="simple">
-<li>Define properties to store values</li>
-<li>Define methods to provide functionality</li>
-<li>Define subscripts to provide access to their values using subscript syntax</li>
-<li>Define initializers to set up their initial state</li>
-<li>Be extended to expand their functionality beyond a default implementation</li>
-<li>Conform to protocols to provide standard functionality of a certain kind</li>
+<li><p>Define properties to store values</p></li>
+<li><p>Define methods to provide functionality</p></li>
+<li><p>Define subscripts to provide access to their values using subscript syntax</p></li>
+<li><p>Define initializers to set up their initial state</p></li>
+<li><p>Be extended to expand their functionality beyond a default implementation</p></li>
+<li><p>Conform to protocols to provide standard functionality of a certain kind</p></li>
 </ul>
 <p>For more information, see <a class="reference internal" href="Properties.html"><span class="doc">Properties</span></a>, <a class="reference internal" href="Methods.html"><span class="doc">Methods</span></a>, <a class="reference internal" href="Subscripts.html"><span class="doc">Subscripts</span></a>, <a class="reference internal" href="Initialization.html"><span class="doc">Initialization</span></a>, <a class="reference internal" href="Extensions.html"><span class="doc">Extensions</span></a>, and <a class="reference internal" href="Protocols.html"><span class="doc">Protocols</span></a>.</p>
 <p>Classes have additional capabilities that structures don’t have:</p>
 <ul class="simple">
-<li>Inheritance enables one class to inherit the characteristics of another.</li>
-<li>Type casting enables you to check and interpret the type of a class instance at runtime.</li>
-<li>Deinitializers enable an instance of a class to free up any resources it has assigned.</li>
-<li>Reference counting allows more than one reference to a class instance.</li>
+<li><p>Inheritance enables one class to inherit the characteristics of another.</p></li>
+<li><p>Type casting enables you to check and interpret the type of a class instance at runtime.</p></li>
+<li><p>Deinitializers enable an instance of a class to free up any resources it has assigned.</p></li>
+<li><p>Reference counting allows more than one reference to a class instance.</p></li>
 </ul>
 <p>For more information, see <a class="reference internal" href="Inheritance.html"><span class="doc">Inheritance</span></a>, <a class="reference internal" href="TypeCasting.html"><span class="doc">Type Casting</span></a>, <a class="reference internal" href="Deinitialization.html"><span class="doc">Deinitialization</span></a>, and <a class="reference internal" href="AutomaticReferenceCounting.html"><span class="doc">Automatic Reference Counting</span></a>.</p>
 <p>The additional capabilities that classes support come at the cost of increased complexity. As a general guideline, prefer structures because they’re easier to reason about, and use classes when they’re appropriate or necessary. In practice, this means most of the custom data types you define will be structures and enumerations. For a more detailed comparison, see <a class="reference external" href="https://developer.apple.com/documentation/swift/choosing_between_structures_and_classes">Choosing Between Structures and Classes</a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Classes and actors share many of the same characteristics and behaviors. For information about actors, see <a class="reference internal" href="Concurrency.html"><span class="doc">Concurrency</span></a>.</p>
+<p class="admonition-title">Note</p>
+<p>Classes and actors share many of the same characteristics and behaviors. For information about actors, see <a class="reference internal" href="Concurrency.html"><span class="doc">Concurrency</span></a>.</p>
 </div>
 <div class="section" id="ID84">
 <h3>Definition Syntax<a class="headerlink" href="#ID84" title="Permalink to this headline">¶</a></h3>
@@ -167,8 +167,8 @@
 </li><li>}
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Whenever you define a new structure or class, you define a new Swift type. Give types <code class="docutils literal notranslate"><span class="pre">UpperCamelCase</span></code> names (such as <code class="docutils literal notranslate"><span class="pre">SomeStructure</span></code> and <code class="docutils literal notranslate"><span class="pre">SomeClass</span></code> here) to match the capitalization of standard Swift types (such as <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Int</span></code>, and <code class="docutils literal notranslate"><span class="pre">Bool</span></code>). Give properties and methods <code class="docutils literal notranslate"><span class="pre">lowerCamelCase</span></code> names (such as <code class="docutils literal notranslate"><span class="pre">frameRate</span></code> and <code class="docutils literal notranslate"><span class="pre">incrementCount</span></code>) to differentiate them from type names.</p>
+<p class="admonition-title">Note</p>
+<p>Whenever you define a new structure or class, you define a new Swift type. Give types <code class="docutils literal notranslate"><span class="pre">UpperCamelCase</span></code> names (such as <code class="docutils literal notranslate"><span class="pre">SomeStructure</span></code> and <code class="docutils literal notranslate"><span class="pre">SomeClass</span></code> here) to match the capitalization of standard Swift types (such as <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Int</span></code>, and <code class="docutils literal notranslate"><span class="pre">Bool</span></code>). Give properties and methods <code class="docutils literal notranslate"><span class="pre">lowerCamelCase</span></code> names (such as <code class="docutils literal notranslate"><span class="pre">frameRate</span></code> and <code class="docutils literal notranslate"><span class="pre">incrementCount</span></code>) to differentiate them from type names.</p>
 </div>
 <p>Here’s an example of a structure definition and a class definition:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Resolution</span> {
@@ -225,8 +225,8 @@
 <p>You’ve actually been using value types extensively throughout the previous chapters. In fact, all of the basic types in Swift—integers, floating-point numbers, Booleans, strings, arrays and dictionaries—are value types, and are implemented as structures behind the scenes.</p>
 <p>All structures and enumerations are value types in Swift. This means that any structure and enumeration instances you create—and any value types they have as properties—are always copied when they’re passed around in your code.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Collections defined by the standard library like arrays, dictionaries, and strings use an optimization to reduce the performance cost of copying. Instead of making a copy immediately, these collections share the memory where the elements are stored between the original instance and any copies. If one of the copies of the collection is modified, the elements are copied just before the modification. The behavior you see in your code is always as if a copy took place immediately.</p>
+<p class="admonition-title">Note</p>
+<p>Collections defined by the standard library like arrays, dictionaries, and strings use an optimization to reduce the performance cost of copying. Instead of making a copy immediately, these collections share the memory where the elements are stored between the original instance and any copies. If one of the copies of the collection is modified, the elements are copied just before the modification. The behavior you see in your code is always as if a copy took place immediately.</p>
 </div>
 <p>Consider this example, which uses the <code class="docutils literal notranslate"><span class="pre">Resolution</span></code> structure from the previous example:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">hd</span> = <span class="nv">Resolution</span>(<span class="nv">width</span>: <span class="m">1920</span>, <span class="nv">height</span>: <span class="m">1080</span>)
@@ -246,7 +246,7 @@
 </li><li><span class="c">// Prints &quot;hd is still 1920 pixels wide&quot;</span>
 </li></ol></div></div></div>
 <p>When <code class="docutils literal notranslate"><span class="pre">cinema</span></code> was given the current value of <code class="docutils literal notranslate"><span class="pre">hd</span></code>, the <em>values</em> stored in <code class="docutils literal notranslate"><span class="pre">hd</span></code> were copied into the new <code class="docutils literal notranslate"><span class="pre">cinema</span></code> instance. The end result was two completely separate instances that contained the same numeric values. However, because they’re separate instances, setting the width of <code class="docutils literal notranslate"><span class="pre">cinema</span></code> to <code class="docutils literal notranslate"><span class="pre">2048</span></code> doesn’t affect the width stored in <code class="docutils literal notranslate"><span class="pre">hd</span></code>, as shown in the figure below:</p>
-<img alt="../_images/sharedStateStruct_2x.png" class="align-center" src="../_images/sharedStateStruct_2x.png" style="width: 647px;" />
+<img alt="../_images/sharedStateStruct_2x.png" class="align-center" src="../_images/sharedStateStruct_2x.png" style="width: 647.0px;" />
 <p>The same behavior applies to enumerations:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">CompassPoint</span> {
 </li><li>    <span class="k">case</span> <span class="nv">north</span>, <span class="nv">south</span>, <span class="nv">east</span>, <span class="nv">west</span>
@@ -281,7 +281,7 @@
 </li><li><span class="nv">alsoTenEighty</span>.<span class="nv">frameRate</span> = <span class="m">30.0</span>
 </li></ol></div></div></div>
 <p>Because classes are reference types, <code class="docutils literal notranslate"><span class="pre">tenEighty</span></code> and <code class="docutils literal notranslate"><span class="pre">alsoTenEighty</span></code> actually both refer to the <em>same</em> <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code> instance. Effectively, they’re just two different names for the same single instance, as shown in the figure below:</p>
-<img alt="../_images/sharedStateClass_2x.png" class="align-center" src="../_images/sharedStateClass_2x.png" style="width: 737px;" />
+<img alt="../_images/sharedStateClass_2x.png" class="align-center" src="../_images/sharedStateClass_2x.png" style="width: 737.0px;" />
 <p>Checking the <code class="docutils literal notranslate"><span class="pre">frameRate</span></code> property of <code class="docutils literal notranslate"><span class="pre">tenEighty</span></code> shows that it correctly reports the new frame rate of <code class="docutils literal notranslate"><span class="pre">30.0</span></code> from the underlying <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code> instance:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="s">&quot;The frameRate property of tenEighty is now </span>\<span class="p">(</span><span class="nv">tenEighty</span>.<span class="nv">frameRate</span><span class="p">)</span><span class="s">&quot;</span>)
 </li><li><span class="c">// Prints &quot;The frameRate property of tenEighty is now 30.0&quot;</span>
@@ -293,8 +293,8 @@
 <p>Because classes are reference types, it’s possible for multiple constants and variables to refer to the same single instance of a class behind the scenes. (The same isn’t true for structures and enumerations, because they’re always copied when they’re assigned to a constant or variable, or passed to a function.)</p>
 <p>It can sometimes be useful to find out whether two constants or variables refer to exactly the same instance of a class. To enable this, Swift provides two identity operators:</p>
 <ul class="simple">
-<li>Identical to (<code class="docutils literal notranslate"><span class="pre">===</span></code>)</li>
-<li>Not identical to (<code class="docutils literal notranslate"><span class="pre">!==</span></code>)</li>
+<li><p>Identical to (<code class="docutils literal notranslate"><span class="pre">===</span></code>)</p></li>
+<li><p>Not identical to (<code class="docutils literal notranslate"><span class="pre">!==</span></code>)</p></li>
 </ul>
 <p>Use these operators to check whether two constants or variables refer to the same single instance:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="nv">tenEighty</span> === <span class="nv">alsoTenEighty</span> {
@@ -317,6 +317,14 @@
     <div class="next_previous">
         <p class="previous"><a href="Enumerations.html">Enumerations</a></p>
         <p class="next"><a href="Properties.html">Properties</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

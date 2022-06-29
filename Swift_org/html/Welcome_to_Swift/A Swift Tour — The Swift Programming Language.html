@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>A Swift Tour &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>A Swift Tour &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -80,6 +80,7 @@
 <li><a class="reference internal" href="#ID463">Functions and Closures</a></li>
 <li><a class="reference internal" href="#ID464">Objects and Classes</a></li>
 <li><a class="reference internal" href="#ID465">Enumerations and Structures</a></li>
+<li><a class="reference internal" href="#ID637">Concurrency</a></li>
 <li><a class="reference internal" href="#ID466">Protocols and Extensions</a></li>
 <li><a class="reference internal" href="#ID623">Error Handling</a></li>
 <li><a class="reference internal" href="#ID624">Generics</a></li>
@@ -102,11 +103,11 @@
 <p>If you have written code in C or Objective-C, this syntax looks familiar to you—in Swift, this line of code is a complete program. You don’t need to import a separate library for functionality like input/output or string handling. Code written at global scope is used as the entry point for the program, so you don’t need a <code class="docutils literal notranslate"><span class="pre">main()</span></code> function. You also don’t need to write semicolons at the end of every statement.</p>
 <p>This tour gives you enough information to start writing code in Swift by showing you how to accomplish a variety of programming tasks. Don’t worry if you don’t understand something—everything introduced in this tour is explained in detail in the rest of this book.</p>
 <div class="playground_link admonition">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>For the best experience, open this chapter as a playground in Xcode.
 Playgrounds allow you to edit the code listings and see the result immediately.
 </p>
-<p class="last"><a class="reference external" href="GuidedTour.playground.zip">Download Playground</a></p>
+<p><a class="reference external" href="GuidedTour.playground.zip">Download Playground</a></p>
 </div>
 <div class="section" id="ID461">
 <h2>Simple Values<a class="headerlink" href="#ID461" title="Permalink to this headline">¶</a></h2>
@@ -116,14 +117,14 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="k">let</span> <span class="nv">myConstant</span> = <span class="m">42</span>
 </li></ol></div></div></div>
 <p>A constant or variable must have the same type as the value you want to assign to it. However, you don’t always have to write the type explicitly. Providing a value when you create a constant or variable lets the compiler infer its type. In the example above, the compiler infers that <code class="docutils literal notranslate"><span class="pre">myVariable</span></code> is an integer because its initial value is an integer.</p>
-<p>If the initial value doesn’t provide enough information (or if isn’t an initial value), specify the type by writing it after the variable, separated by a colon.</p>
+<p>If the initial value doesn’t provide enough information (or if there isn’t an initial value), specify the type by writing it after the variable, separated by a colon.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">implicitInteger</span> = <span class="m">70</span>
 </li><li><span class="k">let</span> <span class="nv">implicitDouble</span> = <span class="m">70.0</span>
 </li><li><span class="k">let</span> <span class="nv">explicitDouble</span>: <span class="nc">Double</span> = <span class="m">70</span>
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Create a constant with an explicit type of <code class="docutils literal notranslate"><span class="pre">Float</span></code> and a value of <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p>
+<p class="admonition-title">Experiment</p>
+<p>Create a constant with an explicit type of <code class="docutils literal notranslate"><span class="pre">Float</span></code> and a value of <code class="docutils literal notranslate"><span class="pre">4</span></code>.</p>
 </div>
 <p>Values are never implicitly converted to another type. If you need to convert a value to a different type, explicitly make an instance of the desired type.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">label</span> = <span class="s">&quot;The width is &quot;</span>
@@ -131,8 +132,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="k">let</span> <span class="nv">widthLabel</span> = <span class="nv">label</span> + <span class="nv">String</span>(<span class="nv">width</span>)
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Try removing the conversion to <code class="docutils literal notranslate"><span class="pre">String</span></code> from the last line. What error do you get?</p>
+<p class="admonition-title">Experiment</p>
+<p>Try removing the conversion to <code class="docutils literal notranslate"><span class="pre">String</span></code> from the last line. What error do you get?</p>
 </div>
 <p>There’s an even simpler way to include values in strings: Write the value in parentheses, and write a backslash (<code class="docutils literal notranslate"><span class="pre">\</span></code>) before the parentheses. For example:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">apples</span> = <span class="m">3</span>
@@ -141,8 +142,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="k">let</span> <span class="nv">fruitSummary</span> = <span class="s">&quot;I have </span>\<span class="p">(</span><span class="nv">apples</span> + <span class="nv">oranges</span><span class="p">)</span><span class="s"> pieces of fruit.&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Use <code class="docutils literal notranslate"><span class="pre">\()</span></code> to include a floating-point calculation in a string and to include someone’s name in a greeting.</p>
+<p class="admonition-title">Experiment</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">\()</span></code> to include a floating-point calculation in a string and to include someone’s name in a greeting.</p>
 </div>
 <p>Use three double quotation marks (<code class="docutils literal notranslate"><span class="pre">&quot;&quot;&quot;</span></code>) for strings that take up multiple lines. Indentation at the start of each quoted line is removed, as long as it matches the indentation of the closing quotation marks. For example:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">quotation</span> = <span class="s">&quot;&quot;&quot;</span>
@@ -201,14 +202,19 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li>}
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Change <code class="docutils literal notranslate"><span class="pre">optionalName</span></code> to <code class="docutils literal notranslate"><span class="pre">nil</span></code>. What greeting do you get? Add an <code class="docutils literal notranslate"><span class="pre">else</span></code> clause that sets a different greeting if <code class="docutils literal notranslate"><span class="pre">optionalName</span></code> is <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p class="admonition-title">Experiment</p>
+<p>Change <code class="docutils literal notranslate"><span class="pre">optionalName</span></code> to <code class="docutils literal notranslate"><span class="pre">nil</span></code>. What greeting do you get? Add an <code class="docutils literal notranslate"><span class="pre">else</span></code> clause that sets a different greeting if <code class="docutils literal notranslate"><span class="pre">optionalName</span></code> is <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 </div>
 <p>If the optional value is <code class="docutils literal notranslate"><span class="pre">nil</span></code>, the conditional is <code class="docutils literal notranslate"><span class="pre">false</span></code> and the code in braces is skipped. Otherwise, the optional value is unwrapped and assigned to the constant after <code class="docutils literal notranslate"><span class="pre">let</span></code>, which makes the unwrapped value available inside the block of code.</p>
 <p>Another way to handle optional values is to provide a default value using the <code class="docutils literal notranslate"><span class="pre">??</span></code> operator. If the optional value is missing, the default value is used instead.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">nickname</span>: <span class="nc">String</span>? = <span class="k">nil</span>
 </li><li><span class="k">let</span> <span class="nv">fullName</span>: <span class="nc">String</span> = <span class="s">&quot;John Appleseed&quot;</span>
 </li><li><span class="k">let</span> <span class="nv">informalGreeting</span> = <span class="s">&quot;Hi </span>\<span class="p">(</span><span class="nv">nickname</span> ?? <span class="nv">fullName</span><span class="p">)</span><span class="s">&quot;</span>
+</li></ol></div></div></div>
+<p>You can use a shorter spelling to unwrap a value, using the same name for that unwrapped value.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="k">let</span> <span class="nv">nickname</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Hey, </span>\<span class="p">(</span><span class="nv">nickname</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li>}
 </li></ol></div></div></div>
 <p>Switches support any kind of data and a wide variety of comparison operations—they aren’t limited to integers and tests for equality.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">vegetable</span> = <span class="s">&quot;red pepper&quot;</span>
@@ -225,8 +231,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="c">// Prints &quot;Is it a spicy red pepper?&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Try removing the default case. What error do you get?</p>
+<p class="admonition-title">Experiment</p>
+<p>Try removing the default case. What error do you get?</p>
 </div>
 <p>Notice how <code class="docutils literal notranslate"><span class="pre">let</span></code> can be used in a pattern to assign the value that matched the pattern to a constant.</p>
 <p>After executing the code inside the switch case that matched, the program exits from the switch statement. Execution doesn’t continue to the next case, so you don’t need to explicitly break out of the switch at the end of each case’s code.</p>
@@ -248,8 +254,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="c">// Prints &quot;25&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Replace the <code class="docutils literal notranslate"><span class="pre">_</span></code> with a variable name, and keep track of which kind of number was the largest.</p>
+<p class="admonition-title">Experiment</p>
+<p>Replace the <code class="docutils literal notranslate"><span class="pre">_</span></code> with a variable name, and keep track of which kind of number was the largest.</p>
 </div>
 <p>Use <code class="docutils literal notranslate"><span class="pre">while</span></code> to repeat a block of code until a condition changes. The condition of a loop can be at the end instead, ensuring that the loop is run at least once.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">n</span> = <span class="m">2</span>
@@ -285,8 +291,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="nv">greet</span>(<span class="nv">person</span>: <span class="s">&quot;Bob&quot;</span>, <span class="nv">day</span>: <span class="s">&quot;Tuesday&quot;</span>)
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Remove the <code class="docutils literal notranslate"><span class="pre">day</span></code> parameter. Add a parameter to include today’s lunch special in the greeting.</p>
+<p class="admonition-title">Experiment</p>
+<p>Remove the <code class="docutils literal notranslate"><span class="pre">day</span></code> parameter. Add a parameter to include today’s lunch special in the greeting.</p>
 </div>
 <p>By default, functions use their parameter names as labels for their arguments. Write a custom argument label before the parameter name, or write <code class="docutils literal notranslate"><span class="pre">_</span></code> to use no argument label.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">greet</span>(<span class="k">_</span> <span class="nv">person</span>: <span class="nc">String</span>, <span class="nv">on</span> <span class="nv">day</span>: <span class="nc">String</span>) -&gt; <span class="nc">String</span> {
@@ -360,8 +366,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li>})
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Rewrite the closure to return zero for all odd numbers.</p>
+<p class="admonition-title">Experiment</p>
+<p>Rewrite the closure to return zero for all odd numbers.</p>
 </div>
 <p>You have several options for writing closures more concisely. When a closure’s type is already known, such as the callback for a delegate, you can omit the type of its parameters, its return type, or both. Single statement closures implicitly return the value of their only statement.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">mappedNumbers</span> = <span class="nv">numbers</span>.<span class="nv">map</span>({ <span class="nv">number</span> <span class="k">in</span> <span class="m">3</span> * <span class="nv">number</span> })
@@ -385,8 +391,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li>}
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Add a constant property with <code class="docutils literal notranslate"><span class="pre">let</span></code>, and add another method that takes an argument.</p>
+<p class="admonition-title">Experiment</p>
+<p>Add a constant property with <code class="docutils literal notranslate"><span class="pre">let</span></code>, and add another method that takes an argument.</p>
 </div>
 <p>Create an instance of a class by putting parentheses after the class name. Use dot syntax to access the properties and methods of the instance.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">shape</span> = <span class="nv">Shape</span>()
@@ -433,8 +439,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="nv">test</span>.<span class="nv">simpleDescription</span>()
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Make another subclass of <code class="docutils literal notranslate"><span class="pre">NamedShape</span></code> called <code class="docutils literal notranslate"><span class="pre">Circle</span></code> that takes a radius and a name as arguments to its initializer. Implement an <code class="docutils literal notranslate"><span class="pre">area()</span></code> and a <code class="docutils literal notranslate"><span class="pre">simpleDescription()</span></code> method on the <code class="docutils literal notranslate"><span class="pre">Circle</span></code> class.</p>
+<p class="admonition-title">Experiment</p>
+<p>Make another subclass of <code class="docutils literal notranslate"><span class="pre">NamedShape</span></code> called <code class="docutils literal notranslate"><span class="pre">Circle</span></code> that takes a radius and a name as arguments to its initializer. Implement an <code class="docutils literal notranslate"><span class="pre">area()</span></code> and a <code class="docutils literal notranslate"><span class="pre">simpleDescription()</span></code> method on the <code class="docutils literal notranslate"><span class="pre">Circle</span></code> class.</p>
 </div>
 <p>In addition to simple properties that are stored, properties can have a getter and a setter.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">EquilateralTriangle</span>: <span class="nc">NamedShape</span> {
@@ -469,9 +475,9 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 <p>In the setter for <code class="docutils literal notranslate"><span class="pre">perimeter</span></code>, the new value has the implicit name <code class="docutils literal notranslate"><span class="pre">newValue</span></code>. You can provide an explicit name in parentheses after <code class="docutils literal notranslate"><span class="pre">set</span></code>.</p>
 <p>Notice that the initializer for the <code class="docutils literal notranslate"><span class="pre">EquilateralTriangle</span></code> class has three different steps:</p>
 <ol class="arabic simple">
-<li>Setting the value of properties that the subclass declares.</li>
-<li>Calling the superclass’s initializer.</li>
-<li>Changing the value of properties defined by the superclass. Any additional setup work that uses methods, getters, or setters can also be done at this point.</li>
+<li><p>Setting the value of properties that the subclass declares.</p></li>
+<li><p>Calling the superclass’s initializer.</p></li>
+<li><p>Changing the value of properties defined by the superclass. Any additional setup work that uses methods, getters, or setters can also be done at this point.</p></li>
 </ol>
 <p>If you don’t need to compute the property but still need to provide code that’s run before and after setting a new value, use <code class="docutils literal notranslate"><span class="pre">willSet</span></code> and <code class="docutils literal notranslate"><span class="pre">didSet</span></code>. The code you provide is run any time the value changes outside of an initializer. For example, the class below ensures that the side length of its triangle is always the same as the side length of its square.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">TriangleAndSquare</span> {
@@ -531,8 +537,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="k">let</span> <span class="nv">aceRawValue</span> = <span class="nv">ace</span>.<span class="nv">rawValue</span>
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Write a function that compares two <code class="docutils literal notranslate"><span class="pre">Rank</span></code> values by comparing their raw values.</p>
+<p class="admonition-title">Experiment</p>
+<p>Write a function that compares two <code class="docutils literal notranslate"><span class="pre">Rank</span></code> values by comparing their raw values.</p>
 </div>
 <p>By default, Swift assigns the raw values starting at zero and incrementing by one each time, but you can change this behavior by explicitly specifying values. In the example above, <code class="docutils literal notranslate"><span class="pre">Ace</span></code> is explicitly given a raw value of <code class="docutils literal notranslate"><span class="pre">1</span></code>, and the rest of the raw values are assigned in order. You can also use strings or floating-point numbers as the raw type of an enumeration. Use the <code class="docutils literal notranslate"><span class="pre">rawValue</span></code> property to access the raw value of an enumeration case.</p>
 <p>Use the <code class="docutils literal notranslate"><span class="pre">init?(rawValue:)</span></code> initializer to make an instance of an enumeration from a raw value. It returns either the enumeration case matching the raw value or <code class="docutils literal notranslate"><span class="pre">nil</span></code> if there’s no matching <code class="docutils literal notranslate"><span class="pre">Rank</span></code>.</p>
@@ -561,8 +567,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="k">let</span> <span class="nv">heartsDescription</span> = <span class="nv">hearts</span>.<span class="nv">simpleDescription</span>()
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Add a <code class="docutils literal notranslate"><span class="pre">color()</span></code> method to <code class="docutils literal notranslate"><span class="pre">Suit</span></code> that returns “black” for spades and clubs, and returns “red” for hearts and diamonds.</p>
+<p class="admonition-title">Experiment</p>
+<p>Add a <code class="docutils literal notranslate"><span class="pre">color()</span></code> method to <code class="docutils literal notranslate"><span class="pre">Suit</span></code> that returns “black” for spades and clubs, and returns “red” for hearts and diamonds.</p>
 </div>
 <p>Notice the two ways that the <code class="docutils literal notranslate"><span class="pre">hearts</span></code> case of the enumeration is referred to above: When assigning a value to the <code class="docutils literal notranslate"><span class="pre">hearts</span></code> constant, the enumeration case <code class="docutils literal notranslate"><span class="pre">Suit.hearts</span></code> is referred to by its full name because the constant doesn’t have an explicit type specified. Inside the switch, the enumeration case is referred to by the abbreviated form <code class="docutils literal notranslate"><span class="pre">.hearts</span></code> because the value of <code class="docutils literal notranslate"><span class="pre">self</span></code> is already known to be a suit. You can use the abbreviated form anytime the value’s type is already known.</p>
 <p>If an enumeration has raw values, those values are determined as part of the declaration, which means every instance of a particular enumeration case always has the same raw value. Another choice for enumeration cases is to have values associated with the case—these values are determined when you make the instance, and they can be different for each instance of an enumeration case. You can think of the associated values as behaving like stored properties of the enumeration case instance. For example, consider the case of requesting the sunrise and sunset times from a server. The server either responds with the requested information, or it responds with a description of what went wrong.</p>
@@ -583,8 +589,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="c">// Prints &quot;Sunrise is at 6:00 am and sunset is at 8:09 pm.&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Add a third case to <code class="docutils literal notranslate"><span class="pre">ServerResponse</span></code> and to the switch.</p>
+<p class="admonition-title">Experiment</p>
+<p>Add a third case to <code class="docutils literal notranslate"><span class="pre">ServerResponse</span></code> and to the switch.</p>
 </div>
 <p>Notice how the sunrise and sunset times are extracted from the <code class="docutils literal notranslate"><span class="pre">ServerResponse</span></code> value as part of matching the value against the switch cases.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">struct</span></code> to create a structure. Structures support many of the same behaviors as classes, including methods and initializers. One of the most important differences between structures and classes is that structures are always copied when they’re passed around in your code, but classes are passed by reference.</p>
@@ -599,9 +605,43 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="k">let</span> <span class="nv">threeOfSpadesDescription</span> = <span class="nv">threeOfSpades</span>.<span class="nv">simpleDescription</span>()
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Write a function that returns an array containing a full deck of cards, with one card of each combination of rank and suit.</p>
+<p class="admonition-title">Experiment</p>
+<p>Write a function that returns an array containing a full deck of cards, with one card of each combination of rank and suit.</p>
 </div>
+</div>
+<div class="section" id="ID637">
+<h2>Concurrency<a class="headerlink" href="#ID637" title="Permalink to this headline">¶</a></h2>
+<p>Use <code class="docutils literal notranslate"><span class="pre">async</span></code> to mark a function that runs asynchronously.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">fetchUserID</span>(<span class="nv">from</span> <span class="nv">server</span>: <span class="nc">String</span>) <span class="nv">async</span> -&gt; <span class="nv">Int</span> {
+</li><li>    <span class="k">if</span> <span class="nv">server</span> == <span class="s">&quot;primary&quot;</span> {
+</li><li>        <span class="k">return</span> <span class="m">97</span>
+</li><li>    }
+</li><li>    <span class="k">return</span> <span class="m">501</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>You mark a call to an asynchronous function by writing <code class="docutils literal notranslate"><span class="pre">await</span></code> in front of it.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">fetchUsername</span>(<span class="nv">from</span> <span class="nv">server</span>: <span class="nc">String</span>) <span class="nv">async</span> -&gt; <span class="nv">String</span> {
+</li><li>    <span class="k">let</span> <span class="nv">userID</span> = <span class="nv">await</span> <span class="nv">fetchUserID</span>(<span class="nv">from</span>: <span class="nv">server</span>)
+</li><li>    <span class="k">if</span> <span class="nv">userID</span> == <span class="m">501</span> {
+</li><li>        <span class="k">return</span> <span class="s">&quot;John Appleseed&quot;</span>
+</li><li>    }
+</li><li>    <span class="k">return</span> <span class="s">&quot;Guest&quot;</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">async</span> <span class="pre">let</span></code> to call an asynchronous function, letting it run in parallel with other asynchronous code. When you use the value it returns, write <code class="docutils literal notranslate"><span class="pre">await</span></code>.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">connectUser</span>(<span class="nv">to</span> <span class="nv">server</span>: <span class="nc">String</span>) <span class="nv">async</span> {
+</li><li>    <span class="nv">async</span> <span class="k">let</span> <span class="nv">userID</span> = <span class="nv">fetchUserID</span>(<span class="nv">from</span>: <span class="nv">server</span>)
+</li><li>    <span class="nv">async</span> <span class="k">let</span> <span class="nv">username</span> = <span class="nv">fetchUsername</span>(<span class="nv">from</span>: <span class="nv">server</span>)
+</li><li>    <span class="k">let</span> <span class="nv">greeting</span> = <span class="nv">await</span> <span class="s">&quot;Hello </span>\<span class="p">(</span><span class="nv">username</span><span class="p">)</span><span class="s">, user ID </span>\<span class="p">(</span><span class="nv">userID</span><span class="p">)</span><span class="s">&quot;</span>
+</li><li>    <span class="nv">print</span>(<span class="nv">greeting</span>)
+</li><li>}
+</li></ol></div></div></div>
+<p>Use <code class="docutils literal notranslate"><span class="pre">Task</span></code> to call asynchronous functions from synchronous code, without waiting for them to return.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">Task</span> {
+</li><li>    <span class="nv">await</span> <span class="nv">connectUser</span>(<span class="nv">to</span>: <span class="s">&quot;primary&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;Hello Guest, user ID 97&quot;</span>
+</li></ol></div></div></div>
 </div>
 <div class="section" id="ID466">
 <h2>Protocols and Extensions<a class="headerlink" href="#ID466" title="Permalink to this headline">¶</a></h2>
@@ -611,7 +651,7 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">adjust</span>()
 </li><li>}
 </li></ol></div></div></div>
-<p>Classes, enumerations, and structs can all adopt protocols.</p>
+<p>Classes, enumerations, and structures can all adopt protocols.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SimpleClass</span>: <span class="nc">ExampleProtocol</span> {
 </li><li>    <span class="k">var</span> <span class="nv">simpleDescription</span>: <span class="nc">String</span> = <span class="s">&quot;A very simple class.&quot;</span>
 </li><li>    <span class="k">var</span> <span class="nv">anotherProperty</span>: <span class="nc">Int</span> = <span class="m">69105</span>
@@ -634,8 +674,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="k">let</span> <span class="nv">bDescription</span> = <span class="nv">b</span>.<span class="nv">simpleDescription</span>
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Add another requirement to <code class="docutils literal notranslate"><span class="pre">ExampleProtocol</span></code>. What changes do you need to make to <code class="docutils literal notranslate"><span class="pre">SimpleClass</span></code> and <code class="docutils literal notranslate"><span class="pre">SimpleStructure</span></code> so that they still conform to the protocol?</p>
+<p class="admonition-title">Experiment</p>
+<p>Add another requirement to <code class="docutils literal notranslate"><span class="pre">ExampleProtocol</span></code>. What changes do you need to make to <code class="docutils literal notranslate"><span class="pre">SimpleClass</span></code> and <code class="docutils literal notranslate"><span class="pre">SimpleStructure</span></code> so that they still conform to the protocol?</p>
 </div>
 <p>Notice the use of the <code class="docutils literal notranslate"><span class="pre">mutating</span></code> keyword in the declaration of <code class="docutils literal notranslate"><span class="pre">SimpleStructure</span></code> to mark a method that modifies the structure. The declaration of <code class="docutils literal notranslate"><span class="pre">SimpleClass</span></code> doesn’t need any of its methods marked as mutating because methods on a class can always modify the class.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">extension</span></code> to add functionality to an existing type, such as new methods and computed properties. You can use an extension to add protocol conformance to a type that’s declared elsewhere, or even to a type that you imported from a library or framework.</p>
@@ -651,8 +691,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="c">// Prints &quot;The number 7&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Write an extension for the <code class="docutils literal notranslate"><span class="pre">Double</span></code> type that adds an <code class="docutils literal notranslate"><span class="pre">absoluteValue</span></code> property.</p>
+<p class="admonition-title">Experiment</p>
+<p>Write an extension for the <code class="docutils literal notranslate"><span class="pre">Double</span></code> type that adds an <code class="docutils literal notranslate"><span class="pre">absoluteValue</span></code> property.</p>
 </div>
 <p>You can use a protocol name just like any other named type—for example, to create a collection of objects that have different types but that all conform to a single protocol. When you work with values whose type is a protocol type, methods outside the protocol definition aren’t available.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">protocolValue</span>: <span class="nc">ExampleProtocol</span> = <span class="nv">a</span>
@@ -689,8 +729,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="c">// Prints &quot;Job sent&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Change the printer name to <code class="docutils literal notranslate"><span class="pre">&quot;Never</span> <span class="pre">Has</span> <span class="pre">Toner&quot;</span></code>, so that the <code class="docutils literal notranslate"><span class="pre">send(job:toPrinter:)</span></code> function throws an error.</p>
+<p class="admonition-title">Experiment</p>
+<p>Change the printer name to <code class="docutils literal notranslate"><span class="pre">&quot;Never</span> <span class="pre">Has</span> <span class="pre">Toner&quot;</span></code>, so that the <code class="docutils literal notranslate"><span class="pre">send(job:toPrinter:)</span></code> function throws an error.</p>
 </div>
 <p>You can provide multiple <code class="docutils literal notranslate"><span class="pre">catch</span></code> blocks that handle specific errors. You write a pattern after <code class="docutils literal notranslate"><span class="pre">catch</span></code> just as you do after <code class="docutils literal notranslate"><span class="pre">case</span></code> in a switch.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">do</span> {
@@ -706,8 +746,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="c">// Prints &quot;Job sent&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Add code to throw an error inside the <code class="docutils literal notranslate"><span class="pre">do</span></code> block. What kind of error do you need to throw so that the error is handled by the first <code class="docutils literal notranslate"><span class="pre">catch</span></code> block? What about the second and third blocks?</p>
+<p class="admonition-title">Experiment</p>
+<p>Add code to throw an error inside the <code class="docutils literal notranslate"><span class="pre">do</span></code> block. What kind of error do you need to throw so that the error is handled by the first <code class="docutils literal notranslate"><span class="pre">catch</span></code> block? What about the second and third blocks?</p>
 </div>
 <p>Another way to handle errors is to use <code class="docutils literal notranslate"><span class="pre">try?</span></code> to convert the result to an optional. If the function throws an error, the specific error is discarded and the result is <code class="docutils literal notranslate"><span class="pre">nil</span></code>. Otherwise, the result is an optional containing the value that the function returned.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">printerSuccess</span> = <span class="k">try</span>? <span class="nv">send</span>(<span class="nv">job</span>: <span class="m">1884</span>, <span class="nv">toPrinter</span>: <span class="s">&quot;Mergenthaler&quot;</span>)
@@ -768,8 +808,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="nv">anyCommonElements</span>([<span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>], [<span class="m">3</span>])
 </li></ol></div></div></div>
 <div class="admonition-experiment admonition">
-<p class="first admonition-title">Experiment</p>
-<p class="last">Modify the <code class="docutils literal notranslate"><span class="pre">anyCommonElements(_:_:)</span></code> function to make a function that returns an array of the elements that any two sequences have in common.</p>
+<p class="admonition-title">Experiment</p>
+<p>Modify the <code class="docutils literal notranslate"><span class="pre">anyCommonElements(_:_:)</span></code> function to make a function that returns an array of the elements that any two sequences have in common.</p>
 </div>
 <p>Writing <code class="docutils literal notranslate"><span class="pre">&lt;T:</span> <span class="pre">Equatable&gt;</span></code> is the same as writing <code class="docutils literal notranslate"><span class="pre">&lt;T&gt;</span> <span class="pre">...</span> <span class="pre">where</span> <span class="pre">T:</span> <span class="pre">Equatable</span></code>.</p>
 </div>
@@ -780,6 +820,14 @@ Playgrounds allow you to edit the code listings and see the result immediately.
     <div class="next_previous">
         <p class="previous"><a href="Compatibility.html">Version Compatibility</a></p>
         <p class="next"><a href="../LanguageGuide/TheBasics.html">The Basics</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

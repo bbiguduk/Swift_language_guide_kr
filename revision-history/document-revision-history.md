@@ -2,6 +2,14 @@
 
 ## Revision History
 
+### 2022-06-29(수)
+
+* Swift 5.7 기반으로 문서 작업 완료
+* 행위자 (actor) 와 작업 (task) 간의 데이터 전송에 대한 내용을 [전송 가능 타입 (Sendable Types)](../language-guide-1/concurrency.md#sendable-types) 섹션에 추가하고 `@Sendable` 과 `@unchecked` 속성에 대한 내용을 [Sendable](../language-reference/attributes.md#sendable) 과 [unchecked](../language-reference/attributes.md#unchecked) 섹션에 추가하였습니다.
+* 정규 표현식 생성에 대한 내용을 [정규 표현식 리터럴 (Regular Expression Literals)](../language-reference/lexical-structure.md#regular-expression-literals) 섹션에 추가하였습니다.
+* `if`-`let` 형식에 대한 내용을 [옵셔널 바인딩 (Optional Binding)](../language-guide-1/the-basics.md#optional-binding) 섹선에 추가하였습니다.
+* `#unavailable` 에 대한 내용을 [사용 가능한 API 확인 (Checking API Availability)](../language-guide-1/control-flow.md#checking-api-availability) 섹션에 추가하였습니다.
+
 ### 2022-03-17(목)
 
 * Swift 5.6 정식 릴리즈에 따른 오탈자 수정

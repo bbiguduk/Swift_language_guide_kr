@@ -141,21 +141,32 @@ _리터럴 (literal)_ 은 숫자 또는 문자열과 같은 타입 값의 소스
 42               // Integer literal
 3.14159          // Floating-point literal
 "Hello, world!"  // String literal
+/Hello, .*/      // Regular expression literal
 true             // Boolean literal
 ```
 
 <!--
-A literal doesn’t have a type on its own. Instead, a literal is parsed as having infinite precision and Swift’s type inference attempts to infer a type for the literal. For example, in the declaration let x: Int8 = 42, Swift uses the explicit type annotation (: Int8) to infer that the type of the integer literal 42 is Int8. If there isn’t suitable type information available, Swift infers that the literal’s type is one of the default literal types defined in the Swift standard library. The default types are Int for integer literals, Double for floating-point literals, String for string literals, and Bool for Boolean literals. For example, in the declaration let str = "Hello, world", the default inferred type of the string literal "Hello, world" is String.
-
-When specifying the type annotation for a literal value, the annotation’s type must be a type that can be instantiated from that literal value. That is, the type must conform to one of the following Swift standard library protocols: ExpressibleByIntegerLiteral for integer literals, ExpressibleByFloatLiteral for floating-point literals, ExpressibleByStringLiteral for string literals, ExpressibleByBooleanLiteral for Boolean literals, ExpressibleByUnicodeScalarLiteral for string literals that contain only a single Unicode scalar, and ExpressibleByExtendedGraphemeClusterLiteral for string literals that contain only a single extended grapheme cluster. For example, Int8 conforms to the ExpressibleByIntegerLiteral protocol, and therefore it can be used in the type annotation for the integer literal 42 in the declaration let x: Int8 = 42.
+A literal doesn’t have a type on its own. Instead, a literal is parsed as having infinite precision and Swift’s type inference attempts to infer a type for the literal. For example, in the declaration let x: Int8 = 42, Swift uses the explicit type annotation (: Int8) to infer that the type of the integer literal 42 is Int8. If there isn’t suitable type information available, Swift infers that the literal’s type is one of the default literal types defined in the Swift standard library and listed in the table below. When specifying the type annotation for a literal value, the annotation’s type must be a type that can be instantiated from that literal value. That is, the type must conform to the Swift standard library protocols listed in the table below.
 -->
 
-리터럴은 자체 타입이 없습니다. 대신에 리터럴은 무한 정밀도를 가진 구문으로 분석되고 Swift 의 타입 추론은 리터럴에 대한 타입을 추론하려고 합니다. 예를 들어 `let x: Int8 = 42` 선언에서 Swift 는 명시적 타입 설명 (`: Int8`) 을 사용하여 정수 리터럴 `42` 가 `Int8` 의 타입이라고 유추합니다. 사용 가능한 적절한 타입 정보가 없는 경우 Swift 는 Swift 표준 라이브러리에 정의된 기본 리터럴 타입 중 하나라고 유추합니다. 정수 리터럴에 대한 기본 타입은 `Int`, 부동 소수 리터럴에 대한 기본 타입은 `Double`, 문자열 리터럴에 대한 기본 타입은 `String`, 불린 리터럴의 기본 타입은 `Bool` 입니다. 예를 들어 `let str = "Hello, world"` 선언에서 문자열 리터럴 `"Hello, world"` 의 기본으로 유추된 타입은 `String` 입니다.
+리터럴은 자체 타입이 없습니다. 대신에 리터럴은 무한 정밀도를 가진 구문으로 분석되고 Swift 의 타입 추론은 리터럴에 대한 타입을 추론하려고 합니다. 예를 들어 `let x: Int8 = 42` 선언에서 Swift 는 명시적 타입 설명 (`: Int8`) 을 사용하여 정수 리터럴 `42` 가 `Int8` 의 타입이라고 유추합니다. 사용 가능한 적절한 타입 정보가 없는 경우 Swift 는 Swift 표준 라이브러리와 아래 표에서 정의된 기본 리터럴 타입 중 하나라고 유추합니다. 리터럴 값에 대한 타입 추론을 지정할 때 추론의 타입은 리터럴 값으로 부터 인스턴스될 수 있어야 합니다. 즉, 타입은 아래 표에 있는 Swift 표준 라이브러리 프로토콜을 준수해야 합니다.
 
-리터럴 값에 대해 타입을 지정할 때 리터럴 값에서 인스턴스화 할 수 있는 타입이어야 합니다. 즉, 타입은 다음 Swift 표준 라이브러리 프로토콜 중 하나를 준수해야만 합니다: 정수 리터럴의 경우 `ExpressibleByIntegerLiteral`, 부동 소수점 리터럴의 경우 `ExpressibleByFloatLiteral`, 문자열 리터럴의 경우 `ExpressibleByStringLiteral`, 불린 리터럴의 경우 `ExpressibleByBooleanLiteral`, 단일 유니코드 스칼라만 포함하는 문자열 리터럴의 경우 `ExpressibleByUnicodeScalarLiteral`, 그리고 확장 자소 클러스터 하나만 포함하는 문자열 리터럴의 경우 `ExpressibleByExtendedGraphemeClusterLiteral`. 예를 들어 `Int8` 은 `ExpressibleByIntegerLiteral` 프로토콜을 준수하므로 `let x: Int8 = 42` 선언에서 정수 리터럴 `42` 에 대해 해당 타입을 사용할 수 있습니다.
+|**리터럴**          |**기본타입**|**프로토콜**|
+|:----------------:|:--------:|:----------------------------:|
+|정수               |`Int`     |`ExpressibleByIntegerLiteral`|
+|부동소수점           |`Double`  |`ExpressibleByFloatLiteral`|
+|문자열              |`String`  |단일 유니코드 스칼라만 포함하는 문자열 리터럴의 경우에는 `ExpressibleByStringLiteral`, `ExpressibleByUnicodeScalarLiteral` 단일 확장 자소 클러스터 \(single extended grapheme cluster\)만 포함하는 문자열 리터럴의 경우에는 `ExpressibleByExtendedGraphemeClusterLiteral`|
+|정규 표현식          |`Regex`   |None|
+|불린               |`Bool`     |`ExpressibleByBooleanLiteral`|
+
+<!--
+For example, in the declaration let str = "Hello, world", the default inferred type of the string literal "Hello, world" is String. Also, Int8 conforms to the ExpressibleByIntegerLiteral protocol, and therefore it can be used in the type annotation for the integer literal 42 in the declaration let x: Int8 = 42.
+-->
+
+예를 들어, `let str = "Hello, world"` 선언에서 문자열 리터럴 `"Hello, world"` 의 추론된 타입은 기본적으로 `String` 입니다. 또한 `Int8` 은 `ExpressibleByIntegerLiteral` 프로토콜을 준수하므로 `let x: Int8 = 42` 선언에서 정수 리터럴 `42` 에 대해 해당 타입을 사용할 수 있습니다.
 
 > GRAMMAR OF A LITERAL\
-> literal → [numeric-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_numeric-literal) | [string-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_string-literal) | [boolean-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_boolean-literal) | [nil-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_nil-literal)\
+> literal → [numeric-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_numeric-literal) | [string-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_string-literal) | [regular-expression-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_regular-expression-literal) | [boolean-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_boolean-literal) | [nil-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_nil-literal)\
 > numeric-literal → `-` $$_{opt}$$ [integer-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_integer-literal) | `-` $$_{opt}$$ [floating-point-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_floating-point-literal)\
 > boolean-literal → `true` | `false`\
 > nil-literal → `nil`
@@ -417,6 +428,61 @@ let textB = "Hello world"
 > unicode-scalar-digits → 1-8 자리 16진수\
 > escaped-newline → [escape-sequence](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_escape-sequence) [inline-spaces](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_inline-spaces) $$_{opt}$$ [line-break](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_line-break)
 
+### 정규 표현식 리터럴 (Regular Expression Literals)
+
+<!--
+A regular expression literal is a sequence of characters surrounded by slashes (/) with the following form:
+-->
+
+정규 표현식 리터럴 \(regular expression literal\) 은 아래와 같이 슬래시 \(`/`\) 로 감싸있는 문자의 시퀀스 입니다:
+
+![](<../.gitbook/assets/regular_expression_1.png>)
+
+<!--
+Regular expression literals must not begin with an unescaped tab or space, and they can’t contain an unescaped slash (/), a carriage return, or a line feed.
+
+Within a regular expression literal, a backslash is understood as a part of that regular expression, not just as an escape character like in string literals. It indicates that the following special character should be interpreted literally, or that the following nonspecial character should be interpreted in a special way. For example, /\(/ matches a single left parenthesis and /\d/ matches a single digit.
+
+A regular expression literal delimited by extended delimiters is a sequence of characters surrounded by slashes (/) and a balanced set of one or more number signs (#). A regular expression literal delimited by extended delimiters has the following forms:
+-->
+
+정규 표현식 리터럴은 탭 또는 스페이스로 시작되지 않아야 하며, 이스케이프 처리되지 않은 슬래시 \(unescaped slash\), 캐리지 리턴 \(carriage return\), 또는 줄바꿈을 포함할 수 없습니다.
+
+정규 표현식에서의 백슬래시는 문자열 리터럴와 같이 이스케이프 문자가 아닌 정규 표현식의 부분으로 인식합니다. 백슬래시는 다음의 특수 문자는 문자 그대로 해석되거나 다음의 일반 문자는 특별한 방법으로 해석됨을 나타냅니다. 예를 들어, `/\(/` 은 단일 왼쪽 괄호이며 `/\d/` 은 단일 숫자입니다.
+
+확장된 구분 기호로 구분된 정규 표현식 리터럴은 슬래시 \(`/`\) 로 감싸있는 문자의 시퀀스와 하나 이상의 쌍으로 숫자 기호 \(`#`\) 로 되어있습니다. 확장된 구분 기호로 구분된 정규 표현식 리터럴은 다음의 형식을 가집니다:
+
+![](<../.gitbook/assets/regular_expression_2.png>)
+
+<!--
+A regular expression literal that uses extended delimiters can begin with an unescaped space or tab, contain unescaped slashes (/), and span across multiple lines. For a multiline regular expression literal, the opening delimiter must be at the end of a line, and the closing delimiter must be on its own line. Inside a multiline regular expression literal, the extended regular expression syntax is enabled by default—specifically, whitespace is ignored and comments are allowed.
+
+If you use more than one number sign to form a regular expression literal delimited by extended delimiters, don’t place whitespace in between the number signs:
+-->
+
+확장된 구분 기호를 사용한 정규 표현식 리터럴은 이스케이프 처리되지 않은 스페이스 또는 탭으로 시작할 수 있고 이스케이프 처리되지 않은 슬래시 \(`/`\), 그리고 여러줄로 작성될 수 있습니다. 여러줄 정규 표현식 리터럴은 시작 구분자는 라인의 끝에 있어야 하고 끝나는 구분자는 해당 라인에 있어야 합니다. 여러줄 정규 표현식 리터럴에서 확장된 정규 표현식은 기본적으로 가능합니다—특히, 공백은 무시되고 주석은 허용됩니다.
+
+확장된 구분자에 의해 구분된 정규 표현식 리터럴 형식에 하나 이상의 숫자 기호를 사용한다면 숫자 기호 사이에 공백이 있을 수 없습니다:
+
+```swift
+let regex1 = ##/abc/##       // OK
+let regex2 = # #/abc/# #     // Error
+```
+
+<!--
+If you need to make an empty regular expression literal, you must use the extended delimiter syntax.
+-->
+
+빈 정규 표현식 리터럴을 만드려면 확장된 구분자 구문을 사용해야 합니다.
+
+
+> GRAMMAR OF A REGULAR EXPRESSION LITERAL\
+> regular-expression-literal → [regular-expression-literal-opening-delimiter](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_regular-expression-literal-opening-delimiter) [regular-expression](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_regular-expression) [regular-expression-literal-closing-delimiter](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_regular-expression-literal-closing-delimiter)\
+> regular-expression → 모든 정규 표현식\
+> regular-expression-literal-opening-delimiter → [extended-regular-expression-literal-delimiter](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_extended-regular-expression-literal-delimiter) $$_{opt}$$ `/`\
+> regular-expression-literal-closing-delimiter → `/` [extended-regular-expression-literal-delimiter](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_extended-regular-expression-literal-delimiter) $$_{opt}$$\
+> extended-regular-expression-literal-delimiter → `#` [extended-regular-expression-literal-delimiter](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_extended-regular-expression-literal-delimiter) $$_{opt}$$
+
 ## 연산자 (Operators)
 
 <!--
@@ -455,6 +521,10 @@ The whitespace around an operator is used to determine whether an operator is us
 
 For the purposes of these rules, the characters (, [, and { before an operator, the characters ), ], and } after an operator, and the characters ,, ;, and : are also considered whitespace.
 
+If the ! or ? predefined operator has no whitespace on the left, it’s treated as a postfix operator, regardless of whether it has whitespace on the right. To use the ? as the optional-chaining operator, it must not have whitespace on the left. To use it in the ternary conditional (? :) operator, it must have whitespace around both sides.
+
+If one of the arguments to an infix operator is a regular expression literal, then the operator must have whitespace around both sides.
+
 There’s one caveat to the rules above. If the ! or ? predefined operator has no whitespace on the left, it’s treated as a postfix operator, regardless of whether it has whitespace on the right. To use the ? as the optional-chaining operator, it must not have whitespace on the left. To use it in the ternary conditional (? :) operator, it must have whitespace around both sides.
 
 In certain constructs, operators with a leading < or > may be split into two or more tokens. The remainder is treated the same way and may be split again. As a result, you don’t need to add whitespace to disambiguate between the closing > characters in constructs like Dictionary<String, Array<Int>>. In this example, the closing > characters aren’t treated as a single token that may then be misinterpreted as a bit shift >> operator.
@@ -471,7 +541,9 @@ To learn how to define new, custom operators, see Custom Operators and Operator 
 
 이러한 규칙의 목적에 따라 연산자 앞의 문자 `(`, `[`, 그리고 `{` 연산자 뒤의 문자 `)`, `]`, 그리고 `}`, 그리고 문자 `,`, `;`, 그리고 `:` 도 공백으로 간주합니다.
 
-위의 규칙에는 한가지 주의사항이 있습니다. 미리 정의된 연산자 `!` 또는 `?` 는 왼쪽에 공백이 없으면 오른쪽에 공백이 있는것과 관계없이 접미사 연산자로 처리됩니다. 옵셔널 체이닝 연산자 (optional-chaining operator)로 `?` 을 사용하려면 반드시 왼쪽에 공백이 없어야 합니다. 삼항 조건부 연산자 (ternary conditional operator) (`?` `:`) 로 사용하려면 반드시 양쪽에 공백이 있어야 합니다.
+미리 정의된 연산자 `!` 또는 `?` 에 왼편에 공백이 없다면 오른편에 공백 여부와 상관없이 접미사 연산자로 처리됩니다. 옵셔널 체이닝 연산자 (optional-chaining operator)로 `?` 을 사용하려면 왼편에 공백을 가지면 안됩니다. 삼항 조건부 연산자 (ternary conditional operator) (`?` `:`) 로 사용하려면 반드시 양쪽에 공백이 있어야 합니다.
+
+중위 연산자 (infix operator)에 인자 중 하나가 정규 표현식 리터럴이라면 연산자는 양쪽에 공백을 가져야 합니다.
 
 특정 구문에서 선행으로 `<` 또는 `>` 연산자는 둘 이상의 토큰으로 분리될 수 있습니다. 나머지는 동일한 방식으로 처리되고 다시 분리될 수 있습니다. 그 결과로 `Dictionary<String, Array<Int>>` 와 같은 구문에서 닫는 `>` 문자 사이를 명확하게 하기 위해 공백을 추가할 필요가 없습니다. 예를 들어 닫는 `>` 문자는 비트 시프트 `>>` 연산자로 잘못 해석될 수 있는 단일 토큰으로 처리되지 않습니다.
 

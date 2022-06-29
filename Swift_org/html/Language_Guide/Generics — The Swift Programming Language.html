@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Generics &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Generics &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -170,8 +170,8 @@
 <p>You may have noticed that the bodies of the <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code>, <code class="docutils literal notranslate"><span class="pre">swapTwoStrings(_:_:)</span></code>, and <code class="docutils literal notranslate"><span class="pre">swapTwoDoubles(_:_:)</span></code> functions are identical. The only difference is the type of the values that they accept (<code class="docutils literal notranslate"><span class="pre">Int</span></code>, <code class="docutils literal notranslate"><span class="pre">String</span></code>, and <code class="docutils literal notranslate"><span class="pre">Double</span></code>).</p>
 <p>It’s more useful, and considerably more flexible, to write a single function that swaps two values of <em>any</em> type. Generic code enables you to write such a function. (A generic version of these functions is defined below.)</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In all three functions, the types of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> must be the same. If <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> aren’t of the same type, it isn’t possible to swap their values. Swift is a type-safe language, and doesn’t allow (for example) a variable of type <code class="docutils literal notranslate"><span class="pre">String</span></code> and a variable of type <code class="docutils literal notranslate"><span class="pre">Double</span></code> to swap values with each other. Attempting to do so results in a compile-time error.</p>
+<p class="admonition-title">Note</p>
+<p>In all three functions, the types of <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> must be the same. If <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> aren’t of the same type, it isn’t possible to swap their values. Swift is a type-safe language, and doesn’t allow (for example) a variable of type <code class="docutils literal notranslate"><span class="pre">String</span></code> and a variable of type <code class="docutils literal notranslate"><span class="pre">Double</span></code> to swap values with each other. Attempting to do so results in a compile-time error.</p>
 </div>
 </div>
 <div class="section" id="ID181">
@@ -202,8 +202,8 @@
 </li><li><span class="c">// someString is now &quot;world&quot;, and anotherString is now &quot;hello&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> function defined above is inspired by a generic function called <code class="docutils literal notranslate"><span class="pre">swap</span></code>, which is part of the Swift standard library, and is automatically made available for you to use in your apps. If you need the behavior of the <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> function in your own code, you can use Swift’s existing <code class="docutils literal notranslate"><span class="pre">swap(_:_:)</span></code> function rather than providing your own implementation.</p>
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> function defined above is inspired by a generic function called <code class="docutils literal notranslate"><span class="pre">swap</span></code>, which is part of the Swift standard library, and is automatically made available for you to use in your apps. If you need the behavior of the <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> function in your own code, you can use Swift’s existing <code class="docutils literal notranslate"><span class="pre">swap(_:_:)</span></code> function rather than providing your own implementation.</p>
 </div>
 </div>
 <div class="section" id="ID182">
@@ -216,8 +216,8 @@
 <h2>Naming Type Parameters<a class="headerlink" href="#ID183" title="Permalink to this headline">¶</a></h2>
 <p>In most cases, type parameters have descriptive names, such as <code class="docutils literal notranslate"><span class="pre">Key</span></code> and <code class="docutils literal notranslate"><span class="pre">Value</span></code> in <code class="docutils literal notranslate"><span class="pre">Dictionary&lt;Key,</span> <span class="pre">Value&gt;</span></code> and <code class="docutils literal notranslate"><span class="pre">Element</span></code> in <code class="docutils literal notranslate"><span class="pre">Array&lt;Element&gt;</span></code>, which tells the reader about the relationship between the type parameter and the generic type or function it’s used in. However, when there isn’t a meaningful relationship between them, it’s traditional to name them using single letters such as <code class="docutils literal notranslate"><span class="pre">T</span></code>, <code class="docutils literal notranslate"><span class="pre">U</span></code>, and <code class="docutils literal notranslate"><span class="pre">V</span></code>, such as <code class="docutils literal notranslate"><span class="pre">T</span></code> in the <code class="docutils literal notranslate"><span class="pre">swapTwoValues(_:_:)</span></code> function above.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Always give type parameters upper camel case names (such as <code class="docutils literal notranslate"><span class="pre">T</span></code> and <code class="docutils literal notranslate"><span class="pre">MyTypeParameter</span></code>) to indicate that they’re a placeholder for a <em>type</em>, not a value.</p>
+<p class="admonition-title">Note</p>
+<p>Always give type parameters upper camel case names (such as <code class="docutils literal notranslate"><span class="pre">T</span></code> and <code class="docutils literal notranslate"><span class="pre">MyTypeParameter</span></code>) to indicate that they’re a placeholder for a <em>type</em>, not a value.</p>
 </div>
 </div>
 <div class="section" id="ID184">
@@ -225,17 +225,17 @@
 <p>In addition to generic functions, Swift enables you to define your own <em>generic types</em>. These are custom classes, structures, and enumerations that can work with <em>any</em> type, in a similar way to <code class="docutils literal notranslate"><span class="pre">Array</span></code> and <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>.</p>
 <p>This section shows you how to write a generic collection type called <code class="docutils literal notranslate"><span class="pre">Stack</span></code>. A stack is an ordered set of values, similar to an array, but with a more restricted set of operations than Swift’s <code class="docutils literal notranslate"><span class="pre">Array</span></code> type. An array allows new items to be inserted and removed at any location in the array. A stack, however, allows new items to be appended only to the end of the collection (known as <em>pushing</em> a new value on to the stack). Similarly, a stack allows items to be removed only from the end of the collection (known as <em>popping</em> a value off the stack).</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The concept of a stack is used by the <code class="docutils literal notranslate"><span class="pre">UINavigationController</span></code> class to model the view controllers in its navigation hierarchy. You call the <code class="docutils literal notranslate"><span class="pre">UINavigationController</span></code> class <code class="docutils literal notranslate"><span class="pre">pushViewController(_:animated:)</span></code> method to add (or push) a view controller on to the navigation stack, and its <code class="docutils literal notranslate"><span class="pre">popViewControllerAnimated(_:)</span></code> method to remove (or pop) a view controller from the navigation stack. A stack is a useful collection model whenever you need a strict “last in, first out” approach to managing a collection.</p>
+<p class="admonition-title">Note</p>
+<p>The concept of a stack is used by the <code class="docutils literal notranslate"><span class="pre">UINavigationController</span></code> class to model the view controllers in its navigation hierarchy. You call the <code class="docutils literal notranslate"><span class="pre">UINavigationController</span></code> class <code class="docutils literal notranslate"><span class="pre">pushViewController(_:animated:)</span></code> method to add (or push) a view controller on to the navigation stack, and its <code class="docutils literal notranslate"><span class="pre">popViewControllerAnimated(_:)</span></code> method to remove (or pop) a view controller from the navigation stack. A stack is a useful collection model whenever you need a strict “last in, first out” approach to managing a collection.</p>
 </div>
 <p>The illustration below shows the push and pop behavior for a stack:</p>
-<img alt="../_images/stackPushPop_2x.png" class="align-center" src="../_images/stackPushPop_2x.png" style="width: 760px;" />
+<img alt="../_images/stackPushPop_2x.png" class="align-center" src="../_images/stackPushPop_2x.png" style="width: 760.0px;" />
 <ol class="arabic simple">
-<li>There are currently three values on the stack.</li>
-<li>A fourth value is pushed onto the top of the stack.</li>
-<li>The stack now holds four values, with the most recent one at the top.</li>
-<li>The top item in the stack is popped.</li>
-<li>After popping a value, the stack once again holds three values.</li>
+<li><p>There are currently three values on the stack.</p></li>
+<li><p>A fourth value is pushed onto the top of the stack.</p></li>
+<li><p>The stack now holds four values, with the most recent one at the top.</p></li>
+<li><p>The top item in the stack is popped.</p></li>
+<li><p>After popping a value, the stack once again holds three values.</p></li>
 </ol>
 <p>Here’s how to write a nongeneric version of a stack, in this case for a stack of <code class="docutils literal notranslate"><span class="pre">Int</span></code> values:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">IntStack</span> {
@@ -264,9 +264,9 @@
 <p>Note how the generic version of <code class="docutils literal notranslate"><span class="pre">Stack</span></code> is essentially the same as the nongeneric version, but with a type parameter called <code class="docutils literal notranslate"><span class="pre">Element</span></code> instead of an actual type of <code class="docutils literal notranslate"><span class="pre">Int</span></code>. This type parameter is written within a pair of angle brackets (<code class="docutils literal notranslate"><span class="pre">&lt;Element&gt;</span></code>) immediately after the structure’s name.</p>
 <p><code class="docutils literal notranslate"><span class="pre">Element</span></code> defines a placeholder name for a type to be provided later. This future type can be referred to as <code class="docutils literal notranslate"><span class="pre">Element</span></code> anywhere within the structure’s definition. In this case, <code class="docutils literal notranslate"><span class="pre">Element</span></code> is used as a placeholder in three places:</p>
 <ul class="simple">
-<li>To create a property called <code class="docutils literal notranslate"><span class="pre">items</span></code>, which is initialized with an empty array of values of type <code class="docutils literal notranslate"><span class="pre">Element</span></code></li>
-<li>To specify that the <code class="docutils literal notranslate"><span class="pre">push(_:)</span></code> method has a single parameter called <code class="docutils literal notranslate"><span class="pre">item</span></code>, which must be of type <code class="docutils literal notranslate"><span class="pre">Element</span></code></li>
-<li>To specify that the value returned by the <code class="docutils literal notranslate"><span class="pre">pop()</span></code> method will be a value of type <code class="docutils literal notranslate"><span class="pre">Element</span></code></li>
+<li><p>To create a property called <code class="docutils literal notranslate"><span class="pre">items</span></code>, which is initialized with an empty array of values of type <code class="docutils literal notranslate"><span class="pre">Element</span></code></p></li>
+<li><p>To specify that the <code class="docutils literal notranslate"><span class="pre">push(_:)</span></code> method has a single parameter called <code class="docutils literal notranslate"><span class="pre">item</span></code>, which must be of type <code class="docutils literal notranslate"><span class="pre">Element</span></code></p></li>
+<li><p>To specify that the value returned by the <code class="docutils literal notranslate"><span class="pre">pop()</span></code> method will be a value of type <code class="docutils literal notranslate"><span class="pre">Element</span></code></p></li>
 </ul>
 <p>Because it’s a generic type, <code class="docutils literal notranslate"><span class="pre">Stack</span></code> can be used to create a stack of <em>any</em> valid type in Swift, in a similar manner to <code class="docutils literal notranslate"><span class="pre">Array</span></code> and <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code>.</p>
 <p>You create a new <code class="docutils literal notranslate"><span class="pre">Stack</span></code> instance by writing the type to be stored in the stack within angle brackets. For example, to create a new stack of strings, you write <code class="docutils literal notranslate"><span class="pre">Stack&lt;String&gt;()</span></code>:</p>
@@ -278,13 +278,13 @@
 </li><li><span class="c">// the stack now contains 4 strings</span>
 </li></ol></div></div></div>
 <p>Here’s how <code class="docutils literal notranslate"><span class="pre">stackOfStrings</span></code> looks after pushing these four values on to the stack:</p>
-<img alt="../_images/stackPushedFourStrings_2x.png" class="align-center" src="../_images/stackPushedFourStrings_2x.png" style="width: 760px;" />
+<img alt="../_images/stackPushedFourStrings_2x.png" class="align-center" src="../_images/stackPushedFourStrings_2x.png" style="width: 760.0px;" />
 <p>Popping a value from the stack removes and returns the top value, <code class="docutils literal notranslate"><span class="pre">&quot;cuatro&quot;</span></code>:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">fromTheTop</span> = <span class="nv">stackOfStrings</span>.<span class="nv">pop</span>()
 </li><li><span class="c">// fromTheTop is equal to &quot;cuatro&quot;, and the stack now contains 3 strings</span>
 </li></ol></div></div></div>
 <p>Here’s how the stack looks after popping its top value:</p>
-<img alt="../_images/stackPoppedOneString_2x.png" class="align-center" src="../_images/stackPoppedOneString_2x.png" style="width: 452px;" />
+<img alt="../_images/stackPoppedOneString_2x.png" class="align-center" src="../_images/stackPoppedOneString_2x.png" style="width: 452.0px;" />
 </div>
 <div class="section" id="ID185">
 <h2>Extending a Generic Type<a class="headerlink" href="#ID185" title="Permalink to this headline">¶</a></h2>
@@ -387,9 +387,9 @@
 </li></ol></div></div></div>
 <p>The <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol defines three required capabilities that any container must provide:</p>
 <ul class="simple">
-<li>It must be possible to add a new item to the container with an <code class="docutils literal notranslate"><span class="pre">append(_:)</span></code> method.</li>
-<li>It must be possible to access a count of the items in the container through a <code class="docutils literal notranslate"><span class="pre">count</span></code> property that returns an <code class="docutils literal notranslate"><span class="pre">Int</span></code> value.</li>
-<li>It must be possible to retrieve each item in the container with a subscript that takes an <code class="docutils literal notranslate"><span class="pre">Int</span></code> index value.</li>
+<li><p>It must be possible to add a new item to the container with an <code class="docutils literal notranslate"><span class="pre">append(_:)</span></code> method.</p></li>
+<li><p>It must be possible to access a count of the items in the container through a <code class="docutils literal notranslate"><span class="pre">count</span></code> property that returns an <code class="docutils literal notranslate"><span class="pre">Int</span></code> value.</p></li>
+<li><p>It must be possible to retrieve each item in the container with a subscript that takes an <code class="docutils literal notranslate"><span class="pre">Int</span></code> index value.</p></li>
 </ul>
 <p>This protocol doesn’t specify how the items in the container should be stored or what type they’re allowed to be. The protocol only specifies the three bits of functionality that any type must provide in order to be considered a <code class="docutils literal notranslate"><span class="pre">Container</span></code>. A conforming type can provide additional functionality, as long as it satisfies these three requirements.</p>
 <p>Any type that conforms to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol must be able to specify the type of values it stores. Specifically, it must ensure that only items of the right type are added to the container, and it must be clear about the type of the items returned by its subscript.</p>
@@ -535,18 +535,18 @@
 <p>This function takes two arguments called <code class="docutils literal notranslate"><span class="pre">someContainer</span></code> and <code class="docutils literal notranslate"><span class="pre">anotherContainer</span></code>. The <code class="docutils literal notranslate"><span class="pre">someContainer</span></code> argument is of type <code class="docutils literal notranslate"><span class="pre">C1</span></code>, and the <code class="docutils literal notranslate"><span class="pre">anotherContainer</span></code> argument is of type <code class="docutils literal notranslate"><span class="pre">C2</span></code>. Both <code class="docutils literal notranslate"><span class="pre">C1</span></code> and <code class="docutils literal notranslate"><span class="pre">C2</span></code> are type parameters for two container types to be determined when the function is called.</p>
 <p>The following requirements are placed on the function’s two type parameters:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">C1</span></code> must conform to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol (written as <code class="docutils literal notranslate"><span class="pre">C1:</span> <span class="pre">Container</span></code>).</li>
-<li><code class="docutils literal notranslate"><span class="pre">C2</span></code> must also conform to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol (written as <code class="docutils literal notranslate"><span class="pre">C2:</span> <span class="pre">Container</span></code>).</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">Item</span></code> for <code class="docutils literal notranslate"><span class="pre">C1</span></code> must be the same as the <code class="docutils literal notranslate"><span class="pre">Item</span></code> for <code class="docutils literal notranslate"><span class="pre">C2</span></code> (written as <code class="docutils literal notranslate"><span class="pre">C1.Item</span> <span class="pre">==</span> <span class="pre">C2.Item</span></code>).</li>
-<li>The <code class="docutils literal notranslate"><span class="pre">Item</span></code> for <code class="docutils literal notranslate"><span class="pre">C1</span></code> must conform to the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol (written as <code class="docutils literal notranslate"><span class="pre">C1.Item:</span> <span class="pre">Equatable</span></code>).</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">C1</span></code> must conform to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol (written as <code class="docutils literal notranslate"><span class="pre">C1:</span> <span class="pre">Container</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">C2</span></code> must also conform to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol (written as <code class="docutils literal notranslate"><span class="pre">C2:</span> <span class="pre">Container</span></code>).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Item</span></code> for <code class="docutils literal notranslate"><span class="pre">C1</span></code> must be the same as the <code class="docutils literal notranslate"><span class="pre">Item</span></code> for <code class="docutils literal notranslate"><span class="pre">C2</span></code> (written as <code class="docutils literal notranslate"><span class="pre">C1.Item</span> <span class="pre">==</span> <span class="pre">C2.Item</span></code>).</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">Item</span></code> for <code class="docutils literal notranslate"><span class="pre">C1</span></code> must conform to the <code class="docutils literal notranslate"><span class="pre">Equatable</span></code> protocol (written as <code class="docutils literal notranslate"><span class="pre">C1.Item:</span> <span class="pre">Equatable</span></code>).</p></li>
 </ul>
 <p>The first and second requirements are defined in the function’s type parameter list, and the third and fourth requirements are defined in the function’s generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause.</p>
 <p>These requirements mean:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">someContainer</span></code> is a container of type <code class="docutils literal notranslate"><span class="pre">C1</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">anotherContainer</span></code> is a container of type <code class="docutils literal notranslate"><span class="pre">C2</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">someContainer</span></code> and <code class="docutils literal notranslate"><span class="pre">anotherContainer</span></code> contain the same type of items.</li>
-<li>The items in <code class="docutils literal notranslate"><span class="pre">someContainer</span></code> can be checked with the not equal operator (<code class="docutils literal notranslate"><span class="pre">!=</span></code>) to see if they’re different from each other.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">someContainer</span></code> is a container of type <code class="docutils literal notranslate"><span class="pre">C1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">anotherContainer</span></code> is a container of type <code class="docutils literal notranslate"><span class="pre">C2</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">someContainer</span></code> and <code class="docutils literal notranslate"><span class="pre">anotherContainer</span></code> contain the same type of items.</p></li>
+<li><p>The items in <code class="docutils literal notranslate"><span class="pre">someContainer</span></code> can be checked with the not equal operator (<code class="docutils literal notranslate"><span class="pre">!=</span></code>) to see if they’re different from each other.</p></li>
 </ul>
 <p>The third and fourth requirements combine to mean that the items in <code class="docutils literal notranslate"><span class="pre">anotherContainer</span></code> can <em>also</em> be checked with the <code class="docutils literal notranslate"><span class="pre">!=</span></code> operator, because they’re exactly the same type as the items in <code class="docutils literal notranslate"><span class="pre">someContainer</span></code>.</p>
 <p>These requirements enable the <code class="docutils literal notranslate"><span class="pre">allItemsMatch(_:_:)</span></code> function to compare the two containers, even if they’re of a different container type.</p>
@@ -703,9 +703,9 @@
 </li></ol></div></div></div>
 <p>This extension to the <code class="docutils literal notranslate"><span class="pre">Container</span></code> protocol adds a subscript that takes a sequence of indices and returns an array containing the items at each given index. This generic subscript is constrained as follows:</p>
 <ul class="simple">
-<li>The generic parameter <code class="docutils literal notranslate"><span class="pre">Indices</span></code> in angle brackets has to be a type that conforms to the <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> protocol from the standard library.</li>
-<li>The subscript takes a single parameter, <code class="docutils literal notranslate"><span class="pre">indices</span></code>, which is an instance of that <code class="docutils literal notranslate"><span class="pre">Indices</span></code> type.</li>
-<li>The generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause requires that the iterator for the sequence must traverse over elements of type <code class="docutils literal notranslate"><span class="pre">Int</span></code>. This ensures that the indices in the sequence are the same type as the indices used for a container.</li>
+<li><p>The generic parameter <code class="docutils literal notranslate"><span class="pre">Indices</span></code> in angle brackets has to be a type that conforms to the <code class="docutils literal notranslate"><span class="pre">Sequence</span></code> protocol from the standard library.</p></li>
+<li><p>The subscript takes a single parameter, <code class="docutils literal notranslate"><span class="pre">indices</span></code>, which is an instance of that <code class="docutils literal notranslate"><span class="pre">Indices</span></code> type.</p></li>
+<li><p>The generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clause requires that the iterator for the sequence must traverse over elements of type <code class="docutils literal notranslate"><span class="pre">Int</span></code>. This ensures that the indices in the sequence are the same type as the indices used for a container.</p></li>
 </ul>
 <p>Taken together, these constraints mean that the value passed for the <code class="docutils literal notranslate"><span class="pre">indices</span></code> parameter is a sequence of integers.</p>
 </div>
@@ -716,6 +716,14 @@
     <div class="next_previous">
         <p class="previous"><a href="Protocols.html">Protocols</a></p>
         <p class="next"><a href="OpaqueTypes.html">Opaque Types</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

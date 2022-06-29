@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Optional Chaining &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Optional Chaining &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -124,8 +124,8 @@
 <h1>Optional Chaining<a class="headerlink" href="#optional-chaining" title="Permalink to this headline">¶</a></h1>
 <p><em>Optional chaining</em> is a process for querying and calling properties, methods, and subscripts on an optional that might currently be <code class="docutils literal notranslate"><span class="pre">nil</span></code>. If the optional contains a value, the property, method, or subscript call succeeds; if the optional is <code class="docutils literal notranslate"><span class="pre">nil</span></code>, the property, method, or subscript call returns <code class="docutils literal notranslate"><span class="pre">nil</span></code>. Multiple queries can be chained together, and the entire chain fails gracefully if any link in the chain is <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Optional chaining in Swift is similar to messaging <code class="docutils literal notranslate"><span class="pre">nil</span></code> in Objective-C, but in a way that works for any type, and that can be checked for success or failure.</p>
+<p class="admonition-title">Note</p>
+<p>Optional chaining in Swift is similar to messaging <code class="docutils literal notranslate"><span class="pre">nil</span></code> in Objective-C, but in a way that works for any type, and that can be checked for success or failure.</p>
 </div>
 <div class="section" id="ID246">
 <h2>Optional Chaining as an Alternative to Forced Unwrapping<a class="headerlink" href="#ID246" title="Permalink to this headline">¶</a></h2>
@@ -295,8 +295,8 @@
 <h2>Accessing Subscripts Through Optional Chaining<a class="headerlink" href="#ID250" title="Permalink to this headline">¶</a></h2>
 <p>You can use optional chaining to try to retrieve and set a value from a subscript on an optional value, and to check whether that subscript call is successful.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">When you access a subscript on an optional value through optional chaining, you place the question mark <em>before</em> the subscript’s brackets, not after. The optional chaining question mark always follows immediately after the part of the expression that’s optional.</p>
+<p class="admonition-title">Note</p>
+<p>When you access a subscript on an optional value through optional chaining, you place the question mark <em>before</em> the subscript’s brackets, not after. The optional chaining question mark always follows immediately after the part of the expression that’s optional.</p>
 </div>
 <p>The example below tries to retrieve the name of the first room in the <code class="docutils literal notranslate"><span class="pre">rooms</span></code> array of the <code class="docutils literal notranslate"><span class="pre">john.residence</span></code> property using the subscript defined on the <code class="docutils literal notranslate"><span class="pre">Residence</span></code> class. Because <code class="docutils literal notranslate"><span class="pre">john.residence</span></code> is currently <code class="docutils literal notranslate"><span class="pre">nil</span></code>, the subscript call fails:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="k">let</span> <span class="nv">firstRoomName</span> = <span class="nv">john</span>.<span class="nv">residence</span>?[<span class="m">0</span>].<span class="nv">name</span> {
@@ -341,13 +341,13 @@
 <p>You can link together multiple levels of optional chaining to drill down to properties, methods, and subscripts deeper within a model. However, multiple levels of optional chaining don’t add more levels of optionality to the returned value.</p>
 <p>To put it another way:</p>
 <ul class="simple">
-<li>If the type you are trying to retrieve isn’t optional, it will become optional because of the optional chaining.</li>
-<li>If the type you are trying to retrieve is <em>already</em> optional, it will not become <em>more</em> optional because of the chaining.</li>
+<li><p>If the type you are trying to retrieve isn’t optional, it will become optional because of the optional chaining.</p></li>
+<li><p>If the type you are trying to retrieve is <em>already</em> optional, it will not become <em>more</em> optional because of the chaining.</p></li>
 </ul>
 <p>Therefore:</p>
 <ul class="simple">
-<li>If you try to retrieve an <code class="docutils literal notranslate"><span class="pre">Int</span></code> value through optional chaining, an <code class="docutils literal notranslate"><span class="pre">Int?</span></code> is always returned, no matter how many levels of chaining are used.</li>
-<li>Similarly, if you try to retrieve an <code class="docutils literal notranslate"><span class="pre">Int?</span></code> value through optional chaining, an <code class="docutils literal notranslate"><span class="pre">Int?</span></code> is always returned, no matter how many levels of chaining are used.</li>
+<li><p>If you try to retrieve an <code class="docutils literal notranslate"><span class="pre">Int</span></code> value through optional chaining, an <code class="docutils literal notranslate"><span class="pre">Int?</span></code> is always returned, no matter how many levels of chaining are used.</p></li>
+<li><p>Similarly, if you try to retrieve an <code class="docutils literal notranslate"><span class="pre">Int?</span></code> value through optional chaining, an <code class="docutils literal notranslate"><span class="pre">Int?</span></code> is always returned, no matter how many levels of chaining are used.</p></li>
 </ul>
 <p>The example below tries to access the <code class="docutils literal notranslate"><span class="pre">street</span></code> property of the <code class="docutils literal notranslate"><span class="pre">address</span></code> property of the <code class="docutils literal notranslate"><span class="pre">residence</span></code> property of <code class="docutils literal notranslate"><span class="pre">john</span></code>. There are <em>two</em> levels of optional chaining in use here, to chain through the <code class="docutils literal notranslate"><span class="pre">residence</span></code> and <code class="docutils literal notranslate"><span class="pre">address</span></code> properties, both of which are of optional type:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="k">let</span> <span class="nv">johnsStreet</span> = <span class="nv">john</span>.<span class="nv">residence</span>?.<span class="nv">address</span>?.<span class="nv">street</span> {
@@ -395,8 +395,8 @@
 </li><li><span class="c">// Prints &quot;John&#39;s building identifier begins with &quot;The&quot;.&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In the example above, you place the optional chaining question mark <em>after</em> the parentheses, because the optional value you are chaining on is the <code class="docutils literal notranslate"><span class="pre">buildingIdentifier()</span></code> method’s return value, and not the <code class="docutils literal notranslate"><span class="pre">buildingIdentifier()</span></code> method itself.</p>
+<p class="admonition-title">Note</p>
+<p>In the example above, you place the optional chaining question mark <em>after</em> the parentheses, because the optional value you are chaining on is the <code class="docutils literal notranslate"><span class="pre">buildingIdentifier()</span></code> method’s return value, and not the <code class="docutils literal notranslate"><span class="pre">buildingIdentifier()</span></code> method itself.</p>
 </div>
 </div>
 </div>
@@ -406,6 +406,14 @@
     <div class="next_previous">
         <p class="previous"><a href="Deinitialization.html">Deinitialization</a></p>
         <p class="next"><a href="ErrorHandling.html">Error Handling</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Concurrency &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Concurrency &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -109,6 +109,7 @@
 </ul>
 </li>
 <li><a class="reference internal" href="#ID645">Actors</a></li>
+<li><a class="reference internal" href="#ID649">Sendable Types</a></li>
 </ul>
 </li>
 </ul>
@@ -125,8 +126,8 @@
 <p>The additional scheduling flexibility from parallel or asynchronous code also comes with a cost of increased complexity. Swift lets you express your intent in a way that enables some compile-time checking—for example, you can use actors to safely access mutable state. However, adding concurrency to slow or buggy code isn’t a guarantee that it will become fast or correct. In fact, adding concurrency might even make your code harder to debug. However, using Swift’s language-level support for concurrency in code that needs to be concurrent means Swift can help you catch problems at compile time.</p>
 <p>The rest of this chapter uses the term <em>concurrency</em> to refer to this common combination of asynchronous and parallel code.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you’ve written concurrent code before, you might be used to working with threads. The concurrency model in Swift is built on top of threads, but you don’t interact with them directly. An asynchronous function in Swift can give up the thread that it’s running on, which lets another asynchronous function run on that thread while the first function is blocked.</p>
+<p class="admonition-title">Note</p>
+<p>If you’ve written concurrent code before, you might be used to working with threads. The concurrency model in Swift is built on top of threads, but you don’t interact with them directly. An asynchronous function in Swift can give up the thread that it’s running on, which lets another asynchronous function run on that thread while the first function is blocked. When an asynchronous function resumes, Swift doesn’t make any guarantee about which thread that function will run on.</p>
 </div>
 <p>Although it’s possible to write concurrent code without using Swift’s language support, that code tends to be harder to read. For example, the following code downloads a list of photo names, downloads the first photo in that list, and shows that photo to the user:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">listPhotos</span>(<span class="nv">inGallery</span>: <span class="s">&quot;Summer Vacation&quot;</span>) { <span class="nv">photoNames</span> <span class="k">in</span>
@@ -159,24 +160,40 @@
 <p>Because the <code class="docutils literal notranslate"><span class="pre">listPhotos(inGallery:)</span></code> and <code class="docutils literal notranslate"><span class="pre">downloadPhoto(named:)</span></code> functions both need to make network requests, they could take a relatively long time to complete. Making them both asynchronous by writing <code class="docutils literal notranslate"><span class="pre">async</span></code> before the return arrow lets the rest of the app’s code keep running while this code waits for the picture to be ready.</p>
 <p>To understand the concurrent nature of the example above, here’s one possible order of execution:</p>
 <ol class="arabic simple">
-<li>The code starts running from the first line and runs up to the first <code class="docutils literal notranslate"><span class="pre">await</span></code>. It calls the <code class="docutils literal notranslate"><span class="pre">listPhotos(inGallery:)</span></code> function and suspends execution while it waits for that function to return.</li>
-<li>While this code’s execution is suspended, some other concurrent code in the same program runs. For example, maybe a long-running background task continues updating a list of new photo galleries. That code also runs until the next suspension point, marked by <code class="docutils literal notranslate"><span class="pre">await</span></code>, or until it completes.</li>
-<li>After <code class="docutils literal notranslate"><span class="pre">listPhotos(inGallery:)</span></code> returns, this code continues execution starting at that point. It assigns the value that was returned to <code class="docutils literal notranslate"><span class="pre">photoNames</span></code>.</li>
-<li>The lines that define <code class="docutils literal notranslate"><span class="pre">sortedNames</span></code> and <code class="docutils literal notranslate"><span class="pre">name</span></code> are regular, synchronous code. Because nothing is marked <code class="docutils literal notranslate"><span class="pre">await</span></code> on these lines, there aren’t any possible suspension points.</li>
-<li>The next <code class="docutils literal notranslate"><span class="pre">await</span></code> marks the call to the <code class="docutils literal notranslate"><span class="pre">downloadPhoto(named:)</span></code> function. This code pauses execution again until that function returns, giving other concurrent code an opportunity to run.</li>
-<li>After <code class="docutils literal notranslate"><span class="pre">downloadPhoto(named:)</span></code> returns, its return value is assigned to <code class="docutils literal notranslate"><span class="pre">photo</span></code> and then passed as an argument when calling <code class="docutils literal notranslate"><span class="pre">show(_:)</span></code>.</li>
+<li><p>The code starts running from the first line and runs up to the first <code class="docutils literal notranslate"><span class="pre">await</span></code>. It calls the <code class="docutils literal notranslate"><span class="pre">listPhotos(inGallery:)</span></code> function and suspends execution while it waits for that function to return.</p></li>
+<li><p>While this code’s execution is suspended, some other concurrent code in the same program runs. For example, maybe a long-running background task continues updating a list of new photo galleries. That code also runs until the next suspension point, marked by <code class="docutils literal notranslate"><span class="pre">await</span></code>, or until it completes.</p></li>
+<li><p>After <code class="docutils literal notranslate"><span class="pre">listPhotos(inGallery:)</span></code> returns, this code continues execution starting at that point. It assigns the value that was returned to <code class="docutils literal notranslate"><span class="pre">photoNames</span></code>.</p></li>
+<li><p>The lines that define <code class="docutils literal notranslate"><span class="pre">sortedNames</span></code> and <code class="docutils literal notranslate"><span class="pre">name</span></code> are regular, synchronous code. Because nothing is marked <code class="docutils literal notranslate"><span class="pre">await</span></code> on these lines, there aren’t any possible suspension points.</p></li>
+<li><p>The next <code class="docutils literal notranslate"><span class="pre">await</span></code> marks the call to the <code class="docutils literal notranslate"><span class="pre">downloadPhoto(named:)</span></code> function. This code pauses execution again until that function returns, giving other concurrent code an opportunity to run.</p></li>
+<li><p>After <code class="docutils literal notranslate"><span class="pre">downloadPhoto(named:)</span></code> returns, its return value is assigned to <code class="docutils literal notranslate"><span class="pre">photo</span></code> and then passed as an argument when calling <code class="docutils literal notranslate"><span class="pre">show(_:)</span></code>.</p></li>
 </ol>
 <p>The possible suspension points in your code marked with <code class="docutils literal notranslate"><span class="pre">await</span></code> indicate that the current piece of code might pause execution while waiting for the asynchronous function or method to return. This is also called <em>yielding the thread</em> because, behind the scenes, Swift suspends the execution of your code on the current thread and runs some other code on that thread instead. Because code with <code class="docutils literal notranslate"><span class="pre">await</span></code> needs to be able to suspend execution, only certain places in your program can call asynchronous functions or methods:</p>
 <ul class="simple">
-<li>Code in the body of an asynchronous function, method, or property.</li>
-<li>Code in the static <code class="docutils literal notranslate"><span class="pre">main()</span></code> method of a structure, class, or enumeration that’s marked with <code class="docutils literal notranslate"><span class="pre">&#64;main</span></code>.</li>
-<li>Code in an unstructured child task, as shown in <a class="reference internal" href="#ID643"><span class="std std-ref">Unstructured Concurrency</span></a> below.</li>
+<li><p>Code in the body of an asynchronous function, method, or property.</p></li>
+<li><p>Code in the static <code class="docutils literal notranslate"><span class="pre">main()</span></code> method of a structure, class, or enumeration that’s marked with <code class="docutils literal notranslate"><span class="pre">&#64;main</span></code>.</p></li>
+<li><p>Code in an unstructured child task, as shown in <a class="reference internal" href="#ID643"><span class="std std-ref">Unstructured Concurrency</span></a> below.</p></li>
 </ul>
+<p>Code in between possible suspension points runs sequentially, without the possibility of interruption from other concurrent code. For example, the code below moves a picture from one gallery to another.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">firstPhoto</span> = <span class="nv">await</span> <span class="nv">listPhotos</span>(<span class="nv">inGallery</span>: <span class="s">&quot;Summer Vacation&quot;</span>)[<span class="m">0</span>]
+</li><li><span class="nv">add</span>(<span class="nv">firstPhoto</span> <span class="nv">toGallery</span>: <span class="s">&quot;Road Trip&quot;</span>)
+</li><li><span class="c">// At this point, firstPhoto is temporarily in both galleries.</span>
+</li><li><span class="nv">remove</span>(<span class="nv">firstPhoto</span> <span class="nv">fromGallery</span>: <span class="s">&quot;Summer Vacation&quot;</span>)
+</li></ol></div></div></div>
+<p>There’s no way for other code to run in between the call to <code class="docutils literal notranslate"><span class="pre">add(_:toGallery:)</span></code> and <code class="docutils literal notranslate"><span class="pre">remove(_:fromGallery:)</span></code>. During that time, the first photo appears in both galleries, temporarily breaking one of the app’s invariants. To make it even clearer that this chunk of code must not have <code class="docutils literal notranslate"><span class="pre">await</span></code> added to it in the future, you can refactor that code into a synchronous function:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">move</span>(<span class="k">_</span> <span class="nv">photoName</span>: <span class="nc">String</span>, <span class="nv">from</span> <span class="nv">source</span>: <span class="nc">String</span>, <span class="nv">to</span> <span class="nv">destination</span>: <span class="nc">String</span>) {
+</li><li>    <span class="nv">add</span>(<span class="nv">photoName</span>, <span class="nv">to</span>: <span class="nv">destination</span>)
+</li><li>    <span class="nv">remove</span>(<span class="nv">photoName</span>, <span class="nv">from</span>: <span class="nv">source</span>)
+</li><li>}
+</li><li><span class="c">// ...</span>
+</li><li><span class="k">let</span> <span class="nv">firstPhoto</span> = <span class="nv">await</span> <span class="nv">listPhotos</span>(<span class="nv">inGallery</span>: <span class="s">&quot;Summer Vacation&quot;</span>)[<span class="m">0</span>]
+</li><li><span class="nv">move</span>(<span class="nv">firstPhoto</span>, <span class="nv">from</span>: <span class="s">&quot;Summer Vacation&quot;</span>, <span class="nv">to</span>: <span class="s">&quot;Road Trip&quot;</span>)
+</li></ol></div></div></div>
+<p>In the example above, because the <code class="docutils literal notranslate"><span class="pre">move(_:from:to:)</span></code> function is synchronous, you guarantee that it can never contain possible suspension points. In the future, if you try to add concurrent code to this function, introducing a possible suspension point, you’ll get compile-time error instead of introducing a bug.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p>The <a class="reference external" href="https://developer.apple.com/documentation/swift/task/3862701-sleep"><code class="docutils literal notranslate"><span class="pre">Task.sleep(nanoseconds:)</span></code></a> method is useful when writing simple code to learn how concurrency works. This method does nothing, but waits at least the given number of nanoseconds before it returns. Here’s a version of the <code class="docutils literal notranslate"><span class="pre">listPhotos(inGallery:)</span></code> function that uses <code class="docutils literal notranslate"><span class="pre">sleep(nanoseconds:)</span></code> to simulate waiting for a network operation:</p>
-<div class="last highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">listPhotos</span>(<span class="nv">inGallery</span> <span class="nv">name</span>: <span class="nc">String</span>) <span class="nv">async</span> <span class="k">throws</span> -&gt; [<span class="nv">String</span>] {
-</li><li>    <span class="k">try</span> <span class="nv">await</span> <span class="nv">Task</span>.<span class="nv">sleep</span>(<span class="nv">nanoseconds</span>: <span class="m">2</span> * <span class="m">1_000_000_000</span>)  <span class="c">// Two seconds</span>
+<p class="admonition-title">Note</p>
+<p>The <a class="reference external" href="https://developer.apple.com/documentation/swift/task/3968432-sleep"><code class="docutils literal notranslate"><span class="pre">Task.sleep(until:clock:)</span></code></a> method is useful when writing simple code to learn how concurrency works. This method does nothing, but waits at least the given number of nanoseconds before it returns. Here’s a version of the <code class="docutils literal notranslate"><span class="pre">listPhotos(inGallery:)</span></code> function that uses <code class="docutils literal notranslate"><span class="pre">sleep(until:clock:)</span></code> to simulate waiting for a network operation:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">listPhotos</span>(<span class="nv">inGallery</span> <span class="nv">name</span>: <span class="nc">String</span>) <span class="nv">async</span> <span class="k">throws</span> -&gt; [<span class="nv">String</span>] {
+</li><li>    <span class="k">try</span> <span class="nv">await</span> <span class="nv">Task</span>.<span class="nv">sleep</span>(<span class="nv">until</span>: .<span class="nv">now</span> + .<span class="nv">seconds</span>(<span class="m">2</span>), <span class="nv">clock</span>: .<span class="nv">continuous</span>)
 </li><li>    <span class="k">return</span> [<span class="s">&quot;IMG001&quot;</span>, <span class="s">&quot;IMG99&quot;</span>, <span class="s">&quot;IMG0404&quot;</span>]
 </li><li>}
 </li></ol></div></div></div>
@@ -217,10 +234,10 @@
 <p>In this example, all three calls to <code class="docutils literal notranslate"><span class="pre">downloadPhoto(named:)</span></code> start without waiting for the previous one to complete. If there are enough system resources available, they can run at the same time. None of these function calls are marked with <code class="docutils literal notranslate"><span class="pre">await</span></code> because the code doesn’t suspend to wait for the function’s result. Instead, execution continues until the line where <code class="docutils literal notranslate"><span class="pre">photos</span></code> is defined—at that point, the program needs the results from these asynchronous calls, so you write <code class="docutils literal notranslate"><span class="pre">await</span></code> to pause execution until all three photos finish downloading.</p>
 <p>Here’s how you can think about the differences between these two approaches:</p>
 <ul class="simple">
-<li>Call asynchronous functions with <code class="docutils literal notranslate"><span class="pre">await</span></code> when the code on the following lines depends on that function’s result. This creates work that is carried out sequentially.</li>
-<li>Call asynchronous functions with <code class="docutils literal notranslate"><span class="pre">async</span></code>-<code class="docutils literal notranslate"><span class="pre">let</span></code> when you don’t need the result until later in your code. This creates work that can be carried out in parallel.</li>
-<li>Both <code class="docutils literal notranslate"><span class="pre">await</span></code> and <code class="docutils literal notranslate"><span class="pre">async</span></code>-<code class="docutils literal notranslate"><span class="pre">let</span></code> allow other code to run while they’re suspended.</li>
-<li>In both cases, you mark the possible suspension point with <code class="docutils literal notranslate"><span class="pre">await</span></code> to indicate that execution will pause, if needed, until an asynchronous function has returned.</li>
+<li><p>Call asynchronous functions with <code class="docutils literal notranslate"><span class="pre">await</span></code> when the code on the following lines depends on that function’s result. This creates work that is carried out sequentially.</p></li>
+<li><p>Call asynchronous functions with <code class="docutils literal notranslate"><span class="pre">async</span></code>-<code class="docutils literal notranslate"><span class="pre">let</span></code> when you don’t need the result until later in your code. This creates work that can be carried out in parallel.</p></li>
+<li><p>Both <code class="docutils literal notranslate"><span class="pre">await</span></code> and <code class="docutils literal notranslate"><span class="pre">async</span></code>-<code class="docutils literal notranslate"><span class="pre">let</span></code> allow other code to run while they’re suspended.</p></li>
+<li><p>In both cases, you mark the possible suspension point with <code class="docutils literal notranslate"><span class="pre">await</span></code> to indicate that execution will pause, if needed, until an asynchronous function has returned.</p></li>
 </ul>
 <p>You can also mix both of these approaches in the same code.</p>
 </div>
@@ -238,7 +255,7 @@
 <p>For more information about task groups, see <a class="reference external" href="https://developer.apple.com/documentation/swift/taskgroup"><code class="docutils literal notranslate"><span class="pre">TaskGroup</span></code></a>.</p>
 <div class="section" id="ID643">
 <h3>Unstructured Concurrency<a class="headerlink" href="#ID643" title="Permalink to this headline">¶</a></h3>
-<p>In addition to the structured approaches to concurrency described in the previous sections, Swift also supports unstructured concurrency. Unlike tasks that are part of a task group, an <em>unstructured task</em> doesn’t have a parent task. You have complete flexibility to manage unstructured tasks in whatever way your program needs, but you’re also completely responsible for their correctness. To create an unstructured task that runs on the current actor, call the <a class="reference external" href="https://developer.apple.com/documentation/swift/task/3856790-init"><code class="docutils literal notranslate"><span class="pre">Task.init(priority:operation:)</span></code></a> initializer. To create an unstructured task that’s not part of the current actor, known more specifically as a <em>detached task</em>, call the <a class="reference external" href="https://developer.apple.com/documentation/swift/task/3856786-detached"><code class="docutils literal notranslate"><span class="pre">Task.detached(priority:operation:)</span></code></a> class method. Both of these operations return a task handle that lets you interact with the task—for example, to wait for its result or to cancel it.</p>
+<p>In addition to the structured approaches to concurrency described in the previous sections, Swift also supports unstructured concurrency. Unlike tasks that are part of a task group, an <em>unstructured task</em> doesn’t have a parent task. You have complete flexibility to manage unstructured tasks in whatever way your program needs, but you’re also completely responsible for their correctness. To create an unstructured task that runs on the current actor, call the <a class="reference external" href="https://developer.apple.com/documentation/swift/task/3856790-init"><code class="docutils literal notranslate"><span class="pre">Task.init(priority:operation:)</span></code></a> initializer. To create an unstructured task that’s not part of the current actor, known more specifically as a <em>detached task</em>, call the <a class="reference external" href="https://developer.apple.com/documentation/swift/task/3856786-detached"><code class="docutils literal notranslate"><span class="pre">Task.detached(priority:operation:)</span></code></a> class method. Both of these operations return a task that you can interact with—for example, to wait for its result or to cancel it.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">newPhoto</span> = <span class="c">// ... some photo data ...</span>
 </li><li><span class="k">let</span> <span class="nv">handle</span> = <span class="nv">Task</span> {
 </li><li>    <span class="k">return</span> <span class="nv">await</span> <span class="nv">add</span>(<span class="nv">newPhoto</span>, <span class="nv">toGalleryNamed</span>: <span class="s">&quot;Spring Adventures&quot;</span>)
@@ -251,9 +268,9 @@
 <h3>Task Cancellation<a class="headerlink" href="#ID644" title="Permalink to this headline">¶</a></h3>
 <p>Swift concurrency uses a cooperative cancellation model. Each task checks whether it has been canceled at the appropriate points in its execution, and responds to cancellation in whatever way is appropriate. Depending on the work you’re doing, that usually means one of the following:</p>
 <ul class="simple">
-<li>Throwing an error like <code class="docutils literal notranslate"><span class="pre">CancellationError</span></code></li>
-<li>Returning <code class="docutils literal notranslate"><span class="pre">nil</span></code> or an empty collection</li>
-<li>Returning the partially completed work</li>
+<li><p>Throwing an error like <code class="docutils literal notranslate"><span class="pre">CancellationError</span></code></p></li>
+<li><p>Returning <code class="docutils literal notranslate"><span class="pre">nil</span></code> or an empty collection</p></li>
+<li><p>Returning the partially completed work</p></li>
 </ul>
 <p>To check for cancellation, either call <a class="reference external" href="https://developer.apple.com/documentation/swift/task/3814826-checkcancellation"><code class="docutils literal notranslate"><span class="pre">Task.checkCancellation()</span></code></a>, which throws <code class="docutils literal notranslate"><span class="pre">CancellationError</span></code> if the task has been canceled, or check the value of <a class="reference external" href="https://developer.apple.com/documentation/swift/task/3814832-iscancelled"><code class="docutils literal notranslate"><span class="pre">Task.isCancelled</span></code></a> and handle the cancellation in your own code. For example, a task that’s downloading photos from a gallery might need to delete partial downloads and close network connections.</p>
 <p>To propagate cancellation manually, call <a class="reference external" href="https://developer.apple.com/documentation/swift/task/3851218-cancel"><code class="docutils literal notranslate"><span class="pre">Task.cancel()</span></code></a>.</p>
@@ -261,6 +278,7 @@
 </div>
 <div class="section" id="ID645">
 <h2>Actors<a class="headerlink" href="#ID645" title="Permalink to this headline">¶</a></h2>
+<p>You can use tasks to break up your program into isolated, concurrent pieces. Tasks are isolated from each other, which is what makes it safe for them to run at the same time, but sometimes you need to share some information between tasks. Actors let you safely share information between concurrent code.</p>
 <p>Like classes, actors are reference types, so the comparison of value types and reference types in <a class="reference internal" href="ClassesAndStructures.html#ID89"><span class="std std-ref">Classes Are Reference Types</span></a> applies to actors as well as classes. Unlike classes, actors allow only one task to access their mutable state at a time, which makes it safe for code in multiple tasks to interact with the same instance of an actor. For example, here’s an actor that records temperatures:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">actor</span> <span class="nv">TemperatureLogger</span> {
 </li><li>    <span class="k">let</span> <span class="nv">label</span>: <span class="nc">String</span>
@@ -275,7 +293,7 @@
 </li><li>}
 </li></ol></div></div></div>
 <p>You introduce an actor with the <code class="docutils literal notranslate"><span class="pre">actor</span></code> keyword, followed by its definition in a pair of braces. The <code class="docutils literal notranslate"><span class="pre">TemperatureLogger</span></code> actor has properties that other code outside the actor can access, and restricts the <code class="docutils literal notranslate"><span class="pre">max</span></code> property so only code inside the actor can update the maximum value.</p>
-<p>You create an instance of an actor using the same initializer syntax as structures and classes. When you access a property or method of an actor, you use <code class="docutils literal notranslate"><span class="pre">await</span></code> to mark the potential suspension point—for example:</p>
+<p>You create an instance of an actor using the same initializer syntax as structures and classes. When you access a property or method of an actor, you use <code class="docutils literal notranslate"><span class="pre">await</span></code> to mark the potential suspension point. For example:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">logger</span> = <span class="nv">TemperatureLogger</span>(<span class="nv">label</span>: <span class="s">&quot;Outdoors&quot;</span>, <span class="nv">measurement</span>: <span class="m">25</span>)
 </li><li><span class="nv">print</span>(<span class="nv">await</span> <span class="nv">logger</span>.<span class="nv">max</span>)
 </li><li><span class="c">// Prints &quot;25&quot;</span>
@@ -293,15 +311,47 @@
 </li></ol></div></div></div>
 <p>The <code class="docutils literal notranslate"><span class="pre">update(with:)</span></code> method is already running on the actor, so it doesn’t mark its access to properties like <code class="docutils literal notranslate"><span class="pre">max</span></code> with <code class="docutils literal notranslate"><span class="pre">await</span></code>. This method also shows one of the reasons why actors allow only one task at a time to interact with their mutable state: Some updates to an actor’s state temporarily break invariants. The <code class="docutils literal notranslate"><span class="pre">TemperatureLogger</span></code> actor keeps track of a list of temperatures and a maximum temperature, and it updates the maximum temperature when you record a new measurement. In the middle of an update, after appending the new measurement but before updating <code class="docutils literal notranslate"><span class="pre">max</span></code>, the temperature logger is in a temporary inconsistent state. Preventing multiple tasks from interacting with the same instance simultaneously prevents problems like the following sequence of events:</p>
 <ol class="arabic simple">
-<li>Your code calls the <code class="docutils literal notranslate"><span class="pre">update(with:)</span></code> method. It updates the <code class="docutils literal notranslate"><span class="pre">measurements</span></code> array first.</li>
-<li>Before your code can update <code class="docutils literal notranslate"><span class="pre">max</span></code>, code elsewhere reads the maximum value and the array of temperatures.</li>
-<li>Your code finishes its update by changing <code class="docutils literal notranslate"><span class="pre">max</span></code>.</li>
+<li><p>Your code calls the <code class="docutils literal notranslate"><span class="pre">update(with:)</span></code> method. It updates the <code class="docutils literal notranslate"><span class="pre">measurements</span></code> array first.</p></li>
+<li><p>Before your code can update <code class="docutils literal notranslate"><span class="pre">max</span></code>, code elsewhere reads the maximum value and the array of temperatures.</p></li>
+<li><p>Your code finishes its update by changing <code class="docutils literal notranslate"><span class="pre">max</span></code>.</p></li>
 </ol>
 <p>In this case, the code running elsewhere would read incorrect information because its access to the actor was interleaved in the middle of the call to <code class="docutils literal notranslate"><span class="pre">update(with:)</span></code> while the data was temporarily invalid. You can prevent this problem when using Swift actors because they only allow one operation on their state at a time, and because that code can be interrupted only in places where <code class="docutils literal notranslate"><span class="pre">await</span></code> marks a suspension point. Because <code class="docutils literal notranslate"><span class="pre">update(with:)</span></code> doesn’t contain any suspension points, no other code can access the data in the middle of an update.</p>
-<p>If you try to access those properties from outside the actor, like you would with an instance of a class, you’ll get a compile-time error; for example:</p>
+<p>If you try to access those properties from outside the actor, like you would with an instance of a class, you’ll get a compile-time error. For example:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="nv">logger</span>.<span class="nv">max</span>)  <span class="c">// Error</span>
 </li></ol></div></div></div>
 <p>Accessing <code class="docutils literal notranslate"><span class="pre">logger.max</span></code> without writing <code class="docutils literal notranslate"><span class="pre">await</span></code> fails because the properties of an actor are part of that actor’s isolated local state. Swift guarantees that only code inside an actor can access the actor’s local state. This guarantee is known as <em>actor isolation</em>.</p>
+</div>
+<div class="section" id="ID649">
+<h2>Sendable Types<a class="headerlink" href="#ID649" title="Permalink to this headline">¶</a></h2>
+<p>Tasks and actors let you divide a program into pieces that can safely run concurrently. Inside of a task or an instance of an actor, the part of a program that contains mutable state, like variables and properties, is called a <em>concurrency domain</em>. Some kinds of data can’t be shared between concurrency domains, because that data contains mutable state, but it doesn’t protect against overlapping access.</p>
+<p>A type that can be shared from one concurrency domain to another is known as a <em>sendable</em> type. For example, it can be passed as an argument when calling an actor method or be returned as the result of a task. The examples earlier in this chapter didn’t discuss sendability because those examples use simple value types that are always safe to share for the data being passed between concurrency domains. In contrast, some types aren’t safe to pass across concurrency domains. For example, a class that contains mutable properties and doesn’t serialize access to those properties can produce unpredictable and incorrect results when you pass instances of that class between different tasks.</p>
+<p>You mark a type as being sendable by declaring conformance to the <code class="docutils literal notranslate"><span class="pre">Sendable</span></code> protocol. That protocol doesn’t have any code requirements, but it does have semantic requirements that Swift enforces. In general, there are three ways for a type to be sendable:</p>
+<ul class="simple">
+<li><p>The type is a value type, and its mutable state is made up of other sendable data—for example, a structure with stored properties that are sendable or an enumeration with associated values that are sendable.</p></li>
+<li><p>The type doesn’t have any mutable state, and its immutable state is made up of other sendable data—for example, a structure or class that has only read-only properties.</p></li>
+<li><p>The type has code that ensures the safety of its mutable state, like a class that’s marked <code class="docutils literal notranslate"><span class="pre">&#64;MainActor</span></code> or a class that serializes access to its properties on a particular thread or queue.</p></li>
+</ul>
+<p>For a detailed list of the semantic requirements, see the <a class="reference external" href="https://developer.apple.com/documentation/swift/sendable"><code class="docutils literal notranslate"><span class="pre">Sendable</span></code></a> protocol reference.</p>
+<p>Some types are always sendable, like structures that have only sendable properties and enumerations that have only sendable associated values. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">TemperatureReading</span>: <span class="nc">Sendable</span> {
+</li><li>    <span class="k">var</span> <span class="nv">measurement</span>: <span class="nc">Int</span>
+</li><li>}
+</li><li>
+</li><li><span class="k">extension</span> <span class="nc">TemperatureLogger</span> {
+</li><li>    <span class="k">func</span> <span class="nv">addReading</span>(<span class="nv">from</span> <span class="nv">reading</span>: <span class="nc">TemperatureReading</span>) {
+</li><li>        <span class="nv">measurements</span>.<span class="nv">append</span>(<span class="nv">reading</span>.<span class="nv">measurement</span>)
+</li><li>    }
+</li><li>}
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">logger</span> = <span class="nv">TemperatureLogger</span>(<span class="nv">label</span>: <span class="s">&quot;Tea kettle&quot;</span>, <span class="nv">measurement</span>: <span class="m">85</span>)
+</li><li><span class="k">let</span> <span class="nv">reading</span> = <span class="nv">TemperatureReading</span>(<span class="nv">measurement</span>: <span class="m">45</span>)
+</li><li><span class="nv">await</span> <span class="nv">logger</span>.<span class="nv">addReading</span>(<span class="nv">from</span>: <span class="nv">reading</span>)
+</li></ol></div></div></div>
+<p>Because <code class="docutils literal notranslate"><span class="pre">TemperatureReading</span></code> is a structure that has only sendable properties, and the structure isn’t marked <code class="docutils literal notranslate"><span class="pre">public</span></code> or <code class="docutils literal notranslate"><span class="pre">&#64;usableFromInline</span></code>, it’s implicitly sendable. Here’s a version of the structure where conformance to the <code class="docutils literal notranslate"><span class="pre">Sendable</span></code> protocol is implied:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">TemperatureReading</span> {
+</li><li>    <span class="k">var</span> <span class="nv">measurement</span>: <span class="nc">Int</span>
+</li><li>}
+</li></ol></div></div></div>
 </div>
 </div>
 
@@ -310,6 +360,14 @@
     <div class="next_previous">
         <p class="previous"><a href="ErrorHandling.html">Error Handling</a></p>
         <p class="next"><a href="TypeCasting.html">Type Casting</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

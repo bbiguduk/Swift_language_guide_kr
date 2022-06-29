@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Basic Operators &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Basic Operators &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -146,9 +146,9 @@
 <h2>Terminology<a class="headerlink" href="#ID61" title="Permalink to this headline">¶</a></h2>
 <p>Operators are unary, binary, or ternary:</p>
 <ul class="simple">
-<li><em>Unary</em> operators operate on a single target (such as <code class="docutils literal notranslate"><span class="pre">-a</span></code>). Unary <em>prefix</em> operators appear immediately before their target (such as <code class="docutils literal notranslate"><span class="pre">!b</span></code>), and unary <em>postfix</em> operators appear immediately after their target (such as <code class="docutils literal notranslate"><span class="pre">c!</span></code>).</li>
-<li><em>Binary</em> operators operate on two targets (such as <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span></code>) and are <em>infix</em> because they appear in between their two targets.</li>
-<li><em>Ternary</em> operators operate on three targets. Like C, Swift has only one ternary operator, the ternary conditional operator (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">?</span> <span class="pre">b</span> <span class="pre">:</span> <span class="pre">c</span></code>).</li>
+<li><p><em>Unary</em> operators operate on a single target (such as <code class="docutils literal notranslate"><span class="pre">-a</span></code>). Unary <em>prefix</em> operators appear immediately before their target (such as <code class="docutils literal notranslate"><span class="pre">!b</span></code>), and unary <em>postfix</em> operators appear immediately after their target (such as <code class="docutils literal notranslate"><span class="pre">c!</span></code>).</p></li>
+<li><p><em>Binary</em> operators operate on two targets (such as <code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">+</span> <span class="pre">3</span></code>) and are <em>infix</em> because they appear in between their two targets.</p></li>
+<li><p><em>Ternary</em> operators operate on three targets. Like C, Swift has only one ternary operator, the ternary conditional operator (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">?</span> <span class="pre">b</span> <span class="pre">:</span> <span class="pre">c</span></code>).</p></li>
 </ul>
 <p>The values that operators affect are <em>operands</em>. In the expression <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">2</span></code>, the <code class="docutils literal notranslate"><span class="pre">+</span></code> symbol is an infix operator and its two operands are the values <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p>
 </div>
@@ -175,10 +175,10 @@
 <h2>Arithmetic Operators<a class="headerlink" href="#ID63" title="Permalink to this headline">¶</a></h2>
 <p>Swift supports the four standard <em>arithmetic operators</em> for all number types:</p>
 <ul class="simple">
-<li>Addition (<code class="docutils literal notranslate"><span class="pre">+</span></code>)</li>
-<li>Subtraction (<code class="docutils literal notranslate"><span class="pre">-</span></code>)</li>
-<li>Multiplication (<code class="docutils literal notranslate"><span class="pre">*</span></code>)</li>
-<li>Division (<code class="docutils literal notranslate"><span class="pre">/</span></code>)</li>
+<li><p>Addition (<code class="docutils literal notranslate"><span class="pre">+</span></code>)</p></li>
+<li><p>Subtraction (<code class="docutils literal notranslate"><span class="pre">-</span></code>)</p></li>
+<li><p>Multiplication (<code class="docutils literal notranslate"><span class="pre">*</span></code>)</p></li>
+<li><p>Division (<code class="docutils literal notranslate"><span class="pre">/</span></code>)</p></li>
 </ul>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="m">1</span> + <span class="m">2</span>       <span class="c">// equals 3</span>
 </li><li><span class="m">5</span> - <span class="m">3</span>       <span class="c">// equals 2</span>
@@ -193,11 +193,11 @@
 <h3>Remainder Operator<a class="headerlink" href="#ID64" title="Permalink to this headline">¶</a></h3>
 <p>The <em>remainder operator</em> (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">%</span> <span class="pre">b</span></code>) works out how many multiples of <code class="docutils literal notranslate"><span class="pre">b</span></code> will fit inside <code class="docutils literal notranslate"><span class="pre">a</span></code> and returns the value that’s left over (known as the <em>remainder</em>).</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The remainder operator (<code class="docutils literal notranslate"><span class="pre">%</span></code>) is also known as a <em>modulo operator</em> in other languages. However, its behavior in Swift for negative numbers means that, strictly speaking, it’s a remainder rather than a modulo operation.</p>
+<p class="admonition-title">Note</p>
+<p>The remainder operator (<code class="docutils literal notranslate"><span class="pre">%</span></code>) is also known as a <em>modulo operator</em> in other languages. However, its behavior in Swift for negative numbers means that, strictly speaking, it’s a remainder rather than a modulo operation.</p>
 </div>
 <p>Here’s how the remainder operator works. To calculate <code class="docutils literal notranslate"><span class="pre">9</span> <span class="pre">%</span> <span class="pre">4</span></code>, you first work out how many <code class="docutils literal notranslate"><span class="pre">4</span></code>s will fit inside <code class="docutils literal notranslate"><span class="pre">9</span></code>:</p>
-<img alt="../_images/remainderInteger_2x.png" class="align-center" src="../_images/remainderInteger_2x.png" style="width: 274px;" />
+<img alt="../_images/remainderInteger_2x.png" class="align-center" src="../_images/remainderInteger_2x.png" style="width: 274.0px;" />
 <p>You can fit two <code class="docutils literal notranslate"><span class="pre">4</span></code>s inside <code class="docutils literal notranslate"><span class="pre">9</span></code>, and the remainder is <code class="docutils literal notranslate"><span class="pre">1</span></code> (shown in orange).</p>
 <p>In Swift, this would be written as:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="m">9</span> % <span class="m">4</span>    <span class="c">// equals 1</span>
@@ -242,8 +242,8 @@
 </li></ol></div></div></div>
 <p>The expression <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+=</span> <span class="pre">2</span></code> is shorthand for <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">2</span></code>. Effectively, the addition and the assignment are combined into one operator that performs both tasks at the same time.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The compound assignment operators don’t return a value. For example, you can’t write <code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+=</span> <span class="pre">2</span></code>.</p>
+<p class="admonition-title">Note</p>
+<p>The compound assignment operators don’t return a value. For example, you can’t write <code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">b</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+=</span> <span class="pre">2</span></code>.</p>
 </div>
 <p>For information about the operators provided by the Swift standard library, see <a class="reference external" href="https://developer.apple.com/documentation/swift/operator_declarations">Operator Declarations</a>.</p>
 </div>
@@ -251,16 +251,16 @@
 <h2>Comparison Operators<a class="headerlink" href="#ID70" title="Permalink to this headline">¶</a></h2>
 <p>Swift supports the following comparison operators:</p>
 <ul class="simple">
-<li>Equal to (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code>)</li>
-<li>Not equal to (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">!=</span> <span class="pre">b</span></code>)</li>
-<li>Greater than (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code>)</li>
-<li>Less than (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code>)</li>
-<li>Greater than or equal to (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;=</span> <span class="pre">b</span></code>)</li>
-<li>Less than or equal to (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code>)</li>
+<li><p>Equal to (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">==</span> <span class="pre">b</span></code>)</p></li>
+<li><p>Not equal to (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">!=</span> <span class="pre">b</span></code>)</p></li>
+<li><p>Greater than (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;</span> <span class="pre">b</span></code>)</p></li>
+<li><p>Less than (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;</span> <span class="pre">b</span></code>)</p></li>
+<li><p>Greater than or equal to (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&gt;=</span> <span class="pre">b</span></code>)</p></li>
+<li><p>Less than or equal to (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&lt;=</span> <span class="pre">b</span></code>)</p></li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Swift also provides two <em>identity operators</em> (<code class="docutils literal notranslate"><span class="pre">===</span></code> and <code class="docutils literal notranslate"><span class="pre">!==</span></code>), which you use to test whether two object references both refer to the same object instance. For more information, see <a class="reference internal" href="ClassesAndStructures.html#ID90"><span class="std std-ref">Identity Operators</span></a>.</p>
+<p class="admonition-title">Note</p>
+<p>Swift also provides two <em>identity operators</em> (<code class="docutils literal notranslate"><span class="pre">===</span></code> and <code class="docutils literal notranslate"><span class="pre">!==</span></code>), which you use to test whether two object references both refer to the same object instance. For more information, see <a class="reference internal" href="ClassesAndStructures.html#ID90"><span class="std std-ref">Identity Operators</span></a>.</p>
 </div>
 <p>Each of the comparison operators returns a <code class="docutils literal notranslate"><span class="pre">Bool</span></code> value to indicate whether or not the statement is true:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="m">1</span> == <span class="m">1</span>   <span class="c">// true because 1 is equal to 1</span>
@@ -291,8 +291,8 @@
 </li><li>(<span class="s">&quot;blue&quot;</span>, <span class="k">false</span>) &lt; (<span class="s">&quot;purple&quot;</span>, <span class="k">true</span>)  <span class="c">// Error because &lt; can&#39;t compare Boolean values</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The Swift standard library includes tuple comparison operators for tuples with fewer than seven elements. To compare tuples with seven or more elements, you must implement the comparison operators yourself.</p>
+<p class="admonition-title">Note</p>
+<p>The Swift standard library includes tuple comparison operators for tuples with fewer than seven elements. To compare tuples with seven or more elements, you must implement the comparison operators yourself.</p>
 </div>
 </div>
 <div class="section" id="ID71">
@@ -333,8 +333,8 @@
 </li></ol></div></div></div>
 <p>The code above uses the ternary conditional operator and forced unwrapping (<code class="docutils literal notranslate"><span class="pre">a!</span></code>) to access the value wrapped inside <code class="docutils literal notranslate"><span class="pre">a</span></code> when <code class="docutils literal notranslate"><span class="pre">a</span></code> isn’t <code class="docutils literal notranslate"><span class="pre">nil</span></code>, and to return <code class="docutils literal notranslate"><span class="pre">b</span></code> otherwise. The nil-coalescing operator provides a more elegant way to encapsulate this conditional checking and unwrapping in a concise and readable form.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> is non-<code class="docutils literal notranslate"><span class="pre">nil</span></code>, the value of <code class="docutils literal notranslate"><span class="pre">b</span></code> isn’t evaluated. This is known as <em>short-circuit evaluation</em>.</p>
+<p class="admonition-title">Note</p>
+<p>If the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> is non-<code class="docutils literal notranslate"><span class="pre">nil</span></code>, the value of <code class="docutils literal notranslate"><span class="pre">b</span></code> isn’t evaluated. This is known as <em>short-circuit evaluation</em>.</p>
 </div>
 <p>The example below uses the nil-coalescing operator to choose between a default color name and an optional user-defined color name:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">defaultColorName</span> = <span class="s">&quot;red&quot;</span>
@@ -419,9 +419,9 @@
 <h2>Logical Operators<a class="headerlink" href="#ID76" title="Permalink to this headline">¶</a></h2>
 <p><em>Logical operators</em> modify or combine the Boolean logic values <code class="docutils literal notranslate"><span class="pre">true</span></code> and <code class="docutils literal notranslate"><span class="pre">false</span></code>. Swift supports the three standard logical operators found in C-based languages:</p>
 <ul class="simple">
-<li>Logical NOT (<code class="docutils literal notranslate"><span class="pre">!a</span></code>)</li>
-<li>Logical AND (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&amp;&amp;</span> <span class="pre">b</span></code>)</li>
-<li>Logical OR (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">||</span> <span class="pre">b</span></code>)</li>
+<li><p>Logical NOT (<code class="docutils literal notranslate"><span class="pre">!a</span></code>)</p></li>
+<li><p>Logical AND (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">&amp;&amp;</span> <span class="pre">b</span></code>)</p></li>
+<li><p>Logical OR (<code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">||</span> <span class="pre">b</span></code>)</p></li>
 </ul>
 <div class="section" id="ID77">
 <h3>Logical NOT Operator<a class="headerlink" href="#ID77" title="Permalink to this headline">¶</a></h3>
@@ -480,8 +480,8 @@
 <p>If we’ve entered the correct door code and passed the retina scan, or if we have a valid door key, or if we know the emergency override password, then allow access.</p>
 <p>Based on the values of <code class="docutils literal notranslate"><span class="pre">enteredDoorCode</span></code>, <code class="docutils literal notranslate"><span class="pre">passedRetinaScan</span></code>, and <code class="docutils literal notranslate"><span class="pre">hasDoorKey</span></code>, the first two subexpressions are <code class="docutils literal notranslate"><span class="pre">false</span></code>. However, the emergency override password is known, so the overall compound expression still evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The Swift logical operators <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">||</span></code> are left-associative, meaning that compound expressions with multiple logical operators evaluate the leftmost subexpression first.</p>
+<p class="admonition-title">Note</p>
+<p>The Swift logical operators <code class="docutils literal notranslate"><span class="pre">&amp;&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">||</span></code> are left-associative, meaning that compound expressions with multiple logical operators evaluate the leftmost subexpression first.</p>
 </div>
 </div>
 <div class="section" id="ID81">
@@ -504,6 +504,14 @@
     <div class="next_previous">
         <p class="previous"><a href="TheBasics.html">The Basics</a></p>
         <p class="next"><a href="StringsAndCharacters.html">Strings and Characters</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

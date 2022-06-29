@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Inheritance &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Inheritance &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -132,8 +132,8 @@
 <h2>Defining a Base Class<a class="headerlink" href="#ID194" title="Permalink to this headline">¶</a></h2>
 <p>Any class that doesn’t inherit from another class is known as a <em>base class</em>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Swift classes don’t inherit from a universal base class. Classes you define without specifying a superclass automatically become base classes for you to build upon.</p>
+<p class="admonition-title">Note</p>
+<p>Swift classes don’t inherit from a universal base class. Classes you define without specifying a superclass automatically become base classes for you to build upon.</p>
 </div>
 <p>The example below defines a base class called <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code>. This base class defines a stored property called <code class="docutils literal notranslate"><span class="pre">currentSpeed</span></code>, with a default value of <code class="docutils literal notranslate"><span class="pre">0.0</span></code> (inferring a property type of <code class="docutils literal notranslate"><span class="pre">Double</span></code>). The <code class="docutils literal notranslate"><span class="pre">currentSpeed</span></code> property’s value is used by a read-only computed <code class="docutils literal notranslate"><span class="pre">String</span></code> property called <code class="docutils literal notranslate"><span class="pre">description</span></code> to create a description of the vehicle.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code> base class also defines a method called <code class="docutils literal notranslate"><span class="pre">makeNoise</span></code>. This method doesn’t actually do anything for a base <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code> instance, but will be customized by subclasses of <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code> later on:</p>
@@ -205,9 +205,9 @@
 <p>When you provide a method, property, or subscript override for a subclass, it’s sometimes useful to use the existing superclass implementation as part of your override. For example, you can refine the behavior of that existing implementation, or store a modified value in an existing inherited variable.</p>
 <p>Where this is appropriate, you access the superclass version of a method, property, or subscript by using the <code class="docutils literal notranslate"><span class="pre">super</span></code> prefix:</p>
 <ul class="simple">
-<li>An overridden method named <code class="docutils literal notranslate"><span class="pre">someMethod()</span></code> can call the superclass version of <code class="docutils literal notranslate"><span class="pre">someMethod()</span></code> by calling <code class="docutils literal notranslate"><span class="pre">super.someMethod()</span></code> within the overriding method implementation.</li>
-<li>An overridden property called <code class="docutils literal notranslate"><span class="pre">someProperty</span></code> can access the superclass version of <code class="docutils literal notranslate"><span class="pre">someProperty</span></code> as <code class="docutils literal notranslate"><span class="pre">super.someProperty</span></code> within the overriding getter or setter implementation.</li>
-<li>An overridden subscript for <code class="docutils literal notranslate"><span class="pre">someIndex</span></code> can access the superclass version of the same subscript as <code class="docutils literal notranslate"><span class="pre">super[someIndex]</span></code> from within the overriding subscript implementation.</li>
+<li><p>An overridden method named <code class="docutils literal notranslate"><span class="pre">someMethod()</span></code> can call the superclass version of <code class="docutils literal notranslate"><span class="pre">someMethod()</span></code> by calling <code class="docutils literal notranslate"><span class="pre">super.someMethod()</span></code> within the overriding method implementation.</p></li>
+<li><p>An overridden property called <code class="docutils literal notranslate"><span class="pre">someProperty</span></code> can access the superclass version of <code class="docutils literal notranslate"><span class="pre">someProperty</span></code> as <code class="docutils literal notranslate"><span class="pre">super.someProperty</span></code> within the overriding getter or setter implementation.</p></li>
+<li><p>An overridden subscript for <code class="docutils literal notranslate"><span class="pre">someIndex</span></code> can access the superclass version of the same subscript as <code class="docutils literal notranslate"><span class="pre">super[someIndex]</span></code> from within the overriding subscript implementation.</p></li>
 </ul>
 </div>
 <div class="section" id="ID198">
@@ -234,8 +234,8 @@
 <p>You can provide a custom getter (and setter, if appropriate) to override <em>any</em> inherited property, regardless of whether the inherited property is implemented as a stored or computed property at source. The stored or computed nature of an inherited property isn’t known by a subclass—it only knows that the inherited property has a certain name and type. You must always state both the name and the type of the property you are overriding, to enable the compiler to check that your override matches a superclass property with the same name and type.</p>
 <p>You can present an inherited read-only property as a read-write property by providing both a getter and a setter in your subclass property override. You can’t, however, present an inherited read-write property as a read-only property.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you provide a setter as part of a property override, you must also provide a getter for that override. If you don’t want to modify the inherited property’s value within the overriding getter, you can simply pass through the inherited value by returning <code class="docutils literal notranslate"><span class="pre">super.someProperty</span></code> from the getter, where <code class="docutils literal notranslate"><span class="pre">someProperty</span></code> is the name of the property you are overriding.</p>
+<p class="admonition-title">Note</p>
+<p>If you provide a setter as part of a property override, you must also provide a getter for that override. If you don’t want to modify the inherited property’s value within the overriding getter, you can simply pass through the inherited value by returning <code class="docutils literal notranslate"><span class="pre">super.someProperty</span></code> from the getter, where <code class="docutils literal notranslate"><span class="pre">someProperty</span></code> is the name of the property you are overriding.</p>
 </div>
 <p>The following example defines a new class called <code class="docutils literal notranslate"><span class="pre">Car</span></code>, which is a subclass of <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code>. The <code class="docutils literal notranslate"><span class="pre">Car</span></code> class introduces a new stored property called <code class="docutils literal notranslate"><span class="pre">gear</span></code>, with a default integer value of <code class="docutils literal notranslate"><span class="pre">1</span></code>. The <code class="docutils literal notranslate"><span class="pre">Car</span></code> class also overrides the <code class="docutils literal notranslate"><span class="pre">description</span></code> property it inherits from <code class="docutils literal notranslate"><span class="pre">Vehicle</span></code>, to provide a custom description that includes the current gear:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Car</span>: <span class="nc">Vehicle</span> {
@@ -258,9 +258,9 @@
 <h4>Overriding Property Observers<a class="headerlink" href="#ID201" title="Permalink to this headline">¶</a></h4>
 <p>You can use property overriding to add property observers to an inherited property. This enables you to be notified when the value of an inherited property changes, regardless of how that property was originally implemented. For more information on property observers, see <a class="reference internal" href="Properties.html#ID262"><span class="std std-ref">Property Observers</span></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>You can’t add property observers to inherited constant stored properties or inherited read-only computed properties. The value of these properties can’t be set, and so it isn’t appropriate to provide a <code class="docutils literal notranslate"><span class="pre">willSet</span></code> or <code class="docutils literal notranslate"><span class="pre">didSet</span></code> implementation as part of an override.</p>
-<p class="last">Note also that you can’t provide both an overriding setter and an overriding property observer for the same property. If you want to observe changes to a property’s value, and you are already providing a custom setter for that property, you can simply observe any value changes from within the custom setter.</p>
+<p>Note also that you can’t provide both an overriding setter and an overriding property observer for the same property. If you want to observe changes to a property’s value, and you are already providing a custom setter for that property, you can simply observe any value changes from within the custom setter.</p>
 </div>
 <p>The following example defines a new class called <code class="docutils literal notranslate"><span class="pre">AutomaticCar</span></code>, which is a subclass of <code class="docutils literal notranslate"><span class="pre">Car</span></code>. The <code class="docutils literal notranslate"><span class="pre">AutomaticCar</span></code> class represents a car with an automatic gearbox, which automatically selects an appropriate gear to use based on the current speed:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">AutomaticCar</span>: <span class="nc">Car</span> {
@@ -293,6 +293,14 @@
     <div class="next_previous">
         <p class="previous"><a href="Subscripts.html">Subscripts</a></p>
         <p class="next"><a href="Initialization.html">Initialization</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Control Flow &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Control Flow &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -218,8 +218,8 @@
 <h2>While Loops<a class="headerlink" href="#ID124" title="Permalink to this headline">¶</a></h2>
 <p>A <code class="docutils literal notranslate"><span class="pre">while</span></code> loop performs a set of statements until a condition becomes <code class="docutils literal notranslate"><span class="pre">false</span></code>. These kinds of loops are best used when the number of iterations isn’t known before the first iteration begins. Swift provides two kinds of <code class="docutils literal notranslate"><span class="pre">while</span></code> loops:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">while</span></code> evaluates its condition at the start of each pass through the loop.</li>
-<li><code class="docutils literal notranslate"><span class="pre">repeat</span></code>-<code class="docutils literal notranslate"><span class="pre">while</span></code> evaluates its condition at the end of each pass through the loop.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">while</span></code> evaluates its condition at the start of each pass through the loop.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">repeat</span></code>-<code class="docutils literal notranslate"><span class="pre">while</span></code> evaluates its condition at the end of each pass through the loop.</p></li>
 </ul>
 <div class="section" id="ID125">
 <h3>While<a class="headerlink" href="#ID125" title="Permalink to this headline">¶</a></h3>
@@ -230,14 +230,14 @@
 </li><li>}
 </li></ol></div></div></div>
 <p>This example plays a simple game of <em>Snakes and Ladders</em> (also known as <em>Chutes and Ladders</em>):</p>
-<img alt="../_images/snakesAndLadders_2x.png" class="align-center" src="../_images/snakesAndLadders_2x.png" style="width: 527px;" />
+<img alt="../_images/snakesAndLadders_2x.png" class="align-center" src="../_images/snakesAndLadders_2x.png" style="width: 527.5px;" />
 <p>The rules of the game are as follows:</p>
 <ul class="simple">
-<li>The board has 25 squares, and the aim is to land on or beyond square 25.</li>
-<li>The player’s starting square is “square zero”, which is just off the bottom-left corner of the board.</li>
-<li>Each turn, you roll a six-sided dice and move by that number of squares, following the horizontal path indicated by the dotted arrow above.</li>
-<li>If your turn ends at the bottom of a ladder, you move up that ladder.</li>
-<li>If your turn ends at the head of a snake, you move down that snake.</li>
+<li><p>The board has 25 squares, and the aim is to land on or beyond square 25.</p></li>
+<li><p>The player’s starting square is “square zero”, which is just off the bottom-left corner of the board.</p></li>
+<li><p>Each turn, you roll a six-sided dice and move by that number of squares, following the horizontal path indicated by the dotted arrow above.</p></li>
+<li><p>If your turn ends at the bottom of a ladder, you move up that ladder.</p></li>
+<li><p>If your turn ends at the head of a snake, you move down that snake.</p></li>
 </ul>
 <p>The game board is represented by an array of <code class="docutils literal notranslate"><span class="pre">Int</span></code> values. Its size is based on a constant called <code class="docutils literal notranslate"><span class="pre">finalSquare</span></code>, which is used to initialize the array and also to check for a win condition later in the example. Because the players start off the board, on “square zero”, the board is initialized with 26 zero <code class="docutils literal notranslate"><span class="pre">Int</span></code> values, not 25.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">finalSquare</span> = <span class="m">25</span>
@@ -266,8 +266,8 @@
 <p>The example above uses a very simple approach to dice rolling. Instead of generating a random number, it starts with a <code class="docutils literal notranslate"><span class="pre">diceRoll</span></code> value of <code class="docutils literal notranslate"><span class="pre">0</span></code>. Each time through the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, <code class="docutils literal notranslate"><span class="pre">diceRoll</span></code> is incremented by one and is then checked to see whether it has become too large. Whenever this return value equals <code class="docutils literal notranslate"><span class="pre">7</span></code>, the dice roll has become too large and is reset to a value of <code class="docutils literal notranslate"><span class="pre">1</span></code>. The result is a sequence of <code class="docutils literal notranslate"><span class="pre">diceRoll</span></code> values that’s always <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">3</span></code>, <code class="docutils literal notranslate"><span class="pre">4</span></code>, <code class="docutils literal notranslate"><span class="pre">5</span></code>, <code class="docutils literal notranslate"><span class="pre">6</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code> and so on.</p>
 <p>After rolling the dice, the player moves forward by <code class="docutils literal notranslate"><span class="pre">diceRoll</span></code> squares. It’s possible that the dice roll may have moved the player beyond square 25, in which case the game is over. To cope with this scenario, the code checks that <code class="docutils literal notranslate"><span class="pre">square</span></code> is less than the <code class="docutils literal notranslate"><span class="pre">board</span></code> array’s <code class="docutils literal notranslate"><span class="pre">count</span></code> property. If <code class="docutils literal notranslate"><span class="pre">square</span></code> is valid, the value stored in <code class="docutils literal notranslate"><span class="pre">board[square]</span></code> is added to the current <code class="docutils literal notranslate"><span class="pre">square</span></code> value to move the player up or down any ladders or snakes.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If this check isn’t performed, <code class="docutils literal notranslate"><span class="pre">board[square]</span></code> might try to access a value outside the bounds of the <code class="docutils literal notranslate"><span class="pre">board</span></code> array, which would trigger a runtime error.</p>
+<p class="admonition-title">Note</p>
+<p>If this check isn’t performed, <code class="docutils literal notranslate"><span class="pre">board[square]</span></code> might try to access a value outside the bounds of the <code class="docutils literal notranslate"><span class="pre">board</span></code> array, which would trigger a runtime error.</p>
 </div>
 <p>The current <code class="docutils literal notranslate"><span class="pre">while</span></code> loop execution then ends, and the loop’s condition is checked to see if the loop should be executed again. If the player has moved on or beyond square number <code class="docutils literal notranslate"><span class="pre">25</span></code>, the loop’s condition evaluates to <code class="docutils literal notranslate"><span class="pre">false</span></code> and the game ends.</p>
 <p>A <code class="docutils literal notranslate"><span class="pre">while</span></code> loop is appropriate in this case, because the length of the game isn’t clear at the start of the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop. Instead, the loop is executed until a particular condition is satisfied.</p>
@@ -276,8 +276,8 @@
 <h3>Repeat-While<a class="headerlink" href="#ID126" title="Permalink to this headline">¶</a></h3>
 <p>The other variation of the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, known as the <code class="docutils literal notranslate"><span class="pre">repeat</span></code>-<code class="docutils literal notranslate"><span class="pre">while</span></code> loop, performs a single pass through the loop block first, <em>before</em> considering the loop’s condition. It then continues to repeat the loop until the condition is <code class="docutils literal notranslate"><span class="pre">false</span></code>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The <code class="docutils literal notranslate"><span class="pre">repeat</span></code>-<code class="docutils literal notranslate"><span class="pre">while</span></code> loop in Swift is analogous to a <code class="docutils literal notranslate"><span class="pre">do</span></code>-<code class="docutils literal notranslate"><span class="pre">while</span></code> loop in other languages.</p>
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">repeat</span></code>-<code class="docutils literal notranslate"><span class="pre">while</span></code> loop in Swift is analogous to a <code class="docutils literal notranslate"><span class="pre">do</span></code>-<code class="docutils literal notranslate"><span class="pre">while</span></code> loop in other languages.</p>
 </div>
 <p>Here’s the general form of a <code class="docutils literal notranslate"><span class="pre">repeat</span></code>-<code class="docutils literal notranslate"><span class="pre">while</span></code> loop:</p>
 <div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">repeat</span> {
@@ -389,8 +389,8 @@
 <h4>No Implicit Fallthrough<a class="headerlink" href="#ID130" title="Permalink to this headline">¶</a></h4>
 <p>In contrast with <code class="docutils literal notranslate"><span class="pre">switch</span></code> statements in C and Objective-C, <code class="docutils literal notranslate"><span class="pre">switch</span></code> statements in Swift don’t fall through the bottom of each case and into the next one by default. Instead, the entire <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement finishes its execution as soon as the first matching <code class="docutils literal notranslate"><span class="pre">switch</span></code> case is completed, without requiring an explicit <code class="docutils literal notranslate"><span class="pre">break</span></code> statement. This makes the <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement safer and easier to use than the one in C and avoids executing more than one <code class="docutils literal notranslate"><span class="pre">switch</span></code> case by mistake.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Although <code class="docutils literal notranslate"><span class="pre">break</span></code> isn’t required in Swift, you can use a <code class="docutils literal notranslate"><span class="pre">break</span></code> statement to match and ignore a particular case or to break out of a matched case before that case has completed its execution. For details, see <a class="reference internal" href="#ID139"><span class="std std-ref">Break in a Switch Statement</span></a>.</p>
+<p class="admonition-title">Note</p>
+<p>Although <code class="docutils literal notranslate"><span class="pre">break</span></code> isn’t required in Swift, you can use a <code class="docutils literal notranslate"><span class="pre">break</span></code> statement to match and ignore a particular case or to break out of a matched case before that case has completed its execution. For details, see <a class="reference internal" href="#ID139"><span class="std std-ref">Break in a Switch Statement</span></a>.</p>
 </div>
 <p>The body of each case <em>must</em> contain at least one executable statement. It isn’t valid to write the following code, because the first case is empty:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">anotherCharacter</span>: <span class="nc">Character</span> = <span class="s">&quot;a&quot;</span>
@@ -416,8 +416,8 @@
 </li></ol></div></div></div>
 <p>For readability, a compound case can also be written over multiple lines. For more information about compound cases, see <a class="reference internal" href="#ID548"><span class="std std-ref">Compound Cases</span></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">To explicitly fall through at the end of a particular <code class="docutils literal notranslate"><span class="pre">switch</span></code> case, use the <code class="docutils literal notranslate"><span class="pre">fallthrough</span></code> keyword, as described in <a class="reference internal" href="#ID140"><span class="std std-ref">Fallthrough</span></a>.</p>
+<p class="admonition-title">Note</p>
+<p>To explicitly fall through at the end of a particular <code class="docutils literal notranslate"><span class="pre">switch</span></code> case, use the <code class="docutils literal notranslate"><span class="pre">fallthrough</span></code> keyword, as described in <a class="reference internal" href="#ID140"><span class="std std-ref">Fallthrough</span></a>.</p>
 </div>
 </div>
 <div class="section" id="ID131">
@@ -464,7 +464,7 @@
 </li><li>}
 </li><li><span class="c">// Prints &quot;(1, 1) is inside the box&quot;</span>
 </li></ol></div></div></div>
-<img alt="../_images/coordinateGraphSimple_2x.png" class="align-center" src="../_images/coordinateGraphSimple_2x.png" style="width: 474px;" />
+<img alt="../_images/coordinateGraphSimple_2x.png" class="align-center" src="../_images/coordinateGraphSimple_2x.png" style="width: 474.0px;" />
 <p>The <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement determines whether the point is at the origin (0, 0), on the red x-axis, on the green y-axis, inside the blue 4-by-4 box centered on the origin, or outside of the box.</p>
 <p>Unlike C, Swift allows multiple <code class="docutils literal notranslate"><span class="pre">switch</span></code> cases to consider the same value or values. In fact, the point (0, 0) could match all <em>four</em> of the cases in this example. However, if multiple matches are possible, the first matching case is always used. The point (0, 0) would match <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">(0,</span> <span class="pre">0)</span></code> first, and so all other matching cases would be ignored.</p>
 </div>
@@ -483,7 +483,7 @@
 </li><li>}
 </li><li><span class="c">// Prints &quot;on the x-axis with an x value of 2&quot;</span>
 </li></ol></div></div></div>
-<img alt="../_images/coordinateGraphMedium_2x.png" class="align-center" src="../_images/coordinateGraphMedium_2x.png" style="width: 474px;" />
+<img alt="../_images/coordinateGraphMedium_2x.png" class="align-center" src="../_images/coordinateGraphMedium_2x.png" style="width: 474.0px;" />
 <p>The <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement determines whether the point is on the red x-axis, on the green y-axis, or elsewhere (on neither axis).</p>
 <p>The three <code class="docutils literal notranslate"><span class="pre">switch</span></code> cases declare placeholder constants <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, which temporarily take on one or both tuple values from <code class="docutils literal notranslate"><span class="pre">anotherPoint</span></code>. The first case, <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">(let</span> <span class="pre">x,</span> <span class="pre">0)</span></code>, matches any point with a <code class="docutils literal notranslate"><span class="pre">y</span></code> value of <code class="docutils literal notranslate"><span class="pre">0</span></code> and assigns the point’s <code class="docutils literal notranslate"><span class="pre">x</span></code> value to the temporary constant <code class="docutils literal notranslate"><span class="pre">x</span></code>. Similarly, the second case, <code class="docutils literal notranslate"><span class="pre">case</span> <span class="pre">(0,</span> <span class="pre">let</span> <span class="pre">y)</span></code>, matches any point with an <code class="docutils literal notranslate"><span class="pre">x</span></code> value of <code class="docutils literal notranslate"><span class="pre">0</span></code> and assigns the point’s <code class="docutils literal notranslate"><span class="pre">y</span></code> value to the temporary constant <code class="docutils literal notranslate"><span class="pre">y</span></code>.</p>
 <p>After the temporary constants are declared, they can be used within the case’s code block. Here, they’re used to print the categorization of the point.</p>
@@ -504,7 +504,7 @@
 </li><li>}
 </li><li><span class="c">// Prints &quot;(1, -1) is on the line x == -y&quot;</span>
 </li></ol></div></div></div>
-<img alt="../_images/coordinateGraphComplex_2x.png" class="align-center" src="../_images/coordinateGraphComplex_2x.png" style="width: 474px;" />
+<img alt="../_images/coordinateGraphComplex_2x.png" class="align-center" src="../_images/coordinateGraphComplex_2x.png" style="width: 474.0px;" />
 <p>The <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement determines whether the point is on the green diagonal line where <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">y</span></code>, on the purple diagonal line where <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">==</span> <span class="pre">-y</span></code>, or neither.</p>
 <p>The three <code class="docutils literal notranslate"><span class="pre">switch</span></code> cases declare placeholder constants <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code>, which temporarily take on the two tuple values from <code class="docutils literal notranslate"><span class="pre">yetAnotherPoint</span></code>. These constants are used as part of a <code class="docutils literal notranslate"><span class="pre">where</span></code> clause, to create a dynamic filter. The <code class="docutils literal notranslate"><span class="pre">switch</span></code> case matches the current value of <code class="docutils literal notranslate"><span class="pre">point</span></code> only if the <code class="docutils literal notranslate"><span class="pre">where</span></code> clause’s condition evaluates to <code class="docutils literal notranslate"><span class="pre">true</span></code> for that value.</p>
 <p>As in the previous example, the final case matches all possible remaining values, and so a <code class="docutils literal notranslate"><span class="pre">default</span></code> case isn’t needed to make the <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement exhaustive.</p>
@@ -543,11 +543,11 @@
 <h2>Control Transfer Statements<a class="headerlink" href="#ID135" title="Permalink to this headline">¶</a></h2>
 <p><em>Control transfer statements</em> change the order in which your code is executed, by transferring control from one piece of code to another. Swift has five control transfer statements:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">continue</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">break</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">fallthrough</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">return</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">throw</span></code></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">continue</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">break</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fallthrough</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">return</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">throw</span></code></p></li>
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">continue</span></code>, <code class="docutils literal notranslate"><span class="pre">break</span></code>, and <code class="docutils literal notranslate"><span class="pre">fallthrough</span></code> statements are described below. The <code class="docutils literal notranslate"><span class="pre">return</span></code> statement is described in <a class="reference internal" href="Functions.html"><span class="doc">Functions</span></a>, and the <code class="docutils literal notranslate"><span class="pre">throw</span></code> statement is described in <a class="reference internal" href="ErrorHandling.html#ID510"><span class="std std-ref">Propagating Errors Using Throwing Functions</span></a>.</p>
 <div class="section" id="ID136">
@@ -580,8 +580,8 @@
 <p>When used inside a <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement, <code class="docutils literal notranslate"><span class="pre">break</span></code> causes the <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement to end its execution immediately and to transfer control to the code after the <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement’s closing brace (<code class="docutils literal notranslate"><span class="pre">}</span></code>).</p>
 <p>This behavior can be used to match and ignore one or more cases in a <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement. Because Swift’s <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement is exhaustive and doesn’t allow empty cases, it’s sometimes necessary to deliberately match and ignore a case in order to make your intentions explicit. You do this by writing the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement as the entire body of the case you want to ignore. When that case is matched by the <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement, the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement inside the case ends the <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement’s execution immediately.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">A <code class="docutils literal notranslate"><span class="pre">switch</span></code> case that contains only a comment is reported as a compile-time error. Comments aren’t statements and don’t cause a <code class="docutils literal notranslate"><span class="pre">switch</span></code> case to be ignored. Always use a <code class="docutils literal notranslate"><span class="pre">break</span></code> statement to ignore a <code class="docutils literal notranslate"><span class="pre">switch</span></code> case.</p>
+<p class="admonition-title">Note</p>
+<p>A <code class="docutils literal notranslate"><span class="pre">switch</span></code> case that contains only a comment is reported as a compile-time error. Comments aren’t statements and don’t cause a <code class="docutils literal notranslate"><span class="pre">switch</span></code> case to be ignored. Always use a <code class="docutils literal notranslate"><span class="pre">break</span></code> statement to ignore a <code class="docutils literal notranslate"><span class="pre">switch</span></code> case.</p>
 </div>
 <p>The following example switches on a <code class="docutils literal notranslate"><span class="pre">Character</span></code> value and determines whether it represents a number symbol in one of four languages. For brevity, multiple values are covered in a single <code class="docutils literal notranslate"><span class="pre">switch</span></code> case.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">numberSymbol</span>: <span class="nc">Character</span> = <span class="s">&quot;三&quot;</span>  <span class="c">// Chinese symbol for the number 3</span>
@@ -630,8 +630,8 @@
 <p>Unless the value of <code class="docutils literal notranslate"><span class="pre">integerToDescribe</span></code> is in the list of known prime numbers, it isn’t matched by the first <code class="docutils literal notranslate"><span class="pre">switch</span></code> case at all. Because there are no other specific cases, <code class="docutils literal notranslate"><span class="pre">integerToDescribe</span></code> is matched by the <code class="docutils literal notranslate"><span class="pre">default</span></code> case.</p>
 <p>After the <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement has finished executing, the number’s description is printed using the <code class="docutils literal notranslate"><span class="pre">print(_:separator:terminator:)</span></code> function. In this example, the number <code class="docutils literal notranslate"><span class="pre">5</span></code> is correctly identified as a prime number.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The <code class="docutils literal notranslate"><span class="pre">fallthrough</span></code> keyword doesn’t check the case conditions for the <code class="docutils literal notranslate"><span class="pre">switch</span></code> case that it causes execution to fall into. The <code class="docutils literal notranslate"><span class="pre">fallthrough</span></code> keyword simply causes code execution to move directly to the statements inside the next case (or <code class="docutils literal notranslate"><span class="pre">default</span></code> case) block, as in C’s standard <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement behavior.</p>
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">fallthrough</span></code> keyword doesn’t check the case conditions for the <code class="docutils literal notranslate"><span class="pre">switch</span></code> case that it causes execution to fall into. The <code class="docutils literal notranslate"><span class="pre">fallthrough</span></code> keyword simply causes code execution to move directly to the statements inside the next case (or <code class="docutils literal notranslate"><span class="pre">default</span></code> case) block, as in C’s standard <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement behavior.</p>
 </div>
 </div>
 <div class="section" id="ID141">
@@ -645,11 +645,11 @@
 </li></ol></div></div></div>
 <p>The following example uses the <code class="docutils literal notranslate"><span class="pre">break</span></code> and <code class="docutils literal notranslate"><span class="pre">continue</span></code> statements with a labeled <code class="docutils literal notranslate"><span class="pre">while</span></code> loop for an adapted version of the <em>Snakes and Ladders</em> game that you saw earlier in this chapter. This time around, the game has an extra rule:</p>
 <ul class="simple">
-<li>To win, you must land <em>exactly</em> on square 25.</li>
+<li><p>To win, you must land <em>exactly</em> on square 25.</p></li>
 </ul>
 <p>If a particular dice roll would take you beyond square 25, you must roll again until you roll the exact number needed to land on square 25.</p>
 <p>The game board is the same as before.</p>
-<img alt="../_images/snakesAndLadders_2x.png" class="align-center" src="../_images/snakesAndLadders_2x.png" style="width: 527px;" />
+<img alt="../_images/snakesAndLadders_2x.png" class="align-center" src="../_images/snakesAndLadders_2x.png" style="width: 527.5px;" />
 <p>The values of <code class="docutils literal notranslate"><span class="pre">finalSquare</span></code>, <code class="docutils literal notranslate"><span class="pre">board</span></code>, <code class="docutils literal notranslate"><span class="pre">square</span></code>, and <code class="docutils literal notranslate"><span class="pre">diceRoll</span></code> are initialized in the same way as before:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">finalSquare</span> = <span class="m">25</span>
 </li><li><span class="k">var</span> <span class="nv">board</span> = [<span class="nv">Int</span>](<span class="nv">repeating</span>: <span class="m">0</span>, <span class="nv">count</span>: <span class="nv">finalSquare</span> + <span class="m">1</span>)
@@ -680,14 +680,14 @@
 </li></ol></div></div></div>
 <p>The dice is rolled at the start of each loop. Rather than moving the player immediately, the loop uses a <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement to consider the result of the move and to determine whether the move is allowed:</p>
 <ul class="simple">
-<li>If the dice roll will move the player onto the final square, the game is over. The <code class="docutils literal notranslate"><span class="pre">break</span> <span class="pre">gameLoop</span></code> statement transfers control to the first line of code outside of the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, which ends the game.</li>
-<li>If the dice roll will move the player <em>beyond</em> the final square, the move is invalid and the player needs to roll again. The <code class="docutils literal notranslate"><span class="pre">continue</span> <span class="pre">gameLoop</span></code> statement ends the current <code class="docutils literal notranslate"><span class="pre">while</span></code> loop iteration and begins the next iteration of the loop.</li>
-<li>In all other cases, the dice roll is a valid move. The player moves forward by <code class="docutils literal notranslate"><span class="pre">diceRoll</span></code> squares, and the game logic checks for any snakes and ladders. The loop then ends, and control returns to the <code class="docutils literal notranslate"><span class="pre">while</span></code> condition to decide whether another turn is required.</li>
+<li><p>If the dice roll will move the player onto the final square, the game is over. The <code class="docutils literal notranslate"><span class="pre">break</span> <span class="pre">gameLoop</span></code> statement transfers control to the first line of code outside of the <code class="docutils literal notranslate"><span class="pre">while</span></code> loop, which ends the game.</p></li>
+<li><p>If the dice roll will move the player <em>beyond</em> the final square, the move is invalid and the player needs to roll again. The <code class="docutils literal notranslate"><span class="pre">continue</span> <span class="pre">gameLoop</span></code> statement ends the current <code class="docutils literal notranslate"><span class="pre">while</span></code> loop iteration and begins the next iteration of the loop.</p></li>
+<li><p>In all other cases, the dice roll is a valid move. The player moves forward by <code class="docutils literal notranslate"><span class="pre">diceRoll</span></code> squares, and the game logic checks for any snakes and ladders. The loop then ends, and control returns to the <code class="docutils literal notranslate"><span class="pre">while</span></code> condition to decide whether another turn is required.</p></li>
 </ul>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>If the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement above didn’t use the <code class="docutils literal notranslate"><span class="pre">gameLoop</span></code> label, it would break out of the <code class="docutils literal notranslate"><span class="pre">switch</span></code> statement, not the <code class="docutils literal notranslate"><span class="pre">while</span></code> statement. Using the <code class="docutils literal notranslate"><span class="pre">gameLoop</span></code> label makes it clear which control statement should be terminated.</p>
-<p class="last">It isn’t strictly necessary to use the <code class="docutils literal notranslate"><span class="pre">gameLoop</span></code> label when calling <code class="docutils literal notranslate"><span class="pre">continue</span> <span class="pre">gameLoop</span></code> to jump to the next iteration of the loop. there’s only one loop in the game, and therefore no ambiguity as to which loop the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement will affect. However, there’s no harm in using the <code class="docutils literal notranslate"><span class="pre">gameLoop</span></code> label with the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement. Doing so is consistent with the label’s use alongside the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement and helps make the game’s logic clearer to read and understand.</p>
+<p>It isn’t strictly necessary to use the <code class="docutils literal notranslate"><span class="pre">gameLoop</span></code> label when calling <code class="docutils literal notranslate"><span class="pre">continue</span> <span class="pre">gameLoop</span></code> to jump to the next iteration of the loop. there’s only one loop in the game, and therefore no ambiguity as to which loop the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement will affect. However, there’s no harm in using the <code class="docutils literal notranslate"><span class="pre">gameLoop</span></code> label with the <code class="docutils literal notranslate"><span class="pre">continue</span></code> statement. Doing so is consistent with the label’s use alongside the <code class="docutils literal notranslate"><span class="pre">break</span></code> statement and helps make the game’s logic clearer to read and understand.</p>
 </div>
 </div>
 </div>
@@ -739,6 +739,32 @@
 </li><li>    <span class="gi">fallback statements to execute if the APIs are unavailable</span>
 </li><li>}
 </li></ol></div></div></div>
+<p>When you use an availability condition with a <code class="docutils literal notranslate"><span class="pre">guard</span></code> statement, it refines the availability information that’s used for the rest of the code in that code block.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">@available</span>(<span class="k">macOS</span> <span class="m">10.12</span>, *)
+</li><li><span class="k">struct</span> <span class="nv">ColorPreference</span> {
+</li><li>    <span class="k">var</span> <span class="nv">bestColor</span> = <span class="s">&quot;blue&quot;</span>
+</li><li>}
+</li><li>
+</li><li><span class="k">func</span> <span class="nv">chooseBestColor</span>() -&gt; <span class="nc">String</span> {
+</li><li>    <span class="k">guard</span> <span class="k">#available</span>(<span class="k">macOS</span> <span class="m">10.12</span>, *) <span class="k">else</span> {
+</li><li>        <span class="k">return</span> <span class="s">&quot;gray&quot;</span>
+</li><li>    }
+</li><li>    <span class="k">let</span> <span class="nv">colors</span> = <span class="nv">ColorPreference</span>()
+</li><li>    <span class="k">return</span> <span class="nv">colors</span>.<span class="nv">bestColor</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>In the example above, the <code class="docutils literal notranslate"><span class="pre">ColorPreference</span></code> structure requires macOS 10.12 or later. The <code class="docutils literal notranslate"><span class="pre">chooseBestColor()</span></code> function begins with an availability guard. If the platform version is too old to use <code class="docutils literal notranslate"><span class="pre">ColorPreference</span></code>, it falls back to behavior that’s always available. After the <code class="docutils literal notranslate"><span class="pre">guard</span></code> statement, you can use APIs that require macOS 10.12 or later.</p>
+<p>In addition to <code class="docutils literal notranslate"><span class="pre">#available</span></code>, Swift also supports the opposite check using an unavailability condition. For example, the following two checks do the same thing:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="k">#available</span>(<span class="k">iOS</span> <span class="m">10</span>, *) {
+</li><li>} <span class="k">else</span> {
+</li><li>    <span class="c">// Fallback code</span>
+</li><li>}
+</li><li>
+</li><li><span class="k">if</span> #<span class="nv">unavailable</span>(<span class="nv">iOS</span> <span class="m">10</span>) {
+</li><li>    <span class="c">// Fallback code</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">#unavailable</span></code> form helps make your code more readable when the check contains only fallback code.</p>
 </div>
 </div>
 
@@ -747,6 +773,14 @@
     <div class="next_previous">
         <p class="previous"><a href="CollectionTypes.html">Collection Types</a></p>
         <p class="next"><a href="Functions.html">Functions</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

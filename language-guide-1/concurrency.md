@@ -122,15 +122,50 @@ The possible suspension points in your code marked with await indicate that the 
 * 아래의 [구조화되지 않은 동시성 \(Unstructured Concurrency\)](concurrency.md#unstructured-concurrency) 에 보이는 것처럼 구조화되지 않은 하위 작업의 코드
 
 <!--
-NOTE
-The Task.sleep(nanoseconds:) method is useful when writing simple code to learn how concurrency works. This method does nothing, but waits at least the given number of nanoseconds before it returns. Here’s a version of the listPhotos(inGallery:) function that uses sleep(nanoseconds:) to simulate waiting for a network operation:
+Code in between possible suspension points runs sequentially, without the possibility of interruption from other concurrent code. For example, the code below moves a picture from one gallery to another.
 -->
 
-> NOTE [`Task.sleep(_:)`](https://developer.apple.com/documentation/swift/task/3814836-sleep) 메서드는 동시성 작동 방식을 배우기 위해 간단한 코드를 작성할 때 유용합니다. 이 메서드는 아무런 동작도 하지 않지만 반환되기 전에 주어진 나노 단위의 초만큼 기다립니다. 다음은 네트워크 작업 대기를 시뮬레이션하기 위해 `sleep(nanoseconds:)` 을 사용하는 `listPhoto(inGallery:)` 함수의 버전입니다:
+중단이 가능한 지점 사이의 코드는 다른 비동기 코드의 중단 가능성없이 순차적으로 실행됩니다. 예를 들어, 아래의 코드는 한 갤러리의 사진을 다른 곳으로 이동시킵니다.
+
+```swift
+let firstPhoto = await listPhotos(inGallery: "Summer Vacation")[0]
+add(firstPhoto toGallery: "Road Trip")
+// At this point, firstPhoto is temporarily in both galleries.
+remove(firstPhoto fromGallery: "Summer Vacation")
+```
+
+<!--
+There’s no way for other code to run in between the call to add(_:toGallery:) and remove(_:fromGallery:). During that time, the first photo appears in both galleries, temporarily breaking one of the app’s invariants. To make it even clearer that this chunk of code must not have await added to it in the future, you can refactor that code into a synchronous function:
+-->
+
+`add(_:toGallery:)` 와 `remove(_:fromGallery:)` 사이에 실행되는 다른 코드는 없습니다. 그 시간동안 첫번째 사진은 양쪽 갤러리에 모두 나타나며 앱의 불변성 중 하나를 임시적으로 위반합니다. 이 코드에 `await` 가 확실히 추가되지 말아야 한다는 것을 나타내기 위해 동기 함수로 코드를 리팩토링 할 수 있습니다:
+
+```swift
+func move(_ photoName: String, from source: String, to destination: String) {
+    add(photoName, to: destination)
+    remove(photoName, from: source)
+}
+// ...
+let firstPhoto = await listPhotos(inGallery: "Summer Vacation")[0]
+move(firstPhoto, from: "Summer Vacation", to: "Road Trip")
+```
+
+<!--
+In the example above, because the move(_:from:to:) function is synchronous, you guarantee that it can never contain possible suspension points. In the future, if you try to add concurrent code to this function, introducing a possible suspension point, you’ll get compile-time error instead of introducing a bug.
+-->
+
+위의 예제에서 `move(_:from:to:)` 함수는 동기 함수기 때문에 중단 가능한 지점을 포함히지 않는다는 것을 보장할 수 있습니다. 이 함수에 중단 가능한 지점을 도입하기위해 비동기 코드를 추가하면 버그가 아닌 컴파일 에러가 발생합니다.
+
+<!--
+NOTE
+The Task.sleep(until:clock:) method is useful when writing simple code to learn how concurrency works. This method does nothing, but waits at least the given number of nanoseconds before it returns. Here’s a version of the listPhotos(inGallery:) function that uses sleep(until:clock:) to simulate waiting for a network operation:
+-->
+
+> NOTE [`Task.sleep(until:clock:)`](https://developer.apple.com/documentation/swift/task/3968432-sleep) 메서드는 동시성 작동 방식을 배우기 위해 간단한 코드를 작성할 때 유용합니다. 이 메서드는 아무런 동작도 하지 않지만 반환되기 전에 주어진 나노 단위의 초만큼 기다립니다. 다음은 네트워크 작업 대기를 시뮬레이션하기 위해 `sleep(until:clock:)` 을 사용하는 `listPhoto(inGallery:)` 함수의 버전입니다:
 >
 > ```swift
 > func listPhotos(inGallery name: String) async throws -> [String] {
->     try await Task.sleep(nanoseconds: 2 * 1_000_000_000)  // Two seconds
+>     try await Task.sleep(until: .now + .seconds(2), clock: .continuous)
 >     return ["IMG001", "IMG99", "IMG0404"]
 > }
 > ```
@@ -252,10 +287,10 @@ For more information about task groups, see TaskGroup.
 ### 구조화되지 않은 동시성 \(Unstructured Concurrency\)
 
 <!--
-In addition to the structured approaches to concurrency described in the previous sections, Swift also supports unstructured concurrency. Unlike tasks that are part of a task group, an unstructured task doesn’t have a parent task. You have complete flexibility to manage unstructured tasks in whatever way your program needs, but you’re also completely responsible for their correctness. To create an unstructured task that runs on the current actor, call the Task.init(priority:operation:) initializer. To create an unstructured task that’s not part of the current actor, known more specifically as a detached task, call the Task.detached(priority:operation:) class method. Both of these operations return a task handle that lets you interact with the task—for example, to wait for its result or to cancel it.
+In addition to the structured approaches to concurrency described in the previous sections, Swift also supports unstructured concurrency. Unlike tasks that are part of a task group, an unstructured task doesn’t have a parent task. You have complete flexibility to manage unstructured tasks in whatever way your program needs, but you’re also completely responsible for their correctness. To create an unstructured task that runs on the current actor, call the Task.init(priority:operation:) initializer. To create an unstructured task that’s not part of the current actor, known more specifically as a detached task, call the Task.detached(priority:operation:) class method. Both of these operations return a task that you can interact with—for example, to wait for its result or to cancel it.
 -->
 
-이전 섹션에서 설명한 동시성에 대한 구조화된 접근 방식 외에도 Swift 는 구조화되지 않은 동시성 \(unstructured concurrency\) 을 지원합니다. 작업 그룹의 일부인 작업과 달리 _구조화되지 않은 작업 \(unstructured task\)_ 에는 상위 작업이 없습니다. 프로그램이 필요로 하는 방식으로 구조화되지 않은 작업을 관리할 수 있는 완전한 유연성이 있지만 정확성에 대한 완전한 책임도 있습니다. 현재 행위자 \(actor\) 에서 실행되는 구조화되지 않은 작업을 생성하려면 [`Task.init(priority:operation:)`](https://developer.apple.com/documentation/swift/task/3856790-init) 초기화 구문을 호출해야 합니다. 더 구체적으로 분리된 작업으로 알려진 현재 행위자의 일부가 아닌 구조화되지 않은 작업을 생성하려면 [`Task.detached(priority:operation:)`](https://developer.apple.com/documentation/swift/task/3856786-detached) 클래스 메서드를 호출합니다. 이 모든 동작은 작업과 상호작용 할 수 있는 작업 핸들 \(task handle\) 을 반환합니다—예를 들어 결과를 기다리거나 취소하는 경우가 해당됩니다.
+이전 섹션에서 설명한 동시성에 대한 구조화된 접근 방식 외에도 Swift 는 구조화되지 않은 동시성 \(unstructured concurrency\) 을 지원합니다. 작업 그룹의 일부인 작업과 달리 _구조화되지 않은 작업 \(unstructured task\)_ 에는 상위 작업이 없습니다. 프로그램이 필요로 하는 방식으로 구조화되지 않은 작업을 관리할 수 있는 완전한 유연성이 있지만 정확성에 대한 완전한 책임도 있습니다. 현재 행위자 \(actor\) 에서 실행되는 구조화되지 않은 작업을 생성하려면 [`Task.init(priority:operation:)`](https://developer.apple.com/documentation/swift/task/3856790-init) 초기화 구문을 호출해야 합니다. 더 구체적으로 분리된 작업으로 알려진 현재 행위자의 일부가 아닌 구조화되지 않은 작업을 생성하려면 [`Task.detached(priority:operation:)`](https://developer.apple.com/documentation/swift/task/3856786-detached) 클래스 메서드를 호출합니다. 이 모든 동작은 서로 상호작용 할 수 있는 작업 \(task\)을 반환합니다—예를 들어 결과를 기다리거나 취소하는 경우가 해당됩니다.
 
 ```swift
 let newPhoto = // ... some photo data ...
@@ -298,6 +333,12 @@ Swift 동시성은 협동 취소 모델 \(cooperative cancellation model\) 을 �
 ## 행위자 \(Actors\)
 
 <!--
+You can use tasks to break up your program into isolated, concurrent pieces. Tasks are isolated from each other, which is what makes it safe for them to run at the same time, but sometimes you need to share some information between tasks. Actors let you safely share information between concurrent code.
+-->
+
+프로그램을 동시성 조각으로 분리하기위해 작업 \(task\) 을 사용할 수 있습니다. 작업은 서로 분리되어 있어 같은 시간 안전하게 실행될 수 있지만 작업 간에 일부 정보를 공유해야 할 수도 있습니다. 행위자 \(Actors\) 는 동시성 코드간에 정보를 안전하게 공유할 수 있게 해줍니다.
+
+<!--
 Like classes, actors are reference types, so the comparison of value types and reference types in Classes Are Reference Types applies to actors as well as classes. Unlike classes, actors allow only one task to access their mutable state at a time, which makes it safe for code in multiple tasks to interact with the same instance of an actor. For example, here’s an actor that records temperatures:
 -->
 
@@ -320,12 +361,12 @@ actor TemperatureLogger {
 <!--
 You introduce an actor with the actor keyword, followed by its definition in a pair of braces. The TemperatureLogger actor has properties that other code outside the actor can access, and restricts the max property so only code inside the actor can update the maximum value.
 
-You create an instance of an actor using the same initializer syntax as structures and classes. When you access a property or method of an actor, you use await to mark the potential suspension point—for example:
+You create an instance of an actor using the same initializer syntax as structures and classes. When you access a property or method of an actor, you use await to mark the potential suspension point. For example:
 -->
 
 `actor` 키워드를 사용하여 행위자를 도입하고 중괄호로 정의합니다. `TemperatureLogger` 행위자는 행위자 외부의 다른 코드가 접근할 수 있는 프로퍼티가 있으며 행위자 내부의 코드만 최대값을 업데이트 할 수 있게 `max` 프로퍼티를 제한합니다.
 
-구조체와 클래스와 같은 초기화 구문으로 행위자의 인스턴스를 생성합니다. 행위자의 프로퍼티 또는 메서드에 접근할 때 일시 중단 지점을 나타내기 위해 `await` 를 사용합니다—예를 들어:
+구조체와 클래스와 같은 초기화 구문으로 행위자의 인스턴스를 생성합니다. 행위자의 프로퍼티 또는 메서드에 접근할 때 일시 중단 지점을 나타내기 위해 `await` 를 사용합니다. 예를 들어:
 
 ```swift
 let logger = TemperatureLogger(label: "Outdoors", measurement: 25)
@@ -363,7 +404,7 @@ The update(with:) method is already running on the actor, so it doesn’t mark i
 
 In this case, the code running elsewhere would read incorrect information because its access to the actor was interleaved in the middle of the call to update(with:) while the data was temporarily invalid. You can prevent this problem when using Swift actors because they only allow one operation on their state at a time, and because that code can be interrupted only in places where await marks a suspension point. Because update(with:) doesn’t contain any suspension points, no other code can access the data in the middle of an update.
 
-If you try to access those properties from outside the actor, like you would with an instance of a class, you’ll get a compile-time error; for example:
+If you try to access those properties from outside the actor, like you would with an instance of a class, you’ll get a compile-time error. For example:
 -->
 
 `update(with:)` 메서드는 행위자에서 이미 실행 중이므로 `max` 와 같은 프로퍼티에 대한 접근을 `await` 로 표시하지 않습니다. 이 메서드는 행위자가 변경 가능한 상태와 상호 작용하기 위해 한 번에 하나의 작업만 허용하는 이유 중 하나를 보여줍니다: 행위자의 상태에 대한 일부 업데이트는 일시적으로 불변성을 깨뜨립니다. `TemperatureLogger` 행위자는 온도 목록과 최대 온도를 추적하고 새로운 측정값을 기록할 때 최대 온도를 업데이트 합니다. 업데이트 도중에 새로운 측정값을 추가한 후 `max` 를 업데이트 하기 전에 온도 로거는 일시적으로 일치하지 않는 상태가 됩니다. 여러 작업이 동일한 인스턴스에 상호 작용하는 것을 방지하면 다음 이벤트 시퀀스와 같은 문제를 방지할 수 있습니다:
@@ -374,7 +415,7 @@ If you try to access those properties from outside the actor, like you would wit
 
 이러한 경우 다른 곳에서 실행 중인 코드는 데이터가 일시적으로 유효하지 않은 동안 `update(with:)` 호출 중간에 행위자에 대한 접근이 인터리브 \(interleaved\) 되어 잘못된 정보를 읽습니다. Swift 행위자는 한 번에 해당 상태에 대해 하나의 작업만 허용하고 해당 코드는 `await` 가 일시 중단 지점으로 표시되는 위치에서만 중단될 수 있기 때문에 Swift 행위자를 사용하여 이 문제를 방지할 수 있습니다. `update(with:)` 는 일시 중단 지점을 포함하지 않으므로 다른 코드는 업데이트 중간에 데이터에 접근할 수 없습니다.
 
-클래스의 인스턴스와 같이 행위자의 외부에서 프로퍼티에 접근하려고 하면 컴파일 때 에러가 발생합니다; 예를 들어:
+클래스의 인스턴스와 같이 행위자의 외부에서 프로퍼티에 접근하려고 하면 컴파일 때 에러가 발생합니다. 예를 들어:
 
 ```swift
 print(logger.max)  // Error
@@ -386,3 +427,70 @@ Accessing logger.max without writing await fails because the properties of an ac
 
 `await` 작성 없이 `logger.max` 에 접근하는 것은 행위자의 프로퍼티가 해당 행위자의 분리된 로컬 상태의 부분이기 때문에 실패합니다. Swift 는 행위자 내부의 코드만 행위자의 로컬 상태에 접근할 수 있도록 보장합니다. 이 보장을 _행위자 분리 \(actor isolation\)_ 이라고 합니다.
 
+## 전송 가능 타입 \(Sendable Types\)
+
+<!--
+Tasks and actors let you divide a program into pieces that can safely run concurrently. Inside of a task or an instance of an actor, the part of a program that contains mutable state, like variables and properties, is called a concurrency domain. Some kinds of data can’t be shared between concurrency domains, because that data contains mutable state, but it doesn’t protect against overlapping access.
+-->
+
+작업 \(Tasks\) 와 행위자 \(actors\) 는 프로그램을 동시에 안전하게 실행할 수 있는 조각으로 나눌 수 있습니다. 작업 또는 행위자의 인스턴스 내에서 변수와 프로퍼티와 같은 변경 가능한 상태를 포함하는 프로그램의 일부분을 동시성 도메인 \(concurrency domain\) 이라고 부릅니다. 어떤 데이터는 데이터가 변경 가능한 상태를 포함하지만 동시 접근에 대해 보호되지 않으므로 동시성 도메인 간에 공유될 수 없습니다.
+
+<!--
+A type that can be shared from one concurrency domain to another is known as a sendable type. For example, it can be passed as an argument when calling an actor method or be returned as the result of a task. The examples earlier in this chapter didn’t discuss sendability because those examples use simple value types that are always safe to share for the data being passed between concurrency domains. In contrast, some types aren’t safe to pass across concurrency domains. For example, a class that contains mutable properties and doesn’t serialize access to those properties can produce unpredictable and incorrect results when you pass instances of that class between different tasks.
+-->
+
+한 동시성 도메인에서 다른 동시성 도메인으로 공유될 수 있는 타입을 _전송 가능_ 타입 \(_sendable_ type\) 이라고 합니다. 예를 들어, 행위자 메서드로 호출될 때 인자로 전달되거나 작업의 결과로 반환될 수 있습니다. 이 챕터의 앞부분에 있는 예제들은 동시성 도메인 간에 전달되는 데이터는 항상 안전한 간단한 값 타입을 사용하기 때문에 전송 가능성에 대해 논의하지 않았습니다. 반대로 일부 타입은 동시성 도메인 간에 전달하기 위해 안전하지 않습니다. 예를 들어, 변경 가능한 프로퍼티를 포함하고 해당 프로퍼티에 순차적으로 접근하지 않는 클래스는 서로 다른 작업 클래스의 인스턴스에 전달될 때 예상할 수 없고 잘못된 결과를 생성할 수 있습니다.
+
+<!--
+You mark a type as being sendable by declaring conformance to the Sendable protocol. That protocol doesn’t have any code requirements, but it does have semantic requirements that Swift enforces. In general, there are three ways for a type to be sendable:
+
+* The type is a value type, and its mutable state is made up of other sendable data—for example, a structure with stored properties that are sendable or an enumeration with associated values that are sendable.
+
+* The type doesn’t have any mutable state, and its immutable state is made up of other sendable data—for example, a structure or class that has only read-only properties.
+
+* The type has code that ensures the safety of its mutable state, like a class that’s marked @MainActor or a class that serializes access to its properties on a particular thread or queue.
+
+For a detailed list of the semantic requirements, see the Sendable protocol reference.
+
+Some types are always sendable, like structures that have only sendable properties and enumerations that have only sendable associated values. For example:
+-->
+
+`Sendable` 프로토콜을 선언하여 전송 가능한 타입으로 표시합니다. 이 프로토콜은 어떠한 코드 요구사항을 가지지 않지만 Swift 가 적용하는 의미론적 요구사항이 있습니다. 일반적으로 타입을 전송 가능한 것으로 나타내기 위한 세가지 방법이 있습니다:
+
+* 타입은 값 타입이고 변경 가능한 상태는 다른 전송 가능한 데이터로 구성됩니다-예를 들어, 전송 가능한 저장된 프로퍼티가 있는 구조체 또는 전송 가능한 연관된 값이 있는 열거형이 있습니다.
+
+* 타입은 변경 가능한 상태가 없으며 변경 불가능한 상태는 다른 전송 가능한 데이터로 구성됩니다-예를 들어, 읽기전용 프로퍼티만 있는 구조체 또는 클래스가 있습니다.
+
+* 타입은 `@MainActor` 로 표시된 클래스나 특정 쓰레드나 큐에서 프로퍼티에 순차적으로 접근하는 클래스와 같이 변경 가능한 상태의 안정성을 보장하는 코드를 가지고 있습니다.
+
+의미론적 요구사항의 자세한 리스트는 [전송 가능 \(Sendable\)](https://developer.apple.com/documentation/swift/sendable) 프로토콜을 참고 바랍니다.
+
+전송 가능한 프로퍼티만 가지는 구조체와 전송 가능한 연관된 값만 가지는 열거형과 같이 어떠한 타입은 항상 전송 가능합니다. 예를 들어:
+
+```swift
+struct TemperatureReading: Sendable {
+    var measurement: Int
+}
+
+extension TemperatureLogger {
+    func addReading(from reading: TemperatureReading) {
+        measurements.append(reading.measurement)
+    }
+}
+
+let logger = TemperatureLogger(label: "Tea kettle", measurement: 85)
+let reading = TemperatureReading(measurement: 45)
+await logger.addReading(from: reading)
+```
+
+<!--
+Because TemperatureReading is a structure that has only sendable properties, and the structure isn’t marked public or @usableFromInline, it’s implicitly sendable. Here’s a version of the structure where conformance to the Sendable protocol is implied:
+-->
+
+`TemperatureReading` 은 전송 가능한 프로퍼티만 가지는 구조체이며 `public` 또는 `@usableFromInline` 으로 표시되지 않은 구조체이므로 암시적으로 전송 가능합니다. 다음은 `Sendable` 프로토콜을 준수가 암시되는 구조체입니다:
+
+```swift
+struct TemperatureReading {
+    var measurement: Int
+}
+```

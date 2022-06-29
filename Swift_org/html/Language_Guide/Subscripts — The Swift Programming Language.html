@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Subscripts &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Subscripts &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -150,8 +150,8 @@
 <p>In this example, a new instance of <code class="docutils literal notranslate"><span class="pre">TimesTable</span></code> is created to represent the three-times-table. This is indicated by passing a value of <code class="docutils literal notranslate"><span class="pre">3</span></code> to the structure’s <code class="docutils literal notranslate"><span class="pre">initializer</span></code> as the value to use for the instance’s <code class="docutils literal notranslate"><span class="pre">multiplier</span></code> parameter.</p>
 <p>You can query the <code class="docutils literal notranslate"><span class="pre">threeTimesTable</span></code> instance by calling its subscript, as shown in the call to <code class="docutils literal notranslate"><span class="pre">threeTimesTable[6]</span></code>. This requests the sixth entry in the three-times-table, which returns a value of <code class="docutils literal notranslate"><span class="pre">18</span></code>, or <code class="docutils literal notranslate"><span class="pre">3</span></code> times <code class="docutils literal notranslate"><span class="pre">6</span></code>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">An <em>n</em>-times-table is based on a fixed mathematical rule. It isn’t appropriate to set <code class="docutils literal notranslate"><span class="pre">threeTimesTable[someIndex]</span></code> to a new value, and so the subscript for <code class="docutils literal notranslate"><span class="pre">TimesTable</span></code> is defined as a read-only subscript.</p>
+<p class="admonition-title">Note</p>
+<p>An <em>n</em>-times-table is based on a fixed mathematical rule. It isn’t appropriate to set <code class="docutils literal notranslate"><span class="pre">threeTimesTable[someIndex]</span></code> to a new value, and so the subscript for <code class="docutils literal notranslate"><span class="pre">TimesTable</span></code> is defined as a read-only subscript.</p>
 </div>
 </div>
 <div class="section" id="ID307">
@@ -164,8 +164,8 @@
 <p>The example above defines a variable called <code class="docutils literal notranslate"><span class="pre">numberOfLegs</span></code> and initializes it with a dictionary literal containing three key-value pairs. The type of the <code class="docutils literal notranslate"><span class="pre">numberOfLegs</span></code> dictionary is inferred to be <code class="docutils literal notranslate"><span class="pre">[String:</span> <span class="pre">Int]</span></code>. After creating the dictionary, this example uses subscript assignment to add a <code class="docutils literal notranslate"><span class="pre">String</span></code> key of <code class="docutils literal notranslate"><span class="pre">&quot;bird&quot;</span></code> and an <code class="docutils literal notranslate"><span class="pre">Int</span></code> value of <code class="docutils literal notranslate"><span class="pre">2</span></code> to the dictionary.</p>
 <p>For more information about <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> subscripting, see <a class="reference internal" href="CollectionTypes.html#ID116"><span class="std std-ref">Accessing and Modifying a Dictionary</span></a>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Swift’s <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> type implements its key-value subscripting as a subscript that takes and returns an <em>optional</em> type. For the <code class="docutils literal notranslate"><span class="pre">numberOfLegs</span></code> dictionary above, the key-value subscript takes and returns a value of type <code class="docutils literal notranslate"><span class="pre">Int?</span></code>, or “optional int”. The <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> type uses an optional subscript type to model the fact that not every key will have a value, and to give a way to delete a value for a key by assigning a <code class="docutils literal notranslate"><span class="pre">nil</span></code> value for that key.</p>
+<p class="admonition-title">Note</p>
+<p>Swift’s <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> type implements its key-value subscripting as a subscript that takes and returns an <em>optional</em> type. For the <code class="docutils literal notranslate"><span class="pre">numberOfLegs</span></code> dictionary above, the key-value subscript takes and returns a value of type <code class="docutils literal notranslate"><span class="pre">Int?</span></code>, or “optional int”. The <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> type uses an optional subscript type to model the fact that not every key will have a value, and to give a way to delete a value for a key by assigning a <code class="docutils literal notranslate"><span class="pre">nil</span></code> value for that key.</p>
 </div>
 </div>
 <div class="section" id="ID308">
@@ -202,13 +202,13 @@
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">matrix</span> = <span class="nv">Matrix</span>(<span class="nv">rows</span>: <span class="m">2</span>, <span class="nv">columns</span>: <span class="m">2</span>)
 </li></ol></div></div></div>
 <p>The example above creates a new <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> instance with two rows and two columns. The <code class="docutils literal notranslate"><span class="pre">grid</span></code> array for this <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> instance is effectively a flattened version of the matrix, as read from top left to bottom right:</p>
-<img alt="../_images/subscriptMatrix01_2x.png" class="align-center" src="../_images/subscriptMatrix01_2x.png" style="width: 396px;" />
+<img alt="../_images/subscriptMatrix01_2x.png" class="align-center" src="../_images/subscriptMatrix01_2x.png" style="width: 396.0px;" />
 <p>Values in the matrix can be set by passing row and column values into the subscript, separated by a comma:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">matrix</span>[<span class="m">0</span>, <span class="m">1</span>] = <span class="m">1.5</span>
 </li><li><span class="nv">matrix</span>[<span class="m">1</span>, <span class="m">0</span>] = <span class="m">3.2</span>
 </li></ol></div></div></div>
 <p>These two statements call the subscript’s setter to set a value of <code class="docutils literal notranslate"><span class="pre">1.5</span></code> in the top right position of the matrix (where <code class="docutils literal notranslate"><span class="pre">row</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code>), and <code class="docutils literal notranslate"><span class="pre">3.2</span></code> in the bottom left position (where <code class="docutils literal notranslate"><span class="pre">row</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>):</p>
-<img alt="../_images/subscriptMatrix02_2x.png" class="align-center" src="../_images/subscriptMatrix02_2x.png" style="width: 187px;" />
+<img alt="../_images/subscriptMatrix02_2x.png" class="align-center" src="../_images/subscriptMatrix02_2x.png" style="width: 187.0px;" />
 <p>The <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> subscript’s getter and setter both contain an assertion to check that the subscript’s <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code> values are valid. To assist with these assertions, <code class="docutils literal notranslate"><span class="pre">Matrix</span></code> includes a convenience method called <code class="docutils literal notranslate"><span class="pre">indexIsValid(row:column:)</span></code>, which checks whether the requested <code class="docutils literal notranslate"><span class="pre">row</span></code> and <code class="docutils literal notranslate"><span class="pre">column</span></code> are inside the bounds of the matrix:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">indexIsValid</span>(<span class="nv">row</span>: <span class="nc">Int</span>, <span class="nv">column</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Bool</span> {
 </li><li>    <span class="k">return</span> <span class="nv">row</span> &gt;= <span class="m">0</span> &amp;&amp; <span class="nv">row</span> &lt; <span class="nv">rows</span> &amp;&amp; <span class="nv">column</span> &gt;= <span class="m">0</span> &amp;&amp; <span class="nv">column</span> &lt; <span class="nv">columns</span>
@@ -239,6 +239,14 @@
     <div class="next_previous">
         <p class="previous"><a href="Methods.html">Methods</a></p>
         <p class="next"><a href="Inheritance.html">Inheritance</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

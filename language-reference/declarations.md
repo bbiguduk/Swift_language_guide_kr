@@ -86,10 +86,9 @@ Providing more detail limits which symbols are imported—you can specify a spec
 ![](<../.gitbook/assets/스크린샷 2021-02-22 오전 11.29.21.png>)
 
 > GRAMMAR OF AN IMPORT DECLARATION\
-> import-declaration → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attributes) $$_{opt}$$ `import` [import-kind](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_import-kind) opt [import-path](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_import-path)\
+> import-declaration → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attributes) $$_{opt}$$ `import` [import-kind](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_import-kind) $$_{opt}$$ [import-path](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_import-path)\
 > import-kind → `typealias` | `struct` | `class` | `enum` | `protocol` | `let` | `var` | `func`\
-> import-path → [import-path-identifier](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_import-path-identifier) | [import-path-identifier](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_import-path-identifier) `.` [import-path](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_import-path)\
-> import-path-identifier → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_identifier) | [operator](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_operator)
+> import-path → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_identifier) | [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_identifier) `.` [import-path](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_import-path)
 
 ## 상수 선언 (Constant Declaration)
 
@@ -783,6 +782,16 @@ The async keyword is part of the function’s type, and synchronous functions ar
 비동기 함수 또는 메서드에 대한 호출은 `await` 표현식으로 래핑되어야 합니다—즉, `await` 연산자 범위 안에 있어야 합니다.
 
 `async` 키워드는 함수 타입의 부분이고 동기 함수는 비동기 함수의 하위 타입입니다. 결과적으로 비동기 함수가 필요한 컨텍스트에서 동기 함수를 사용할 수 있습니다. 예를 들어 비동기 메서드를 동기 메서드로 재정의 할 수 있으며 동기 메서드는 비동기 메서드가 필요한 프로토콜 요구사항을 충족할 수 있습니다.
+
+<!--
+You can overload a function based on whether or not the function is asynchronous. At the call site, context determines which overload is used: In an asynchronous context, the asynchronous function is used, and in a synchronous context, the synchronous function is used.
+
+An asynchronous method can’t override a synchronous method, and an asynchronous method can’t satisfy a protocol requirement for a synchronous method. That said, a synchronous method can override an asynchronous method, and a synchronous method can satisfy a protocol requirement for an asynchronous method.
+-->
+
+함수가 비동기인지 아닌지에 따라 함수를 오버로드 할 수 있습니다. 호출 부분에서 컨텍스트는 사용될 오버로드를 결정합니다: 비동기 컨텍스트에서는 비동기 함수가 사용되고 동기 컨텍스트에서는 동기 함수가 사용됩니다.
+
+비동기 메서드는 동기 메서드를 재정의할 수 없으며 비동기 메서드는 동기 메서드에 대한 프로토콜 요구사항을 충족시킬 수 없습니다. 이 말은, 동기 메서드는 비동기 메서드를 재정의할 수 있으며 동기 메서드는 비동기 메서드에 대한 프로토콜 요구사항을 충족할 수 있습니다.
 
 ### 반환되지 않는 함수 (Functions that Never Return)
 
@@ -1492,12 +1501,12 @@ If you mark an initializer with the required declaration modifier, you don’t a
 > `required` 선언 수식어로 초기화 구문을 표시하면 하위클래스에서 필수 초기화 구문을 재정의 할 때 `override` 수식어로 초기화 구문을 표시하지 않아도 됩니다.
 
 <!--
-Just like functions and methods, initializers can throw or rethrow errors. And just like functions and methods, you use the throws or rethrows keyword after an initializer’s parameters to indicate the appropriate behavior.
+Just like functions and methods, initializers can throw or rethrow errors. And just like functions and methods, you use the throws or rethrows keyword after an initializer’s parameters to indicate the appropriate behavior. Likewise, initializers can be asynchronous, and you use the async keyword to indicate this.
 
 To see examples of initializers in various type declarations, see Initialization.
 -->
 
-함수와 메서드처럼 초기화 구문은 에러를 던지거나 다시 던질 수 있습니다. 그리고 함수와 메서드처럼 적절한 동작을 나타내기 위해 초기화 구문의 파라미터 뒤에 `throws` 또는 `rethrows` 키워드를 사용합니다.
+함수와 메서드처럼 초기화 구문은 에러를 던지거나 다시 던질 수 있습니다. 그리고 함수와 메서드처럼 적절한 동작을 나타내기 위해 초기화 구문의 파라미터 뒤에 `throws` 또는 `rethrows` 키워드를 사용합니다. 마찬가지로 초기화 구문은 비동기일 수 있으며 이것을 나타내기위해 `async` 키워드를 사용합니다.
 
 여러 타입 선언에서 초기화 구문의 예제는 [초기화 (Initialization)](../language-guide-1/initialization.md) 을 참고 바랍니다.
 
@@ -1564,8 +1573,8 @@ For more information and to see examples of failable initializers, see Failable 
 실패 가능한 초기화 구문에 대한 자세한 내용과 예제는 [실패 가능한 초기화 구문 (Failable Initializers)](../language-guide-1/initialization.md#failable-initializers) 을 참고 바랍니다.
 
 > GRAMMAR OF AN INITIALIZER DECLARATION\
-> initializer-declaration → [initializer-head](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer-head) [generic-parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar\_generic-parameter-clause) $$_{opt}$$ [parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_parameter-clause) `throws`opt[generic-where-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar\_generic-where-clause) $$_{opt}$$ [initializer-body](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer-body)\
-> initializer-declaration → [initializer-head](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer-head) [generic-parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar\_generic-parameter-clause) $$_{opt}$$ [parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_parameter-clause) `rethrows`[generic-where-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar\_generic-where-clause) $$_{opt}$$ [initializer-body](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer-body)\
+> initializer-declaration → [initializer-head](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer-head) [generic-parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar\_generic-parameter-clause) $$_{opt}$$ [parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_parameter-clause) `async`$$_{opt}$$ `throws`$$_{opt}$$[generic-where-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar\_generic-where-clause) $$_{opt}$$ [initializer-body](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer-body)\
+> initializer-declaration → [initializer-head](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer-head) [generic-parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar\_generic-parameter-clause) $$_{opt}$$ [parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_parameter-clause) `async`$$_{opt}$$ `rethrows`[generic-where-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar\_generic-where-clause) $$_{opt}$$ [initializer-body](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer-body)\
 > initializer-head → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attributes) $$_{opt}$$ [declaration-modifiers](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_declaration-modifiers) $$_{opt}$$ `init`\
 > initializer-head → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attributes) $$_{opt}$$ [declaration-modifiers](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_declaration-modifiers) $$_{opt}$$ `init` `?`\
 > initializer-head → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attributes) $$_{opt}$$ [declaration-modifiers](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_declaration-modifiers) $$_{opt}$$ `init` `!`\

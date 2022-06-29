@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Methods &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Methods &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -141,9 +141,9 @@
 </li></ol></div></div></div>
 <p>The <code class="docutils literal notranslate"><span class="pre">Counter</span></code> class defines three instance methods:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">increment()</span></code> increments the counter by <code class="docutils literal notranslate"><span class="pre">1</span></code>.</li>
-<li><code class="docutils literal notranslate"><span class="pre">increment(by:</span> <span class="pre">Int)</span></code> increments the counter by a specified integer amount.</li>
-<li><code class="docutils literal notranslate"><span class="pre">reset()</span></code> resets the counter to zero.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">increment()</span></code> increments the counter by <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">increment(by:</span> <span class="pre">Int)</span></code> increments the counter by a specified integer amount.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">reset()</span></code> resets the counter to zero.</p></li>
 </ul>
 <p>The <code class="docutils literal notranslate"><span class="pre">Counter</span></code> class also declares a variable property, <code class="docutils literal notranslate"><span class="pre">count</span></code>, to keep track of the current counter value.</p>
 <p>You call instance methods with the same dot syntax as properties:</p>
@@ -244,8 +244,8 @@
 <h2>Type Methods<a class="headerlink" href="#ID241" title="Permalink to this headline">¶</a></h2>
 <p>Instance methods, as described above, are methods that you call on an instance of a particular type. You can also define methods that are called on the type itself. These kinds of methods are called <em>type methods</em>. You indicate type methods by writing the <code class="docutils literal notranslate"><span class="pre">static</span></code> keyword before the method’s <code class="docutils literal notranslate"><span class="pre">func</span></code> keyword. Classes can use the <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword instead, to allow subclasses to override the superclass’s implementation of that method.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In Objective-C, you can define type-level methods only for Objective-C classes. In Swift, you can define type-level methods for all classes, structures, and enumerations. Each type method is explicitly scoped to the type it supports.</p>
+<p class="admonition-title">Note</p>
+<p>In Objective-C, you can define type-level methods only for Objective-C classes. In Swift, you can define type-level methods for all classes, structures, and enumerations. Each type method is explicitly scoped to the type it supports.</p>
 </div>
 <p>Type methods are called with dot syntax, like instance methods. However, you call type methods on the type, not on an instance of that type. Here’s how you call a type method on a class called <code class="docutils literal notranslate"><span class="pre">SomeClass</span></code>:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SomeClass</span> {
@@ -323,6 +323,14 @@
     <div class="next_previous">
         <p class="previous"><a href="Properties.html">Properties</a></p>
         <p class="next"><a href="Subscripts.html">Subscripts</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

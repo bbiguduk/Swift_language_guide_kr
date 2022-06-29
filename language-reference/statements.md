@@ -108,7 +108,7 @@ _조건 (condition)_ 의 값은 타입 `Bool` 이거나 `Bool` 에 브릿지된 
 > condition-list → [condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_condition) | [condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_condition) `,` [condition-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_condition-list)\
 > condition → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_expression) | [availability-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_availability-condition) | [case-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_case-condition) | [optional-binding-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_optional-binding-condition)\
 > case-condition → `case` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar\_pattern) [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer)\
-> optional-binding-condition → `let` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar\_pattern) [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer) | `var` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar\_pattern) [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer)
+> optional-binding-condition → `let` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar\_pattern) [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer) $$_{opt}$$ | `var` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar\_pattern) [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer) $$_{opt}$$
 
 ### Repeat-While 구문 (Repeat-While Statement)
 
@@ -718,12 +718,12 @@ print("Compiled with the Swift 5 compiler or later in a Swift mode earlier than 
 ```
 
 <!--
-The argument for the canImport() platform condition is the name of a module that may not be present on all platforms. This condition tests whether it’s possible to import the module, but doesn’t actually import it. If the module is present, the platform condition returns true; otherwise, it returns false.
+The argument for the canImport() platform condition is the name of a module that may not be present on all platforms. The module can include periods (.) in its name. This condition tests whether it’s possible to import the module, but doesn’t actually import it. If the module is present, the platform condition returns true; otherwise, it returns false.
 
 The targetEnvironment() platform condition returns true when code is being compiled for the specified environment; otherwise, it returns false.
 -->
 
-`canImport()` 플랫폼 조건에 대한 인수는 모든 플랫폼에 존재하지 않을 수 있는 모듈의 이름입니다. 이 조건은 해당 모듈을 가져올 수 있는지 검사하지만 실제로 가져오지 않습니다. 모듈이 있으면 플랫폼 조건은 `true` 를 반환하고 그렇지 않으면 `false` 를 반환합니다.
+`canImport()` 플랫폼 조건에 대한 인수는 모든 플랫폼에 존재하지 않을 수 있는 모듈의 이름입니다. 모듈은 이름에 마침표 (`.`)를 포함할 수 있습니다. 이 조건은 해당 모듈을 가져올 수 있는지 검사하지만 실제로 가져오지 않습니다. 모듈이 있으면 플랫폼 조건은 `true` 를 반환하고 그렇지 않으면 `false` 를 반환합니다.
 
 `targetEnvironment()` 플랫폼 조건은 지정한 환경에 대해 코드가 컴파일 되면 `true` 를 반환하고 그렇지 않으면 `false` 를 반환합니다.
 
@@ -788,7 +788,6 @@ For information about how you can wrap explicit member expressions in conditiona
 > architecture → `i386` | `x86_64` | `arm` | `arm64`\
 > swift-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits) [swift-version-continuation](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_swift-version-continuation) $$_{opt}$$\
 > swift-version-continuation → `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits) [swift-version-continuation](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_swift-version-continuation) $$_{opt}$$\
-> module-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_identifier)\
 > environment → `simulator` | `macCatalyst`
 
 ### 라인 제어 구문 (Line Control Statement)
@@ -861,17 +860,26 @@ You use an availability condition to execute a block of code, depending on wheth
 
 The availability condition takes a comma-separated list of platform names and versions. Use iOS, macOS, watchOS, and tvOS for the platform names, and include the corresponding version numbers. The * argument is required and specifies that on any other platform, the body of the code block guarded by the availability condition executes on the minimum deployment target specified by your target.
 
-Unlike Boolean conditions, you can’t combine availability conditions using logical operators such as && and ||.
+Unlike Boolean conditions, you can’t combine availability conditions using logical operators like && and ||. Instead of using ! to negate an availability condition, use an unavailability condition, which has the following form:
 -->
 
 런타임 시 API 가 사용가능 여부에 따라 코드의 블럭을 실행하기 위해 가용성 조건을 사용합니다. 컴파일러는 코드의 블럭이 가능한 API 인 경우 가용성 조건에서 정보를 사용합니다.
 
 가용성 조건은 콤마로 구분된 플랫폼 이름과 버전을 가집니다. 플랫폼 이름으로 `iOS`, `macOS`, `watchOS`, 그리고 `tvOS` 를 사용하고 해당 버전 숫자를 포함합니다. `*` 인수는 필수이고 다른 플랫폼에서 가용성 조건으로 보호되는 코드 블럭의 바디가 타겟에 지정한 최소 배포 타겟에서 실행되도록 합니다.
 
-불린 조건과 다르게 `&&` 와 `||` 와 같은 논리 연산자를 사용하여 가용성 조건을 결합할 수 없습니다.
+불린 조건과 다르게 `&&` 와 `||` 와 같은 논리 연산자를 사용하여 가용성 조건을 결합할 수 없습니다. 비가용성 조건을 사용하기 위해 가용성 조건에 부정을 나타내기 위해 `!` 을 사용하는 대신에 다음의 형식을 가질 수 있습니다:
+
+![](<../.gitbook/assets/unavailability_form.png>)
+
+<!--
+The #unavailable form is syntactic sugar that negates the condition. In an unavailability condition, the * argument is implicit and must not be included. It has the same meaning as the * argument in an availability condition.
+-->
+
+`#unavailable` 형식은 조건을 부정하는 구문입니다. 비가용성 조건에서 `*` 인자는 암시적이고 포함되어서는 안됩니다. `*` 의 의미는 가용성 조건과 같은 의미를 가집니다.
 
 > GRAMMAR OF AN AVAILABILITY CONDITION\
 > availability-condition → `#available` `(` [availability-arguments](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_availability-arguments) `)`\
+> availability-condition → `#unavailable` `(` [availability-arguments](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-arguments) `)`\
 > availability-arguments → [availability-argument](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_availability-argument) | [availability-argument](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_availability-argument) `,` [availability-arguments](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_availability-arguments)\
 > availability-argument → [platform-name](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_platform-name) [platform-version](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_platform-version)\
 > availability-argument → `*`\

@@ -53,7 +53,7 @@
 > property-wrapper-projection → `$` [identifier-characters](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier-characters)
 >
 > GRAMMAR OF A LITERAL  
-> literal → [numeric-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_numeric-literal) \| [string-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_string-literal) \| [boolean-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_boolean-literal) \| [nil-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_nil-literal)  
+> literal → [numeric-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_numeric-literal) | [string-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_string-literal) | [regular-expression-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_regular-expression-literal) | [boolean-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_boolean-literal) | [nil-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_nil-literal)\
 > numeric-literal → `-` $$_{opt}$$ [integer-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_integer-literal) \| `-` $$_{opt}$$ [floating-point-literal](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_floating-point-literal)  
 > boolean-literal → `true` \| `false`  
 > nil-literal → `nil`
@@ -119,6 +119,13 @@
 > escaped-character → [escape-sequence](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_escape-sequence) `u` `{` [unicode-scalar-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_unicode-scalar-digits) `}`  
 > unicode-scalar-digits → 1 에서 8 자리의 16진수  
 > escaped-newline → [escape-sequence](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_escape-sequence) [inline-spaces](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_inline-spaces) $$_{opt}$$ [line-break](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_line-break)
+>
+> GRAMMAR OF A REGULAR EXPRESSION LITERAL\
+> regular-expression-literal → [regular-expression-literal-opening-delimiter](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_regular-expression-literal-opening-delimiter) [regular-expression](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_regular-expression) [regular-expression-literal-closing-delimiter](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_regular-expression-literal-closing-delimiter)\
+> regular-expression → 모든 정규 표현식\
+> regular-expression-literal-opening-delimiter → [extended-regular-expression-literal-delimiter](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_extended-regular-expression-literal-delimiter) $$_{opt}$$ `/`\
+> regular-expression-literal-closing-delimiter → `/` [extended-regular-expression-literal-delimiter](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_extended-regular-expression-literal-delimiter) $$_{opt}$$\
+> extended-regular-expression-literal-delimiter → `#` [extended-regular-expression-literal-delimiter](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_extended-regular-expression-literal-delimiter) $$_{opt}$$
 >
 > GRAMMAR OF OPERATORS  
 > operator → [operator-head](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_operator-head) [operator-characters](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_operator-characters) $$_{opt}$$  
@@ -187,7 +194,7 @@
 > element-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)
 >
 > GRAMMAR OF A FUNCTION TYPE  
-> function-type → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ [function-type-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument-clause) `throws` $$_{opt}$$ `->` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type)  
+> function-type → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attributes) $$_{opt}$$ [function-type-argument-clause](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_function-type-argument-clause) `async` $$_{opt}$$ `throws` $$_{opt}$$ `->` [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type)\
 > function-type-argument-clause → `(` `)`  
 > function-type-argument-clause → `(` [function-type-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument-list) `...` $$_{opt}$$ `)`  
 > function-type-argument-list → [function-type-argument](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument) \| [function-type-argument](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument) `,` [function-type-argument-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_function-type-argument-list)  
@@ -224,7 +231,7 @@
 >
 > GRAMMAR OF A TYPE INHERITANCE CLAUSE  
 > type-inheritance-clause → `:` [type-inheritance-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-inheritance-list)  
-> type-inheritance-list → [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-identifier) \| [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-identifier) `,` [type-inheritance-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-inheritance-list)
+> type-inheritance-list → [attributes](attributes.md#unknown) $$_{opt}$$ [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type-identifier) | [attributes](attributes.md#unknown) $$_{opt}$$ [type-identifier](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type-identifier) `,` [type-inheritance-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type-inheritance-list)
 
 ## 표현식 \(Expressions\)
 
@@ -306,7 +313,7 @@
 > superclass-initializer-expression → `super` `.` `init`
 >
 > GRAMMAR OF A CLOSURE EXPRESSION  
-> closure-expression → `{` [closure-signature](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-signature) $$_{opt}$$ [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statements) $$_{opt}$$ `}`  
+> closure-expression → `{` [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ [closure-signature](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_closure-signature) $$_{opt}$$ [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statements) $$_{opt}$$ `}`\
 > closure-signature → [capture-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-list) $$_{opt}$$ [closure-parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter-clause) `throws` $$_{opt}$$ [function-result](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_function-result) $$_{opt}$$ `in`  
 > closure-signature → [capture-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_capture-list) `in`  
 > closure-parameter-clause → `(` `)` \| `(` [closure-parameter-list](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_closure-parameter-list) `)` \| [identifier-list](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier-list)  
@@ -424,7 +431,7 @@
 > condition-list → [condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_condition) \| [condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_condition) `,` [condition-list](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_condition-list)  
 > condition → [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression) \| [availability-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-condition) \| [case-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_case-condition) \| [optional-binding-condition](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_optional-binding-condition)  
 > case-condition → `case` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar_pattern) [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_initializer)  
-> optional-binding-condition → `let` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar_pattern) [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_initializer) \| `var` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar_pattern) [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_initializer)
+> optional-binding-condition → `let` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar\_pattern) [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer) $$_{opt}$$ | `var` [pattern](https://docs.swift.org/swift-book/ReferenceManual/Patterns.html#grammar\_pattern) [initializer](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer) $$_{opt}$$
 >
 > GRAMMAR OF A REPEAT-WHILE STATEMENT  
 > repeat-while-statement → `repeat` [code-block](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_code-block) `while` [expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar_expression)
@@ -530,7 +537,6 @@
 > architecture → `i386` \| `x86_64` \| `arm` \| `arm64`  
 > swift-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits) [swift-version-continuation](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_swift-version-continuation) $$_{opt}$$  
 > swift-version-continuation → `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits) [swift-version-continuation](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_swift-version-continuation) $$_{opt}$$  
-> module-name → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier)  
 > environment → `simulator` \| `macCatalyst`
 >
 > GRAMMAR OF A LINE CONTROL STATEMENT  
@@ -546,6 +552,7 @@
 >
 > GRAMMAR OF AN AVAILABILITY CONDITION  
 > availability-condition → `#available` `(` [availability-arguments](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-arguments) `)`  
+> availability-condition → `#unavailable` `(` [availability-arguments](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-arguments) `)`\
 > availability-arguments → [availability-argument](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-argument) \| [availability-argument](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-argument) `,` [availability-arguments](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-arguments)  
 > availability-argument → [platform-name](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_platform-name) [platform-version](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_platform-version)  
 > availability-argument → `*`  
@@ -586,10 +593,9 @@
 > code-block → `{` [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_statements) $$_{opt}$$ `}`
 >
 > GRAMMAR OF AN IMPORT DECLARATION  
-> import-declaration → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ `import` [import-kind](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_import-kind) $$_{opt}$$ [import-path](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_import-path)  
-> import-kind → `typealias` \| `struct` \| `class` \| `enum` \| `protocol` \| `let` \| `var` \| `func`  
-> import-path → [import-path-identifier](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_import-path-identifier) \| [import-path-identifier](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_import-path-identifier) `.` [import-path](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_import-path)  
-> import-path-identifier → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_identifier) \| [operator](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_operator)
+> import-declaration → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attributes) $$_{opt}$$ `import` [import-kind](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_import-kind) $$_{opt}$$ [import-path](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_import-path)\
+> import-kind → `typealias` | `struct` | `class` | `enum` | `protocol` | `let` | `var` | `func`\
+> import-path → [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_identifier) | [identifier](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_identifier) `.` [import-path](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_import-path)
 >
 > GRAMMAR OF A CONSTANT DECLARATION  
 > constant-declaration → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ [declaration-modifiers](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_declaration-modifiers) $$_{opt}$$ `let` [pattern-initializer-list](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_pattern-initializer-list)  
@@ -715,8 +721,8 @@
 > protocol-associated-type-declaration → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ [access-level-modifier](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_access-level-modifier) $$_{opt}$$ `associatedtype`[typealias-name](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_typealias-name) [type-inheritance-clause](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar_type-inheritance-clause) $$_{opt}$$ [typealias-assignment](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_typealias-assignment) $$_{opt}$$ [generic-where-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-where-clause) $$_{opt}$$
 >
 > GRAMMAR OF AN INITIALIZER DECLARATION  
-> initializer-declaration → [initializer-head](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_initializer-head) [generic-parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-parameter-clause) $$_{opt}$$ [parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_parameter-clause) `throws` $$_{opt}$$ [generic-where-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-where-clause) $$_{opt}$$ [initializer-body](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_initializer-body)  
-> initializer-declaration → [initializer-head](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_initializer-head) [generic-parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-parameter-clause) $$_{opt}$$ [parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_parameter-clause) `rethrows`[generic-where-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar_generic-where-clause) $$_{opt}$$ [initializer-body](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_initializer-body)  
+> initializer-declaration → [initializer-head](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer-head) [generic-parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar\_generic-parameter-clause) $$_{opt}$$ [parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_parameter-clause) `async`$$_{opt}$$ `throws`$$_{opt}$$[generic-where-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar\_generic-where-clause) $$_{opt}$$ [initializer-body](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer-body)\
+> initializer-declaration → [initializer-head](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer-head) [generic-parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar\_generic-parameter-clause) $$_{opt}$$ [parameter-clause](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_parameter-clause) `async`$$_{opt}$$ `rethrows`[generic-where-clause](https://docs.swift.org/swift-book/ReferenceManual/GenericParametersAndArguments.html#grammar\_generic-where-clause) $$_{opt}$$ [initializer-body](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar\_initializer-body)\
 > initializer-head → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ [declaration-modifiers](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_declaration-modifiers) $$_{opt}$$ `init`  
 > initializer-head → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ [declaration-modifiers](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_declaration-modifiers) $$_{opt}$$ `init` `?`  
 > initializer-head → [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ [declaration-modifiers](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_declaration-modifiers) $$_{opt}$$ `init` `!`  

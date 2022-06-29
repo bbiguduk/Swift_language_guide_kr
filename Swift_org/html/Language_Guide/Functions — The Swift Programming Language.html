@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Functions &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Functions &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -161,8 +161,8 @@
 </li></ol></div></div></div>
 <p>You call the <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> function by passing it a <code class="docutils literal notranslate"><span class="pre">String</span></code> value after the <code class="docutils literal notranslate"><span class="pre">person</span></code> argument label, such as <code class="docutils literal notranslate"><span class="pre">greet(person:</span> <span class="pre">&quot;Anna&quot;)</span></code>. Because the function returns a <code class="docutils literal notranslate"><span class="pre">String</span></code> value, <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> can be wrapped in a call to the <code class="docutils literal notranslate"><span class="pre">print(_:separator:terminator:)</span></code> function to print that string and see its return value, as shown above.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The <code class="docutils literal notranslate"><span class="pre">print(_:separator:terminator:)</span></code> function doesn’t have a label for its first argument, and its other arguments are optional because they have a default value. These variations on function syntax are discussed below in <a class="reference internal" href="#ID166"><span class="std std-ref">Function Argument Labels and Parameter Names</span></a> and <a class="reference internal" href="#ID169"><span class="std std-ref">Default Parameter Values</span></a>.</p>
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">print(_:separator:terminator:)</span></code> function doesn’t have a label for its first argument, and its other arguments are optional because they have a default value. These variations on function syntax are discussed below in <a class="reference internal" href="#ID166"><span class="std std-ref">Function Argument Labels and Parameter Names</span></a> and <a class="reference internal" href="#ID169"><span class="std std-ref">Default Parameter Values</span></a>.</p>
 </div>
 <p>The body of the <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> function starts by defining a new <code class="docutils literal notranslate"><span class="pre">String</span></code> constant called <code class="docutils literal notranslate"><span class="pre">greeting</span></code> and setting it to a simple greeting message. This greeting is then passed back out of the function using the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword. In the line of code that says <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">greeting</span></code>, the function finishes its execution and returns the current value of <code class="docutils literal notranslate"><span class="pre">greeting</span></code>.</p>
 <p>You can call the <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> function multiple times with different input values. The example above shows what happens if it’s called with an input value of <code class="docutils literal notranslate"><span class="pre">&quot;Anna&quot;</span></code>, and an input value of <code class="docutils literal notranslate"><span class="pre">&quot;Brian&quot;</span></code>. The function returns a tailored greeting in each case.</p>
@@ -215,8 +215,8 @@
 </li></ol></div></div></div>
 <p>Because it doesn’t need to return a value, the function’s definition doesn’t include the return arrow (<code class="docutils literal notranslate"><span class="pre">-&gt;</span></code>) or a return type.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Strictly speaking, this version of the <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> function <em>does</em> still return a value, even though no return value is defined. Functions without a defined return type return a special value of type <code class="docutils literal notranslate"><span class="pre">Void</span></code>. This is simply an empty tuple, which is written as <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
+<p class="admonition-title">Note</p>
+<p>Strictly speaking, this version of the <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> function <em>does</em> still return a value, even though no return value is defined. Functions without a defined return type return a special value of type <code class="docutils literal notranslate"><span class="pre">Void</span></code>. This is simply an empty tuple, which is written as <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
 </div>
 <p>The return value of a function can be ignored when it’s called:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">printAndCount</span>(<span class="nv">string</span>: <span class="nc">String</span>) -&gt; <span class="nc">Int</span> {
@@ -233,8 +233,8 @@
 </li></ol></div></div></div>
 <p>The first function, <code class="docutils literal notranslate"><span class="pre">printAndCount(string:)</span></code>, prints a string, and then returns its character count as an <code class="docutils literal notranslate"><span class="pre">Int</span></code>. The second function, <code class="docutils literal notranslate"><span class="pre">printWithoutCounting(string:)</span></code>, calls the first function, but ignores its return value. When the second function is called, the message is still printed by the first function, but the returned value isn’t used.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Return values can be ignored, but a function that says it will return a value must always do so. A function with a defined return type can’t allow control to fall out of the bottom of the function without returning a value, and attempting to do so will result in a compile-time error.</p>
+<p class="admonition-title">Note</p>
+<p>Return values can be ignored, but a function that says it will return a value must always do so. A function with a defined return type can’t allow control to fall out of the bottom of the function without returning a value, and attempting to do so will result in a compile-time error.</p>
 </div>
 </div>
 <div class="section" id="ID164">
@@ -266,8 +266,8 @@
 <h4>Optional Tuple Return Types<a class="headerlink" href="#ID165" title="Permalink to this headline">¶</a></h4>
 <p>If the tuple type to be returned from a function has the potential to have “no value” for the entire tuple, you can use an <em>optional</em> tuple return type to reflect the fact that the entire tuple can be <code class="docutils literal notranslate"><span class="pre">nil</span></code>. You write an optional tuple return type by placing a question mark after the tuple type’s closing parenthesis, such as <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">Int)?</span></code> or <code class="docutils literal notranslate"><span class="pre">(String,</span> <span class="pre">Int,</span> <span class="pre">Bool)?</span></code>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">An optional tuple type such as <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">Int)?</span></code> is different from a tuple that contains optional types such as <code class="docutils literal notranslate"><span class="pre">(Int?,</span> <span class="pre">Int?)</span></code>. With an optional tuple type, the entire tuple is optional, not just each individual value within the tuple.</p>
+<p class="admonition-title">Note</p>
+<p>An optional tuple type such as <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">Int)?</span></code> is different from a tuple that contains optional types such as <code class="docutils literal notranslate"><span class="pre">(Int?,</span> <span class="pre">Int?)</span></code>. With an optional tuple type, the entire tuple is optional, not just each individual value within the tuple.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">minMax(array:)</span></code> function above returns a tuple containing two <code class="docutils literal notranslate"><span class="pre">Int</span></code> values. However, the function doesn’t perform any safety checks on the array it’s passed. If the <code class="docutils literal notranslate"><span class="pre">array</span></code> argument contains an empty array, the <code class="docutils literal notranslate"><span class="pre">minMax(array:)</span></code> function, as defined above, will trigger a runtime error when attempting to access <code class="docutils literal notranslate"><span class="pre">array[0]</span></code>.</p>
 <p>To handle an empty array safely, write the <code class="docutils literal notranslate"><span class="pre">minMax(array:)</span></code> function with an optional tuple return type and return a value of <code class="docutils literal notranslate"><span class="pre">nil</span></code> when the array is empty:</p>
@@ -311,8 +311,8 @@
 <p>The entire definition of the <code class="docutils literal notranslate"><span class="pre">greeting(for:)</span></code> function is the greeting message that it returns, which means it can use this shorter form. The <code class="docutils literal notranslate"><span class="pre">anotherGreeting(for:)</span></code> function returns the same greeting message, using the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword like a longer function. Any function that you write as just one <code class="docutils literal notranslate"><span class="pre">return</span></code> line can omit the <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
 <p>As you’ll see in <a class="reference internal" href="Properties.html#ID608"><span class="std std-ref">Shorthand Getter Declaration</span></a>, property getters can also use an implicit return.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The code you write as an implicit return value needs to return some value. For example, you can’t use <code class="docutils literal notranslate"><span class="pre">print(13)</span></code> as an implicit return value. However, you can use a function that never returns like <code class="docutils literal notranslate"><span class="pre">fatalError(&quot;Oh</span> <span class="pre">no!&quot;)</span></code> as an implicit return value, because Swift knows that the implicit return doesn’t happen.</p>
+<p class="admonition-title">Note</p>
+<p>The code you write as an implicit return value needs to return some value. For example, you can’t use <code class="docutils literal notranslate"><span class="pre">print(13)</span></code> as an implicit return value. However, you can use a function that never returns like <code class="docutils literal notranslate"><span class="pre">fatalError(&quot;Oh</span> <span class="pre">no!&quot;)</span></code> as an implicit return value, because Swift knows that the implicit return doesn’t happen.</p>
 </div>
 </div>
 </div>
@@ -391,8 +391,8 @@
 <p>You write an in-out parameter by placing the <code class="docutils literal notranslate"><span class="pre">inout</span></code> keyword right before a parameter’s type. An in-out parameter has a value that’s passed <em>in</em> to the function, is modified by the function, and is passed back <em>out</em> of the function to replace the original value. For a detailed discussion of the behavior of in-out parameters and associated compiler optimizations, see <a class="reference internal" href="../ReferenceManual/Declarations.html#ID545"><span class="std std-ref">In-Out Parameters</span></a>.</p>
 <p>You can only pass a variable as the argument for an in-out parameter. You can’t pass a constant or a literal value as the argument, because constants and literals can’t be modified. You place an ampersand (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>) directly before a variable’s name when you pass it as an argument to an in-out parameter, to indicate that it can be modified by the function.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In-out parameters can’t have default values, and variadic parameters can’t be marked as <code class="docutils literal notranslate"><span class="pre">inout</span></code>.</p>
+<p class="admonition-title">Note</p>
+<p>In-out parameters can’t have default values, and variadic parameters can’t be marked as <code class="docutils literal notranslate"><span class="pre">inout</span></code>.</p>
 </div>
 <p>Here’s an example of a function called <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code>, which has two in-out integer parameters called <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">swapTwoInts</span>(<span class="k">_</span> <span class="nv">a</span>: <span class="k">inout</span> <span class="nc">Int</span>, <span class="k">_</span> <span class="nv">b</span>: <span class="k">inout</span> <span class="nc">Int</span>) {
@@ -411,8 +411,8 @@
 </li></ol></div></div></div>
 <p>The example above shows that the original values of <code class="docutils literal notranslate"><span class="pre">someInt</span></code> and <code class="docutils literal notranslate"><span class="pre">anotherInt</span></code> are modified by the <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code> function, even though they were originally defined outside of the function.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In-out parameters aren’t the same as returning a value from a function. The <code class="docutils literal notranslate"><span class="pre">swapTwoInts</span></code> example above doesn’t define a return type or return a value, but it still modifies the values of <code class="docutils literal notranslate"><span class="pre">someInt</span></code> and <code class="docutils literal notranslate"><span class="pre">anotherInt</span></code>. In-out parameters are an alternative way for a function to have an effect outside of the scope of its function body.</p>
+<p class="admonition-title">Note</p>
+<p>In-out parameters aren’t the same as returning a value from a function. The <code class="docutils literal notranslate"><span class="pre">swapTwoInts</span></code> example above doesn’t define a return type or return a value, but it still modifies the values of <code class="docutils literal notranslate"><span class="pre">someInt</span></code> and <code class="docutils literal notranslate"><span class="pre">anotherInt</span></code>. In-out parameters are an alternative way for a function to have an effect outside of the scope of its function body.</p>
 </div>
 </div>
 </div>
@@ -541,6 +541,14 @@
     <div class="next_previous">
         <p class="previous"><a href="ControlFlow.html">Control Flow</a></p>
         <p class="next"><a href="Closures.html">Closures</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

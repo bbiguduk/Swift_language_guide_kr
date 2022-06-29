@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Enumerations &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Enumerations &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -144,8 +144,8 @@
 </li></ol></div></div></div>
 <p>The values defined in an enumeration (such as <code class="docutils literal notranslate"><span class="pre">north</span></code>, <code class="docutils literal notranslate"><span class="pre">south</span></code>, <code class="docutils literal notranslate"><span class="pre">east</span></code>, and <code class="docutils literal notranslate"><span class="pre">west</span></code>) are its <em>enumeration cases</em>. You use the <code class="docutils literal notranslate"><span class="pre">case</span></code> keyword to introduce new enumeration cases.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Swift enumeration cases don’t have an integer value set by default, unlike languages like C and Objective-C. In the <code class="docutils literal notranslate"><span class="pre">CompassPoint</span></code> example above, <code class="docutils literal notranslate"><span class="pre">north</span></code>, <code class="docutils literal notranslate"><span class="pre">south</span></code>, <code class="docutils literal notranslate"><span class="pre">east</span></code> and <code class="docutils literal notranslate"><span class="pre">west</span></code> don’t implicitly equal <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code>. Instead, the different enumeration cases are values in their own right, with an explicitly defined type of <code class="docutils literal notranslate"><span class="pre">CompassPoint</span></code>.</p>
+<p class="admonition-title">Note</p>
+<p>Swift enumeration cases don’t have an integer value set by default, unlike languages like C and Objective-C. In the <code class="docutils literal notranslate"><span class="pre">CompassPoint</span></code> example above, <code class="docutils literal notranslate"><span class="pre">north</span></code>, <code class="docutils literal notranslate"><span class="pre">south</span></code>, <code class="docutils literal notranslate"><span class="pre">east</span></code> and <code class="docutils literal notranslate"><span class="pre">west</span></code> don’t implicitly equal <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, <code class="docutils literal notranslate"><span class="pre">2</span></code> and <code class="docutils literal notranslate"><span class="pre">3</span></code>. Instead, the different enumeration cases are values in their own right, with an explicitly defined type of <code class="docutils literal notranslate"><span class="pre">CompassPoint</span></code>.</p>
 </div>
 <p>Multiple cases can appear on a single line, separated by commas:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">Planet</span> {
@@ -216,9 +216,9 @@
 <p>The examples in the previous section show how the cases of an enumeration are a defined (and typed) value in their own right. You can set a constant or variable to <code class="docutils literal notranslate"><span class="pre">Planet.earth</span></code>, and check for this value later. However, it’s sometimes useful to be able to store values of other types alongside these case values. This additional information is called an <em>associated value</em>, and it varies each time you use that case as a value in your code.</p>
 <p>You can define Swift enumerations to store associated values of any given type, and the value types can be different for each case of the enumeration if needed. Enumerations similar to these are known as <em>discriminated unions</em>, <em>tagged unions</em>, or <em>variants</em> in other programming languages.</p>
 <p>For example, suppose an inventory tracking system needs to track products by two different types of barcode. Some products are labeled with 1D barcodes in UPC format, which uses the numbers <code class="docutils literal notranslate"><span class="pre">0</span></code> to <code class="docutils literal notranslate"><span class="pre">9</span></code>. Each barcode has a number system digit, followed by five manufacturer code digits and five product code digits. These are followed by a check digit to verify that the code has been scanned correctly:</p>
-<img alt="../_images/barcode_UPC_2x.png" class="align-center" src="../_images/barcode_UPC_2x.png" style="width: 252px;" />
+<img alt="../_images/barcode_UPC_2x.png" class="align-center" src="../_images/barcode_UPC_2x.png" style="width: 252.0px;" />
 <p>Other products are labeled with 2D barcodes in QR code format, which can use any ISO 8859-1 character and can encode a string up to 2,953 characters long:</p>
-<img alt="../_images/barcode_QR_2x.png" class="align-center" src="../_images/barcode_QR_2x.png" style="width: 169px;" />
+<img alt="../_images/barcode_QR_2x.png" class="align-center" src="../_images/barcode_QR_2x.png" style="width: 169.5px;" />
 <p>It’s convenient for an inventory tracking system to store UPC barcodes as a tuple of four integers, and QR code barcodes as a string of any length.</p>
 <p>In Swift, an enumeration to define product barcodes of either type might look like this:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">Barcode</span> {
@@ -269,8 +269,8 @@
 <p>Here, the raw values for an enumeration called <code class="docutils literal notranslate"><span class="pre">ASCIIControlCharacter</span></code> are defined to be of type <code class="docutils literal notranslate"><span class="pre">Character</span></code>, and are set to some of the more common ASCII control characters. <code class="docutils literal notranslate"><span class="pre">Character</span></code> values are described in <a class="reference internal" href="StringsAndCharacters.html"><span class="doc">Strings and Characters</span></a>.</p>
 <p>Raw values can be strings, characters, or any of the integer or floating-point number types. Each raw value must be unique within its enumeration declaration.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Raw values are <em>not</em> the same as associated values. Raw values are set to prepopulated values when you first define the enumeration in your code, like the three ASCII codes above. The raw value for a particular enumeration case is always the same. Associated values are set when you create a new constant or variable based on one of the enumeration’s cases, and can be different each time you do so.</p>
+<p class="admonition-title">Note</p>
+<p>Raw values are <em>not</em> the same as associated values. Raw values are set to prepopulated values when you first define the enumeration in your code, like the three ASCII codes above. The raw value for a particular enumeration case is always the same. Associated values are set when you create a new constant or variable based on one of the enumeration’s cases, and can be different each time you do so.</p>
 </div>
 <div class="section" id="ID535">
 <h3>Implicitly Assigned Raw Values<a class="headerlink" href="#ID535" title="Permalink to this headline">¶</a></h3>
@@ -306,8 +306,8 @@
 </li></ol></div></div></div>
 <p>Not all possible <code class="docutils literal notranslate"><span class="pre">Int</span></code> values will find a matching planet, however. Because of this, the raw value initializer always returns an <em>optional</em> enumeration case. In the example above, <code class="docutils literal notranslate"><span class="pre">possiblePlanet</span></code> is of type <code class="docutils literal notranslate"><span class="pre">Planet?</span></code>, or “optional <code class="docutils literal notranslate"><span class="pre">Planet</span></code>.”</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The raw value initializer is a failable initializer, because not every raw value will return an enumeration case. For more information, see <a class="reference internal" href="../ReferenceManual/Declarations.html#ID376"><span class="std std-ref">Failable Initializers</span></a>.</p>
+<p class="admonition-title">Note</p>
+<p>The raw value initializer is a failable initializer, because not every raw value will return an enumeration case. For more information, see <a class="reference internal" href="../ReferenceManual/Declarations.html#ID376"><span class="std std-ref">Failable Initializers</span></a>.</p>
 </div>
 <p>If you try to find a planet with a position of <code class="docutils literal notranslate"><span class="pre">11</span></code>, the optional <code class="docutils literal notranslate"><span class="pre">Planet</span></code> value returned by the raw value initializer will be <code class="docutils literal notranslate"><span class="pre">nil</span></code>:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">positionToFind</span> = <span class="m">11</span>
@@ -373,6 +373,14 @@
     <div class="next_previous">
         <p class="previous"><a href="Closures.html">Closures</a></p>
         <p class="next"><a href="ClassesAndStructures.html">Structures and Classes</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

@@ -989,9 +989,7 @@ This code can be read as:
 
 If the conversion is successful, the actualNumber constant becomes available for use within the first branch of the if statement. It has already been initialized with the value contained within the optional, and so you don’t use the ! suffix to access its value. In this example, actualNumber is simply used to print the result of the conversion.
 
-You can use both constants and variables with optional binding. If you wanted to manipulate the value of actualNumber within the first branch of the if statement, you could write if var actualNumber instead, and the value contained within the optional would be made available as a variable rather than a constant.
-
-You can include as many optional bindings and Boolean conditions in a single if statement as you need to, separated by commas. If any of the values in the optional bindings are nil or any Boolean condition evaluates to false, the whole if statement’s condition is considered to be false. The following if statements are equivalent:
+If you don’t need to refer to the original, optional constant or variable after accessing the value it contains, you can use the same name for the new constant or variable:
 -->
 
 이 코드는 아래와 같이 읽을 수 있습니다:
@@ -1000,7 +998,45 @@ You can include as many optional bindings and Boolean conditions in a single if 
 
 변환에 성공하면 `actualNumber` 상수는 `if` 구문에 첫번째 중괄호 내에서 사용할 수 있습니다. `actualNumber` 상수는 이미 옵셔널 _안_에 값을 가지고 초기화 되었으며 값에 접근하기 위해 `!` 접미사를 사용할 필요가 없습니다. 이 예제에서 `actualNumber` 는 간단하게 변환 결과를 출력하는데 사용됩니다.
 
-옵셔널 바인딩은 상수와 변수 둘다 사용이 가능합니다. `if` 구문에 첫번째 중괄호에서 `actualNumber` 의 값을 변경하고 싶다면 `if var actualNumber` 로 대신 쓸 수 있으며 옵셔널에 포함된 값은 상수가 아닌 변수로 사용할 수 있습니다.
+값에 접근한 후에 기존 옵셔널 상수 또는 변수를 참조할 필요가 없다면 같은 이름으로 새로운 상수 또는 변수를 사용할 수 있습니다:
+
+```swift
+let myNumber = Int(possibleNumber)
+// Here, myNumber is an optional integer
+if let myNumber = myNumber {
+    // Here, myNumber is a non-optional integer
+    print("My number is \(myNumber)")
+}
+// Prints "My number is 123"
+```
+
+<!--
+This code starts by checking whether myNumber contains a value, just like the code in the previous example. If myNumber has a value, the value of a new constant named myNumber is set to that value. Inside the body of the if statement, writing myNumber refers to that new non-optional constant. Before the beginning of the if statement and after its end, writing myNumber refers to the optional integer constant.
+
+Because this kind of code is so common, you can use a shorter spelling to unwrap an optional value: write just the name of the constant or variable that you’re unwrapping. The new, unwrapped constant or variable implicitly uses the same name as the optional value.
+-->
+
+이 코드는 이전 예제에서의 코드와 마찬가지로 `myNumber` 가 값이 있는지 없는지를 먼저 확인합니다. `myNumber` 가 값이 있다면 해당 값이 새로운 `myNumber` 라는 상수에 설정됩니다. `if` 구문 안에서 `myNumber` 는 새로운 옵셔널이 아닌 상수를 참조합니다. `if` 구문 전과 후에는 `myNumber` 는 옵셔널 정수 상수를 참조합니다.
+
+이러한 코드는 일반적이기 때문에 옵셔널 값을 언래핑 하는데 더 짧게 사용할 수 있습니다: 언래핑할 상수 또는 변수의 이름만 작성합니다. 언래핑된 새로운 상수 또는 변수는 암시적으로 같은 이름의 옵셔널 값을 사용합니다.
+
+```swift
+if let myNumber {
+    print("My number is \(myNumber)")
+}
+// Prints "My number is 123"
+```
+
+
+<!--
+You can use both constants and variables with optional binding. If you wanted to manipulate the value of myNumber within the first branch of the if statement, you could write if var myNumber instead, and the value contained within the optional would be made available as a variable rather than a constant. Changes you make to myNumber inside the body of the if statement apply only to that local variable, not to the original, optional constant or variable that you unwrapped.
+
+? You can use both constants and variables with optional binding. If you wanted to manipulate the value of actualNumber within the first branch of the if statement, you could write if var actualNumber instead, and the value contained within the optional would be made available as a variable rather than a constant.
+
+You can include as many optional bindings and Boolean conditions in a single if statement as you need to, separated by commas. If any of the values in the optional bindings are nil or any Boolean condition evaluates to false, the whole if statement’s condition is considered to be false. The following if statements are equivalent:
+-->
+
+옵셔널 바인딩은 상수와 변수 둘다 사용이 가능합니다. `if` 구문에 첫번째 중괄호에서 `myNumber` 의 값을 변경하고 싶다면 `if var myNumber` 로 대신 쓸 수 있으며 옵셔널에 포함된 값은 상수가 아닌 변수로 사용할 수 있습니다. `if` 구문내에서 `myNumber` 를 바꾸면 이것은 지역 변수에만 적용되며, 기존 언래핑된 옵셔널 상수 또는 변수에 적용되지 _않습니다_.
 
 필요한 경우 `if` 구문에 쉼표로 구분하여 옵셔널 바인딩 및 부울 조건을 여러개 포함할 수 있습니다. 옵셔널 바인딩 값 중 하나가 `nil` 이거나 부울 조건이 `false` 로 판단되면 전체 `if` 구문의 조건은 `false` 로 간주됩니다. 다음의 예는 같은 `if` 구문입니다:
 

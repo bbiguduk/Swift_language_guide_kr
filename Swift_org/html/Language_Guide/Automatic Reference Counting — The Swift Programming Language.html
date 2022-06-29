@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Automatic Reference Counting &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Automatic Reference Counting &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -211,20 +211,20 @@
 </li><li><span class="nv">unit4A</span> = <span class="nv">Apartment</span>(<span class="nv">unit</span>: <span class="s">&quot;4A&quot;</span>)
 </li></ol></div></div></div>
 <p>Here’s how the strong references look after creating and assigning these two instances. The <code class="docutils literal notranslate"><span class="pre">john</span></code> variable now has a strong reference to the new <code class="docutils literal notranslate"><span class="pre">Person</span></code> instance, and the <code class="docutils literal notranslate"><span class="pre">unit4A</span></code> variable has a strong reference to the new <code class="docutils literal notranslate"><span class="pre">Apartment</span></code> instance:</p>
-<img alt="../_images/referenceCycle01_2x.png" class="align-center" src="../_images/referenceCycle01_2x.png" style="width: 629px;" />
+<img alt="../_images/referenceCycle01_2x.png" class="align-center" src="../_images/referenceCycle01_2x.png" style="width: 629.0px;" />
 <p>You can now link the two instances together so that the person has an apartment, and the apartment has a tenant. Note that an exclamation point (<code class="docutils literal notranslate"><span class="pre">!</span></code>) is used to unwrap and access the instances stored inside the <code class="docutils literal notranslate"><span class="pre">john</span></code> and <code class="docutils literal notranslate"><span class="pre">unit4A</span></code> optional variables, so that the properties of those instances can be set:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">john</span>!.<span class="nv">apartment</span> = <span class="nv">unit4A</span>
 </li><li><span class="nv">unit4A</span>!.<span class="nv">tenant</span> = <span class="nv">john</span>
 </li></ol></div></div></div>
 <p>Here’s how the strong references look after you link the two instances together:</p>
-<img alt="../_images/referenceCycle02_2x.png" class="align-center" src="../_images/referenceCycle02_2x.png" style="width: 629px;" />
+<img alt="../_images/referenceCycle02_2x.png" class="align-center" src="../_images/referenceCycle02_2x.png" style="width: 629.0px;" />
 <p>Unfortunately, linking these two instances creates a strong reference cycle between them. The <code class="docutils literal notranslate"><span class="pre">Person</span></code> instance now has a strong reference to the <code class="docutils literal notranslate"><span class="pre">Apartment</span></code> instance, and the <code class="docutils literal notranslate"><span class="pre">Apartment</span></code> instance has a strong reference to the <code class="docutils literal notranslate"><span class="pre">Person</span></code> instance. Therefore, when you break the strong references held by the <code class="docutils literal notranslate"><span class="pre">john</span></code> and <code class="docutils literal notranslate"><span class="pre">unit4A</span></code> variables, the reference counts don’t drop to zero, and the instances aren’t deallocated by ARC:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">john</span> = <span class="k">nil</span>
 </li><li><span class="nv">unit4A</span> = <span class="k">nil</span>
 </li></ol></div></div></div>
 <p>Note that neither deinitializer was called when you set these two variables to <code class="docutils literal notranslate"><span class="pre">nil</span></code>. The strong reference cycle prevents the <code class="docutils literal notranslate"><span class="pre">Person</span></code> and <code class="docutils literal notranslate"><span class="pre">Apartment</span></code> instances from ever being deallocated, causing a memory leak in your app.</p>
 <p>Here’s how the strong references look after you set the <code class="docutils literal notranslate"><span class="pre">john</span></code> and <code class="docutils literal notranslate"><span class="pre">unit4A</span></code> variables to <code class="docutils literal notranslate"><span class="pre">nil</span></code>:</p>
-<img alt="../_images/referenceCycle03_2x.png" class="align-center" src="../_images/referenceCycle03_2x.png" style="width: 629px;" />
+<img alt="../_images/referenceCycle03_2x.png" class="align-center" src="../_images/referenceCycle03_2x.png" style="width: 629.0px;" />
 <p>The strong references between the <code class="docutils literal notranslate"><span class="pre">Person</span></code> instance and the <code class="docutils literal notranslate"><span class="pre">Apartment</span></code> instance remain and can’t be broken.</p>
 </div>
 <div class="section" id="ID52">
@@ -238,8 +238,8 @@
 <p>Because a weak reference doesn’t keep a strong hold on the instance it refers to, it’s possible for that instance to be deallocated while the weak reference is still referring to it. Therefore, ARC automatically sets a weak reference to <code class="docutils literal notranslate"><span class="pre">nil</span></code> when the instance that it refers to is deallocated. And, because weak references need to allow their value to be changed to <code class="docutils literal notranslate"><span class="pre">nil</span></code> at runtime, they’re always declared as variables, rather than constants, of an optional type.</p>
 <p>You can check for the existence of a value in the weak reference, just like any other optional value, and you will never end up with a reference to an invalid instance that no longer exists.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Property observers aren’t called when ARC sets a weak reference to <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p class="admonition-title">Note</p>
+<p>Property observers aren’t called when ARC sets a weak reference to <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 </div>
 <p>The example below is identical to the <code class="docutils literal notranslate"><span class="pre">Person</span></code> and <code class="docutils literal notranslate"><span class="pre">Apartment</span></code> example from above, with one important difference. This time around, the <code class="docutils literal notranslate"><span class="pre">Apartment</span></code> type’s <code class="docutils literal notranslate"><span class="pre">tenant</span></code> property is declared as a weak reference:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Person</span> {
@@ -267,22 +267,22 @@
 </li><li><span class="nv">unit4A</span>!.<span class="nv">tenant</span> = <span class="nv">john</span>
 </li></ol></div></div></div>
 <p>Here’s how the references look now that you’ve linked the two instances together:</p>
-<img alt="../_images/weakReference01_2x.png" class="align-center" src="../_images/weakReference01_2x.png" style="width: 629px;" />
+<img alt="../_images/weakReference01_2x.png" class="align-center" src="../_images/weakReference01_2x.png" style="width: 629.0px;" />
 <p>The <code class="docutils literal notranslate"><span class="pre">Person</span></code> instance still has a strong reference to the <code class="docutils literal notranslate"><span class="pre">Apartment</span></code> instance, but the <code class="docutils literal notranslate"><span class="pre">Apartment</span></code> instance now has a <em>weak</em> reference to the <code class="docutils literal notranslate"><span class="pre">Person</span></code> instance. This means that when you break the strong reference held by the <code class="docutils literal notranslate"><span class="pre">john</span></code> variable by setting it to <code class="docutils literal notranslate"><span class="pre">nil</span></code>, there are no more strong references to the <code class="docutils literal notranslate"><span class="pre">Person</span></code> instance:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">john</span> = <span class="k">nil</span>
 </li><li><span class="c">// Prints &quot;John Appleseed is being deinitialized&quot;</span>
 </li></ol></div></div></div>
 <p>Because there are no more strong references to the <code class="docutils literal notranslate"><span class="pre">Person</span></code> instance, it’s deallocated and the <code class="docutils literal notranslate"><span class="pre">tenant</span></code> property is set to <code class="docutils literal notranslate"><span class="pre">nil</span></code>:</p>
-<img alt="../_images/weakReference02_2x.png" class="align-center" src="../_images/weakReference02_2x.png" style="width: 629px;" />
+<img alt="../_images/weakReference02_2x.png" class="align-center" src="../_images/weakReference02_2x.png" style="width: 629.0px;" />
 <p>The only remaining strong reference to the <code class="docutils literal notranslate"><span class="pre">Apartment</span></code> instance is from the <code class="docutils literal notranslate"><span class="pre">unit4A</span></code> variable. If you break <em>that</em> strong reference, there are no more strong references to the <code class="docutils literal notranslate"><span class="pre">Apartment</span></code> instance:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">unit4A</span> = <span class="k">nil</span>
 </li><li><span class="c">// Prints &quot;Apartment 4A is being deinitialized&quot;</span>
 </li></ol></div></div></div>
 <p>Because there are no more strong references to the <code class="docutils literal notranslate"><span class="pre">Apartment</span></code> instance, it too is deallocated:</p>
-<img alt="../_images/weakReference03_2x.png" class="align-center" src="../_images/weakReference03_2x.png" style="width: 629px;" />
+<img alt="../_images/weakReference03_2x.png" class="align-center" src="../_images/weakReference03_2x.png" style="width: 629.0px;" />
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In systems that use garbage collection, weak pointers are sometimes used to implement a simple caching mechanism because objects with no strong references are deallocated only when memory pressure triggers garbage collection. However, with ARC, values are deallocated as soon as their last strong reference is removed, making weak references unsuitable for such a purpose.</p>
+<p class="admonition-title">Note</p>
+<p>In systems that use garbage collection, weak pointers are sometimes used to implement a simple caching mechanism because objects with no strong references are deallocated only when memory pressure triggers garbage collection. However, with ARC, values are deallocated as soon as their last strong reference is removed, making weak references unsuitable for such a purpose.</p>
 </div>
 </div>
 <div class="section" id="ID54">
@@ -290,9 +290,9 @@
 <p>Like a weak reference, an <em>unowned reference</em> doesn’t keep a strong hold on the instance it refers to. Unlike a weak reference, however, an unowned reference is used when the other instance has the same lifetime or a longer lifetime. You indicate an unowned reference by placing the <code class="docutils literal notranslate"><span class="pre">unowned</span></code> keyword before a property or variable declaration.</p>
 <p>Unlike a weak reference, an unowned reference is expected to always have a value. As a result, marking a value as unowned doesn’t make it optional, and ARC never sets an unowned reference’s value to <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <div class="admonition important">
-<p class="first admonition-title">Important</p>
+<p class="admonition-title">Important</p>
 <p>Use an unowned reference only when you are sure that the reference <em>always</em> refers to an instance that hasn’t been deallocated.</p>
-<p class="last">If you try to access the value of an unowned reference after that instance has been deallocated, you’ll get a runtime error.</p>
+<p>If you try to access the value of an unowned reference after that instance has been deallocated, you’ll get a runtime error.</p>
 </div>
 <p>The following example defines two classes, <code class="docutils literal notranslate"><span class="pre">Customer</span></code> and <code class="docutils literal notranslate"><span class="pre">CreditCard</span></code>, which model a bank customer and a possible credit card for that customer. These two classes each store an instance of the other class as a property. This relationship has the potential to create a strong reference cycle.</p>
 <p>The relationship between <code class="docutils literal notranslate"><span class="pre">Customer</span></code> and <code class="docutils literal notranslate"><span class="pre">CreditCard</span></code> is slightly different from the relationship between <code class="docutils literal notranslate"><span class="pre">Apartment</span></code> and <code class="docutils literal notranslate"><span class="pre">Person</span></code> seen in the weak reference example above. In this data model, a customer may or may not have a credit card, but a credit card will <em>always</em> be associated with a customer. A <code class="docutils literal notranslate"><span class="pre">CreditCard</span></code> instance never outlives the <code class="docutils literal notranslate"><span class="pre">Customer</span></code> that it refers to. To represent this, the <code class="docutils literal notranslate"><span class="pre">Customer</span></code> class has an optional <code class="docutils literal notranslate"><span class="pre">card</span></code> property, but the <code class="docutils literal notranslate"><span class="pre">CreditCard</span></code> class has an unowned (and non-optional) <code class="docutils literal notranslate"><span class="pre">customer</span></code> property.</p>
@@ -318,8 +318,8 @@
 </li><li>}
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The <code class="docutils literal notranslate"><span class="pre">number</span></code> property of the <code class="docutils literal notranslate"><span class="pre">CreditCard</span></code> class is defined with a type of <code class="docutils literal notranslate"><span class="pre">UInt64</span></code> rather than <code class="docutils literal notranslate"><span class="pre">Int</span></code>, to ensure that the <code class="docutils literal notranslate"><span class="pre">number</span></code> property’s capacity is large enough to store a 16-digit card number on both 32-bit and 64-bit systems.</p>
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">number</span></code> property of the <code class="docutils literal notranslate"><span class="pre">CreditCard</span></code> class is defined with a type of <code class="docutils literal notranslate"><span class="pre">UInt64</span></code> rather than <code class="docutils literal notranslate"><span class="pre">Int</span></code>, to ensure that the <code class="docutils literal notranslate"><span class="pre">number</span></code> property’s capacity is large enough to store a 16-digit card number on both 32-bit and 64-bit systems.</p>
 </div>
 <p>This next code snippet defines an optional <code class="docutils literal notranslate"><span class="pre">Customer</span></code> variable called <code class="docutils literal notranslate"><span class="pre">john</span></code>, which will be used to store a reference to a specific customer. This variable has an initial value of nil, by virtue of being optional:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">john</span>: <span class="nc">Customer</span>?
@@ -329,10 +329,10 @@
 </li><li><span class="nv">john</span>!.<span class="nv">card</span> = <span class="nv">CreditCard</span>(<span class="nv">number</span>: <span class="m">1234_5678_9012_3456</span>, <span class="nv">customer</span>: <span class="nv">john</span>!)
 </li></ol></div></div></div>
 <p>Here’s how the references look, now that you’ve linked the two instances:</p>
-<img alt="../_images/unownedReference01_2x.png" class="align-center" src="../_images/unownedReference01_2x.png" style="width: 629px;" />
+<img alt="../_images/unownedReference01_2x.png" class="align-center" src="../_images/unownedReference01_2x.png" style="width: 629.0px;" />
 <p>The <code class="docutils literal notranslate"><span class="pre">Customer</span></code> instance now has a strong reference to the <code class="docutils literal notranslate"><span class="pre">CreditCard</span></code> instance, and the <code class="docutils literal notranslate"><span class="pre">CreditCard</span></code> instance has an unowned reference to the <code class="docutils literal notranslate"><span class="pre">Customer</span></code> instance.</p>
 <p>Because of the unowned <code class="docutils literal notranslate"><span class="pre">customer</span></code> reference, when you break the strong reference held by the <code class="docutils literal notranslate"><span class="pre">john</span></code> variable, there are no more strong references to the <code class="docutils literal notranslate"><span class="pre">Customer</span></code> instance:</p>
-<img alt="../_images/unownedReference02_2x.png" class="align-center" src="../_images/unownedReference02_2x.png" style="width: 629px;" />
+<img alt="../_images/unownedReference02_2x.png" class="align-center" src="../_images/unownedReference02_2x.png" style="width: 629.0px;" />
 <p>Because there are no more strong references to the <code class="docutils literal notranslate"><span class="pre">Customer</span></code> instance, it’s deallocated. After this happens, there are no more strong references to the <code class="docutils literal notranslate"><span class="pre">CreditCard</span></code> instance, and it too is deallocated:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">john</span> = <span class="k">nil</span>
 </li><li><span class="c">// Prints &quot;John Appleseed is being deinitialized&quot;</span>
@@ -340,9 +340,9 @@
 </li></ol></div></div></div>
 <p>The final code snippet above shows that the deinitializers for the <code class="docutils literal notranslate"><span class="pre">Customer</span></code> instance and <code class="docutils literal notranslate"><span class="pre">CreditCard</span></code> instance both print their “deinitialized” messages after the <code class="docutils literal notranslate"><span class="pre">john</span></code> variable is set to <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>The examples above show how to use <em>safe</em> unowned references. Swift also provides <em>unsafe</em> unowned references for cases where you need to disable runtime safety checks—for example, for performance reasons. As with all unsafe operations, you take on the responsibility for checking that code for safety.</p>
-<p class="last">You indicate an unsafe unowned reference by writing <code class="docutils literal notranslate"><span class="pre">unowned(unsafe)</span></code>. If you try to access an unsafe unowned reference after the instance that it refers to is deallocated, your program will try to access the memory location where the instance used to be, which is an unsafe operation.</p>
+<p>You indicate an unsafe unowned reference by writing <code class="docutils literal notranslate"><span class="pre">unowned(unsafe)</span></code>. If you try to access an unsafe unowned reference after the instance that it refers to is deallocated, your program will try to access the memory location where the instance used to be, which is an unsafe operation.</p>
 </div>
 </div>
 <div class="section" id="ID625">
@@ -382,13 +382,13 @@
 </li><li><span class="nv">department</span>.<span class="nv">courses</span> = [<span class="nv">intro</span>, <span class="nv">intermediate</span>, <span class="nv">advanced</span>]
 </li></ol></div></div></div>
 <p>The code above creates a department and its three courses. The intro and intermediate courses both have a suggested next course stored in their <code class="docutils literal notranslate"><span class="pre">nextCourse</span></code> property, which maintains an unowned optional reference to the course a student should take after completing this one.</p>
-<img alt="../_images/unownedOptionalReference_2x.png" class="align-center" src="../_images/unownedOptionalReference_2x.png" style="width: 729px;" />
+<img alt="../_images/unownedOptionalReference_2x.png" class="align-center" src="../_images/unownedOptionalReference_2x.png" style="width: 729.0px;" />
 <p>An unowned optional reference doesn’t keep a strong hold on the instance of the class that it wraps, and so it doesn’t prevent ARC from deallocating the instance. It behaves the same as an unowned reference does under ARC, except that an unowned optional reference can be <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
 <p>Like non-optional unowned references, you’re responsible for ensuring that <code class="docutils literal notranslate"><span class="pre">nextCourse</span></code> always refers to a course that hasn’t been deallocated. In this case, for example, when you delete a course from <code class="docutils literal notranslate"><span class="pre">department.courses</span></code> you also need to remove any references to it that other courses might have.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>The underlying type of an optional value is <code class="docutils literal notranslate"><span class="pre">Optional</span></code>, which is an enumeration in the Swift standard library. However, optionals are an exception to the rule that value types can’t be marked with <code class="docutils literal notranslate"><span class="pre">unowned</span></code>.</p>
-<p class="last">The optional that wraps the class doesn’t use reference counting, so you don’t need to maintain a strong reference to the optional.</p>
+<p>The optional that wraps the class doesn’t use reference counting, so you don’t need to maintain a strong reference to the optional.</p>
 </div>
 </div>
 <div class="section" id="ID55">
@@ -474,8 +474,8 @@
 </li><li><span class="c">// Prints &quot;&lt;h1&gt;some default text&lt;/h1&gt;&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The <code class="docutils literal notranslate"><span class="pre">asHTML</span></code> property is declared as a lazy property, because it’s only needed if and when the element actually needs to be rendered as a string value for some HTML output target. The fact that <code class="docutils literal notranslate"><span class="pre">asHTML</span></code> is a lazy property means that you can refer to <code class="docutils literal notranslate"><span class="pre">self</span></code> within the default closure, because the lazy property will not be accessed until after initialization has been completed and <code class="docutils literal notranslate"><span class="pre">self</span></code> is known to exist.</p>
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">asHTML</span></code> property is declared as a lazy property, because it’s only needed if and when the element actually needs to be rendered as a string value for some HTML output target. The fact that <code class="docutils literal notranslate"><span class="pre">asHTML</span></code> is a lazy property means that you can refer to <code class="docutils literal notranslate"><span class="pre">self</span></code> within the default closure, because the lazy property will not be accessed until after initialization has been completed and <code class="docutils literal notranslate"><span class="pre">self</span></code> is known to exist.</p>
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code> class provides a single initializer, which takes a <code class="docutils literal notranslate"><span class="pre">name</span></code> argument and (if desired) a <code class="docutils literal notranslate"><span class="pre">text</span></code> argument to initialize a new element. The class also defines a deinitializer, which prints a message to show when an <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code> instance is deallocated.</p>
 <p>Here’s how you use the <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code> class to create and print a new instance:</p>
@@ -484,15 +484,15 @@
 </li><li><span class="c">// Prints &quot;&lt;p&gt;hello, world&lt;/p&gt;&quot;</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The <code class="docutils literal notranslate"><span class="pre">paragraph</span></code> variable above is defined as an <em>optional</em> <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code>, so that it can be set to <code class="docutils literal notranslate"><span class="pre">nil</span></code> below to demonstrate the presence of a strong reference cycle.</p>
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">paragraph</span></code> variable above is defined as an <em>optional</em> <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code>, so that it can be set to <code class="docutils literal notranslate"><span class="pre">nil</span></code> below to demonstrate the presence of a strong reference cycle.</p>
 </div>
 <p>Unfortunately, the <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code> class, as written above, creates a strong reference cycle between an <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code> instance and the closure used for its default <code class="docutils literal notranslate"><span class="pre">asHTML</span></code> value. Here’s how the cycle looks:</p>
-<img alt="../_images/closureReferenceCycle01_2x.png" class="align-center" src="../_images/closureReferenceCycle01_2x.png" style="width: 629px;" />
+<img alt="../_images/closureReferenceCycle01_2x.png" class="align-center" src="../_images/closureReferenceCycle01_2x.png" style="width: 629.0px;" />
 <p>The instance’s <code class="docutils literal notranslate"><span class="pre">asHTML</span></code> property holds a strong reference to its closure. However, because the closure refers to <code class="docutils literal notranslate"><span class="pre">self</span></code> within its body (as a way to reference <code class="docutils literal notranslate"><span class="pre">self.name</span></code> and <code class="docutils literal notranslate"><span class="pre">self.text</span></code>), the closure <em>captures</em> self, which means that it holds a strong reference back to the <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code> instance. A strong reference cycle is created between the two. (For more information about capturing values in a closure, see <a class="reference internal" href="Closures.html#ID103"><span class="std std-ref">Capturing Values</span></a>.)</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Even though the closure refers to <code class="docutils literal notranslate"><span class="pre">self</span></code> multiple times, it only captures one strong reference to the <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code> instance.</p>
+<p class="admonition-title">Note</p>
+<p>Even though the closure refers to <code class="docutils literal notranslate"><span class="pre">self</span></code> multiple times, it only captures one strong reference to the <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code> instance.</p>
 </div>
 <p>If you set the <code class="docutils literal notranslate"><span class="pre">paragraph</span></code> variable to <code class="docutils literal notranslate"><span class="pre">nil</span></code> and break its strong reference to the <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code> instance, neither the <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code> instance nor its closure are deallocated, because of the strong reference cycle:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">paragraph</span> = <span class="k">nil</span>
@@ -503,8 +503,8 @@
 <h2>Resolving Strong Reference Cycles for Closures<a class="headerlink" href="#ID57" title="Permalink to this headline">¶</a></h2>
 <p>You resolve a strong reference cycle between a closure and a class instance by defining a <em>capture list</em> as part of the closure’s definition. A capture list defines the rules to use when capturing one or more reference types within the closure’s body. As with strong reference cycles between two class instances, you declare each captured reference to be a weak or unowned reference rather than a strong reference. The appropriate choice of weak or unowned depends on the relationships between the different parts of your code.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Swift requires you to write <code class="docutils literal notranslate"><span class="pre">self.someProperty</span></code> or <code class="docutils literal notranslate"><span class="pre">self.someMethod()</span></code> (rather than just <code class="docutils literal notranslate"><span class="pre">someProperty</span></code> or <code class="docutils literal notranslate"><span class="pre">someMethod()</span></code>) whenever you refer to a member of <code class="docutils literal notranslate"><span class="pre">self</span></code> within a closure. This helps you remember that it’s possible to capture <code class="docutils literal notranslate"><span class="pre">self</span></code> by accident.</p>
+<p class="admonition-title">Note</p>
+<p>Swift requires you to write <code class="docutils literal notranslate"><span class="pre">self.someProperty</span></code> or <code class="docutils literal notranslate"><span class="pre">self.someMethod()</span></code> (rather than just <code class="docutils literal notranslate"><span class="pre">someProperty</span></code> or <code class="docutils literal notranslate"><span class="pre">someMethod()</span></code>) whenever you refer to a member of <code class="docutils literal notranslate"><span class="pre">self</span></code> within a closure. This helps you remember that it’s possible to capture <code class="docutils literal notranslate"><span class="pre">self</span></code> by accident.</p>
 </div>
 <div class="section" id="ID58">
 <h3>Defining a Capture List<a class="headerlink" href="#ID58" title="Permalink to this headline">¶</a></h3>
@@ -528,8 +528,8 @@
 <p>Define a capture in a closure as an unowned reference when the closure and the instance it captures will always refer to each other, and will always be deallocated at the same time.</p>
 <p>Conversely, define a capture as a weak reference when the captured reference may become <code class="docutils literal notranslate"><span class="pre">nil</span></code> at some point in the future. Weak references are always of an optional type, and automatically become <code class="docutils literal notranslate"><span class="pre">nil</span></code> when the instance they reference is deallocated. This enables you to check for their existence within the closure’s body.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If the captured reference will never become <code class="docutils literal notranslate"><span class="pre">nil</span></code>, it should always be captured as an unowned reference, rather than a weak reference.</p>
+<p class="admonition-title">Note</p>
+<p>If the captured reference will never become <code class="docutils literal notranslate"><span class="pre">nil</span></code>, it should always be captured as an unowned reference, rather than a weak reference.</p>
 </div>
 <p>An unowned reference is the appropriate capture method to use to resolve the strong reference cycle in the <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code> example from <a class="reference internal" href="#ID56"><span class="std std-ref">Strong Reference Cycles for Closures</span></a> above. Here’s how you write the <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code> class to avoid the cycle:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">HTMLElement</span> {
@@ -564,7 +564,7 @@
 </li><li><span class="c">// Prints &quot;&lt;p&gt;hello, world&lt;/p&gt;&quot;</span>
 </li></ol></div></div></div>
 <p>Here’s how the references look with the capture list in place:</p>
-<img alt="../_images/closureReferenceCycle02_2x.png" class="align-center" src="../_images/closureReferenceCycle02_2x.png" style="width: 629px;" />
+<img alt="../_images/closureReferenceCycle02_2x.png" class="align-center" src="../_images/closureReferenceCycle02_2x.png" style="width: 629.0px;" />
 <p>This time, the capture of <code class="docutils literal notranslate"><span class="pre">self</span></code> by the closure is an unowned reference, and doesn’t keep a strong hold on the <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code> instance it has captured. If you set the strong reference from the <code class="docutils literal notranslate"><span class="pre">paragraph</span></code> variable to <code class="docutils literal notranslate"><span class="pre">nil</span></code>, the <code class="docutils literal notranslate"><span class="pre">HTMLElement</span></code> instance is deallocated, as can be seen from the printing of its deinitializer message in the example below:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">paragraph</span> = <span class="k">nil</span>
 </li><li><span class="c">// Prints &quot;p is being deinitialized&quot;</span>
@@ -579,6 +579,14 @@
     <div class="next_previous">
         <p class="previous"><a href="OpaqueTypes.html">Opaque Types</a></p>
         <p class="next"><a href="MemorySafety.html">Memory Safety</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

@@ -1039,6 +1039,18 @@ The Swift code you compile to make an executable can contain at most one top-lev
 
 실행 가능하도록 만들기 위해 컴파일 한 Swift 코드는 [최상위-수준 코드 (Top-Level Code)](declarations.md#top-level-code) 에서 설명한대로 하나의 최상위-수준 시작 지점을 포함해야 합니다.
 
+### unchecked
+
+<!--
+Apply this attribute to a protocol type as part of a type declaration’s list of adopted protocols to turn off enforcement of that protocol’s requirements.
+
+The only supported protocol is Sendable.
+-->
+
+프로토콜의 요구사항의 강제성을 끄기위해 타입 선언 목록의 적용된 프로토콜 타입에 이 속성을 적용합니다.
+
+지원하는 프로토콜은 [전달 가능 \(Sendable\)](https://developer.apple.com/documentation/swift/sendable) 만 있습니다.
+
 ### usableFromInline
 
 <!--
@@ -1130,6 +1142,22 @@ Apply this attribute to a parameter’s type in a function or method declaration
 -->
 
 나중에 실행하기 위해 파라미터의 값이 저장될 수 있음을 나타내기 위해 메서드 또는 함수 선언의 파라미터의 타입에 이 속성을 적용합니다. 이는 값이 호출 수명보다 오래 지속될 수 있음을 의미합니다. `escaping` 타입 속성을 가지는 함수 타입 파라미터는 프로퍼티나 메서드에 대해 `self.` 의 명시적 사용을 요구합니다. `escaping` 속성을 어떻게 사용하는지에 대한 예제는 [이스케이프 클로저 (Escaping Closures)](../language-guide-1/closures.md#escaping-closures) 를 참고 바랍니다.
+
+### Sendable
+
+<!--
+Apply this attribute to the type of a function to indicate that the function or closure is sendable. Applying this attribute to a function type has the same meaning as conforming a non–function type to the Sendable protocol.
+
+This attribute is inferred on functions and closures if the function or closure is used in a context that expects a sendable value, and the function or closure satisfies the requirements to be sendable.
+
+A sendable function type is a subtype of the corresponding nonsendable function type.
+-->
+
+함수 또는 클로저가 전송 가능하다는 것을 나타내기 위해 함수의 타입에 이 속성을 적용합니다. 함수 타입에 이 속성을 적용하면 비함수 \(non-function\) 타입이 [전달 가능 \(Sendable\)](https://developer.apple.com/documentation/swift/sendable) 프로토콜을 준수하는 것과 같은 의미를 가집니다.
+
+함수 또는 클로저가 전송 가능한 값을 예상하는 컨텍스트에서 사용되고 함수 또는 클로저가 전송 가능한 요구사항을 충족하면 이 속성은 함수와 클로저에서 유추됩니다.
+
+전송 가능한 함수 타입은 전송 불가능한 함수 타입의 서브타입입니다.
 
 ## Switch 케이스 속성 (Switch Case Attributes)
 

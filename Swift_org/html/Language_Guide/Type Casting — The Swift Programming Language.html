@@ -9,7 +9,7 @@
     <meta name="author" content="Apple Inc." />
     <meta name="viewport" content="width=device-width initial-scale=1" />
     
-    <title>Type Casting &mdash; The Swift Programming Language (Swift 5.6)</title>
+    <title>Type Casting &mdash; The Swift Programming Language (Swift 5.7)</title>
     
     <link rel="license" href="/LICENSE.txt" />
     <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
@@ -40,7 +40,7 @@
 
     <div id="menu-toggle" class="menu-toggle open"></div>
 
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
 
     <ul>
     <ul class="current">
@@ -207,16 +207,16 @@
 <p>“Try to access <code class="docutils literal notranslate"><span class="pre">item</span></code> as a <code class="docutils literal notranslate"><span class="pre">Movie</span></code>. If this is successful, set a new temporary constant called <code class="docutils literal notranslate"><span class="pre">movie</span></code> to the value stored in the returned optional <code class="docutils literal notranslate"><span class="pre">Movie</span></code>.”</p>
 <p>If the downcasting succeeds, the properties of <code class="docutils literal notranslate"><span class="pre">movie</span></code> are then used to print a description for that <code class="docutils literal notranslate"><span class="pre">Movie</span></code> instance, including the name of its <code class="docutils literal notranslate"><span class="pre">director</span></code>. A similar principle is used to check for <code class="docutils literal notranslate"><span class="pre">Song</span></code> instances, and to print an appropriate description (including <code class="docutils literal notranslate"><span class="pre">artist</span></code> name) whenever a <code class="docutils literal notranslate"><span class="pre">Song</span></code> is found in the library.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Casting doesn’t actually modify the instance or change its values. The underlying instance remains the same; it’s simply treated and accessed as an instance of the type to which it has been cast.</p>
+<p class="admonition-title">Note</p>
+<p>Casting doesn’t actually modify the instance or change its values. The underlying instance remains the same; it’s simply treated and accessed as an instance of the type to which it has been cast.</p>
 </div>
 </div>
 <div class="section" id="ID342">
 <h2>Type Casting for Any and AnyObject<a class="headerlink" href="#ID342" title="Permalink to this headline">¶</a></h2>
 <p>Swift provides two special types for working with nonspecific types:</p>
 <ul class="simple">
-<li><code class="docutils literal notranslate"><span class="pre">Any</span></code> can represent an instance of any type at all, including function types.</li>
-<li><code class="docutils literal notranslate"><span class="pre">AnyObject</span></code> can represent an instance of any class type.</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Any</span></code> can represent an instance of any type at all, including function types.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">AnyObject</span></code> can represent an instance of any class type.</p></li>
 </ul>
 <p>Use <code class="docutils literal notranslate"><span class="pre">Any</span></code> and <code class="docutils literal notranslate"><span class="pre">AnyObject</span></code> only when you explicitly need the behavior and capabilities they provide. It’s always better to be specific about the types you expect to work with in your code.</p>
 <p>Here’s an example of using <code class="docutils literal notranslate"><span class="pre">Any</span></code> to work with a mix of different types, including function types and nonclass types. The example creates an array called <code class="docutils literal notranslate"><span class="pre">things</span></code>, which can store values of type <code class="docutils literal notranslate"><span class="pre">Any</span></code>:</p>
@@ -268,9 +268,9 @@
 </li><li><span class="c">// Hello, Michael</span>
 </li></ol></div></div></div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">Any</span></code> type represents values of any type, including optional types. Swift gives you a warning if you use an optional value where a value of type <code class="docutils literal notranslate"><span class="pre">Any</span></code> is expected. If you really do need to use an optional value as an <code class="docutils literal notranslate"><span class="pre">Any</span></code> value, you can use the <code class="docutils literal notranslate"><span class="pre">as</span></code> operator to explicitly cast the optional to <code class="docutils literal notranslate"><span class="pre">Any</span></code>, as shown below.</p>
-<div class="last highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">optionalNumber</span>: <span class="nc">Int</span>? = <span class="m">3</span>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">optionalNumber</span>: <span class="nc">Int</span>? = <span class="m">3</span>
 </li><li><span class="nv">things</span>.<span class="nv">append</span>(<span class="nv">optionalNumber</span>)        <span class="c">// Warning</span>
 </li><li><span class="nv">things</span>.<span class="nv">append</span>(<span class="nv">optionalNumber</span> <span class="k">as</span> <span class="k">Any</span>) <span class="c">// No warning</span>
 </li></ol></div></div></div>
@@ -283,6 +283,14 @@
     <div class="next_previous">
         <p class="previous"><a href="Concurrency.html">Concurrency</a></p>
         <p class="next"><a href="NestedTypes.html">Nested Types</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 
