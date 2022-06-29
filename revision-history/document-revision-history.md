@@ -4,6 +4,7 @@
 
 ### 2022-06-29(수)
 
+* 오탈자 수정
 * Swift 5.7 기반으로 문서 작업 완료
 * 행위자 (actor) 와 작업 (task) 간의 데이터 전송에 대한 내용을 [전송 가능 타입 (Sendable Types)](../language-guide-1/concurrency.md#sendable-types) 섹션에 추가하고 `@Sendable` 과 `@unchecked` 속성에 대한 내용을 [Sendable](../language-reference/attributes.md#sendable) 과 [unchecked](../language-reference/attributes.md#unchecked) 섹션에 추가하였습니다.
 * 정규 표현식 생성에 대한 내용을 [정규 표현식 리터럴 (Regular Expression Literals)](../language-reference/lexical-structure.md#regular-expression-literals) 섹션에 추가하였습니다.
