@@ -191,7 +191,7 @@
 <p>In the example above, because the <code class="docutils literal notranslate"><span class="pre">move(_:from:to:)</span></code> function is synchronous, you guarantee that it can never contain possible suspension points. In the future, if you try to add concurrent code to this function, introducing a possible suspension point, you’ll get compile-time error instead of introducing a bug.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The <a class="reference external" href="https://developer.apple.com/documentation/swift/task/3968432-sleep"><code class="docutils literal notranslate"><span class="pre">Task.sleep(until:clock:)</span></code></a> method is useful when writing simple code to learn how concurrency works. This method does nothing, but waits at least the given number of nanoseconds before it returns. Here’s a version of the <code class="docutils literal notranslate"><span class="pre">listPhotos(inGallery:)</span></code> function that uses <code class="docutils literal notranslate"><span class="pre">sleep(until:clock:)</span></code> to simulate waiting for a network operation:</p>
+<p>The <a class="reference external" href="https://developer.apple.com/documentation/swift/task/sleep(until:tolerance:clock:)"><code class="docutils literal notranslate"><span class="pre">Task.sleep(until:tolerance:clock:)</span></code></a> method is useful when writing simple code to learn how concurrency works. This method does nothing, but waits at least the given number of nanoseconds before it returns. Here’s a version of the <code class="docutils literal notranslate"><span class="pre">listPhotos(inGallery:)</span></code> function that uses <code class="docutils literal notranslate"><span class="pre">sleep(until:tolerance:clock:)</span></code> to simulate waiting for a network operation:</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">listPhotos</span>(<span class="nv">inGallery</span> <span class="nv">name</span>: <span class="nc">String</span>) <span class="nv">async</span> <span class="k">throws</span> -&gt; [<span class="nv">String</span>] {
 </li><li>    <span class="k">try</span> <span class="nv">await</span> <span class="nv">Task</span>.<span class="nv">sleep</span>(<span class="nv">until</span>: .<span class="nv">now</span> + .<span class="nv">seconds</span>(<span class="m">2</span>), <span class="nv">clock</span>: .<span class="nv">continuous</span>)
 </li><li>    <span class="k">return</span> [<span class="s">&quot;IMG001&quot;</span>, <span class="s">&quot;IMG99&quot;</span>, <span class="s">&quot;IMG0404&quot;</span>]
@@ -360,14 +360,6 @@
     <div class="next_previous">
         <p class="previous"><a href="ErrorHandling.html">Error Handling</a></p>
         <p class="next"><a href="TypeCasting.html">Type Casting</a></p>
-    </div>
-    <div class="admonition-beta admonition">
-        <p class="first admonition-title">Beta Software</p>
-        <p>
-          This documentation contains preliminary information about an API or technology in development.
-          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
-        </p>
-        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

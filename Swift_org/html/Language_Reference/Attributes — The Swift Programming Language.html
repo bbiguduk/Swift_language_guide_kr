@@ -504,7 +504,7 @@
 <dt><code class="docutils literal notranslate"><span class="pre">static</span> <span class="pre">func</span> <span class="pre">buildLimitedAvailability(_</span> <span class="pre">component:</span> <span class="pre">Component)</span> <span class="pre">-&gt;</span> <span class="pre">Component</span></code></dt><dd><p>Builds a partial result that propagates or erases type information outside a compiler-control statement that performs an availability check. You can use this to erase type information that varies between the conditional branches.</p>
 </dd>
 </dl>
-<p>For example, the code below defines a simple result builder that builds an array of integers. This code defines <code class="docutils literal notranslate"><span class="pre">Compontent</span></code> and <code class="docutils literal notranslate"><span class="pre">Expression</span></code> as type aliases, to make it easier to match the examples below to the list of methods above.</p>
+<p>For example, the code below defines a simple result builder that builds an array of integers. This code defines <code class="docutils literal notranslate"><span class="pre">Component</span></code> and <code class="docutils literal notranslate"><span class="pre">Expression</span></code> as type aliases, to make it easier to match the examples below to the list of methods above.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>@<span class="nv">resultBuilder</span>
 </li><li><span class="k">struct</span> <span class="nv">ArrayBuilder</span> {
 </li><li>    <span class="k">typealias</span> <span class="nv">Component</span> = [<span class="nc">Int</span>]
@@ -782,14 +782,6 @@
     <div class="next_previous">
         <p class="previous"><a href="Declarations.html">Declarations</a></p>
         <p class="next"><a href="Patterns.html">Patterns</a></p>
-    </div>
-    <div class="admonition-beta admonition">
-        <p class="first admonition-title">Beta Software</p>
-        <p>
-          This documentation contains preliminary information about an API or technology in development.
-          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
-        </p>
-        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

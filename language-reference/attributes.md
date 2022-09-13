@@ -721,7 +721,7 @@ Builds a partial result that propagates or erases type information outside a com
 가용성 검사를 수행하는 컴파일러-제어 구문의 외부에서 타입 정보를 전파하거나 지우는 부분 결과를 빌드합니다. 조건부 간의 다양한 타입 정보를 지우기 위해 사용할 수 있습니다.
 
 <!--
-For example, the code below defines a simple result builder that builds an array of integers. This code defines Compontent and Expression as type aliases, to make it easier to match the examples below to the list of methods above.
+For example, the code below defines a simple result builder that builds an array of integers. This code defines Component and Expression as type aliases, to make it easier to match the examples below to the list of methods above.
 -->
 
 예를 들어 아래 코드는 정수의 배열을 빌드하는 간다한 결과 빌더를 정의합니다. 이 코드는 타입 별칭으로 `Component` 와 `Expression` 을 정의하여 아래 예제를 위의 메서드의 목록보다 쉽게 일치하도록 만듭니다.&#x20;

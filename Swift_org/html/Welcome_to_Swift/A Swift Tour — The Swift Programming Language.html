@@ -152,8 +152,8 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="s">&quot;&quot;&quot;</span>
 </li></ol></div></div></div>
 <p>Create arrays and dictionaries using brackets (<code class="docutils literal notranslate"><span class="pre">[]</span></code>), and access their elements by writing the index or key in brackets. A comma is allowed after the last element.</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">shoppingList</span> = [<span class="s">&quot;catfish&quot;</span>, <span class="s">&quot;water&quot;</span>, <span class="s">&quot;tulips&quot;</span>]
-</li><li><span class="nv">shoppingList</span>[<span class="m">1</span>] = <span class="s">&quot;bottle of water&quot;</span>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">fruits</span> = [<span class="s">&quot;strawberries&quot;</span>, <span class="s">&quot;limes&quot;</span>, <span class="s">&quot;tangerines&quot;</span>]
+</li><li><span class="nv">fruits</span>[<span class="m">1</span>] = <span class="s">&quot;grapes&quot;</span>
 </li><li>
 </li><li><span class="k">var</span> <span class="nv">occupations</span> = [
 </li><li>    <span class="s">&quot;Malcolm&quot;</span>: <span class="s">&quot;Captain&quot;</span>,
@@ -162,15 +162,15 @@ Playgrounds allow you to edit the code listings and see the result immediately.
 </li><li><span class="nv">occupations</span>[<span class="s">&quot;Jayne&quot;</span>] = <span class="s">&quot;Public Relations&quot;</span>
 </li></ol></div></div></div>
 <p>Arrays automatically grow as you add elements.</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">shoppingList</span>.<span class="nv">append</span>(<span class="s">&quot;blue paint&quot;</span>)
-</li><li><span class="nv">print</span>(<span class="nv">shoppingList</span>)
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">fruits</span>.<span class="nv">append</span>(<span class="s">&quot;blueberries&quot;</span>)
+</li><li><span class="nv">print</span>(<span class="nv">fruits</span>)
 </li></ol></div></div></div>
 <p>To create an empty array or dictionary, use the initializer syntax.</p>
 <div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">emptyArray</span>: [<span class="nc">String</span>] = []
 </li><li><span class="k">let</span> <span class="nv">emptyDictionary</span>: [<span class="nc">String</span>: <span class="nc">Float</span>] = [:]
 </li></ol></div></div></div>
 <p>If type information can be inferred, you can write an empty array as <code class="docutils literal notranslate"><span class="pre">[]</span></code> and an empty dictionary as <code class="docutils literal notranslate"><span class="pre">[:]</span></code>—for example, when you set a new value for a variable or pass an argument to a function.</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">shoppingList</span> = []
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">fruits</span> = []
 </li><li><span class="nv">occupations</span> = [:]
 </li></ol></div></div></div>
 </div>
@@ -820,14 +820,6 @@ Playgrounds allow you to edit the code listings and see the result immediately.
     <div class="next_previous">
         <p class="previous"><a href="Compatibility.html">Version Compatibility</a></p>
         <p class="next"><a href="../LanguageGuide/TheBasics.html">The Basics</a></p>
-    </div>
-    <div class="admonition-beta admonition">
-        <p class="first admonition-title">Beta Software</p>
-        <p>
-          This documentation contains preliminary information about an API or technology in development.
-          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
-        </p>
-        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
     </div>
 </main>
 

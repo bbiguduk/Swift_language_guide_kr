@@ -158,10 +158,10 @@ In the example above, because the move(_:from:to:) function is synchronous, you 
 
 <!--
 NOTE
-The Task.sleep(until:clock:) method is useful when writing simple code to learn how concurrency works. This method does nothing, but waits at least the given number of nanoseconds before it returns. Here’s a version of the listPhotos(inGallery:) function that uses sleep(until:clock:) to simulate waiting for a network operation:
+The Task.sleep(until:tolerance:clock:) method is useful when writing simple code to learn how concurrency works. This method does nothing, but waits at least the given number of nanoseconds before it returns. Here’s a version of the listPhotos(inGallery:) function that uses sleep(until:tolerance:clock:) to simulate waiting for a network operation:
 -->
 
-> NOTE [`Task.sleep(until:clock:)`](https://developer.apple.com/documentation/swift/task/3968432-sleep) 메서드는 동시성 작동 방식을 배우기 위해 간단한 코드를 작성할 때 유용합니다. 이 메서드는 아무런 동작도 하지 않지만 반환되기 전에 주어진 나노 단위의 초만큼 기다립니다. 다음은 네트워크 작업 대기를 시뮬레이션하기 위해 `sleep(until:clock:)` 을 사용하는 `listPhoto(inGallery:)` 함수의 버전입니다:
+> NOTE [`Task.sleep(until:tolerance:clock:)`](https://developer.apple.com/documentation/swift/task/sleep(until:tolerance:clock:)) 메서드는 동시성 작동 방식을 배우기 위해 간단한 코드를 작성할 때 유용합니다. 이 메서드는 아무런 동작도 하지 않지만 반환되기 전에 주어진 나노 단위의 초만큼 기다립니다. 다음은 네트워크 작업 대기를 시뮬레이션하기 위해 `sleep(until:tolerance:clock:)` 을 사용하는 `listPhoto(inGallery:)` 함수의 버전입니다:
 >
 > ```swift
 > func listPhotos(inGallery name: String) async throws -> [String] {

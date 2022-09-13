@@ -886,8 +886,8 @@ The #unavailable form is syntactic sugar that negates the condition. In an unava
 > platform-name → `iOS` | `iOSApplicationExtension`\
 > platform-name → `macOS` | `macOSApplicationExtension`\
 > platform-name → `macCatalyst` | `macCatalystApplicationExtension`\
-> platform-name → `watchOS`\
-> platform-name → `tvOS`\
+> platform-name → `watchOS` | `watchOSApplicationExtension`\
+> platform-name → `tvOS` | `tvOSApplicationExtension`\
 > platform-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits)\
 > platform-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits) `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits)\
 > platform-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits) `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits) `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_decimal-digits)

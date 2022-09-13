@@ -556,11 +556,11 @@
 > availability-arguments → [availability-argument](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-argument) \| [availability-argument](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-argument) `,` [availability-arguments](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_availability-arguments)  
 > availability-argument → [platform-name](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_platform-name) [platform-version](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar_platform-version)  
 > availability-argument → `*`  
-> platform-name → `iOS` \| `iOSApplicationExtension`  
-> platform-name → `macOS` \| `macOSApplicationExtension`  
-> platform-name → `macCatalyst` \| `macCatalystApplicationExtension`  
-> platform-name → `watchOS`  
-> platform-name → `tvOS`  
+> platform-name → `iOS` | `iOSApplicationExtension`\
+> platform-name → `macOS` | `macOSApplicationExtension`\
+> platform-name → `macCatalyst` | `macCatalystApplicationExtension`\
+> platform-name → `watchOS` | `watchOSApplicationExtension`\
+> platform-name → `tvOS` | `tvOSApplicationExtension`\
 > platform-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits)  
 > platform-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits) `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits)  
 > platform-version → [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits) `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits) `.` [decimal-digits](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar_decimal-digits)

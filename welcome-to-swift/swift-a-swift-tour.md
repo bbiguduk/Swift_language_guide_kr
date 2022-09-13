@@ -129,8 +129,8 @@ Create arrays and dictionaries using brackets ([]), and access their elements by
 대괄호 \(`[]`\) 를 사용하여 배열과 딕셔너리를 생성하고 대괄호에 인덱스 또는 키를 작성하여 해당 요소에 접근할 수 있습니다. 마지막 요소 뒤에 쉼표도 허용 합니다.
 
 ```swift
-var shoppingList = ["catfish", "water", "tulips"]
-shoppingList[1] = "bottle of water"
+var fruits = ["strawberries", "limes", "tangerines"]
+fruits[1] = "grapes"
 
 var occupations = [
     "Malcolm": "Captain",
@@ -146,8 +146,8 @@ Arrays automatically grow as you add elements.
 배열은 요소를 추가함에 따라 자동으로 크기가 늘어납니다.
 
 ```swift
-shoppingList.append("blue paint")
-print(shoppingList)
+fruits.append("blueberries")
+print(fruits)
 ```
 
 <!--
@@ -168,7 +168,7 @@ If type information can be inferred, you can write an empty array as [] and an e
 타입 정보를 유추할 수 있으면 `[]` 로 빈 배열을 작성하고 `[:]` 로 빈 딕셔너리를 작성할 수 있습니다 — 예를 들어 변수에 새로운 값을 설정할 때나 함수에 인수로 전달할 때 사용할 수 있습니다.
 
 ```swift
-shoppingList = []
+fruits = []
 occupations = [:]
 ```
 
