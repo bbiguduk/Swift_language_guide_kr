@@ -1,10 +1,28 @@
 # 언어 참조에 대해 \(About the Language Reference\)
 
+<!--
+This part of the book describes the formal grammar of the Swift programming language. The grammar described here is intended to help you understand the language in more detail, rather than to allow you to directly implement a parser or compiler.
+
+The Swift language is relatively small, because many common types, functions, and operators that appear virtually everywhere in Swift code are actually defined in the Swift standard library. Although these types, functions, and operators aren’t part of the Swift language itself, they’re used extensively in the discussions and code examples in this part of the book.
+-->
+
 책의 이 부분은 Swift 프로그래밍 언어의 일반적인 문법을 설명합니다. 여기서 설명한 문법은 파서 또는 컴파일러를 직접 구현하는 것보다 언어를 더 자세히 이해하는데 도움을 주기 위한 것입니다.
 
 Swift 의 코드의 거의 모든 곳에 나타나는 많은 공통 타입, 함수, 그리고 연산자가 실제로 Swift 표준 라이브러리에 정의되어 있으므로 Swift 언어는 상대적으로 작습니다. 이러한 타입, 함수, 그리고 연산자는 Swift 언어 자체의 부분은 아니지만 책의 부분에서 의견 및 코드 예제에서 광범위하게 사용됩니다.
 
 ## 문법을 읽는 방법 \(How to Read the Grammar\)
+
+<!--
+The notation used to describe the formal grammar of the Swift programming language follows a few conventions:
+
+An arrow (→) is used to mark grammar productions and can be read as “can consist of.”
+Syntactic categories are indicated by italic text and appear on both sides of a grammar production rule.
+Literal words and punctuation are indicated by boldface constant width text and appear only on the right-hand side of a grammar production rule.
+Alternative grammar productions are separated by vertical bars (|). When alternative productions are too long to read easily, they’re broken into multiple grammar production rules on new lines.
+In a few cases, regular font text is used to describe the right-hand side of a grammar production rule.
+Optional syntactic categories and literals are marked by a trailing subscript, opt.
+As an example, the grammar of a getter-setter block is defined as follows:
+-->
 
 Swift 프로그래밍 언어의 일반적인 문법을 설명하는데 사용되는 표기법은 몇가지 규칙을 따릅니다:
 

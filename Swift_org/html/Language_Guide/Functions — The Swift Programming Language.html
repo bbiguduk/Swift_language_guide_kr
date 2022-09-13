@@ -1,0 +1,572 @@
+
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Apple Inc." />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    
+    <title>Functions &mdash; The Swift Programming Language (Swift 5.7)</title>
+    
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css" />
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339" /> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="TheBasics.html">Language Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="TheBasics.html">The Basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="BasicOperators.html">Basic Operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="StringsAndCharacters.html">Strings and Characters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="CollectionTypes.html">Collection Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ControlFlow.html">Control Flow</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Closures.html">Closures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Enumerations.html">Enumerations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ClassesAndStructures.html">Structures and Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Properties.html">Properties</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Subscripts.html">Subscripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Initialization.html">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Deinitialization.html">Deinitialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OptionalChaining.html">Optional Chaining</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ErrorHandling.html">Error Handling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Concurrency.html">Concurrency</a></li>
+<li class="toctree-l2"><a class="reference internal" href="TypeCasting.html">Type Casting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="NestedTypes.html">Nested Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Extensions.html">Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Protocols.html">Protocols</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Generics.html">Generics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="OpaqueTypes.html">Opaque Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AutomaticReferenceCounting.html">Automatic Reference Counting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="MemorySafety.html">Memory Safety</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AccessControl.html">Access Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="AdvancedOperators.html">Advanced Operators</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../ReferenceManual/AboutTheLanguageReference.html">Language Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Functions</a><ul>
+<li><a class="reference internal" href="#ID159">Defining and Calling Functions</a></li>
+<li><a class="reference internal" href="#ID160">Function Parameters and Return Values</a><ul>
+<li><a class="reference internal" href="#ID162">Functions Without Parameters</a></li>
+<li><a class="reference internal" href="#ID528">Functions With Multiple Parameters</a></li>
+<li><a class="reference internal" href="#ID163">Functions Without Return Values</a></li>
+<li><a class="reference internal" href="#ID164">Functions with Multiple Return Values</a><ul>
+<li><a class="reference internal" href="#ID165">Optional Tuple Return Types</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID607">Functions With an Implicit Return</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID166">Function Argument Labels and Parameter Names</a><ul>
+<li><a class="reference internal" href="#ID167">Specifying Argument Labels</a></li>
+<li><a class="reference internal" href="#ID526">Omitting Argument Labels</a></li>
+<li><a class="reference internal" href="#ID169">Default Parameter Values</a></li>
+<li><a class="reference internal" href="#ID171">Variadic Parameters</a></li>
+<li><a class="reference internal" href="#ID173">In-Out Parameters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID174">Function Types</a><ul>
+<li><a class="reference internal" href="#ID175">Using Function Types</a></li>
+<li><a class="reference internal" href="#ID176">Function Types as Parameter Types</a></li>
+<li><a class="reference internal" href="#ID177">Function Types as Return Types</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID178">Nested Functions</a></li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="functions">
+<h1>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h1>
+<p><em>Functions</em> are self-contained chunks of code that perform a specific task. You give a function a name that identifies what it does, and this name is used to “call” the function to perform its task when needed.</p>
+<p>Swift’s unified function syntax is flexible enough to express anything from a simple C-style function with no parameter names to a complex Objective-C-style method with names and argument labels for each parameter. Parameters can provide default values to simplify function calls and can be passed as in-out parameters, which modify a passed variable once the function has completed its execution.</p>
+<p>Every function in Swift has a type, consisting of the function’s parameter types and return type. You can use this type like any other type in Swift, which makes it easy to pass functions as parameters to other functions, and to return functions from functions. Functions can also be written within other functions to encapsulate useful functionality within a nested function scope.</p>
+<div class="section" id="ID159">
+<h2>Defining and Calling Functions<a class="headerlink" href="#ID159" title="Permalink to this headline">¶</a></h2>
+<p>When you define a function, you can optionally define one or more named, typed values that the function takes as input, known as <em>parameters</em>. You can also optionally define a type of value that the function will pass back as output when it’s done, known as its <em>return type</em>.</p>
+<p>Every function has a <em>function name</em>, which describes the task that the function performs. To use a function, you “call” that function with its name and pass it input values (known as <em>arguments</em>) that match the types of the function’s parameters. A function’s arguments must always be provided in the same order as the function’s parameter list.</p>
+<p>The function in the example below is called <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code>, because that’s what it does—it takes a person’s name as input and returns a greeting for that person. To accomplish this, you define one input parameter—a <code class="docutils literal notranslate"><span class="pre">String</span></code> value called <code class="docutils literal notranslate"><span class="pre">person</span></code>—and a return type of <code class="docutils literal notranslate"><span class="pre">String</span></code>, which will contain a greeting for that person:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">greet</span>(<span class="nv">person</span>: <span class="nc">String</span>) -&gt; <span class="nc">String</span> {
+</li><li>    <span class="k">let</span> <span class="nv">greeting</span> = <span class="s">&quot;Hello, &quot;</span> + <span class="nv">person</span> + <span class="s">&quot;!&quot;</span>
+</li><li>    <span class="k">return</span> <span class="nv">greeting</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>All of this information is rolled up into the function’s <em>definition</em>, which is prefixed with the <code class="docutils literal notranslate"><span class="pre">func</span></code> keyword. You indicate the function’s return type with the <em>return arrow</em> <code class="docutils literal notranslate"><span class="pre">-&gt;</span></code> (a hyphen followed by a right angle bracket), which is followed by the name of the type to return.</p>
+<p>The definition describes what the function does, what it expects to receive, and what it returns when it’s done. The definition makes it easy for the function to be called unambiguously from elsewhere in your code:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="nv">greet</span>(<span class="nv">person</span>: <span class="s">&quot;Anna&quot;</span>))
+</li><li><span class="c">// Prints &quot;Hello, Anna!&quot;</span>
+</li><li><span class="nv">print</span>(<span class="nv">greet</span>(<span class="nv">person</span>: <span class="s">&quot;Brian&quot;</span>))
+</li><li><span class="c">// Prints &quot;Hello, Brian!&quot;</span>
+</li></ol></div></div></div>
+<p>You call the <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> function by passing it a <code class="docutils literal notranslate"><span class="pre">String</span></code> value after the <code class="docutils literal notranslate"><span class="pre">person</span></code> argument label, such as <code class="docutils literal notranslate"><span class="pre">greet(person:</span> <span class="pre">&quot;Anna&quot;)</span></code>. Because the function returns a <code class="docutils literal notranslate"><span class="pre">String</span></code> value, <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> can be wrapped in a call to the <code class="docutils literal notranslate"><span class="pre">print(_:separator:terminator:)</span></code> function to print that string and see its return value, as shown above.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">print(_:separator:terminator:)</span></code> function doesn’t have a label for its first argument, and its other arguments are optional because they have a default value. These variations on function syntax are discussed below in <a class="reference internal" href="#ID166"><span class="std std-ref">Function Argument Labels and Parameter Names</span></a> and <a class="reference internal" href="#ID169"><span class="std std-ref">Default Parameter Values</span></a>.</p>
+</div>
+<p>The body of the <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> function starts by defining a new <code class="docutils literal notranslate"><span class="pre">String</span></code> constant called <code class="docutils literal notranslate"><span class="pre">greeting</span></code> and setting it to a simple greeting message. This greeting is then passed back out of the function using the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword. In the line of code that says <code class="docutils literal notranslate"><span class="pre">return</span> <span class="pre">greeting</span></code>, the function finishes its execution and returns the current value of <code class="docutils literal notranslate"><span class="pre">greeting</span></code>.</p>
+<p>You can call the <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> function multiple times with different input values. The example above shows what happens if it’s called with an input value of <code class="docutils literal notranslate"><span class="pre">&quot;Anna&quot;</span></code>, and an input value of <code class="docutils literal notranslate"><span class="pre">&quot;Brian&quot;</span></code>. The function returns a tailored greeting in each case.</p>
+<p>To make the body of this function shorter, you can combine the message creation and the return statement into one line:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">greetAgain</span>(<span class="nv">person</span>: <span class="nc">String</span>) -&gt; <span class="nc">String</span> {
+</li><li>    <span class="k">return</span> <span class="s">&quot;Hello again, &quot;</span> + <span class="nv">person</span> + <span class="s">&quot;!&quot;</span>
+</li><li>}
+</li><li><span class="nv">print</span>(<span class="nv">greetAgain</span>(<span class="nv">person</span>: <span class="s">&quot;Anna&quot;</span>))
+</li><li><span class="c">// Prints &quot;Hello again, Anna!&quot;</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID160">
+<h2>Function Parameters and Return Values<a class="headerlink" href="#ID160" title="Permalink to this headline">¶</a></h2>
+<p>Function parameters and return values are extremely flexible in Swift. You can define anything from a simple utility function with a single unnamed parameter to a complex function with expressive parameter names and different parameter options.</p>
+<div class="section" id="ID162">
+<h3>Functions Without Parameters<a class="headerlink" href="#ID162" title="Permalink to this headline">¶</a></h3>
+<p>Functions aren’t required to define input parameters. Here’s a function with no input parameters, which always returns the same <code class="docutils literal notranslate"><span class="pre">String</span></code> message whenever it’s called:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">sayHelloWorld</span>() -&gt; <span class="nc">String</span> {
+</li><li>    <span class="k">return</span> <span class="s">&quot;hello, world&quot;</span>
+</li><li>}
+</li><li><span class="nv">print</span>(<span class="nv">sayHelloWorld</span>())
+</li><li><span class="c">// Prints &quot;hello, world&quot;</span>
+</li></ol></div></div></div>
+<p>The function definition still needs parentheses after the function’s name, even though it doesn’t take any parameters. The function name is also followed by an empty pair of parentheses when the function is called.</p>
+</div>
+<div class="section" id="ID528">
+<h3>Functions With Multiple Parameters<a class="headerlink" href="#ID528" title="Permalink to this headline">¶</a></h3>
+<p>Functions can have multiple input parameters, which are written within the function’s parentheses, separated by commas.</p>
+<p>This function takes a person’s name and whether they have already been greeted as input, and returns an appropriate greeting for that person:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">greet</span>(<span class="nv">person</span>: <span class="nc">String</span>, <span class="nv">alreadyGreeted</span>: <span class="nc">Bool</span>) -&gt; <span class="nc">String</span> {
+</li><li>    <span class="k">if</span> <span class="nv">alreadyGreeted</span> {
+</li><li>        <span class="k">return</span> <span class="nv">greetAgain</span>(<span class="nv">person</span>: <span class="nv">person</span>)
+</li><li>    } <span class="k">else</span> {
+</li><li>        <span class="k">return</span> <span class="nv">greet</span>(<span class="nv">person</span>: <span class="nv">person</span>)
+</li><li>    }
+</li><li>}
+</li><li><span class="nv">print</span>(<span class="nv">greet</span>(<span class="nv">person</span>: <span class="s">&quot;Tim&quot;</span>, <span class="nv">alreadyGreeted</span>: <span class="k">true</span>))
+</li><li><span class="c">// Prints &quot;Hello again, Tim!&quot;</span>
+</li></ol></div></div></div>
+<p>You call the <code class="docutils literal notranslate"><span class="pre">greet(person:alreadyGreeted:)</span></code> function by passing it both a <code class="docutils literal notranslate"><span class="pre">String</span></code> argument value labeled <code class="docutils literal notranslate"><span class="pre">person</span></code> and a <code class="docutils literal notranslate"><span class="pre">Bool</span></code> argument value labeled <code class="docutils literal notranslate"><span class="pre">alreadyGreeted</span></code> in parentheses, separated by commas. Note that this function is distinct from the <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> function shown in an earlier section. Although both functions have names that begin with <code class="docutils literal notranslate"><span class="pre">greet</span></code>, the <code class="docutils literal notranslate"><span class="pre">greet(person:alreadyGreeted:)</span></code> function takes two arguments but the <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> function takes only one.</p>
+</div>
+<div class="section" id="ID163">
+<h3>Functions Without Return Values<a class="headerlink" href="#ID163" title="Permalink to this headline">¶</a></h3>
+<p>Functions aren’t required to define a return type. Here’s a version of the <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> function, which prints its own <code class="docutils literal notranslate"><span class="pre">String</span></code> value rather than returning it:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">greet</span>(<span class="nv">person</span>: <span class="nc">String</span>) {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Hello, </span>\<span class="p">(</span><span class="nv">person</span><span class="p">)</span><span class="s">!&quot;</span>)
+</li><li>}
+</li><li><span class="nv">greet</span>(<span class="nv">person</span>: <span class="s">&quot;Dave&quot;</span>)
+</li><li><span class="c">// Prints &quot;Hello, Dave!&quot;</span>
+</li></ol></div></div></div>
+<p>Because it doesn’t need to return a value, the function’s definition doesn’t include the return arrow (<code class="docutils literal notranslate"><span class="pre">-&gt;</span></code>) or a return type.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Strictly speaking, this version of the <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> function <em>does</em> still return a value, even though no return value is defined. Functions without a defined return type return a special value of type <code class="docutils literal notranslate"><span class="pre">Void</span></code>. This is simply an empty tuple, which is written as <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
+</div>
+<p>The return value of a function can be ignored when it’s called:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">printAndCount</span>(<span class="nv">string</span>: <span class="nc">String</span>) -&gt; <span class="nc">Int</span> {
+</li><li>    <span class="nv">print</span>(<span class="nv">string</span>)
+</li><li>    <span class="k">return</span> <span class="nv">string</span>.<span class="nv">count</span>
+</li><li>}
+</li><li><span class="k">func</span> <span class="nv">printWithoutCounting</span>(<span class="nv">string</span>: <span class="nc">String</span>) {
+</li><li>    <span class="k">let</span> <span class="k">_</span> = <span class="nv">printAndCount</span>(<span class="nv">string</span>: <span class="nv">string</span>)
+</li><li>}
+</li><li><span class="nv">printAndCount</span>(<span class="nv">string</span>: <span class="s">&quot;hello, world&quot;</span>)
+</li><li><span class="c">// prints &quot;hello, world&quot; and returns a value of 12</span>
+</li><li><span class="nv">printWithoutCounting</span>(<span class="nv">string</span>: <span class="s">&quot;hello, world&quot;</span>)
+</li><li><span class="c">// prints &quot;hello, world&quot; but doesn&#39;t return a value</span>
+</li></ol></div></div></div>
+<p>The first function, <code class="docutils literal notranslate"><span class="pre">printAndCount(string:)</span></code>, prints a string, and then returns its character count as an <code class="docutils literal notranslate"><span class="pre">Int</span></code>. The second function, <code class="docutils literal notranslate"><span class="pre">printWithoutCounting(string:)</span></code>, calls the first function, but ignores its return value. When the second function is called, the message is still printed by the first function, but the returned value isn’t used.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Return values can be ignored, but a function that says it will return a value must always do so. A function with a defined return type can’t allow control to fall out of the bottom of the function without returning a value, and attempting to do so will result in a compile-time error.</p>
+</div>
+</div>
+<div class="section" id="ID164">
+<h3>Functions with Multiple Return Values<a class="headerlink" href="#ID164" title="Permalink to this headline">¶</a></h3>
+<p>You can use a tuple type as the return type for a function to return multiple values as part of one compound return value.</p>
+<p>The example below defines a function called <code class="docutils literal notranslate"><span class="pre">minMax(array:)</span></code>, which finds the smallest and largest numbers in an array of <code class="docutils literal notranslate"><span class="pre">Int</span></code> values:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">minMax</span>(<span class="nv">array</span>: [<span class="nc">Int</span>]) -&gt; (<span class="nv">min</span>: <span class="nc">Int</span>, <span class="nv">max</span>: <span class="nc">Int</span>) {
+</li><li>    <span class="k">var</span> <span class="nv">currentMin</span> = <span class="nv">array</span>[<span class="m">0</span>]
+</li><li>    <span class="k">var</span> <span class="nv">currentMax</span> = <span class="nv">array</span>[<span class="m">0</span>]
+</li><li>    <span class="k">for</span> <span class="nv">value</span> <span class="k">in</span> <span class="nv">array</span>[<span class="m">1</span>..&lt;<span class="nv">array</span>.<span class="nv">count</span>] {
+</li><li>        <span class="k">if</span> <span class="nv">value</span> &lt; <span class="nv">currentMin</span> {
+</li><li>            <span class="nv">currentMin</span> = <span class="nv">value</span>
+</li><li>        } <span class="k">else</span> <span class="k">if</span> <span class="nv">value</span> &gt; <span class="nv">currentMax</span> {
+</li><li>            <span class="nv">currentMax</span> = <span class="nv">value</span>
+</li><li>        }
+</li><li>    }
+</li><li>    <span class="k">return</span> (<span class="nv">currentMin</span>, <span class="nv">currentMax</span>)
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">minMax(array:)</span></code> function returns a tuple containing two <code class="docutils literal notranslate"><span class="pre">Int</span></code> values. These values are labeled <code class="docutils literal notranslate"><span class="pre">min</span></code> and <code class="docutils literal notranslate"><span class="pre">max</span></code> so that they can be accessed by name when querying the function’s return value.</p>
+<p>The body of the <code class="docutils literal notranslate"><span class="pre">minMax(array:)</span></code> function starts by setting two working variables called <code class="docutils literal notranslate"><span class="pre">currentMin</span></code> and <code class="docutils literal notranslate"><span class="pre">currentMax</span></code> to the value of the first integer in the array. The function then iterates over the remaining values in the array and checks each value to see if it’s smaller or larger than the values of <code class="docutils literal notranslate"><span class="pre">currentMin</span></code> and <code class="docutils literal notranslate"><span class="pre">currentMax</span></code> respectively. Finally, the overall minimum and maximum values are returned as a tuple of two <code class="docutils literal notranslate"><span class="pre">Int</span></code> values.</p>
+<p>Because the tuple’s member values are named as part of the function’s return type, they can be accessed with dot syntax to retrieve the minimum and maximum found values:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">bounds</span> = <span class="nv">minMax</span>(<span class="nv">array</span>: [<span class="m">8</span>, <span class="m">-6</span>, <span class="m">2</span>, <span class="m">109</span>, <span class="m">3</span>, <span class="m">71</span>])
+</li><li><span class="nv">print</span>(<span class="s">&quot;min is </span>\<span class="p">(</span><span class="nv">bounds</span>.<span class="nv">min</span><span class="p">)</span><span class="s"> and max is </span>\<span class="p">(</span><span class="nv">bounds</span>.<span class="nv">max</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;min is -6 and max is 109&quot;</span>
+</li></ol></div></div></div>
+<p>Note that the tuple’s members don’t need to be named at the point that the tuple is returned from the function, because their names are already specified as part of the function’s return type.</p>
+<div class="section" id="ID165">
+<h4>Optional Tuple Return Types<a class="headerlink" href="#ID165" title="Permalink to this headline">¶</a></h4>
+<p>If the tuple type to be returned from a function has the potential to have “no value” for the entire tuple, you can use an <em>optional</em> tuple return type to reflect the fact that the entire tuple can be <code class="docutils literal notranslate"><span class="pre">nil</span></code>. You write an optional tuple return type by placing a question mark after the tuple type’s closing parenthesis, such as <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">Int)?</span></code> or <code class="docutils literal notranslate"><span class="pre">(String,</span> <span class="pre">Int,</span> <span class="pre">Bool)?</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>An optional tuple type such as <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">Int)?</span></code> is different from a tuple that contains optional types such as <code class="docutils literal notranslate"><span class="pre">(Int?,</span> <span class="pre">Int?)</span></code>. With an optional tuple type, the entire tuple is optional, not just each individual value within the tuple.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">minMax(array:)</span></code> function above returns a tuple containing two <code class="docutils literal notranslate"><span class="pre">Int</span></code> values. However, the function doesn’t perform any safety checks on the array it’s passed. If the <code class="docutils literal notranslate"><span class="pre">array</span></code> argument contains an empty array, the <code class="docutils literal notranslate"><span class="pre">minMax(array:)</span></code> function, as defined above, will trigger a runtime error when attempting to access <code class="docutils literal notranslate"><span class="pre">array[0]</span></code>.</p>
+<p>To handle an empty array safely, write the <code class="docutils literal notranslate"><span class="pre">minMax(array:)</span></code> function with an optional tuple return type and return a value of <code class="docutils literal notranslate"><span class="pre">nil</span></code> when the array is empty:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">minMax</span>(<span class="nv">array</span>: [<span class="nc">Int</span>]) -&gt; (<span class="nv">min</span>: <span class="nc">Int</span>, <span class="nv">max</span>: <span class="nc">Int</span>)? {
+</li><li>    <span class="k">if</span> <span class="nv">array</span>.<span class="nv">isEmpty</span> { <span class="k">return</span> <span class="k">nil</span> }
+</li><li>    <span class="k">var</span> <span class="nv">currentMin</span> = <span class="nv">array</span>[<span class="m">0</span>]
+</li><li>    <span class="k">var</span> <span class="nv">currentMax</span> = <span class="nv">array</span>[<span class="m">0</span>]
+</li><li>    <span class="k">for</span> <span class="nv">value</span> <span class="k">in</span> <span class="nv">array</span>[<span class="m">1</span>..&lt;<span class="nv">array</span>.<span class="nv">count</span>] {
+</li><li>        <span class="k">if</span> <span class="nv">value</span> &lt; <span class="nv">currentMin</span> {
+</li><li>            <span class="nv">currentMin</span> = <span class="nv">value</span>
+</li><li>        } <span class="k">else</span> <span class="k">if</span> <span class="nv">value</span> &gt; <span class="nv">currentMax</span> {
+</li><li>            <span class="nv">currentMax</span> = <span class="nv">value</span>
+</li><li>        }
+</li><li>    }
+</li><li>    <span class="k">return</span> (<span class="nv">currentMin</span>, <span class="nv">currentMax</span>)
+</li><li>}
+</li></ol></div></div></div>
+<p>You can use optional binding to check whether this version of the <code class="docutils literal notranslate"><span class="pre">minMax(array:)</span></code> function returns an actual tuple value or <code class="docutils literal notranslate"><span class="pre">nil</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="k">let</span> <span class="nv">bounds</span> = <span class="nv">minMax</span>(<span class="nv">array</span>: [<span class="m">8</span>, <span class="m">-6</span>, <span class="m">2</span>, <span class="m">109</span>, <span class="m">3</span>, <span class="m">71</span>]) {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;min is </span>\<span class="p">(</span><span class="nv">bounds</span>.<span class="nv">min</span><span class="p">)</span><span class="s"> and max is </span>\<span class="p">(</span><span class="nv">bounds</span>.<span class="nv">max</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;min is -6 and max is 109&quot;</span>
+</li></ol></div></div></div>
+</div>
+</div>
+<div class="section" id="ID607">
+<h3>Functions With an Implicit Return<a class="headerlink" href="#ID607" title="Permalink to this headline">¶</a></h3>
+<p>If the entire body of the function is a single expression, the function implicitly returns that expression. For example, both functions below have the same behavior:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">greeting</span>(<span class="nv">for</span> <span class="nv">person</span>: <span class="nc">String</span>) -&gt; <span class="nc">String</span> {
+</li><li>    <span class="s">&quot;Hello, &quot;</span> + <span class="nv">person</span> + <span class="s">&quot;!&quot;</span>
+</li><li>}
+</li><li><span class="nv">print</span>(<span class="nv">greeting</span>(<span class="nv">for</span>: <span class="s">&quot;Dave&quot;</span>))
+</li><li><span class="c">// Prints &quot;Hello, Dave!&quot;</span>
+</li><li>
+</li><li><span class="k">func</span> <span class="nv">anotherGreeting</span>(<span class="nv">for</span> <span class="nv">person</span>: <span class="nc">String</span>) -&gt; <span class="nc">String</span> {
+</li><li>    <span class="k">return</span> <span class="s">&quot;Hello, &quot;</span> + <span class="nv">person</span> + <span class="s">&quot;!&quot;</span>
+</li><li>}
+</li><li><span class="nv">print</span>(<span class="nv">anotherGreeting</span>(<span class="nv">for</span>: <span class="s">&quot;Dave&quot;</span>))
+</li><li><span class="c">// Prints &quot;Hello, Dave!&quot;</span>
+</li></ol></div></div></div>
+<p>The entire definition of the <code class="docutils literal notranslate"><span class="pre">greeting(for:)</span></code> function is the greeting message that it returns, which means it can use this shorter form. The <code class="docutils literal notranslate"><span class="pre">anotherGreeting(for:)</span></code> function returns the same greeting message, using the <code class="docutils literal notranslate"><span class="pre">return</span></code> keyword like a longer function. Any function that you write as just one <code class="docutils literal notranslate"><span class="pre">return</span></code> line can omit the <code class="docutils literal notranslate"><span class="pre">return</span></code>.</p>
+<p>As you’ll see in <a class="reference internal" href="Properties.html#ID608"><span class="std std-ref">Shorthand Getter Declaration</span></a>, property getters can also use an implicit return.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The code you write as an implicit return value needs to return some value. For example, you can’t use <code class="docutils literal notranslate"><span class="pre">print(13)</span></code> as an implicit return value. However, you can use a function that never returns like <code class="docutils literal notranslate"><span class="pre">fatalError(&quot;Oh</span> <span class="pre">no!&quot;)</span></code> as an implicit return value, because Swift knows that the implicit return doesn’t happen.</p>
+</div>
+</div>
+</div>
+<div class="section" id="ID166">
+<h2>Function Argument Labels and Parameter Names<a class="headerlink" href="#ID166" title="Permalink to this headline">¶</a></h2>
+<p>Each function parameter has both an <em>argument label</em> and a <em>parameter name</em>. The argument label is used when calling the function; each argument is written in the function call with its argument label before it. The parameter name is used in the implementation of the function. By default, parameters use their parameter name as their argument label.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">someFunction</span>(<span class="nv">firstParameterName</span>: <span class="nc">Int</span>, <span class="nv">secondParameterName</span>: <span class="nc">Int</span>) {
+</li><li>    <span class="c">// In the function body, firstParameterName and secondParameterName</span>
+</li><li>    <span class="c">// refer to the argument values for the first and second parameters.</span>
+</li><li>}
+</li><li><span class="nv">someFunction</span>(<span class="nv">firstParameterName</span>: <span class="m">1</span>, <span class="nv">secondParameterName</span>: <span class="m">2</span>)
+</li></ol></div></div></div>
+<p>All parameters must have unique names. Although it’s possible for multiple parameters to have the same argument label, unique argument labels help make your code more readable.</p>
+<div class="section" id="ID167">
+<h3>Specifying Argument Labels<a class="headerlink" href="#ID167" title="Permalink to this headline">¶</a></h3>
+<p>You write an argument label before the parameter name, separated by a space:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">someFunction</span>(<span class="nv">argumentLabel</span> <span class="nv">parameterName</span>: <span class="nc">Int</span>) {
+</li><li>    <span class="c">// In the function body, parameterName refers to the argument value</span>
+</li><li>    <span class="c">// for that parameter.</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>Here’s a variation of the <code class="docutils literal notranslate"><span class="pre">greet(person:)</span></code> function that takes a person’s name and hometown and returns a greeting:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">greet</span>(<span class="nv">person</span>: <span class="nc">String</span>, <span class="nv">from</span> <span class="nv">hometown</span>: <span class="nc">String</span>) -&gt; <span class="nc">String</span> {
+</li><li>    <span class="k">return</span> <span class="s">&quot;Hello </span>\<span class="p">(</span><span class="nv">person</span><span class="p">)</span><span class="s">!  Glad you could visit from </span>\<span class="p">(</span><span class="nv">hometown</span><span class="p">)</span><span class="s">.&quot;</span>
+</li><li>}
+</li><li><span class="nv">print</span>(<span class="nv">greet</span>(<span class="nv">person</span>: <span class="s">&quot;Bill&quot;</span>, <span class="nv">from</span>: <span class="s">&quot;Cupertino&quot;</span>))
+</li><li><span class="c">// Prints &quot;Hello Bill!  Glad you could visit from Cupertino.&quot;</span>
+</li></ol></div></div></div>
+<p>The use of argument labels can allow a function to be called in an expressive, sentence-like manner, while still providing a function body that’s readable and clear in intent.</p>
+</div>
+<div class="section" id="ID526">
+<h3>Omitting Argument Labels<a class="headerlink" href="#ID526" title="Permalink to this headline">¶</a></h3>
+<p>If you don’t want an argument label for a parameter, write an underscore (<code class="docutils literal notranslate"><span class="pre">_</span></code>) instead of an explicit argument label for that parameter.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">someFunction</span>(<span class="k">_</span> <span class="nv">firstParameterName</span>: <span class="nc">Int</span>, <span class="nv">secondParameterName</span>: <span class="nc">Int</span>) {
+</li><li>    <span class="c">// In the function body, firstParameterName and secondParameterName</span>
+</li><li>    <span class="c">// refer to the argument values for the first and second parameters.</span>
+</li><li>}
+</li><li><span class="nv">someFunction</span>(<span class="m">1</span>, <span class="nv">secondParameterName</span>: <span class="m">2</span>)
+</li></ol></div></div></div>
+<p>If a parameter has an argument label, the argument <em>must</em> be labeled when you call the function.</p>
+</div>
+<div class="section" id="ID169">
+<h3>Default Parameter Values<a class="headerlink" href="#ID169" title="Permalink to this headline">¶</a></h3>
+<p>You can define a <em>default value</em> for any parameter in a function by assigning a value to the parameter after that parameter’s type. If a default value is defined, you can omit that parameter when calling the function.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">someFunction</span>(<span class="nv">parameterWithoutDefault</span>: <span class="nc">Int</span>, <span class="nv">parameterWithDefault</span>: <span class="nc">Int</span> = <span class="m">12</span>) {
+</li><li>    <span class="c">// If you omit the second argument when calling this function, then</span>
+</li><li>    <span class="c">// the value of parameterWithDefault is 12 inside the function body.</span>
+</li><li>}
+</li><li><span class="nv">someFunction</span>(<span class="nv">parameterWithoutDefault</span>: <span class="m">3</span>, <span class="nv">parameterWithDefault</span>: <span class="m">6</span>) <span class="c">// parameterWithDefault is 6</span>
+</li><li><span class="nv">someFunction</span>(<span class="nv">parameterWithoutDefault</span>: <span class="m">4</span>) <span class="c">// parameterWithDefault is 12</span>
+</li></ol></div></div></div>
+<p>Place parameters that don’t have default values at the beginning of a function’s parameter list, before the parameters that have default values. Parameters that don’t have default values are usually more important to the function’s meaning—writing them first makes it easier to recognize that the same function is being called, regardless of whether any default parameters are omitted.</p>
+</div>
+<div class="section" id="ID171">
+<h3>Variadic Parameters<a class="headerlink" href="#ID171" title="Permalink to this headline">¶</a></h3>
+<p>A <em>variadic parameter</em> accepts zero or more values of a specified type. You use a variadic parameter to specify that the parameter can be passed a varying number of input values when the function is called. Write variadic parameters by inserting three period characters (<code class="docutils literal notranslate"><span class="pre">...</span></code>) after the parameter’s type name.</p>
+<p>The values passed to a variadic parameter are made available within the function’s body as an array of the appropriate type. For example, a variadic parameter with a name of <code class="docutils literal notranslate"><span class="pre">numbers</span></code> and a type of <code class="docutils literal notranslate"><span class="pre">Double...</span></code> is made available within the function’s body as a constant array called <code class="docutils literal notranslate"><span class="pre">numbers</span></code> of type <code class="docutils literal notranslate"><span class="pre">[Double]</span></code>.</p>
+<p>The example below calculates the <em>arithmetic mean</em> (also known as the <em>average</em>) for a list of numbers of any length:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">arithmeticMean</span>(<span class="k">_</span> <span class="nv">numbers</span>: <span class="nc">Double</span>...) -&gt; <span class="nc">Double</span> {
+</li><li>    <span class="k">var</span> <span class="nv">total</span>: <span class="nc">Double</span> = <span class="m">0</span>
+</li><li>    <span class="k">for</span> <span class="nv">number</span> <span class="k">in</span> <span class="nv">numbers</span> {
+</li><li>        <span class="nv">total</span> += <span class="nv">number</span>
+</li><li>    }
+</li><li>    <span class="k">return</span> <span class="nv">total</span> / <span class="nv">Double</span>(<span class="nv">numbers</span>.<span class="nv">count</span>)
+</li><li>}
+</li><li><span class="nv">arithmeticMean</span>(<span class="m">1</span>, <span class="m">2</span>, <span class="m">3</span>, <span class="m">4</span>, <span class="m">5</span>)
+</li><li><span class="c">// returns 3.0, which is the arithmetic mean of these five numbers</span>
+</li><li><span class="nv">arithmeticMean</span>(<span class="m">3</span>, <span class="m">8.25</span>, <span class="m">18.75</span>)
+</li><li><span class="c">// returns 10.0, which is the arithmetic mean of these three numbers</span>
+</li></ol></div></div></div>
+<p>A function can have multiple variadic parameters. The first parameter that comes after a variadic parameter must have an argument label. The argument label makes it unambiguous which arguments are passed to the variadic parameter and which arguments are passed to the parameters that come after the variadic parameter.</p>
+</div>
+<div class="section" id="ID173">
+<h3>In-Out Parameters<a class="headerlink" href="#ID173" title="Permalink to this headline">¶</a></h3>
+<p>Function parameters are constants by default. Trying to change the value of a function parameter from within the body of that function results in a compile-time error. This means that you can’t change the value of a parameter by mistake. If you want a function to modify a parameter’s value, and you want those changes to persist after the function call has ended, define that parameter as an <em>in-out parameter</em> instead.</p>
+<p>You write an in-out parameter by placing the <code class="docutils literal notranslate"><span class="pre">inout</span></code> keyword right before a parameter’s type. An in-out parameter has a value that’s passed <em>in</em> to the function, is modified by the function, and is passed back <em>out</em> of the function to replace the original value. For a detailed discussion of the behavior of in-out parameters and associated compiler optimizations, see <a class="reference internal" href="../ReferenceManual/Declarations.html#ID545"><span class="std std-ref">In-Out Parameters</span></a>.</p>
+<p>You can only pass a variable as the argument for an in-out parameter. You can’t pass a constant or a literal value as the argument, because constants and literals can’t be modified. You place an ampersand (<code class="docutils literal notranslate"><span class="pre">&amp;</span></code>) directly before a variable’s name when you pass it as an argument to an in-out parameter, to indicate that it can be modified by the function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In-out parameters can’t have default values, and variadic parameters can’t be marked as <code class="docutils literal notranslate"><span class="pre">inout</span></code>.</p>
+</div>
+<p>Here’s an example of a function called <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code>, which has two in-out integer parameters called <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">swapTwoInts</span>(<span class="k">_</span> <span class="nv">a</span>: <span class="k">inout</span> <span class="nc">Int</span>, <span class="k">_</span> <span class="nv">b</span>: <span class="k">inout</span> <span class="nc">Int</span>) {
+</li><li>    <span class="k">let</span> <span class="nv">temporaryA</span> = <span class="nv">a</span>
+</li><li>    <span class="nv">a</span> = <span class="nv">b</span>
+</li><li>    <span class="nv">b</span> = <span class="nv">temporaryA</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>The <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code> function simply swaps the value of <code class="docutils literal notranslate"><span class="pre">b</span></code> into <code class="docutils literal notranslate"><span class="pre">a</span></code>, and the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> into <code class="docutils literal notranslate"><span class="pre">b</span></code>. The function performs this swap by storing the value of <code class="docutils literal notranslate"><span class="pre">a</span></code> in a temporary constant called <code class="docutils literal notranslate"><span class="pre">temporaryA</span></code>, assigning the value of <code class="docutils literal notranslate"><span class="pre">b</span></code> to <code class="docutils literal notranslate"><span class="pre">a</span></code>, and then assigning <code class="docutils literal notranslate"><span class="pre">temporaryA</span></code> to <code class="docutils literal notranslate"><span class="pre">b</span></code>.</p>
+<p>You can call the <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code> function with two variables of type <code class="docutils literal notranslate"><span class="pre">Int</span></code> to swap their values. Note that the names of <code class="docutils literal notranslate"><span class="pre">someInt</span></code> and <code class="docutils literal notranslate"><span class="pre">anotherInt</span></code> are prefixed with an ampersand when they’re passed to the <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code> function:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">someInt</span> = <span class="m">3</span>
+</li><li><span class="k">var</span> <span class="nv">anotherInt</span> = <span class="m">107</span>
+</li><li><span class="nv">swapTwoInts</span>(&amp;<span class="nv">someInt</span>, &amp;<span class="nv">anotherInt</span>)
+</li><li><span class="nv">print</span>(<span class="s">&quot;someInt is now </span>\<span class="p">(</span><span class="nv">someInt</span><span class="p">)</span><span class="s">, and anotherInt is now </span>\<span class="p">(</span><span class="nv">anotherInt</span><span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;someInt is now 107, and anotherInt is now 3&quot;</span>
+</li></ol></div></div></div>
+<p>The example above shows that the original values of <code class="docutils literal notranslate"><span class="pre">someInt</span></code> and <code class="docutils literal notranslate"><span class="pre">anotherInt</span></code> are modified by the <code class="docutils literal notranslate"><span class="pre">swapTwoInts(_:_:)</span></code> function, even though they were originally defined outside of the function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In-out parameters aren’t the same as returning a value from a function. The <code class="docutils literal notranslate"><span class="pre">swapTwoInts</span></code> example above doesn’t define a return type or return a value, but it still modifies the values of <code class="docutils literal notranslate"><span class="pre">someInt</span></code> and <code class="docutils literal notranslate"><span class="pre">anotherInt</span></code>. In-out parameters are an alternative way for a function to have an effect outside of the scope of its function body.</p>
+</div>
+</div>
+</div>
+<div class="section" id="ID174">
+<h2>Function Types<a class="headerlink" href="#ID174" title="Permalink to this headline">¶</a></h2>
+<p>Every function has a specific <em>function type</em>, made up of the parameter types and the return type of the function.</p>
+<p>For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">addTwoInts</span>(<span class="k">_</span> <span class="nv">a</span>: <span class="nc">Int</span>, <span class="k">_</span> <span class="nv">b</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> {
+</li><li>    <span class="k">return</span> <span class="nv">a</span> + <span class="nv">b</span>
+</li><li>}
+</li><li><span class="k">func</span> <span class="nv">multiplyTwoInts</span>(<span class="k">_</span> <span class="nv">a</span>: <span class="nc">Int</span>, <span class="k">_</span> <span class="nv">b</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> {
+</li><li>    <span class="k">return</span> <span class="nv">a</span> * <span class="nv">b</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>This example defines two simple mathematical functions called <code class="docutils literal notranslate"><span class="pre">addTwoInts</span></code> and <code class="docutils literal notranslate"><span class="pre">multiplyTwoInts</span></code>. These functions each take two <code class="docutils literal notranslate"><span class="pre">Int</span></code> values, and return an <code class="docutils literal notranslate"><span class="pre">Int</span></code> value, which is the result of performing an appropriate mathematical operation.</p>
+<p>The type of both of these functions is <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">Int)</span> <span class="pre">-&gt;</span> <span class="pre">Int</span></code>. This can be read as:</p>
+<p>“A function that has two parameters, both of type <code class="docutils literal notranslate"><span class="pre">Int</span></code>, and that returns a value of type <code class="docutils literal notranslate"><span class="pre">Int</span></code>.”</p>
+<p>Here’s another example, for a function with no parameters or return value:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">printHelloWorld</span>() {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;hello, world&quot;</span>)
+</li><li>}
+</li></ol></div></div></div>
+<p>The type of this function is <code class="docutils literal notranslate"><span class="pre">()</span> <span class="pre">-&gt;</span> <span class="pre">Void</span></code>, or “a function that has no parameters, and returns <code class="docutils literal notranslate"><span class="pre">Void</span></code>.”</p>
+<div class="section" id="ID175">
+<h3>Using Function Types<a class="headerlink" href="#ID175" title="Permalink to this headline">¶</a></h3>
+<p>You use function types just like any other types in Swift. For example, you can define a constant or variable to be of a function type and assign an appropriate function to that variable:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">mathFunction</span>: (<span class="nc">Int</span>, <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> = <span class="nv">addTwoInts</span>
+</li></ol></div></div></div>
+<p>This can be read as:</p>
+<p>“Define a variable called <code class="docutils literal notranslate"><span class="pre">mathFunction</span></code>, which has a type of ‘a function that takes two <code class="docutils literal notranslate"><span class="pre">Int</span></code> values, and returns an <code class="docutils literal notranslate"><span class="pre">Int</span></code> value.’ Set this new variable to refer to the function called <code class="docutils literal notranslate"><span class="pre">addTwoInts</span></code>.”</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">addTwoInts(_:_:)</span></code> function has the same type as the <code class="docutils literal notranslate"><span class="pre">mathFunction</span></code> variable, and so this assignment is allowed by Swift’s type-checker.</p>
+<p>You can now call the assigned function with the name <code class="docutils literal notranslate"><span class="pre">mathFunction</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="s">&quot;Result: </span>\<span class="p">(</span><span class="nv">mathFunction</span>(<span class="m">2</span>, <span class="m">3</span>)<span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;Result: 5&quot;</span>
+</li></ol></div></div></div>
+<p>A different function with the same matching type can be assigned to the same variable, in the same way as for nonfunction types:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">mathFunction</span> = <span class="nv">multiplyTwoInts</span>
+</li><li><span class="nv">print</span>(<span class="s">&quot;Result: </span>\<span class="p">(</span><span class="nv">mathFunction</span>(<span class="m">2</span>, <span class="m">3</span>)<span class="p">)</span><span class="s">&quot;</span>)
+</li><li><span class="c">// Prints &quot;Result: 6&quot;</span>
+</li></ol></div></div></div>
+<p>As with any other type, you can leave it to Swift to infer the function type when you assign a function to a constant or variable:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">anotherMathFunction</span> = <span class="nv">addTwoInts</span>
+</li><li><span class="c">// anotherMathFunction is inferred to be of type (Int, Int) -&gt; Int</span>
+</li></ol></div></div></div>
+</div>
+<div class="section" id="ID176">
+<h3>Function Types as Parameter Types<a class="headerlink" href="#ID176" title="Permalink to this headline">¶</a></h3>
+<p>You can use a function type such as <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">Int)</span> <span class="pre">-&gt;</span> <span class="pre">Int</span></code> as a parameter type for another function. This enables you to leave some aspects of a function’s implementation for the function’s caller to provide when the function is called.</p>
+<p>Here’s an example to print the results of the math functions from above:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">printMathResult</span>(<span class="k">_</span> <span class="nv">mathFunction</span>: (<span class="nc">Int</span>, <span class="nc">Int</span>) -&gt; <span class="nc">Int</span>, <span class="k">_</span> <span class="nv">a</span>: <span class="nc">Int</span>, <span class="k">_</span> <span class="nv">b</span>: <span class="nc">Int</span>) {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;Result: </span>\<span class="p">(</span><span class="nv">mathFunction</span>(<span class="nv">a</span>, <span class="nv">b</span>)<span class="p">)</span><span class="s">&quot;</span>)
+</li><li>}
+</li><li><span class="nv">printMathResult</span>(<span class="nv">addTwoInts</span>, <span class="m">3</span>, <span class="m">5</span>)
+</li><li><span class="c">// Prints &quot;Result: 8&quot;</span>
+</li></ol></div></div></div>
+<p>This example defines a function called <code class="docutils literal notranslate"><span class="pre">printMathResult(_:_:_:)</span></code>, which has three parameters. The first parameter is called <code class="docutils literal notranslate"><span class="pre">mathFunction</span></code>, and is of type <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">Int)</span> <span class="pre">-&gt;</span> <span class="pre">Int</span></code>. You can pass any function of that type as the argument for this first parameter. The second and third parameters are called <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, and are both of type <code class="docutils literal notranslate"><span class="pre">Int</span></code>. These are used as the two input values for the provided math function.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">printMathResult(_:_:_:)</span></code> is called, it’s passed the <code class="docutils literal notranslate"><span class="pre">addTwoInts(_:_:)</span></code> function, and the integer values <code class="docutils literal notranslate"><span class="pre">3</span></code> and <code class="docutils literal notranslate"><span class="pre">5</span></code>. It calls the provided function with the values <code class="docutils literal notranslate"><span class="pre">3</span></code> and <code class="docutils literal notranslate"><span class="pre">5</span></code>, and prints the result of <code class="docutils literal notranslate"><span class="pre">8</span></code>.</p>
+<p>The role of <code class="docutils literal notranslate"><span class="pre">printMathResult(_:_:_:)</span></code> is to print the result of a call to a math function of an appropriate type. It doesn’t matter what that function’s implementation actually does—it matters only that the function is of the correct type. This enables <code class="docutils literal notranslate"><span class="pre">printMathResult(_:_:_:)</span></code> to hand off some of its functionality to the caller of the function in a type-safe way.</p>
+</div>
+<div class="section" id="ID177">
+<h3>Function Types as Return Types<a class="headerlink" href="#ID177" title="Permalink to this headline">¶</a></h3>
+<p>You can use a function type as the return type of another function. You do this by writing a complete function type immediately after the return arrow (<code class="docutils literal notranslate"><span class="pre">-&gt;</span></code>) of the returning function.</p>
+<p>The next example defines two simple functions called <code class="docutils literal notranslate"><span class="pre">stepForward(_:)</span></code> and <code class="docutils literal notranslate"><span class="pre">stepBackward(_:)</span></code>. The <code class="docutils literal notranslate"><span class="pre">stepForward(_:)</span></code> function returns a value one more than its input value, and the <code class="docutils literal notranslate"><span class="pre">stepBackward(_:)</span></code> function returns a value one less than its input value. Both functions have a type of <code class="docutils literal notranslate"><span class="pre">(Int)</span> <span class="pre">-&gt;</span> <span class="pre">Int</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">stepForward</span>(<span class="k">_</span> <span class="nv">input</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> {
+</li><li>    <span class="k">return</span> <span class="nv">input</span> + <span class="m">1</span>
+</li><li>}
+</li><li><span class="k">func</span> <span class="nv">stepBackward</span>(<span class="k">_</span> <span class="nv">input</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> {
+</li><li>    <span class="k">return</span> <span class="nv">input</span> - <span class="m">1</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>Here’s a function called <code class="docutils literal notranslate"><span class="pre">chooseStepFunction(backward:)</span></code>, whose return type is <code class="docutils literal notranslate"><span class="pre">(Int)</span> <span class="pre">-&gt;</span> <span class="pre">Int</span></code>. The <code class="docutils literal notranslate"><span class="pre">chooseStepFunction(backward:)</span></code> function returns the <code class="docutils literal notranslate"><span class="pre">stepForward(_:)</span></code> function or the <code class="docutils literal notranslate"><span class="pre">stepBackward(_:)</span></code> function based on a Boolean parameter called <code class="docutils literal notranslate"><span class="pre">backward</span></code>:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">chooseStepFunction</span>(<span class="nv">backward</span>: <span class="nc">Bool</span>) -&gt; (<span class="nc">Int</span>) -&gt; <span class="nc">Int</span> {
+</li><li>    <span class="k">return</span> <span class="nv">backward</span> ? <span class="nv">stepBackward</span> : <span class="nv">stepForward</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>You can now use <code class="docutils literal notranslate"><span class="pre">chooseStepFunction(backward:)</span></code> to obtain a function that will step in one direction or the other:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">currentValue</span> = <span class="m">3</span>
+</li><li><span class="k">let</span> <span class="nv">moveNearerToZero</span> = <span class="nv">chooseStepFunction</span>(<span class="nv">backward</span>: <span class="nv">currentValue</span> &gt; <span class="m">0</span>)
+</li><li><span class="c">// moveNearerToZero now refers to the stepBackward() function</span>
+</li></ol></div></div></div>
+<p>The example above determines whether a positive or negative step is needed to move a variable called <code class="docutils literal notranslate"><span class="pre">currentValue</span></code> progressively closer to zero. <code class="docutils literal notranslate"><span class="pre">currentValue</span></code> has an initial value of <code class="docutils literal notranslate"><span class="pre">3</span></code>, which means that <code class="docutils literal notranslate"><span class="pre">currentValue</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> returns <code class="docutils literal notranslate"><span class="pre">true</span></code>, causing <code class="docutils literal notranslate"><span class="pre">chooseStepFunction(backward:)</span></code> to return the <code class="docutils literal notranslate"><span class="pre">stepBackward(_:)</span></code> function. A reference to the returned function is stored in a constant called <code class="docutils literal notranslate"><span class="pre">moveNearerToZero</span></code>.</p>
+<p>Now that <code class="docutils literal notranslate"><span class="pre">moveNearerToZero</span></code> refers to the correct function, it can be used to count to zero:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="s">&quot;Counting to zero:&quot;</span>)
+</li><li><span class="c">// Counting to zero:</span>
+</li><li><span class="k">while</span> <span class="nv">currentValue</span> != <span class="m">0</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;</span>\<span class="p">(</span><span class="nv">currentValue</span><span class="p">)</span><span class="s">... &quot;</span>)
+</li><li>    <span class="nv">currentValue</span> = <span class="nv">moveNearerToZero</span>(<span class="nv">currentValue</span>)
+</li><li>}
+</li><li><span class="nv">print</span>(<span class="s">&quot;zero!&quot;</span>)
+</li><li><span class="c">// 3...</span>
+</li><li><span class="c">// 2...</span>
+</li><li><span class="c">// 1...</span>
+</li><li><span class="c">// zero!</span>
+</li></ol></div></div></div>
+</div>
+</div>
+<div class="section" id="ID178">
+<h2>Nested Functions<a class="headerlink" href="#ID178" title="Permalink to this headline">¶</a></h2>
+<p>All of the functions you have encountered so far in this chapter have been examples of <em>global functions</em>, which are defined at a global scope. You can also define functions inside the bodies of other functions, known as <em>nested functions</em>.</p>
+<p>Nested functions are hidden from the outside world by default, but can still be called and used by their enclosing function. An enclosing function can also return one of its nested functions to allow the nested function to be used in another scope.</p>
+<p>You can rewrite the <code class="docutils literal notranslate"><span class="pre">chooseStepFunction(backward:)</span></code> example above to use and return nested functions:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">chooseStepFunction</span>(<span class="nv">backward</span>: <span class="nc">Bool</span>) -&gt; (<span class="nc">Int</span>) -&gt; <span class="nc">Int</span> {
+</li><li>    <span class="k">func</span> <span class="nv">stepForward</span>(<span class="nv">input</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> { <span class="k">return</span> <span class="nv">input</span> + <span class="m">1</span> }
+</li><li>    <span class="k">func</span> <span class="nv">stepBackward</span>(<span class="nv">input</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> { <span class="k">return</span> <span class="nv">input</span> - <span class="m">1</span> }
+</li><li>    <span class="k">return</span> <span class="nv">backward</span> ? <span class="nv">stepBackward</span> : <span class="nv">stepForward</span>
+</li><li>}
+</li><li><span class="k">var</span> <span class="nv">currentValue</span> = <span class="m">-4</span>
+</li><li><span class="k">let</span> <span class="nv">moveNearerToZero</span> = <span class="nv">chooseStepFunction</span>(<span class="nv">backward</span>: <span class="nv">currentValue</span> &gt; <span class="m">0</span>)
+</li><li><span class="c">// moveNearerToZero now refers to the nested stepForward() function</span>
+</li><li><span class="k">while</span> <span class="nv">currentValue</span> != <span class="m">0</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;</span>\<span class="p">(</span><span class="nv">currentValue</span><span class="p">)</span><span class="s">... &quot;</span>)
+</li><li>    <span class="nv">currentValue</span> = <span class="nv">moveNearerToZero</span>(<span class="nv">currentValue</span>)
+</li><li>}
+</li><li><span class="nv">print</span>(<span class="s">&quot;zero!&quot;</span>)
+</li><li><span class="c">// -4...</span>
+</li><li><span class="c">// -3...</span>
+</li><li><span class="c">// -2...</span>
+</li><li><span class="c">// -1...</span>
+</li><li><span class="c">// zero!</span>
+</li></ol></div></div></div>
+</div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="ControlFlow.html">Control Flow</a></p>
+        <p class="next"><a href="Closures.html">Closures</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  </body>
+</html>

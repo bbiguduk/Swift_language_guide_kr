@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+
+
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Apple Inc." />
+    <meta name="viewport" content="width=device-width initial-scale=1" />
+    
+    <title>Types &mdash; The Swift Programming Language (Swift 5.7)</title>
+    
+    <link rel="license" href="/LICENSE.txt" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css" />
+    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css" />
+    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png" />
+    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339" /> 
+  </head>
+  <body>
+
+
+<nav role="navigation">
+    <header role="banner">
+      <h1 id="logo">
+        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
+          Swift.org
+        </a>
+      </h1>
+    </header>
+
+    <div id="menu-toggle" class="menu-toggle open"></div>
+
+    <h2>The Swift Programming Language<div>Swift 5.7</div></h2>
+
+    <ul>
+    <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../LanguageGuide/TheBasics.html">Language Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="AboutTheLanguageReference.html">Language Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="AboutTheLanguageReference.html">About the Language Reference</a></li>
+<li class="toctree-l2"><a class="reference internal" href="LexicalStructure.html">Lexical Structure</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Expressions.html">Expressions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Statements.html">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Declarations.html">Declarations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Attributes.html">Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Patterns.html">Patterns</a></li>
+<li class="toctree-l2"><a class="reference internal" href="GenericParametersAndArguments.html">Generic Parameters and Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="zzSummaryOfTheGrammar.html">Summary of the Grammar</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
+</ul>
+
+    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">← Return to Swift.org</a></li>
+    </ul>
+</nav>
+
+
+
+
+<main role="main">
+    <article class="page">
+        <menu id="bashful" type="toolbar">
+          <div class="inner">
+            <menuitem id="jump_to" class="menu-bar-item closed">
+            <span id="jump_to_toggle">On This Page</span>
+            <div class="chevron">
+                <div class="chevy chevron-left"></div>
+                <div class="chevy chevron-right"></div>
+            </div>
+            <menu type="list" class="details">
+                <ul>
+<li><a class="reference internal" href="#">Types</a><ul>
+<li><a class="reference internal" href="#ID446">Type Annotation</a></li>
+<li><a class="reference internal" href="#ID447">Type Identifier</a></li>
+<li><a class="reference internal" href="#ID448">Tuple Type</a></li>
+<li><a class="reference internal" href="#ID449">Function Type</a><ul>
+<li><a class="reference internal" href="#ID572">Restrictions for Nonescaping Closures</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ID450">Array Type</a></li>
+<li><a class="reference internal" href="#ID451">Dictionary Type</a></li>
+<li><a class="reference internal" href="#ID452">Optional Type</a></li>
+<li><a class="reference internal" href="#ID453">Implicitly Unwrapped Optional Type</a></li>
+<li><a class="reference internal" href="#ID454">Protocol Composition Type</a></li>
+<li><a class="reference internal" href="#ID616">Opaque Type</a></li>
+<li><a class="reference internal" href="#ID455">Metatype Type</a></li>
+<li><a class="reference internal" href="#ID629">Any Type</a></li>
+<li><a class="reference internal" href="#ID610">Self Type</a></li>
+<li><a class="reference internal" href="#ID456">Type Inheritance Clause</a></li>
+<li><a class="reference internal" href="#ID457">Type Inference</a></li>
+</ul>
+</li>
+</ul>
+
+            </menu>
+            </menuitem>
+          </div>
+        </menu>
+
+        
+  <div class="section" id="types">
+<h1>Types<a class="headerlink" href="#types" title="Permalink to this headline">¶</a></h1>
+<p>In Swift, there are two kinds of types: named types and compound types. A <em>named type</em> is a type that can be given a particular name when it’s defined. Named types include classes, structures, enumerations, and protocols. For example, instances of a user-defined class named <code class="docutils literal notranslate"><span class="pre">MyClass</span></code> have the type <code class="docutils literal notranslate"><span class="pre">MyClass</span></code>. In addition to user-defined named types, the Swift standard library defines many commonly used named types, including those that represent arrays, dictionaries, and optional values.</p>
+<p>Data types that are normally considered basic or primitive in other languages—such as types that represent numbers, characters, and strings—are actually named types, defined and implemented in the Swift standard library using structures. Because they’re named types, you can extend their behavior to suit the needs of your program, using an extension declaration, discussed in <a class="reference internal" href="../LanguageGuide/Extensions.html"><span class="doc">Extensions</span></a> and <a class="reference internal" href="Declarations.html#ID378"><span class="std std-ref">Extension Declaration</span></a>.</p>
+<p>A <em>compound type</em> is a type without a name, defined in the Swift language itself. There are two compound types: function types and tuple types. A compound type may contain named types and other compound types. For example, the tuple type <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">(Int,</span> <span class="pre">Int))</span></code> contains two elements: The first is the named type <code class="docutils literal notranslate"><span class="pre">Int</span></code>, and the second is another compound type <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">Int)</span></code>.</p>
+<p>You can put parentheses around a named type or a compound type. However, adding parentheses around a type doesn’t have any effect. For example, <code class="docutils literal notranslate"><span class="pre">(Int)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">Int</span></code>.</p>
+<p>This chapter discusses the types defined in the Swift language itself and describes the type inference behavior of Swift.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a type</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type"></a>type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_function-type">function-type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type_1220"></a>type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_array-type">array-type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type_1221"></a>type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_dictionary-type">dictionary-type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type_1222"></a>type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-identifier">type-identifier</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type_1223"></a>type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_tuple-type">tuple-type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type_1224"></a>type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_optional-type">optional-type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type_1225"></a>type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_implicitly-unwrapped-optional-type">implicitly-unwrapped-optional-type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type_1226"></a>type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_protocol-composition-type">protocol-composition-type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type_1227"></a>type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_opaque-type">opaque-type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type_1228"></a>type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_metatype-type">metatype-type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type_1229"></a>type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_any-type">any-type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type_1230"></a>type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_self-type">self-type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type_1231"></a>type</span><span class="arrow"> → </span> <code>(</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span>  <code>)</code></p></div></div><div class="section" id="ID446">
+<h2>Type Annotation<a class="headerlink" href="#ID446" title="Permalink to this headline">¶</a></h2>
+<p>A <em>type annotation</em> explicitly specifies the type of a variable or expression. Type annotations begin with a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>) and end with a type, as the following examples show:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">someTuple</span>: (<span class="nc">Double</span>, <span class="nc">Double</span>) = (<span class="m">3.14159</span>, <span class="m">2.71828</span>)
+</li><li><span class="k">func</span> <span class="nv">someFunction</span>(<span class="nv">a</span>: <span class="nc">Int</span>) { <span class="c">/* ... */</span> }
+</li></ol></div></div></div>
+<p>In the first example, the expression <code class="docutils literal notranslate"><span class="pre">someTuple</span></code> is specified to have the tuple type <code class="docutils literal notranslate"><span class="pre">(Double,</span> <span class="pre">Double)</span></code>. In the second example, the parameter <code class="docutils literal notranslate"><span class="pre">a</span></code> to the function <code class="docutils literal notranslate"><span class="pre">someFunction</span></code> is specified to have the type <code class="docutils literal notranslate"><span class="pre">Int</span></code>.</p>
+<p>Type annotations can contain an optional list of type attributes before the type.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a type annotation</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type-annotation"></a>type-annotation</span><span class="arrow"> → </span> <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Attributes.html#grammar_attributes">attributes</a></span> <sub>opt</sub> <code>inout</code><sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span> </p></div></div></div>
+<div class="section" id="ID447">
+<h2>Type Identifier<a class="headerlink" href="#ID447" title="Permalink to this headline">¶</a></h2>
+<p>A <em>type identifier</em> refers to either a named type or a type alias of a named or compound type.</p>
+<p>Most of the time, a type identifier directly refers to a named type with the same name as the identifier. For example, <code class="docutils literal notranslate"><span class="pre">Int</span></code> is a type identifier that directly refers to the named type <code class="docutils literal notranslate"><span class="pre">Int</span></code>, and the type identifier <code class="docutils literal notranslate"><span class="pre">Dictionary&lt;String,</span> <span class="pre">Int&gt;</span></code> directly refers to the named type <code class="docutils literal notranslate"><span class="pre">Dictionary&lt;String,</span> <span class="pre">Int&gt;</span></code>.</p>
+<p>There are two cases in which a type identifier doesn’t refer to a type with the same name. In the first case, a type identifier refers to a type alias of a named or compound type. For instance, in the example below, the use of <code class="docutils literal notranslate"><span class="pre">Point</span></code> in the type annotation refers to the tuple type <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">Int)</span></code>.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">typealias</span> <span class="nv">Point</span> = (<span class="nc">Int</span>, <span class="nc">Int</span>)
+</li><li><span class="k">let</span> <span class="nv">origin</span>: <span class="nc">Point</span> = (<span class="m">0</span>, <span class="m">0</span>)
+</li></ol></div></div></div>
+<p>In the second case, a type identifier uses dot (<code class="docutils literal notranslate"><span class="pre">.</span></code>) syntax to refer to named types declared in other modules or nested within other types. For example, the type identifier in the following code references the named type <code class="docutils literal notranslate"><span class="pre">MyType</span></code> that’s declared in the <code class="docutils literal notranslate"><span class="pre">ExampleModule</span></code> module.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">someValue</span>: <span class="nc">ExampleModule</span>.<span class="nc">MyType</span>
+</li></ol></div></div></div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a type identifier</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type-identifier"></a>type-identifier</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-name">type-name</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-clause">generic-argument-clause</a></span> <sub>opt</sub> |  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-name">type-name</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/GenericParametersAndArguments.html#grammar_generic-argument-clause">generic-argument-clause</a></span> <sub>opt</sub> <code>.</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-identifier">type-identifier</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type-name"></a>type-name</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span> </p></div></div></div>
+<div class="section" id="ID448">
+<h2>Tuple Type<a class="headerlink" href="#ID448" title="Permalink to this headline">¶</a></h2>
+<p>A <em>tuple type</em> is a comma-separated list of types, enclosed in parentheses.</p>
+<p>You can use a tuple type as the return type of a function to enable the function to return a single tuple containing multiple values. You can also name the elements of a tuple type and use those names to refer to the values of the individual elements. An element name consists of an identifier followed immediately by a colon (:). For an example that demonstrates both of these features, see <a class="reference internal" href="../LanguageGuide/Functions.html#ID164"><span class="std std-ref">Functions with Multiple Return Values</span></a>.</p>
+<p>When an element of a tuple type has a name, that name is part of the type.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">someTuple</span> = (<span class="nv">top</span>: <span class="m">10</span>, <span class="nv">bottom</span>: <span class="m">12</span>)  <span class="c">// someTuple is of type (top: Int, bottom: Int)</span>
+</li><li><span class="nv">someTuple</span> = (<span class="nv">top</span>: <span class="m">4</span>, <span class="nv">bottom</span>: <span class="m">42</span>) <span class="c">// OK: names match</span>
+</li><li><span class="nv">someTuple</span> = (<span class="m">9</span>, <span class="m">99</span>)              <span class="c">// OK: names are inferred</span>
+</li><li><span class="nv">someTuple</span> = (<span class="nv">left</span>: <span class="m">5</span>, <span class="nv">right</span>: <span class="m">5</span>)  <span class="c">// Error: names don&#39;t match</span>
+</li></ol></div></div></div>
+<p>All tuple types contain two or more types, except for <code class="docutils literal notranslate"><span class="pre">Void</span></code> which is a type alias for the empty tuple type, <code class="docutils literal notranslate"><span class="pre">()</span></code>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a tuple type</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_tuple-type"></a>tuple-type</span><span class="arrow"> → </span> <code>(</code> <code>)</code> |  <code>(</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_tuple-type-element">tuple-type-element</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_tuple-type-element-list">tuple-type-element-list</a></span>  <code>)</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_tuple-type-element-list"></a>tuple-type-element-list</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_tuple-type-element">tuple-type-element</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_tuple-type-element">tuple-type-element</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_tuple-type-element-list">tuple-type-element-list</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_tuple-type-element"></a>tuple-type-element</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_element-name">element-name</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-annotation">type-annotation</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_element-name"></a>element-name</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span> </p></div></div></div>
+<div class="section" id="ID449">
+<h2>Function Type<a class="headerlink" href="#ID449" title="Permalink to this headline">¶</a></h2>
+<p>A <em>function type</em> represents the type of a function, method, or closure and consists of a parameter and return type separated by an arrow (<code class="docutils literal notranslate"><span class="pre">-&gt;</span></code>):</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>(<span class="gi">parameter type</span>) -&gt; <span class="gi">return type</span>
+</li></ol></div></div></div>
+<p>The <em>parameter type</em> is comma-separated list of types. Because the <em>return type</em> can be a tuple type, function types support functions and methods that return multiple values.</p>
+<p>A parameter of the function type <code class="docutils literal notranslate"><span class="pre">()</span> <span class="pre">-&gt;</span> <span class="pre">T</span></code> (where <code class="docutils literal notranslate"><span class="pre">T</span></code> is any type) can apply the <code class="docutils literal notranslate"><span class="pre">autoclosure</span></code> attribute to implicitly create a closure at its call sites. This provides a syntactically convenient way to defer the evaluation of an expression without needing to write an explicit closure when you call the function. For an example of an autoclosure function type parameter, see <a class="reference internal" href="../LanguageGuide/Closures.html#ID543"><span class="std std-ref">Autoclosures</span></a>.</p>
+<p>A function type can have variadic parameters in its <em>parameter type</em>. Syntactically, a variadic parameter consists of a base type name followed immediately by three dots (<code class="docutils literal notranslate"><span class="pre">...</span></code>), as in <code class="docutils literal notranslate"><span class="pre">Int...</span></code>. A variadic parameter is treated as an array that contains elements of the base type name. For instance, the variadic parameter <code class="docutils literal notranslate"><span class="pre">Int...</span></code> is treated as <code class="docutils literal notranslate"><span class="pre">[Int]</span></code>. For an example that uses a variadic parameter, see <a class="reference internal" href="../LanguageGuide/Functions.html#ID171"><span class="std std-ref">Variadic Parameters</span></a>.</p>
+<p>To specify an in-out parameter, prefix the parameter type with the <code class="docutils literal notranslate"><span class="pre">inout</span></code> keyword. You can’t mark a variadic parameter or a return type with the <code class="docutils literal notranslate"><span class="pre">inout</span></code> keyword. In-out parameters are discussed in <a class="reference internal" href="../LanguageGuide/Functions.html#ID173"><span class="std std-ref">In-Out Parameters</span></a>.</p>
+<p>If a function type has only one parameter and that parameter’s type is a tuple type, then the tuple type must be parenthesized when writing the function’s type. For example, <code class="docutils literal notranslate"><span class="pre">((Int,</span> <span class="pre">Int))</span> <span class="pre">-&gt;</span> <span class="pre">Void</span></code> is the type of a function that takes a single parameter of the tuple type <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">Int)</span></code> and doesn’t return any value. In contrast, without parentheses, <code class="docutils literal notranslate"><span class="pre">(Int,</span> <span class="pre">Int)</span> <span class="pre">-&gt;</span> <span class="pre">Void</span></code> is the type of a function that takes two <code class="docutils literal notranslate"><span class="pre">Int</span></code> parameters and doesn’t return any value. Likewise, because <code class="docutils literal notranslate"><span class="pre">Void</span></code> is a type alias for <code class="docutils literal notranslate"><span class="pre">()</span></code>, the function type <code class="docutils literal notranslate"><span class="pre">(Void)</span> <span class="pre">-&gt;</span> <span class="pre">Void</span></code> is the same as <code class="docutils literal notranslate"><span class="pre">(())</span> <span class="pre">-&gt;</span> <span class="pre">()</span></code>—a function that takes a single argument that’s an empty tuple. These types aren’t the same as <code class="docutils literal notranslate"><span class="pre">()</span> <span class="pre">-&gt;</span> <span class="pre">()</span></code>—a function that takes no arguments.</p>
+<p>Argument names in functions and methods aren’t part of the corresponding function type. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">func</span> <span class="nv">someFunction</span>(<span class="nv">left</span>: <span class="nc">Int</span>, <span class="nv">right</span>: <span class="nc">Int</span>) {}
+</li><li><span class="k">func</span> <span class="nv">anotherFunction</span>(<span class="nv">left</span>: <span class="nc">Int</span>, <span class="nv">right</span>: <span class="nc">Int</span>) {}
+</li><li><span class="k">func</span> <span class="nv">functionWithDifferentLabels</span>(<span class="nv">top</span>: <span class="nc">Int</span>, <span class="nv">bottom</span>: <span class="nc">Int</span>) {}
+</li><li>
+</li><li><span class="k">var</span> <span class="nv">f</span> = <span class="nv">someFunction</span> <span class="c">// The type of f is (Int, Int) -&gt; Void, not (left: Int, right: Int) -&gt; Void.</span>
+</li><li><span class="nv">f</span> = <span class="nv">anotherFunction</span>              <span class="c">// OK</span>
+</li><li><span class="nv">f</span> = <span class="nv">functionWithDifferentLabels</span>  <span class="c">// OK</span>
+</li><li>
+</li><li><span class="k">func</span> <span class="nv">functionWithDifferentArgumentTypes</span>(<span class="nv">left</span>: <span class="nc">Int</span>, <span class="nv">right</span>: <span class="nc">String</span>) {}
+</li><li><span class="nv">f</span> = <span class="nv">functionWithDifferentArgumentTypes</span>     <span class="c">// Error</span>
+</li><li>
+</li><li><span class="k">func</span> <span class="nv">functionWithDifferentNumberOfArguments</span>(<span class="nv">left</span>: <span class="nc">Int</span>, <span class="nv">right</span>: <span class="nc">Int</span>, <span class="nv">top</span>: <span class="nc">Int</span>) {}
+</li><li><span class="nv">f</span> = <span class="nv">functionWithDifferentNumberOfArguments</span> <span class="c">// Error</span>
+</li></ol></div></div></div>
+<p>Because argument labels aren’t part of a function’s type, you omit them when writing a function type.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">operation</span>: (<span class="nv">lhs</span>: <span class="nc">Int</span>, <span class="nv">rhs</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span>     <span class="c">// Error</span>
+</li><li><span class="k">var</span> <span class="nv">operation</span>: (<span class="k">_</span> <span class="nv">lhs</span>: <span class="nc">Int</span>, <span class="k">_</span> <span class="nv">rhs</span>: <span class="nc">Int</span>) -&gt; <span class="nc">Int</span> <span class="c">// OK</span>
+</li><li><span class="k">var</span> <span class="nv">operation</span>: (<span class="nc">Int</span>, <span class="nc">Int</span>) -&gt; <span class="nc">Int</span>               <span class="c">// OK</span>
+</li></ol></div></div></div>
+<p>If a function type includes more than a single arrow (<code class="docutils literal notranslate"><span class="pre">-&gt;</span></code>), the function types are grouped from right to left. For example, the function type <code class="docutils literal notranslate"><span class="pre">(Int)</span> <span class="pre">-&gt;</span> <span class="pre">(Int)</span> <span class="pre">-&gt;</span> <span class="pre">Int</span></code> is understood as <code class="docutils literal notranslate"><span class="pre">(Int)</span> <span class="pre">-&gt;</span> <span class="pre">((Int)</span> <span class="pre">-&gt;</span> <span class="pre">Int)</span></code>—that is, a function that takes an <code class="docutils literal notranslate"><span class="pre">Int</span></code> and returns another function that takes and returns an <code class="docutils literal notranslate"><span class="pre">Int</span></code>.</p>
+<p>Function types for functions that can throw or rethrow an error must be marked with the <code class="docutils literal notranslate"><span class="pre">throws</span></code> keyword. The <code class="docutils literal notranslate"><span class="pre">throws</span></code> keyword is part of a function’s type, and nonthrowing functions are subtypes of throwing functions. As a result, you can use a nonthrowing function in the same places as a throwing one. Throwing and rethrowing functions are described in <a class="reference internal" href="Declarations.html#ID530"><span class="std std-ref">Throwing Functions and Methods</span></a> and <a class="reference internal" href="Declarations.html#ID531"><span class="std std-ref">Rethrowing Functions and Methods</span></a>.</p>
+<p>Function types for asynchronous functions must be marked with the <code class="docutils literal notranslate"><span class="pre">async</span></code> keyword. The <code class="docutils literal notranslate"><span class="pre">async</span></code> keyword is part of a function’s type, and synchronous functions are subtypes of asynchronous functions. As a result, you can use a synchronous function in the same places as an asynchronous one. For information about asynchronous functions, see <a class="reference internal" href="Declarations.html#ID647"><span class="std std-ref">Asynchronous Functions and Methods</span></a>.</p>
+<div class="section" id="ID572">
+<h3>Restrictions for Nonescaping Closures<a class="headerlink" href="#ID572" title="Permalink to this headline">¶</a></h3>
+<p>A parameter that’s a nonescaping function can’t be stored in a property, variable, or constant of type <code class="docutils literal notranslate"><span class="pre">Any</span></code>, because that might allow the value to escape.</p>
+<p>A parameter that’s a nonescaping function can’t be passed as an argument to another nonescaping function parameter. This restriction helps Swift perform more of its checks for conflicting access to memory at compile time instead of at runtime. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">external</span>: (() -&gt; <span class="nc">Void</span>) -&gt; <span class="nc">Void</span> = { <span class="k">_</span> <span class="k">in</span> () }
+</li><li><span class="k">func</span> <span class="nv">takesTwoFunctions</span>(<span class="nv">first</span>: (() -&gt; <span class="nc">Void</span>) -&gt; <span class="nc">Void</span>, <span class="nv">second</span>: (() -&gt; <span class="nc">Void</span>) -&gt; <span class="nc">Void</span>) {
+</li><li>    <span class="nv">first</span> { <span class="nv">first</span> {} }       <span class="c">// Error</span>
+</li><li>    <span class="nv">second</span> { <span class="nv">second</span> {}  }    <span class="c">// Error</span>
+</li><li>
+</li><li>    <span class="nv">first</span> { <span class="nv">second</span> {} }      <span class="c">// Error</span>
+</li><li>    <span class="nv">second</span> { <span class="nv">first</span> {} }      <span class="c">// Error</span>
+</li><li>
+</li><li>    <span class="nv">first</span> { <span class="nv">external</span> {} }    <span class="c">// OK</span>
+</li><li>    <span class="nv">external</span> { <span class="nv">first</span> {} }    <span class="c">// OK</span>
+</li><li>}
+</li></ol></div></div></div>
+<p>In the code above, both of the parameters to <code class="docutils literal notranslate"><span class="pre">takesTwoFunctions(first:second:)</span></code> are functions. Neither parameter is marked <code class="docutils literal notranslate"><span class="pre">&#64;escaping</span></code>, so they’re both nonescaping as a result.</p>
+<p>The four function calls marked “Error” in the example above cause compiler errors. Because the <code class="docutils literal notranslate"><span class="pre">first</span></code> and <code class="docutils literal notranslate"><span class="pre">second</span></code> parameters are nonescaping functions, they can’t be passed as arguments to another nonescaping function parameter. In contrast, the two function calls marked “OK” don’t cause a compiler error. These function calls don’t violate the restriction because <code class="docutils literal notranslate"><span class="pre">external</span></code> isn’t one of the parameters of <code class="docutils literal notranslate"><span class="pre">takesTwoFunctions(first:second:)</span></code>.</p>
+<p>If you need to avoid this restriction, mark one of the parameters as escaping, or temporarily convert one of the nonescaping function parameters to an escaping function by using the <code class="docutils literal notranslate"><span class="pre">withoutActuallyEscaping(_:do:)</span></code> function. For information about avoiding conflicting access to memory, see <a class="reference internal" href="../LanguageGuide/MemorySafety.html"><span class="doc">Memory Safety</span></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a function type</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_function-type"></a>function-type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Attributes.html#grammar_attributes">attributes</a></span> <sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_function-type-argument-clause">function-type-argument-clause</a></span>  <code>async</code><sub>opt</sub> <code>throws</code><sub>opt</sub> <code>-&gt;</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span> </p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_function-type-argument-clause"></a>function-type-argument-clause</span><span class="arrow"> → </span> <code>(</code> <code>)</code></p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_function-type-argument-clause_1232"></a>function-type-argument-clause</span><span class="arrow"> → </span> <code>(</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_function-type-argument-list">function-type-argument-list</a></span>  <code>...</code><sub>opt</sub> <code>)</code></p></div><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_function-type-argument-list"></a>function-type-argument-list</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_function-type-argument">function-type-argument</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_function-type-argument">function-type-argument</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_function-type-argument-list">function-type-argument-list</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_function-type-argument"></a>function-type-argument</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Attributes.html#grammar_attributes">attributes</a></span> <sub>opt</sub> <code>inout</code><sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_argument-label">argument-label</a></span>  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-annotation">type-annotation</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_argument-label"></a>argument-label</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/LexicalStructure.html#grammar_identifier">identifier</a></span> </p></div></div></div>
+</div>
+<div class="section" id="ID450">
+<h2>Array Type<a class="headerlink" href="#ID450" title="Permalink to this headline">¶</a></h2>
+<p>The Swift language provides the following syntactic sugar for the Swift standard library <code class="docutils literal notranslate"><span class="pre">Array&lt;Element&gt;</span></code> type:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>[<span class="gi">type</span>]
+</li></ol></div></div></div>
+<p>In other words, the following two declarations are equivalent:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">someArray</span>: <span class="nc">Array</span>&lt;<span class="nc">String</span>&gt; = [<span class="s">&quot;Alex&quot;</span>, <span class="s">&quot;Brian&quot;</span>, <span class="s">&quot;Dave&quot;</span>]
+</li><li><span class="k">let</span> <span class="nv">someArray</span>: [<span class="nc">String</span>] = [<span class="s">&quot;Alex&quot;</span>, <span class="s">&quot;Brian&quot;</span>, <span class="s">&quot;Dave&quot;</span>]
+</li></ol></div></div></div>
+<p>In both cases, the constant <code class="docutils literal notranslate"><span class="pre">someArray</span></code> is declared as an array of strings. The elements of an array can be accessed through subscripting by specifying a valid index value in square brackets: <code class="docutils literal notranslate"><span class="pre">someArray[0]</span></code> refers to the element at index 0, <code class="docutils literal notranslate"><span class="pre">&quot;Alex&quot;</span></code>.</p>
+<p>You can create multidimensional arrays by nesting pairs of square brackets, where the name of the base type of the elements is contained in the innermost pair of square brackets. For example, you can create a three-dimensional array of integers using three sets of square brackets:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">array3D</span>: [[[<span class="nc">Int</span>]]] = [[[<span class="m">1</span>, <span class="m">2</span>], [<span class="m">3</span>, <span class="m">4</span>]], [[<span class="m">5</span>, <span class="m">6</span>], [<span class="m">7</span>, <span class="m">8</span>]]]
+</li></ol></div></div></div>
+<p>When accessing the elements in a multidimensional array, the left-most subscript index refers to the element at that index in the outermost array. The next subscript index to the right refers to the element at that index in the array that’s nested one level in. And so on. This means that in the example above, <code class="docutils literal notranslate"><span class="pre">array3D[0]</span></code> refers to <code class="docutils literal notranslate"><span class="pre">[[1,</span> <span class="pre">2],</span> <span class="pre">[3,</span> <span class="pre">4]]</span></code>, <code class="docutils literal notranslate"><span class="pre">array3D[0][1]</span></code> refers to <code class="docutils literal notranslate"><span class="pre">[3,</span> <span class="pre">4]</span></code>, and <code class="docutils literal notranslate"><span class="pre">array3D[0][1][1]</span></code> refers to the value 4.</p>
+<p>For a detailed discussion of the Swift standard library <code class="docutils literal notranslate"><span class="pre">Array</span></code> type, see <a class="reference internal" href="../LanguageGuide/CollectionTypes.html#ID107"><span class="std std-ref">Arrays</span></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an array type</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_array-type"></a>array-type</span><span class="arrow"> → </span> <code>[</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span>  <code>]</code></p></div></div></div>
+<div class="section" id="ID451">
+<h2>Dictionary Type<a class="headerlink" href="#ID451" title="Permalink to this headline">¶</a></h2>
+<p>The Swift language provides the following syntactic sugar for the Swift standard library <code class="docutils literal notranslate"><span class="pre">Dictionary&lt;Key,</span> <span class="pre">Value&gt;</span></code> type:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li>[<span class="gi">key type</span>: <span class="gi">value type</span>]
+</li></ol></div></div></div>
+<p>In other words, the following two declarations are equivalent:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">someDictionary</span>: [<span class="nc">String</span>: <span class="nc">Int</span>] = [<span class="s">&quot;Alex&quot;</span>: <span class="m">31</span>, <span class="s">&quot;Paul&quot;</span>: <span class="m">39</span>]
+</li><li><span class="k">let</span> <span class="nv">someDictionary</span>: <span class="nc">Dictionary</span>&lt;<span class="nc">String</span>, <span class="nc">Int</span>&gt; = [<span class="s">&quot;Alex&quot;</span>: <span class="m">31</span>, <span class="s">&quot;Paul&quot;</span>: <span class="m">39</span>]
+</li></ol></div></div></div>
+<p>In both cases, the constant <code class="docutils literal notranslate"><span class="pre">someDictionary</span></code> is declared as a dictionary with strings as keys and integers as values.</p>
+<p>The values of a dictionary can be accessed through subscripting by specifying the corresponding key in square brackets: <code class="docutils literal notranslate"><span class="pre">someDictionary[&quot;Alex&quot;]</span></code> refers to the value associated with the key <code class="docutils literal notranslate"><span class="pre">&quot;Alex&quot;</span></code>. The subscript returns an optional value of the dictionary’s value type. If the specified key isn’t contained in the dictionary, the subscript returns <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p>The key type of a dictionary must conform to the Swift standard library <code class="docutils literal notranslate"><span class="pre">Hashable</span></code> protocol.</p>
+<p>For a detailed discussion of the Swift standard library <code class="docutils literal notranslate"><span class="pre">Dictionary</span></code> type, see <a class="reference internal" href="../LanguageGuide/CollectionTypes.html#ID113"><span class="std std-ref">Dictionaries</span></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a dictionary type</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_dictionary-type"></a>dictionary-type</span><span class="arrow"> → </span> <code>[</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span>  <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span>  <code>]</code></p></div></div></div>
+<div class="section" id="ID452">
+<h2>Optional Type<a class="headerlink" href="#ID452" title="Permalink to this headline">¶</a></h2>
+<p>The Swift language defines the postfix <code class="docutils literal notranslate"><span class="pre">?</span></code> as syntactic sugar for the named type <code class="docutils literal notranslate"><span class="pre">Optional&lt;Wrapped&gt;</span></code>, which is defined in the Swift standard library. In other words, the following two declarations are equivalent:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">optionalInteger</span>: <span class="nc">Int</span>?
+</li><li><span class="k">var</span> <span class="nv">optionalInteger</span>: <span class="nc">Optional</span>&lt;<span class="nc">Int</span>&gt;
+</li></ol></div></div></div>
+<p>In both cases, the variable <code class="docutils literal notranslate"><span class="pre">optionalInteger</span></code> is declared to have the type of an optional integer. Note that no whitespace may appear between the type and the <code class="docutils literal notranslate"><span class="pre">?</span></code>.</p>
+<p>The type <code class="docutils literal notranslate"><span class="pre">Optional&lt;Wrapped&gt;</span></code> is an enumeration with two cases, <code class="docutils literal notranslate"><span class="pre">none</span></code> and <code class="docutils literal notranslate"><span class="pre">some(Wrapped)</span></code>, which are used to represent values that may or may not be present. Any type can be explicitly declared to be (or implicitly converted to) an optional type. If you don’t provide an initial value when you declare an optional variable or property, its value automatically defaults to <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p>If an instance of an optional type contains a value, you can access that value using the postfix operator <code class="docutils literal notranslate"><span class="pre">!</span></code>, as shown below:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">optionalInteger</span> = <span class="m">42</span>
+</li><li><span class="nv">optionalInteger</span>! <span class="c">// 42</span>
+</li></ol></div></div></div>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">!</span></code> operator to unwrap an optional that has a value of <code class="docutils literal notranslate"><span class="pre">nil</span></code> results in a runtime error.</p>
+<p>You can also use optional chaining and optional binding to conditionally perform an operation on an optional expression. If the value is <code class="docutils literal notranslate"><span class="pre">nil</span></code>, no operation is performed and therefore no runtime error is produced.</p>
+<p>For more information and to see examples that show how to use optional types, see <a class="reference internal" href="../LanguageGuide/TheBasics.html#ID330"><span class="std std-ref">Optionals</span></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an optional type</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_optional-type"></a>optional-type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span>  <code>?</code></p></div></div></div>
+<div class="section" id="ID453">
+<h2>Implicitly Unwrapped Optional Type<a class="headerlink" href="#ID453" title="Permalink to this headline">¶</a></h2>
+<p>The Swift language defines the postfix <code class="docutils literal notranslate"><span class="pre">!</span></code> as syntactic sugar for the named type <code class="docutils literal notranslate"><span class="pre">Optional&lt;Wrapped&gt;</span></code>, which is defined in the Swift standard library, with the additional behavior that it’s automatically unwrapped when it’s accessed. If you try to use an implicitly unwrapped optional that has a value of <code class="docutils literal notranslate"><span class="pre">nil</span></code>, you’ll get a runtime error. With the exception of the implicit unwrapping behavior, the following two declarations are equivalent:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">var</span> <span class="nv">implicitlyUnwrappedString</span>: <span class="nc">String</span>!
+</li><li><span class="k">var</span> <span class="nv">explicitlyUnwrappedString</span>: <span class="nc">Optional</span>&lt;<span class="nc">String</span>&gt;
+</li></ol></div></div></div>
+<p>Note that no whitespace may appear between the type and the <code class="docutils literal notranslate"><span class="pre">!</span></code>.</p>
+<p>Because implicit unwrapping changes the meaning of the declaration that contains that type, optional types that are nested inside a tuple type or a generic type—such as the element types of a dictionary or array—can’t be marked as implicitly unwrapped. For example:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">tupleOfImplicitlyUnwrappedElements</span>: (<span class="nc">Int</span>!, <span class="nc">Int</span>!)  <span class="c">// Error</span>
+</li><li><span class="k">let</span> <span class="nv">implicitlyUnwrappedTuple</span>: (<span class="nc">Int</span>, <span class="nc">Int</span>)!             <span class="c">// OK</span>
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">arrayOfImplicitlyUnwrappedElements</span>: [<span class="nc">Int</span>!]        <span class="c">// Error</span>
+</li><li><span class="k">let</span> <span class="nv">implicitlyUnwrappedArray</span>: [<span class="nc">Int</span>]!                  <span class="c">// OK</span>
+</li></ol></div></div></div>
+<p>Because implicitly unwrapped optionals have the same <code class="docutils literal notranslate"><span class="pre">Optional&lt;Wrapped&gt;</span></code> type as optional values, you can use implicitly unwrapped optionals in all the same places in your code that you can use optionals. For example, you can assign values of implicitly unwrapped optionals to variables, constants, and properties of optionals, and vice versa.</p>
+<p>As with optionals, if you don’t provide an initial value when you declare an implicitly unwrapped optional variable or property, its value automatically defaults to <code class="docutils literal notranslate"><span class="pre">nil</span></code>.</p>
+<p>Use optional chaining to conditionally perform an operation on an implicitly unwrapped optional expression. If the value is <code class="docutils literal notranslate"><span class="pre">nil</span></code>, no operation is performed and therefore no runtime error is produced.</p>
+<p>For more information about implicitly unwrapped optional types, see <a class="reference internal" href="../LanguageGuide/TheBasics.html#ID334"><span class="std std-ref">Implicitly Unwrapped Optionals</span></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an implicitly unwrapped optional type</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_implicitly-unwrapped-optional-type"></a>implicitly-unwrapped-optional-type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span>  <code>!</code></p></div></div></div>
+<div class="section" id="ID454">
+<h2>Protocol Composition Type<a class="headerlink" href="#ID454" title="Permalink to this headline">¶</a></h2>
+<p>A <em>protocol composition type</em> defines a type that conforms to each protocol in a list of specified protocols, or a type that’s a subclass of a given class and conforms to each protocol in a list of specified protocols. Protocol composition types may be used only when specifying a type in type annotations, in generic parameter clauses, and in generic <code class="docutils literal notranslate"><span class="pre">where</span></code> clauses.</p>
+<p>Protocol composition types have the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="gi">Protocol 1</span> &amp; <span class="gi">Protocol 2</span>
+</li></ol></div></div></div>
+<p>A protocol composition type allows you to specify a value whose type conforms to the requirements of multiple protocols without explicitly defining a new, named protocol that inherits from each protocol you want the type to conform to. For example, you can use the protocol composition type <code class="docutils literal notranslate"><span class="pre">ProtocolA</span> <span class="pre">&amp;</span> <span class="pre">ProtocolB</span> <span class="pre">&amp;</span> <span class="pre">ProtocolC</span></code> instead of declaring a new protocol that inherits from <code class="docutils literal notranslate"><span class="pre">ProtocolA</span></code>, <code class="docutils literal notranslate"><span class="pre">ProtocolB</span></code>, and <code class="docutils literal notranslate"><span class="pre">ProtocolC</span></code>. Likewise, you can use <code class="docutils literal notranslate"><span class="pre">SuperClass</span> <span class="pre">&amp;</span> <span class="pre">ProtocolA</span></code> instead of declaring a new protocol that’s a subclass of <code class="docutils literal notranslate"><span class="pre">SuperClass</span></code> and conforms to <code class="docutils literal notranslate"><span class="pre">ProtocolA</span></code>.</p>
+<p>Each item in a protocol composition list is one of the following; the list can contain at most one class:</p>
+<ul class="simple">
+<li><p>The name of a class</p></li>
+<li><p>The name of a protocol</p></li>
+<li><p>A type alias whose underlying type is a protocol composition type, a protocol, or a class.</p></li>
+</ul>
+<p>When a protocol composition type contains type aliases, it’s possible for the same protocol to appear more than once in the definitions—duplicates are ignored. For example, the definition of <code class="docutils literal notranslate"><span class="pre">PQR</span></code> in the code below is equivalent to <code class="docutils literal notranslate"><span class="pre">P</span> <span class="pre">&amp;</span> <span class="pre">Q</span> <span class="pre">&amp;</span> <span class="pre">R</span></code>.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">typealias</span> <span class="nv">PQ</span> = <span class="nc">P</span> &amp; <span class="nc">Q</span>
+</li><li><span class="k">typealias</span> <span class="nv">PQR</span> = <span class="nc">PQ</span> &amp; <span class="nc">Q</span> &amp; <span class="nc">R</span>
+</li></ol></div></div></div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a protocol composition type</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_protocol-composition-type"></a>protocol-composition-type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-identifier">type-identifier</a></span>  <code>&amp;</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_protocol-composition-continuation">protocol-composition-continuation</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_protocol-composition-continuation"></a>protocol-composition-continuation</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-identifier">type-identifier</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_protocol-composition-type">protocol-composition-type</a></span> </p></div></div></div>
+<div class="section" id="ID616">
+<h2>Opaque Type<a class="headerlink" href="#ID616" title="Permalink to this headline">¶</a></h2>
+<p>An <em>opaque type</em> defines a type that conforms to a protocol or protocol composition, without specifying the underlying concrete type.</p>
+<p>Opaque types appear as the return type of a function or subscript, or the type of a property. Opaque types can’t appear as part of a tuple type or a generic type, such as the element type of an array or the wrapped type of an optional.</p>
+<p>Opaque types have the following form:</p>
+<div class="syntax-outline highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">some</span> <span class="gi">constraint</span>
+</li></ol></div></div></div>
+<p>The <em>constraint</em> is a class type, protocol type, protocol composition type, or <code class="docutils literal notranslate"><span class="pre">Any</span></code>. A value can be used as an instance of the opaque type only if it’s an instance of a type that conforms to the listed protocol or protocol composition, or inherits from the listed class. Code that interacts with an opaque value can use the value only in ways that are part of the interface defined by the <em>constraint</em>.</p>
+<p>Protocol declarations can’t include opaque types. Classes can’t use an opaque type as the return type of a nonfinal method.</p>
+<p>A function that uses an opaque type as its return type must return values that share a single underlying type. The return type can include types that are part of the function’s generic type parameters. For example, a function <code class="docutils literal notranslate"><span class="pre">someFunction&lt;T&gt;()</span></code> could return a value of type <code class="docutils literal notranslate"><span class="pre">T</span></code> or <code class="docutils literal notranslate"><span class="pre">Dictionary&lt;String,</span> <span class="pre">T&gt;</span></code>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an opaque type</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_opaque-type"></a>opaque-type</span><span class="arrow"> → </span> <code>some</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span> </p></div></div></div>
+<div class="section" id="ID455">
+<h2>Metatype Type<a class="headerlink" href="#ID455" title="Permalink to this headline">¶</a></h2>
+<p>A <em>metatype type</em> refers to the type of any type, including class types, structure types, enumeration types, and protocol types.</p>
+<p>The metatype of a class, structure, or enumeration type is the name of that type followed by <code class="docutils literal notranslate"><span class="pre">.Type</span></code>. The metatype of a protocol type—not the concrete type that conforms to the protocol at runtime—is the name of that protocol followed by <code class="docutils literal notranslate"><span class="pre">.Protocol</span></code>. For example, the metatype of the class type <code class="docutils literal notranslate"><span class="pre">SomeClass</span></code> is <code class="docutils literal notranslate"><span class="pre">SomeClass.Type</span></code> and the metatype of the protocol <code class="docutils literal notranslate"><span class="pre">SomeProtocol</span></code> is <code class="docutils literal notranslate"><span class="pre">SomeProtocol.Protocol</span></code>.</p>
+<p>You can use the postfix <code class="docutils literal notranslate"><span class="pre">self</span></code> expression to access a type as a value. For example, <code class="docutils literal notranslate"><span class="pre">SomeClass.self</span></code> returns <code class="docutils literal notranslate"><span class="pre">SomeClass</span></code> itself, not an instance of <code class="docutils literal notranslate"><span class="pre">SomeClass</span></code>. And <code class="docutils literal notranslate"><span class="pre">SomeProtocol.self</span></code> returns <code class="docutils literal notranslate"><span class="pre">SomeProtocol</span></code> itself, not an instance of a type that conforms to <code class="docutils literal notranslate"><span class="pre">SomeProtocol</span></code> at runtime. You can call the <code class="docutils literal notranslate"><span class="pre">type(of:)</span></code> function with an instance of a type to access that instance’s dynamic, runtime type as a value, as the following example shows:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">SomeBaseClass</span> {
+</li><li>    <span class="k">class</span> <span class="k">func</span> <span class="nv">printClassName</span>() {
+</li><li>        <span class="nv">print</span>(<span class="s">&quot;SomeBaseClass&quot;</span>)
+</li><li>    }
+</li><li>}
+</li><li><span class="k">class</span> <span class="nv">SomeSubClass</span>: <span class="nc">SomeBaseClass</span> {
+</li><li>    <span class="k">override</span> <span class="k">class</span> <span class="k">func</span> <span class="nv">printClassName</span>() {
+</li><li>        <span class="nv">print</span>(<span class="s">&quot;SomeSubClass&quot;</span>)
+</li><li>    }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">someInstance</span>: <span class="nc">SomeBaseClass</span> = <span class="nv">SomeSubClass</span>()
+</li><li><span class="c">// The compile-time type of someInstance is SomeBaseClass,</span>
+</li><li><span class="c">// and the runtime type of someInstance is SomeSubClass</span>
+</li><li><span class="nv">type</span>(<span class="nv">of</span>: <span class="nv">someInstance</span>).<span class="nv">printClassName</span>()
+</li><li><span class="c">// Prints &quot;SomeSubClass&quot;</span>
+</li></ol></div></div></div>
+<p>For more information, see <a class="reference external" href="https://developer.apple.com/documentation/swift/2885064-type"><code class="docutils literal notranslate"><span class="pre">type(of:)</span></code></a> in the Swift standard library.</p>
+<p>Use an initializer expression to construct an instance of a type from that type’s metatype value. For class instances, the initializer that’s called must be marked with the <code class="docutils literal notranslate"><span class="pre">required</span></code> keyword or the entire class marked with the <code class="docutils literal notranslate"><span class="pre">final</span></code> keyword.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">AnotherSubClass</span>: <span class="nc">SomeBaseClass</span> {
+</li><li>    <span class="k">let</span> <span class="nv">string</span>: <span class="nc">String</span>
+</li><li>    <span class="k">required</span> <span class="k">init</span>(<span class="nv">string</span>: <span class="nc">String</span>) {
+</li><li>        <span class="k">self</span>.<span class="nv">string</span> = <span class="nv">string</span>
+</li><li>    }
+</li><li>    <span class="k">override</span> <span class="k">class</span> <span class="k">func</span> <span class="nv">printClassName</span>() {
+</li><li>        <span class="nv">print</span>(<span class="s">&quot;AnotherSubClass&quot;</span>)
+</li><li>    }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">metatype</span>: <span class="nc">AnotherSubClass</span>.<span class="nv">Type</span> = <span class="nv">AnotherSubClass</span>.<span class="k">self</span>
+</li><li><span class="k">let</span> <span class="nv">anotherInstance</span> = <span class="nv">metatype</span>.<span class="nv">init</span>(<span class="nv">string</span>: <span class="s">&quot;some string&quot;</span>)
+</li></ol></div></div></div>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a metatype type</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_metatype-type"></a>metatype-type</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span>  <code>.</code> <code>Type</code> |  <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type">type</a></span>  <code>.</code> <code>Protocol</code></p></div></div></div>
+<div class="section" id="ID629">
+<h2>Any Type<a class="headerlink" href="#ID629" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Any</span></code> type can contain values from all other types. <code class="docutils literal notranslate"><span class="pre">Any</span></code> can be used as the concrete type for an instance of any of the following types:</p>
+<ul class="simple">
+<li><p>A class, structure, or enumeration</p></li>
+<li><p>A metatype, such as <code class="docutils literal notranslate"><span class="pre">Int.self</span></code></p></li>
+<li><p>A tuple with any types of components</p></li>
+<li><p>A closure or function type</p></li>
+</ul>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">mixed</span>: [<span class="k">Any</span>] = [<span class="s">&quot;one&quot;</span>, <span class="m">2</span>, <span class="k">true</span>, (<span class="m">4</span>, <span class="m">5.3</span>), { () -&gt; <span class="nc">Int</span> <span class="k">in</span> <span class="k">return</span> <span class="m">6</span> }]
+</li></ol></div></div></div>
+<p>When you use <code class="docutils literal notranslate"><span class="pre">Any</span></code> as a concrete type for an instance, you need to cast the instance to a known type before you can access its properties or methods. Instances with a concrete type of <code class="docutils literal notranslate"><span class="pre">Any</span></code> maintain their original dynamic type and can be cast to that type using one of the type-cast operators—<code class="docutils literal notranslate"><span class="pre">as</span></code>, <code class="docutils literal notranslate"><span class="pre">as?</span></code>, or <code class="docutils literal notranslate"><span class="pre">as!</span></code>. For example, use <code class="docutils literal notranslate"><span class="pre">as?</span></code> to conditionally downcast the first object in a heterogeneous array to a <code class="docutils literal notranslate"><span class="pre">String</span></code> as follows:</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="k">let</span> <span class="nv">first</span> = <span class="nv">mixed</span>.<span class="nv">first</span> <span class="k">as</span>? <span class="nc">String</span> {
+</li><li>    <span class="nv">print</span>(<span class="s">&quot;The first item, &#39;</span>\<span class="p">(</span><span class="nv">first</span><span class="p">)</span><span class="s">&#39;, is a string.&quot;</span>)
+</li><li>}
+</li><li><span class="c">// Prints &quot;The first item, &#39;one&#39;, is a string.&quot;</span>
+</li></ol></div></div></div>
+<p>For more information about casting, see <a class="reference internal" href="../LanguageGuide/TypeCasting.html"><span class="doc">Type Casting</span></a>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">AnyObject</span></code> protocol is similar to the <code class="docutils literal notranslate"><span class="pre">Any</span></code> type. All classes implicitly conform to <code class="docutils literal notranslate"><span class="pre">AnyObject</span></code>. Unlike <code class="docutils literal notranslate"><span class="pre">Any</span></code>, which is defined by the language, <code class="docutils literal notranslate"><span class="pre">AnyObject</span></code> is defined by the Swift standard library. For more information, see <a class="reference internal" href="../LanguageGuide/Protocols.html#ID281"><span class="std std-ref">Class-Only Protocols</span></a> and <a class="reference external" href="https://developer.apple.com/documentation/swift/anyobject"><code class="docutils literal notranslate"><span class="pre">AnyObject</span></code></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of an Any type</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_any-type"></a>any-type</span><span class="arrow"> → </span> <code>Any</code></p></div></div></div>
+<div class="section" id="ID610">
+<h2>Self Type<a class="headerlink" href="#ID610" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">Self</span></code> type isn’t a specific type, but rather lets you conveniently refer to the current type without repeating or knowing that type’s name.</p>
+<p>In a protocol declaration or a protocol member declaration, the <code class="docutils literal notranslate"><span class="pre">Self</span></code> type refers to the eventual type that conforms to the protocol.</p>
+<p>In a structure, class, or enumeration declaration, the <code class="docutils literal notranslate"><span class="pre">Self</span></code> type refers to the type introduced by the declaration. Inside the declaration for a member of a type, the <code class="docutils literal notranslate"><span class="pre">Self</span></code> type refers to that type. In the members of a class declaration, <code class="docutils literal notranslate"><span class="pre">Self</span></code> can appear only as follows:</p>
+<ul class="simple">
+<li><p>As the return type of a method</p></li>
+<li><p>As the return type of a read-only subscript</p></li>
+<li><p>As the type of a read-only computed property</p></li>
+<li><p>In the body of a method</p></li>
+</ul>
+<p>For example, the code below shows an instance method <code class="docutils literal notranslate"><span class="pre">f</span></code> whose return type is <code class="docutils literal notranslate"><span class="pre">Self</span></code>.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">class</span> <span class="nv">Superclass</span> {
+</li><li>    <span class="k">func</span> <span class="nv">f</span>() -&gt; <span class="nc">Self</span> { <span class="k">return</span> <span class="k">self</span> }
+</li><li>}
+</li><li><span class="k">let</span> <span class="nv">x</span> = <span class="nv">Superclass</span>()
+</li><li><span class="nv">print</span>(<span class="nv">type</span>(<span class="nv">of</span>: <span class="nv">x</span>.<span class="nv">f</span>()))
+</li><li><span class="c">// Prints &quot;Superclass&quot;</span>
+</li><li>
+</li><li><span class="k">class</span> <span class="nv">Subclass</span>: <span class="nc">Superclass</span> { }
+</li><li><span class="k">let</span> <span class="nv">y</span> = <span class="nv">Subclass</span>()
+</li><li><span class="nv">print</span>(<span class="nv">type</span>(<span class="nv">of</span>: <span class="nv">y</span>.<span class="nv">f</span>()))
+</li><li><span class="c">// Prints &quot;Subclass&quot;</span>
+</li><li>
+</li><li><span class="k">let</span> <span class="nv">z</span>: <span class="nc">Superclass</span> = <span class="nv">Subclass</span>()
+</li><li><span class="nv">print</span>(<span class="nv">type</span>(<span class="nv">of</span>: <span class="nv">z</span>.<span class="nv">f</span>()))
+</li><li><span class="c">// Prints &quot;Subclass&quot;</span>
+</li></ol></div></div></div>
+<p>The last part of the example above shows that <code class="docutils literal notranslate"><span class="pre">Self</span></code> refers to the runtime type <code class="docutils literal notranslate"><span class="pre">Subclass</span></code> of the value of <code class="docutils literal notranslate"><span class="pre">z</span></code>, not the compile-time type <code class="docutils literal notranslate"><span class="pre">Superclass</span></code> of the variable itself.</p>
+<p>Inside a nested type declaration, the <code class="docutils literal notranslate"><span class="pre">Self</span></code> type refers to the type introduced by the innermost type declaration.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Self</span></code> type refers to the same type as the <a class="reference external" href="https://developer.apple.com/documentation/swift/2885064-type"><code class="docutils literal notranslate"><span class="pre">type(of:)</span></code></a> function in the Swift standard library. Writing <code class="docutils literal notranslate"><span class="pre">Self.someStaticMember</span></code> to access a member of the current type is the same as writing <code class="docutils literal notranslate"><span class="pre">type(of:</span> <span class="pre">self).someStaticMember</span></code>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a Self type</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_self-type"></a>self-type</span><span class="arrow"> → </span> <code>Self</code></p></div></div></div>
+<div class="section" id="ID456">
+<h2>Type Inheritance Clause<a class="headerlink" href="#ID456" title="Permalink to this headline">¶</a></h2>
+<p>A <em>type inheritance clause</em> is used to specify which class a named type inherits from and which protocols a named type conforms to. A type inheritance clause begins with a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>), followed by a list of type identifiers.</p>
+<p>Class types can inherit from a single superclass and conform to any number of protocols. When defining a class, the name of the superclass must appear first in the list of type identifiers, followed by any number of protocols the class must conform to. If the class doesn’t inherit from another class, the list can begin with a protocol instead. For an extended discussion and several examples of class inheritance, see <a class="reference internal" href="../LanguageGuide/Inheritance.html"><span class="doc">Inheritance</span></a>.</p>
+<p>Other named types can only inherit from or conform to a list of protocols. Protocol types can inherit from any number of other protocols. When a protocol type inherits from other protocols, the set of requirements from those other protocols are aggregated together, and any type that inherits from the current protocol must conform to all of those requirements.</p>
+<p>A type inheritance clause in an enumeration definition can be either a list of protocols, or in the case of an enumeration that assigns raw values to its cases, a single, named type that specifies the type of those raw values. For an example of an enumeration definition that uses a type inheritance clause to specify the type of its raw values, see <a class="reference internal" href="../LanguageGuide/Enumerations.html#ID149"><span class="std std-ref">Raw Values</span></a>.</p>
+<div class="admonition grammar"><p class="first admonition-title">Grammar of a type inheritance clause</p><div class="syntax-group"><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type-inheritance-clause"></a>type-inheritance-clause</span><span class="arrow"> → </span> <code>:</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-inheritance-list">type-inheritance-list</a></span> </p><p class="syntax-def"><span class="syntax-def-name"><a id="grammar_type-inheritance-list"></a>type-inheritance-list</span><span class="arrow"> → </span> <span class="syntactic-category"><a href="../ReferenceManual/Attributes.html#grammar_attributes">attributes</a></span> <sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-identifier">type-identifier</a></span>  |  <span class="syntactic-category"><a href="../ReferenceManual/Attributes.html#grammar_attributes">attributes</a></span> <sub>opt</sub> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-identifier">type-identifier</a></span>  <code>,</code> <span class="syntactic-category"><a href="../ReferenceManual/Types.html#grammar_type-inheritance-list">type-inheritance-list</a></span> </p></div></div></div>
+<div class="section" id="ID457">
+<h2>Type Inference<a class="headerlink" href="#ID457" title="Permalink to this headline">¶</a></h2>
+<p>Swift uses <em>type inference</em> extensively, allowing you to omit the type or part of the type of many variables and expressions in your code. For example, instead of writing <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">x:</span> <span class="pre">Int</span> <span class="pre">=</span> <span class="pre">0</span></code>, you can write <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">x</span> <span class="pre">=</span> <span class="pre">0</span></code>, omitting the type completely—the compiler correctly infers that <code class="docutils literal notranslate"><span class="pre">x</span></code> names a value of type <code class="docutils literal notranslate"><span class="pre">Int</span></code>. Similarly, you can omit part of a type when the full type can be inferred from context. For example, if you write <code class="docutils literal notranslate"><span class="pre">let</span> <span class="pre">dict:</span> <span class="pre">Dictionary</span> <span class="pre">=</span> <span class="pre">[&quot;A&quot;:</span> <span class="pre">1]</span></code>, the compiler infers that <code class="docutils literal notranslate"><span class="pre">dict</span></code> has the type <code class="docutils literal notranslate"><span class="pre">Dictionary&lt;String,</span> <span class="pre">Int&gt;</span></code>.</p>
+<p>In both of the examples above, the type information is passed up from the leaves of the expression tree to its root. That is, the type of <code class="docutils literal notranslate"><span class="pre">x</span></code> in <code class="docutils literal notranslate"><span class="pre">var</span> <span class="pre">x:</span> <span class="pre">Int</span> <span class="pre">=</span> <span class="pre">0</span></code> is inferred by first checking the type of <code class="docutils literal notranslate"><span class="pre">0</span></code> and then passing this type information up to the root (the variable <code class="docutils literal notranslate"><span class="pre">x</span></code>).</p>
+<p>In Swift, type information can also flow in the opposite direction—from the root down to the leaves. In the following example, for instance, the explicit type annotation (<code class="docutils literal notranslate"><span class="pre">:</span> <span class="pre">Float</span></code>) on the constant <code class="docutils literal notranslate"><span class="pre">eFloat</span></code> causes the numeric literal <code class="docutils literal notranslate"><span class="pre">2.71828</span></code> to have an inferred type of <code class="docutils literal notranslate"><span class="pre">Float</span></code> instead of <code class="docutils literal notranslate"><span class="pre">Double</span></code>.</p>
+<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">e</span> = <span class="m">2.71828</span> <span class="c">// The type of e is inferred to be Double.</span>
+</li><li><span class="k">let</span> <span class="nv">eFloat</span>: <span class="nc">Float</span> = <span class="m">2.71828</span> <span class="c">// The type of eFloat is Float.</span>
+</li></ol></div></div></div>
+<p>Type inference in Swift operates at the level of a single expression or statement. This means that all of the information needed to infer an omitted type or part of a type in an expression must be accessible from type-checking the expression or one of its subexpressions.</p>
+</div>
+</div>
+
+
+    </article>
+    <div class="next_previous">
+        <p class="previous"><a href="LexicalStructure.html">Lexical Structure</a></p>
+        <p class="next"><a href="Expressions.html">Expressions</a></p>
+    </div>
+    <div class="admonition-beta admonition">
+        <p class="first admonition-title">Beta Software</p>
+        <p>
+          This documentation contains preliminary information about an API or technology in development.
+          This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+        </p>
+        <p class="last"><a class="reference external" href="https://developer.apple.com/support/beta-software/">Learn more about using Apple's beta software</a></p>
+    </div>
+</main>
+
+
+<footer role="contentinfo">
+  <aside>
+    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
+    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
+  </aside>
+
+  <p class="copyright">Copyright &copy; 2022 Apple Inc. All rights reserved.</p>
+  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
+  <p class="privacy">
+    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
+    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
+  </p>
+</footer>
+<div id="jump_to_overlay"></div>
+<script src="../_static/javascripts/application.js"></script>
+  </body>
+</html>
