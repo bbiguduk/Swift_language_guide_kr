@@ -252,7 +252,7 @@ The example above uses a very simple approach to dice rolling. Instead of genera
 After rolling the dice, the player moves forward by diceRoll squares. It’s possible that the dice roll may have moved the player beyond square 25, in which case the game is over. To cope with this scenario, the code checks that square is less than the board array’s count property. If square is valid, the value stored in board[square] is added to the current square value to move the player up or down any ladders or snakes.
 -->
 
-위의 예는 주사위 굴리기에 매우 간다한 접근 방식을 사용합니다. 난수를 생성하는 대신에 `diceRoll` 은 `0` 의 값으로 시작합니다. 매 `while` 루프를 실행할 때 마다 `diceRoll` 은 1씩 증가하고 너무 커졌는지 확인합니다. 반환된 값이 `7` 과 같을 때마다 주사위 굴림이 너무 커지므로 값을 `1` 로 재설정 합니다. 그 결과 `diceRoll` 값은 항상 `1`, `2`, `3`, `4`, `5`, `6`, `1`, `2` 등과 같이 시퀀스 입니다.
+위의 예는 주사위 굴리기에 매우 간단한 접근 방식을 사용합니다. 난수를 생성하는 대신에 `diceRoll` 은 `0` 의 값으로 시작합니다. 매 `while` 루프를 실행할 때 마다 `diceRoll` 은 1씩 증가하고 너무 커졌는지 확인합니다. 반환된 값이 `7` 과 같을 때마다 주사위 굴림이 너무 커지므로 값을 `1` 로 재설정 합니다. 그 결과 `diceRoll` 값은 항상 `1`, `2`, `3`, `4`, `5`, `6`, `1`, `2` 등과 같이 시퀀스 입니다.
 
 주사위를 굴리고 난 후에 플레이어는 `diceRoll` 정사각형으로 앞으로 이동합니다. 주사위 굴림이 플레이어를 정사각형 25를 넘어 이동할 수 있으며 이럴 경우 게임이 끝납니다. 이 시나리오에 대처하기 위해 `board` 배열의 `count` 프로퍼티가 `square` 보다 작은지 확인합니다. `square` 가 유효하다면 `board[square]` 에 저장된 값은 현재 `square` 값이 추가되어 플레이어를 사다리나 뱀의 위나 아래로 이동합니다.
 
