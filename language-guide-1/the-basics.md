@@ -34,7 +34,7 @@ Constants and variables associate a name (such as maximumNumberOfLoginAttempts o
 
 상수와 변수는 이름 \(`maximumNumberOfLoginAttempts` 또는 `welcomeMessage`\)과 특정 타입 \(숫자 `10` 또는 문자열 `"Hello"`와 같은 타입\)의 값을 연결합니다. _상수 \(Constant\)_ 의 값은 최초 지정 후 변경이 불가능하지만 _변수 \(Variable\)_ 는 다른 값으로 변경이 가능합니다.
 
-### 상수와 변수 선언 \(Declaring Contants and Variables\)
+### 상수와 변수 선언 \(Declaring Constants and Variables\)
 
 <!--
 Constants and variables must be declared before they’re used. You declare constants with the let keyword and variables with the var keyword. Here’s an example of how constants and variables can be used to track the number of login attempts a user has made:
