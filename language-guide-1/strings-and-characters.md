@@ -421,7 +421,7 @@ print(#"Write an interpolated string in Swift using \(multiplier)."#)
 To use string interpolation inside a string that uses extended delimiters, match the number of number signs after the backslash to the number of number signs at the beginning and end of the string. For example:
 -->
 
-확장된 구분기호를 사용하는 문자열에서 문자열 삽입을 사용하기 위해 문자열의 시작과 끝에 숫자 기호의 갯수만큼 백슬래시 다음에 숫자 시호를 넣어주면 됩니다. 예를 들어:
+확장된 구분기호를 사용하는 문자열에서 문자열 삽입을 사용하기 위해 문자열의 시작과 끝에 숫자 기호의 갯수만큼 백슬래시 다음에 숫자 기호를 넣어주면 됩니다. 예를 들어:
 
 ```swift
 print(#"6 times 7 is \#(6 * 7)."#)
@@ -454,7 +454,7 @@ Note that not all 21-bit Unicode scalar values are assigned to a character—som
 
 Swift의 기본 `String` 타입은 _유니코드 스칼라 값 \(Unicode scalar values\)_ 으로부터 생성됩니다. 유니코드 스칼라 값은 `LATIN SMALL LETTER A` \(`"a"`\)의 경우 `U+0061` 또는 `FRONT-FACING BABY CHICK` \(`"🐥"`\)의 경우 `U+1F425` 와 같은 문자를 위한 유니크 한 21-bit 숫자 또는 수정자입니다.
 
-모든 21-bit 유니코드 스칼라 값이 한 문자에 할당되는 것은 아닙니다. 어떤 스칼라는 나중에 할당되거나 UFT-16 인코딩에 사용하기 위해 지정되어 있습니다. 문자에 할당된 스칼라 값은 일반적으로 위의 예에서 `LATIN SMALL LETTER A` 와 `FRONT-FACING BABY CHICK` 같이 이름을 가지고 있습니다.
+모든 21-bit 유니코드 스칼라 값이 한 문자에 할당되는 것은 아닙니다. 어떤 스칼라는 나중에 할당되거나 UTF-16 인코딩에 사용하기 위해 지정되어 있습니다. 문자에 할당된 스칼라 값은 일반적으로 위의 예에서 `LATIN SMALL LETTER A` 와 `FRONT-FACING BABY CHICK` 같이 이름을 가지고 있습니다.
 
 ### 확장된 문자소 클러스터 \(Extended Grapheme Clusters\)
 
@@ -470,7 +470,7 @@ Swift의 `Character` 타입의 모든 인스턴스는 하나의 _확장된 문�
 
 여기 예제가 있습니다. 문자 `é` 은 단일 유니코드 스칼라 `é` \(`LATIN SMALL LETTER E WITH ACUTE`, or `U+00E9`\)로 표기 가능합니다. 그러나 동일 문자를 표준 문자 `e` \(`LATIN SMALL LETTER E`, or `U+0065`\) 이어서 `COMBINING ACUTE ACCENT` 스칼라 \(`U+0301`\)가 오는 스칼라 쌍으로 표시될 수도 있습니다. `COMBINING ACUTE ACCENT` 스칼라는 앞에 있는 스칼라에 그래픽으로 적용되어 유니코드 인식 텍스트 렌더링 시스템에서 렌더링 될 때 `e` 를 `é` 로 변환합니다.
 
-두 경우 모두 문자 `é` 는 확장된 문자소 클라터를 나타내는 단일 Swift 문자값으로 표시됩니다. 첫번째의 경우에는 클러스터에는 단일 스칼라가 포함됩니다. 두번째의 경우에는 두 스칼라의 클러스터 입니다:
+두 경우 모두 문자 `é` 는 확장된 문자소 클러스터를 나타내는 단일 Swift 문자값으로 표시됩니다. 첫번째의 경우에는 클러스터에는 단일 스칼라가 포함됩니다. 두번째의 경우에는 두 스칼라의 클러스터 입니다:
 
 ```swift
 let eAcute: Character = "\u{E9}"                         // é
