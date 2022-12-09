@@ -28,7 +28,7 @@ Swift’s array, set, and dictionary types are implemented as generic collection
 If you create an array, a set, or a dictionary, and assign it to a variable, the collection that’s created will be mutable. This means that you can change (or mutate) the collection after it’s created by adding, removing, or changing items in the collection. If you assign an array, a set, or a dictionary to a constant, that collection is immutable, and its size and contents can’t be changed.
 -->
 
-배열, 집합, 또는 딕셔너리를 생성하고 변수에 할당하면 생성된 콜렉션은 _변경 가능 \(mutable\)_ 합니다. 이것은콜렉션이 생성된 후에 콜렉션의 아이템을 추가, 삭제, 또는 변경 할 수 있다는 뜻입니다. 배열, 집합, 또는 딕셔너리를 상수에 할당하면 이 콜렉션은 불가변성이며 크기와 콘텐츠를 변경할 수 없습니다.
+배열, 집합, 또는 딕셔너리를 생성하고 변수에 할당하면 생성된 콜렉션은 _변경 가능 \(mutable\)_ 합니다. 이것은 콜렉션이 생성된 후에 콜렉션의 아이템을 추가, 삭제, 또는 변경 할 수 있다는 뜻입니다. 배열, 집합, 또는 딕셔너리를 상수에 할당하면 이 콜렉션은 불가변성이며 크기와 콘텐츠를 변경할 수 없습니다.
 
 <!--
 NOTE
@@ -64,7 +64,7 @@ For more information about using Array with Foundation and Cocoa, see Bridging B
 The type of a Swift array is written in full as Array<Element>, where Element is the type of values the array is allowed to store. You can also write the type of an array in shorthand form as [Element]. Although the two forms are functionally identical, the shorthand form is preferred and is used throughout this guide when referring to the type of an array.
 -->
 
-Swift 배열의 타입은 `Element` 는 저장할 배열 값의 타입을 나타내는 `Array<Element>` 로 작성합니다. 또한 짧게 `[Element]` 로 작성할 수도 있습니다. 두 형식이 기능적으로 동일하지막 짧은 표현이 선호되며 배열 타입을 참조할 때 이 가이드 전체에서 사용됩니다.
+Swift 배열의 타입은 `Element` 는 저장할 배열 값의 타입을 나타내는 `Array<Element>` 로 작성합니다. 또한 짧게 `[Element]` 로 작성할 수도 있습니다. 두 형식이 기능적으로 동일하지만 짧은 표현이 선호되며 배열 타입을 참조할 때 이 가이드 전체에서 사용됩니다.
 
 ### 빈 배열 생성 \(Creating an Empty Array\)
 
