@@ -805,7 +805,7 @@ The continue statement tells a loop to stop what it’s doing and start again at
 The following example removes all vowels and spaces from a lowercase string to create a cryptic puzzle phrase:
 -->
 
-`continue` 구문은 루프를 루프를 통해 다음 반복을 시작하려고 멈추기위해 부릅니다. 이것은 루프를 완전히 벗어나지 않고 "현재 루프 반복은 완료 되었습니다." 라고 말합니다.
+`continue` 구문은 루프를 통해 다음 반복을 시작하려고 멈추기위해 부릅니다. 이것은 루프를 완전히 벗어나지 않고 "현재 루프 반복은 완료 되었습니다." 라고 말합니다.
 
 아래 예제는 비밀의 퍼즐 구문을 생성하기 위해 소문자 문자열에서 모음과 공백을 삭제합니다:
 
