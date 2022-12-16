@@ -328,7 +328,7 @@ if let bounds = minMax(array: [8, -6, 2, 109, 3, 71]) {
 If the entire body of the function is a single expression, the function implicitly returns that expression. For example, both functions below have the same behavior:
 -->
 
-함수의 전체 바디가 한줄로 표현이 된다면 함수는 맹목적으로 표현식을 반환합니다. 예를 들어 아래의 두 함수는 모드 같은 동작을 합니다:
+함수의 전체 바디가 한줄로 표현이 된다면 함수는 맹목적으로 표현식을 반환합니다. 예를 들어 아래의 두 함수는 모두 같은 동작을 합니다:
 
 ```swift
 func greeting(for person: String) -> String {
