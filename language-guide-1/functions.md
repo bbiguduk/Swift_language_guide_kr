@@ -510,7 +510,7 @@ You write an in-out parameter by placing the inout keyword right before a parame
 You can only pass a variable as the argument for an in-out parameter. You can’t pass a constant or a literal value as the argument, because constants and literals can’t be modified. You place an ampersand (&) directly before a variable’s name when you pass it as an argument to an in-out parameter, to indicate that it can be modified by the function.
 -->
 
-함수 파라미터는 기본적으로 상수입니다. 해당 함수의 바디 내에서 함수 파라미터 값을 변경하려고 하면 컴파일 타일 에러가 발생합니다. 이것은 실수로 파라미터의 값을 변경할 수 없다는 것을 의미합니다. 함수의 파라미터 값을 변경하고 함수 호출이 종료된 후에도 이러한 변경된 값을 유지하고 싶다면 _in-out 파라미터 \(in-out parameter\)_ 로 대신 정의하십시오.
+함수 파라미터는 기본적으로 상수입니다. 해당 함수의 바디 내에서 함수 파라미터 값을 변경하려고 하면 컴파일 타입 에러가 발생합니다. 이것은 실수로 파라미터의 값을 변경할 수 없다는 것을 의미합니다. 함수의 파라미터 값을 변경하고 함수 호출이 종료된 후에도 이러한 변경된 값을 유지하고 싶다면 _in-out 파라미터 \(in-out parameter\)_ 로 대신 정의하십시오.
 
 in-out 파라미터는 파라미터의 타입 바로 전에 `inout` 키워드를 작성합니다. in-out 파라미터는 함수로 전달하는 값을 가지고 있고 함수로 부터 이 값을 수정하고 원래 값을 대체하기위해 함수 밖으로 다시 되돌려 줍니다. In-out 파라미터와 컴파일러 최적화의 동작에 대한 자세한 설명은 [In-Out 파라미터 \(In-Out Parameters\)](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID545) 를 참고 바랍니다.
 
