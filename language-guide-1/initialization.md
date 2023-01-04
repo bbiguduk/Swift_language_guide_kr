@@ -8,7 +8,7 @@ You implement this initialization process by defining initializers, which are li
 Instances of class types can also implement a deinitializer, which performs any custom cleanup just before an instance of that class is deallocated. For more information about deinitializers, see Deinitialization.
 -->
 
-_초기화 \(Initialization\)_ 는 인스턴스의 클래스, 구조체, 또는 열거형을 사용하기 위해 준비하는 단계입니다. 이 단계에는 인스턴스에 각 저장된 프로퍼티에 초기값을 설정하고 새로운 인스턴스가 사용할 준비가 되지 전에 다른 설정이나 초기화를 수행하는 것을 포함합니다.
+_초기화 \(Initialization\)_ 는 인스턴스의 클래스, 구조체, 또는 열거형을 사용하기 위해 준비하는 단계입니다. 이 단계에는 인스턴스에 각 저장된 프로퍼티에 초기값을 설정하고 새로운 인스턴스가 사용할 준비가 되기 전에 다른 설정이나 초기화를 수행하는 것을 포함합니다.
 
 특정 타입에 새로운 인스턴스를 생성하기 위해 특수 메서드를 호출하는 것처럼 _초기화 구문 \(initializers\)_ 을 정의하여 초기화를 구현합니다. Objective-C 초기화 구문과 달리 Swift 초기화 구문은 값을 반환하지 않습니다. 초기화의 주요 역할은 처음 사용되기 전에 타입의 새로운 인스턴스가 올바르게 초기화되는 것을 보장하는 것입니다.
 
@@ -243,7 +243,7 @@ If your custom type has a stored property that’s logically allowed to have “
 The following example defines a class called SurveyQuestion, with an optional String property called response:
 -->
 
-사용자 타입이 값이 초기화 동안 설정할 수 없거나 추후에 "값 없음"을 가질 수 있기 때문에 논리적으로 "값 없음"을 가질 수 있는 하나의 저장된 프로퍼티를 가지고 있다면 _옵셔널_ 타입으로 프로퍼티를 선언합니다. 옵셔널 타입 \(optional type\)의 프로퍼티는 자동적으로 초기화 동안 "아직 값 없음"을 가진다는 의도를 위해 `nil` 의 값으로 초기화 됩니다.
+사용자 타입이 초기화 동안 값을 설정할 수 없거나 추후에 "값 없음"을 가질 수 있기 때문에 논리적으로 "값 없음"을 가질 수 있는 하나의 저장된 프로퍼티를 가지고 있다면 _옵셔널_ 타입으로 프로퍼티를 선언합니다. 옵셔널 타입 \(optional type\)의 프로퍼티는 자동적으로 초기화 동안 "아직 값 없음"을 가진다는 의도를 위해 `nil` 의 값으로 초기화 됩니다.
 
 다음의 예제는 `response` 라는 옵셔널 `String` 프로퍼티를 가지는 `SurveyQuestion` 이라는 클래스를 정의합니다:
 
