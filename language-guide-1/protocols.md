@@ -58,7 +58,7 @@ If a protocol requires a property to be gettable and settable, that property req
 Property requirements are always declared as variable properties, prefixed with the var keyword. Gettable and settable properties are indicated by writing { get set } after their type declaration, and gettable properties are indicated by writing { get }.
 -->
 
-프로퍼티는 특정 이름과 타입을 가진 인스턴스 프로퍼티 또는 타입 프로퍼티를 제공하기 위해 모든 준수하는 타입을 요구할 수 있습니다. 프로토콜은 요구된 프로퍼티 이름과 타입만 지정하고 프로퍼티가 저장된 프로퍼티 또는 계산된 프로퍼티 인지에 대한 것은 지정하지 않습니다. 프로토콜은 각 프로퍼티가 gettable 인지 gettable과 settable 인지도 지정해줘야 합니다.
+프로토콜은 특정 이름과 타입을 가진 인스턴스 프로퍼티 또는 타입 프로퍼티를 제공하기 위해 모든 준수하는 타입을 요구할 수 있습니다. 프로토콜은 요구된 프로퍼티 이름과 타입만 지정하고 프로퍼티가 저장된 프로퍼티 또는 계산된 프로퍼티 인지에 대한 것은 지정하지 않습니다. 프로토콜은 각 프로퍼티가 gettable 인지 gettable과 settable 인지도 지정해줘야 합니다.
 
 프로토콜이 gettable과 settable 인 프로퍼티를 요구할 경우 프로퍼티 요구사항은 저장된 프로퍼티 상수 또는 읽기전용 계산된 프로퍼티는 충족할 수 없습니다. 프로토콜이 gettable 인 프로퍼티 만 요구할 경우 이 요구사항은 모든 종류의 프로퍼티에 충족될 수 있고 이것이 유용한 경우 settable 또한 프로퍼티에 대해 유효합니다.
 
