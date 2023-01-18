@@ -8,9 +8,9 @@ Swift’s String and Character types provide a fast, Unicode-compliant way to wo
 Despite this simplicity of syntax, Swift’s String type is a fast, modern string implementation. Every string is composed of encoding-independent Unicode characters, and provides support for accessing those characters in various Unicode representations.
 -->
 
-_문자열 \(string\)_ 은 `"hello, world"` 또는 `"albatross"` 와 같은 문자의 연속입니다. Swift 문자열은 `String` 타입으로 표현됩니다. `String` 의 콘텐츠는 `Character` 값의 콜렉션을 포함하여 여러가지 방법으로 접근할 수 있습니다.
+_문자열 \(string\)_ 은 `"hello, world"` 또는 `"albatross"` 와 같은 문자의 연속입니다. Swift 문자열은 `String` 타입으로 표현됩니다. `String` 의 콘텐츠에 `Character` 값의 콜렉션을 포함하여 여러가지 방법으로 접근할 수 있습니다.
 
-Swift의 `String` 과 `Character` 타입은 코드의 텍스트를 처리하는 빠른 유니코드 호환 방법을 제공합니다. 문자열 생성과 취급을 위한 구문은 C와 유사한 문자열 구문과 같이 가볍고 읽기 쉽습니다. 문자열 연결은 두 문자열 사이에 `+` 연산자와 함께 결합하여 간단하게 연결이 가능하고 Swift의 다른 값과 마찬가지로 상수 또는 변수 중에서 선택하여 문자열 변경 가능성을 관리합니다. 또한 문자열 보간이라는 프로세스에서 문자열을 사용하여 상수, 변수, 리터럴 및 표현식을 긴 문자열에 삽입할 수 있습니다. 이것은 화면에 표시, 저장, 출력을 위한 커스텀 문자열 값을 쉽게 생성할 수 있습니다.
+Swift의 `String` 과 `Character` 타입은 코드의 텍스트를 처리하는 빠른 유니코드 호환 방법을 제공합니다. 문자열 생성과 취급을 위한 구문은 C와 유사한 리터럴 구문을 사용하여 가볍고 읽기 쉽습니다. 문자열 연결은 두 문자열 사이에 `+` 연산자와 함께 결합하여 간단하게 연결이 가능하고 Swift의 다른 값과 마찬가지로 상수 또는 변수 중에서 선택하여 문자열 변경 가능성을 관리합니다. 또한 문자열 보간이라는 프로세스에서 문자열을 사용하여 상수, 변수, 리터럴 및 표현식을 긴 문자열에 삽입할 수 있습니다. 이것은 화면에 표시, 저장, 출력을 위한 커스텀 문자열 값을 쉽게 생성할 수 있습니다.
 
 간단한 구문임에도 Swift의 `String` 타입은 빠르고, 최신 문자열 구현입니다. 모든 문자열은 인코딩에 독립적인 유니코드 문자로 구성되어 있으며 다양한 유니코드 표현의 문자에 접근할 수 있도록 지원합니다.
 
@@ -34,7 +34,7 @@ You can include predefined String values within your code as string literals. A 
 Use a string literal as an initial value for a constant or variable:
 -->
 
-코드안에 미리 정의된 `String` 값을 _문자열 리터럴 \(string literals\)_ 로 포함할 수 있습니다. 문자열 리터럴은 쌍따옴표 \(`"`\)로 둘러쌓인 문자의 연속입니다.
+코드안에 미리 정의된 `String` 값을 _문자열 리터럴 \(string literals\)_ 로 포함할 수 있습니다. 문자열 리터럴은 쌍따옴표 \(`"`\)로 둘러싸인 문자의 연속입니다.
 
 상수 또는 변수의 초기값으로 문자열 리터럴을 사용합니다:
 
@@ -54,7 +54,7 @@ Swift는 문자열 리터럴 값으로 초기화 되었기 때문에 `someString
 If you need a string that spans several lines, use a multiline string literal—a sequence of characters surrounded by three double quotation marks:
 -->
 
-여러줄의 문자열이 필요하면 3개의 쌍따옴표로 둘러쌓인 문자의 연속인 여러줄 문자열 리터럴을 사용하면 됩니다.
+여러줄의 문자열이 필요하면 3개의 쌍따옴표로 둘러싸인 일련의 문자들인 여러줄 문자열 리터럴을 사용하면 됩니다.
 
 ```swift
 let quotation = """
@@ -70,7 +70,7 @@ till you come to the end; then stop."
 A multiline string literal includes all of the lines between its opening and closing quotation marks. The string begins on the first line after the opening quotation marks (""") and ends on the line before the closing quotation marks, which means that neither of the strings below start or end with a line break:
 -->
 
-여러줄 문자열 리터럴은 열리고 닫긴 따옴표 사이에 있는 모든 라인을 포함합니다. 문자열은 여는 따옴표 \(`"""`\) 다음줄부터 시작하고 닫는 따옴표 전줄로 끝납니다. 이것은 아래의 문자열은 줄바꿈으로 시작하고 끝나지 않는것을 뜻합니다:
+여러줄 문자열 리터럴은 열리고 닫힌 따옴표 사이에 있는 모든 라인을 포함합니다. 문자열은 여는 따옴표 \(`"""`\) 다음 줄부터 시작하고 닫는 따옴표의 이전 줄로 끝납니다. 이것은 아래의 문자열은 줄바꿈으로 시작하고 끝나지 않는것을 뜻합니다:
 
 ```swift
 let singleLineString = "These are the same."
@@ -99,7 +99,7 @@ till you come to the end; then stop."
 To make a multiline string literal that begins or ends with a line feed, write a blank line as the first or last line. For example:
 -->
 
-여러줄 문자열 리터럴에 시작 또는 끝에 빈줄을 추가하고 싶다면 처음 또는 마지막에 빈줄을 추가하면 됩니다. 예를 들어:
+여러줄 문자열 리터럴의 시작 또는 끝에 빈 줄을 추가하고 싶다면 첫 줄 또는 마지막 줄에 빈 줄을 추가하면 됩니다. 예를 들어:
 
 ```swift
 let lineBreaks = """
@@ -114,7 +114,7 @@ It also ends with a line break.
 A multiline string can be indented to match the surrounding code. The whitespace before the closing quotation marks (""") tells Swift what whitespace to ignore before all of the other lines. However, if you write whitespace at the beginning of a line in addition to what’s before the closing quotation marks, that whitespace is included.
 -->
 
-여러줄 문자열은 주변 코드와 일치하도록 들여 쓸 수 있습니다. 닫는 따옴표 \(`"""`\) 앞의 공백은 Swift가 다른 모든 줄의 공백은 무시한다는 것을 말합니다. 그러나 닫는 따옴표 전에 추가로 공백이 들어가면 그 공백은 추가됩니다.
+여러줄 문자열은 주변 코드와 일치하도록 들여쓸 수 있습니다. 닫는 따옴표 \(`"""`\) 앞의 공백은 Swift가 다른 모든 줄의 공백은 무시한다는 것을 말합니다. 그러나 닫는 따옴표 전에 추가로 공백이 들어가면 그 공백은 추가됩니다.
 
 ![&#xC5EC;&#xB7EC;&#xC904; &#xBB38;&#xC790;&#xC5F4; &#xACF5;&#xBC31; \(Multiline String Whitespace\)](../.gitbook/assets/03_multilineStringWhitespace_2x.png)
 
@@ -122,7 +122,7 @@ A multiline string can be indented to match the surrounding code. The whitespace
 In the example above, even though the entire multiline string literal is indented, the first and last lines in the string don’t begin with any whitespace. The middle line has more indentation than the closing quotation marks, so it starts with that extra four-space indentation.
 -->
 
-위의 예제에서 여러줄 문자열 리터럴 전체가 들여쓰기 되어있지만 문자열에서 첫번째와 마지막 줄은 어떠한 공백없이 시작합니다. 중간줄은 닫는 따옴표 보다 들여쓰기가 더 많으므로 4칸 들여쓰기로 시작합니다.
+위의 예제에서 여러줄 문자열 리터럴 전체가 들여쓰기 되어있지만 문자열에서 첫번째와 마지막 줄은 어떠한 공백없이 시작합니다. 중간 줄은 닫는 따옴표보다 들여쓰기가 더 많으므로 4칸 들여쓰기로 시작합니다.
 
 ### 문자열 리터럴에 특수 문자 \(Special Characters in String Literals\)
 
