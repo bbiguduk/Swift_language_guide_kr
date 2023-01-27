@@ -83,7 +83,7 @@ These are the same.
 When your source code includes a line break inside of a multiline string literal, that line break also appears in the string’s value. If you want to use line breaks to make your source code easier to read, but you don’t want the line breaks to be part of the string’s value, write a backslash (\) at the end of those lines:
 -->
 
-소스코드에서 여러줄 문자열 리터럴에 줄바꿈을 포함하면 줄바꿈도 문자열의 값으로 나타납니다. 소스코드를 쉽게 읽을 수 있게 줄바꿈을 사용하고 싶지만 줄바꿈이 문자열의 값의 일부가 되는걸 원치 않을 때는 줄 바꿈을 원하는 라인 끝에 백슬래시(`\`)를 쓰면 됩니다:
+소스코드에서 여러줄 문자열 리터럴에 줄바꿈을 포함하면 줄바꿈도 문자열의 값으로 나타납니다. 소스코드를 쉽게 읽을 수 있게 줄바꿈을 사용하고 싶지만 줄바꿈이 문자열의 값의 일부가 되는걸 원치 않을 때는 줄 바꿈을 원하는 라인 끝에 역슬래시(`\`)를 쓰면 됩니다:
 
 ```swift
 let softWrappedQuotation = """
@@ -137,7 +137,7 @@ The code below shows four examples of these special characters. The wiseWords co
 
 문자열 리터럴은 아래와 같은 특수 문자를 포함할 수 있습니다:
 
-* 이스케이프 된 문자 `\0` (null 문자), `\\` (백슬래시), `\t` (수평 탭), `\n` (개행), `\r` (캐리지 리턴), `\"` (쌍따옴표) 와 `\'` (홑따옴표)
+* 이스케이프 된 문자 `\0` (null 문자), `\\` (역슬래시), `\t` (수평 탭), `\n` (개행), `\r` (캐리지 리턴), `\"` (쌍따옴표) 와 `\'` (홑따옴표)
 * `\u{n}` 로 쓰여진 임의의 유니코드 스칼라 값. 여기서 _n_ 은 1-8 자리의 16진수 (유니코드는 아래 [유니코드 (Unicode)](strings-and-characters.md#unicode) 에서 설명합니다.)
 
 아래 코드는 특수 문자의 4개의 예를 보여줍니다. `wiseWords` 상수는 2개의 이스케이프 된 쌍따옴표를 포함합니다. `dollarSign`, `blackHeart` 그리고 `sparklingHeart` 는 유니코드 스칼라 형태를 보여줍니다:
@@ -390,7 +390,7 @@ In the code above, concatenating badStart with end produces a two-line string, w
 String interpolation is a way to construct a new String value from a mix of constants, variables, literals, and expressions by including their values inside a string literal. You can use string interpolation in both single-line and multiline string literals. Each item that you insert into the string literal is wrapped in a pair of parentheses, prefixed by a backslash (\):
 -->
 
-_문자열 삽입 (String interpolation)_ 은 상수, 변수, 리터럴, 그리고 문자열 리터럴에 값이 포함된 표현식을 혼합해 새로운 `String` 값을 생성하는 방법입니다. 문자열 삽입은 한줄과 여러줄 문자열 리터럴에서 사용할 수 있습니다. 문자열 리터럴에 추가하는 방법은 백슬래시 (`\`) 접두사에 소괄호를 감싸서 추가합니다:
+_문자열 삽입 (String interpolation)_ 은 상수, 변수, 리터럴, 그리고 문자열 리터럴에 값이 포함된 표현식을 혼합해 새로운 `String` 값을 생성하는 방법입니다. 문자열 삽입은 한줄과 여러줄 문자열 리터럴에서 사용할 수 있습니다. 문자열 리터럴에 추가하는 방법은 역슬래시 (`\`) 접두사에 소괄호를 감싸서 추가합니다:
 
 ```swift
 let multiplier = 3
@@ -421,7 +421,7 @@ print(#"Write an interpolated string in Swift using \(multiplier)."#)
 To use string interpolation inside a string that uses extended delimiters, match the number of number signs after the backslash to the number of number signs at the beginning and end of the string. For example:
 -->
 
-확장된 구분기호를 사용하는 문자열에서 문자열 삽입을 사용하기 위해 문자열의 시작과 끝에 숫자 기호의 갯수만큼 백슬래시 다음에 숫자 기호를 넣어주면 됩니다. 예를 들어:
+확장된 구분기호를 사용하는 문자열에서 문자열 삽입을 사용하기 위해 문자열의 시작과 끝에 숫자 기호의 갯수만큼 역슬래시 다음에 숫자 기호를 넣어주면 됩니다. 예를 들어:
 
 ```swift
 print(#"6 times 7 is \#(6 * 7)."#)
@@ -434,7 +434,7 @@ The expressions you write inside parentheses within an interpolated string can�
 -->
 
 > NOTE\
-> 소괄호 안에 작성한 표현식에 삽입된 문자열은 백슬래시 (`\`), 캐리지 리턴, 또는 개행을 포함할 수 없습니다. 그러나 다른 문자열 리터럴은 포함할 수 있습니다.
+> 소괄호 안에 작성한 표현식에 삽입된 문자열은 역슬래시 (`\`), 캐리지 리턴, 또는 개행을 포함할 수 없습니다. 그러나 다른 문자열 리터럴은 포함할 수 있습니다.
 
 ## 유니코드 (Unicode)
 

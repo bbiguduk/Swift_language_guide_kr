@@ -20,9 +20,9 @@ A target written in Swift 5.7 can depend on a target that’s written in Swift 4
 
 Xcode 14 를 사용하여 Swift 4 와 Swift 4.2 코드를 사용하면 Swift 5.7 대부분의 기능을 사용할 수 있습니다. 즉, 다음 변경사항은 Swift 5.7 이후 버전에서만 사용 가능합니다:
 
-* 불투명한 타입을 반환하는 함수는 Swift 5.1 런타임이 필요합니다.
-* `try?` 표현식은 이미 옵셔널을 반환하는 표현식에 추가로 옵셔널 표현식을 도입하지 않습니다.
-* 큰 정수 리터럴 초기화 표현식은 올바른 정수 타입으로 추론합니다. 예를 들어 `UInt64(0xffff_ffff_ffff_ffff)` 는 오버플로우가 아닌 올바른 값입니다.
+* 불투명한 타입 (opaque type) 을 반환하는 함수는 Swift 5.1 런타임이 필요합니다.
+* `try?` 표현식은 이미 옵셔널 (optional) 을 반환하는 표현식에 추가로 옵셔널 표현식을 도입하지 않습니다.
+* 큰 정수 (integer) 리터럴 초기화 표현식은 올바른 정수 (integer) 타입으로 추론합니다. 예를 들어 `UInt64(0xffff_ffff_ffff_ffff)` 는 오버플로우가 아닌 올바른 값입니다.
 
 동시성 (Concurrency) 은 Swift 5.7 이후 버전과 동시성 타입을 제공하는 Swift 표준 라이브러리의 버전이 필요합니다. 애플 플랫폼에서 배포 대상 (deployment target) 을 적어도 iOS 15, macOS 12, tvOS 15, 또는 watchOS 8.0 로 설정합니다.
 

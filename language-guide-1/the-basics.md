@@ -211,7 +211,7 @@ Swift uses string interpolation to include the name of a constant or variable as
 
 `print(_:separator:terminator:)` 함수는 하나 또는 그 이상의 값을 적절하게 출력하는 전역 함수입니다. 예를 들어 Xcode에서 `print(_:separator:terminator:)` 함수는 Xcode "콘솔 \(console\)" 창에 결과를 출력합니다. `separator` 와 `terminator` 파라미터는 기본 값을 가지고 있으므로 함수를 호출할 때 생략할 수 있습니다. 기본적으로 이 함수는 줄바꿈을 출력하고 종료됩니다. 줄바꿈 없이 값을 출력하려면 예를 들어 `print(someValue, terminator: "")` 와 같이 `terminator` 에 빈 문자열을 넘겨주면 됩니다. 파라미터 기본값에 대한 자세한 내용은 [파라미터 기본 값 \(Default Parameter Values\)](functions.md#default-parameter-values) 을 참고 바랍니다.
 
-Swift는 긴 문자열에 상수 또는 변수의 이름을 포함하여 Swift가 상수 또는 변수의 현재 값으로 대체하기 위해 _문자열 삽입 \(String interpolation\)_ 을 사용합니다. 이름을 소괄호로 감싸고 여는 소괄호 전에 백슬래시를 추가해야 합니다:
+Swift는 긴 문자열에 상수 또는 변수의 이름을 포함하여 Swift가 상수 또는 변수의 현재 값으로 대체하기 위해 _문자열 삽입 \(String interpolation\)_ 을 사용합니다. 이름을 소괄호로 감싸고 여는 소괄호 전에 역슬래시를 추가해야 합니다:
 
 ```swift
 print("The current value of friendlyWelcome is \(friendlyWelcome)")

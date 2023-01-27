@@ -17,7 +17,7 @@ If you have written code in C or Objective-C, this syntax looks familiar to you�
 This tour gives you enough information to start writing code in Swift by showing you how to accomplish a variety of programming tasks. Don’t worry if you don’t understand something—everything introduced in this tour is explained in detail in the rest of this book.
 -->
 
-C 또는 Objective-C 로 코드를 작성했다면 이 구문은 익숙합니다. Swift 에서 이 코드의 라인은 완벽한 프로그램입니다. 입력/출력 또는 문자열 처리와 같은 기능을 위한 별도의 라이브러리를 가져올 필요는 없습니다. 전역 범위로 작성한 코드는 프로그램의 전체에서 사용되기 때문에 `main()` 함수가 필요하지 않습니다. 모든 구문에 끝에 세미콜론을 작성할 필요도 없습니다.
+C 또는 Objective-C 로 코드를 작성해봤다면 이 구문은 익숙합니다. Swift 에서 이 코드의 라인은 완벽한 프로그램입니다. 입력/출력 또는 문자열 처리와 같은 기능을 위한 별도의 라이브러리를 가져올 필요는 없습니다. 전역 범위로 작성한 코드는 프로그램의 전체에서 사용되기 때문에 `main()` 함수가 필요하지 않습니다. 모든 구문에 끝에 세미콜론을 작성할 필요도 없습니다.
 
 이 둘러보기를 통해 다양한 프로그래밍 작업을 수행하는 방법을 보여줌으로써 Swift 에서 코드 작성을 시작할 수 있는 충분한 정보를 제공합니다. 이해하지 못하는 부분이 있어도 걱정하지 마시기 바랍니다. 이 둘러보기에서 소개된 모든 내용은 이 책의 나머지 부분에 자세히 설명되어 있습니다.
 

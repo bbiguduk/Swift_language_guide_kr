@@ -13,6 +13,7 @@ Integers are checked for overflow.
 Optionals ensure that nil values are handled explicitly.
 Memory is managed automatically.
 Error handling allows controlled recovery from unexpected failures.
+
 Swift code is compiled and optimized to get the most out of modern hardware. The syntax and standard library have been designed based on the guiding principle that the obvious way to write your code should also perform the best. Its combination of safety and speed make Swift an excellent choice for everything from “Hello, world!” to an entire operating system.
 
 Swift combines powerful type inference and pattern matching with a modern, lightweight syntax, allowing complex ideas to be expressed in a clear and concise manner. As a result, code is not just easier to write, but easier to read and maintain as well.
@@ -27,15 +28,15 @@ Swift 는 새로운 프로그래머에게 친숙합니다. 스크립팅 언어�
 Swift 는 최신 프로그래밍 패턴을 채택하여 많은 클래스의 일반적인 프로그래밍 오류를 정의합니다:
 
 * 변수는 항상 사용 전에 초기화 되어야 합니다.
-* 배열 인덱스는 범위 초과 \(out-of-bounds\) 에러에 대해 검사되어야 합니다.
-* 정수 \(Integers\)는 오버플로우 \(overflow\)에 대해 검사되어야 합니다.
-* 옵셔널 \(Optionals\)은 `nil` 값이 명시적으로 처리되도록 합니다.
+* 배열 (Array) 인덱스는 범위 초과 \(out-of-bounds\) 에러에 대해 검사되어야 합니다.
+* 정수 \(Integer\)는 오버플로우 \(overflow\)에 대해 검사되어야 합니다.
+* 옵셔널 \(Optional\)은 `nil` 값이 명시적으로 처리되도록 합니다.
 * 메모리는 자동으로 관리됩니다.
 * 에러 처리를 통해 예기치 않은 오류를 처리할 수 있습니다.
 
 Swift 코드는 최신 하드웨어를 최대한 활용하기 위해 컴파일되고 최적화 됩니다. 구문과 표준 라이브러리는 코드를 작성하는 방법이 최상의 성능을 발휘해야 한다는 기본원칙에 따라 설계되었습니다. 안전성과 속도의 조합으로 Swift 는 "Hello, world!" 로 부터 전체 시스템에 이르기 까지 최고의 선택입니다.
 
-Swift 는 강력한 타입 추론과 패턴 매칭을 현대적이고 가벼운 구문과 결합하여 복잡한 것도 명확하고 간결한 방식으로 표현할 수 있습니다. 그 결과로 코드는 작성하기 쉬울 뿐만 아니라 읽기 및 유지관리도 쉽습니다.
+Swift 는 강력한 타입 추론 (type inference) 과 패턴 매칭 (pattern matching) 을 현대적이고 가벼운 구문과 결합하여 복잡한 것도 명확하고 간결한 방식으로 표현할 수 있습니다. 그 결과로 코드는 작성하기 쉬울 뿐만 아니라 읽기 및 유지관리도 쉽습니다.
 
 Swift 는 수년간 만들어 졌으며 새로운 기능으로 계속해서 진화하고 있습니다. Swift 에 대한 우리의 목표는 야심찹니다. Swift 로 무엇을 만들지 기대가 됩니다.
 
