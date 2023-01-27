@@ -149,7 +149,7 @@ The examples above use a for-in loop to iterate ranges, arrays, dictionaries, an
 
 위의 예제는 범위, 배열, 딕셔너리, 그리고 문자열을 조회하기 위해 `for`-`in` 루프를 사용합니다. 자체 클래스와 콜렉션 타입을 포함하여 모든 콜렉션을 조회하기 위해 [시퀀스 \(Sequence\)](https://developer.apple.com/documentation/swift/sequence) 프로토콜을 준수하는 한 이 구문을 사용할 수 있습니다.
 
-## While 루프 \(While 루프\)
+## While 루프 \(While Loops\)
 
 <!--
 A while loop performs a set of statements until a condition becomes false. These kinds of loops are best used when the number of iterations isn’t known before the first iteration begins. Swift provides two kinds of while loops:

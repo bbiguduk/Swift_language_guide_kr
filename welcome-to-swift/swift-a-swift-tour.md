@@ -47,7 +47,7 @@ let myConstant = 42
 <!--
 A constant or variable must have the same type as the value you want to assign to it. However, you don’t always have to write the type explicitly. Providing a value when you create a constant or variable lets the compiler infer its type. In the example above, the compiler infers that myVariable is an integer because its initial value is an integer.
 
-If the initial value doesn’t provide enough information (or if thered isn’t an initial value), specify the type by writing it after the variable, separated by a colon.
+If the initial value doesn’t provide enough information (or if there isn’t an initial value), specify the type by writing it after the variable, separated by a colon.
 -->
 
 상수 또는 변수는 할당하려는 값과 동일한 타입이어야 합니다. 하지만 항상 타입을 명시해야 하는 것은 아닙니다. 상수 또는 변수를 생성할 때 값을 제공하면 컴파일러는 타입을 유추합니다. 위의 예제에서 `myVariable` 의 초기값이 정수이므로 컴파일러는 정수로 유추합니다.

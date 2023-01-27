@@ -1031,8 +1031,6 @@ if let myNumber {
 <!--
 You can use both constants and variables with optional binding. If you wanted to manipulate the value of myNumber within the first branch of the if statement, you could write if var myNumber instead, and the value contained within the optional would be made available as a variable rather than a constant. Changes you make to myNumber inside the body of the if statement apply only to that local variable, not to the original, optional constant or variable that you unwrapped.
 
-? You can use both constants and variables with optional binding. If you wanted to manipulate the value of actualNumber within the first branch of the if statement, you could write if var actualNumber instead, and the value contained within the optional would be made available as a variable rather than a constant.
-
 You can include as many optional bindings and Boolean conditions in a single if statement as you need to, separated by commas. If any of the values in the optional bindings are nil or any Boolean condition evaluates to false, the whole if statement’s condition is considered to be false. The following if statements are equivalent:
 -->
 
