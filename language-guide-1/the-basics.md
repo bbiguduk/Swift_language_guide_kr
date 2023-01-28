@@ -16,7 +16,7 @@ Swift is a type-safe language, which means the language helps you to be clear ab
 
 Swift는 iOS, macOS, watchOS, 그리고 tvOS app 개발을 위한 새로운 프로그래밍 언어입니다. 그럼에도 불구하고 Swift에 많은 부분이 C와 Objective-C 개발경험과 비슷할 것입니다.
 
-Swift는 정수에 대한 `Int`, 부동 소수점에 대한 `Double` 및 `Float`, 부울 값에 대한 `Bool` 및 텍스트 데이터에 대한 `String`을 포함하여 C와 Objective-C 모든 기초 타입을 자체 버전에 맞게 제공합니다. Swift는 또한 [콜렉션 타입 \(Collection Types\)](collection-types.md)에서 자세히 다룰 Array, Set, 그리고 Dictionary 인 3개의 기본 콜렉션 타입을 제공합니다.
+Swift는 정수 (integer)에 대한 `Int`, 부동 소수점 (floating-point)에 대한 `Double` 및 `Float`, 부울 (Boolean) 값에 대한 `Bool` 및 텍스트 데이터에 대한 `String`을 포함하여 C와 Objective-C 모든 기초 타입을 자체 버전에 맞게 제공합니다. Swift는 또한 [콜렉션 타입 \(Collection Types\)](collection-types.md)에서 자세히 다룰 `Array`, `Set`, 그리고 `Dictionary` 인 3개의 기본 콜렉션 타입을 제공합니다.
 
 C와 마찬가지로 Swift는 변수를 식별 가능한 이름으로 값을 저장하고 참조합니다. Swift는 또한 값을 변경할 수 없는 변수를 광범위하게 사용합니다. 이러한 변수를 상수라고 하며 C에서의 상수보다 훨씬 더 강력합니다. 상수는 Swift 전체에서 사용되며 변경할 필요가 없는 값으로 작업할 때 코드를 보다 안전하고 명확하게 만들 수 있습니다.
 
@@ -107,7 +107,7 @@ The welcomeMessage variable can now be set to any string value without error:
 
 _"선언한 변수는 `welcomeMessage` 라고 하며 이것의 타입은 `String` 입니다."_
 
-"...의 타입은 `String` 입니다." 라는 의미는 "어떤 `String` 값은 저장 가능합니다." 입니다. 저장할 수 있는 "어떠한 타입" \(또는 "어떠한 종류"\) 라고 생각하십시오.
+"...의 타입은 `String` 입니다." 라는 의미는 "어떤 `String` 값은 저장 가능합니다." 입니다. 저장할 수 있는 "어떠한 타입" \(또는 "어떠한 종류"\) 라고 생각합니다.
 
 `welcomeMessage` 변수는 아무런 오류 없이 어떠한 문자열 값을 지정할 수 있습니다:
 
@@ -154,7 +154,7 @@ Constant and variable names can’t contain whitespace characters, mathematical 
 Once you’ve declared a constant or variable of a certain type, you can’t declare it again with the same name, or change it to store values of a different type. Nor can you change a constant into a variable or a variable into a constant.
 -->
 
-상수와 변수 이름은 공백, 수학적 기호, 화살표, 개인전용 유니코드 스칼라 값, 또는 선과 박스를 그리는 문자를 포함할 수 없습니다. 숫자는 이름의 다른곳에는 포함될 수 있지만 숫자로 시작하는 이름은 선언할 수 없습니다.
+상수와 변수 이름은 공백, 수학적 기호, 화살표, 내부에서 사용하는 유니코드 스칼라 값, 또는 선과 박스를 그리는 문자를 포함할 수 없습니다. 숫자는 이름의 다른곳에는 포함될 수 있지만 숫자로 시작하는 이름은 선언할 수 없습니다.
 
 특정 타입으로 상수 또는 변수를 선언하면 동일한 이름으로 다시 선언하거나 다른 타입의 값을 저장하도록 변경하여 선언할 수 없습니다. 상수를 변수로 바꾸거나 변수를 상수로 바꿀 수도 없습니다.
 
@@ -353,7 +353,7 @@ Use UInt only when you specifically need an unsigned integer type with the same 
 -->
 
 > NOTE  
-> `UInt` 는 플랫폼의 네이티브 사이즈와 같은 크기의 부호없는 정수 타입이 필요한 경우에만 사용하십시오. 저장될 값이 음수가 아니어도 `Int` 를 더 선호합니다. 정수값에 `Int` 를 일관되게 사용하면 코드 상호 운용성을 지원하고 [타입 세이프티 와 타입 유추 \(Type Safety and Type Inference\)](the-basics.md#type-safety-and-type-inference)에 설명 된대로 다른 숫자 형식간에 변환 할 필요가 없습니다.
+> `UInt` 는 플랫폼의 네이티브 사이즈와 같은 크기의 부호없는 정수 타입이 필요한 경우에만 사용하십시오. 저장될 값이 음수가 아니어도 `Int` 를 더 선호합니다. 정수값에 `Int` 를 일관되게 사용하면 코드 상호 운용성을 지원하고 [타입 세이프티와 타입 유추 \(Type Safety and Type Inference\)](the-basics.md#type-safety-and-type-inference)에 설명 된대로 다른 숫자 형식간에 변환 할 필요가 없습니다.
 
 ## 부동 소수점 숫자 \(Floating-Point Numbers\)
 
@@ -401,11 +401,11 @@ Swift는 _타입-세이프 \(type-safe\)_ 언어입니다. 타입 세이프 언�
 
 Swift는 타입 세이프이기 때문에 코드를 컴파일 할 때 타입 검사를 수행하고 일치하지 않는 타입을 오류로 표시합니다. 이를 통해 개발 단계에서 가능한 빨리 오류를 포착하고 수정할 수 있습니다.
 
-타입 검사는 다른 타입의 값으로 작업할 때 오류를 피하는데 도움이 됩니다. 그러나 이것이 선언하는 모든 상수와 변수의 타입을 지정해야 한다는 것은 아닙니다. 필요한 값의 특정 타입을 지정하지 않으면 Swift는 적절한 타입으로 _타입 유추 \(Type Inference\)_ 를 사용합니다. 타입 유추를 통해 컴파일러는 코드를 컴파일 할 때 제공한 값을 검사하여 특정 식의 타입을 자동으로 유추할 수 있습니다.
+타입 검사는 다른 타입의 값으로 작업할 때 오류를 피하는데 도움이 됩니다. 그러나 이것이 선언하는 모든 상수와 변수의 타입을 지정해야 한다는 것은 아닙니다. 필요한 값의 특정 타입을 지정하지 않으면 Swift는 적절한 타입으로 _타입 추론 \(Type Inference\)_ 을 사용합니다. 타입 추론을 통해 컴파일러는 코드를 컴파일 할 때 제공한 값을 검사하여 특정 식의 타입을 자동으로 추론할 수 있습니다.
 
-타입 유추 때문에 Swift는 C 또는 Objective-C와 같은 언어보다 타입 선언을 더 적게 요구됩니다. 상수와 변수는 여전히 명시적으로 타입을 지정하지만 타입을 지정하는 많은 동작을 도와줍니다.
+타입 추론 때문에 Swift는 C 또는 Objective-C와 같은 언어보다 타입 선언을 더 적게 요구됩니다. 상수와 변수는 여전히 명시적으로 타입을 지정하지만 타입을 지정하는 많은 동작을 도와줍니다.
 
-타입 유추는 상수 또는 변수에 초기값을 선언할 때 아주 유용합니다. 이것은 종종 선언하는 시점에 상수 또는 변수에 리터럴 값 \(literal value\) 또는 리터럴 \(literal\)을 지정하여 수행됩니다. \(리터럴 값은 아래 예에서 42 및 3.14159와 같은 소스 코드에 직접 표시되는 값입니다\)
+타입 추론은 상수 또는 변수에 초기값을 선언할 때 아주 유용합니다. 이것은 종종 선언하는 시점에 상수 또는 변수에 리터럴 값 \(literal value\) 또는 리터럴 \(literal\)을 지정하여 수행됩니다. \(리터럴 값은 아래 예에서 42 및 3.14159와 같은 소스 코드에 직접 표시되는 값입니다\)
 
 예를 들어 어떤 타입인지 선언하지 않고 새로운 상수를 42의 리터럴 값으로 지정하면 Swift는 정수처럼 보이는 숫자로 초기화 했기 때문에 상수가 `Int` 라고 추론합니다:
 
@@ -557,7 +557,7 @@ Because each numeric type can store a different range of values, you must opt in
 To convert one specific number type to another, you initialize a new number of the desired type with the existing value. In the example below, the constant twoThousand is of type UInt16, whereas the constant one is of type UInt8. They can’t be added together directly, because they’re not of the same type. Instead, this example calls UInt16(one) to create a new UInt16 initialized with the value of one, and uses this value in place of the original:
 -->
 
-각 숫자 타입은 다른 범위의 값을 저장할 수 있으므로 숫자 타입 변환을 각 타입별로 선택해야 합니다. 이 옵트인 \(opt-in\) 방식은 숨겨진 변환 오류를 방지하고 코드에서 타입 변환 의도를 명시적으로 만드는데 도움을 줍니다.
+각 숫자 타입은 다른 범위의 값을 저장할 수 있으므로 숫자 타입 변환을 각 타입별로 선택해야 합니다. 이 방식은 숨겨진 변환 오류를 방지하고 코드에서 타입 변환 의도를 명시적으로 만드는데 도움을 줍니다.
 
 특정 숫자 타입을 다른 숫자 타입으로 변환하려면 기존값으로 원하는 타입의 새 숫자를 초기화합니다. 아래의 예제에서 상수 `twoThousand` 는 `UInt16` 타입인 반면에 상수 `one` 은 `UInt8` 타입입니다. 두 상수는 타입이 다르기 때문에 직접 더할 수 없습니다. 대신 이 예제에서 `UInt16(one)` 을 호출하여 `one` 의 값을 새로운 `UInt16` 으로 초기화하면 기존 값 대신에 새로운 값을 사용합니다:
 
@@ -573,7 +573,7 @@ Because both sides of the addition are now of type UInt16, the addition is allow
 SomeType(ofInitialValue) is the default way to call the initializer of a Swift type and pass in an initial value. Behind the scenes, UInt16 has an initializer that accepts a UInt8 value, and so this initializer is used to make a new UInt16 from an existing UInt8. You can’t pass in any type here, however—it has to be a type for which UInt16 provides an initializer. Extending existing types to provide initializers that accept new types (including your own type definitions) is covered in Extensions.
 -->
 
-양쪽의 타입이 `UInt16` 이므로 덧셈은 이제 제대로 동작합니다. 출력 상수 \(`twoThousandAndOne`\)은 두 `UInt16` 값을 더하므로 `UInt16` 타입으로 유추됩니다.
+양쪽의 타입이 `UInt16` 이므로 덧셈은 이제 제대로 동작합니다. 출력 상수 \(`twoThousandAndOne`\)은 두 `UInt16` 값을 더하므로 `UInt16` 타입으로 추론됩니다.
 
 `SomeType (ofInitialValue)` 는 Swift 타입의 초기화를 호출하고 초기화 값을 전달하는 기본적인 방법입니다. 이전에 `UInt16` 은 `UInt8` 값을 허용하는 초기화가 있으므로 초기화는 기존 `UInt8` 에서 새 `UInt16` 을 만드는데 사용됩니다. 그러나 `UInt16` 이 제공하는 초기화 타입 이외에는 전달할 수 없습니다. 기존 타입을 확장하여 새로운 타입 \(자신이 정의한 새로운 타입\)을 받아들이는 초기화를 제공하는 것은 [확장 \(Extensions\)](extensions.md) 에서 다룹니다.
 
@@ -619,7 +619,7 @@ The rules for combining numeric constants and variables are different from the r
 -->
 
 > NOTE  
-> 숫자 상수와 변수를 결합하는 규칙은 숫자 리터럴 규칙과 다릅니다. 리터럴 값 `3` 은 숫자 리터럴에 명시적인 타입이 없으므로 리터럴 값 `0.14159` 에 직접 추가할 수 있습니다. 이것의 타입은 컴파일러가 실행되는 시점에서만 유추됩니다.
+> 숫자 상수와 변수를 결합하는 규칙은 숫자 리터럴 규칙과 다릅니다. 리터럴 값 `3` 은 숫자 리터럴에 명시적인 타입이 없으므로 리터럴 값 `0.14159` 에 직접 추가할 수 있습니다. 이것의 타입은 컴파일러가 실행되는 시점에서만 추론됩니다.
 
 ## 타입 별칭 \(Type Aliases\)
 
@@ -673,7 +673,7 @@ The types of orangesAreOrange and turnipsAreDelicious have been inferred as Bool
 Boolean values are particularly useful when you work with conditional statements such as the if statement:
 -->
 
-`orangesAreOrange` 와 `turnipsAreDelicious` 의 타입은 부울 리터럴 값으로 초기화 되어 `Bool` 로 유추되었습니다. 위의 `Int` 와 `Double` 에서와 같이 상수 또는 변수를 초기화 시 `true` 또는 `false` 로 선언하면 상수 또는 변수를 `Bool` 타입으로 선언할 필요가 없습니다. 타입 유추는 Swift 코드가 이미 알고 있는 타입의 다른 값으로 상수 또는 변수를 초기화시에 더 간결하고 읽기 쉽습니다.
+`orangesAreOrange` 와 `turnipsAreDelicious` 의 타입은 부울 리터럴 값으로 초기화 되어 `Bool` 로 유추되었습니다. 위의 `Int` 와 `Double` 에서와 같이 상수 또는 변수를 초기화 시 `true` 또는 `false` 로 선언하면 상수 또는 변수를 `Bool` 타입으로 선언할 필요가 없습니다. 타입 추론은 Swift 코드가 이미 알고 있는 타입의 다른 값으로 상수 또는 변수를 초기화 시에 더 간결하고 읽기 쉽습니다.
 
 부울 값은 `if` 구문과 같은 조건문으로 동작할 때 특히 유용합니다:
 
@@ -755,7 +755,7 @@ You can decompose a tuple’s contents into separate constants or variables, whi
 
 모든 타입의 튜플을 만들 수 있으며 원하는 만큼 다른 타입을 포함할 수 있습니다. 튜플의 타입 `(Int, Int, Int)` 또는 `(String, Bool)` 또는 실제로 필요한 다른 어떠한 것도 만들 수 있습니다.
 
-튜플의 내용을 별도의 상수 또는 변수로 _분해_ 하여 평소와 같이 접근할 수 있습니다:
+튜플의 내용을 별도의 상수 또는 변수로 _분해 (decompose)_ 하여 평소와 같이 접근할 수 있습니다:
 
 ```swift
 let (statusCode, statusMessage) = http404Error
@@ -841,7 +841,7 @@ The concept of optionals doesn’t exist in C or Objective-C. The nearest thing 
 -->
 
 > NOTE  
-> 옵셔널의 개념은 C 또는 Objective-C 에는 존재하지 않는 개념입니다. Objective-C에서 가장 가까운 것은 객체를 반환하는 메서드에서 `nil` \(유효한 객체가 없음\)을 반환하는 것입니다. 그러나 이것은 오직 객체에 대해서만 동작하고 구조체, 기본 C 타입, 또는 열거형 값에서는 동작하지 않습니다. 이러한 타입의 경우 Objective-C 메서드는 일반적으로 값이 없음을 나타내는 `NSNotFound` 와 같은 특수한 값을 반환합니다. 이러한 방법은 메서드 호출자가 특수한 값에 대해 대응하고 체크해야 된다는 것을 알고 있다고 가정합니다. Swift의 옵셔널은 특수한 상수 없이 _어떠한 타입_ 에 대해서 값이 없음을 나타낼 수 있습니다.
+> 옵셔널의 개념은 C 또는 Objective-C 에는 존재하지 않는 개념입니다. Objective-C에서 가장 가까운 것은 객체를 반환하는 메서드에서 `nil` \(유효한 객체가 없음\)을 반환하는 것입니다. 그러나 이것은 오직 객체에 대해서만 동작하고 구조체, 기본 C 타입, 또는 열거형 값에서는 동작하지 않습니다. 이러한 타입의 경우 Objective-C 메서드는 일반적으로 값이 없음을 나타내는 `NSNotFound` 와 같은 특수한 값을 반환합니다. 이러한 방법은 메서드 호출자가 특수한 값에 대해 대응하고 체크해야 된다는 것을 알고 있다고 가정합니다. Swift의 옵셔널은 _어떠한 타입_ 에 대해서 값이 없음을 나타낼 수 있습니다.
 
 <!--
 Here’s an example of how optionals can be used to cope with the absence of a value. Swift’s Int type has an initializer which tries to convert a String value into an Int value. However, not every string can be converted into an integer. The string "123" can be converted into the numeric value 123, but the string "hello, world" doesn’t have an obvious numeric value to convert to.
@@ -907,7 +907,7 @@ Swift’s nil isn’t the same as nil in Objective-C. In Objective-C, nil is a p
 > NOTE  
 > Swift의 `nil` 은 Objective-C의 `nil` 과 다릅니다. Objective-C에서의 `nil` 은 존재하지 않는 객체에 대한 포인터입니다. Swift에서의 `nil` 은 특정 타입의 값이 없음을 나타내며 포인터가 아닙니다. 객체 타입 뿐만 아니라 _모든_ 타입의 옵셔널을 `nil` 로 설정할 수 있습니다.
 
-### if 구문과 강제로 풀기 \(If Statements and Forced Unwrapping\)
+### if 구문과 강제 언래핑 \(If Statements and Forced Unwrapping\)
 
 <!--
 You can use an if statement to find out whether an optional contains a value by comparing the optional against nil. You perform this comparison with the “equal to” operator (==) or the “not equal to” operator (!=).
@@ -930,7 +930,7 @@ if convertedNumber != nil {
 Once you’re sure that the optional does contain a value, you can access its underlying value by adding an exclamation point (!) to the end of the optional’s name. The exclamation point effectively says, “I know that this optional definitely has a value; please use it.” This is known as forced unwrapping of the optional’s value:
 -->
 
-옵셔널에 값이 포함되어 있다고 확신하면 옵셔널 이름 끝에 느낌표 \(`!`\)를 추가하여 값에 접근할 수 있습니다. 여기서 느낌표란 "이 옵셔널은 확실히 값을 가지고 있습니다. 사용해도 괜찮습니다."라는 의미입니다. 이것을 옵셔널의 값에 대한 _강제로 풀기 \(forced unwrapping\)_ 라 합니다:
+옵셔널에 값이 포함되어 있다고 확신하면 옵셔널 이름 끝에 느낌표 \(`!`\)를 추가하여 값에 접근할 수 있습니다. 여기서 느낌표란 "이 옵셔널은 확실히 값을 가지고 있습니다. 사용해도 괜찮습니다."라는 의미입니다. 이것을 옵셔널의 값에 대한 _강제 언래핑 \(forced unwrapping\)_ 이라 합니다:
 
 ```swift
 if convertedNumber != nil {
@@ -951,7 +951,7 @@ Trying to use ! to access a nonexistent optional value triggers a runtime error.
 -->
 
 > NOTE  
-> `!` 를 사용하여 값이 없는 옵셔널에 사용하면 런타임 에러가 발생합니다. 항상 `!` 를 사용하여 값을 강제로 풀기 전에 옵셔널에 `nil` 이 아닌 값이 있다는 것을 확실시 해야 합니다.
+> `!` 를 사용하여 값이 없는 옵셔널에 사용하면 런타임 에러가 발생합니다. 항상 `!` 를 사용하여 값을 강제 언래핑 전에 옵셔널에 `nil` 이 아닌 값이 있다는 것을 확실시 해야 합니다.
 
 ### 옵셔널 바인딩 \(Optional Binding\)
 
@@ -971,7 +971,7 @@ _옵셔널 바인딩 \(optional binding\)_ 은 옵셔널이 값을 포함하고 
 You can rewrite the possibleNumber example from the Optionals section to use optional binding rather than forced unwrapping:
 -->
 
-강제로 풀기 \(forced unwrapping\) 보다 옵셔널 바인딩을 사용하여 [옵셔널 \(Optionals\)](the-basics.md#optionals) 섹선에 있는 예제의 `possibleNumber` 를 다시 작성할 수 있습니다:
+강제 언래핑 \(forced unwrapping\) 보다 옵셔널 바인딩을 사용하여 [옵셔널 \(Optionals\)](the-basics.md#optionals) 섹선에 있는 예제의 `possibleNumber` 를 다시 작성할 수 있습니다:
 
 ```swift
 if let actualNumber = Int(possibleNumber) {
@@ -1062,7 +1062,7 @@ Constants and variables created with optional binding in an if statement are ava
 > NOTE  
 > `if` 구문에서 옵셔널 바인딩으로 생성된 상수와 변수는 오직 `if` 구문의 본문 안에서만 사용가능합니다. 반면에 `guard` 구문으로 생성된 상수와 변수는 [이른 종료 \(Early Exit\)](control-flow.md#early-exit) 에 설명된 것처럼 `guard` 구문 다음 코드 라인부터 사용 가능합니다.
 
-### 암시적으로 언래핑된 옵셔널 \(Implicitly Unwrapped Optionals\)
+### 암시적으로 언래핑 된 옵셔널 \(Implicitly Unwrapped Optionals\)
 
 <!--
 As described above, optionals indicate that a constant or variable is allowed to have “no value”. Optionals can be checked with an if statement to see if a value exists, and can be conditionally unwrapped with optional binding to access the optional’s value if it does exist.
@@ -1080,11 +1080,11 @@ An implicitly unwrapped optional is a normal optional behind the scenes, but can
 
 때로는 프로그램 구조에서 옵셔널이 값을 처음 설정한 후에는 항상 값을 갖는 것은 분명합니다. 이러한 경우 _항상_ 값이 있다고 가정할 수 있으므로 접근할 때마다 옵셔널의 값을 확인하고 언래핑 할 필요가 없습니다.
 
-이러한 옵셔널은 _암시적으로 언래핑된 옵셔널 \(implicitly unwrapped optionals\)_로 정의됩니다. 옵셔널을 만들기위해 타입뒤에 물음표 \(`String?`\)를 작성하는 대신에 느낌표 \(`String!`\) 로 암시적으로 언래핑된 옵셔널을 작성합니다. 사용할 때 옵셔널 이름의 뒤에 느낌표를 위치시키는 것보다 선언할 때 옵셔널 타입 뒤에 느낌표를 위치시키는 것이 더 좋습니다.
+이러한 옵셔널은 _암시적으로 언래핑 된 옵셔널 \(implicitly unwrapped optionals\)_로 정의됩니다. 옵셔널을 만들기위해 타입뒤에 물음표 \(`String?`\)를 작성하는 대신에 느낌표 \(`String!`\) 로 암시적으로 언래핑 된 옵셔널을 작성합니다. 사용할 때 옵셔널 이름의 뒤에 느낌표를 위치시키는 것보다 선언할 때 옵셔널 타입 뒤에 느낌표를 위치시키는 것이 더 좋습니다.
 
-암시적으로 언래핑된 옵셔널은 옵셔널이 처음 정의된 직후에 옵셔널의 값이 존재하는 것으로 확인되고 그 이후 모든 시점에 존재한다고 가정할 수 있는 경우에 유용합니다. Swift에서 암시적으로 언래핑된 옵셔널은 [미소유 참조와 암시적으로 언래핑된 옵셔널 프로퍼티 \(Unowned References and Implicitly Unwrapped Optional Properties\)](automatic-reference-counting.md#unowned-references-and-implicitly-unwrapped-optional-properties) 에서 설명한 대로 클래스 초기화 중에 주로 사용합니다.
+암시적으로 언래핑 된 옵셔널은 옵셔널이 처음 정의된 직후에 옵셔널의 값이 존재하는 것으로 확인되고 그 이후 모든 시점에 존재한다고 가정할 수 있는 경우에 유용합니다. Swift에서 암시적으로 언래핑 된 옵셔널은 [미소유 참조와 암시적으로 언래핑 된 옵셔널 프로퍼티 \(Unowned References and Implicitly Unwrapped Optional Properties\)](automatic-reference-counting.md#unowned-references-and-implicitly-unwrapped-optional-properties) 에서 설명한 대로 클래스 초기화 중에 주로 사용합니다.
 
-암시적으로 언래핑된 옵셔널은 내부적으로 옵셔널이지만 옵셔널에 접근할 때마다 옵셔널 값을 풀 필요없이 옵셔널이 아닌 값처럼 사용할 수도 있습니다. 다음 예제는 명시적 `String` 로서 랩핑된 값에 접근할 때 옵셔널 문자열과 암시적으로 언래핑된 옵셔널 문자열의 동작 차이를 보여줍니다:
+암시적으로 언래핑 된 옵셔널은 내부적으로 옵셔널이지만 옵셔널에 접근할 때마다 옵셔널 값을 풀 필요없이 옵셔널이 아닌 값처럼 사용할 수도 있습니다. 다음 예제는 명시적 `String` 로서 랩핑된 값에 접근할 때 옵셔널 문자열과 암시적으로 언래핑 된 옵셔널 문자열의 동작 차이를 보여줍니다:
 
 ```swift
 let possibleString: String? = "An optional string."
@@ -1098,7 +1098,7 @@ let implicitString: String = assumedString // no need for an exclamation point
 You can think of an implicitly unwrapped optional as giving permission for the optional to be force-unwrapped if needed. When you use an implicitly unwrapped optional value, Swift first tries to use it as an ordinary optional value; if it can’t be used as an optional, Swift force-unwraps the value. In the code above, the optional value assumedString is force-unwrapped before assigning its value to implicitString because implicitString has an explicit, non-optional type of String. In code below, optionalString doesn’t have an explicit type so it’s an ordinary optional.
 -->
 
-필요한 경우 암시적으로 언래핑된 옵셔널은 옵셔널을 강제로 언래핑을 허락하는 것으로 생각할 수 있습니다. 암시적으로 언래핑된 옵셔널을 사용할 때 Swift는 처음에 기존의 옵셔널 값으로 사용하려고 하고 사용이 불가능할 경우 Swift는 값을 강제로 언래핑 합니다. 위의 코드에서 옵셔널 값 `assumedString` 은 `implicitString` 이 명시적으로 옵셔널이 아닌 `String` 타입이기 때문에 `implicitString` 에 값을 할당하기 전에 강제로 언래핑 됩니다. 아래의 코드에서 `optionalString` 은 명시적 타입이 없으므로 기본적으로 옵셔널입니다.
+필요한 경우 암시적으로 언래핑 된 옵셔널은 옵셔널을 강제로 언래핑을 허락하는 것으로 생각할 수 있습니다. 암시적으로 언래핑 된 옵셔널을 사용할 때 Swift는 처음에 기존의 옵셔널 값으로 사용하려고 하고 사용이 불가능할 경우 Swift는 값을 강제로 언래핑 합니다. 위의 코드에서 옵셔널 값 `assumedString` 은 `implicitString` 이 명시적으로 옵셔널이 아닌 `String` 타입이기 때문에 `implicitString` 에 값을 할당하기 전에 강제로 언래핑 됩니다. 아래의 코드에서 `optionalString` 은 명시적 타입이 없으므로 기본적으로 옵셔널입니다.
 
 ```swift
 let optionalString = assumedString
@@ -1111,9 +1111,9 @@ If an implicitly unwrapped optional is nil and you try to access its wrapped val
 You can check whether an implicitly unwrapped optional is nil the same way you check a normal optional:
 -->
 
-암시적으로 언래핑된 옵셔널이 `nil` 이고 래핑된 값에 접근하려고 하면 런타임 에러가 발생합니다. 이 결과는 값이 없는 옵셔널 뒤에 느낌표를 배치한 것과 같습니다.
+암시적으로 언래핑 된 옵셔널이 `nil` 이고 래핑된 값에 접근하려고 하면 런타임 에러가 발생합니다. 이 결과는 값이 없는 옵셔널 뒤에 느낌표를 배치한 것과 같습니다.
 
-암시적으로 언래핑된 옵셔널은 일반 옵셔널과 같은 방법으로 `nil` 체크를 할 수 있습니다:
+암시적으로 언래핑 된 옵셔널은 일반 옵셔널과 같은 방법으로 `nil` 체크를 할 수 있습니다:
 
 ```swift
 if assumedString != nil {
@@ -1126,7 +1126,7 @@ if assumedString != nil {
 You can also use an implicitly unwrapped optional with optional binding, to check and unwrap its value in a single statement:
 -->
 
-옵셔널 바인딩과 함께 암시적으로 언래핑된 옵셔널은 단일 구문으로 해당 값을 확인하고 언래핑할 수 있습니다.
+옵셔널 바인딩과 함께 암시적으로 언래핑 된 옵셔널은 단일 구문으로 해당 값을 확인하고 언래핑할 수 있습니다.
 
 ```swift
 if let definiteString = assumedString {
@@ -1141,7 +1141,7 @@ Don’t use an implicitly unwrapped optional when there’s a possibility of a v
 -->
 
 > NOTE  
-> 나중에 변수가 `nil` 이 될 가능성이 있다면 암시적으로 언래핑된 옵셔널을 사용하지 말아야 합니다. 변수의 수명에 따라 `nil` 값을 확인해야 한다면 항상 기본 옵셔널을 사용해야 합니다.
+> 나중에 변수가 `nil` 이 될 가능성이 있다면 암시적으로 언래핑 된 옵셔널을 사용하지 말아야 합니다. 변수의 수명에 따라 `nil` 값을 확인해야 한다면 항상 기본 옵셔널을 사용해야 합니다.
 
 ## 에러 처리 \(Error Handling\)
 
@@ -1223,7 +1223,7 @@ Throwing, catching, and propagating errors is covered in greater detail in Error
 
 에러 발생, 포착, 전파는 [에러 처리 \(Error Handling\)](error-handling.md) 에서 자세히 다룹니다.
 
-## 주장과 전제조건 \(Assertions and Preconditions\)
+## 역설과 전제조건 \(Assertions and Preconditions\)
 
 <!--
 Assertions and preconditions are checks that happen at runtime. You use them to make sure an essential condition is satisfied before executing any further code. If the Boolean condition in the assertion or precondition evaluates to true, code execution continues as usual. If the condition evaluates to false, the current state of the program is invalid; code execution ends, and your app is terminated.
@@ -1237,23 +1237,23 @@ Using assertions and preconditions isn’t a substitute for designing your code 
 The difference between assertions and preconditions is in when they’re checked: Assertions are checked only in debug builds, but preconditions are checked in both debug and production builds. In production builds, the condition inside an assertion isn’t evaluated. This means you can use as many assertions as you want during your development process, without impacting performance in production.
 -->
 
-_주장과 전제조건 \(Assertions and preconditions\)_ 은 런타임시 발생하는 조건입니다. 추가 코드를 실행하기 전에 이를 사용하여 필수조건이 충족되는지 확인할 수 있습니다. 주장 또는 전제조건의 부울 조건이 `true` 이면 코드는 평소와 같이 진행됩니다. 조건이 `false` 로 판단되면 프로그램의 현재 상태는 유효하지 않아 코드 실행은 종료되고 앱은 종료됩니다.
+_역설과 전제조건 \(Assertions and preconditions\)_ 은 런타임시 발생하는 조건입니다. 추가 코드를 실행하기 전에 이를 사용하여 필수조건이 충족되는지 확인할 수 있습니다. 역설 또는 전제조건의 부울 조건이 `true` 이면 코드는 평소와 같이 진행됩니다. 조건이 `false` 로 판단되면 프로그램의 현재 상태는 유효하지 않아 코드 실행은 종료되고 앱은 종료됩니다.
 
-주장과 전제조건은 가정과 기대치를 표현하므로 코드의 일부로 포함할 수 있습니다. 주장은 개발과정에서 실수와 잘못된 가정을 찾는데 도움이 되고 전제조건은 프로덕션 문제를 감지하는데 도움이 됩니다.
+역설과 전제조건은 가정과 기대치를 표현하므로 코드의 일부로 포함할 수 있습니다. 역설은 개발과정에서 실수와 잘못된 가정을 찾는데 도움이 되고 전제조건은 프로덕션 문제를 감지하는데 도움이 됩니다.
 
-런타임 시 기대치를 확인하는 것 이외에 주장과 전제조건은 또한 코드 내에서 유용한 문서 형식이 됩니다. 위의 [에러 처리 \(Error Handling\)](the-basics.md#error-handling) 와 다르게 주장과 전제조건은 복구 가능하거나 예상되는 에러에 사용되지 않습니다. 실패한 주장 또는 전제조건은 유효하지 않은 프로그램 상태를 나타내기 때문에 실패한 상태를 잡을 방법은 없습니다.
+런타임 시 기대치를 확인하는 것 이외에 역설과 전제조건은 또한 코드 내에서 유용한 문서 형식이 됩니다. 위의 [에러 처리 \(Error Handling\)](the-basics.md#error-handling) 와 다르게 역설과 전제조건은 복구 가능하거나 예상되는 에러에 사용되지 않습니다. 실패한 역설 또는 전제조건은 유효하지 않은 프로그램 상태를 나타내기 때문에 실패한 상태를 잡을 방법은 없습니다.
 
-주장과 전제조건을 사용하는 것은 유효하지 않는 조건이 발생하지 않게 코드를 디자인하기 위함입니다. 그러나 유효한 데이터 및 상태를 적용하기 위해 이를 사용하면 유효하지 않은 상태가 발생하면 앱이 종료되기 때문에 더 쉽게 문제에 대해 디버깅 할 수 있습니다. 유효하지 않은 상태가 감지되는 즉시 실행을 중지하면 해당 유효하지 않은 상태로 인한 피해를 제한하는데 도움이 됩니다.
+역설과 전제조건을 사용하는 것은 유효하지 않는 조건이 발생하지 않게 코드를 디자인하기 위함입니다. 그러나 유효한 데이터 및 상태를 적용하기 위해 이를 사용하면 유효하지 않은 상태가 발생하면 앱이 종료되기 때문에 더 쉽게 문제에 대해 디버깅 할 수 있습니다. 유효하지 않은 상태가 감지되는 즉시 실행을 중지하면 해당 유효하지 않은 상태로 인한 피해를 제한하는데 도움이 됩니다.
 
-주장과 전제조건의 차이점은 언제 체크되는지에 있습니다: 주장은 오직 디버그 빌드에서 체크되지만 전제조건은 디버그와 프로덕션 빌드에서 체크됩니다. 프로덕션 빌드일 때 주장 내부의 조건은 실행되지 않습니다. 이 의미는 프로덕션에서 성능의 영향이 없이 개발 단계에서 많은 양의 주장을 사용할 수 있다는 뜻입니다.
+역설과 전제조건의 차이점은 언제 체크되는지에 있습니다: 역설은 오직 디버그 빌드에서 체크되지만 전제조건은 디버그와 프로덕션 빌드에서 체크됩니다. 프로덕션 빌드일 때 역설 내부의 조건은 실행되지 않습니다. 이 의미는 프로덕션에서 성능의 영향이 없이 개발 단계에서 많은 양의 역설을 사용할 수 있다는 뜻입니다.
 
-### 주장을 통한 디버깅 \(Debugging with Assertions\)
+### 역설을 통한 디버깅 \(Debugging with Assertions\)
 
 <!--
 You write an assertion by calling the assert(_:_:file:line:) function from the Swift standard library. You pass this function an expression that evaluates to true or false and a message to display if the result of the condition is false. For example:
 -->
 
-Swift 표준 라이브러리에 [`assert(_:_:file:line:)`](https://developer.apple.com/documentation/swift/1541112-assert) 함수로 주장을 작성할 수 있습니다. 이 함수에 `true` 또는 `false` 로 판단될 표현식과 조건이 `false` 일 경우 출력될 메세지를 전달합니다. 예를 들어:
+Swift 표준 라이브러리에 [`assert(_:_:file:line:)`](https://developer.apple.com/documentation/swift/1541112-assert) 함수로 역설을 작성할 수 있습니다. 이 함수에 `true` 또는 `false` 로 판단될 표현식과 조건이 `false` 일 경우 출력될 메세지를 전달합니다. 예를 들어:
 
 ```swift
 let age = -3
@@ -1267,7 +1267,7 @@ In this example, code execution continues if age >= 0 evaluates to true, that is
 You can omit the assertion message—for example, when it would just repeat the condition as prose.
 -->
 
-이 예에서 코드는 `age` 가 음수가 아니고 `age >= 0` 이 `true` 일 경우 이어서 실행됩니다. `age` 가 음수이면 `age >= 0` 은 `false` 가 되고 주장은 실패되고 애플리케이션은 종료됩니다.
+이 예에서 코드는 `age` 가 음수가 아니고 `age >= 0` 이 `true` 일 경우 이어서 실행됩니다. `age` 가 음수이면 `age >= 0` 은 `false` 가 되고 역설은 실패되고 애플리케이션은 종료됩니다.
 
 예를 들어 평범하게 조건만 반복될 때 메세지를 생략할 수 있습니다.
 
@@ -1279,7 +1279,7 @@ assert(age >= 0)
 If the code already checks the condition, you use the assertionFailure(_:file:line:) function to indicate that an assertion has failed. For example:
 -->
 
-코드가 이미 조건이 체크되었다면 주장이 실패되었는지를 알 수 있는 [`assertionFailure(_:file:line:)`](https://developer.apple.com/documentation/swift/1539616-assertionfailure) 함수를 사용합니다. 예를 들어:
+코드가 이미 조건이 체크되었다면 역설이 실패되었는지를 알 수 있는 [`assertionFailure(_:file:line:)`](https://developer.apple.com/documentation/swift/1539616-assertionfailure) 함수를 사용합니다. 예를 들어:
 
 ```swift
 if age > 10 {
@@ -1312,7 +1312,7 @@ precondition(index > 0, "Index must be greater than zero.")
 You can also call the preconditionFailure(_:file:line:) function to indicate that a failure has occurred—for example, if the default case of a switch was taken, but all valid input data should have been handled by one of the switch’s other cases.
 -->
 
-[`preconditionFailure(_:file:line:)`](https://developer.apple.com/documentation/swift/1539374-preconditionfailure) 함수를 호출하여 실패가 발생했음을 알릴 수 있습니다. 예를 들어 유효한 데이터는 switch 의 default 케이스가 아닌 다른 케이스에서 처리되어야 합니다.
+[`preconditionFailure(_:file:line:)`](https://developer.apple.com/documentation/swift/1539374-preconditionfailure) 함수를 호출하여 실패가 발생했음을 알릴 수 있습니다. 예를 들어 유효한 데이터는 스위치의 기본 케이스가 아닌 다른 케이스에서 처리되어야 합니다.
 
 <!--
 NOTE
@@ -1324,5 +1324,5 @@ You can use the fatalError(_:file:line:) function during prototyping and early d
 > NOTE  
 > 체크하지 않는 모드 \(`-Ounchecked`\)로 컴파일하면 전제조건은 체크하지 않습니다. 컴파일러는 전제조건은 항상 참이라고 가정하고 코드에 알맞게 최적화 합니다. 그러나 `fatalError(_:file:line:)` 함수는 최적화 설정과 무관하게 항상 중지를 실행합니다.
 >
-> 프로토타입과 초기 개발단계에서 아직 구현되지 않은 기능에서 `fatalError(_:file:line:)` 을 사용할 수 있으며 `fatalError("Unimplemented")` 와 같이 작성할 수 있습니다. 주장 또는 전제조건과 다르게 치명적인 에러는 절대 최적화 되지 않기 때문에 이 구현을 만나면 항상 중지됩니다.
+> 프로토타입과 초기 개발단계에서 아직 구현되지 않은 기능에서 `fatalError(_:file:line:)` 을 사용할 수 있으며 `fatalError("Unimplemented")` 와 같이 작성할 수 있습니다. 역설 또는 전제조건과 다르게 치명적인 에러는 절대 최적화 되지 않기 때문에 이 구현을 만나면 항상 중지됩니다.
 
