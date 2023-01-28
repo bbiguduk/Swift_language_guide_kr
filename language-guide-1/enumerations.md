@@ -284,7 +284,7 @@ You can check the different barcode types using a switch statement, similar to t
 
 여기서 기존의 `Barcode.upc` 와 그것의 정수 값은 새로운 `Barcode.qrCode` 와 그것의 문자열 값으로 대체됩니다. `Barcode` 타입의 상수와 변수는 `.upc` 또는 `.qrCode` 모두 이것들과 연관된 값으로 저장할 수 있지만 오직 하나의 값만 저장할 수 있습니다.
 
-[스위치 구문으로 열거형 값 일치 \(Matching Enumeration Values with a Switch Statement\)](enumerations.md#switch-matching-enumeration-values-with-switch-statement) 에서의 예제와 유사하게 스위치 구문을 이용하여 다른 바코드 타입을 확인할 수 있습니다. 그러나 이번에는 관련값이 스위치 구문의 일부로 추출됩니다. `switch` 케이스의 바디 내에서 사용하기 위해 상수 \(`let` 접두사\) 또는 변수 \(`var` 접두사\)로 각 연관된 값을 추출합니다:
+[스위치 구문으로 열거형 값 일치 \(Matching Enumeration Values with a Switch Statement\)](enumerations.md#switch-matching-enumeration-values-with-switch-statement) 에서의 예제와 유사하게 스위치 구문을 이용하여 다른 바코드 타입을 확인할 수 있습니다. 그러나 이번에는 관련값이 스위치 구문의 일부로 추출됩니다. `switch` 케이스의 본문 내에서 사용하기 위해 상수 \(`let` 접두사\) 또는 변수 \(`var` 접두사\)로 각 연관된 값을 추출합니다:
 
 ```swift
 switch productBarcode {

@@ -249,7 +249,7 @@ func protoFlip<T: Shape>(_ shape: T) -> Shape {
 This version of protoFlip(_:) has the same body as flip(_:), and it always returns a value of the same type. Unlike flip(_:), the value that protoFlip(_:) returns isn’t required to always have the same type—it just has to conform to the Shape protocol. Put another way, protoFlip(_:) makes a much looser API contract with its caller than flip(_:) makes. It reserves the flexibility to return values of multiple types:
 -->
 
-`protoFlip(_:)` 의 버전은 `flip(_:)` 과 같은 바디를 가지고 항상 같은 타입의 값을 반환합니다. `flip(_:)` 과 다르게 `protoFlip(_:)` 이 반환하는 값은 항상 같은 타입을 가질 필요가 없으며 `Shape` 프로토콜을 준수하기만 하면 됩니다. 달리 말하면 `protoFlip(_:)` 은 `flip(_:)` 이 만든 것보다 더 느슨한 API 계약을 만듭니다. 이것은 여러 타입의 값을 반환하는 유연성을 보유합니다:
+`protoFlip(_:)` 의 버전은 `flip(_:)` 과 같은 본문을 가지고 항상 같은 타입의 값을 반환합니다. `flip(_:)` 과 다르게 `protoFlip(_:)` 이 반환하는 값은 항상 같은 타입을 가질 필요가 없으며 `Shape` 프로토콜을 준수하기만 하면 됩니다. 달리 말하면 `protoFlip(_:)` 은 `flip(_:)` 이 만든 것보다 더 느슨한 API 계약을 만듭니다. 이것은 여러 타입의 값을 반환하는 유연성을 보유합니다:
 
 ```swift
 func protoFlip<T: Shape>(_ shape: T) -> Shape {
@@ -304,7 +304,7 @@ extension Array: Container { }
 You can’t use Container as the return type of a function because that protocol has an associated type. You also can’t use it as constraint in a generic return type because there isn’t enough information outside the function body to infer what the generic type needs to be.
 -->
 
-프로토콜은 연관된 타입을 가지고 있으므로 함수의 반환 타입으로 `Container` 를 사용할 수 없습니다. 또한 제너릭 타입이 필요한지 추론하기 위해 함수 바디의 외부에 충분한 정보가 없으므로 제너릭 반환 타입의 제약조건으로 사용할 수 없습니다.
+프로토콜은 연관된 타입을 가지고 있으므로 함수의 반환 타입으로 `Container` 를 사용할 수 없습니다. 또한 제너릭 타입이 필요한지 추론하기 위해 함수 본문의 외부에 충분한 정보가 없으므로 제너릭 반환 타입의 제약조건으로 사용할 수 없습니다.
 
 ```swift
 // Error: Protocol with associated types can't be used as a return type.

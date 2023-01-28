@@ -154,7 +154,7 @@ The following example defines a structure called Color, with three constant prop
 Color provides an initializer with three appropriately named parameters of type Double for its red, green, and blue components. Color also provides a second initializer with a single white parameter, which is used to provide the same value for all three color components.
 -->
 
-함수와 메서드 파라미터와 마찬가지로 초기화 파라미터는 초기화 구문의 바디 내에서 사용하는 파라미터 명과 초기화 구문을 호출할 때 사용하는 인자 라벨 모두 가질 수 있습니다.
+함수와 메서드 파라미터와 마찬가지로 초기화 파라미터는 초기화 구문의 본문 내에서 사용하는 파라미터 명과 초기화 구문을 호출할 때 사용하는 인자 라벨 모두 가질 수 있습니다.
 
 그러나 초기화 구문은 함수와 메서드 처럼 소괄호 앞에 식별 함수 이름을 가지지 않습니다. 따라서 초기화 구문의 파라미터의 이름과 타입은 어떤 초기화 구문을 호출해야 하는지 식별하는데 특히 중요한 역할을 합니다. 이러한 이유 때문에 Swift는 제공하지 않으면 초기화 구문에서 _모든_ 파라미터에 대해 자동적으로 인수 라벨을 제공합니다.
 
@@ -449,7 +449,7 @@ struct Rect {
 The first Rect initializer, init(), is functionally the same as the default initializer that the structure would have received if it didn’t have its own custom initializers. This initializer has an empty body, represented by an empty pair of curly braces {}. Calling this initializer returns a Rect instance whose origin and size properties are both initialized with the default values of Point(x: 0.0, y: 0.0) and Size(width: 0.0, height: 0.0) from their property definitions:
 -->
 
-첫번째 `Rect` 초기화 구문인 `init()` 은 자체 사용자 화 초기화 구문이 없으면 구조체는 수신했을 때 기본 초기화 구문과 기능적으로 동일합니다. 이 초기화 구문은 빈 중괄호 `{}` 로 표시된 빈 바디를 가집니다. 이 초기화 구문을 호출하면 `origin` 과 `size` 프로퍼티는 프로퍼티 정의에서 `Point(x: 0.0, y: 0.0)` 과 `Size(width: 0.0, height: 0.0)` 의 기본값으로 초기화 되는 `Rect` 인스턴스를 반환합니다:
+첫번째 `Rect` 초기화 구문인 `init()` 은 자체 사용자 화 초기화 구문이 없으면 구조체는 수신했을 때 기본 초기화 구문과 기능적으로 동일합니다. 이 초기화 구문은 빈 중괄호 `{}` 로 표시된 빈 본문을 가집니다. 이 초기화 구문을 호출하면 `origin` 과 `size` 프로퍼티는 프로퍼티 정의에서 `Point(x: 0.0, y: 0.0)` 과 `Size(width: 0.0, height: 0.0)` 의 기본값으로 초기화 되는 `Rect` 인스턴스를 반환합니다:
 
 ```swift
 let basicRect = Rect()

@@ -41,7 +41,7 @@ for name in names {
 You can also iterate over a dictionary to access its key-value pairs. Each item in the dictionary is returned as a (key, value) tuple when the dictionary is iterated, and you can decompose the (key, value) tuple’s members as explicitly named constants for use within the body of the for-in loop. In the code example below, the dictionary’s keys are decomposed into a constant called animalName, and the dictionary’s values are decomposed into a constant called legCount.
 -->
 
-딕셔너리의 키-값 쌍 접근을 위해 반복을 사용할 수도 있습니다. 딕셔너리의 각 아이템은 딕셔너리가 반복될 때 `(key, value)` 튜플로 반환되고 `for`-`in` 루프 바디 내에서 사용하기 위해 `(key, value)` 튜플의 멤버를 명시적으로 이름을 가진 상수로 분해할 수 있습니다. 아래의 예제에서 딕셔너리의 키는 `animalName` 상수로 분해되고 딕셔너리의 값은 `legCount` 상수로 분해됩니다.
+딕셔너리의 키-값 쌍 접근을 위해 반복을 사용할 수도 있습니다. 딕셔너리의 각 아이템은 딕셔너리가 반복될 때 `(key, value)` 튜플로 반환되고 `for`-`in` 루프 본문 내에서 사용하기 위해 `(key, value)` 튜플의 멤버를 명시적으로 이름을 가진 상수로 분해할 수 있습니다. 아래의 예제에서 딕셔너리의 키는 `animalName` 상수로 분해되고 딕셔너리의 값은 `legCount` 상수로 분해됩니다.
 
 ```swift
 let numberOfLegs = ["spider": 8, "ant": 6, "cat": 4]
@@ -467,7 +467,7 @@ This example uses a switch statement to consider a single lowercase character ca
 
 모든 `switch` 구문은 각각 `case` 키워드로 시작하는 여러개의 가능한 _케이스_ 로 구성되어 있습니다. 특정 값과 비교하는 것 외에도 Swift는 각 케이스에 대해 더 복잡한 일치 패턴을 지정하는 여러가지 방법을 제공합니다. 이 옵션은 이 챕터 뒤에서 다루겠습니다.
 
-`if` 구문의 바디와 같이 각 `case` 는 코드 실행 부분이 분리되어 있습니다. `switch` 구문은 실행 될 부분을 선택합니다. 이 절차를 값에 _스위칭 \(switching\)_ 이라 알려져 있습니다.
+`if` 구문의 본문과 같이 각 `case` 는 코드 실행 부분이 분리되어 있습니다. `switch` 구문은 실행 될 부분을 선택합니다. 이 절차를 값에 _스위칭 \(switching\)_ 이라 알려져 있습니다.
 
 모든 `switch` 구문은 _완벽_ 해야 합니다. 이것은 고려중인 타입의 가능한 모든 값은 `switch` 케이스 중 하나와 일치해야 합니다. 가능한 모든 값에 대한 케이스를 제공하는 것이 적절하지 않은 경우 명시적으로 해결되지 않은 모든 값을 포함하도록 기본 케이스를 정의할 수 있습니다. 기본 케이스는 `default` 키워드로 나타내고 항상 마지막에 위치합니다.
 
@@ -512,7 +512,7 @@ Although break isn’t required in Swift, you can use a break statement to match
 The body of each case must contain at least one executable statement. It isn’t valid to write the following code, because the first case is empty:
 -->
 
-각 케이스의 바디는 _반드시_ 적어도 하나의 실행가능한 구문이 포함되어야 합니다. 아래의 코드는 첫번째 케이스가 비어 있으므로 유효하지 않습니다:
+각 케이스의 본문은 _반드시_ 적어도 하나의 실행가능한 구문이 포함되어야 합니다. 아래의 코드는 첫번째 케이스가 비어 있으므로 유효하지 않습니다:
 
 ```swift
 let anotherCharacter: Character = "a"
@@ -646,7 +646,7 @@ A switch case can name the value or values it matches to temporary constants or 
 The example below takes an (x, y) point, expressed as a tuple of type (Int, Int), and categorizes it on the graph that follows:
 -->
 
-`switch` 케이스는 일치하는 값 또는 값들을 임시적 상수 또는 변수로 이름을 가질 수 있으며 케이스 바디 안에서 사용할 수 있습니다. 값은 케이스의 바디 내부에서 임시적 상수 또는 변수로 바인드 되기 때문에 이러한 동작을 _값 바인딩 \(value binding\)_ 이라 합니다.
+`switch` 케이스는 일치하는 값 또는 값들을 임시적 상수 또는 변수로 이름을 가질 수 있으며 케이스 본문 안에서 사용할 수 있습니다. 값은 케이스의 본문 내부에서 임시적 상수 또는 변수로 바인드 되기 때문에 이러한 동작을 _값 바인딩 \(value binding\)_ 이라 합니다.
 
 아래 예제는 튜플의 타입 `(Int, Int)` 로 표현된 점 \(x, y\)를 가지며 그래프에 분류합니다:
 
@@ -730,7 +730,7 @@ As in the previous example, the final case matches all possible remaining values
 Multiple switch cases that share the same body can be combined by writing several patterns after case, with a comma between each of the patterns. If any of the patterns match, then the case is considered to match. The patterns can be written over multiple lines if the list is long. For example:
 -->
 
-같은 바디를 공유하는 여러개의 스위치 케이스는 `case` 다음에 각 패턴 사이에 콤마로 구분하여 여러개의 패턴으로 결합될 수 있습니다. 어떤 패턴이 일치한 케이스로 고려됩니다. 패턴이 길면 여러줄로 작성할 수 있습니다. 예를 들어:
+같은 본문을 공유하는 여러개의 스위치 케이스는 `case` 다음에 각 패턴 사이에 콤마로 구분하여 여러개의 패턴으로 결합될 수 있습니다. 어떤 패턴이 일치한 케이스로 고려됩니다. 패턴이 길면 여러줄로 작성할 수 있습니다. 예를 들어:
 
 ```swift
 let someCharacter: Character = "e"
@@ -754,7 +754,7 @@ Compound cases can also include value bindings. All of the patterns of a compoun
 
 `switch` 구문의 첫번째 케이스는 영어의 5개의 소문자 모음이 일치합니다. 비슷하게 두번째 케이스는 모든 영어 소문자 자음이 일치합니다. 마지막으로 `default` 케이스는 다른 어떠한 문자와 일치합니다.
 
-혼합 케이스 \(Compound cases\)는 값 바인딩을 포함할 수도 있습니다. 혼합 케이스의 모든 패턴은 값 바인딩의 같은 집합을 포함해야 하고 각 바인딩은 혼합 케이스에 모든 패턴으로 부터 같은 타입의 값을 얻어야 합니다. 혼합 케이스 부분이 일치하는 것과 상관없이 케이스의 바디에 코드는 바인딩을 위해 값에 항상 접근할 수 있고 값은 항상 같은 타입을 가집니다.
+혼합 케이스 \(Compound cases\)는 값 바인딩을 포함할 수도 있습니다. 혼합 케이스의 모든 패턴은 값 바인딩의 같은 집합을 포함해야 하고 각 바인딩은 혼합 케이스에 모든 패턴으로 부터 같은 타입의 값을 얻어야 합니다. 혼합 케이스 부분이 일치하는 것과 상관없이 케이스의 본문에 코드는 바인딩을 위해 값에 항상 접근할 수 있고 값은 항상 같은 타입을 가집니다.
 
 ```swift
 let stillAnotherPoint = (9, 0)
@@ -771,7 +771,7 @@ default:
 The case above has two patterns: (let distance, 0) matches points on the x-axis and (0, let distance) matches points on the y-axis. Both patterns include a binding for distance and distance is an integer in both patterns—which means that the code in the body of the case can always access a value for distance.
 -->
 
-위의 `case` 는 2개의 패턴을 가지고 있습니다: `(let distance, 0)` 은 x축 위의 점과 일치하고 `(0, let distance)` 는 y축 위의 점과 일치합니다. 두 패턴 모두 `distance` 바인딩을 포함하고 `distance` 는 두 패턴에서 정수입니다. 즉, `case` 의 바디안에 코드는 항상 `distance` 로 값에 접근할 수 있다는 의미입니다.
+위의 `case` 는 2개의 패턴을 가지고 있습니다: `(let distance, 0)` 은 x축 위의 점과 일치하고 `(0, let distance)` 는 y축 위의 점과 일치합니다. 두 패턴 모두 `distance` 바인딩을 포함하고 `distance` 는 두 패턴에서 정수입니다. 즉, `case` 의 본문 안에 코드는 항상 `distance` 로 값에 접근할 수 있다는 의미입니다.
 
 ## 제어 변경 구문 \(Control Transfer Statements\)
 
@@ -1141,7 +1141,7 @@ The availability condition above specifies that in iOS, the body of the if state
 In its general form, the availability condition takes a list of platform names and versions. You use platform names such as iOS, macOS, watchOS, and tvOS—for the full list, see Declaration Attributes. In addition to specifying major version numbers like iOS 8 or macOS 10.10, you can specify minor versions numbers like iOS 11.2.6 and macOS 10.13.3.
 -->
 
-iOS에서 위의 특정 가용성 조건의 `if` 구문의 바디는 iOS 10 이후 버전에서만 실행되고 macOS에서는 macOS 10.12 이후 버전에서만 실행됩니다. 마지막 인자 `*` 는 필수이며 다른 플랫폼에서 `if` 의 바디가 최소 타겟 버전에서 실행되도록 지정합니다.
+iOS에서 위의 특정 가용성 조건의 `if` 구문의 본문은 iOS 10 이후 버전에서만 실행되고 macOS에서는 macOS 10.12 이후 버전에서만 실행됩니다. 마지막 인자 `*` 는 필수이며 다른 플랫폼에서 `if` 의 본문이 최소 타겟 버전에서 실행되도록 지정합니다.
 
 일반적인 형식에서 가용성 조건은 플랫폼 이름 및 버전 목록을 사용합니다. `iOS`, `macOS`, `watchOS`, `tvOS` 와 같은 플랫폼 이름을 사용하고 자세한 내용은 [선언 속성 \(Declaration Attributes\)](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#ID348) 을 참고 바랍니다. iOS 8 또는 macOS 10.10과 같은 메이저 버전 번호를 지정하는 것 외에 iOS 11.2.6과 macOS 10.13.3과 같은 마이너 버전 번호로 지정할 수 있습니다.
 

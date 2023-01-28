@@ -278,7 +278,7 @@ The values of expressions your code can branch on are very flexible. For example
 A switch case can optionally contain a where clause after each pattern. A where clause is introduced by the where keyword followed by an expression, and is used to provide an additional condition before a pattern in a case is considered matched to the control expression. If a where clause is present, the statements within the relevant case are executed only if the value of the control expression matches one of the patterns of the case and the expression of the where clause evaluates to true. For example, a control expression matches the case in the example below only if it’s a tuple that contains two elements of the same value, such as (1, 1).
 -->
 
-`switch` 구문의 _제어 표현식 (control expression)_ 은 평가된 다음에 각 케이스에 지정한 패턴과 비교됩니다. 일치하는 항목이 있으면 프로그램은 해당 케이스의 범위내에 _구문 (statements)_ 을 실행합니다. 각 케이스의 범위는 비어 있을 수 없습니다. 결과적으로 각 케이스 라벨의 콜론 (`:`) 다음에 적어도 하나의 구문이 포함되어야 합니다. 일치하는 케이스의 바디에서 코드를 실행하지 않으려면 단일 `break` 구문을 사용해야 합니다.
+`switch` 구문의 _제어 표현식 (control expression)_ 은 평가된 다음에 각 케이스에 지정한 패턴과 비교됩니다. 일치하는 항목이 있으면 프로그램은 해당 케이스의 범위내에 _구문 (statements)_ 을 실행합니다. 각 케이스의 범위는 비어 있을 수 없습니다. 결과적으로 각 케이스 라벨의 콜론 (`:`) 다음에 적어도 하나의 구문이 포함되어야 합니다. 일치하는 케이스의 본문에서 코드를 실행하지 않으려면 단일 `break` 구문을 사용해야 합니다.
 
 코드가 분기할 수 있는 표현식의 값은 매우 유연합니다. 예를 들어 정수와 문자와 같은 스칼라 타입의 값을 제외하고 코드는 부동 소수점 숫자, 문자열, 튜플, 사용자 정의 클래스의 인스턴스, 그리고 옵셔널을 포함하는 모든 타입의 값으로 분기할 수 있습니다. _제어 표현식 (control expression)_ 의 값은 열거형의 케이스의 값과 일치하고 지정된 값 범위에 포함되는지 확인할 수도 있습니다. `switch` 구문에서 값의 이러한 여러가지 타입을 어떻게 사용하는지에 대한 예제는 [제어 흐름 (Control Flow)](../language-guide-1/control-flow.md) 에 [Switch](../language-guide-1/control-flow.md#switch) 를 참고 바랍니다.
 
@@ -464,7 +464,7 @@ For examples of how to use a continue statement, see Continue and Labeled Statem
 
 두 경우 모두 프로그램 제어는 둘러싸인 루프 구문의 조건으로 전송됩니다.
 
-`for` 구문에서 증가 표현식은 루프의 바디가 실행된 후에 평가되므로 `continue` 구문 후에도 계속 계산됩니다.
+`for` 구문에서 증가 표현식은 루프의 본문이 실행된 후에 평가되므로 `continue` 구문 후에도 계속 계산됩니다.
 
 `continue` 구문 사용에 대한 예제는 [제어 흐름 (Control Flow)](../language-guide-1/control-flow.md) 에 [Continue](../language-guide-1/control-flow.md#continue) 와 [라벨 구문 (Labeled Statements)](../language-guide-1/control-flow.md#labeled-statements) 를 참고 바랍니다.
 
@@ -498,7 +498,7 @@ A return statement occurs in the body of a function or method definition and cau
 A return statement can consist of only the return keyword, or it can consist of the return keyword followed by an expression, as shown below.
 -->
 
-`return` 구문은 함수 또는 메서드 정의의 바디에서 발생하고 호출한 함수 또는 메서드를 반환하기 위해 실행합니다. 함수 또는 메서드 호출 다음에서 계속해서 실행됩니다.
+`return` 구문은 함수 또는 메서드 정의의 본문에서 발생하고 호출한 함수 또는 메서드를 반환하기 위해 실행합니다. 함수 또는 메서드 호출 다음에서 계속해서 실행됩니다.
 
 `return` 구문은 아래에 보는대로 `return` 키워드만으로 구성되거나 `return` 키워드 다음에 표현식으로 구성될 수 있습니다.
 
@@ -537,7 +537,7 @@ A throw statement causes a program to end execution of the current scope and beg
 A throw statement consists of the throw keyword followed by an expression, as shown below.
 -->
 
-`throw` 구문은 던지는 함수 또는 메서드의 바디에서 발생하거나 타입에 `throws` 키워드가 표시된 클로저 표현식의 바디에서 발생합니다.
+`throw` 구문은 던지는 함수 또는 메서드의 본문에서 발생하거나 타입에 `throws` 키워드가 표시된 클로저 표현식의 본문에서 발생합니다.
 
 `throw` 구문은 프로그램이 현재 범위의 실행을 종료하고 둘러싸인 범위로 에러 전파를 시작합니다. 던져진 에러는 `do` 구문의 `catch` 절에 의해 처리될 때까지 계속 전파됩니다.
 
@@ -753,7 +753,7 @@ Each statement in the body of a conditional compilation block is parsed even if 
 -->
 
 > NOTE\
-> 조건부 컴파일러 블럭의 바디에서 각 구문은 컴파일 되지 않아도 구문 분석됩니다. 그러나 컴파일러 조건이 swift() 또는 compiler() 플랫폼 조건을 포함하면 예외가 있습니다: 이 구문은 플랫폼 조건에서 지정한 언어 또는 컴파일러 버전이 일치하는 경우에만 분석됩니다. 이 예외는 이전 컴파일러가 최신 버전의 Swift 에 도입된 구문을 분석하지 않도록 합니다.
+> 조건부 컴파일러 블럭의 본문에서 각 구문은 컴파일 되지 않아도 구문 분석됩니다. 그러나 컴파일러 조건이 swift() 또는 compiler() 플랫폼 조건을 포함하면 예외가 있습니다: 이 구문은 플랫폼 조건에서 지정한 언어 또는 컴파일러 버전이 일치하는 경우에만 분석됩니다. 이 예외는 이전 컴파일러가 최신 버전의 Swift 에 도입된 구문을 분석하지 않도록 합니다.
 
 <!--
 For information about how you can wrap explicit member expressions in conditional compilation blocks, see Explicit Member Expression.
@@ -865,7 +865,7 @@ Unlike Boolean conditions, you can’t combine availability conditions using log
 
 런타임 시 API 가 사용가능 여부에 따라 코드의 블럭을 실행하기 위해 가용성 조건을 사용합니다. 컴파일러는 코드의 블럭이 가능한 API 인 경우 가용성 조건에서 정보를 사용합니다.
 
-가용성 조건은 콤마로 구분된 플랫폼 이름과 버전을 가집니다. 플랫폼 이름으로 `iOS`, `macOS`, `watchOS`, 그리고 `tvOS` 를 사용하고 해당 버전 숫자를 포함합니다. `*` 인수는 필수이고 다른 플랫폼에서 가용성 조건으로 보호되는 코드 블럭의 바디가 타겟에 지정한 최소 배포 타겟에서 실행되도록 합니다.
+가용성 조건은 콤마로 구분된 플랫폼 이름과 버전을 가집니다. 플랫폼 이름으로 `iOS`, `macOS`, `watchOS`, 그리고 `tvOS` 를 사용하고 해당 버전 숫자를 포함합니다. `*` 인수는 필수이고 다른 플랫폼에서 가용성 조건으로 보호되는 코드 블럭의 본문이 타겟에 지정한 최소 배포 타겟에서 실행되도록 합니다.
 
 불린 조건과 다르게 `&&` 와 `||` 와 같은 논리 연산자를 사용하여 가용성 조건을 결합할 수 없습니다. 비가용성 조건을 사용하기 위해 가용성 조건에 부정을 나타내기 위해 `!` 을 사용하는 대신에 다음의 형식을 가질 수 있습니다:
 

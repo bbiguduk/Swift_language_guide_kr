@@ -204,7 +204,7 @@ if case let x? = someOptional {
 The optional pattern provides a convenient way to iterate over an array of optional values in a for-in statement, executing the body of the loop only for non-nil elements.
 -->
 
-옵셔널 패턴은 `for`-`in` 구문에서 옵셔널 값의 배열을 반복하는 편리한 방법을 제공하여 `nil` 이 아닌 요소에 대해서만 루프의 바디를 실행합니다.
+옵셔널 패턴은 `for`-`in` 구문에서 옵셔널 값의 배열을 반복하는 편리한 방법을 제공하여 `nil` 이 아닌 요소에 대해서만 루프의 본문을 실행합니다.
 
 ```swift
 let arrayOfOptionalInts: [Int?] = [nil, 2, 3, nil, 5]

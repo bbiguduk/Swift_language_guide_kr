@@ -279,7 +279,7 @@ If the body of the didSet observer refers to the old value, the getter is called
 
 `willSet` 절을 제공하면 `didSet` 절은 선택사항 입니다. 마찬가지로 `willSet` 절은 `didSet` 절이 제공되면 선택사항 입니다.
 
-`didSet` 관찰자의 바디는 이전 값을 참조하면 getter 는 이전 값이 사용 가능하도록 관찰자 전에 호출됩니다. 아래 예제는 상위클래스에 의해 정의되고 관찰자를 추가하기 위해 하위클래스에 의해 재정의 된 계산된 프로퍼티를 보여줍니다.
+`didSet` 관찰자의 본문은 이전 값을 참조하면 getter 는 이전 값이 사용 가능하도록 관찰자 전에 호출됩니다. 아래 예제는 상위클래스에 의해 정의되고 관찰자를 추가하기 위해 하위클래스에 의해 재정의 된 계산된 프로퍼티를 보여줍니다.
 
 ```swift
 class Superclass {
@@ -498,7 +498,7 @@ Function parameters are a comma-separated list where each parameter has one of s
 A parameter has a name, which is used within the function body, as well as an argument label, which is used when calling the function or method. By default, parameter names are also used as argument labels. For example:
 -->
 
-파라미터는 함수 바디 내에서 사용되는 이름 뿐만 아니라 함수 또는 메서드 호출할 때 사용되는 인수 라벨이 있습니다. 기본적으로 파라미터 이름은 인수 라벨로도 사용됩니다. 예를 들어:
+파라미터는 함수 본문 내에서 사용되는 이름 뿐만 아니라 함수 또는 메서드 호출할 때 사용되는 인수 라벨이 있습니다. 기본적으로 파라미터 이름은 인수 라벨로도 사용됩니다. 예를 들어:
 
 ```swift
 func f(x: Int, y: Int) -> Int { return x + y }
@@ -551,12 +551,12 @@ A closure or nested function that captures an in-out parameter must be nonescapi
 In-out 파라미터는 다음과 같이 전달됩니다:
 
 1. 함수가 호출될 때 인수의 값은 복사됩니다.
-2. 함수의 바디 내에서 복사본은 수정됩니다.
+2. 함수의 본문 내에서 복사본은 수정됩니다.
 3. 함수가 반환될 때 복사본의 값은 기존 인수에 할당됩니다.
 
 이 동작은 _copy-in copy-out_ 또는 _call by value 결과_ 라고 합니다. 예를 들어 계산된 프로퍼티 또는 관찰자가 있는 프로퍼티가 in-out 파라미터로 전달되는 경우 getter 는 함수 호출의 부분으로 호출되고 setter 는 함수 반환의 부분으로 호출됩니다.
 
-최적화로 인수가 메모리의 물리적 주소에 저장된 값인 경우 동일한 메모리 위치가 함수 바디 내부 및 외부에서 사용됩니다. 이런 최적화 동작을 _call by reference_ 라고 합니다; copy-in copy-out 모델의 모든 요구사항을 충족하는 동시에 복사의 오버헤드를 제거합니다. call-by-reference 최적화에 의존하지 않고 copy-in copy-out 에 의해 주어진 모델을 사용하여 작성하면 최적화에 상관없이 올바르게 작동되도록 합니다.
+최적화로 인수가 메모리의 물리적 주소에 저장된 값인 경우 동일한 메모리 위치가 함수 본문 내부 및 외부에서 사용됩니다. 이런 최적화 동작을 _call by reference_ 라고 합니다; copy-in copy-out 모델의 모든 요구사항을 충족하는 동시에 복사의 오버헤드를 제거합니다. call-by-reference 최적화에 의존하지 않고 copy-in copy-out 에 의해 주어진 모델을 사용하여 작성하면 최적화에 상관없이 올바르게 작동되도록 합니다.
 
 함수 내에서 기존 값이 현재 범위에서 사용가능 하더라도 in-out 인수로 전달된 값은 접근하면 안됩니다. 기존 값에 접근하는 것은 값에 대한 동시 접근이며 Swift 의 메모리 독점 보장을 위반합니다. 같은 이유로 여러개의 in-out 파라미터에 동일한 값을 전달할 수 없습니다.
 
@@ -612,7 +612,7 @@ A parameter with a base type name followed immediately by three dots (...) is un
 A parameter with an equals sign (=) and an expression after its type is understood to have a default value of the given expression. The given expression is evaluated when the function is called. If the parameter is omitted when calling the function, the default value is used instead.
 -->
 
-언더바 (`_`) 파라미터는 명시적으로 무시되고 함수의 바디 내에서 접근될 수 없습니다.
+언더바 (`_`) 파라미터는 명시적으로 무시되고 함수의 본문 내에서 접근될 수 없습니다.
 
 기본 타입 이름 바로 뒤에 세 개의 점 (`...`) 이 오는 파라미터는 가변 파라미터 (variadic parameter) 입니다. 가변 파라미터 뒤에 오는 파라미터는 인수 라벨이 있어야 합니다. 함수는 여러개 가변 파라미터를 가질 수 있습니다. 가변 파라미터는 기본 타입 이름의 요소를 포함한 배열로 처리됩니다. 예를 들어 가변 파라미터 `Int...` 는 `[Int]` 로 처리됩니다. 가변 파라미터를 사용하는 예제는 [가변 파라미터 (Variadic Parameters)](../language-guide-1/functions.md#variadic-parameters) 를 참고 바랍니다.
 
@@ -844,7 +844,7 @@ You can extend the behavior of an enumeration type with an extension declaration
 
 _열거형 선언 (enumeration declaration)_ 은 프로그램에 명명된 열거형 타입을 도입합니다.
 
-열거형 선언은 두 가지 기본 형식을 가지고 있고 `enum` 키워드를 사용하여 선언됩니다. 두 형식 중 하나를 사용하여 선언된 열거형의 바디는 열거형 케이스 (enumeration cases) 라고 불리는 없거나 더 많은 값과 계산된 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 타입 별칭, 그리고 다른 열거형, 구조체, 클래스 그리고 행위자 선언을 포함합니다. 열거형 선언은 초기화 해제 구문 또는 프로토콜 선언을 포함할 수 없습니다.
+열거형 선언은 두 가지 기본 형식을 가지고 있고 `enum` 키워드를 사용하여 선언됩니다. 두 형식 중 하나를 사용하여 선언된 열거형의 본문은 열거형 케이스 (enumeration cases) 라고 불리는 없거나 더 많은 값과 계산된 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 타입 별칭, 그리고 다른 열거형, 구조체, 클래스 그리고 행위자 선언을 포함합니다. 열거형 선언은 초기화 해제 구문 또는 프로토콜 선언을 포함할 수 없습니다.
 
 열거형 타입은 여러 프로토콜을 채택할 수 있지만 클래스, 구조체, 또는 다른 열거형을 상속할 수 없습니다.
 
@@ -1042,7 +1042,7 @@ Structures are value types; instances of a structure are copied when assigned to
 You can extend the behavior of a structure type with an extension declaration, as discussed in Extension Declaration.
 -->
 
-구조체의 바디는 _선언 (declarations)_ 이 없거나 많이 포함합니다. 이러한 _선언 (declarations)_ 은 저장된 프로퍼티와 계산된 프로퍼티, 타입 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 서브 스크립트, 타입 별칭, 그리고 다른 구조체, 클래스, 행위자 그리고 열거형 선언을 포함할 수 있습니다. 구조체 선언은 초기화 해제 구문 또는 프로토콜 선언을 포함할 수 없습니다. 여러 종류의 선언을 포함한 구조체에 대한 자세한 내용과 예제는 [구조체와 클래스 (Structures and Classes)](../language-guide-1/structures-and-classes.md) 를 참고 바랍니다.
+구조체의 본문은 _선언 (declarations)_ 이 없거나 많이 포함합니다. 이러한 _선언 (declarations)_ 은 저장된 프로퍼티와 계산된 프로퍼티, 타입 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 서브 스크립트, 타입 별칭, 그리고 다른 구조체, 클래스, 행위자 그리고 열거형 선언을 포함할 수 있습니다. 구조체 선언은 초기화 해제 구문 또는 프로토콜 선언을 포함할 수 없습니다. 여러 종류의 선언을 포함한 구조체에 대한 자세한 내용과 예제는 [구조체와 클래스 (Structures and Classes)](../language-guide-1/structures-and-classes.md) 를 참고 바랍니다.
 
 구조체 타입은 여러 프로토콜을 채택할 수 있지만 클래스, 열거형, 또는 다른 구조체를 상속할 수 없습니다.
 
@@ -1102,7 +1102,7 @@ Classes are reference types; instances of a class are referred to, rather than c
 You can extend the behavior of a class type with an extension declaration, as discussed in Extension Declaration.
 -->
 
-클래스의 바디는 선언이 없거나 하나 이상의 _선언 (declarations)_ 을 포함합니다. 이러한 _선언 (declarations)_ 은 저장된 프로퍼티와 계산된 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 하나의 초기화 해제 구문, 서브 스크립트, 타입 별칭, 그리고 다른 클래스, 구조체, 행위자 그리고 열거형 선언을 포함할 수 있습니다. 클래스 선언은 프로토콜 선언을 포함할 수 없습니다. 여러종류의 선언을 포함하는 클래스의 자세한 설명과 예제는 [구조체와 클래스 (Structures and Classes)](../language-guide-1/structures-and-classes.md) 를 참고 바랍니다.
+클래스의 본문은 선언이 없거나 하나 이상의 _선언 (declarations)_ 을 포함합니다. 이러한 _선언 (declarations)_ 은 저장된 프로퍼티와 계산된 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 하나의 초기화 해제 구문, 서브 스크립트, 타입 별칭, 그리고 다른 클래스, 구조체, 행위자 그리고 열거형 선언을 포함할 수 있습니다. 클래스 선언은 프로토콜 선언을 포함할 수 없습니다. 여러종류의 선언을 포함하는 클래스의 자세한 설명과 예제는 [구조체와 클래스 (Structures and Classes)](../language-guide-1/structures-and-classes.md) 를 참고 바랍니다.
 
 클래스 타입은 _상위클래스 (superclass)_ 로 하나의 부모 클래스만 상속할 수 있지만 프로토콜은 여러개 채택할 수 있습니다. _상위클래스 (superclass)_ 는 _클래스 이름 (class name)_ 과 콜론 다음에 첫번째로 나타나고 다음으로 _채택된 프로토콜 (adopted protocols)_ 이 나타납니다. 제너릭 클래스 (generic class) 는 다른 제너릭과 제너릭이 아닌 클래스를 상속할 수 있지만 제너릭이 아닌 클래스 (nongeneric class) 는 다른 제너릭이 아닌 클래스만 상속할 수 있습니다. 콜론 뒤에 상위 제너릭 클래스의 이름을 작성할 때 제너릭 파라미터 절을 포함하는 제너릭 클래스의 전체 이름을 포함해야 합니다.
 
@@ -1168,7 +1168,7 @@ Actors are reference types; instances of an actor are referred to, rather than c
 You can extend the behavior of a structure type with an extension declaration, as discussed in Extension Declaration.
 -->
 
-행위자의 바디에는 0개 이상의 _선언 (declarations)_ 이 포함되어 있습니다. 이 선언은 저장된 프로퍼티와 계산된 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 하나의 초기화 해제 구문, 서브 스크립트, 타입 별칭, 그리고 기타 클래스, 구조체, 그리고 열거형 선언을 모두 포함할 수 있습니다. 행위자에 대한 설명과 몇가지 예제는 [행위자 (Actors)](../language-guide-1/concurrency.md#actors) 를 참조 바랍니다.
+행위자의 본문에는 0개 이상의 _선언 (declarations)_ 이 포함되어 있습니다. 이 선언은 저장된 프로퍼티와 계산된 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 하나의 초기화 해제 구문, 서브 스크립트, 타입 별칭, 그리고 기타 클래스, 구조체, 그리고 열거형 선언을 모두 포함할 수 있습니다. 행위자에 대한 설명과 몇가지 예제는 [행위자 (Actors)](../language-guide-1/concurrency.md#actors) 를 참조 바랍니다.
 
 행위자 타입은 프로토콜을 채택할 수 있지만 클래스, 열거형, 구조체, 또는 다른 행위자를 상속할 수 없습니다. 그러나 `@objc` 속성으로 표시된 행위자는 암시적으로 `NSObjectProtocol` 프로토콜을 준수하고 `NSObject` 의 하위 타입으로 Objective-C 런타임에 노출됩니다.
 
@@ -1177,7 +1177,7 @@ You can extend the behavior of a structure type with an extension declaration, a
 * [초기화 구문 (Initializers)](../language-guide-1/initialization.md#initializers) 에 설명된 대로 행위자 내에서 선언된 초기화 구문 중 하나를 호출합니다.
 * 초기화 구문이 선언되지 않고 행위자 선언의 모든 프로퍼티에 초기값이 제공된 경우 [기본 초기화 구문 (Default Initializers)](../language-guide-1/initialization.md#default-initializers) 에서 설명한대로 행위자의 기본 초기화 구문을 호출합니다.
 
-기본적으로 행위자의 멤버는 해당 행위자와 분리됩니다. 메서드의 바디나 프로퍼티에 대한 getter 와 같은 코드는 해당 행위자에서 실행됩니다. 행위자 내의 코드는 해당 코드는 이미 동일한 행위자에서 실행되고 있기 때문에 동기적으로 상호 작용할 수 있지만 행위자 외부의 코드는 이 코드가 다른 행위자에서 비동기적으로 코드를 실행하고 있음을 나타내기 위해 `await` 로 표시해야 합니다. 키 경로는 행위자의 분리된 멤버를 참조할 수 없습니다. 분리된 행위자 저장된 프로퍼티 (Actor-isolated stored properties) 는 동기 함수에 in-out 파라미터로 전달할 수 있지만 비동기 함수에는 전달할 수 없습니다.
+기본적으로 행위자의 멤버는 해당 행위자와 분리됩니다. 메서드의 본문이나 프로퍼티에 대한 getter 와 같은 코드는 해당 행위자에서 실행됩니다. 행위자 내의 코드는 해당 코드는 이미 동일한 행위자에서 실행되고 있기 때문에 동기적으로 상호 작용할 수 있지만 행위자 외부의 코드는 이 코드가 다른 행위자에서 비동기적으로 코드를 실행하고 있음을 나타내기 위해 `await` 로 표시해야 합니다. 키 경로는 행위자의 분리된 멤버를 참조할 수 없습니다. 분리된 행위자 저장된 프로퍼티 (Actor-isolated stored properties) 는 동기 함수에 in-out 파라미터로 전달할 수 있지만 비동기 함수에는 전달할 수 없습니다.
 
 행위자는 선언이 `nonisolated` 키워드로 표시된 분리되지 않은 멤버 (nonisolated members) 를 가질 수도 있습니다. 분리되지 않은 멤버는 행위자 외부의 코드처럼 실행됩니다: 행위자의 분리상태와 상호작용 할 수 없으며 호출자는 이를 사용할 때 `await` 로 표시하지 않습니다.
 
@@ -1214,7 +1214,7 @@ The body of a protocol contains zero or more protocol member declarations, which
 Protocol types can inherit from any number of other protocols. When a protocol type inherits from other protocols, the set of requirements from those other protocols are aggregated, and any type that inherits from the current protocol must conform to all those requirements. For an example of how to use protocol inheritance, see Protocol Inheritance.
 -->
 
-프로토콜의 바디는 프로토콜을 채택하는 모든 타입이 충족해야 하는 준수성 요구사항을 설명하는 _프로토콜 멤버 선언 (protocol member declarations)_ 이 없거나 하나 이상의 _프로토콜 멤버 선언 (protocol member declarations)_ 을 포함합니다. 특히 프로토콜은 준수하는 타입이 특정 프로퍼티, 메서드, 초기화 구문, 그리고 서브 스크립트를 구현해야 한다고 선언할 수 있습니다. 프로토콜은 프로토콜의 여러 선언의 관계를 지정할 수 있는 _연관된 타입 (associated types)_ 이라는 특별한 종류의 타입 별칭도 선언할 수 있습니다. 프로토콜 선언은 클래스, 구조체, 열거형, 또는 다른 프로토콜 선언을 포함할 수 없습니다. _프로토콜 멤버 선언 (protocol member declarations)_ 은 아래 자세하게 설명되어 있습니다.
+프로토콜의 본문은 프로토콜을 채택하는 모든 타입이 충족해야 하는 준수성 요구사항을 설명하는 _프로토콜 멤버 선언 (protocol member declarations)_ 이 없거나 하나 이상의 _프로토콜 멤버 선언 (protocol member declarations)_ 을 포함합니다. 특히 프로토콜은 준수하는 타입이 특정 프로퍼티, 메서드, 초기화 구문, 그리고 서브 스크립트를 구현해야 한다고 선언할 수 있습니다. 프로토콜은 프로토콜의 여러 선언의 관계를 지정할 수 있는 _연관된 타입 (associated types)_ 이라는 특별한 종류의 타입 별칭도 선언할 수 있습니다. 프로토콜 선언은 클래스, 구조체, 열거형, 또는 다른 프로토콜 선언을 포함할 수 없습니다. _프로토콜 멤버 선언 (protocol member declarations)_ 은 아래 자세하게 설명되어 있습니다.
 
 프로토콜 타입은 다른 프로토콜을 상속할 수 있습니다. 프로토콜 타입이 다른 프로토콜을 상속할 때 다른 프로토콜의 요구사항이 집계되고 현재 프로토콜에서 상속한 모든 타입은 모든 요구사항을 준수해야 합니다. 프로토콜 상속 사용법에 대한 예제는 [프로토콜 상속 (Protocol Inheritance)](../language-guide-1/protocols.md#protocol-inheritance) 을 참고 바랍니다.
 
@@ -1234,7 +1234,7 @@ By default, types that conform to a protocol must implement all properties, meth
 The cases of an enumeration can satisfy protocol requirements for type members. Specifically, an enumeration case without any associated values satisfies a protocol requirement for a get-only type variable of type Self, and an enumeration case with associated values satisfies a protocol requirement for a function that returns Self whose parameters and their argument labels match the case’s associated values. For example:
 -->
 
-해당 타입에 확장 선언에서 프로토콜을 채택하기 위해 이전에 선언된 타입에 프로토콜 준수를 추가할 수 있습니다. 확장에서 채택된 프로토콜의 모든 요구사항을 구현해야 합니다. 타입이 이미 모든 요구사항을 구현한 경우 빈 확장 선언의 바디로 남겨둘 수 있습니다.
+해당 타입에 확장 선언에서 프로토콜을 채택하기 위해 이전에 선언된 타입에 프로토콜 준수를 추가할 수 있습니다. 확장에서 채택된 프로토콜의 모든 요구사항을 구현해야 합니다. 타입이 이미 모든 요구사항을 구현한 경우 빈 확장 선언의 본문으로 남겨둘 수 있습니다.
 
 기본적으로 프로토콜을 준수하는 타입은 프로토콜에 선언된 모든 프로퍼티, 메서드, 그리고 서브 스크립트를 구현해야 합니다. 이 말은 준수하는 타입에 의한 구현이 옵셔널로 지정하기 위해선 `optional` 선언 수식어로 프로토콜 멤버 선언을 표시해야 한다는 의미입니다. `optional` 수식어는 `objc` 속성으로 표시된 멤버와 `objc` 속성으로 표시된 프로토콜의 멤버에만 적용될 수 있습니다. 결과적으로 클래스 타입만 옵셔널 멤버 요구사항을 포함한 프로토콜을 채택하고 준수할 수 있습니다. optional 선언 수식어 사용에 대한 자세한 내용과 옵셔널 프로토콜 멤버에 어떻게 접근하는지에 대한 가이드—예를 들어 타입이 이를 구현하는지 확실하지 않은 경우—는 [옵셔널 프로토콜 요구사항 (Optional Protocol Requirements)](../language-guide-1/protocols.md#optional-protocol-requirements) 를 참고 바랍니다.
 
@@ -1306,7 +1306,7 @@ You can use protocols to declare which methods a delegate of a class or structur
 Protocols declare that conforming types must implement a property by including a protocol property declaration in the body of the protocol declaration. Protocol property declarations have a special form of a variable declaration:
 -->
 
-프로토콜은 프로토콜 선언 바디에 _프로토콜 프로퍼티 선언 (protocol property declaration)_ 을 포함하여 준수 타입이 프로퍼티를 구현해야 된다고 선언합니다. 프로토콜 프로퍼티 선언은 변수 선언에 특별한 형식을 가집니다:
+프로토콜은 프로토콜 선언 본문에 _프로토콜 프로퍼티 선언 (protocol property declaration)_ 을 포함하여 준수 타입이 프로퍼티를 구현해야 된다고 선언합니다. 프로토콜 프로퍼티 선언은 변수 선언에 특별한 형식을 가집니다:
 
 ![](<../.gitbook/assets/스크린샷 2021-02-22 오후 1.46.59.png>)
 
@@ -1341,7 +1341,7 @@ To declare a class or static method requirement in a protocol declaration, mark 
 See also Function Declaration.
 -->
 
-프로토콜은 준수하는 타입이 프로토콜 선언 바디에 프로토콜 메서드 선언을 포함하기 위해 메서드를 구현해야 함을 선언합니다. 프로토콜 메서드 선언은 두가지를 제외하고 함수 선언과 동일한 형식을 가집니다: 함수 바디와 함수 선언의 일부로 기본 파라미터 값을 제공할 수 없습니다. 프로토콜의 메서드 요구사항을 구현하는 준수하는 타입에 대한 예제는 [메서드 요구사항 (Method Requirements)](../language-guide-1/protocols.md#method-requirements) 를 참고 바랍니다.
+프로토콜은 준수하는 타입이 프로토콜 선언 본문에 프로토콜 메서드 선언을 포함하기 위해 메서드를 구현해야 함을 선언합니다. 프로토콜 메서드 선언은 두가지를 제외하고 함수 선언과 동일한 형식을 가집니다: 함수 본문과 함수 선언의 일부로 기본 파라미터 값을 제공할 수 없습니다. 프로토콜의 메서드 요구사항을 구현하는 준수하는 타입에 대한 예제는 [메서드 요구사항 (Method Requirements)](../language-guide-1/protocols.md#method-requirements) 를 참고 바랍니다.
 
 프로토콜 선언에 클래스 또는 정적 메서드 요구사항을 선언하려면 `static` 선언 수식어로 메서드 선언을 표시합니다. 프로토콜을 준수하는 구조체와 열거형은 `static` 키워드로 메서드를 선언하고 프로토콜을 준수하는 클래스는 `static` 또는 `class` 키워드로 메서드를 선언합니다. 구조체, 열거형, 또는 클래스에 프로토콜 준수를 추가하는 확장은 확장하는 타입과 동일한 키워드를 사용합니다. 타입 메서드 요구사항에 대한 기본 구현을 제공하는 확장은 `static` 키워드를 사용합니다.
 
@@ -1362,7 +1362,7 @@ When a class implements an initializer to satisfy a protocol’s initializer req
 See also Initializer Declaration.
 -->
 
-프로토콜은 준수하는 타입이 프로토콜 선언 바디에 프로토콜 초기화 구문 선언을 포함하기 위해 초기화 구문 구현을 선언합니다. 프로토콜 초기화 구문 선언은 초기화 구문의 바디를 포함하지 않는다는 점을 제외하고 초기화 구문 선언과 동일한 형식을 가집니다.
+프로토콜은 준수하는 타입이 프로토콜 선언 본문에 프로토콜 초기화 구문 선언을 포함하기 위해 초기화 구문 구현을 선언합니다. 프로토콜 초기화 구문 선언은 초기화 구문의 본문을 포함하지 않는다는 점을 제외하고 초기화 구문 선언과 동일한 형식을 가집니다.
 
 준수하는 타입은 실패할 수 없는 초기화 구문 (nonfailable initializer) 또는 `init!` 실패 가능한 초기화 구문 (failable initializer) 를 구현하여 실패할 수 없는 프로토콜 초기화 구문 요구사항을 충족할 수 있습니다. 준수하는 타입은 모든 종류의 초기화 구문 구현으로 실패 가능한 프로토콜 초기화 구문 요구항을 충족할 수 있습니다.
 
@@ -1380,7 +1380,7 @@ See also Initializer Declaration.
 Protocols declare that conforming types must implement a subscript by including a protocol subscript declaration in the body of the protocol declaration. Protocol subscript declarations have a special form of a subscript declaration:
 -->
 
-프롵콜은 준수하는 타입이 프로토콜 선언 바디에 프로토콜 서브 스크립트 선언을 포함하기 위해 서브 스크립트 구현을 선언합니다. 프로토콜 서브 스크립트 선언은 서브 스크립트 선언의 특별한 형식을 가집니다:
+프롵콜은 준수하는 타입이 프로토콜 선언 본문에 프로토콜 서브 스크립트 선언을 포함하기 위해 서브 스크립트 구현을 선언합니다. 프로토콜 서브 스크립트 선언은 서브 스크립트 선언의 특별한 형식을 가집니다:
 
 ![](<../.gitbook/assets/스크린샷 2021-02-22 오후 1.48.59.png>)
 
@@ -1562,7 +1562,7 @@ A failable designated initializer can be overridden in a subclass by any kind of
 For more information and to see examples of failable initializers, see Failable Initializers.
 -->
 
-실패 가능한 초기화 구문은 초기화 구문의 바디의 구현에 어느 위치에서든 `nil` 을 반환할 수 있습니다.
+실패 가능한 초기화 구문은 초기화 구문의 본문의 구현에 어느 위치에서든 `nil` 을 반환할 수 있습니다.
 
 실패 가능한 초기화 구문은 여러 종류의 초기화 구문에 위임할 수 있습니다. 실패없는 초기화 구문은 다른 실패없는 초기화 구문이나 `init!` 실패 가능한 초기화 구문으로 위임할 수 있습니다. 실패없는 초기화 구문은 예를 들어 `super.init()!` 처럼 상위클래스의 초기화 구문에 강제 언래핑한 결과로 `init?` 실패 가능한 초기화 구문으로 위임할 수 있습니다.
 
@@ -1600,7 +1600,7 @@ Deinitializers aren’t called directly.
 For an example of how to use a deinitializer in a class declaration, see Deinitialization.
 -->
 
-초기화 해제 구문은 클래스 객체에 어떠한 참조도 없으면 클래스 객체가 할당 해제되기 직전에 자동으로 호출됩니다. 초기화 해제 구문은 클래스 선언의 바디내에만 선언될 수 있지만 클래스의 확장에는 선언될 수 없고 각 클래스는 하나만 가질 수 있습니다.
+초기화 해제 구문은 클래스 객체에 어떠한 참조도 없으면 클래스 객체가 할당 해제되기 직전에 자동으로 호출됩니다. 초기화 해제 구문은 클래스 선언의 본문 내에만 선언될 수 있지만 클래스의 확장에는 선언될 수 없고 각 클래스는 하나만 가질 수 있습니다.
 
 하위클래스는 하위클래스 객체가 할당 해제되기 직전에 암시적으로 호출되는 상위클래스의 초기화 해제 구문을 상속합니다. 하위클래스 객체는 상속 체인의 모든 초기화 해제 구문이 실행을 완료할 때까지 할당 해제되지 않습니다.
 
@@ -1635,7 +1635,7 @@ Properties, methods, and initializers of an existing type can’t be overridden 
 Extension declarations can add protocol conformance to an existing class, structure, or enumeration type by specifying adopted protocols:
 -->
 
-확장 선언의 바디는 _선언 (declarations)_ 이 하나도 없거나 하나 이상의 _선언 (declarations)_ 을 포함합니다. 이러한 _선언 (declaration)_ 스캔은 계산된 프로퍼티, 계산된 타입 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 서브 스크립트 선언, 그리고 클래스, 구조체, 그리고 열거형 선언도 포함합니다. 확장 선언은 초기화 해제 구문 또는 프로토콜 선언, 저장된 프로퍼티, 프로퍼티 관찰자, 또는 다른 확장 선언은 포함할 수 없습니다. 프로토콜 확장에서 선언은 `final` 로 표시될 수 없습니다. 여러 종류의 선언을 포함한 확장에 대한 내용과 예제는 [확장 (Extensions)](../language-guide-1/extensions.md) 을 참고 바랍니다.
+확장 선언의 본문은 _선언 (declarations)_ 이 하나도 없거나 하나 이상의 _선언 (declarations)_ 을 포함합니다. 이러한 _선언 (declaration)_ 스캔은 계산된 프로퍼티, 계산된 타입 프로퍼티, 인스턴스 메서드, 타입 메서드, 초기화 구문, 서브 스크립트 선언, 그리고 클래스, 구조체, 그리고 열거형 선언도 포함합니다. 확장 선언은 초기화 해제 구문 또는 프로토콜 선언, 저장된 프로퍼티, 프로퍼티 관찰자, 또는 다른 확장 선언은 포함할 수 없습니다. 프로토콜 확장에서 선언은 `final` 로 표시될 수 없습니다. 여러 종류의 선언을 포함한 확장에 대한 내용과 예제는 [확장 (Extensions)](../language-guide-1/extensions.md) 을 참고 바랍니다.
 
 _타입 이름 (type name)_ 이 클래스, 구조체, 또는 열거형 타입 이면 확장은 해당 타입을 확장합니다. _타입 이름름 (type name)_ 이 프로토콜 타입 이면 확장은 해당 프로토콜을 준수하는 모든 타입을 확장합니다.
 

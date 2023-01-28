@@ -275,7 +275,7 @@ struct AlternativeRect {
 If the entire body of a getter is a single expression, the getter implicitly returns that expression. Here’s an another version of the Rect structure that takes advantage of this shorthand notation and the shorthand notation for setters:
 -->
 
-getter의 전체 바디가 단일 표현식이라면 getter는 암시적으로 표현식을 반환합니다. 다음은 짧은 getter와 setter의 이점을 가진 `Rect` 구조체를 나타냅니다:
+getter의 전체 본문이 단일 표현식이라면 getter는 암시적으로 표현식을 반환합니다. 다음은 짧은 getter와 setter의 이점을 가진 `Rect` 구조체를 나타냅니다:
 
 ```swift
 struct CompactRect {

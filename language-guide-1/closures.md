@@ -142,9 +142,9 @@ Because the body of the closure is so short, it can even be written on a single 
 
 이 인라인 클로저를 위한 파라미터와 반환 타입의 선언은 `backward(_:_:)` 함수에서 선언한 것과 동일합니다. 두 경우 모두 `(s1: String, s2: String) -> Bool` 로 작성합니다. 그러나 인라인 클로저 표현식을 위한 파라미터와 반환 타입은 중괄호 바깥이 아닌 _안에_ 작성합니다.
 
-클로저의 바디의 시작은 `in` 키워드로 시작합니다. 이 키워드는 클로저의 파라미터와 리턴 타입 정의가 끝남을 나타내며 클로저의 바디가 시작함을 나타냅니다.
+클로저의 본문의 시작은 `in` 키워드로 시작합니다. 이 키워드는 클로저의 파라미터와 리턴 타입 정의가 끝남을 나타내며 클로저의 본문이 시작함을 나타냅니다.
 
-클로저의 바디가 너무 짧기 때문에 한줄로 작성할 수 있습니다:
+클로저의 본문이 너무 짧기 때문에 한줄로 작성할 수 있습니다:
 
 ```swift
 reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in return s1 > s2 } )
@@ -194,7 +194,7 @@ reversedNames = names.sorted(by: { s1, s2 in s1 > s2 } )
 Here, the function type of the sorted(by:) method’s argument makes it clear that a Bool value must be returned by the closure. Because the closure’s body contains a single expression (s1 > s2) that returns a Bool value, there’s no ambiguity, and the return keyword can be omitted.
 -->
 
-여기서 `sorted(by:)` 메서드의 인자의 함수 타입은 클로저에서 `Bool` 값이 반환되어야 하기 때문에 명확합니다. 클로저의 바디에 `Bool` 값을 반환하는 단일 표현식 \(`s1 > s2`\)가 포함되므로 모호하지 않고 `return` 키워드를 생략할 수 있습니다.
+여기서 `sorted(by:)` 메서드의 인자의 함수 타입은 클로저에서 `Bool` 값이 반환되어야 하기 때문에 명확합니다. 클로저의 본문에 `Bool` 값을 반환하는 단일 표현식 \(`s1 > s2`\)가 포함되므로 모호하지 않고 `return` 키워드를 생략할 수 있습니다.
 
 ### 짧은 인자 이름 \(Shorthand Argument Names\)
 
@@ -206,7 +206,7 @@ If you use these shorthand argument names within your closure expression, you ca
 
 Swift는 인라인 클로저에 `$0`, `$1`, `$2` 등 클로저의 인자값으로 참조하는데 사용할 수 있는 자동적으로 짧은 인자 이름 \(shorthand argument names\)을 제공합니다.
 
-클로저 표현식에 이런 짧은 인자 이름을 사용한다면 선언에 클로저의 인자 목록을 생략할 수 있고 짧은 인자 이름의 수와 타입은 함수 타입에서 유추됩니다. 클로저 표현식이 전체 바디로 구성되기 때문에 `in` 키워드를 생략할 수도 있습니다:
+클로저 표현식에 이런 짧은 인자 이름을 사용한다면 선언에 클로저의 인자 목록을 생략할 수 있고 짧은 인자 이름의 수와 타입은 함수 타입에서 유추됩니다. 클로저 표현식이 본문으로 전체가 구성되기 때문에 `in` 키워드를 생략할 수도 있습니다:
 
 ```swift
 reversedNames = names.sorted(by: { $0 > $1 } )
@@ -338,7 +338,7 @@ The closure expression builds a string called output each time it’s called. It
 
 `map(_:)` 메서드는 배열에 각 아이템을 위해 클로저 표현식을 호출합니다. 매핑할 배열의 값에서 유추할 수 있으므로 클로저의 입력 파라미터 인 `number` 타입을 지정할 필요가 없습니다.
 
-이 예에서 변수 `number` 는 클로저의 `number` 파라미터의 값으로 초기화되기 때문에 값은 클로저 바디내에서 수정될 수 있습니다 \(함수와 클로저의 파라미터는 항상 상수입니다\). 클로저 표현식은 출력 매핑된 출력 배열에 저장될 타입을 나타내기 위해 `String` 타입도 반환 타입으로 지정합니다.
+이 예에서 변수 `number` 는 클로저의 `number` 파라미터의 값으로 초기화되기 때문에 값은 클로저 본문 내에서 수정될 수 있습니다 \(함수와 클로저의 파라미터는 항상 상수입니다\). 클로저 표현식은 출력 매핑된 출력 배열에 저장될 타입을 나타내기 위해 `String` 타입도 반환 타입으로 지정합니다.
 
 클로저 표현식은 호출될 때마다 `output` 이라는 문자열을 만듭니다. 나머지 연산자 \(`number % 10`\)를 이용하여 `number` 의 마지막 숫자를 계산하고 `digitNames` 딕셔너리에 적절한 숫자 문자열을 찾습니다. 클로저는 0보다 큰 정수에 대한 문자열 표현을 생성하는데 사용할 수 있습니다.
 
@@ -420,9 +420,9 @@ In Swift, the simplest form of a closure that can capture values is a nested fun
 Here’s an example of a function called makeIncrementer, which contains a nested function called incrementer. The nested incrementer() function captures two values, runningTotal and amount, from its surrounding context. After capturing these values, incrementer is returned by makeIncrementer as a closure that increments runningTotal by amount each time it’s called.
 -->
 
-클로저는 정의된 둘러싸인 컨텍스트에서 상수와 변수를 _캡처 \(capture\)_ 할 수 있습니다. 그러면 클로저는 상수와 변수를 정의한 원래 범위가 더이상 존재하지 않더라도 바디 내에서 해당 상수와 변수의 값을 참조하고 수정할 수 있습니다.
+클로저는 정의된 둘러싸인 컨텍스트에서 상수와 변수를 _캡처 \(capture\)_ 할 수 있습니다. 그러면 클로저는 상수와 변수를 정의한 원래 범위가 더이상 존재하지 않더라도 본문 내에서 해당 상수와 변수의 값을 참조하고 수정할 수 있습니다.
 
-Swift에서 값을 캡처할 수 있는 가장 간단한 클로저 형태는 다른 함수의 바디 내에 작성하는 중첩 함수입니다. 중첩 함수는 바깥 함수의 어떠한 인자도 캡처할 수 있고 바깥 함수 내에 정의된 상수와 변수를 캡처할 수도 있습니다.
+Swift에서 값을 캡처할 수 있는 가장 간단한 클로저 형태는 다른 함수의 본문 내에 작성하는 중첩 함수입니다. 중첩 함수는 바깥 함수의 어떠한 인자도 캡처할 수 있고 바깥 함수 내에 정의된 상수와 변수를 캡처할 수도 있습니다.
 
 아래는 `incrementer` 라는 중첩 함수가 포함된 `makeIncrementer` 라는 함수의 예입니다. 중첩된 `incrementer()` 함수는 둘러싸인 컨텍스트에 `runningTotal` 과 `amount` 인 2개의 값을 캡처합니다. 이 값을 캡처한 후에 `incrementer` 는 호출될 때마다 `amount` 로 `runningTotal` 을 증가시키는 클로저로 `makeIncrementer` 에 의해 반환됩니다.
 
@@ -466,7 +466,7 @@ func incrementer() -> Int {
 The incrementer() function doesn’t have any parameters, and yet it refers to runningTotal and amount from within its function body. It does this by capturing a reference to runningTotal and amount from the surrounding function and using them within its own function body. Capturing by reference ensures that runningTotal and amount don’t disappear when the call to makeIncrementer ends, and also ensures that runningTotal is available the next time the incrementer function is called.
 -->
 
-`incrementer()` 함수는 파라미터가 없으며 함수 바디내에 `runningTotal` 과 `amount` 를 참조하고 있습니다. 둘러싸인 함수에 `runningTotal` 과 `amount` 대한 _참조 \(reference\)_ 를 캡처하고 함수 내에서 사용합니다. 참조를 캡처하는 것은 `makeIncrementer` 호출이 종료될 때 `runningTotal` 과 `amount` 가 사라지지 않고 다음에 `incrementer` 함수가 호출될 때 `runningTotal` 을 사용할 수 있습니다.
+`incrementer()` 함수는 파라미터가 없으며 함수 본문 내에 `runningTotal` 과 `amount` 를 참조하고 있습니다. 둘러싸인 함수에 `runningTotal` 과 `amount` 대한 _참조 \(reference\)_ 를 캡처하고 함수 내에서 사용합니다. 참조를 캡처하는 것은 `makeIncrementer` 호출이 종료될 때 `runningTotal` 과 `amount` 가 사라지지 않고 다음에 `incrementer` 함수가 호출될 때 `runningTotal` 을 사용할 수 있습니다.
 
 <!--
 NOTE

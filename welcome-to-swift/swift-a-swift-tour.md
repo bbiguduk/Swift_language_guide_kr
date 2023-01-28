@@ -92,7 +92,7 @@ Try removing the conversion to String from the last line. What error do you get?
 There’s an even simpler way to include values in strings: Write the value in parentheses, and write a backslash (\) before the parentheses. For example:
 -->
 
-문자열 값으로 포함하는 더 간단한 방법이 있습니다: 소괄호 안에 값을 작성하고 소괄호 전에 백슬래시 \(`\`\)를 작성하면 됩니다. 예를 들어:
+문자열 (string) 값으로 포함하는 더 간단한 방법이 있습니다: 소괄호 안에 값을 작성하고 소괄호 전에 역슬래시 \(`\`\)를 작성하면 됩니다. 예를 들어:
 
 ```swift
 let apples = 3
@@ -107,7 +107,7 @@ Use \() to include a floating-point calculation in a string and to include someo
 -->
 
 > EXPERIMENT  
-> `\()` 을 사용하여 문자열에 부동 소수점 계산을 포함하고 인사말에 누군가의 이름을 포함해 보십시오.
+> `\()` 을 사용하여 문자열에 부동 소수점 (floating-point) 계산을 포함하고 인사말에 누군가의 이름을 포함해 보십시오.
 
 <!--
 Use three double quotation marks (""") for strings that take up multiple lines. Indentation at the start of each quoted line is removed, as long as it matches the indentation of the closing quotation marks. For example:
@@ -126,7 +126,7 @@ And then I said "I have \(apples + oranges) pieces of fruit."
 Create arrays and dictionaries using brackets ([]), and access their elements by writing the index or key in brackets. A comma is allowed after the last element.
 -->
 
-대괄호 \(`[]`\) 를 사용하여 배열과 딕셔너리를 생성하고 대괄호에 인덱스 또는 키를 작성하여 해당 요소에 접근할 수 있습니다. 마지막 요소 뒤에 쉼표도 허용 합니다.
+대괄호 \(`[]`\) 를 사용하여 배열 (array)과 딕셔너리 (dictionary)를 생성하고 대괄호에 인덱스 또는 키를 작성하여 해당 요소에 접근할 수 있습니다. 마지막 요소 뒤에 쉼표도 허용 합니다.
 
 ```swift
 var fruits = ["strawberries", "limes", "tangerines"]
@@ -178,7 +178,7 @@ occupations = [:]
 Use if and switch to make conditionals, and use for-in, while, and repeat-while to make loops. Parentheses around the condition or loop variable are optional. Braces around the body are required.
 -->
 
-조건문을 만드려면 `if` 와 `switch` 를 사용하고 루프를 만드려면 `for`-`in`, `while`, 그리고 `repeat`-`while` 을 사용합니다. 조건문이나 루프 변수를 둘러싼 소괄호는 선택사항 입니다. 바디를 둘러싼 중괄호는 필수사항 입니다.
+조건문을 만드려면 `if` 와 `switch` 를 사용하고 루프를 만드려면 `for`-`in`, `while`, 그리고 `repeat`-`while` 을 사용합니다. 조건문이나 루프 변수를 둘러싼 소괄호는 선택사항 입니다. 본문을 둘러싼 중괄호는 필수사항 입니다.
 
 ```swift
 let individualScores = [75, 43, 103, 87, 12]
@@ -202,7 +202,7 @@ You can use if and let together to work with values that might be missing. These
 
 if 문에서는 조건부가 반드시 부울 \(Boolean\)로 표현되어야 합니다—즉, `if score { ... }` 와 같은 코드는 암시적으로 0과 비교하는 것이 아니라 에러를 의미합니다.
 
-`if` 와 `let` 을 사용하여 누락될 수 있는 값에 대해 사용할 수 있습니다. 이러한 값은 옵셔널로 표기됩니다. 옵셔널 값은 값을 포함하거나 값이 없음을 나타내는 `nil` 을 포함합니다. 옵셔널로 값을 표시하기 위해 값의 타입 뒤에 물음표 \(`?`\) 를 작성합니다.
+`if` 와 `let` 을 사용하여 누락될 수 있는 값에 대해 사용할 수 있습니다. 이러한 값은 옵셔널 (optional)로 표기됩니다. 옵셔널 값은 값을 포함하거나 값이 없음을 나타내는 `nil` 을 포함합니다. 옵셔널로 값을 표시하기 위해 값의 타입 뒤에 물음표 \(`?`\) 를 작성합니다.
 
 ```swift
 var optionalString: String? = "Hello"
@@ -256,7 +256,7 @@ if let nickname {
 Switches support any kind of data and a wide variety of comparison operations—they aren’t limited to integers and tests for equality.
 -->
 
-스위치는 모든 종류의 데이터와 다양한 비교 작업을 지원합니다—스위치는 정수 및 동등성 비교로 제한되지 않습니다.
+스위치 (switch)는 모든 종류의 데이터와 다양한 비교 작업을 지원합니다—스위치는 정수 (integer) 및 동등성 비교로 제한되지 않습니다.
 
 ```swift
 let vegetable = "red pepper"
@@ -291,9 +291,9 @@ You use for-in to iterate over items in a dictionary by providing a pair of name
 
 패턴과 일치하는 값을 상수에 할당하기 위해 패턴에서 `let` 을 어떻게 사용하는지 확인 하시기 바랍니다.
 
-일치하는 스위치 케이스 문을 실행하고 프로그램은 스위치 문을 종료합니다. 다음 케이스로 이어서 실행되지 않기 때문에 각 케이스 코드에 명시적으로 스위치 종료를 할 필요가 없습니다.
+일치하는 스위치 케이스 (case) 문을 실행하고 프로그램은 스위치 문을 종료합니다. 다음 케이스로 이어서 실행되지 않기 때문에 각 케이스 코드에 명시적으로 스위치 종료를 할 필요가 없습니다.
 
-`for`-`in` 을 사용하여 각 키-값 쌍에 사용할 이름의 쌍을 제공하여 딕셔너리의 항목을 반복합니다. 딕셔너리는 순서가 없는 콜렉션 이므로 키와 값은 임의의 순서로 반복됩니다.
+`for`-`in` 을 사용하여 각 키-값 쌍에 사용할 이름의 쌍을 제공하여 딕셔너리의 항목을 조회합니다. 딕셔너리는 순서가 없는 콜렉션 (collection) 이므로 키와 값은 임의의 순서로 조회됩니다.
 
 ```swift
 let interestingNumbers = [
@@ -347,7 +347,7 @@ print(m)
 You can keep an index in a loop by using ..< to make a range of indexes.
 -->
 
-인덱스의 범위를 만들기 위해선 `..<` 을 사용하여 루프에 인덱스를 유지할 수 있습니다.
+인덱스의 범위를 만들기 위해선 `..<` 을 사용하여 루프에 인덱스를 만들 수 있습니다.
 
 ```swift
 var total = 0
@@ -370,7 +370,7 @@ Use ..< to make a range that omits its upper value, and use ... to make a range 
 Use func to declare a function. Call a function by following its name with a list of arguments in parentheses. Use -> to separate the parameter names and types from the function’s return type.
 -->
 
-함수를 선언하려면 `func` 을 사용합니다. 소괄호 안에 인수의 목록과 함수의 이름으로 호출합니다. 함수의 반환 타입에서 파라미터 이름과 타입을 구분하기 위해 `->` 을 사용합니다.
+함수를 선언하려면 `func` 을 사용합니다. 소괄호 안에 인수의 목록과 함수의 이름으로 호출합니다. 함수의 반환 타입 (return type)에서 파라미터 (parameter) 이름과 타입을 구분하기 위해 `->` 을 사용합니다.
 
 ```swift
 func greet(person: String, day: String) -> String {
@@ -404,7 +404,7 @@ greet("John", on: "Wednesday")
 Use a tuple to make a compound value—for example, to return multiple values from a function. The elements of a tuple can be referred to either by name or by number.
 -->
 
-튜플을 사용하여 복합 값을 만듭니다—예를 들어 함수로 부터 여러개의 값을 반환할 때 사용합니다. 튜플의 요소는 이름 또는 번호로 참조할 수 있습니다.
+튜플 (tuple)을 사용하여 복합 값을 만듭니다—예를 들어 함수로 부터 여러개의 값을 반환할 때 사용합니다. 튜플의 요소는 이름 또는 번호로 참조할 수 있습니다.
 
 ```swift
 func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
@@ -469,7 +469,7 @@ increment(7)
 A function can take another function as one of its arguments.
 -->
 
-함수는 다른 함수를 인수 중 하나로 가질 수 있습니다.
+함수는 다른 함수를 인수 (argument) 중 하나로 가질 수 있습니다.
 
 ```swift
 func hasAnyMatches(list: [Int], condition: (Int) -> Bool) -> Bool {
@@ -491,7 +491,7 @@ hasAnyMatches(list: numbers, condition: lessThanTen)
 Functions are actually a special case of closures: blocks of code that can be called later. The code in a closure has access to things like variables and functions that were available in the scope where the closure was created, even if the closure is in a different scope when it’s executed—you saw an example of this already with nested functions. You can write a closure without a name by surrounding code with braces ({}). Use in to separate the arguments and return type from the body.
 -->
 
-함수는 나중에 호출될 수 있는 코드 블럭인 클로저의 특별한 케이스 입니다. 클로저에 있는 코드는 이미 중첩된 함수의 예제에서 보았듯이 클러저가 실행될 때 다른 범위에 있더라도 클로저가 생성된 범위에서 사용 가능한 변수와 함수와 같은 항목에 접근할 수 있습니다. 중괄호 \(`{}`\) 로 코드를 묶어 이름없이 클로저를 작성할 수 있습니다. 바디로 부터 인수와 반환 타입을 분리하기 위해 `in` 을 사용합니다.
+함수는 나중에 호출될 수 있는 코드 블럭인 클로저 (closure)의 특별한 케이스 입니다. 클로저에 있는 코드는 이미 중첩된 함수의 예제에서 보았듯이 클로저가 실행될 때 다른 범위에 있더라도 클로저가 생성된 범위에서 사용 가능한 변수와 함수와 같은 항목에 접근할 수 있습니다. 중괄호 \(`{}`\) 로 코드를 묶어 이름없이 클로저를 작성할 수 있습니다. 본문으로 부터 인수와 반환 타입을 분리하기 위해 `in` 을 사용합니다.
 
 ```swift
 numbers.map({ (number: Int) -> Int in
@@ -512,7 +512,7 @@ Rewrite the closure to return zero for all odd numbers.
 You have several options for writing closures more concisely. When a closure’s type is already known, such as the callback for a delegate, you can omit the type of its parameters, its return type, or both. Single statement closures implicitly return the value of their only statement.
 -->
 
-더 간단하게 클로저를 작성하기 위해 몇가지 선택사항이 있습니다. 대리자 \(delegate\) 에 대한 콜백과 같이 클로저의 타입을 이미 알고 있다면 파라미터의 타입, 반환 타입 또는 둘다 생략할 수 있습니다. 단일 클로저 구문은 암시적으로 구문의 값만 반환합니다.
+더 간단하게 클로저를 작성하기 위해 몇가지 선택사항이 있습니다. 대리자 \(delegate\)에 대한 콜백과 같이 클로저의 타입을 이미 알고 있다면 파라미터의 타입, 반환 타입 또는 둘다 생략할 수 있습니다. 단일 클로저 구문은 암시적으로 구문의 값만 반환합니다.
 
 ```swift
 let mappedNumbers = numbers.map({ number in 3 * number })
@@ -538,7 +538,7 @@ print(sortedNumbers)
 Use class followed by the class’s name to create a class. A property declaration in a class is written the same way as a constant or variable declaration, except that it’s in the context of a class. Likewise, method and function declarations are written the same way.
 -->
 
-`class` 뒤에 클래스의 이름을 사용하여 클래스를 생성합니다. 클래스에서 프로퍼티 선언은 클래스의 컨텍스트 내에 있다는 점을 제외하고는 상수 또는 변수를 선언하는 방법과 동일합니다. 마찬가지로 메서드와 함수 선언도 동일한 방법으로 작성됩니다.
+`class` 뒤에 클래스 (class)의 이름을 사용하여 클래스를 생성합니다. 클래스에서 프로퍼티 선언은 클래스의 컨텍스트 (context) 내에 있다는 점을 제외하고는 상수 또는 변수를 선언하는 방법과 동일합니다. 마찬가지로 메서드와 함수 선언도 동일한 방법으로 작성됩니다.
 
 ```swift
 class Shape {
@@ -573,7 +573,7 @@ var shapeDescription = shape.simpleDescription()
 This version of the Shape class is missing something important: an initializer to set up the class when an instance is created. Use init to create one.
 -->
 
-이 버전의 `Shape` 클래스는 인스턴스가 생성될 때 클래스를 설정하는 초기화 구문이 누락되었습니다. `init` 을 사용하여 생성합니다.
+이 버전의 `Shape` 클래스는 인스턴스가 생성될 때 클래스를 설정하는 초기화 구문 (initializer)이 누락되었습니다. `init` 을 사용하여 생성합니다.
 
 ```swift
 class NamedShape {
@@ -602,9 +602,9 @@ Methods on a subclass that override the superclass’s implementation are marked
 
 초기화 구문에서 `name` 인수와 `name` 프로퍼티를 구분하기 위해 `self` 가 어떻게 사용되는지 확인 하십시오. 초기화 구문의 인수는 클래스의 인스턴스를 생성할 때 함수 호출처럼 전달됩니다. 모든 프로퍼티는 `numberOfSides` 와 같이 선언 시나 `name` 과 같이 초기화 구문에서 값을 할당해야 합니다.
 
-객체가 할당 해제되기 전에 어떠한 정리작업이 필요하여 초기화 해제 구문을 생성하려면 `deinit` 을 사용합니다.
+객체가 할당 해제되기 전에 어떠한 정리작업이 필요하여 초기화 해제 구문 (deinitializer)을 생성하려면 `deinit` 을 사용합니다.
 
-하위 클래스는 클래스 이름 뒤에 콜론으로 구분하여 상위 클래스를 포함합니다. 클래스가 모든 표준 루트 클래스를 하위 클래스화 할 필요 없으므로 필요에 따라 상위 클래스를 포함하거나 생략할 수 있습니다.
+하위 클래스 (subclass)는 클래스 이름 뒤에 콜론으로 구분하여 상위 클래스 (superclass)를 포함합니다. 클래스가 모든 표준 루트 클래스를 하위 클래스화 할 필요 없으므로 필요에 따라 상위 클래스를 포함하거나 생략할 수 있습니다.
 
 상위 클래스의 구현을 재정의 하는 하위 클래스의 메서드는 `override` 로 표시됩니다—실수로 `override` 없이 메서드를 재정의 하면 에러로 컴파일러에 의해 감지됩니다. 컴파일러는 실제로 상위 클래스의 어떤 메서드도 실제로 재정의 하지 않는 `override` 가 있는 메서드를 감지합니다.
 
@@ -694,7 +694,7 @@ If you don’t need to compute the property but still need to provide code that�
 
 1. 하위 클래스가 선언한 프로퍼티의 값을 설정합니다.
 2. 상위 클래스의 초기화 구문을 호출합니다.
-3. 상위 클래스에 의해 정의된 프로퍼티의 값을 변경합니다. 메서드, getter, 또는 setter 를 사용하는 추가 설정 작업도 이 시점에서 수행할 수 있습니다.
+3. 상위 클래스에 의해 정의된 프로퍼티의 값을 변경합니다. 메서드 (method), getter, 또는 setter 를 사용하는 추가 설정 작업도 이 시점에서 수행할 수 있습니다.
 
 프로퍼티를 계산할 필요는 없지만 새로운 값을 설정하기 전과 후에 실행되는 코드를 제공하려면 `willSet` 과 `didSet` 을 사용하면 됩니다. 이렇게 제공한 코드는 초기화 구문의 외부에서 값이 변경될 때마다 실행됩니다. 예를 들어 아래의 클래스는 삼각형의 측면의 길이가 항상 사각형의 측면의 길이와 같다는 것을 확인합니다.
 
@@ -729,7 +729,7 @@ print(triangleAndSquare.triangle.sideLength)
 When working with optional values, you can write ? before operations like methods, properties, and subscripting. If the value before the ? is nil, everything after the ? is ignored and the value of the whole expression is nil. Otherwise, the optional value is unwrapped, and everything after the ? acts on the unwrapped value. In both cases, the value of the whole expression is an optional value.
 -->
 
-옵셔널 값으로 동작할 때 메서드, 프로퍼티, 그리고 서브 스크립트와 같은 동작 전에 `?` 을 작성할 수 있습니다. `?` 전의 값이 `nil` 이면 `?` 이후의 모든 것은 무시되고 전체 표현의 값은 `nil` 입니다. 그렇지 않으면 옵셔널 값은 언래핑 되고 `?` 후에 모든 동작은 언래핑 된 값으로 동작합니다. 이 경우 모드 전체 표현식의 값은 옵셔널 값입니다.
+옵셔널 값으로 동작할 때 메서드, 프로퍼티, 그리고 서브 스크립트 (subscript)와 같은 동작 전에 `?` 을 작성할 수 있습니다. `?` 전의 값이 `nil` 이면 `?` 이후의 모든 것은 무시되고 전체 표현의 값은 `nil` 입니다. 그렇지 않으면 옵셔널 값은 언래핑 되고 `?` 후에 모든 동작은 언래핑 된 값으로 동작합니다. 이 경우 모드 전체 표현식의 값은 옵셔널 값입니다.
 
 ```swift
 let optionalSquare: Square? = Square(sideLength: 2.5, name: "optional square")
@@ -783,7 +783,7 @@ By default, Swift assigns the raw values starting at zero and incrementing by on
 Use the init?(rawValue:) initializer to make an instance of an enumeration from a raw value. It returns either the enumeration case matching the raw value or nil if there’s no matching Rank.
 -->
 
-기본적으로 Swift 는 0을 시작으로 매번 증가하는 원시값을 할당하지만 명시적으로 특정 값으로 이 동작을 변경할 수 있습니다. 위의 예제에서 `Ace` 는 명시적으로 `1` 의 값이 주어지고 나머지 원시값은 순서대로 할당됩니다. 열거형의 원시 타입으로 문자열 또는 부동 소수점도 사용할 수 있습니다. 열거형 케이스의 원시값에 접근하기 위해 `rawValue` 프로퍼티를 사용합니다.
+기본적으로 Swift 는 0을 시작으로 매번 증가하는 원시값 (raw value)을 할당하지만 명시적으로 특정 값으로 이 동작을 변경할 수 있습니다. 위의 예제에서 `Ace` 는 명시적으로 `1` 의 값이 주어지고 나머지 원시값은 순서대로 할당됩니다. 열거형의 원시 타입으로 문자열 또는 부동 소수점도 사용할 수 있습니다. 열거형 케이스의 원시값에 접근하기 위해 `rawValue` 프로퍼티를 사용합니다.
 
 원시값으로 부터 열거형의 인스턴스를 생성하기 위해 `init?(rawValue:)` 초기화 구문을 사용합니다. 원시값이 일치하는 열거형 케이스나 `Rank` 에 일치하는 항목이 없으면 `nil` 을 반환합니다.
 
@@ -836,7 +836,7 @@ If an enumeration has raw values, those values are determined as part of the dec
 
 위에서 열거형의 `hearts` 케이스를 참조하는 두가지 방법에 유의하십시오: `hearts` 상수에 값을 할당할 때 명시적으로 타입을 지정하지 않았으므로 열거형 케이스 `Suit.hearts` 전체 이름으로 참조됩니다. 스위치에서 `self` 의 값은 이미 카드 \(suit\) 로 알고 있기 때문에 열거형 케이스는 짧은 형식인 `.hearts` 로 참조됩니다. 값의 타입을 이미 알고 있다면 언제나 짧은 형식을 사용할 수 있습니다.
 
-열거형이 원시값을 갖는 경우 선언의 부분으로 결정됩니다. 이것은 특정 열거형 케이스의 모든 인스턴스는 항상 같은 원시값을 갖는다는 의미입니다. 열거형 케이스의 또다른 선택은 케이스와 관련된 값을 가지는 것입니다—이러한 값은 인스턴스를 생성할 때 결정되고 열거형 케이스의 각 인스턴스에 대해 다를 수 있습니다. 연관된 값은 열거형 케이스 인스턴스의 저장된 프로퍼티처럼 동작한다고 생각할 수 있습니다. 예를 들어 서버에서 일출과 일몰 시간에 대해 요청한다고 가정해 봅시다. 서버는 요청된 정보에 대한 응답을 하거나 무엇이 잘못되었는지에 대한 설명을 응답합니다.
+열거형이 원시값을 갖는 경우 선언의 부분으로 결정됩니다. 이것은 특정 열거형 케이스의 모든 인스턴스는 항상 같은 원시값을 갖는다는 의미입니다. 열거형 케이스의 또다른 선택은 케이스와 연관된 값 (associated value)을 가지는 것입니다—이러한 값은 인스턴스를 생성할 때 결정되고 열거형 케이스의 각 인스턴스에 대해 다를 수 있습니다. 연관된 값은 열거형 케이스 인스턴스의 저장된 프로퍼티처럼 동작한다고 생각할 수 있습니다. 예를 들어 서버에서 일출과 일몰 시간에 대해 요청한다고 가정해 봅시다. 서버는 요청된 정보에 대한 응답을 하거나 무엇이 잘못되었는지에 대한 설명을 응답합니다.
 
 ```swift
 enum ServerResponse {
@@ -1015,7 +1015,7 @@ Use extension to add functionality to an existing type, such as new methods and 
 
 구조체를 수정하는 메서드를 표시하기위해 `SimpleStructure` 의 선언에서 `mutating` 키워드 사용을 주목하시기 바랍니다. 클래스의 메서드는 항상 클래스를 수정할 수 있으므로 `SimpleClass` 의 선언에는 `mutating` 으로 표시된 메서드가 필요하지 않습니다.
 
-새로운 메서드와 계산된 프로퍼티와 같이 존재하는 타입에 기능을 추가하려면 `extension` 을 사용합니다. 확장 \(extension\) 을 사용하여 다른 곳에 선언된 타입 또는 라이브러리나 프레임워크에서 가져온 타입에 프로토콜 준수를 추가할 수 있습니다.
+새로운 메서드와 계산된 프로퍼티와 같이 존재하는 타입에 기능을 추가하려면 `extension` 을 사용합니다. 확장 \(extension\)을 사용하여 다른 곳에 선언된 타입 또는 라이브러리나 프레임워크에서 가져온 타입에 프로토콜 준수를 추가할 수 있습니다.
 
 ```swift
 extension Int: ExampleProtocol {
@@ -1214,7 +1214,7 @@ possibleInteger = .some(100)
 Use where right before the body to specify a list of requirements—for example, to require the type to implement a protocol, to require two types to be the same, or to require a class to have a particular superclass.
 -->
 
-요구사항의 목록을 지정하기 위해 바디 바로 전에 `where` 을 사용합니다—예를 들어 타입이 프로토콜을 구현하도록 요구하거나 두 타입의 동일하도록 요구하거나 클래스에 특정 상위 클래스가 있어야 합니다.
+요구사항의 목록을 지정하기 위해 본문 바로 전에 `where` 을 사용합니다—예를 들어 타입이 프로토콜을 구현하도록 요구하거나 두 타입의 동일하도록 요구하거나 클래스에 특정 상위 클래스가 있어야 합니다.
 
 ```swift
 func anyCommonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> Bool

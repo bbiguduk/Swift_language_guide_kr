@@ -52,7 +52,7 @@ An asynchronous function or asynchronous method is a special kind of function or
 To indicate that a function or method is asynchronous, you write the async keyword in its declaration after its parameters, similar to how you use throws to mark a throwing function. If the function or method returns a value, you write async before the return arrow (->). For example, here’s how you might fetch the names of photos in a gallery:
 -->
 
-_비동기 함수 \(asynchronous function\)_ 또는 _비동기 메서드 \(asynchronous method\)_ 는 실행 도중에 일시적으로 중단될 수 있는 특수한 함수 또는 메서드 입니다. 이것은 완료될 때까지 실행되거나 오류가 발생하거나 반환되지 않는 일반적인 동기 함수 또는 메서드 \(synchronous functions and methods\) 와 대조됩니다. 비동기 함수 또는 메서드는 이 세가지 중 하나를 수행하지만 무언가를 기다리고 있을 때 중간에 일시 중지될 수도 있습니다. 비동기 함수 또는 메서드의 바디 내에서 실행을 일시 중지할 수 있는 부분을 표시합니다.
+_비동기 함수 \(asynchronous function\)_ 또는 _비동기 메서드 \(asynchronous method\)_ 는 실행 도중에 일시적으로 중단될 수 있는 특수한 함수 또는 메서드 입니다. 이것은 완료될 때까지 실행되거나 오류가 발생하거나 반환되지 않는 일반적인 동기 함수 또는 메서드 \(synchronous functions and methods\) 와 대조됩니다. 비동기 함수 또는 메서드는 이 세가지 중 하나를 수행하지만 무언가를 기다리고 있을 때 중간에 일시 중지될 수도 있습니다. 비동기 함수 또는 메서드의 본문 내에서 실행을 일시 중지할 수 있는 부분을 표시합니다.
 
 함수 또는 메서드가 비동기 임을 나타내려면 던지는 함수 \(throwing function\) 를 나타내기 위해 `throws` 사용하는 것과 유사하게 파라미터 뒤의 선언에 `async` 키워드를 작성합니다. 함수 또는 메서드가 값을 반환한다면 반환 화살표 \(`->`\) 전에 `async` 를 작성합니다. 예를 들어 갤러리에 사진의 이름을 가져오는 방법은 아래와 같습니다:
 
@@ -117,7 +117,7 @@ The possible suspension points in your code marked with await indicate that the 
 
 `await` 로 표시된 코드의 중단이 가능한 지점은 비동기 함수 또는 메서드가 반환되기를 기다리는 동안 현재 코드 부분이 실행을 일시적으로 중단할 수 있음을 나타냅니다. Swift 가 현재 쓰레드에서 코드의 실행을 일시 중단하고 대신 해당 쓰레드에서 다른 코드를 실행하기 때문에 이것을 _쓰레드 양보 \(yielding the thread\)_ 라고도 부릅니다. `await` 가 있는 코드는 실행을 일시 중단할 수 있어야 하므로 프로그램의 특정 위치에서만 비동기 함수 또는 메서드를 호출할 수 있습니다:
 
-* 비동기 함수, 메서드 또는 프로퍼티의 바디에 있는 코드
+* 비동기 함수, 메서드 또는 프로퍼티의 본문에 있는 코드
 * `@main` 으로 표시된 구조체, 클래스, 또는 열거형의 정적 \(static\) `main()` 메서드에 있는 코드
 * 아래의 [구조화되지 않은 동시성 \(Unstructured Concurrency\)](concurrency.md#unstructured-concurrency) 에 보이는 것처럼 구조화되지 않은 하위 작업의 코드
 

@@ -666,7 +666,7 @@ For example, the code below shows an instance method f whose return type is Self
 * 메서드의 반환 타입
 * 읽기전용 서브 스크립트의 반환 타입
 * 읽기전용 계산된 프로퍼티의 타입
-* 메서드의 바디
+* 메서드의 본문
 
 예를 들어 아래의 코드는 반환 타입이 `Self` 인 인스턴스 메서드 `f` 를 보여줍니다.
 

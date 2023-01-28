@@ -70,7 +70,7 @@ You may have noticed that the bodies of the swapTwoInts(_:_:), swapTwoStrings(_:
 It’s more useful, and considerably more flexible, to write a single function that swaps two values of any type. Generic code enables you to write such a function. (A generic version of these functions is defined below.)
 -->
 
-`swapTwoInts(_:_:)`, `swapTwoStrings(_:_:)`, 그리고 `swapTwoDoubles(_:_:)` 함수의 바디가 동일하다는 것을 알 수 있습니다. 차이점은 받아들이는 값의 타입만 \(`Int`, `String`, 그리고 `Double`\) 다릅니다.
+`swapTwoInts(_:_:)`, `swapTwoStrings(_:_:)`, 그리고 `swapTwoDoubles(_:_:)` 함수의 본문이 동일하다는 것을 알 수 있습니다. 차이점은 받아들이는 값의 타입만 \(`Int`, `String`, 그리고 `Double`\) 다릅니다.
 
 _모든 타입_ 의 2개의 값을 바꾸는 단일 함수로 작성하면 더 유용하고 더 유연합니다. 제너릭 코드는 이러한 함수를 작성할 수 있습니다 \(이 함수의 제너릭 버전은 아래에 정의됩니다\).
 
@@ -102,7 +102,7 @@ func swapTwoValues<T>(_ a: inout T, _ b: inout T) {
 The body of the swapTwoValues(_:_:) function is identical to the body of the swapTwoInts(_:_:) function. However, the first line of swapTwoValues(_:_:) is slightly different from swapTwoInts(_:_:). Here’s how the first lines compare:
 -->
 
-`swapTwoValues(_:_:)` 함수의 바디는 `swapTwoInts(_:_:)` 함수의 바디와 동일합니다. 그러나 `swapTwoValues(_:_:)` 의 첫번째 줄은 `swapTwoInts(_:_:)` 와 약간 다릅니다. 다음은 첫번째 줄 차이의 비교입니다:
+`swapTwoValues(_:_:)` 함수의 본문은 `swapTwoInts(_:_:)` 함수의 본문과 동일합니다. 그러나 `swapTwoValues(_:_:)` 의 첫번째 줄은 `swapTwoInts(_:_:)` 와 약간 다릅니다. 다음은 첫번째 줄 차이의 비교입니다:
 
 ```swift
 func swapTwoInts(_ a: inout Int, _ b: inout Int)
@@ -159,7 +159,7 @@ You can provide more than one type parameter by writing multiple type parameter 
 
 위의 `swapTwoValues(_:_:)` 예제에서 임의의 타입 `T` 는 _타입 파라미터 \(type parameter\)_ 의 예입니다. 타입 파라미터는 임의의 타입을 지정하고 이름을 지정하며 꺾쇠 괄호 \(예: `<T>`\) 사이에 기록하고 함수의 이름 바로 뒤에 작성됩니다.
 
-타입 파라미터를 지정하면 함수의 파라미터 \(`swapTwoValues(_:_:)` 함수의 `a` 와 `b` 와 같이\) 의 타입을 정의하기 위해 사용하거나 함수의 반환 타입이나 함수의 바디내에 타입 주석으로 사용할 수 있습니다. 각각의 경우 타입 파라미터는 함수가 호출될 때마다 _실제_ 타입으로 대체됩니다 \(위의 예 `swapTwoValues(_:_:)` 에서 `T` 는 첫번째 함수가 호출될 때 `Int` 로 대체되고 두번째 호출될 때 `String` 으로 대체됩니다\).
+타입 파라미터를 지정하면 함수의 파라미터 \(`swapTwoValues(_:_:)` 함수의 `a` 와 `b` 와 같이\) 의 타입을 정의하기 위해 사용하거나 함수의 반환 타입이나 함수의 본문 내에 타입 주석으로 사용할 수 있습니다. 각각의 경우 타입 파라미터는 함수가 호출될 때마다 _실제_ 타입으로 대체됩니다 \(위의 예 `swapTwoValues(_:_:)` 에서 `T` 는 첫번째 함수가 호출될 때 `Int` 로 대체되고 두번째 호출될 때 `String` 으로 대체됩니다\).
 
 콤마로 구분된 꺾쇠 괄호 안에 여러개 타입 파라미터를 작성하여 하나 이상의 타입 파라미터를 제공할 수 있습니다.
 
@@ -333,7 +333,7 @@ When you extend a generic type, you don’t provide a type parameter list as par
 The following example extends the generic Stack type to add a read-only computed property called topItem, which returns the top item on the stack without popping it from the stack:
 -->
 
-제너릭 타입을 확장할 때 확장의 정의의 부분으로 타입 파라미터 목록을 제공하지 않습니다. 대신에 _기존_ 타입 정의에서 타입 파라미터 목록은 확장의 바디내에서 가능하고 기존 타입 파라미터 이름은 기존 정의에서 타입 파라미터를 참조하는데 사용됩니다.
+제너릭 타입을 확장할 때 확장의 정의의 부분으로 타입 파라미터 목록을 제공하지 않습니다. 대신에 _기존_ 타입 정의에서 타입 파라미터 목록은 확장의 본문 내에서 가능하고 기존 타입 파라미터 이름은 기존 정의에서 타입 파라미터를 참조하는데 사용됩니다.
 
 다음의 예제는 스택에 팝 없이 스택의 가장 상단의 항목을 반환하는 `topItem` 이라는 읽기전용 계산된 프로퍼티를 추가하기 위해 제너릭 `Stack` 타입을 확장합니다:
 
@@ -760,7 +760,7 @@ The two containers to be checked don’t have to be the same type of container (
 
 [타입 제약 \(Type Constraints\)](generics.md#type-constraints) 을 사용하면 제너릭 함수, 서브 스크립트, 또는 타입과 연관된 타입 파라미터에 대한 요구사항을 정의할 수 있습니다.
 
-연관된 타입에 대한 요구사항을 정의하는 것도 유용할 수 있습니다. _제너릭 where 절 \(generic where clause\)_ 을 정의하여 이것을 수행할 수 있습니다. 제너릭 `where` 절을 사용하면 연관된 타입이 특정 프로토콜을 준수해야 하거나 특정 타입 파라미터와 연관된 타입이 동일해야 한다고 요구할 수 있습니다. 제너릭 `where` 절은 `where` 키워드로 시작하고 이어서 연관된 타입 또는 타입과 연관된 타입 사이의 동등 관계에 대한 제약이 따라옵니다. 타입 또는 함수의 바디의 여는 중괄호 바로 전에 제너릭 `where` 절을 작성합니다.
+연관된 타입에 대한 요구사항을 정의하는 것도 유용할 수 있습니다. _제너릭 where 절 \(generic where clause\)_ 을 정의하여 이것을 수행할 수 있습니다. 제너릭 `where` 절을 사용하면 연관된 타입이 특정 프로토콜을 준수해야 하거나 특정 타입 파라미터와 연관된 타입이 동일해야 한다고 요구할 수 있습니다. 제너릭 `where` 절은 `where` 키워드로 시작하고 이어서 연관된 타입 또는 타입과 연관된 타입 사이의 동등 관계에 대한 제약이 따라옵니다. 타입 또는 함수의 본문에 여는 중괄호 바로 전에 제너릭 `where` 절을 작성합니다.
 
 아래의 예제는 2개의 `Container` 인스턴스가 같은 순서로 같은 항목을 가지고 있는지 확인하는 `allItemsMatch` 라는 제너릭 함수를 정의합니다. 이 함수는 모든 항목이 일치하면 `true` 의 불린 값을 반환하고 그렇지 않으면 `false` 의 값을 반환합니다.
 
@@ -1084,7 +1084,7 @@ protocol ComparableContainer: Container where Item: Comparable { }
 Subscripts can be generic, and they can include generic where clauses. You write the placeholder type name inside angle brackets after subscript, and you write a generic where clause right before the opening curly brace of the subscript’s body. For example:
 -->
 
-서브 스크립트는 제너릭 일 수 있고 제너릭 `where` 절을 포함할 수 있습니다. `subscript` 다음에 꺾쇠 괄호 안에 임의의 타입 이름을 작성하고 서브 스크립트의 바디의 열린 중괄호 전에 제너릭 `where` 절을 작성합니다. 예를 들어:
+서브 스크립트는 제너릭 일 수 있고 제너릭 `where` 절을 포함할 수 있습니다. `subscript` 다음에 꺾쇠 괄호 안에 임의의 타입 이름을 작성하고 서브 스크립트의 본문에 열린 중괄호 전에 제너릭 `where` 절을 작성합니다. 예를 들어:
 
 ```swift
 extension Container {

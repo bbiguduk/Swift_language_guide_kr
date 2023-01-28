@@ -76,11 +76,11 @@ You can call the greet(person:) function multiple times with different input val
 To make the body of this function shorter, you can combine the message creation and the return statement into one line:
 -->
 
-`greet(person:)` 함수의 바디는 `greeting` 으로 불리는 새로운 `String` 상수 정의와 간단한 인사말 메세지 설정으로 시작합니다. 이 인사말은 `return` 키워드를 사용하여 함수의 바깥으로 전달됩니다. `return greeting` 이라는 코드 줄에서 함수는 실행을 완료하고 인사말의 현재값을 반환합니다.
+`greet(person:)` 함수의 본문은 `greeting` 으로 불리는 새로운 `String` 상수 정의와 간단한 인사말 메세지 설정으로 시작합니다. 이 인사말은 `return` 키워드를 사용하여 함수의 바깥으로 전달됩니다. `return greeting` 이라는 코드 줄에서 함수는 실행을 완료하고 인사말의 현재값을 반환합니다.
 
 다른 입력값으로 `greet(person:)` 함수를 여러번 호출할 수 있습니다. 위의 예제에서 `"Anna"` 와 `"Brian"` 의 입력값으로 호출할 경우 어떤일이 생기는지 보여줍니다. 이 함수는 각 경우에 맞춰 인사말을 반환합니다.
 
-이 함수의 바디를 더 짧게 만들기위해 메세지 생성과 반환 구문을 한줄로 결합할 수 있습니다:
+이 함수의 본문을 더 짧게 만들기위해 메세지 생성과 반환 구문을 한줄로 결합할 수 있습니다:
 
 ```swift
 func greetAgain(person: String) -> String {
@@ -251,7 +251,7 @@ Because the tuple’s member values are named as part of the function’s return
 
 `minMax(array:)` 함수는 2개의 `Int` 값을 포함한 튜플을 반환합니다. 이 값들은 함수의 반환 값을 조회할 때 이름으로 접근할 수 있도록 `min` 과 `max` 로 라벨되어 있습니다.
 
-`minMax(array:)` 함수의 바디는 배열의 첫번째 정수의 값을 `currentMin` 과 `currentMax` 라 불리는 2개의 동작 변수에 값을 설정하는 것으로 시작합니다. 그러면 함수는 배열의 나머지 값들을 반복하고 각 값이 `currentMin` 과 `currentMax` 의 값보다 더 작거나 더 큰지 확인합니다. 마지막으로 가장 작고 가장 큰 값은 2개의 `Int` 값인 튜플로 반환됩니다.
+`minMax(array:)` 함수의 본문은 배열의 첫번째 정수의 값을 `currentMin` 과 `currentMax` 라 불리는 2개의 동작 변수에 값을 설정하는 것으로 시작합니다. 그러면 함수는 배열의 나머지 값들을 반복하고 각 값이 `currentMin` 과 `currentMax` 의 값보다 더 작거나 더 큰지 확인합니다. 마지막으로 가장 작고 가장 큰 값은 2개의 `Int` 값인 튜플로 반환됩니다.
 
 튜플의 멤버 값은 함수의 반환 타입이므로 가장 작은 값과 가장 큰 값을 찾기 위해 점 구문으로 접근할 수 있습니다:
 
@@ -328,7 +328,7 @@ if let bounds = minMax(array: [8, -6, 2, 109, 3, 71]) {
 If the entire body of the function is a single expression, the function implicitly returns that expression. For example, both functions below have the same behavior:
 -->
 
-함수의 전체 바디가 한줄로 표현이 된다면 함수는 맹목적으로 표현식을 반환합니다. 예를 들어 아래의 두 함수는 모두 같은 동작을 합니다:
+함수의 전체 본문이 한줄로 표현이 된다면 함수는 맹목적으로 표현식을 반환합니다. 예를 들어 아래의 두 함수는 모두 같은 동작을 합니다:
 
 ```swift
 func greeting(for person: String) -> String {
@@ -417,7 +417,7 @@ print(greet(person: "Bill", from: "Cupertino"))
 The use of argument labels can allow a function to be called in an expressive, sentence-like manner, while still providing a function body that’s readable and clear in intent.
 -->
 
-인수 라벨을 사용하면 문장과 같은 표현방식으로 함수를 호출할 수 있는 동시에 읽기 쉽고 의도가 명확한 함수 바디를 제공할 수 있습니다.
+인수 라벨을 사용하면 문장과 같은 표현방식으로 함수를 호출할 수 있는 동시에 읽기 쉽고 의도가 명확한 함수 본문을 제공할 수 있습니다.
 
 ### 인수 라벨 생략 \(Omitting Argument Labels\)
 
@@ -476,7 +476,7 @@ The example below calculates the arithmetic mean (also known as the average) for
 
 _가변 파라미터 \(variadic parameter\)_ 는 0개 이상의 특정 타입의 값을 허용합니다. 함수가 호출될 때 여러개의 입력값이 전달될 수 있는 특정 파라미터는 가변 파라미터를 사용합니다. 가변 파라미터는 파라미터의 타입 이름 뒤에 세개의 기간 문자 \(`...`\)를 추가하여 작성합니다.
 
-가변 파라미터에 전달된 값은 함수 바디 내에서 적절한 타입의 배열로 사용할 수 있습니다. 예를 들어 `numbers` 라는 이름과 `Double...` 타입을 가진 가변 파라미터는 함수 바디 내에서 `[Double]` 타입의 `numbers` 라 불리는 상수 배열로 사용할 수 있습니다.
+가변 파라미터에 전달된 값은 함수 본문 내에서 적절한 타입의 배열로 사용할 수 있습니다. 예를 들어 `numbers` 라는 이름과 `Double...` 타입을 가진 가변 파라미터는 함수 본문 내에서 `[Double]` 타입의 `numbers` 라 불리는 상수 배열로 사용할 수 있습니다.
 
 아래 예제는 길이에 관계없이 숫자 목록에 대한 _산술 평균_ 을 계산합니다:
 
@@ -510,7 +510,7 @@ You write an in-out parameter by placing the inout keyword right before a parame
 You can only pass a variable as the argument for an in-out parameter. You can’t pass a constant or a literal value as the argument, because constants and literals can’t be modified. You place an ampersand (&) directly before a variable’s name when you pass it as an argument to an in-out parameter, to indicate that it can be modified by the function.
 -->
 
-함수 파라미터는 기본적으로 상수입니다. 해당 함수의 바디 내에서 함수 파라미터 값을 변경하려고 하면 컴파일 타입 에러가 발생합니다. 이것은 실수로 파라미터의 값을 변경할 수 없다는 것을 의미합니다. 함수의 파라미터 값을 변경하고 함수 호출이 종료된 후에도 이러한 변경된 값을 유지하고 싶다면 _in-out 파라미터 \(in-out parameter\)_ 로 대신 정의하십시오.
+함수 파라미터는 기본적으로 상수입니다. 해당 함수의 본문 내에서 함수 파라미터 값을 변경하려고 하면 컴파일 타입 에러가 발생합니다. 이것은 실수로 파라미터의 값을 변경할 수 없다는 것을 의미합니다. 함수의 파라미터 값을 변경하고 함수 호출이 종료된 후에도 이러한 변경된 값을 유지하고 싶다면 _in-out 파라미터 \(in-out parameter\)_ 로 대신 정의하십시오.
 
 in-out 파라미터는 파라미터의 타입 바로 전에 `inout` 키워드를 작성합니다. in-out 파라미터는 함수로 전달하는 값을 가지고 있고 함수로 부터 이 값을 수정하고 원래 값을 대체하기위해 함수 밖으로 다시 되돌려 줍니다. In-out 파라미터와 컴파일러 최적화의 동작에 대한 자세한 설명은 [In-Out 파라미터 \(In-Out Parameters\)](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID545) 를 참고 바랍니다.
 
@@ -568,7 +568,7 @@ In-out parameters aren’t the same as returning a value from a function. The sw
 -->
 
 > NOTE  
-> in-out 파라미터는 함수에서 값을 반환하는 것과 다릅니다. 위의 `swapTwoInts` 예제는 반환 타입을 정의하거나 값을 반환하지 않지만 `someInt` 와 `anotherInt` 의 값은 여전히 수정합니다. In-out 파라미터는 함수가 함수 바디의 범위를 벗어나 영향을 미치는 다른 방법입니다.
+> in-out 파라미터는 함수에서 값을 반환하는 것과 다릅니다. 위의 `swapTwoInts` 예제는 반환 타입을 정의하거나 값을 반환하지 않지만 `someInt` 와 `anotherInt` 의 값은 여전히 수정합니다. In-out 파라미터는 함수가 함수 본문의 범위를 벗어나 영향을 미치는 다른 방법입니다.
 
 ## 함수 타입 \(Function Types\)
 

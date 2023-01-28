@@ -157,7 +157,7 @@ Protocols can require specific instance methods and type methods to be implement
 As with type property requirements, you always prefix type method requirements with the static keyword when they’re defined in a protocol. This is true even though type method requirements are prefixed with the class or static keyword when implemented by a class:
 -->
 
-프로토콜은 준수하는 타입에 의해 구현되기 위해 지정한 인스턴스 메서드와 타입 메서드를 요구할 수 있습니다. 이 메서드는 일반적인 인스턴스와 타입 메서드와 같은 방식으로 명시적으로 프로토콜의 정의의 부분으로 작성되지만 중괄호가 없거나 메서드 바디가 없습니다. 일반적인 메서드와 같은 규칙에 따라 가변 파라미터는 허용됩니다. 그러나 기본 값은 프로토콜의 정의 내에서 메서드 파라미터에 대해 지정될 수 없습니다.
+프로토콜은 준수하는 타입에 의해 구현되기 위해 지정한 인스턴스 메서드와 타입 메서드를 요구할 수 있습니다. 이 메서드는 일반적인 인스턴스와 타입 메서드와 같은 방식으로 명시적으로 프로토콜의 정의의 부분으로 작성되지만 중괄호가 없거나 메서드 본문이 없습니다. 일반적인 메서드와 같은 규칙에 따라 가변 파라미터는 허용됩니다. 그러나 기본 값은 프로토콜의 정의 내에서 메서드 파라미터에 대해 지정될 수 없습니다.
 
 타입 프로퍼티 요구사항과 마찬가지로 프로토콜에 정의될 때 `static` 키워드를 항상 타입 메서드 요구사항 앞에 표기합니다. 클래스에 의해 구현될 때 타입 메서드 요구사항에 `class` 또는 `static` 키워드가 접두사로 붙는 경우에도 마찬가지입니다:
 
@@ -281,7 +281,7 @@ lightSwitch.toggle()
 Protocols can require specific initializers to be implemented by conforming types. You write these initializers as part of the protocol’s definition in exactly the same way as for normal initializers, but without curly braces or an initializer body:
 -->
 
-프로토콜은 준수하는 타입에 의해 지정된 구현된 초기화 구문을 요구할 수 있습니다. 일반적인 초기화 구문과 동일한 방식으로 명시적으로 프로토콜의 정의의 부분으로 초기화 구문을 작성하지만 중괄호 또는 초기화 구문 바디는 없이 작성합니다:
+프로토콜은 준수하는 타입에 의해 지정된 구현된 초기화 구문을 요구할 수 있습니다. 일반적인 초기화 구문과 동일한 방식으로 명시적으로 프로토콜의 정의의 부분으로 초기화 구문을 작성하지만 중괄호 또는 초기화 구문 본문 없이 작성합니다:
 
 ```swift
 protocol SomeProtocol {

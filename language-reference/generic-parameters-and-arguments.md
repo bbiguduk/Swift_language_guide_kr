@@ -64,7 +64,7 @@ simpleMax(3.14159, 2.71828) // T is inferred to be Double
 You can specify additional requirements on type parameters and their associated types by including a generic where clause right before the opening curly brace of a type or function’s body. A generic where clause consists of the where keyword, followed by a comma-separated list of one or more requirements.
 -->
 
-타입이나 함수의 바디의 열린 괄호 직전에 제너릭 `where` 절을 포함하여 타입 파라미터와 연관된 타입의 요구사항을 추가로 지정할 수 있습니다. 제너릭 `where` 절은 `where` 키워드 다음에 콤마로 구분된 하나 이상의 _요구사항 (requirements)_ 로 구성됩니다.
+타입이나 함수의 본문에 열린 괄호 직전에 제너릭 `where` 절을 포함하여 타입 파라미터와 연관된 타입의 요구사항을 추가로 지정할 수 있습니다. 제너릭 `where` 절은 `where` 키워드 다음에 콤마로 구분된 하나 이상의 _요구사항 (requirements)_ 로 구성됩니다.
 
 ![](<../.gitbook/assets/스크린샷 2021-02-22 오후 3.44.04.png>)
 

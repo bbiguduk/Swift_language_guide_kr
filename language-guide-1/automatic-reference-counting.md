@@ -716,7 +716,7 @@ The example below shows how you can create a strong reference cycle when using a
 
 위에서 두 클래스 인스턴스 프로퍼티가 서로 강한 참조를 유지할 때 강한 참조 사이클이 어떻게 생성될 수 있는지 보았습니다. 또한 강한 참조 사이클을 끊기 위해 약한 참조와 미소유 참조를 어떻게 사용해야 하는지 보았습니다.
 
-강한 참조 사이클은 클래스 인스턴스의 프로퍼티에 클로저를 할당하고 해당 클로저의 바디에 인스턴스를 캡처하는 경우에도 발생할 수 있습니다. 이 캡처는 클로저의 바디는 `self.someProperty` 와 같이 인스턴스의 프로퍼티에 접근하거나 클로저는 `self.someMethod()` 와 같이 인스턴스의 메서드를 호출하기 때문에 발생할 수 있습니다. 두 경우 모두 이러한 접근은 클로저가 `self` 를 "캡처" 하여 강한 참조 사이클을 생성합니다.
+강한 참조 사이클은 클래스 인스턴스의 프로퍼티에 클로저를 할당하고 해당 클로저의 본문에 인스턴스를 캡처하는 경우에도 발생할 수 있습니다. 이 캡처는 클로저의 본문은 `self.someProperty` 와 같이 인스턴스의 프로퍼티에 접근하거나 클로저는 `self.someMethod()` 와 같이 인스턴스의 메서드를 호출하기 때문에 발생할 수 있습니다. 두 경우 모두 이러한 접근은 클로저가 `self` 를 "캡처" 하여 강한 참조 사이클을 생성합니다.
 
 이 강한 참조 사이클은 클래스와 같이 클로저는 _참조 타입 \(reference types\)_ 이기 때문에 발생합니다. 프로퍼티에 클로저를 할당하면 해당 클로저에 _참조_ 를 할당하는 것입니다. 본질적으로 두 강한 참조는 서로 유지되므로 위에서와 같은 문제입니다. 그러나 두 클래스 인스턴스가 아니라 이번에는 서로 유지하는 클래스 인스턴스와 클로저입니다.
 
@@ -826,7 +826,7 @@ Unfortunately, the HTMLElement class, as written above, creates a strong referen
 The instance’s asHTML property holds a strong reference to its closure. However, because the closure refers to self within its body (as a way to reference self.name and self.text), the closure captures self, which means that it holds a strong reference back to the HTMLElement instance. A strong reference cycle is created between the two. (For more information about capturing values in a closure, see Capturing Values.)
 -->
 
-인스턴스의 `asHTML` 프로퍼티는 클로저에 대해 강한 참조를 유지합니다. 그러나 클로저는 바디 내에서 `self.name` 과 `self.text` 를 참조하는 방법 처럼 `self` 를 참조하기 때문에 클로저는 `HTMLElement` 인스턴스에 다시 강한 참조를 유지한다는 의미로 `self` 를 _캡처_ 합니다. 둘 사이에 강한 참조 사이클이 생성됩니다 \(자세한 내용은 [캡처값 \(Capturing Values\)](closures.md#capturing-values) 을 참고 바랍니다\).
+인스턴스의 `asHTML` 프로퍼티는 클로저에 대해 강한 참조를 유지합니다. 그러나 클로저는 본문 내에서 `self.name` 과 `self.text` 를 참조하는 방법 처럼 `self` 를 참조하기 때문에 클로저는 `HTMLElement` 인스턴스에 다시 강한 참조를 유지한다는 의미로 `self` 를 _캡처_ 합니다. 둘 사이에 강한 참조 사이클이 생성됩니다 \(자세한 내용은 [캡처값 \(Capturing Values\)](closures.md#capturing-values) 을 참고 바랍니다\).
 
 <!--
 NOTE
@@ -858,7 +858,7 @@ Note that the message in the HTMLElement deinitializer isn’t printed, which sh
 You resolve a strong reference cycle between a closure and a class instance by defining a capture list as part of the closure’s definition. A capture list defines the rules to use when capturing one or more reference types within the closure’s body. As with strong reference cycles between two class instances, you declare each captured reference to be a weak or unowned reference rather than a strong reference. The appropriate choice of weak or unowned depends on the relationships between the different parts of your code.
 -->
 
-클로저의 정의의 부분으로 _캡처 목록 \(capture list\)_ 을 정의하여 클로저와 클래스 인스턴스 간의 강한 참조 사이클을 해결합니다. 캡처 목록은 클로저의 바디 내에서 하나 이상의 참조 타입을 캡처할 때 사용할 규칙을 정의합니다. 두 클래스 간의 강한 참조 사이클과 마찬가지로 캡처된 각 참조를 강한 참조가 아닌 약한 참조 또는 미소유 참조로 선언합니다. 약한 참조 또는 미소유 참조의 적절한 선택은 코드의 다른 부분 간의 관계에 따라 다릅니다.
+클로저의 정의의 부분으로 _캡처 목록 \(capture list\)_ 을 정의하여 클로저와 클래스 인스턴스 간의 강한 참조 사이클을 해결합니다. 캡처 목록은 클로저의 본문 내에서 하나 이상의 참조 타입을 캡처할 때 사용할 규칙을 정의합니다. 두 클래스 간의 강한 참조 사이클과 마찬가지로 캡처된 각 참조를 강한 참조가 아닌 약한 참조 또는 미소유 참조로 선언합니다. 약한 참조 또는 미소유 참조의 적절한 선택은 코드의 다른 부분 간의 관계에 따라 다릅니다.
 
 <!--
 NOTE
@@ -911,7 +911,7 @@ Conversely, define a capture as a weak reference when the captured reference may
 
 클로저와 캡처한 인스턴스가 항상 서로를 참조하고 항상 같은 시간에 할당 해제될 때 클로저의 캡처를 미소유 참조로 정의합니다.
 
-반대로 캡처된 참조가 향후에 `nil` 이 될 때 약한 참조로 캡처를 정의합니다. 약한 참조는 항상 옵셔널 타입이고 참조하는 인스턴스가 할당 해제되면 자동으로 `nil` 이 됩니다. 이를 사용하여 클로저의 바디 내에서 존재하는지 확인할 수 있습니다.
+반대로 캡처된 참조가 향후에 `nil` 이 될 때 약한 참조로 캡처를 정의합니다. 약한 참조는 항상 옵셔널 타입이고 참조하는 인스턴스가 할당 해제되면 자동으로 `nil` 이 됩니다. 이를 사용하여 클로저의 본문 내에서 존재하는지 확인할 수 있습니다.
 
 <!--
 NOTE

@@ -78,7 +78,7 @@ counter.reset()
 Function parameters can have both a name (for use within the function’s body) and an argument label (for use when calling the function), as described in Function Argument Labels and Parameter Names. The same is true for method parameters, because methods are just functions that are associated with a type.
 -->
 
-함수 파라미터는 [함수 인자 라벨과 파라미터 명 \(Function Argument Labels and Parameter Names\)](functions.md#function-argument-labels-and-parameter-names) 에서 설명 했듯이 함수의 바디 내에서 사용하는 이름과 함수를 호출할 때 사용하는 인자 라벨 둘다 가질 수 있습니다. 메서드는 타입과 관련된 함수이므로 메서드 파라미터도 동일하게 적용됩니다.
+함수 파라미터는 [함수 인자 라벨과 파라미터 명 \(Function Argument Labels and Parameter Names\)](functions.md#function-argument-labels-and-parameter-names) 에서 설명 했듯이 함수의 본문 내에서 사용하는 이름과 함수를 호출할 때 사용하는 인자 라벨 둘다 가질 수 있습니다. 메서드는 타입과 관련된 함수이므로 메서드 파라미터도 동일하게 적용됩니다.
 
 ### self 프로퍼티 \(The self Property\)
 
@@ -273,9 +273,9 @@ The example below defines a structure called LevelTracker, which tracks a player
 All of the game’s levels (apart from level one) are locked when the game is first played. Every time a player finishes a level, that level is unlocked for all players on the device. The LevelTracker structure uses type properties and methods to keep track of which levels of the game have been unlocked. It also tracks the current level for an individual player.
 -->
 
-타입 메서드의 바디 내에서 암시적 `self` 프로퍼티는 타입의 인스턴스가 아닌 타입 자체를 참조합니다. 인스턴스 프로퍼티와 인스턴스 메서드 파라미터에서와 같이 `self` 를 타입 프로퍼티와 타입 메서드 파라미터를 명확하게 하기위해 사용할 수 있다는 의미입니다.
+타입 메서드의 본문 내에서 암시적 `self` 프로퍼티는 타입의 인스턴스가 아닌 타입 자체를 참조합니다. 인스턴스 프로퍼티와 인스턴스 메서드 파라미터에서와 같이 `self` 를 타입 프로퍼티와 타입 메서드 파라미터를 명확하게 하기위해 사용할 수 있다는 의미입니다.
 
-일반적으로 타입 메서드의 바디 내에서 사용하는 정규화되지 않은 메서드와 프로퍼티 이름은 다른 타입 레벨 메서드와 프로퍼티를 참조합니다. 타입 메서드는 타입 이름을 접두어로 필요치 않고 다른 메서드의 이름으로 다른 타입 메서드를 호출할 수 있습니다. 유사하게 구조체와 열거형에서 타입 메서드는 타입 이름 접두어 없이 타입 프로퍼티의 이름을 사용하여 타입 프로퍼티에 접근할 수 있습니다.
+일반적으로 타입 메서드의 본문 내에서 사용하는 정규화되지 않은 메서드와 프로퍼티 이름은 다른 타입 레벨 메서드와 프로퍼티를 참조합니다. 타입 메서드는 타입 이름을 접두어로 필요치 않고 다른 메서드의 이름으로 다른 타입 메서드를 호출할 수 있습니다. 유사하게 구조체와 열거형에서 타입 메서드는 타입 이름 접두어 없이 타입 프로퍼티의 이름을 사용하여 타입 프로퍼티에 접근할 수 있습니다.
 
 아래 예제는 게임의 다른 레벨 또는 스테이지를 통해 사용자의 진행상황을 추적하는 `LevelTracker` 라는 구조체를 정의합니다. 이것은 1인용 게임이지만 단일 디바이스에서 여러명의 플레이어를 위한 정보를 저장할 수 있습니다.
 

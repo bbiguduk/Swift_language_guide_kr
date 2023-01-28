@@ -149,7 +149,7 @@ When the expression on the left-hand side of an infix operator is marked with th
 
 `await` 로 표시된 표현식을 _잠재적 중단 지점 (potential suspension point)_ 이라 합니다. 비동기 함수의 실행은 `await` 로 표시된 각 표현식에서 일시 중단될 수 있습니다. 또한 동시 코드의 실행은 다른 시점에서 중단되지 않습니다. 이는 잠재적 중단 지점 사이의 코드가 다음 잠재적 중단 지점 이전에 업데이트를 완료하는 경우 일시적으로 중단을 깨야하는 상태를 안전하게 업데이트 할 수 있음을 의미합니다.
 
-`await` 표현식은 `async(priority:operation:)` 함수에 전달된 후행 클로저와 같은 비동기 컨텍스트 내에서만 나타날 수 있습니다. `defer` 구문의 바디나 동기 함수 타입의 자동 클로저 (autoclosure) 내에서는 나타날 수 없습니다.
+`await` 표현식은 `async(priority:operation:)` 함수에 전달된 후행 클로저와 같은 비동기 컨텍스트 내에서만 나타날 수 있습니다. `defer` 구문의 본문이나 동기 함수 타입의 자동 클로저 (autoclosure) 내에서는 나타날 수 없습니다.
 
 중위 연산자 (infix operator) 의 좌항에 `await` 연산자로 표시되면 해당 연산자는 전체 중위 표현식에 적용됩니다. 즉, 괄호를 사용하여 연산자의 적용 범위를 명시할 수 있습니다.
 
@@ -576,7 +576,7 @@ There are several special forms that allow closures to be written more concisely
 The following closure expressions are equivalent:
 -->
 
-클로저의 바디에 try 표현식이 포함되어 있다면 클로저는 throwing 으로 이해됩니다. 마찬가지로 클로저에 `await` 표현식이 포함되어 있다면 그것은 비동기로 이해됩니다.
+클로저의 본문에 try 표현식이 포함되어 있다면 클로저는 throwing 으로 이해됩니다. 마찬가지로 클로저에 `await` 표현식이 포함되어 있다면 그것은 비동기로 이해됩니다.
 
 클로저를 보다 간결하게 작성할 수 있는 몇가지 특별한 형식이 있습니다:
 
