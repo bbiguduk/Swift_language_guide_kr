@@ -116,7 +116,7 @@ var threeDoubles = Array(repeating: 0.0, count: 3)
 You can create a new array by adding together two existing arrays with compatible types with the addition operator (+). The new array’s type is inferred from the type of the two arrays you add together:
 -->
 
-동등한 타입의 2개의 존재하는 배열을 더하기 연산자 \(`+`\)를 통해 합쳐서 새로운 배열을 생성할 수 있습니다. 새로운 배열의 타입은 합쳐진 2개의 배열의 타입으로 부터 추론됩니다:
+동등한 타입의 2개의 존재하는 배열을 덧셈 연산자 \(`+`\)를 통해 합쳐서 새로운 배열을 생성할 수 있습니다. 새로운 배열의 타입은 합쳐진 2개의 배열의 타입으로 부터 추론됩니다:
 
 ```swift
 var anotherThreeDoubles = Array(repeating: 2.5, count: 3)

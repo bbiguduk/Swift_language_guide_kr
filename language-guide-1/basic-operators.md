@@ -10,9 +10,9 @@ Swift also provides range operators that aren’t found in C, such as a..<b and 
 This chapter describes the common operators in Swift. Advanced Operators covers Swift’s advanced operators, and describes how to define your own custom operators and implement the standard operators for your own custom types.
 -->
 
-_연산자 \(operator\)_ 는 값을 체크, 변경, 또는 결합하기 위해 사용하는 기호 또는 구 입니다. 예를 들어 더하기 연산자 \(`+`\)는 `let i = 1 + 2` 에서처럼 두 숫자를 더하고 논리 AND 연산자 \(`&&`\)는 `if enteredDoorCode && passedRetinaScan` 에서처럼 두 부울 값을 결합합니다.
+_연산자 \(operator\)_ 는 값을 체크, 변경, 또는 결합하기 위해 사용하는 기호 또는 구 입니다. 예를 들어 덧셈 연산자 (addition operator) \(`+`\)는 `let i = 1 + 2` 에서처럼 두 숫자를 더하고 논리 AND 연산자 \(`&&`\)는 `if enteredDoorCode && passedRetinaScan` 에서처럼 두 부울 (Boolean) 값을 결합합니다.
 
-Swift는 C와 같은 언어에서 알고있는 연산자를 지원하고 코딩 에러를 제거하기 위해 여러 기능을 향상시킵니다. 대입 연산자 \(`=`\)는 등호 연산자 \(`==`\)를 의도했을 때 실수로 사용되지 않도록 값을 반환하지 않습니다. 산술 연산자 \(`+`, `-`, `*`, `/`, `%` 등\)는 타입이 수용할 수 있는 값의 범위보다 크거나 작은 숫자로 작업을 수행하려 할 때 예기치 않은 결과를 피하기 위해 값 오버플로우를 감지하고 허락하지 않습니다. [오버플로우 연산자 \(Overflow Operators\)](advanced-operators.md#overflow-operators) 에서 설명한 대로 Swift 오버플로우 연산자를 사용하여 값 오버플로우 동작을 결정할 수 있습니다.
+Swift는 C와 같은 언어에서 알고있는 연산자를 지원하고 코딩 에러를 제거하기 위해 여러 기능을 향상시킵니다. 대입 연산자 (assignment operator) \(`=`\)는 등호 연산자 \(`==`\)를 의도했을 때 실수로 사용되지 않도록 값을 반환하지 않습니다. 산술 연산자 \(`+`, `-`, `*`, `/`, `%` 등\)는 타입이 수용할 수 있는 값의 범위보다 크거나 작은 숫자로 작업을 수행하려 할 때 예기치 않은 결과를 피하기 위해 값 오버플로우 (overflow)를 감지하고 허락하지 않습니다. [오버플로우 연산자 \(Overflow Operators\)](advanced-operators.md#overflow-operators) 에서 설명한 대로 Swift 오버플로우 연산자를 사용하여 값 오버플로우 동작을 결정할 수 있습니다.
 
 Swift는 C에서는 없는 값의 범위를 나타내는 `a..<b` 및 `a...b` 와 같은 범위 연산자를 제공합니다.
 
@@ -36,7 +36,7 @@ The values that operators affect are operands. In the expression 1 + 2, the + sy
 * _이항 \(Binary\)_ 연산자는 `2 + 3` 처럼 2개의 항목에 동작하고 2개의 항목 사이에 위치해야 하므로 위치는 _고정_ 입니다.
 * _삼항 \(Ternary\)_ 연산자는 3개의 항목에 동작합니다. C 처럼 Swift는 하나의 삼항 연산자만 있으며 삼항 조건 연산자 \(`a ? b : c`\)입니다.
 
-연산자가 영향을 주는 값은 _피연산자_ 입니다. `1 + 2` 표현식에서 `+` 기호는 중위 연산자이고 값 `1` 과 `2` 는 피연산자 입니다.
+연산자가 영향을 주는 값은 _피연산자_ 입니다. `1 + 2` 표현식에서 `+` 기호는 중위 연산자 (infix operator)이고 값 `1` 과 `2` 는 피연산자 입니다.
 
 ## 대입 연산자 \(Assignment Operator\)
 
@@ -57,7 +57,7 @@ a = b
 If the right side of the assignment is a tuple with multiple values, its elements can be decomposed into multiple constants or variables at once:
 -->
 
-대입의 우항이 여러개의 값이 있는 튜플이라면 튜플의 요소는 여러개의 상수 또는 변수로 한번에 분해할 수 있습니다:
+대입의 우항이 여러개의 값이 있는 튜플이라면 튜플의 요소는 여러개의 상수 또는 변수로 한번에 분해될 수 있습니다:
 
 ```swift
 let (x, y) = (1, 2)
@@ -207,13 +207,13 @@ The sign of b is ignored for negative values of b. This means that a % b and a %
 
 `b` 에 음수는 무시됩니다. 이것은 `a % b` 와 `a % -b` 는 항상 같은 결과를 얻는다는 의미입니다.
 
-### 단항 빼기 연산자 \(Unary Minus Operator\)
+### 단항 뺄셈 연산자 \(Unary Minus Operator\)
 
 <!--
 The sign of a numeric value can be toggled using a prefixed -, known as the unary minus operator:
 -->
 
-숫자 값의 부호는 `-` 접미사를 사용하여 변경할 수 있으며 이것을 _단항 빼기 연산자 \(unary minus operator\)_ 라고 합니다.
+숫자 값의 부호는 `-` 접미사를 사용하여 변경할 수 있으며 이것을 _단항 뺄셈 연산자 \(unary minus operator\)_ 라고 합니다.
 
 ```swift
 let three = 3
@@ -227,13 +227,13 @@ The unary minus operator (-) is prepended directly before the value it operates 
 
 단항 빼기 연산자 \(`-`\)는 공백없이 작동하는 값 바로 앞에 추가됩니다.
 
-### 단항 더하기 연산자 \(Unary Plus Operator\)
+### 단항 덧셈 연산자 \(Unary Plus Operator\)
 
 <!--
 The unary plus operator (+) simply returns the value it operates on, without any change:
 -->
 
-_단항 더하기 연산자_ \(`+`\)는 어떠한 변경없이 그 값을 그대로 반환합니다:
+_단항 덧셈 연산자_ \(`+`\)는 어떠한 변경없이 그 값을 그대로 반환합니다:
 
 ```swift
 let minusSix = -6
@@ -244,7 +244,7 @@ let alsoMinusSix = +minusSix  // alsoMinusSix equals -6
 Although the unary plus operator doesn’t actually do anything, you can use it to provide symmetry in your code for positive numbers when also using the unary minus operator for negative numbers.
 -->
 
-단항 더하기 연산자는 실제로 아무런 동작을 하지 않지만 음수에 단항 빼기 연산자를 사용할 때 양수에 대칭을 위해 사용할 수 있습니다.
+단항 덧셈 연산자는 실제로 아무런 동작을 하지 않지만 음수에 단항 뺄셈 연산자를 사용할 때 양수에 대칭을 위해 사용할 수 있습니다.
 
 ## 복합 대입 연산자 \(Compound Assignment Operators\)
 
@@ -278,7 +278,7 @@ The compound assignment operators don’t return a value. For example, you can�
 For information about the operators provided by the Swift standard library, see Operator Declarations.
 -->
 
-Swift 표준 라이브러리에서 제공하는 연산자에 대한 내용은 [연산자 선언 \(Operator Declarations\)](https://developer.apple.com/documentation/swift/operator_declarations) 를 참고 바랍니다.
+Swift 표준 라이브러리에서 제공하는 연산자에 대한 내용은 [연산자 선언 \(Operator Declarations\)](https://developer.apple.com/documentation/swift/operator_declarations) 을 참고 바랍니다.
 
 ## 비교 연산자 \(Comparison Operators\)
 
@@ -365,7 +365,7 @@ Tuples can be compared with a given operator only if the operator can be applied
 
 위의 예제 첫번째 줄에서 왼쪽에서 오른쪽으로 비교하는 동작을 확인할 수 있습니다. 튜플의 다른 어떤값과 상관없이 `1` 이 `2` 보다 작기 때문에 `(1, "zebra")` 는 `(2, "apple")` 보다 작습니다. 튜플의 첫번째 요소에 의해 비교가 이미 마쳤기 때문에 `"zebra"` 가 `"apple"` 보다 더 작은지 여부는 아무런 상관이 없습니다. 그러나 튜플의 첫번째 요소가 같을 때는 두번째 요소가 _비교됩니다._ - 위 예제에서 두번째와 세번째 줄의 결과를 살펴보면 알 수 있습니다.
 
-튜플은 해당 튜플의 각 값에 연산자를 적용할 수 있을 때에만 주어진 연산자로 비교할 수 있습니다. 예를 들어 아래의 코드에서 `String` 과 `Int` 값은 `<` 연산자를 사용하여 비교가 가능하므로 타입 `(String, Int)` 의 2개의 튜플은 비교할 수 있습니다. 반대로 `<` 연산자는 `Bool` 값에 적용할 수 없기 때문에 타입 `(String, Bool)` 의 2개의 튜플은 `<` 연산자로 비교할 수 없습니다.
+튜플은 해당 튜플의 각 값에 연산자를 적용할 수 있을 때에만 주어진 연산자로 비교할 수 있습니다. 예를 들어 아래의 코드에서 `String` 과 `Int` 값은 `<` 연산자를 사용하여 비교가 가능하므로 타입 `(String, Int)` 의 두 튜플은 비교할 수 있습니다. 반대로 `<` 연산자는 `Bool` 값에 적용할 수 없기 때문에 타입 `(String, Bool)` 의 두 튜플은 `<` 연산자로 비교할 수 없습니다.
 
 ```swift
 ("blue", -1) < ("purple", 1)        // OK, evaluates to true
@@ -461,7 +461,7 @@ a != nil ? a! : b
 The code above uses the ternary conditional operator and forced unwrapping (a!) to access the value wrapped inside a when a isn’t nil, and to return b otherwise. The nil-coalescing operator provides a more elegant way to encapsulate this conditional checking and unwrapping in a concise and readable form.
 -->
 
-위 코드는 삼항 조건 연산자를 사용하고 `a` 가 `nil` 이 아닐경우 `a` 안에 래핑된 값을 접근하기 위해 강제로 언래핑 \(`a!`\) 하며 `a` 가 `nil` 일 경우 `b` 를 반환합니다. nil-결합 연산자는 조건 검사 및 언래핑을 간결하고 읽기 쉬운 형태로 캡슐화 합니다.
+위 코드는 삼항 조건 연산자를 사용하고 `a` 가 `nil` 이 아닐경우 `a` 안에 래핑된 값을 접근하기 위해 강제 언래핑 \(`a!`\) 하며 `a` 가 `nil` 일 경우 `b` 를 반환합니다. nil-결합 연산자는 조건 검사 및 언래핑을 간결하고 읽기 쉬운 형태로 캡슐화 합니다.
 
 <!--
 NOTE
@@ -701,7 +701,7 @@ Like the Logical AND operator above, the Logical OR operator uses short-circuit 
 In the example below, the first Bool value (hasDoorKey) is false, but the second value (knowsOverridePassword) is true. Because one value is true, the overall expression also evaluates to true, and access is allowed:
 -->
 
-_논리적 OR 연산자 \(logical OR operator\)_ \(`a || b`\)는 2개의 인접한 파이프 문자로 만들어진 삽입 연산자입니다. 이것을 사용하여 2개의 값 중 하나라도 `true` 이면 표현식이 `true` 가 되는 논리적 표현식을 만듭니다.
+_논리적 OR 연산자 \(logical OR operator\)_ \(`a || b`\)는 2개의 인접한 파이프 문자(|)로 만들어진 중위 연산자 (infix operator)입니다. 이것을 사용하여 두 값 중 하나라도 `true` 이면 표현식이 `true` 가 되는 논리적 표현식을 만듭니다.
 
 위에서 논리적 AND 연산자와 마찬가지로 논리적 OR 연산자는 연산 생략 \(short-circuit evaluation\)을 사용하여 표현식을 고려합니다. 논리적 OR 연산자의 좌변이 `true` 이면 표현식의 결과는 바뀌지 않으므로 우변은 고려하지 않습니다.
 

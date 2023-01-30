@@ -227,7 +227,7 @@ board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
 Square 3 contains the bottom of a ladder that moves you up to square 11. To represent this, board[03] is equal to +08, which is equivalent to an integer value of 8 (the difference between 3 and 11). To align the values and statements, the unary plus operator (+i) is explicitly used with the unary minus operator (-i) and numbers lower than 10 are padded with zeros. (Neither stylistic technique is strictly necessary, but they lead to neater code.)
 -->
 
-정사각형 3은 정사각형 11로 이동하는 사다리 바닥이 포함됩니다. 이것을 표현하기 위해 `board[03]` 은 정수값 `8` \(`3` 과 `11` 의 차이\)과 동등한 `+08` 을 대입합니다. 값과 구문을 정렬하기 위해 단항 더하기 연산자 \(`+i`\)는 단항 빼기 연산자 \(`-i`\)를 명시적으로 사용하고 10보다 작은 숫자의 앞에 0을 채웁니다 \(두 스타일 모두 꼭 필요한 것은 아니지만 코드가 깔끔해 집니다\).
+정사각형 3은 정사각형 11로 이동하는 사다리 바닥이 포함됩니다. 이것을 표현하기 위해 `board[03]` 은 정수값 `8` \(`3` 과 `11` 의 차이\)과 동등한 `+08` 을 대입합니다. 값과 구문을 정렬하기 위해 단항 덧셈 연산자 \(`+i`\)는 단항 빼기 연산자 \(`-i`\)를 명시적으로 사용하고 10보다 작은 숫자의 앞에 0을 채웁니다 \(두 스타일 모두 꼭 필요한 것은 아니지만 코드가 깔끔해 집니다\).
 
 ```swift
 var square = 0

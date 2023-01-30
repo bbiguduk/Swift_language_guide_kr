@@ -306,7 +306,7 @@ print(catString)
 String values can be added together (or concatenated) with the addition operator (+) to create a new String value:
 -->
 
-`String` 값은 더하기 연산자 (`+`)로 함께 추가 (또는 연결) 하여 새로운 `String` 값을 생성할 수 있습니다:
+`String` 값은 덧셈 연산자 (`+`)로 함께 추가 (또는 연결) 하여 새로운 `String` 값을 생성할 수 있습니다:
 
 ```swift
 let string1 = "hello"
