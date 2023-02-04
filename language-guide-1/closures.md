@@ -6,7 +6,7 @@ Closures are self-contained blocks of functionality that can be passed around an
 Closures can capture and store references to any constants and variables from the context in which they’re defined. This is known as closing over those constants and variables. Swift handles all of the memory management of capturing for you.
 -->
 
-_클로저 \(Closures\)_ 는 코드에서 주변에 전달과 사용할 수 있는 자체 포함된 기능 블럭입니다. Swift의 클로저는 C와 Objective-C의 블럭과 다른 프로그래밍 언어의 람다와 유사합니다.
+_클로저 \(Closures\)_ 는 코드에서 주변에 전달과 사용할 수 있는 자체 포함된 기능 블럭입니다. 다른 프로그래밍 언어에선 Swift의 클로저는 C와 Objective-C의 블럭과 람다와 유사합니다.
 
 클로저는 정의된 컨텍스트에서 모든 상수와 변수에 대한 참조를 캡처하고 저장할 수 있습니다. 이러한 상수와 변수를 _폐쇄 \(closing over\)_ 라고 합니다. Swift는 캡처의 모든 메모리 관리를 처리합니다.
 
