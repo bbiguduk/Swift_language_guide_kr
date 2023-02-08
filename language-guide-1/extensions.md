@@ -15,7 +15,7 @@ Extensions in Swift can:
 In Swift, you can even extend a protocol to provide implementations of its requirements or add additional functionality that conforming types can take advantage of. For more details, see Protocol Extensions.
 -->
 
-_확장 \(Extensions\)_ 은 기존의 클래스, 구조체, 열거형, 또는 프로토콜 타입에 새로운 기능을 추가합니다. 이것은 기존 소스 코드에 접근 권한이 없는 타입을 확장하는 기능이 포함됩니다 \(_소급 모델링 \(retroactive modeling\)_ 이라고 함\). 확장은 Objective-C에서 카테고리와 유사합니다 \(Objective-C 카테고리와 달리 Swift 확장은 이름이 없습니다\).
+_확장 \(Extensions\)_ 은 기존의 클래스, 구조체, 열거형, 또는 프로토콜 타입에 새로운 기능을 추가합니다. 이것은 기존 소스 코드에 접근 권한이 없는 타입을 확장하는 기능이 포함됩니다 \(_소급 모델링 \(retroactive modeling\)_ 이라고 함\). 확장은 Objective-C의 카테고리와 유사합니다 \(Objective-C 카테고리와 달리 Swift 확장은 이름이 없습니다\).
 
 Swift에서 확장은 다음을 수행할 수 있습니다:
 
@@ -54,7 +54,7 @@ extension SomeType {
 An extension can extend an existing type to make it adopt one or more protocols. To add protocol conformance, you write the protocol names the same way as you write them for a class or structure:
 -->
 
-확장은 하나 이상의 프로토콜을 채택하여 기존 타입을 확장할 수 있습니다. 프로토콜 준수를 추가하려면 클래스 또는 구조체에 대해 작성하는 것과 동일하게 프로토콜 이름을 작성합니다:
+확장은 하나 이상의 프로토콜을 채택하여 기존 타입을 확장할 수 있습니다. 프로토콜 준수를 추가할 때 클래스 또는 구조체를 작성하는 것과 동일한 방법으로 프로토콜 이름을 작성합니다:
 
 ```swift
 extension SomeType: SomeProtocol, AnotherProtocol {
@@ -78,7 +78,7 @@ If you define an extension to add new functionality to an existing type, the new
 -->
 
 > NOTE   
-> 기존 타입에 새로운 기능을 추가하기 위해 확장을 정의한다면 새로운 기능은 확장이 정의되기 전에 생성되었어도 모든 기존에 인스턴스에서 사용 가능합니다.
+> 기존 타입에 새로운 기능을 추가하기 위해 확장을 정의한다면 새로운 기능은 확장이 정의되기 전에 생성 된 기존 인스턴스에서도 사용 가능합니다.
 
 ## 계산된 프로퍼티 \(Computed Properties\)
 
@@ -114,7 +114,7 @@ Other units require some conversion to be expressed as a value measured in meter
 These properties are read-only computed properties, and so they’re expressed without the get keyword, for brevity. Their return value is of type Double, and can be used within mathematical calculations wherever a Double is accepted:
 -->
 
-이 계산된 프로퍼티는 특정 길이의 단위로 `Double` 값을 표현합니다. 계산된 프로퍼티로 이러한 프로퍼티의 이름은 거리 변환을 수행하기 위해 해당 리터럴 값을 사용하는 방법으로 부동 소수점 값에 점 구문을 사용할 수 있습니다.
+이 계산된 프로퍼티는 특정 길이의 단위로 `Double` 값을 표현합니다. 계산된 프로퍼티로 구현 되었지만 이러한 프로퍼티의 이름은 거리 변환을 수행하기 위해 해당 리터럴 값을 사용하는 방법으로 부동 소수점 값에 점 구문을 사용할 수 있습니다.
 
 이 예제에서 `1.0` 의 `Double` 값은 "1 미터" 로 표시됩니다. `1.m` 표현식은 `Double` 값의 `1.0` 을 계산한 것으로 간주되므로 `m` 계산된 프로퍼티가 `self` 를 반환하는 이유입니다.
 
