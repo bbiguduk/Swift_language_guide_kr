@@ -8,9 +8,9 @@ Swift’s String and Character types provide a fast, Unicode-compliant way to wo
 Despite this simplicity of syntax, Swift’s String type is a fast, modern string implementation. Every string is composed of encoding-independent Unicode characters, and provides support for accessing those characters in various Unicode representations.
 -->
 
-_문자열 (string)_ 은 `"hello, world"` 또는 `"albatross"` 와 같은 문자의 연속입니다. Swift 문자열은 `String` 타입으로 표현됩니다. `String` 의 콘텐츠에 `Character` 값의 콜렉션을 포함하여 여러가지 방법으로 접근할 수 있습니다.
+_문자열 (string)_ 은 `"hello, world"` 또는 `"albatross"` 와 같은 문자의 연속입니다. Swift 문자열은 `String` 타입으로 표현됩니다. `String` 은 `Character` 값의 콜렉션을 포함하여 여러가지 방법으로 접근할 수 있습니다.
 
-Swift의 `String` 과 `Character` 타입은 코드의 텍스트를 처리하는 빠른 유니코드 호환 방법을 제공합니다. 문자열 생성과 취급을 위한 구문은 C와 유사한 리터럴 구문을 사용하여 가볍고 읽기 쉽습니다. 문자열 연결은 두 문자열 사이에 `+` 연산자와 함께 결합하여 간단하게 연결이 가능하고 Swift의 다른 값과 마찬가지로 상수 또는 변수 중에서 선택하여 문자열 변경 가능성을 관리합니다. 또한 문자열 보간이라는 프로세스에서 문자열을 사용하여 상수, 변수, 리터럴 및 표현식을 긴 문자열에 삽입할 수 있습니다. 이것은 화면에 표시, 저장, 출력을 위한 커스텀 문자열 값을 쉽게 생성할 수 있습니다.
+Swift의 `String` 과 `Character` 타입은 코드의 텍스트를 처리하는 빠른 유니코드 호환 방법을 제공합니다. 문자열 생성과 취급을 위한 구문은 C와 유사한 리터럴 구문을 사용하여 가볍고 읽기 쉽습니다. 문자열 연결은 두 문자열 사이에 `+` 연산자와 함께 결합하여 간단하게 연결이 가능하고 Swift의 다른 값과 마찬가지로 상수 또는 변수 중에서 선택하여 문자열 변경 가능성을 관리합니다. 또한 문자열 삽입이라는 프로세스에서 문자열을 사용하여 상수, 변수, 리터럴 및 표현식을 긴 문자열에 삽입할 수 있습니다. 이것은 화면에 표시, 저장, 출력을 위한 커스텀 문자열 값을 쉽게 생성할 수 있습니다.
 
 간단한 구문임에도 Swift의 `String` 타입은 빠르고, 최신 문자열 구현입니다. 모든 문자열은 인코딩에 독립적인 유니코드 문자로 구성되어 있으며 다양한 유니코드 표현의 문자에 접근할 수 있도록 지원합니다.
 
@@ -46,7 +46,7 @@ let someString = "Some string literal value"
 Note that Swift infers a type of String for the someString constant because it’s initialized with a string literal value.
 -->
 
-Swift는 문자열 리터럴 값으로 초기화 되었기 때문에 `someString` 상수를 `String` 타입으로 유추합니다.
+Swift는 문자열 리터럴 값으로 초기화 되었기 때문에 `someString` 상수를 `String` 타입으로 추론합니다.
 
 ### 여러줄 문자열 리터럴 (Multiline String Literals)
 
@@ -70,7 +70,7 @@ till you come to the end; then stop."
 A multiline string literal includes all of the lines between its opening and closing quotation marks. The string begins on the first line after the opening quotation marks (""") and ends on the line before the closing quotation marks, which means that neither of the strings below start or end with a line break:
 -->
 
-여러줄 문자열 리터럴은 열리고 닫힌 따옴표 사이에 있는 모든 라인을 포함합니다. 문자열은 여는 따옴표 (`"""`) 다음 줄부터 시작하고 닫는 따옴표의 이전 줄로 끝납니다. 이것은 아래의 문자열은 줄바꿈으로 시작하고 끝나지 않는것을 뜻합니다:
+여러줄 문자열 리터럴은 열리고 닫힌 따옴표 사이에 있는 모든 라인을 포함합니다. 문자열은 여는 따옴표 (`"""`) 다음 줄부터 시작하고 닫는 따옴표의 이전 줄로 끝납니다. 이것은 아래의 문자열은 줄바꿈 없이 시작하고 끝난다는 의미입니다:
 
 ```swift
 let singleLineString = "These are the same."
@@ -114,7 +114,7 @@ It also ends with a line break.
 A multiline string can be indented to match the surrounding code. The whitespace before the closing quotation marks (""") tells Swift what whitespace to ignore before all of the other lines. However, if you write whitespace at the beginning of a line in addition to what’s before the closing quotation marks, that whitespace is included.
 -->
 
-여러줄 문자열은 주변 코드와 일치하도록 들여쓸 수 있습니다. 닫는 따옴표 (`"""`) 앞의 공백은 Swift가 다른 모든 줄의 공백은 무시한다는 것을 말합니다. 그러나 닫는 따옴표 전에 추가로 공백이 들어가면 그 공백은 추가됩니다.
+여러줄 문자열은 주변 코드와 일치하도록 들여쓸 수 있습니다. 닫는 따옴표 (`"""`) 앞의 공백은 Swift가 다른 모든 줄의 공백은 무시한다는 것을 말합니다. 그러나 닫는 따옴표보다 추가로 공백이 들어가면 그 공백은 추가됩니다.
 
 ![여러줄 문자열 공백 (Multiline String Whitespace)](../.gitbook/assets/03\_multilineStringWhitespace\_2x.png)
 
@@ -173,7 +173,7 @@ If you need the special effects of a character in a string literal, match the nu
 String literals created using extended delimiters can also be multiline string literals. You can use extended delimiters to include the text """ in a multiline string, overriding the default behavior that ends the literal. For example:
 -->
 
-아무런 영향없이 문자열에 특수 문자를 포함하기 위해 확장된 구분기호 안에 문자열 리터럴을 위치할 수 있습니다. 문자열을 따옴표 (`"`)로 둘러싸고 숫자 기호 (`#`)로 둘러쌉니다. 예를 들어 문자열 리터럴 `#"Line 1\nLine 2"#` 을 출력하면 2줄로 출력되지 않고 개행 문자 ()가 출력됩니다.
+아무런 영향없이 문자열에 특수 문자를 포함하기 위해 확장된 구분기호 안에 문자열 리터럴을 위치할 수 있습니다. 문자열을 따옴표 (`"`)로 둘러싸고 숫자 기호 (`#`)로 둘러쌉니다. 예를 들어 문자열 리터럴 `#"Line 1\nLine 2"#` 을 출력하면 2줄로 출력되지 않고 개행 문자 (`\n`)가 출력됩니다.
 
 문자열 리터럴에서 문자의 특수 영향이 필요하다면 이스케이프 문자 (`\`) 다음에 선언된 숫자 기호의 숫자만큼 숫자 기호를 포함하면 됩니다. 예를 들어 문자열 `#"Line 1\nLine 2"#` 에 개행을 수행하고 싶다면 `#"Line 1\#nLine 2"#` 로 작성하면 됩니다. 비슷하게 `###"Line1\###nLine2"###` 도 개행이 이루어집니다.
 
@@ -250,7 +250,7 @@ Behind the scenes, Swift’s compiler optimizes string usage so that actual copy
 
 Swift의 `String` 타입은 _값 타입 (value type)_ 입니다. 새로운 `String` 값을 생성한다면 `String` 값은 함수 또는 메서드에 전달될 때나 상수 또는 변수에 대입될 때 _복사_ 됩니다. 각 경우에 존재하는 `String` 값의 새로운 복사본이 생성되고 원본이 아닌 새로운 복사본은 전달되거나 할당됩니다. 값 타입은 [구조체와 열거형은 값 타입 (Structures and Enumerations Are Value Types)](structures-and-classes.md#structures-and-enumerations-are-value-types) 에서 설명합니다.
 
-Swift의 기본 `String` 으로의 복사 동작은 함수 또는 메서드가 `String` 값을 전달할 때 출처에 관계없이 `String` 값은 정확하다고 보장합니다. 전달된 문자열은 직접 수정하지 않는한 수정되지 않습니다.
+Swift의 `String` 의 복사 동작은 함수 또는 메서드가 `String` 값을 전달할 때 출처에 관계없이 `String` 값은 정확하다고 보장합니다. 전달된 문자열은 직접 수정하지 않는한 수정되지 않습니다.
 
 Swift의 컴파일러는 꼭 필요할 때 실제 복사가 이뤄지도록 문자열 사용을 최적화합니다. 이것은 문자열을 값 유형으로 사용할 때는 항상 뛰어난 성능을 얻을 수 있다는 의미입니다.
 
@@ -306,7 +306,7 @@ print(catString)
 String values can be added together (or concatenated) with the addition operator (+) to create a new String value:
 -->
 
-`String` 값은 덧셈 연산자 (`+`)로 함께 추가 (또는 연결) 하여 새로운 `String` 값을 생성할 수 있습니다:
+`String` 값은 덧셈 연산자 (`+`)를 추가 (또는 연결) 하여 새로운 `String` 값을 생성할 수 있습니다:
 
 ```swift
 let string1 = "hello"
@@ -785,7 +785,7 @@ String and character comparisons in Swift aren’t locale-sensitive.
 -->
 
 > NOTE\
-> Swift의 문자열과 문자 비교는 로케일을 구분하지 않습니다.
+> Swift의 문자열과 문자 비교는 지역을 구분하지 않습니다.
 
 ### 접두사와 접미사 동등성 (Prefix and Suffix Equality)
 
