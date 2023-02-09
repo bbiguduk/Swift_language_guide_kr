@@ -15,7 +15,7 @@ Extensions in Swift can:
 In Swift, you can even extend a protocol to provide implementations of its requirements or add additional functionality that conforming types can take advantage of. For more details, see Protocol Extensions.
 -->
 
-_확장 \(Extensions\)_ 확장한 클래스, 구조체, 열거형, 또는 프로토콜 타입에 새로운 기능을 추가합니다. 이것은 기존 소스 코드에 접근 권한이 없는 타입을 확장하는 기능이 포함됩니다 \(_소급 모델링 \(retroactive modeling\)_ 이라고 함\). 확장은 Objective-C에서 카테고리와 유사합니다 \(Objective-C 카테고리와 달리 Swift 확장은 이름이 없습니다\).
+_확장 \(Extensions\)_ 은 기존의 클래스, 구조체, 열거형, 또는 프로토콜 타입에 새로운 기능을 추가합니다. 이것은 기존 소스 코드에 접근 권한이 없는 타입을 확장하는 기능이 포함됩니다 \(_소급 모델링 \(retroactive modeling\)_ 이라고 함\). 확장은 Objective-C에서 카테고리와 유사합니다 \(Objective-C 카테고리와 달리 Swift 확장은 이름이 없습니다\).
 
 Swift에서 확장은 다음을 수행할 수 있습니다:
 
@@ -70,7 +70,7 @@ An extension can be used to extend an existing generic type, as described in Ext
 
 이러한 방법에 대한 자세한 설명은 [확장으로 프로토콜 준수 추가 \(Adding Protocol Conformance with an Extension\)](protocols.md#adding-protocol-conformance-with-an-extension) 을 참고 바랍니다.
 
-확장은 [제너릭 타입 확장 \(Extending a Generic Type\)](generics.md#extending-a-generic-type) 에 설명된대로 기존 일반 타입을 확장하기 위해 사용될 수 있습니다. [제너릭 Where 절이 있는 확장 \(Extensions with a Generic Where Clause\)](generics.md#where-extensions-with-a-generic-where-clause) 에 설명된대로 일반 타입을 확장하여 조건부로 기능을 추가할 수 있습니다.
+확장은 [제너릭 타입 확장 \(Extending a Generic Type\)](generics.md#extending-a-generic-type) 에 설명된대로 기존 일반 타입을 확장하기 위해 사용될 수 있습니다. [제너릭 Where 절이 있는 확장 \(Extensions with a Generic Where Clause\)](generics.md#where-extensions-with-a-generic-where-clause) 에 설명된 대로 일반 타입을 확장하여 조건부로 기능을 추가할 수 있습니다.
 
 <!--
 NOTE
@@ -86,7 +86,7 @@ If you define an extension to add new functionality to an existing type, the new
 Extensions can add computed instance properties and computed type properties to existing types. This example adds five computed instance properties to Swift’s built-in Double type, to provide basic support for working with distance units:
 -->
 
-확장은 기존 타입에 계산된 인스턴스 프로퍼티와 계산된 타입 프로퍼티를 추가할 수 있습니다. 이 예제는 거리 단위에 대한 작업에 대해 기본적으로 제공하기 위해 Swift의 `Double` 타입에 5개의 계산된 인스턴스 프로퍼티를 추가합니다:
+확장은 기존 타입에 계산된 인스턴스 프로퍼티와 계산된 타입 프로퍼티를 추가할 수 있습니다. 이 예제는 거리 단위 작업에 필요한 최소한의 지원을 제공하기 위해 Swift의 `Double` 타입에 5개의 계산된 인스턴스 프로퍼티를 추가합니다:
 
 ```swift
 extension Double {
@@ -114,7 +114,7 @@ Other units require some conversion to be expressed as a value measured in meter
 These properties are read-only computed properties, and so they’re expressed without the get keyword, for brevity. Their return value is of type Double, and can be used within mathematical calculations wherever a Double is accepted:
 -->
 
-이 계산된 프로퍼티는 특정 길이의 단위로 `Double` 값을 표현합니다. 계산된 프로퍼티로 구현되지만 이러한 프로퍼티의 이름은 거리 변환을 수행하기 위해 해당 리터럴 값을 사용하는 방법으로 부동 소수점 값에 점 구문을 사용할 수 있습니다.
+이 계산된 프로퍼티는 특정 길이의 단위로 `Double` 값을 표현합니다. 계산된 프로퍼티로 이러한 프로퍼티의 이름은 거리 변환을 수행하기 위해 해당 리터럴 값을 사용하는 방법으로 부동 소수점 값에 점 구문을 사용할 수 있습니다.
 
 이 예제에서 `1.0` 의 `Double` 값은 "1 미터" 로 표시됩니다. `1.m` 표현식은 `Double` 값의 `1.0` 을 계산한 것으로 간주되므로 `m` 계산된 프로퍼티가 `self` 를 반환하는 이유입니다.
 
@@ -205,7 +205,7 @@ extension Rect {
 This new initializer starts by calculating an appropriate origin point based on the provided center point and size value. The initializer then calls the structure’s automatic memberwise initializer init(origin:size:), which stores the new origin and size values in the appropriate properties:
 -->
 
-이 새로운 초기화 구문은 제공된 `center` 점과 `size` 값을 기반으로 적절한 원점을 계산하는 것으로 시작합니다. 그러면 이 초기화 구문은 적절한 프로퍼티에 새로운 원점과 크기값을 저장하는 구조체의 자동 멤버별 초기화 구문 `init(origin:size:)` 를 호출합니다:
+이 새로운 초기화 구문은 제공된 `center` 점과 `size` 값을 기반으로 적절한 원점을 계산하는 것으로 시작합니다. 그러면 이 초기화 구문은 적절한 프로퍼티에 새로운 원점과 크기 값을 저장하는 구조체의 자동 멤버별 초기화 구문 `init(origin:size:)` 를 호출합니다:
 
 ```swift
 let centerRect = Rect(center: Point(x: 4.0, y: 4.0),
