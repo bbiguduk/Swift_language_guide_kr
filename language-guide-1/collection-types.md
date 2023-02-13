@@ -241,7 +241,7 @@ shoppingList += ["Chocolate Spread", "Cheese", "Butter"]
 Retrieve a value from the array by using subscript syntax, passing the index of the value you want to retrieve within square brackets immediately after the name of the array:
 -->
 
-_서브 스크립트 구문 \(subscript syntax\)_ 를 사용하여 배열의 값을 가져올 수 있습니다. 배열의 이름 뒤에 바로 대괄호를 붙이고 가져올 값의 인덱스를 넣어 해당 값을 가져올 수 있습니다:
+_서브 스크립트 구문 \(subscript syntax\)_ 을 사용하여 배열의 값을 가져올 수 있습니다. 배열의 이름 뒤에 바로 대괄호를 붙이고 가져올 값의 인덱스를 넣어 해당 값을 가져올 수 있습니다:
 
 ```swift
 var firstItem = shoppingList[0]
@@ -302,7 +302,7 @@ Similarly, you remove an item from the array with the remove(at:) method. This m
 
 `insert(_:at:)` 메서드를 호출하면 인덱스가 `0` 인 쇼핑 리스트에 가장 맨 앞에 `"Maple Syrup"` 의 값을 가진 새로운 아이템을 추가합니다.
 
-비슷하게 `remove(at:)` 메서드를 통해 배열의 아이템을 삭제할 수 있습니다. 이 메서드는 해당 인덱스의 아이템을 삭제하고 삭제한 아이템을 반환합니다 \(반환된 값이 필요 없으면 무시해도 됨\):
+비슷하게 `remove(at:)` 메서드를 통해 배열의 아이템을 삭제할 수 있습니다. 이 메서드는 해당 인덱스의 아이템을 삭제하고 삭제한 아이템을 반환합니다 \(반환된 값이 필요 없으면 무시해도 됩니다\):
 
 ```swift
 let mapleSyrup = shoppingList.remove(at: 0)
@@ -323,7 +323,7 @@ If you try to access or modify a value for an index that’s outside of an array
 Any gaps in an array are closed when an item is removed, and so the value at index 0 is once again equal to "Six eggs":
 -->
 
-아이템이 삭제되면 배열에 어떤 간격도 닫히므로 인덱스 `0` 인 값은 `"Six eggs"` 와 같습니다:
+아이템이 삭제되면 배열의 공간도 삭제되므로 인덱스 `0` 인 값은 `"Six eggs"` 와 같습니다:
 
 ```swift
 firstItem = shoppingList[0]
@@ -503,7 +503,7 @@ The favoriteGenres set is declared as a variable (with the var introducer) and n
 A set type can’t be inferred from an array literal alone, so the type Set must be explicitly declared. However, because of Swift’s type inference, you don’t have to write the type of the set’s elements if you’re initializing it with an array literal that contains values of just one type. The initialization of favoriteGenres could have been written in a shorter form instead:
 -->
 
-집합 타입은 배열 리터럴에서 추론할 수 없기 때문에 `Set` 타입은 명시적으로 선언해야 합니다. 그러나 Swift의 타입 유추 때문에 배열 리터럴로 초기화 할 때 하나의 타입의 값이 포함되어 있는 경우 집합 요소의 타입을 명시하지 않아도 됩니다. `favoriteGenres` 초기화는 짧게 쓸 수 있습니다:
+집합 타입은 배열 리터럴에서 추론할 수 없기 때문에 `Set` 타입은 명시적으로 선언해야 합니다. 그러나 Swift의 타입 추론 때문에 배열 리터럴로 초기화 할 때 하나의 타입의 값이 포함되어 있는 경우 집합 요소의 타입을 명시하지 않아도 됩니다. `favoriteGenres` 초기화는 짧게 쓸 수 있습니다:
 
 ```swift
 var favoriteGenres: Set = ["Rock", "Classical", "Hip hop"]
@@ -769,7 +769,7 @@ If the context already provides type information, you can create an empty dictio
 
 이 예제에서 정수 값에 사람이 읽을 수 있는 이름을 저장하는 `[Int: String]` 타입의 빈 딕셔너리를 생성합니다. 키는 `Int` 타입이고 값은 `String` 타입 입니다.
 
-컨텍스트가 이미 타입 정보를 제공한다면 `[:]` \(대괄호 안에 콜론을 포함해야 함\)와 같이 작성하여 빈 딕셔너리 리터럴로 빈 딕셔너리를 생성할 수 있습니다:
+컨텍스트가 이미 타입 정보를 제공한다면 `[:]` \(대괄호 안에 콜론을 포함해야 합니다\)와 같이 작성하여 빈 딕셔너리 리터럴로 빈 딕셔너리를 생성할 수 있습니다:
 
 ```swift
 namesOfIntegers[16] = "sixteen"
@@ -838,7 +838,7 @@ var airports = ["YYZ": "Toronto Pearson", "DUB": "Dublin"]
 Because all keys in the literal are of the same type as each other, and likewise all values are of the same type as each other, Swift can infer that [String: String] is the correct type to use for the airports dictionary.
 -->
 
-리터럴 안에 모든 키와 값이 각각 같은 타입이기 때문에 Swift는 `airports` 딕셔너리를 사용하기 위해 `[String: String]` 이 올바른 타입이라는 것을 유추할 수 있습니다.
+리터럴 안에 모든 키와 값이 각각 같은 타입이기 때문에 Swift는 `airports` 딕셔너리를 사용하기 위해 `[String: String]` 이 올바른 타입이라는 것을 추론할 수 있습니다.
 
 ### 딕셔너리 접근과 수정 \(Accessing and Modifying a Dictionary\)
 
