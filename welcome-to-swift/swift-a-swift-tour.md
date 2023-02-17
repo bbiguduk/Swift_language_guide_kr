@@ -1,9 +1,5 @@
 # Swift 둘러보기 \(A Swift Tour\)
 
-<!--
-Tradition suggests that the first program in a new language should print the words “Hello, world!” on the screen. In Swift, this can be done in a single line:
--->
-
 전통적으로 새로운 언어의 첫번째 프로그램은 "Hello, world!" 를 출력해야 한다고 합니다. Swift 에서는 이것을 한줄로 표기할 수 있습니다:
 
 ```swift
@@ -11,30 +7,11 @@ print("Hello, world!")
 // Prints "Hello, world!"
 ```
 
-<!--
-If you have written code in C or Objective-C, this syntax looks familiar to you—in Swift, this line of code is a complete program. You don’t need to import a separate library for functionality like input/output or string handling. Code written at global scope is used as the entry point for the program, so you don’t need a main() function. You also don’t need to write semicolons at the end of every statement.
-
-This tour gives you enough information to start writing code in Swift by showing you how to accomplish a variety of programming tasks. Don’t worry if you don’t understand something—everything introduced in this tour is explained in detail in the rest of this book.
--->
-
 C 또는 Objective-C 로 코드를 작성해봤다면 이 구문은 익숙합니다. Swift 에서 이 코드의 라인은 완벽한 프로그램입니다. 입력/출력 또는 문자열 처리와 같은 기능을 위한 별도의 라이브러리를 가져올 필요는 없습니다. 전역 범위로 작성한 코드는 프로그램의 전체에서 사용되기 때문에 `main()` 함수가 필요하지 않습니다. 모든 구문에 끝에 세미콜론을 작성할 필요도 없습니다.
 
 이 둘러보기를 통해 다양한 프로그래밍 작업을 수행하는 방법을 보여줌으로써 Swift 에서 코드 작성을 시작할 수 있는 충분한 정보를 제공합니다. 이해하지 못하는 부분이 있어도 걱정하지 마시기 바랍니다. 이 둘러보기에서 소개된 모든 내용은 이 책의 나머지 부분에 자세히 설명되어 있습니다.
 
-<!--
-NOTE
-For the best experience, open this chapter as a playground in Xcode. Playgrounds allow you to edit the code listings and see the result immediately.
--->
-> NOTE  
-> Xcode 에서 플레이그라운드를 사용하는 것이 가장 좋습니다. 플레이그라운드는 코드를 수정하고 결과를 즉시 확인할 수 있습니다.
->
-> [플레이그라운드 다운로드](https://docs.swift.org/swift-book/GuidedTour/GuidedTour.playground.zip)
-
 ## 간단한 값 \(Simple Values\)
-
-<!--
-Use let to make a constant and var to make a variable. The value of a constant doesn’t need to be known at compile time, but you must assign it a value exactly once. This means you can use constants to name a value that you determine once but use in many places.
--->
 
 상수를 만들기 위해 `let` 을 사용하고 변수를 만들기 위해 `var` 를 사용합니다. 상수는 컴파일 때 알 필요는 없지만 반드시 한번은 할당 해야 합니다. 이것은 값은 한번만 할당되지만 여러 위치에서 사용할 수 있다는 의미입니다.
 
@@ -43,12 +20,6 @@ var myVariable = 42
 myVariable = 50
 let myConstant = 42
 ```
-
-<!--
-A constant or variable must have the same type as the value you want to assign to it. However, you don’t always have to write the type explicitly. Providing a value when you create a constant or variable lets the compiler infer its type. In the example above, the compiler infers that myVariable is an integer because its initial value is an integer.
-
-If the initial value doesn’t provide enough information (or if there isn’t an initial value), specify the type by writing it after the variable, separated by a colon.
--->
 
 상수 또는 변수는 할당하려는 값과 동일한 타입이어야 합니다. 하지만 항상 타입을 명시해야 하는 것은 아닙니다. 상수 또는 변수를 생성할 때 값을 제공하면 컴파일러는 타입을 유추합니다. 위의 예제에서 `myVariable` 의 초기값이 정수이므로 컴파일러는 정수로 유추합니다.
 
@@ -60,17 +31,8 @@ let implicitDouble = 70.0
 let explicitDouble: Double = 70
 ```
 
-<!--
-EXPERIMENT
-Create a constant with an explicit type of Float and a value of 4.
--->
-
 > EXPERIMENT  
 > 명시적 타입이 `Float` 이고 값이 `4` 인 상수를 만들어 봅시다.
-
-<!--
-Values are never implicitly converted to another type. If you need to convert a value to a different type, explicitly make an instance of the desired type.
--->
 
 값은 다른 타입의 값으로 절대 변경되지 않습니다. 값을 다른 타입으로 변경해야 한다면 원하는 타입의 인스턴스를 명시적으로 만들어야 합니다.
 
@@ -80,17 +42,8 @@ let width = 94
 let widthLabel = label + String(width)
 ```
 
-<!--
-EXPERIMENT
-Try removing the conversion to String from the last line. What error do you get?
--->
-
 > EXPERIMENT  
 > 마지막 줄에서 `String` 으로 변환하는 부분을 삭제해 보십시오. 어떠한 에러가 발생합니까?
-
-<!--
-There’s an even simpler way to include values in strings: Write the value in parentheses, and write a backslash (\) before the parentheses. For example:
--->
 
 문자열 (string) 값으로 포함하는 더 간단한 방법이 있습니다: 소괄호 안에 값을 작성하고 소괄호 전에 역슬래시 \(`\`\)를 작성하면 됩니다. 예를 들어:
 
@@ -101,17 +54,8 @@ let appleSummary = "I have \(apples) apples."
 let fruitSummary = "I have \(apples + oranges) pieces of fruit."
 ```
 
-<!--
-EXPERIMENT
-Use \() to include a floating-point calculation in a string and to include someone’s name in a greeting.
--->
-
 > EXPERIMENT  
 > `\()` 을 사용하여 문자열에 부동 소수점 (floating-point) 계산을 포함하고 인사말에 누군가의 이름을 포함해 보십시오.
-
-<!--
-Use three double quotation marks (""") for strings that take up multiple lines. Indentation at the start of each quoted line is removed, as long as it matches the indentation of the closing quotation marks. For example:
--->
 
 여러줄의 문자열에 대해 쌍따옴표 3개 \(`"""`\)를 사용하면 됩니다. 닫는 따옴표의 들여쓰기와 일치하는 한 각 인용된 줄의 시작부분에 있는 들여쓰기는 제거됩니다. 예를 들어:
 
@@ -121,10 +65,6 @@ I said "I have \(apples) apples."
 And then I said "I have \(apples + oranges) pieces of fruit."
 """
 ```
-
-<!--
-Create arrays and dictionaries using brackets ([]), and access their elements by writing the index or key in brackets. A comma is allowed after the last element.
--->
 
 대괄호 \(`[]`\) 를 사용하여 배열 (array)과 딕셔너리 (dictionary)를 생성하고 대괄호에 인덱스 또는 키를 작성하여 해당 요소에 접근할 수 있습니다. 마지막 요소 뒤에 쉼표도 허용 합니다.
 
@@ -139,44 +79,29 @@ var occupations = [
 occupations["Jayne"] = "Public Relations"
 ```
 
-<!--
-Arrays automatically grow as you add elements.
--->
-
 배열은 요소를 추가함에 따라 자동으로 크기가 늘어납니다.
 
 ```swift
 fruits.append("blueberries")
 print(fruits)
+// Prints "["strawberries", "grapes", "tangerines", "blueberries"]"
 ```
 
-<!--
-To create an empty array or dictionary, use the initializer syntax.
--->
-
-빈 배열 또는 빈 딕셔너리를 생성하기 위해 초기화 구문을 사용합니다.
-
-```swift
-let emptyArray: [String] = []
-let emptyDictionary: [String: Float] = [:]
-```
-
-<!--
-If type information can be inferred, you can write an empty array as [] and an empty dictionary as [:]—for example, when you set a new value for a variable or pass an argument to a function.
--->
-
-타입 정보를 유추할 수 있으면 `[]` 로 빈 배열을 작성하고 `[:]` 로 빈 딕셔너리를 작성할 수 있습니다 — 예를 들어 변수에 새로운 값을 설정할 때나 함수에 인수로 전달할 때 사용할 수 있습니다.
+빈 배열 또는 빈 딕셔너리를 작성하려해도 대괄호를 사용합니다. 배열은 `[]` 로 작성하고 딕셔너리는 `[:]` 로 작성합니다.
 
 ```swift
 fruits = []
 occupations = [:]
 ```
 
-## 제어 흐름 \(Control Flow\)
+새로운 변수 또는 다른 장소의 타입 정보가 없는 곳에 빈 배열 또는 빈 딕셔너리를 할당하려면 타입을 명시해야 합니다.
 
-<!--
-Use if and switch to make conditionals, and use for-in, while, and repeat-while to make loops. Parentheses around the condition or loop variable are optional. Braces around the body are required.
--->
+```swift
+let emptyArray: [String] = []
+let emptyDictionary: [String: Float] = [:]
+```
+
+## 제어 흐름 \(Control Flow\)
 
 조건문을 만드려면 `if` 와 `switch` 를 사용하고 루프를 만드려면 `for`-`in`, `while`, 그리고 `repeat`-`while` 을 사용합니다. 조건문이나 루프 변수를 둘러싼 소괄호는 선택사항 입니다. 본문을 둘러싼 중괄호는 필수사항 입니다.
 
@@ -194,13 +119,7 @@ print(teamScore)
 // Prints "11"
 ```
 
-<!--
-In an if statement, the conditional must be a Boolean expression—this means that code such as if score { ... } is an error, not an implicit comparison to zero.
-
-You can use if and let together to work with values that might be missing. These values are represented as optionals. An optional value either contains a value or contains nil to indicate that a value is missing. Write a question mark (?) after the type of a value to mark the value as optional.
--->
-
-if 문에서는 조건부가 반드시 부울 \(Boolean\)로 표현되어야 합니다—즉, `if score { ... }` 와 같은 코드는 암시적으로 0과 비교하는 것이 아니라 에러를 의미합니다.
+if 문에서는 조건부가 반드시 부울 \(Boolean\)로 표현되어야 합니다 — 즉, `if score { ... }` 와 같은 코드는 암시적으로 0과 비교하는 것이 아니라 에러를 의미합니다.
 
 `if` 와 `let` 을 사용하여 누락될 수 있는 값에 대해 사용할 수 있습니다. 이러한 값은 옵셔널 (optional)로 표기됩니다. 옵셔널 값은 값을 포함하거나 값이 없음을 나타내는 `nil` 을 포함합니다. 옵셔널로 값을 표시하기 위해 값의 타입 뒤에 물음표 \(`?`\) 를 작성합니다.
 
@@ -216,19 +135,8 @@ if let name = optionalName {
 }
 ```
 
-<!--
-EXPERIMENT
-Change optionalName to nil. What greeting do you get? Add an else clause that sets a different greeting if optionalName is nil.
--->
-
 > EXPERIMENT  
 > `optionalName` 을 `nil` 로 변경하십시오. 어떤 인사말을 얻습니까? `optionalName` 이 `nil` 인 경우 다른 인사말을 설정하기 위해 `else` 절을 추가하십시오.
-
-<!--
-If the optional value is nil, the conditional is false and the code in braces is skipped. Otherwise, the optional value is unwrapped and assigned to the constant after let, which makes the unwrapped value available inside the block of code.
-
-Another way to handle optional values is to provide a default value using the ?? operator. If the optional value is missing, the default value is used instead.
--->
 
 옵셔널 값이 `nil` 이면 조건은 `false` 이고 중괄호 안에 코드는 건너뜁니다. 옵셔널 값이 `nil` 이 아니면 옵셔널 값은 언래핑 되고 `let` 뒤의 상수로 할당되어 코드 블럭 안에서 언래핑 된 값으로 사용할 수 있습니다.
 
@@ -240,23 +148,16 @@ let fullName: String = "John Appleseed"
 let informalGreeting = "Hi \(nickname ?? fullName)"
 ```
 
-<!--
-You can use a shorter spelling to unwrap a value, using the same name for that unwrapped value.
--->
-
 더 짧게 같은 이름으로 언래핑된 값을 사용할 수 있습니다.
 
 ```swift
 if let nickname {
     print("Hey, \(nickname)")
 }
+// Doesn't print anything, because nickname is nil.
 ```
 
-<!--
-Switches support any kind of data and a wide variety of comparison operations—they aren’t limited to integers and tests for equality.
--->
-
-스위치 (switch)는 모든 종류의 데이터와 다양한 비교 작업을 지원합니다—스위치는 정수 (integer) 및 동등성 비교로 제한되지 않습니다.
+스위치 (switch)는 모든 종류의 데이터와 다양한 비교 작업을 지원합니다 — 스위치는 정수 (integer) 및 동등성 비교로 제한되지 않습니다.
 
 ```swift
 let vegetable = "red pepper"
@@ -273,21 +174,8 @@ default:
 // Prints "Is it a spicy red pepper?"
 ```
 
-<!--
-EXPERIMENT
-Try removing the default case. What error do you get?
--->
-
 > EXPERIMENT  
 > default 케이스를 삭제해 봅시다. 어떤 에러가 발생합니까?
-
-<!--
-Notice how let can be used in a pattern to assign the value that matched the pattern to a constant.
-
-After executing the code inside the switch case that matched, the program exits from the switch statement. Execution doesn’t continue to the next case, so you don’t need to explicitly break out of the switch at the end of each case’s code.
-
-You use for-in to iterate over items in a dictionary by providing a pair of names to use for each key-value pair. Dictionaries are an unordered collection, so their keys and values are iterated over in an arbitrary order.
--->
 
 패턴과 일치하는 값을 상수에 할당하기 위해 패턴에서 `let` 을 어떻게 사용하는지 확인 하시기 바랍니다.
 
@@ -313,17 +201,8 @@ print(largest)
 // Prints "25"
 ```
 
-<!--
-EXPERIMENT
-Replace the _ with a variable name, and keep track of which kind of number was the largest.
--->
-
 > EXPERIMENT  
 > `_` 을 변수의 이름으로 변경하고 어떤 숫자가 가장 큰지 추적하십시오.
-
-<!--
-Use while to repeat a block of code until a condition changes. The condition of a loop can be at the end instead, ensuring that the loop is run at least once.
--->
 
 조건이 바뀔 때까지 코드의 블럭을 반복하려면 `while` 을 사용해야 합니다. 대신 루프의 조건이 끝에 있을 수 있으므로 적어도 한번은 루프가 실행되도록 합니다.
 
@@ -343,10 +222,6 @@ print(m)
 // Prints "128"
 ```
 
-<!--
-You can keep an index in a loop by using ..< to make a range of indexes.
--->
-
 인덱스의 범위를 만들기 위해선 `..<` 을 사용하여 루프에 인덱스를 만들 수 있습니다.
 
 ```swift
@@ -358,17 +233,9 @@ print(total)
 // Prints "6"
 ```
 
-<!--
-Use ..< to make a range that omits its upper value, and use ... to make a range that includes both values.
--->
-
 가장 상위 값을 생략하는 범위를 만들기 위해 `..<` 을 사용하고 포함하려면 `...` 을 사용합니다.
 
 ## 함수와 클로저 \(Functions and Closures\)
-
-<!--
-Use func to declare a function. Call a function by following its name with a list of arguments in parentheses. Use -> to separate the parameter names and types from the function’s return type.
--->
 
 함수를 선언하려면 `func` 을 사용합니다. 소괄호 안에 인수의 목록과 함수의 이름으로 호출합니다. 함수의 반환 타입 (return type)에서 파라미터 (parameter) 이름과 타입을 구분하기 위해 `->` 을 사용합니다.
 
@@ -379,17 +246,8 @@ func greet(person: String, day: String) -> String {
 greet(person: "Bob", day: "Tuesday")
 ```
 
-<!--
-EXPERIMENT
-Remove the day parameter. Add a parameter to include today’s lunch special in the greeting.
--->
-
 > EXPERIMENT  
 > `day` 파라미터를 지워 봅시다. 인사말에 오늘의 특별 점심을 포함하기 위해 파라미터를 추가해 봅시다.
-
-<!--
-By default, functions use their parameter names as labels for their arguments. Write a custom argument label before the parameter name, or write _ to use no argument label.
--->
 
 기본적으로 함수는 파라미터 이름을 인수의 라벨로 사용합니다. 파라미터 이름 전에 인수 라벨을 작성하거나 인수 라벨을 사용하지 않으려면 `_` 을 작성해야 합니다.
 
@@ -400,11 +258,7 @@ func greet(_ person: String, on day: String) -> String {
 greet("John", on: "Wednesday")
 ```
 
-<!--
-Use a tuple to make a compound value—for example, to return multiple values from a function. The elements of a tuple can be referred to either by name or by number.
--->
-
-튜플 (tuple)을 사용하여 복합 값을 만듭니다—예를 들어 함수로 부터 여러개의 값을 반환할 때 사용합니다. 튜플의 요소는 이름 또는 번호로 참조할 수 있습니다.
+튜플 (tuple)을 사용하여 복합 값을 만듭니다 — 예를 들어 함수로 부터 여러개의 값을 반환할 때 사용합니다. 튜플의 요소는 이름 또는 번호로 참조할 수 있습니다.
 
 ```swift
 func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
@@ -430,10 +284,6 @@ print(statistics.2)
 // Prints "120"
 ```
 
-<!--
-Functions can be nested. Nested functions have access to variables that were declared in the outer function. You can use nested functions to organize the code in a function that’s long or complex.
--->
-
 함수는 중첩될 수 있습니다. 중첩된 함수는 외부 함수에서 선언한 변수에 접근할 수 있습니다. 중첩된 함수를 사용하여 길거나 복잡한 함수에서 코드를 구성할 수 있습니다.
 
 ```swift
@@ -448,10 +298,6 @@ func returnFifteen() -> Int {
 returnFifteen()
 ```
 
-<!--
-Functions are a first-class type. This means that a function can return another function as its value.
--->
-
 함수는 1급 타입 \(first-class type\) 입니다. 이것은 함수가 다른 함수를 값으로 반환할 수 있다는 의미입니다.
 
 ```swift
@@ -464,10 +310,6 @@ func makeIncrementer() -> ((Int) -> Int) {
 var increment = makeIncrementer()
 increment(7)
 ```
-
-<!--
-A function can take another function as one of its arguments.
--->
 
 함수는 다른 함수를 인수 (argument) 중 하나로 가질 수 있습니다.
 
@@ -487,10 +329,6 @@ var numbers = [20, 19, 7, 12]
 hasAnyMatches(list: numbers, condition: lessThanTen)
 ```
 
-<!--
-Functions are actually a special case of closures: blocks of code that can be called later. The code in a closure has access to things like variables and functions that were available in the scope where the closure was created, even if the closure is in a different scope when it’s executed—you saw an example of this already with nested functions. You can write a closure without a name by surrounding code with braces ({}). Use in to separate the arguments and return type from the body.
--->
-
 함수는 나중에 호출될 수 있는 코드 블럭인 클로저 (closure)의 특별한 케이스 입니다. 클로저에 있는 코드는 이미 중첩된 함수의 예제에서 보았듯이 클로저가 실행될 때 다른 범위에 있더라도 클로저가 생성된 범위에서 사용 가능한 변수와 함수와 같은 항목에 접근할 수 있습니다. 중괄호 \(`{}`\) 로 코드를 묶어 이름없이 클로저를 작성할 수 있습니다. 본문으로 부터 인수와 반환 타입을 분리하기 위해 `in` 을 사용합니다.
 
 ```swift
@@ -500,17 +338,8 @@ numbers.map({ (number: Int) -> Int in
 })
 ```
 
-<!--
-EXPERIMENT
-Rewrite the closure to return zero for all odd numbers.
--->
-
 > EXPERIMENT  
 > 모든 홀수에 대해 0을 반환도록 클로저를 다시 작성하십시오.
-
-<!--
-You have several options for writing closures more concisely. When a closure’s type is already known, such as the callback for a delegate, you can omit the type of its parameters, its return type, or both. Single statement closures implicitly return the value of their only statement.
--->
 
 더 간단하게 클로저를 작성하기 위해 몇가지 선택사항이 있습니다. 대리자 \(delegate\)에 대한 콜백과 같이 클로저의 타입을 이미 알고 있다면 파라미터의 타입, 반환 타입 또는 둘다 생략할 수 있습니다. 단일 클로저 구문은 암시적으로 구문의 값만 반환합니다.
 
@@ -519,10 +348,6 @@ let mappedNumbers = numbers.map({ number in 3 * number })
 print(mappedNumbers)
 // Prints "[60, 57, 21, 36]"
 ```
-
-<!--
-You can refer to parameters by number instead of by name—this approach is especially useful in very short closures. A closure passed as the last argument to a function can appear immediately after the parentheses. When a closure is the only argument to a function, you can omit the parentheses entirely.
--->
 
 매우 짧은 클로저에 유용한 접근 방법으로 이름 대신 숫자로 파라미터를 참조할 수 있습니다. 함수의 마지막 인수로 전달된 클로저는 소괄호 뒤에 바로 나타날 수 있습니다. 클로저가 함수의 유일한 인수일 때 소괄호는 생략할 수 있습니다.
 
@@ -533,10 +358,6 @@ print(sortedNumbers)
 ```
 
 ## 객체와 클래스 \(Objects and Classes\)
-
-<!--
-Use class followed by the class’s name to create a class. A property declaration in a class is written the same way as a constant or variable declaration, except that it’s in the context of a class. Likewise, method and function declarations are written the same way.
--->
 
 `class` 뒤에 클래스 (class)의 이름을 사용하여 클래스를 생성합니다. 클래스에서 프로퍼티 선언은 클래스의 컨텍스트 (context) 내에 있다는 점을 제외하고는 상수 또는 변수를 선언하는 방법과 동일합니다. 마찬가지로 메서드와 함수 선언도 동일한 방법으로 작성됩니다.
 
@@ -549,17 +370,8 @@ class Shape {
 }
 ```
 
-<!--
-EXPERIMENT
-Add a constant property with let, and add another method that takes an argument.
--->
-
 > EXPERIMENT  
 > `let` 을 사용하여 상수 프로퍼티를 추가하고 인수를 가지는 다른 메서드를 추가해 보시기 바랍니다.
-
-<!--
-Create an instance of a class by putting parentheses after the class name. Use dot syntax to access the properties and methods of the instance.
--->
 
 클래스 이름 뒤에 소괄호를 넣어 클래스의 인스턴스를 생성합니다. 인스턴스의 프로퍼티와 메서드에 접근하기 위헤 점 구문을 사용합니다.
 
@@ -568,10 +380,6 @@ var shape = Shape()
 shape.numberOfSides = 7
 var shapeDescription = shape.simpleDescription()
 ```
-
-<!--
-This version of the Shape class is missing something important: an initializer to set up the class when an instance is created. Use init to create one.
--->
 
 이 버전의 `Shape` 클래스는 인스턴스가 생성될 때 클래스를 설정하는 초기화 구문 (initializer)이 누락되었습니다. `init` 을 사용하여 생성합니다.
 
@@ -589,16 +397,6 @@ class NamedShape {
     }
 }
 ```
-
-<!--
-Notice how self is used to distinguish the name property from the name argument to the initializer. The arguments to the initializer are passed like a function call when you create an instance of the class. Every property needs a value assigned—either in its declaration (as with numberOfSides) or in the initializer (as with name).
-
-Use deinit to create a deinitializer if you need to perform some cleanup before the object is deallocated.
-
-Subclasses include their superclass name after their class name, separated by a colon. There’s no requirement for classes to subclass any standard root class, so you can include or omit a superclass as needed.
-
-Methods on a subclass that override the superclass’s implementation are marked with override—overriding a method by accident, without override, is detected by the compiler as an error. The compiler also detects methods with override that don’t actually override any method in the superclass.
--->
 
 초기화 구문에서 `name` 인수와 `name` 프로퍼티를 구분하기 위해 `self` 가 어떻게 사용되는지 확인 하십시오. 초기화 구문의 인수는 클래스의 인스턴스를 생성할 때 함수 호출처럼 전달됩니다. 모든 프로퍼티는 `numberOfSides` 와 같이 선언 시나 `name` 과 같이 초기화 구문에서 값을 할당해야 합니다.
 
@@ -631,17 +429,8 @@ test.area()
 test.simpleDescription()
 ```
 
-<!--
-EXPERIMENT
-Make another subclass of NamedShape called Circle that takes a radius and a name as arguments to its initializer. Implement an area() and a simpleDescription() method on the Circle class.
--->
-
 > EXPERIMENT  
 > 초기화 구문에 반지름과 이름을 인수로 가지는 `Circle` 이라는 `NamedShape` 의 하위 클래스를 만들어 보세요. `Circle` 클래스에 `area()` 와 `simpleDescription()` 메서드를 구현해 보세요.
-
-<!--
-In addition to simple properties that are stored, properties can have a getter and a setter.
--->
 
 저장된 단순 프로퍼티 외에도 프로퍼티는 getter 와 setter 를 가질 수 있습니다.
 
@@ -675,18 +464,6 @@ triangle.perimeter = 9.9
 print(triangle.sideLength)
 // Prints "3.3000000000000003"
 ```
-
-<!--
-In the setter for perimeter, the new value has the implicit name newValue. You can provide an explicit name in parentheses after set.
-
-Notice that the initializer for the EquilateralTriangle class has three different steps:
-
-1. Setting the value of properties that the subclass declares.
-2. Calling the superclass’s initializer.
-3. Changing the value of properties defined by the superclass. Any additional setup work that uses methods, getters, or setters can also be done at this point.
-
-If you don’t need to compute the property but still need to provide code that’s run before and after setting a new value, use willSet and didSet. The code you provide is run any time the value changes outside of an initializer. For example, the class below ensures that the side length of its triangle is always the same as the side length of its square.
--->
 
 `perimeter` 의 setter 에서 새로운 값은 암시적으로 `newValue` 라는 이름을 가집니다. `set` 이후에 소괄호 안에 명시적으로 이름을 제공할 수 있습니다.
 
@@ -725,10 +502,6 @@ print(triangleAndSquare.triangle.sideLength)
 // Prints "50.0"
 ```
 
-<!--
-When working with optional values, you can write ? before operations like methods, properties, and subscripting. If the value before the ? is nil, everything after the ? is ignored and the value of the whole expression is nil. Otherwise, the optional value is unwrapped, and everything after the ? acts on the unwrapped value. In both cases, the value of the whole expression is an optional value.
--->
-
 옵셔널 값으로 동작할 때 메서드, 프로퍼티, 그리고 서브 스크립트 (subscript)와 같은 동작 전에 `?` 을 작성할 수 있습니다. `?` 전의 값이 `nil` 이면 `?` 이후의 모든 것은 무시되고 전체 표현의 값은 `nil` 입니다. 그렇지 않으면 옵셔널 값은 언래핑 되고 `?` 후에 모든 동작은 언래핑 된 값으로 동작합니다. 이 경우 모드 전체 표현식의 값은 옵셔널 값입니다.
 
 ```swift
@@ -737,10 +510,6 @@ let sideLength = optionalSquare?.sideLength
 ```
 
 ## 열거형과 구조체 \(Enumerations and Structures\)
-
-<!--
-Use enum to create an enumeration. Like classes and all other named types, enumerations can have methods associated with them.
--->
 
 열거형을 생성하기 위해 `enum` 을 사용합니다. 클래스와 다른 명명된 타입과 같이 열거형은 메서드를 가질 수 있습니다.
 
@@ -769,19 +538,8 @@ let ace = Rank.ace
 let aceRawValue = ace.rawValue
 ```
 
-<!--
-EXPERIMENT
-Write a function that compares two Rank values by comparing their raw values.
--->
-
 > EXPERIMENT  
 > 원시값으로 2개의 `Rank` 값을 비교하는 함수를 작성해 보세요.
-
-<!--
-By default, Swift assigns the raw values starting at zero and incrementing by one each time, but you can change this behavior by explicitly specifying values. In the example above, Ace is explicitly given a raw value of 1, and the rest of the raw values are assigned in order. You can also use strings or floating-point numbers as the raw type of an enumeration. Use the rawValue property to access the raw value of an enumeration case.
-
-Use the init?(rawValue:) initializer to make an instance of an enumeration from a raw value. It returns either the enumeration case matching the raw value or nil if there’s no matching Rank.
--->
 
 기본적으로 Swift 는 0을 시작으로 매번 증가하는 원시값 (raw value)을 할당하지만 명시적으로 특정 값으로 이 동작을 변경할 수 있습니다. 위의 예제에서 `Ace` 는 명시적으로 `1` 의 값이 주어지고 나머지 원시값은 순서대로 할당됩니다. 열거형의 원시 타입으로 문자열 또는 부동 소수점도 사용할 수 있습니다. 열거형 케이스의 원시값에 접근하기 위해 `rawValue` 프로퍼티를 사용합니다.
 
@@ -792,10 +550,6 @@ if let convertedRank = Rank(rawValue: 3) {
     let threeDescription = convertedRank.simpleDescription()
 }
 ```
-
-<!--
-The case values of an enumeration are actual values, not just another way of writing their raw values. In fact, in cases where there isn’t a meaningful raw value, you don’t have to provide one.
--->
 
 열거형의 케이스 값은 원시값을 작성하는 다른 방법이 아니라 실제 값입니다. 실제로 의미 없는 원시값의 케이스의 경우에는 제공할 필요가 없습니다.
 
@@ -820,23 +574,12 @@ let hearts = Suit.hearts
 let heartsDescription = hearts.simpleDescription()
 ```
 
-<!--
-EXPERIMENT
-Add a color() method to Suit that returns “black” for spades and clubs, and returns “red” for hearts and diamonds.
--->
-
 > EXPERIMENT  
 > 스페이드와 클럽의 경우 "black" 을 반환하고 하트와 다이아몬드의 경우 "red" 를 반환하는 `color()` 메서드를 `Suit` 에 추가하십시오.
 
-<!--
-Notice the two ways that the hearts case of the enumeration is referred to above: When assigning a value to the hearts constant, the enumeration case Suit.hearts is referred to by its full name because the constant doesn’t have an explicit type specified. Inside the switch, the enumeration case is referred to by the abbreviated form .hearts because the value of self is already known to be a suit. You can use the abbreviated form anytime the value’s type is already known.
-
-If an enumeration has raw values, those values are determined as part of the declaration, which means every instance of a particular enumeration case always has the same raw value. Another choice for enumeration cases is to have values associated with the case—these values are determined when you make the instance, and they can be different for each instance of an enumeration case. You can think of the associated values as behaving like stored properties of the enumeration case instance. For example, consider the case of requesting the sunrise and sunset times from a server. The server either responds with the requested information, or it responds with a description of what went wrong.
--->
-
 위에서 열거형의 `hearts` 케이스를 참조하는 두가지 방법에 유의하십시오: `hearts` 상수에 값을 할당할 때 명시적으로 타입을 지정하지 않았으므로 열거형 케이스 `Suit.hearts` 전체 이름으로 참조됩니다. 스위치에서 `self` 의 값은 이미 카드 \(suit\) 로 알고 있기 때문에 열거형 케이스는 짧은 형식인 `.hearts` 로 참조됩니다. 값의 타입을 이미 알고 있다면 언제나 짧은 형식을 사용할 수 있습니다.
 
-열거형이 원시값을 갖는 경우 선언의 부분으로 결정됩니다. 이것은 특정 열거형 케이스의 모든 인스턴스는 항상 같은 원시값을 갖는다는 의미입니다. 열거형 케이스의 또다른 선택은 케이스와 연관된 값 (associated value)을 가지는 것입니다—이러한 값은 인스턴스를 생성할 때 결정되고 열거형 케이스의 각 인스턴스에 대해 다를 수 있습니다. 연관된 값은 열거형 케이스 인스턴스의 저장된 프로퍼티처럼 동작한다고 생각할 수 있습니다. 예를 들어 서버에서 일출과 일몰 시간에 대해 요청한다고 가정해 봅시다. 서버는 요청된 정보에 대한 응답을 하거나 무엇이 잘못되었는지에 대한 설명을 응답합니다.
+열거형이 원시값을 갖는 경우 선언의 부분으로 결정됩니다. 이것은 특정 열거형 케이스의 모든 인스턴스는 항상 같은 원시값을 갖는다는 의미입니다. 열거형 케이스의 또다른 선택은 케이스와 연관된 값 (associated value)을 가지는 것입니다 — 이러한 값은 인스턴스를 생성할 때 결정되고 열거형 케이스의 각 인스턴스에 대해 다를 수 있습니다. 연관된 값은 열거형 케이스 인스턴스의 저장된 프로퍼티처럼 동작한다고 생각할 수 있습니다. 예를 들어 서버에서 일출과 일몰 시간에 대해 요청한다고 가정해 봅시다. 서버는 요청된 정보에 대한 응답을 하거나 무엇이 잘못되었는지에 대한 설명을 응답합니다.
 
 ```swift
 enum ServerResponse {
@@ -856,19 +599,8 @@ case let .failure(message):
 // Prints "Sunrise is at 6:00 am and sunset is at 8:09 pm."
 ```
 
-<!--
-EXPERIMENT
-Add a third case to ServerResponse and to the switch.
--->
-
 > EXPERIMENT  
 > `ServerResponse` 에 세번째 케이스를 추가하십시오.
-
-<!--
-Notice how the sunrise and sunset times are extracted from the ServerResponse value as part of matching the value against the switch cases.
-
-Use struct to create a structure. Structures support many of the same behaviors as classes, including methods and initializers. One of the most important differences between structures and classes is that structures are always copied when they’re passed around in your code, but classes are passed by reference.
--->
 
 스위치 케이스에 대한 값이 일치하는 부분으로 `ServerResponse` 값에서 일출과 일몰 시간이 어떻게 추출되는지 확인하시기 바랍니다.
 
@@ -886,19 +618,10 @@ let threeOfSpades = Card(rank: .three, suit: .spades)
 let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 ```
 
-<!--
-EXPERIMENT
-Write a function that returns an array containing a full deck of cards, with one card of each combination of rank and suit.
--->
-
 > EXPERIMENT  
 > 랭크와 카드의 각 조합에 대한 카드 한장으로 전체 카드 덱을 포함하는 배열을 반환하는 함수를 작성하십시오.
 
 ## 동시성 \(Concurrency\)
-
-<!--
-Use async to mark a function that runs asynchronously.
--->
 
 비동기적으로 실행되는 함수를 나타내기 위해 `async` 를 사용합니다.
 
@@ -910,10 +633,6 @@ func fetchUserID(from server: String) async -> Int {
     return 501
 }
 ```
-
-<!--
-You mark a call to an asynchronous function by writing await in front of it.
--->
 
 앞에 `await` 를 작성하여 비동기 함수를 호출하는 것을 나타냅니다.
 
@@ -927,10 +646,6 @@ func fetchUsername(from server: String) async -> String {
 }
 ```
 
-<!--
-Use async let to call an asynchronous function, letting it run in parallel with other asynchronous code. When you use the value it returns, write await.
--->
-
 비동기 함수를 호출하기 위해 `async let` 을 사용하여 다른 비동기 코드와 병렬로 실행할 수 있습니다. `await` 를 작성하여 반환된 값을 사용합니다.
 
 ```swift
@@ -941,10 +656,6 @@ func connectUser(to server: String) async {
     print(greeting)
 }
 ```
-
-<!--
-Use Task to call asynchronous functions from synchronous code, without waiting for them to return.
--->
 
 비동기 함수의 반환을 기다리지 않고 동기 코드에서 비동기 함수를 호출하려면 `Task` 를 사용합니다.
 
@@ -957,10 +668,6 @@ Task {
 
 ## 프로토콜과 확장 \(Protocols and Extensions\)
 
-<!--
-Use protocol to declare a protocol.
--->
-
 프로토콜을 선언하려면 `protocol` 을 사용해야 합니다.
 
 ```swift
@@ -969,10 +676,6 @@ protocol ExampleProtocol {
     mutating func adjust()
 }
 ```
-
-<!--
-Classes, enumerations, and structures can all adopt protocols.
--->
 
 클래스, 열거형, 그리고 구조체는 프로토콜을 채택할 수 있습니다.
 
@@ -999,19 +702,8 @@ b.adjust()
 let bDescription = b.simpleDescription
 ```
 
-<!--
-EXPERIMENT
-Add another requirement to ExampleProtocol. What changes do you need to make to SimpleClass and SimpleStructure so that they still conform to the protocol?
--->
-
 > EXPERIMENT  
 > `ExampleProtocol` 에 다른 요구사항을 추가하십시오. 프로토콜을 여전히 준수하기 위해 `SimpleClass` 와 `SimpleStructure` 에 무엇을 바꿔야 할까요?
-
-<!--
-Notice the use of the mutating keyword in the declaration of SimpleStructure to mark a method that modifies the structure. The declaration of SimpleClass doesn’t need any of its methods marked as mutating because methods on a class can always modify the class.
-
-Use extension to add functionality to an existing type, such as new methods and computed properties. You can use an extension to add protocol conformance to a type that’s declared elsewhere, or even to a type that you imported from a library or framework.
--->
 
 구조체를 수정하는 메서드를 표시하기위해 `SimpleStructure` 의 선언에서 `mutating` 키워드 사용을 주목하시기 바랍니다. 클래스의 메서드는 항상 클래스를 수정할 수 있으므로 `SimpleClass` 의 선언에는 `mutating` 으로 표시된 메서드가 필요하지 않습니다.
 
@@ -1030,19 +722,10 @@ print(7.simpleDescription)
 // Prints "The number 7"
 ```
 
-<!--
-EXPERIMENT
-Write an extension for the Double type that adds an absoluteValue property.
--->
-
 > EXPERIMENT  
 > `Double` 타입에 대해 `absoluteValue` 프로퍼티를 추가하기 위해 확장을 작성하십시오.
 
-<!--
-You can use a protocol name just like any other named type—for example, to create a collection of objects that have different types but that all conform to a single protocol. When you work with values whose type is a protocol type, methods outside the protocol definition aren’t available.
--->
-
-다른 명명된 타입처럼 프로토콜 이름을 사용할 수 있습니다—예를 들어 타입이 다르지만 모두 단일 프로토콜을 준수하는 객체의 콜렉션을 생성할 수 있습니다. 타입이 프로토콜 타입인 값으로 동작하는 경우 프로토콜 정의 외부의 메서드를 사용할 수 없습니다.
+다른 명명된 타입처럼 프로토콜 이름을 사용할 수 있습니다 — 예를 들어 타입이 다르지만 모두 단일 프로토콜을 준수하는 객체의 콜렉션을 생성할 수 있습니다. 타입이 프로토콜 타입인 값으로 동작하는 경우 프로토콜 정의 외부의 메서드를 사용할 수 없습니다.
 
 ```swift
 let protocolValue: ExampleProtocol = a
@@ -1051,17 +734,9 @@ print(protocolValue.simpleDescription)
 // print(protocolValue.anotherProperty)  // Uncomment to see the error
 ```
 
-<!--
-Even though the variable protocolValue has a runtime type of SimpleClass, the compiler treats it as the given type of ExampleProtocol. This means that you can’t accidentally access methods or properties that the class implements in addition to its protocol conformance.
--->
-
 `protocolValue` 변수에 `SimpleClass` 의 런타임 타입을 가지고 있더라도 컴파일러는 주어진 `ExampleProtocol` 의 타입으로 처리합니다. 즉, 프로토콜 적합성 외에 클래스가 구현하는 메서드나 프로퍼티에 실수로 접근할 수 없습니다.
 
 ## 에러 처리 \(Error Handling\)
-
-<!--
-You represent errors using any type that adopts the Error protocol.
--->
 
 `Error` 프로토콜을 채택하는 모든 타입을 사용하여 에러를 나타냅니다.
 
@@ -1073,10 +748,6 @@ enum PrinterError: Error {
 }
 ```
 
-<!--
-Use throw to throw an error and throws to mark a function that can throw an error. If you throw an error in a function, the function returns immediately and the code that called the function handles the error.
--->
-
 에러를 던지기 위해 `throw` 를 사용하고 에러를 던질 수 있는 함수를 나타내기 위해 `throws` 를 사용합니다. 함수에서 에러가 발생하면 함수는 즉시 반환되고 함수를 호출한 코드가 에러를 처리합니다.
 
 ```swift
@@ -1087,10 +758,6 @@ func send(job: Int, toPrinter printerName: String) throws -> String {
     return "Job sent"
 }
 ```
-
-<!--
-There are several ways to handle errors. One way is to use do-catch. Inside the do block, you mark code that can throw an error by writing try in front of it. Inside the catch block, the error is automatically given the name error unless you give it a different name.
--->
 
 에러를 처리하는 방법은 몇가지 존재합니다. 한가지 방법은 `do`-`catch` 를 사용하는 것입니다. `do` 블럭 내에서 앞에 `try` 를 작성하여 에러가 발생할 수 있는 코드임을 표시합니다. `catch` 블럭 내에서 에러는 다른 이름으로 지정하기 전까지는 자동으로 `error` 라는 이름으로 주어집니다.
 
@@ -1104,17 +771,8 @@ do {
 // Prints "Job sent"
 ```
 
-<!--
-EXPERIMENT
-Change the printer name to "Never Has Toner", so that the send(job:toPrinter:) function throws an error.
--->
-
 > EXPERIMENT  
 > `send(job:toPrinter:)` 함수에서 에러가 발생하도록 프린터 이름을 `"Never Has Toner"` 로 변경합니다.
-
-<!--
-You can provide multiple catch blocks that handle specific errors. You write a pattern after catch just as you do after case in a switch.
--->
 
 특정 에러를 처리하는 여러개의 `catch` 블럭을 제공할 수 있습니다. 스위치에서 `case` 이후에 하는 것처럼 `catch` 이후에 패턴을 작성합니다.
 
@@ -1132,17 +790,8 @@ do {
 // Prints "Job sent"
 ```
 
-<!--
-EXPERIMENT
-Add code to throw an error inside the do block. What kind of error do you need to throw so that the error is handled by the first catch block? What about the second and third blocks?
--->
-
 > EXPERIMENT  
 > `do` 블럭 내에 에러를 발생하는 코드를 추가하십시오. 첫번째 `catch` 블럭에서 에러를 처리하려면 어떤 종류의 에러를 던져야 할까요? 두번째와 세번째 블럭에 대해선 무슨 에러를 던져야 할까요?
-
-<!--
-Another way to handle errors is to use try? to convert the result to an optional. If the function throws an error, the specific error is discarded and the result is nil. Otherwise, the result is an optional containing the value that the function returned.
--->
 
 에러를 처리하는 다른 방법은 결과를 옵셔널로 바꾸는 `try?` 를 사용하는 것입니다. 함수에서 에러가 발생하면 특정 에러는 버려지고 결과는 `nil` 입니다. 그렇지 않으면 결과는 함수가 반환한 옵셔널 값을 포함합니다.
 
@@ -1150,10 +799,6 @@ Another way to handle errors is to use try? to convert the result to an optional
 let printerSuccess = try? send(job: 1884, toPrinter: "Mergenthaler")
 let printerFailure = try? send(job: 1885, toPrinter: "Never Has Toner")
 ```
-
-<!--
-Use defer to write a block of code that’s executed after all other code in the function, just before the function returns. The code is executed regardless of whether the function throws an error. You can use defer to write setup and cleanup code next to each other, even though they need to be executed at different times.
--->
 
 함수를 반환하기 직전에 함수의 다른 모든 코드 다음에 실행되는 코드의 블럭을 작성하기 위해 `defer` 를 사용합니다. 이 코드는 함수에서 에러가 발생하는지 여부와 관계없이 실행됩니다. 서로 다른 시간에 실행되어야 하는 경우에도 설정 및 정리 코드를 나란히 작성하기 위해 `defer` 를 사용할 수 있습니다.
 
@@ -1177,10 +822,6 @@ print(fridgeIsOpen)
 
 ## 제너릭 \(Generics\)
 
-<!--
-Write a name inside angle brackets to make a generic function or type.
--->
-
 제너릭 \(generic\) 함수 또는 타입을 만들기 위해 꺾쇠 괄호 안에 이름을 작성합니다.
 
 ```swift
@@ -1194,10 +835,6 @@ func makeArray<Item>(repeating item: Item, numberOfTimes: Int) -> [Item] {
 makeArray(repeating: "knock", numberOfTimes: 4)
 ```
 
-<!--
-You can make generic forms of functions and methods, as well as classes, enumerations, and structures.
--->
-
 제너릭 형태의 함수와 메서드 뿐만 아니라 클래스, 열거형, 그리고 구조체도 만들 수 있습니다.
 
 ```swift
@@ -1210,11 +847,7 @@ var possibleInteger: OptionalValue<Int> = .none
 possibleInteger = .some(100)
 ```
 
-<!--
-Use where right before the body to specify a list of requirements—for example, to require the type to implement a protocol, to require two types to be the same, or to require a class to have a particular superclass.
--->
-
-요구사항의 목록을 지정하기 위해 본문 바로 전에 `where` 을 사용합니다—예를 들어 타입이 프로토콜을 구현하도록 요구하거나 두 타입의 동일하도록 요구하거나 클래스에 특정 상위 클래스가 있어야 합니다.
+요구사항의 목록을 지정하기 위해 본문 바로 전에 `where` 을 사용합니다 — 예를 들어 타입이 프로토콜을 구현하도록 요구하거나 두 타입의 동일하도록 요구하거나 클래스에 특정 상위 클래스가 있어야 합니다.
 
 ```swift
 func anyCommonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> Bool
@@ -1232,17 +865,8 @@ func anyCommonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> Bool
 anyCommonElements([1, 2, 3], [3])
 ```
 
-<!--
-EXPERIMENT
-Modify the anyCommonElements(_:_:) function to make a function that returns an array of the elements that any two sequences have in common.
--->
-
 > EXPERIMENT  
 > 두 시퀀스가 공통으로 가지는 요소의 배열을 반환하는 함수를 만들기 위해 `anyCommonElements(_:_:)` 함수를 수정하십시오.
-
-<!--
-Writing <T: Equatable> is the same as writing <T> ... where T: Equatable.
--->
 
 `<T: Equatable>` 을 작성하는 것은 `<T> ... where T: Equatable` 을 작성하는 것과 같습니다.
 
