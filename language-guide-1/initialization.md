@@ -140,9 +140,9 @@ let freezingPointOfWater = Celsius(fromKelvin: 273.15)
 The first initializer has a single initialization parameter with an argument label of fromFahrenheit and a parameter name of fahrenheit. The second initializer has a single initialization parameter with an argument label of fromKelvin and a parameter name of kelvin. Both initializers convert their single argument into the corresponding Celsius value and store this value in a property called temperatureInCelsius.
 -->
 
-첫번째 초기화 구문은 `fromFahrenheit` 의 인자 라벨과 `fahrenheit` 의 파라미터 명을 가진 하나의 초기화 파라미터를 가지고 있습니다. 두번째 초기화 구문은 `fromKelvin` 의 인자 라벨과 `kelvin` 의 파라미터 명을 가진 하나의 초기화 파라미터를 가지고 있습니다. 두 초기화 구문 모두 단일 인자를 섭씨 값으로 변환하고 `temperatureInCelsius` 라는 프로퍼티에 값을 저장합니다.
+첫번째 초기화 구문은 `fromFahrenheit` 의 인수 라벨과 `fahrenheit` 의 파라미터 명을 가진 하나의 초기화 파라미터를 가지고 있습니다. 두번째 초기화 구문은 `fromKelvin` 의 인수 라벨과 `kelvin` 의 파라미터 명을 가진 하나의 초기화 파라미터를 가지고 있습니다. 두 초기화 구문 모두 단일 인수를 섭씨 값으로 변환하고 `temperatureInCelsius` 라는 프로퍼티에 값을 저장합니다.
 
-### 파라미터 명과 인자 라벨 \(Parameter Names and Argument Labels\)
+### 파라미터 명과 인수 라벨 \(Parameter Names and Argument Labels\)
 
 <!--
 As with function and method parameters, initialization parameters can have both a parameter name for use within the initializer’s body and an argument label for use when calling the initializer.
@@ -154,7 +154,7 @@ The following example defines a structure called Color, with three constant prop
 Color provides an initializer with three appropriately named parameters of type Double for its red, green, and blue components. Color also provides a second initializer with a single white parameter, which is used to provide the same value for all three color components.
 -->
 
-함수와 메서드 파라미터와 마찬가지로 초기화 파라미터는 초기화 구문의 본문 내에서 사용하는 파라미터 명과 초기화 구문을 호출할 때 사용하는 인자 라벨 모두 가질 수 있습니다.
+함수와 메서드 파라미터와 마찬가지로 초기화 파라미터는 초기화 구문의 본문 내에서 사용하는 파라미터 명과 초기화 구문을 호출할 때 사용하는 인수 라벨 모두 가질 수 있습니다.
 
 그러나 초기화 구문은 함수와 메서드 처럼 소괄호 앞에 식별 함수 이름을 가지지 않습니다. 따라서 초기화 구문의 파라미터의 이름과 타입은 어떤 초기화 구문을 호출해야 하는지 식별하는데 특히 중요한 역할을 합니다. 이러한 이유 때문에 Swift는 제공하지 않으면 초기화 구문에서 _모든_ 파라미터에 대해 자동적으로 인수 라벨을 제공합니다.
 
@@ -193,14 +193,14 @@ let halfGray = Color(white: 0.5)
 Note that it isn’t possible to call these initializers without using argument labels. Argument labels must always be used in an initializer if they’re defined, and omitting them is a compile-time error:
 -->
 
-인자 라벨을 사용하지 않고 초기화 구문을 호출할 수 없습니다. 인자 라벨은 정의 되었다면 항상 사용되어야 하고 생략 시 컴파일 시 에러가 발생합니다:
+인수 라벨을 사용하지 않고 초기화 구문을 호출할 수 없습니다. 인수 라벨은 정의 되었다면 항상 사용되어야 하고 생략 시 컴파일 시 에러가 발생합니다:
 
 ```swift
 let veryGreen = Color(0.0, 1.0, 0.0)
 // this reports a compile-time error - argument labels are required
 ```
 
-### 인자 라벨 없는 초기화 구문 파라미터 \(Initializer Parameters Without Argument Labels\)
+### 인수 라벨 없는 초기화 구문 파라미터 \(Initializer Parameters Without Argument Labels\)
 
 <!--
 If you don’t want to use an argument label for an initializer parameter, write an underscore (_) instead of an explicit argument label for that parameter to override the default behavior.
@@ -208,7 +208,7 @@ If you don’t want to use an argument label for an initializer parameter, write
 Here’s an expanded version of the Celsius example from Initialization Parameters above, with an additional initializer to create a new Celsius instance from a Double value that’s already in the Celsius scale:
 -->
 
-초기화 구문 파라미터에 인자 라벨 사용을 원치 않을 경우 명시적으로 인자 라벨 대신에 언더바 \(`_`\)를 작성하여 기본 동작을 재정의 합니다.
+초기화 구문 파라미터에 인수 라벨 사용을 원치 않을 경우 명시적으로 인수 라벨 대신에 언더바 \(`_`\)를 작성하여 기본 동작을 재정의 합니다.
 
 다음은 섭씨 온도에 대한 `Double` 값으로 새로운 `Celsius` 인스턴스를 생성하기 위해 초기화 구문을 추가한 [초기화 파라미터 \(Initialization Parameters\)](initialization.md#initialization-parameters) 에서의 `Celsius` 에졔의 확장된 버전입니다:
 
@@ -233,7 +233,7 @@ let bodyTemperature = Celsius(37.0)
 The initializer call Celsius(37.0) is clear in its intent without the need for an argument label. It’s therefore appropriate to write this initializer as init(_ celsius: Double) so that it can be called by providing an unnamed Double value.
 -->
 
-초기화 구문 호출 `Celsius(37.0)` 은 인자 라벨이 필요치 않다는 의도가 명확합니다. 따라서 초기화 구문을 `init(_ celsius: Double)` 로 작성하여 이름없는 `Double` 값을 제공하여 호출할 수 있습니다.
+초기화 구문 호출 `Celsius(37.0)` 은 인수 라벨이 필요치 않다는 의도가 명확합니다. 따라서 초기화 구문을 `init(_ celsius: Double)` 로 작성하여 이름없는 `Double` 값을 제공하여 호출할 수 있습니다.
 
 ### 옵셔널 프로퍼티 타입 \(Optional Property Types\)
 
@@ -460,7 +460,7 @@ let basicRect = Rect()
 The second Rect initializer, init(origin:size:), is functionally the same as the memberwise initializer that the structure would have received if it didn’t have its own custom initializers. This initializer simply assigns the origin and size argument values to the appropriate stored properties:
 -->
 
-두번째 `Rect` 초기화 구문인 `init(origin:size:)` 는 자체 사용자 화 초기화 구문이 없으면 구조체는 수신했을 때 멤버별 초기화 구문과 기능적으로 동일합니다. 이 초기화 구문은 단순하게 `origin` 과 `size` 인자값을 적절한 저장된 프로퍼티에 할당합니다:
+두번째 `Rect` 초기화 구문인 `init(origin:size:)` 는 자체 사용자 화 초기화 구문이 없으면 구조체는 수신했을 때 멤버별 초기화 구문과 기능적으로 동일합니다. 이 초기화 구문은 단순하게 `origin` 과 `size` 인수값을 적절한 저장된 프로퍼티에 할당합니다:
 
 ```swift
 let originRect = Rect(origin: Point(x: 2.0, y: 2.0),
@@ -861,7 +861,7 @@ If a subclass initializer performs no customization in phase 2 of the initializa
 This example defines another subclass of Vehicle, called Hoverboard. In its initializer, the Hoverboard class sets only its color property. Instead of making an explicit call to super.init(), this initializer relies on an implicit call to its superclass’s initializer to complete the process.
 -->
 
-하위 클래스 초기화 구문이 초기화 프로세스의 2 단계에서 사용자 정의 없이 수행되고 상위 클래스가 동기적이며 인자가 없는 지정된 초기화 구문을 가지고 있다면 모든 하위 클래스의 저장된 프로퍼티에 값을 할당한 후에 `super.init()` 호출을 생략할 수 있습니다. 상위 클래스의 초기화 구문이 비동기적이라면 명시적으로 `await super.init()` 을 작성해야 합니다.
+하위 클래스 초기화 구문이 초기화 프로세스의 2 단계에서 사용자 정의 없이 수행되고 상위 클래스가 동기적이며 인수가 없는 지정된 초기화 구문을 가지고 있다면 모든 하위 클래스의 저장된 프로퍼티에 값을 할당한 후에 `super.init()` 호출을 생략할 수 있습니다. 상위 클래스의 초기화 구문이 비동기적이라면 명시적으로 `await super.init()` 을 작성해야 합니다.
 
 아래 예제는 `Hoverboard` 라는 `Vehicle` 의 다른 하위 클래스를 정의합니다. 초기화 구문에서 `Hoverboard` 클래스는 `color` 프로퍼티만 설정합니다. 이 초기화 구문은 `super.init()` 을 명시적으로 호출하는 대신에 상위 클래스의 초기화 구문을 암시적으로 호출함으로써 프로세스를 완료합니다.
 
@@ -972,7 +972,7 @@ The figure below shows the initializer chain for the Food class:
 Classes don’t have a default memberwise initializer, and so the Food class provides a designated initializer that takes a single argument called name. This initializer can be used to create a new Food instance with a specific name:
 -->
 
-클래스는 기본 멤버별 초기화 구문을 가지고 있지 않으므로 `Food` 클래스는 `name` 이라는 하나의 인자를 가지는 지정된 초기화 구문을 제공합니다. 이 초기화 구문은 특정 이름으로 새로운 `Food` 인스턴스를 생성하기 위해 사용될 수 있습니다:
+클래스는 기본 멤버별 초기화 구문을 가지고 있지 않으므로 `Food` 클래스는 `name` 이라는 하나의 인수를 가지는 지정된 초기화 구문을 제공합니다. 이 초기화 구문은 특정 이름으로 새로운 `Food` 인스턴스를 생성하기 위해 사용될 수 있습니다:
 
 ```swift
 let namedMeat = Food(name: "Bacon")
@@ -987,7 +987,7 @@ The Food class also provides a convenience initializer, init(), with no argument
 
 `Food` 클래스에 `init(name: String)` 초기화 구문은 새로운 `Food` 인스턴스에 모든 저장된 프로퍼티는 완벽하게 초기화 되므로 _지정된_ 초기화 구문으로 제공됩니다. `Food` 클래스는 상위 클래스를 가지고 있지 않으므로 `init(name: String)` 초기화 구문은 초기화를 완료하기 위해 `super.init()` 을 호출할 필요가 없습니다.
 
-`Food` 클래스는 인자가 없는 `init()` 의 _편의_ 초기화 구문도 제공합니다. `init()` 초기화 구문은 `[Unnamed]` 의 `name` 값으로 `Food` 클래스의 `init(name: String)` 으로 위임하여 새로운 음식을 위한 기본 이름을 제공합니다:
+`Food` 클래스는 인수가 없는 `init()` 의 _편의_ 초기화 구문도 제공합니다. `init()` 초기화 구문은 `[Unnamed]` 의 `name` 값으로 `Food` 클래스의 `init(name: String)` 으로 위임하여 새로운 음식을 위한 기본 이름을 제공합니다:
 
 ```swift
 let mysteryMeat = Food()
@@ -1035,7 +1035,7 @@ In this example, the superclass for RecipeIngredient is Food, which has a single
 All three of these initializers can be used to create new RecipeIngredient instances:
 -->
 
-`RecipeIngredient` 클래스는 새로운 `RecipeIngredient` 인스턴스에 모든 프로퍼티를 채울 수 있는 `init(name: String, quantity: Int)` 인 하나의 지정된 초기화 구문을 가지고 있습니다. 이 초기화 구문은 `RecipeIngredient` 에 도입된 새로운 프로퍼티 인 `quantity` 프로퍼티에 전달된 `quantity` 인자를 할당하는 것으로 시작합니다. 그런 후에 `Food` 클래스에 `init(name: String)` 초기화 구문으로 위임합니다. 이 프로세스는 위에서 설명한 [2단계 초기화 \(Two-Phase Initialization\)](initialization.md#2-two-phase-initialization) 에 안전 점검 1에 충족합니다.
+`RecipeIngredient` 클래스는 새로운 `RecipeIngredient` 인스턴스에 모든 프로퍼티를 채울 수 있는 `init(name: String, quantity: Int)` 인 하나의 지정된 초기화 구문을 가지고 있습니다. 이 초기화 구문은 `RecipeIngredient` 에 도입된 새로운 프로퍼티 인 `quantity` 프로퍼티에 전달된 `quantity` 인수를 할당하는 것으로 시작합니다. 그런 후에 `Food` 클래스에 `init(name: String)` 초기화 구문으로 위임합니다. 이 프로세스는 위에서 설명한 [2단계 초기화 \(Two-Phase Initialization\)](initialization.md#2-two-phase-initialization) 에 안전 점검 1에 충족합니다.
 
 `RecipeIngredient` 는 이름으로만 `RecipeIngredient` 인스턴스를 생성하기 위해 사용되는 `init(name: String)` 인 편의 초기화 구문도 정의합니다. 이 편의 초기화 구문은 명시적인 양 없이 생성되는 모든 `RecipeIngredient` 인스턴스에 대해 `1` 의 양으로 가정합니다. 이러한 편의 초기화 구문의 정의는 `RecipeIngredient` 인스턴스를 더 빠르고 편리하게 생성하도록 하고 여러개의 단일 양의 `RecipeIngredient` 인스턴스를 생성할 때 코드 중복을 피할 수 있습니다. 이 편의 초기화 구문은 `quantity` 값 `1` 을 전달하여 클래스의 지정된 초기화 구문에 위임합니다.
 

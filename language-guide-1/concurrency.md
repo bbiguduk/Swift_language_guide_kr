@@ -439,7 +439,7 @@ Tasks and actors let you divide a program into pieces that can safely run concur
 A type that can be shared from one concurrency domain to another is known as a sendable type. For example, it can be passed as an argument when calling an actor method or be returned as the result of a task. The examples earlier in this chapter didn’t discuss sendability because those examples use simple value types that are always safe to share for the data being passed between concurrency domains. In contrast, some types aren’t safe to pass across concurrency domains. For example, a class that contains mutable properties and doesn’t serialize access to those properties can produce unpredictable and incorrect results when you pass instances of that class between different tasks.
 -->
 
-한 동시성 도메인에서 다른 동시성 도메인으로 공유될 수 있는 타입을 _전송 가능_ 타입 \(_sendable_ type\) 이라고 합니다. 예를 들어, 행위자 메서드로 호출될 때 인자로 전달되거나 작업의 결과로 반환될 수 있습니다. 이 챕터의 앞부분에 있는 예제들은 동시성 도메인 간에 전달되는 데이터는 항상 안전한 간단한 값 타입을 사용하기 때문에 전송 가능성에 대해 논의하지 않았습니다. 반대로 일부 타입은 동시성 도메인 간에 전달하기 위해 안전하지 않습니다. 예를 들어, 변경 가능한 프로퍼티를 포함하고 해당 프로퍼티에 순차적으로 접근하지 않는 클래스는 서로 다른 작업 클래스의 인스턴스에 전달될 때 예상할 수 없고 잘못된 결과를 생성할 수 있습니다.
+한 동시성 도메인에서 다른 동시성 도메인으로 공유될 수 있는 타입을 _전송 가능_ 타입 \(_sendable_ type\) 이라고 합니다. 예를 들어, 행위자 메서드로 호출될 때 인수로 전달되거나 작업의 결과로 반환될 수 있습니다. 이 챕터의 앞부분에 있는 예제들은 동시성 도메인 간에 전달되는 데이터는 항상 안전한 간단한 값 타입을 사용하기 때문에 전송 가능성에 대해 논의하지 않았습니다. 반대로 일부 타입은 동시성 도메인 간에 전달하기 위해 안전하지 않습니다. 예를 들어, 변경 가능한 프로퍼티를 포함하고 해당 프로퍼티에 순차적으로 접근하지 않는 클래스는 서로 다른 작업 클래스의 인스턴스에 전달될 때 예상할 수 없고 잘못된 결과를 생성할 수 있습니다.
 
 <!--
 You mark a type as being sendable by declaring conformance to the Sendable protocol. That protocol doesn’t have any code requirements, but it does have semantic requirements that Swift enforces. In general, there are three ways for a type to be sendable:

@@ -820,7 +820,7 @@ If the loop finishes without finding a mismatch, the two containers match, and t
 Here’s how the allItemsMatch(_:_:) function looks in action:
 -->
 
-이 함수는 `someContainer` 와 `anotherContainer` 라는 2개의 인자를 가집니다. `someContainer` 인자는 `C1` 타입이고 `anotherContainer` 인자는 `C2` 타입입니다. `C1` 과 `C2` 모두 함수가 호출될 때 결정되는 2가지 컨테이너 타입에 대한 타입 파라미터입니다.
+이 함수는 `someContainer` 와 `anotherContainer` 라는 2개의 인수를 가집니다. `someContainer` 인수는 `C1` 타입이고 `anotherContainer` 인수는 `C2` 타입입니다. `C1` 과 `C2` 모두 함수가 호출될 때 결정되는 2가지 컨테이너 타입에 대한 타입 파라미터입니다.
 
 함수의 2가지 타입 파라미터에 대한 요구사항은 다음과 같습니다:
 
@@ -870,7 +870,7 @@ if allItemsMatch(stackOfStrings, arrayOfStrings) {
 The example above creates a Stack instance to store String values, and pushes three strings onto the stack. The example also creates an Array instance initialized with an array literal containing the same three strings as the stack. Even though the stack and the array are of a different type, they both conform to the Container protocol, and both contain the same type of values. You can therefore call the allItemsMatch(_:_:) function with these two containers as its arguments. In the example above, the allItemsMatch(_:_:) function correctly reports that all of the items in the two containers match.
 -->
 
-위의 예제는 `String` 값을 저장하는 `Stack` 인스턴스를 생성하고 스택에 3개의 문자열을 푸쉬합니다. 이 예제는 스택과 동일한 3개의 문자열을 포함하는 배열 리터럴로 초기화 된 `Array` 인스턴스도 생성합니다. 스택과 배열은 다른 타입이지만 둘다 `Container` 프로토콜을 준수하고 둘다 같은 타입의 값을 포함합니다. 따라서 이 2개의 컨테이너를 인자로 `allItemsMatch(_:_:)` 함수를 호출합니다. 위의 예제에서 `allItemsMatch(_:_:)` 함수는 두 컨테이너의 모든 항목이 정확히 일치한다고 알려줍니다.
+위의 예제는 `String` 값을 저장하는 `Stack` 인스턴스를 생성하고 스택에 3개의 문자열을 푸쉬합니다. 이 예제는 스택과 동일한 3개의 문자열을 포함하는 배열 리터럴로 초기화 된 `Array` 인스턴스도 생성합니다. 스택과 배열은 다른 타입이지만 둘다 `Container` 프로토콜을 준수하고 둘다 같은 타입의 값을 포함합니다. 따라서 이 2개의 컨테이너를 인수로 `allItemsMatch(_:_:)` 함수를 호출합니다. 위의 예제에서 `allItemsMatch(_:_:)` 함수는 두 컨테이너의 모든 항목이 정확히 일치한다고 알려줍니다.
 
 ## 제너릭 Where 절이 있는 확장 \(Extensions with a Generic Where Clause\)
 

@@ -1232,7 +1232,7 @@ Here’s a simple CounterDataSource implementation where the data source returns
 
 `Counter` 클래스는 `count` 라는 프로퍼티 변수에 현재값을 저장합니다. `Counter` 클래스는 메서드가 호출될 때마다 `count` 프로퍼티를 증가하는 `increment` 라는 메서드도 정의합니다.
 
-`increment()` 메서드는 먼저 데이터 소스에 `increment(forCount:)` 메서드의 구현을 통해 증가값을 조회하려고 합니다. `increment()` 메서드는 `increment(forCount:)` 호출에 대해 옵셔널 체이닝을 사용하고 메서드의 단일 인자로 현재 `count` 값을 전달합니다.
+`increment()` 메서드는 먼저 데이터 소스에 `increment(forCount:)` 메서드의 구현을 통해 증가값을 조회하려고 합니다. `increment()` 메서드는 `increment(forCount:)` 호출에 대해 옵셔널 체이닝을 사용하고 메서드의 단일 인수로 현재 `count` 값을 전달합니다.
 
 여기서 2단계 옵셔널 체이닝을 사용합니다. 먼저 `dataSource` 는 `nil` 이 가능하므로 `dataSource` 가 `nil` 이 아닌 경우에만 `increment(forCount:)` 호출해야 된다는 것을 나타내기 위해 `dataSource` 는 이름 뒤에 물음표를 붙입니다. 두번째로 옵셔널 요구사항 이므로 `dataSource` 가 존재하더라도 `increment(forCount:)` 가 구현되었다고 보장하지 않습니다. 여기서 `increment(forCount:)` 가 구현되지 않은 가능성은 옵셔널 체이닝에 의해 처리됩니다. `increment(forCount:)` 가 존재할 경우에만 `increment(forCount:)` 호출이 이뤄지고 존재하지 않으면 `nil` 입니다. 이것이 `increment(forCount:)` 이름 뒤에 물음표가 붙는 이유입니다.
 
@@ -1299,7 +1299,7 @@ The TowardsZeroSource class implements the optional increment(forCount:) method 
 You can use an instance of TowardsZeroSource with the existing Counter instance to count from -4 to zero. Once the counter reaches zero, no more counting takes place:
 -->
 
-`TowardsZeroSource` 클래스는 `CounterDataSource` 프로토콜로 부터 옵셔널 `increment(forCount:)` 메서드를 구현하고 카운트 방향을 정하기 위해 `count` 인자값을 사용합니다. `count` 가 0이면 이 메서드는 더이상 카운트 작업을 진행하지 않음을 나타내기 위해 `0` 을 반환합니다.
+`TowardsZeroSource` 클래스는 `CounterDataSource` 프로토콜로 부터 옵셔널 `increment(forCount:)` 메서드를 구현하고 카운트 방향을 정하기 위해 `count` 인수값을 사용합니다. `count` 가 0이면 이 메서드는 더이상 카운트 작업을 진행하지 않음을 나타내기 위해 `0` 을 반환합니다.
 
 `-4` 부터 0까지 카운트 하기 위해 존재하는 `Counter` 인스턴스와 함께 `TowardsZeroSource` 의 인스턴스를 사용할 수 있습니다. 카운터가 0에 도달하면 더이상 카운팅이 동작하지 않습니다:
 

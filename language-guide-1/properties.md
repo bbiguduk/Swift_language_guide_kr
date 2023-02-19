@@ -628,7 +628,7 @@ When you write arguments in parentheses after the custom attribute, Swift uses t
 
 래핑한 프로퍼티에 `= 1` 을 작성하면 `init(wrappedValue:)` 초기화 호출에 전달됩니다. `height` 와 `width` 를 래핑한 `SmallNumber` 의 인스턴스는 `SmallNumber(wrappedValue: 1)` 호출로 생성됩니다. 이 초기화는 래핑된 값을 사용하고 기본 최대값으로 12를 사용합니다.
 
-사용자 속성 후에 소괄호 안에 인자를 작성하면 Swift는 래퍼를 설정하기 위한 인자를 받을 수 있는 초기화를 사용합니다. 예를 들어 초기값과 최대값을 제공하면 Swift는 `init(wrappedValue:maximum:)` 초기화를 사용합니다:
+사용자 속성 후에 소괄호 안에 인수를 작성하면 Swift는 래퍼를 설정하기 위한 인수를 받을 수 있는 초기화를 사용합니다. 예를 들어 초기값과 최대값을 제공하면 Swift는 `init(wrappedValue:maximum:)` 초기화를 사용합니다:
 
 ```swift
 struct NarrowRectangle {
@@ -656,9 +656,9 @@ When you include property wrapper arguments, you can also specify an initial val
 
 `height` 를 래핑한 `SmallNumber` 의 인스턴스는 `SmallNumber(wrappedValue: 2, maximum: 5)` 를 호출하여 생성되고 `width` 를 래핑한 인스턴스는 `SmallNumber(wrappedValue: 3, maximum: 4)` 를 호출하여 생성됩니다.
 
-프로퍼티 래퍼에 인자를 포함하여 래퍼에 초기상태를 설정하거나 래퍼가 생성될 때 다른 옵션을 전달할 수 있습니다. 이 구문은 프로퍼티 래퍼를 사용하는 가장 일반적인 방법입니다. 속성에 필요한 무슨 인자도 제공할 수 있으며 초기화 구문에 전달됩니다.
+프로퍼티 래퍼에 인수를 포함하여 래퍼에 초기상태를 설정하거나 래퍼가 생성될 때 다른 옵션을 전달할 수 있습니다. 이 구문은 프로퍼티 래퍼를 사용하는 가장 일반적인 방법입니다. 속성에 필요한 무슨 인수도 제공할 수 있으며 초기화 구문에 전달됩니다.
 
-프로퍼티 래퍼 인자를 포함하면 할당을 사용하여 초기값을 지정할 수도 있습니다. Swift는 할당을 `wrappedValue` 인자처럼 취급하고 이 인자를 받을 수 있는 초기화를 사용합니다. 예를 들어:
+프로퍼티 래퍼 인수를 포함하면 할당을 사용하여 초기값을 지정할 수도 있습니다. Swift는 할당을 `wrappedValue` 인수처럼 취급하고 이 인수를 받을 수 있는 초기화를 사용합니다. 예를 들어:
 
 ```swift
 struct MixedRectangle {

@@ -41,7 +41,7 @@ print("someInts is of type [Int] with \(someInts.count) items.")
 
 `someInts` 변수의 타입은 초기화 타입을 통해 `[Int]` 로 추론됩니다.
 
-또는 컨텍스트가 함수 인자나 이미 타입이 명시 된 변수 또는 상수와 같은 타입 정보를 제공하는 경우 `[]` \(빈 대괄호 쌍\)으로 빈 배열을 생성할 수 있습니다:
+또는 컨텍스트가 함수 인수나 이미 타입이 명시 된 변수 또는 상수와 같은 타입 정보를 제공하는 경우 `[]` \(빈 대괄호 쌍\)으로 빈 배열을 생성할 수 있습니다:
 
 ```swift
 someInts.append(3)
@@ -268,7 +268,7 @@ print("letters is of type Set<Character> with \(letters.count) items.")
 > NOTE  
 > `letters` 변수의 타입은 초기화의 타입으로 부터 `Set<Character>` 로 추론됩니다.
 
-또한 컨텍스트가 함수 인자 또는 이미 타입이 명시된 변수 또는 상수로 타입 정보를 이미 제공한다면 빈 배열 리터럴을 사용하여 빈 집합을 생성할 수 있습니다:
+또한 컨텍스트가 함수 인수 또는 이미 타입이 명시된 변수 또는 상수로 타입 정보를 이미 제공한다면 빈 배열 리터럴을 사용하여 빈 집합을 생성할 수 있습니다:
 
 ```swift
 letters.insert("a")

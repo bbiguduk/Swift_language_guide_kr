@@ -245,7 +245,7 @@ The repetitions(task:) method takes a single argument of type () -> Void, which 
 After defining this extension, you can call the repetitions(task:) method on any integer to perform a task that many number of times:
 -->
 
-`repetitions(task:)` 메서드는 파라미터가 없고 반환값이 없는 함수를 나타내는 `() -> Void` 타입의 인자를 가집니다.
+`repetitions(task:)` 메서드는 파라미터가 없고 반환값이 없는 함수를 나타내는 `() -> Void` 타입의 인수를 가집니다.
 
 이 확장을 정의한 후에 여러번 작업을 수행하기 위해 모든 정수로 `repetitions(task:)` 메서드를 호출할 수 있습니다:
 

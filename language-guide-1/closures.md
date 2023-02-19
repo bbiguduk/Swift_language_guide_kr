@@ -43,7 +43,7 @@ Swift의 클로저 표현식은 일반 시나리오에서 간단하고 깔끔한
 
 * 컨텍스트에서 파라미터와 반환값 타입 유추
 * 단일 표현식 클로저의 암시적 반환
-* 약식 인자 이름
+* 약식 인수 이름
 * 후행 클로저 구문
 
 ## 클로저 표현식 \(Closure Expressions\)
@@ -54,7 +54,7 @@ Nested functions, as introduced in Nested Functions, are a convenient means of n
 Closure expressions are a way to write inline closures in a brief, focused syntax. Closure expressions provide several syntax optimizations for writing closures in a shortened form without loss of clarity or intent. The closure expression examples below illustrate these optimizations by refining a single example of the sorted(by:) method over several iterations, each of which expresses the same functionality in a more succinct way.
 -->
 
-[중첩 함수 \(Nested Functions\)](functions.md#nested-functions) 에서 소개된 중첩 함수는 더 큰 함수에 부분으로 자체 포함된 코드 블럭의 이름을 지정하고 정의하기 편리한 수단입니다. 그러나 완전한 선언과 이름없이 함수와 유사한 구조의 짧은 버전을 작성하는 것이 때때로 유용합니다. 함수를 하나 이상의 인자로 사용하는 함수 또는 메서드로 작업할 때 특히 그렇습니다.
+[중첩 함수 \(Nested Functions\)](functions.md#nested-functions) 에서 소개된 중첩 함수는 더 큰 함수에 부분으로 자체 포함된 코드 블럭의 이름을 지정하고 정의하기 편리한 수단입니다. 그러나 완전한 선언과 이름없이 함수와 유사한 구조의 짧은 버전을 작성하는 것이 때때로 유용합니다. 함수를 하나 이상의 인수로 사용하는 함수 또는 메서드로 작업할 때 특히 그렇습니다.
 
 _클로저 표현식 \(Closure expressions\)_ 은 간단하고 집중적인 구문으로 인라인 클로저로 작성하는 방법입니다. 클로저 표현식은 명확성이나 의도를 잃지 않고 짧은 형태로 클로저를 작성 하기위한 몇가지 구문 최적화를 제공합니다. 아래의 클로저 표현식 예제는 여러 반복에 걸쳐 `sorted(by:)` 메서드의 단일 예제를 구체화하는 최적화를 나타냅니다. 각 예제는 동일한 기능을 보다 간결한 방식으로 표현합니다.
 
@@ -82,11 +82,11 @@ This example is sorting an array of String values, and so the sorting closure ne
 One way to provide the sorting closure is to write a normal function of the correct type, and to pass it in as an argument to the sorted(by:) method:
 -->
 
-`sorted(by:)` 메서드는 배열 내용과 동일한 타입의 두 인자를 사용하는 클로저를 허용하고 값이 정렬된 후 첫번째 값이 두번째 값의 앞 또는 뒤에 표시되어야 하는지 여부를 나타내는 `Bool` 값을 반환합니다. 정렬 클로저는 첫번째 값이 두번째 값 앞에 나타나야 하는 경우 `true` 를 반환하고 그렇지 않으면 `false` 를 반환해야 합니다.
+`sorted(by:)` 메서드는 배열 내용과 동일한 타입의 두 인수를 사용하는 클로저를 허용하고 값이 정렬된 후 첫번째 값이 두번째 값의 앞 또는 뒤에 표시되어야 하는지 여부를 나타내는 `Bool` 값을 반환합니다. 정렬 클로저는 첫번째 값이 두번째 값 앞에 나타나야 하는 경우 `true` 를 반환하고 그렇지 않으면 `false` 를 반환해야 합니다.
 
 이 예제는 `String` 값의 배열을 정렬하고 정렬 클로저는 `(String, String) -> Bool` 타입의 함수를 필요로 합니다.
 
-정렬 클로저를 제공하는 한가지 방법은 올바른 타입의 일반 함수를 작성하고 `sorted(by:)` 메서드에 인자로 전달하는 것입니다:
+정렬 클로저를 제공하는 한가지 방법은 올바른 타입의 일반 함수를 작성하고 `sorted(by:)` 메서드에 인수로 전달하는 것입니다:
 
 ```swift
 func backward(_ s1: String, _ s2: String) -> Bool {
@@ -154,7 +154,7 @@ reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in return s1
 This illustrates that the overall call to the sorted(by:) method has remained the same. A pair of parentheses still wrap the entire argument for the method. However, that argument is now an inline closure.
 -->
 
-이것은 `sorted(by:)` 메서드에 대한 전체 호출이 동일하게 유지되었음을 보여줍니다. 소괄호는 여전히 메서드의 전체 인자를 둘러싸고 있습니다. 그러나 인자는 이제 인라인 클로저입니다.
+이것은 `sorted(by:)` 메서드에 대한 전체 호출이 동일하게 유지되었음을 보여줍니다. 소괄호는 여전히 메서드의 전체 인수를 둘러싸고 있습니다. 그러나 인수는 이제 인라인 클로저입니다.
 
 ### 컨텍스트로 타입 유추 \(Inferring Type From Context\)
 
@@ -162,7 +162,7 @@ This illustrates that the overall call to the sorted(by:) method has remained th
 Because the sorting closure is passed as an argument to a method, Swift can infer the types of its parameters and the type of the value it returns. The sorted(by:) method is being called on an array of strings, so its argument must be a function of type (String, String) -> Bool. This means that the (String, String) and Bool types don’t need to be written as part of the closure expression’s definition. Because all of the types can be inferred, the return arrow (->) and the parentheses around the names of the parameters can also be omitted:
 -->
 
-정렬 클로저는 메서드에 인자로 전달되기 때문에 Swift는 파라미터 타입과 반환되는 값의 타입을 유추할 수 있습니다. `sorted(by:)` 메서드는 문자열 배열에서 호출되므로 인자는 `(String, String) -> Bool` 타입의 함수이어야 합니다. 이는 `(String, String)` 과 `Bool` 타입을 클로저 표현식 정의에 일부러 작성할 필요가 없음을 의미합니다. 모든 타입은 유추할 수 있기 때문에 반환 화살표 \(`->`\)와 파라미터의 이름을 둘러싼 소괄호를 생략할 수 있습니다:
+정렬 클로저는 메서드에 인수로 전달되기 때문에 Swift는 파라미터 타입과 반환되는 값의 타입을 유추할 수 있습니다. `sorted(by:)` 메서드는 문자열 배열에서 호출되므로 인수는 `(String, String) -> Bool` 타입의 함수이어야 합니다. 이는 `(String, String)` 과 `Bool` 타입을 클로저 표현식 정의에 일부러 작성할 필요가 없음을 의미합니다. 모든 타입은 유추할 수 있기 때문에 반환 화살표 \(`->`\)와 파라미터의 이름을 둘러싼 소괄호를 생략할 수 있습니다:
 
 ```swift
 reversedNames = names.sorted(by: { s1, s2 in return s1 > s2 } )
@@ -174,7 +174,7 @@ It’s always possible to infer the parameter types and return type when passing
 Nonetheless, you can still make the types explicit if you wish, and doing so is encouraged if it avoids ambiguity for readers of your code. In the case of the sorted(by:) method, the purpose of the closure is clear from the fact that sorting is taking place, and it’s safe for a reader to assume that the closure is likely to be working with String values, because it’s assisting with the sorting of an array of strings.
 -->
 
-함수나 메서드에 클로저를 인라인 클로저 표현식으로 전달할 때 항상 파라미터 타입과 반환 타입을 유추할 수 있습니다. 결과적으로 클로저가 함수 또는 메서드 인자로 사용될 때 완전한 형태로 인라인 클로저를 작성할 필요가 없습니다.
+함수나 메서드에 클로저를 인라인 클로저 표현식으로 전달할 때 항상 파라미터 타입과 반환 타입을 유추할 수 있습니다. 결과적으로 클로저가 함수 또는 메서드 인수로 사용될 때 완전한 형태로 인라인 클로저를 작성할 필요가 없습니다.
 
 그럼에도 불구하고 원하는 경우 타입을 명시적으로 만들 수 있으며 코드를 읽는 자가 모호성을 피할 수 있다면 그렇게 하는 것이 좋습니다. `sorted(by:)` 메서드의 경우 정렬이 발생한다는 사실에서 클로저의 목적이 명확하며 문자열 배열의 정렬을 지원하기 때문에 코드를 읽는 사람이 클로저가 `String` 값으로 작동할 가능성이 있다고 가정하는 것이 안전합니다.
 
@@ -194,9 +194,9 @@ reversedNames = names.sorted(by: { s1, s2 in s1 > s2 } )
 Here, the function type of the sorted(by:) method’s argument makes it clear that a Bool value must be returned by the closure. Because the closure’s body contains a single expression (s1 > s2) that returns a Bool value, there’s no ambiguity, and the return keyword can be omitted.
 -->
 
-여기서 `sorted(by:)` 메서드의 인자의 함수 타입은 클로저에서 `Bool` 값이 반환되어야 하기 때문에 명확합니다. 클로저의 본문에 `Bool` 값을 반환하는 단일 표현식 \(`s1 > s2`\)가 포함되므로 모호하지 않고 `return` 키워드를 생략할 수 있습니다.
+여기서 `sorted(by:)` 메서드의 인수의 함수 타입은 클로저에서 `Bool` 값이 반환되어야 하기 때문에 명확합니다. 클로저의 본문에 `Bool` 값을 반환하는 단일 표현식 \(`s1 > s2`\)가 포함되므로 모호하지 않고 `return` 키워드를 생략할 수 있습니다.
 
-### 짧은 인자 이름 \(Shorthand Argument Names\)
+### 짧은 인수 이름 \(Shorthand Argument Names\)
 
 <!--
 Swift automatically provides shorthand argument names to inline closures, which can be used to refer to the values of the closure’s arguments by the names $0, $1, $2, and so on.
@@ -204,9 +204,9 @@ Swift automatically provides shorthand argument names to inline closures, which 
 If you use these shorthand argument names within your closure expression, you can omit the closure’s argument list from its definition. The type of the shorthand argument names is inferred from the expected function type, and the highest numbered shorthand argument you use determines the number of arguments that the closure takes. The in keyword can also be omitted, because the closure expression is made up entirely of its body:
 -->
 
-Swift는 인라인 클로저에 `$0`, `$1`, `$2` 등 클로저의 인자값으로 참조하는데 사용할 수 있는 자동적으로 짧은 인자 이름 \(shorthand argument names\)을 제공합니다.
+Swift는 인라인 클로저에 `$0`, `$1`, `$2` 등 클로저의 인수값으로 참조하는데 사용할 수 있는 자동적으로 짧은 인수 이름 \(shorthand argument names\)을 제공합니다.
 
-클로저 표현식에 이런 짧은 인자 이름을 사용한다면 선언에 클로저의 인자 목록을 생략할 수 있고 짧은 인자 이름의 수와 타입은 함수 타입에서 유추됩니다. 클로저 표현식이 본문으로 전체가 구성되기 때문에 `in` 키워드를 생략할 수도 있습니다:
+클로저 표현식에 이런 짧은 인수 이름을 사용한다면 선언에 클로저의 인수 목록을 생략할 수 있고 짧은 인수 이름의 수와 타입은 함수 타입에서 유추됩니다. 클로저 표현식이 본문으로 전체가 구성되기 때문에 `in` 키워드를 생략할 수도 있습니다:
 
 ```swift
 reversedNames = names.sorted(by: { $0 > $1 } )
@@ -216,7 +216,7 @@ reversedNames = names.sorted(by: { $0 > $1 } )
 Here, $0 and $1 refer to the closure’s first and second String arguments. Because $1 is the shorthand argument with highest number, the closure is understood to take two arguments. Because the sorted(by:) function here expects a closure whose arguments are both strings, the shorthand arguments $0 and $1 are both of type String.
 -->
 
-여기서 `$0` 와 `$1` 은 클로저의 첫번째와 두번째 `String` 인자를 참조합니다. `$1` 이 짧은 인자에서 가장 높은 숫자이므로 클로저는 2개의 인자가 있다고 이해합니다. 여기서 `sorted(by:)` 함수는 인자가 모두 문자열인 클로저로 기대하므로 짧은 인자 `$0` 과 `$1` 은 모두 타입 `String` 입니다.
+여기서 `$0` 와 `$1` 은 클로저의 첫번째와 두번째 `String` 인수를 참조합니다. `$1` 이 짧은 인수에서 가장 높은 숫자이므로 클로저는 2개의 인수가 있다고 이해합니다. 여기서 `sorted(by:)` 함수는 인수가 모두 문자열인 클로저로 기대하므로 짧은 인수 `$0` 과 `$1` 은 모두 타입 `String` 입니다.
 
 ### 연산자 메서드 \(Operator Methods\)
 
@@ -242,7 +242,7 @@ For more about operator methods, see Operator Methods.
 If you need to pass a closure expression to a function as the function’s final argument and the closure expression is long, it can be useful to write it as a trailing closure instead. You write a trailing closure after the function call’s parentheses, even though the trailing closure is still an argument to the function. When you use the trailing closure syntax, you don’t write the argument label for the first closure as part of the function call. A function call can include multiple trailing closures; however, the first few examples below use a single trailing closure.
 -->
 
-함수의 마지막 인자로 함수에 클로저 표현식을 전달해야하고 클로저 표현식이 긴 경우 _후행 클로저 \(trailing closure\)_ 로 작성하는 것이 유용할 수 있습니다. 후행 클로저는 함수의 인자이지만 함수 호출의 소괄호 다음에 작성합니다. 후행 클로저 구문을 사용할 때 함수 호출의 일부로 첫번째 클로저 인자 라벨을 작성하지 않아도 됩니다. 함수 호출은 여러개의 후행 클로저를 포함할 수 있지만 아래 몇가지 예제에서는 단일 후행 클로저를 사용합니다.
+함수의 마지막 인수로 함수에 클로저 표현식을 전달해야하고 클로저 표현식이 긴 경우 _후행 클로저 \(trailing closure\)_ 로 작성하는 것이 유용할 수 있습니다. 후행 클로저는 함수의 인수이지만 함수 호출의 소괄호 다음에 작성합니다. 후행 클로저 구문을 사용할 때 함수 호출의 일부로 첫번째 클로저 인수 라벨을 작성하지 않아도 됩니다. 함수 호출은 여러개의 후행 클로저를 포함할 수 있지만 아래 몇가지 예제에서는 단일 후행 클로저를 사용합니다.
 
 ```swift
 func someFunctionThatTakesAClosure(closure: () -> Void) {
@@ -276,7 +276,7 @@ reversedNames = names.sorted() { $0 > $1 }
 If a closure expression is provided as the function’s or method’s only argument and you provide that expression as a trailing closure, you don’t need to write a pair of parentheses () after the function or method’s name when you call the function:
 -->
 
-후행 클로저로 표현식이 함수와 메서드의 유일한 인자일 경우 함수를 호출할 때 함수 또는 메서드 이름 뒤에 소괄호 `()` 를 작성하지 않아도 됩니다:
+후행 클로저로 표현식이 함수와 메서드의 유일한 인수일 경우 함수를 호출할 때 함수 또는 메서드 이름 뒤에 소괄호 `()` 를 작성하지 않아도 됩니다:
 
 ```swift
 reversedNames = names.sorted { $0 > $1 }
@@ -290,7 +290,7 @@ After applying the provided closure to each array element, the map(_:) method re
 Here’s how you can use the map(_:) method with a trailing closure to convert an array of Int values into an array of String values. The array [16, 58, 510] is used to create the new array ["OneSix", "FiveEight", "FiveOneZero"]:
 -->
 
-후행 클로저는 클로저가 길어서 한줄로 인라인으로 작성이 불가능할 때 유용합니다. 예를 들어 Swift의 `Array` 타입은 단일 인자로 클로저 표현식을 가지는 `map(_:)` 메서드가 있습니다. 이 클로저는 배열의 각 아이템에 대해 한번 호출되고 아이템에 대해 매핑된 대체값 \(다른 타입일 수 있음\)이 반환됩니다. `map(_:)` 에 전달한 클로저에 작성된 코드에 따라 매핑 특성과 반환된 값의 타입을 지정합니다.
+후행 클로저는 클로저가 길어서 한줄로 인라인으로 작성이 불가능할 때 유용합니다. 예를 들어 Swift의 `Array` 타입은 단일 인수로 클로저 표현식을 가지는 `map(_:)` 메서드가 있습니다. 이 클로저는 배열의 각 아이템에 대해 한번 호출되고 아이템에 대해 매핑된 대체값 \(다른 타입일 수 있음\)이 반환됩니다. `map(_:)` 에 전달한 클로저에 작성된 코드에 따라 매핑 특성과 반환된 값의 타입을 지정합니다.
 
 제공된 클로저에 각 배열의 요소를 적용한 후에 `map(_:)` 메서드는 기존 배열에 해당값과 같은 순서로 새로 매핑된 값의 새로운 배열을 반환합니다.
 
@@ -370,7 +370,7 @@ If a function takes multiple closures, you omit the argument label for the first
 
 위의 예에서 후행 클로저 구문을 사용하면 클로저가 지원하는 함수 바로 뒤에 있는 클로저의 기능을 깔끔하게 캡슐화 합니다. 전체 클로저를 `map(_:)` 메서드의 바깥 소괄호로 감쌀 필요가 없습니다.
 
-함수가 여러개의 클로저를 가지고 있다면 첫번재 후행 클로저의 인자 라벨을 생략하고 남은 후행 클로저의 라벨은 표기합니다. 예를 들어 아래의 함수는 사진 갤러리에서 사진 하나를 불러옵니다:
+함수가 여러개의 클로저를 가지고 있다면 첫번재 후행 클로저의 인수 라벨을 생략하고 남은 후행 클로저의 라벨은 표기합니다. 예를 들어 아래의 함수는 사진 갤러리에서 사진 하나를 불러옵니다:
 
 ```swift
 func loadPicture(from server: Server, completion: (Picture) -> Void, onFailure: () -> Void) {
@@ -422,7 +422,7 @@ Here’s an example of a function called makeIncrementer, which contains a neste
 
 클로저는 정의된 둘러싸인 컨텍스트에서 상수와 변수를 _캡처 \(capture\)_ 할 수 있습니다. 그러면 클로저는 상수와 변수를 정의한 원래 범위가 더이상 존재하지 않더라도 본문 내에서 해당 상수와 변수의 값을 참조하고 수정할 수 있습니다.
 
-Swift에서 값을 캡처할 수 있는 가장 간단한 클로저 형태는 다른 함수의 본문 내에 작성하는 중첩 함수입니다. 중첩 함수는 바깥 함수의 어떠한 인자도 캡처할 수 있고 바깥 함수 내에 정의된 상수와 변수를 캡처할 수도 있습니다.
+Swift에서 값을 캡처할 수 있는 가장 간단한 클로저 형태는 다른 함수의 본문 내에 작성하는 중첩 함수입니다. 중첩 함수는 바깥 함수의 어떠한 인수도 캡처할 수 있고 바깥 함수 내에 정의된 상수와 변수를 캡처할 수도 있습니다.
 
 아래는 `incrementer` 라는 중첩 함수가 포함된 `makeIncrementer` 라는 함수의 예입니다. 중첩된 `incrementer()` 함수는 둘러싸인 컨텍스트에 `runningTotal` 과 `amount` 인 2개의 값을 캡처합니다. 이 값을 캡처한 후에 `incrementer` 는 호출될 때마다 `amount` 로 `runningTotal` 을 증가시키는 클로저로 `makeIncrementer` 에 의해 반환됩니다.
 
@@ -451,7 +451,7 @@ When considered in isolation, the nested incrementer() function might seem unusu
 
 `makeIncrementer(forIncrement:)` 함수는 반환될 현재 증가분을 저장하기 위해 `runningTotal` 이라는 정수 변수를 정의합니다. 이 변수는 `0` 으로 초기화 됩니다.
 
-`makeIncrementer(forIncrement:)` 함수는 `forIncrement` 의 인자 라벨의 하나의 `Int` 파라미터를 가지고 `amount` 라는 파라미터 이름을 가지고 있습니다. 이 파라미터에 전달된 인자값은 반환된 증가 함수가 호출 될 때마다 `runningTotal` 을 얼마나 증가시켜야 하는지 지정합니다. `makeIncrementer` 함수는 실제 증가를 수행하는 `incrementer` 라는 중첩 함수를 정의합니다. 이 함수는 간단하게 `amount` 를 `runningTotal` 에 더하고 그 결과를 반환합니다.
+`makeIncrementer(forIncrement:)` 함수는 `forIncrement` 의 인수 라벨의 하나의 `Int` 파라미터를 가지고 `amount` 라는 파라미터 이름을 가지고 있습니다. 이 파라미터에 전달된 인수값은 반환된 증가 함수가 호출 될 때마다 `runningTotal` 을 얼마나 증가시켜야 하는지 지정합니다. `makeIncrementer` 함수는 실제 증가를 수행하는 `incrementer` 라는 중첩 함수를 정의합니다. 이 함수는 간단하게 `amount` 를 `runningTotal` 에 더하고 그 결과를 반환합니다.
 
 단독으로 고려할 때 `incrementer()` 함수는 비정상적으로 보일 수 있습니다:
 
@@ -575,7 +575,7 @@ A closure is said to escape a function when the closure is passed as an argument
 One way that a closure can escape is by being stored in a variable that’s defined outside the function. As an example, many functions that start an asynchronous operation take a closure argument as a completion handler. The function returns after it starts the operation, but the closure isn’t called until the operation is completed—the closure needs to escape, to be called later. For example:
 -->
 
-함수에 인자로 클로저를 전달하지만 함수가 반환된 후 호출되는 클로저를 함수를 _탈출 \(escape\)_ 하다 라고 말합니다. 클로저를 파라미터로 갖는 함수를 선언할 때 이 클로저는 탈출을 허락한다는 의미로 파라미터의 타입 전에 `@escaping` 을 작성할 수 있습니다.
+함수에 인수로 클로저를 전달하지만 함수가 반환된 후 호출되는 클로저를 함수를 _탈출 \(escape\)_ 하다 라고 말합니다. 클로저를 파라미터로 갖는 함수를 선언할 때 이 클로저는 탈출을 허락한다는 의미로 파라미터의 타입 전에 `@escaping` 을 작성할 수 있습니다.
 
 클로저가 탈출할 수 있는 한가지 방법은 함수 바깥에 정의된 변수에 저장되는 것입니다. 예를 들어 비동기적 작업을 시작하는 대부분의 함수는 완료 핸들러로 클로저를 사용합니다. 이 함수는 작업을 시작한 후에 반환되지만 작업이 완료될때까지 클로저가 호출되지 않습니다. 클로저는 나중에 호출하려면 탈출해야 합니다. 예를 들어:
 
@@ -594,7 +594,7 @@ An escaping closure that refers to self needs special consideration if self refe
 Normally, a closure captures variables implicitly by using them in the body of the closure, but in this case you need to be explicit. If you want to capture self, write self explicitly when you use it, or include self in the closure’s capture list. Writing self explicitly lets you express your intent, and reminds you to confirm that there isn’t a reference cycle. For example, in the code below, the closure passed to someFunctionWithEscapingClosure(_:) refers to self explicitly. In contrast, the closure passed to someFunctionWithNonescapingClosure(_:) is a nonescaping closure, which means it can refer to self implicitly.
 -->
 
-`someFunctionWithEscapingClosure(_:)` 함수는 인자로 클로저를 가지고 있고 함수 바깥에 선언된 배열에 추가합니다. 함수의 파라미터에 `@escaping` 을 표시하지 않으면 컴파일 시 에러가 발생합니다.
+`someFunctionWithEscapingClosure(_:)` 함수는 인수로 클로저를 가지고 있고 함수 바깥에 선언된 배열에 추가합니다. 함수의 파라미터에 `@escaping` 을 표시하지 않으면 컴파일 시 에러가 발생합니다.
 
 `self` 를 참조하는 이스케이프 클로저은 `self` 가 클래스의 인스턴스를 참조하는 경우 특별한 고려가 필요합니다. 이스케이프 클로저에 `self` 캡처는 강한 참조 사이클이 생기기 쉽습니다. 참조 사이클에 대한 자세한 내용은 [자동 참조 카운팅 \(Automatic Reference Counting\)](automatic-reference-counting.md) 을 참조 바랍니다.
 
@@ -671,7 +671,7 @@ It’s common to call functions that take autoclosures, but it’s not common to
 An autoclosure lets you delay evaluation, because the code inside isn’t run until you call the closure. Delaying evaluation is useful for code that has side effects or is computationally expensive, because it lets you control when that code is evaluated. The code below shows how a closure delays evaluation.
 -->
 
-_자동 클로저 \(autoclosure\)_ 는 함수에 인자로 전달되는 표현식을 래핑하기 위해 자동으로 생성되는 클로저입니다. 인자를 가지지 않으며 호출될 때 내부에 래핑된 표현식의 값을 반환합니다. 이러한 구문상의 편의를 통해 명시적 클로저 대신에 일반 표현식을 작성하여 함수의 파라미터 주위의 중괄호를 생략할 수 있습니다.
+_자동 클로저 \(autoclosure\)_ 는 함수에 인수로 전달되는 표현식을 래핑하기 위해 자동으로 생성되는 클로저입니다. 인수를 가지지 않으며 호출될 때 내부에 래핑된 표현식의 값을 반환합니다. 이러한 구문상의 편의를 통해 명시적 클로저 대신에 일반 표현식을 작성하여 함수의 파라미터 주위의 중괄호를 생략할 수 있습니다.
 
 자동 클로저를 가지는 함수를 _호출_ 하는 것은 일반적이지만 이러한 함수를 _구현_ 하는 것은 일반적이지 않습니다. 예를 들어 `assert(condition:message:file:line:)` 함수는 `condition` 과 `message` 파라미터에 대한 자동 클로저를 가집니다. `condition` 파라미터는 오직 디버그 빌드인지 판단하고 `message` 파라미터는 `condition` 이 `false` 인지만 판단됩니다.
 
@@ -700,7 +700,7 @@ You get the same behavior of delayed evaluation when you pass a closure as an ar
 
 클로저 내부의 코드에 의해 `customersInLine` 배열의 첫번째 요소는 삭제되지만 클로저가 실제로 호출되기 전까지 삭제되지 않습니다. 클로저가 호출되지 않으면 클러저 내부의 표현식은 판단되지 않습니다. 이것은 배열의 요소가 삭제되지 않는다는 의미입니다. `customerProvider` 타입은 `String` 이 아니고 파라미터가 없고 문자열을 반환하는 `() -> String` 입니다.
 
-함수의 인자로 클로저를 전달하면 위와 같은 지연 판단과 동일한 동작을 가질 수 있습니다.
+함수의 인수로 클로저를 전달하면 위와 같은 지연 판단과 동일한 동작을 가질 수 있습니다.
 
 ```swift
 // customersInLine is ["Alex", "Ewa", "Barry", "Daniella"]
@@ -715,7 +715,7 @@ serve(customer: { customersInLine.remove(at: 0) } )
 The serve(customer:) function in the listing above takes an explicit closure that returns a customer’s name. The version of serve(customer:) below performs the same operation but, instead of taking an explicit closure, it takes an autoclosure by marking its parameter’s type with the @autoclosure attribute. Now you can call the function as if it took a String argument instead of a closure. The argument is automatically converted to a closure, because the customerProvider parameter’s type is marked with the @autoclosure attribute.
 -->
 
-`serve(customer:)` 함수는 소비자의 이름을 반환하는 명시적 클로저를 가집니다. 아래 `serve(customer:)` 의 버전은 같은 동작을 수행하지만 명시적 클로저를 가지는 대신에 파라미터 타입에 `@autoclosure` 속성을 표기하여 자동 클로저를 가집니다. 이제 클로저 대신 `String` 인수를 받는 것처럼 함수를 호출할 수 있습니다. `customerProvider` 파라미터의 타입은 `@autoclosure` 속성으로 표시되므로 인자는 자동으로 클로저로 변환됩니다.
+`serve(customer:)` 함수는 소비자의 이름을 반환하는 명시적 클로저를 가집니다. 아래 `serve(customer:)` 의 버전은 같은 동작을 수행하지만 명시적 클로저를 가지는 대신에 파라미터 타입에 `@autoclosure` 속성을 표기하여 자동 클로저를 가집니다. 이제 클로저 대신 `String` 인수를 받는 것처럼 함수를 호출할 수 있습니다. `customerProvider` 파라미터의 타입은 `@autoclosure` 속성으로 표시되므로 인수는 자동으로 클로저로 변환됩니다.
 
 ```swift
 // customersInLine is ["Ewa", "Barry", "Daniella"]
@@ -762,5 +762,5 @@ for customerProvider in customerProviders {
 In the code above, instead of calling the closure passed to it as its customerProvider argument, the collectCustomerProviders(_:) function appends the closure to the customerProviders array. The array is declared outside the scope of the function, which means the closures in the array can be executed after the function returns. As a result, the value of the customerProvider argument must be allowed to escape the function’s scope.
 -->
 
-위의 코드에서 `customerProvider` 인자로 전달된 클로저를 호출하는 대신에 `collectCustomerProviders(_:)` 함수는 클로저를 `customerProviders` 배열에 추가합니다. 이 배열은 함수의 범위 밖에 선언됩니다. 이것은 배열에 클로저는 함수가 반환된 후에 실행될 수 있다는 의미입니다. 그 결과 `customerProvider` 인자의 값은 함수의 범위를 벗어날 수 있어야 합니다.
+위의 코드에서 `customerProvider` 인수로 전달된 클로저를 호출하는 대신에 `collectCustomerProviders(_:)` 함수는 클로저를 `customerProviders` 배열에 추가합니다. 이 배열은 함수의 범위 밖에 선언됩니다. 이것은 배열에 클로저는 함수가 반환된 후에 실행될 수 있다는 의미입니다. 그 결과 `customerProvider` 인수의 값은 함수의 범위를 벗어날 수 있어야 합니다.
 

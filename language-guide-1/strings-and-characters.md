@@ -182,7 +182,7 @@ for character in "Dog!🐶" {
 let exclamationMark: Character = "!"
 ```
 
-`String` 값은 초기화 인자로 `Character` 값의 배열을 전달해 생성할 수 있습니다:
+`String` 값은 초기화 인수로 `Character` 값의 배열을 전달해 생성할 수 있습니다:
 
 ```swift
 let catCharacters: [Character] = ["C", "a", "t", "!", "🐱"]
@@ -367,7 +367,7 @@ print("the number of characters in \(word) is \(word.count)")
 
 위에서 언급했듯이 문자마다 저장할 메모리 양이 다를 수 있으므로 특정 위치에 있는 `Character` 를 확인하려면 해당 `String` 의 시작 또는 끝에서 각 유니코드 스칼라를 반복해야 합니다. 이러한 이유로 Swift 문자열은 정수값으로 인덱스를 생성할 수 없습니다.
 
-`String` 에 첫번째 `Character` 에 접근하기 위해 `startIndex` 프로퍼티를 사용합니다. `endIndex` 프로퍼티는 `String` 에 마지막 문자의 다음 위치입니다. 그 결과 `endIndex` 프로퍼티는 문자열의 서브 스크립트에 유효한 인자가 아닙니다. `String` 이 비어있다면 `startIndex` 와 `endIndex` 는 같습니다.
+`String` 에 첫번째 `Character` 에 접근하기 위해 `startIndex` 프로퍼티를 사용합니다. `endIndex` 프로퍼티는 `String` 에 마지막 문자의 다음 위치입니다. 그 결과 `endIndex` 프로퍼티는 문자열의 서브 스크립트에 유효한 인수가 아닙니다. `String` 이 비어있다면 `startIndex` 와 `endIndex` 는 같습니다.
 
 `String` 의 메서드 `index(before:)` 와 `index(after:)` 를 사용하여 주어진 인덱스의 전과 후에 접근할 수 있습니다. 주어진 인덱스에서 먼 인덱스에 접근하려면 이러한 메서드를 여러번 호출하는 대신 `index(_:offsetBy:)` 메서드를 사용할 수 있습니다.
 
@@ -507,7 +507,7 @@ if latinCapitalLetterA != cyrillicCapitalLetterA {
 
 ### 접두사와 접미사 동등성 (Prefix and Suffix Equality)
 
-문자열이 특정 문자열 접두사 또는 접미사를 가지고 있는지 확인하기 위해 문자열의 `hasPrefix(_:)` 와 `hasSuffix(_:)` 메서드를 호출하면 됩니다. 두 메서드는 하나의 `String` 타입 인자를 받고 부울 값을 반환합니다.
+문자열이 특정 문자열 접두사 또는 접미사를 가지고 있는지 확인하기 위해 문자열의 `hasPrefix(_:)` 와 `hasSuffix(_:)` 메서드를 호출하면 됩니다. 두 메서드는 하나의 `String` 타입 인수를 받고 부울 값을 반환합니다.
 
 아래 예에서는 셰익스피어의 _로미오와 줄리엣_ 에 처음 두막의 장면을 나타내는 문자열 배열을 나타냅니다:
 

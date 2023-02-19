@@ -16,7 +16,7 @@ Swift는 메모리의 위치를 수정하는 코드가 해당 메모리에 대�
 Access to memory happens in your code when you do things like set the value of a variable or pass an argument to a function. For example, the following code contains both a read access and a write access:
 -->
 
-메모리에 접근하는 것은 변수의 값을 설정하거나 함수에 인자를 전달하는 것과 같은 동작을 할 때 코드에서 발생합니다. 예를 들어 다음 코드는 읽기 접근과 쓰기 접근 모두 포함합니다:
+메모리에 접근하는 것은 변수의 값을 설정하거나 함수에 인수를 전달하는 것과 같은 동작을 할 때 코드에서 발생합니다. 예를 들어 다음 코드는 읽기 접근과 쓰기 접근 모두 포함합니다:
 
 ```swift
 // A write access to the memory where one is stored.
@@ -164,7 +164,7 @@ Another consequence of long-term write access to in-out parameters is that passi
 
 `increment(_:)` 호출 전에 `stepSize` 의 복사본을 만들 때 `copyOfStepSize` 의 값이 현재 수만큼 증가된다는 것은 명확합니다. 읽기 접근은 쓰기 접근이 시작되기 전에 끝나므로 충돌이 일어나지 않습니다.
 
-in-out 파라미터에 대한 장기 쓰기 접근의 또 다른 결과는 같은 함수의 여러개의 in-out 파라미터에 대해 인자로 단일 변수를 전달하면 충돌이 발생한다는 것입니다. 예를 들어:
+in-out 파라미터에 대한 장기 쓰기 접근의 또 다른 결과는 같은 함수의 여러개의 in-out 파라미터에 대해 인수로 단일 변수를 전달하면 충돌이 발생한다는 것입니다. 예를 들어:
 
 ```swift
 func balance(_ x: inout Int, _ y: inout Int) {
@@ -244,7 +244,7 @@ In the example above, calling the shareHealth(with:) method for Oscar’s player
 However, if you pass oscar as the argument to shareHealth(with:), there’s a conflict:
 -->
 
-그러나 `shareHealth(with:)` 의 인자로 `oscar` 를 전달하면 충돌이 일어납니다:
+그러나 `shareHealth(with:)` 의 인수로 `oscar` 를 전달하면 충돌이 일어납니다:
 
 ```swift
 oscar.shareHealth(with: &oscar)

@@ -875,7 +875,7 @@ Unlike Boolean conditions, you can’t combine availability conditions using log
 The #unavailable form is syntactic sugar that negates the condition. In an unavailability condition, the * argument is implicit and must not be included. It has the same meaning as the * argument in an availability condition.
 -->
 
-`#unavailable` 형식은 조건을 부정하는 구문입니다. 비가용성 조건에서 `*` 인자는 암시적이고 포함되어서는 안됩니다. `*` 의 의미는 가용성 조건과 같은 의미를 가집니다.
+`#unavailable` 형식은 조건을 부정하는 구문입니다. 비가용성 조건에서 `*` 인수는 암시적이고 포함되어서는 안됩니다. `*` 의 의미는 가용성 조건과 같은 의미를 가집니다.
 
 > GRAMMAR OF AN AVAILABILITY CONDITION\
 > availability-condition → `#available` `(` [availability-arguments](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_availability-arguments) `)`\

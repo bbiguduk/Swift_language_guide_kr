@@ -767,7 +767,7 @@ if #available(iOS 10, macOS 10.12, *) {
 }
 ```
 
-iOS에서 위의 특정 가용성 조건의 `if` 구문의 본문은 iOS 10 이상 버전에서만 실행되고 macOS에서는 macOS 10.12 이상 버전에서만 실행됩니다. 마지막 인자 `*` 는 필수이며 다른 플랫폼에서 `if` 의 본문이 최소 타겟 버전에서 실행되도록 지정합니다.
+iOS에서 위의 특정 가용성 조건의 `if` 구문의 본문은 iOS 10 이상 버전에서만 실행되고 macOS에서는 macOS 10.12 이상 버전에서만 실행됩니다. 마지막 인수 `*` 는 필수이며 다른 플랫폼에서 `if` 의 본문이 최소 타겟 버전에서 실행되도록 지정합니다.
 
 일반적인 형식에서 가용성 조건은 플랫폼 이름 및 버전 목록을 사용합니다. `iOS`, `macOS`, `watchOS`, `tvOS` 와 같은 플랫폼 이름을 사용하고 자세한 내용은 [선언 속성 \(Declaration Attributes\)](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#ID348) 을 참고 바랍니다. iOS 8 또는 macOS 10.10과 같은 메이저 버전 번호를 지정하는 것 외에 iOS 11.2.6과 macOS 10.13.3과 같은 마이너 버전 번호로 지정할 수 있습니다.
 

@@ -466,9 +466,9 @@ As described in Default Initializers, Swift automatically provides a default ini
 A default initializer has the same access level as the type it initializes, unless that type is defined as public. For a type that’s defined as public, the default initializer is considered internal. If you want a public type to be initializable with a no-argument initializer when used in another module, you must explicitly provide a public no-argument initializer yourself as part of the type’s definition.
 -->
 
-[기본 초기화 구문 \(Default Initializers\)](initialization.md#default-initializers) 에서 설명 했듯이 Swift는 모든 프로퍼티에 기본값을 제공하고 하나 이상의 초기화 구문 자체를 제공하지 않는 구조체 또는 기본 클래스에 대해 인자없는 _기본 초기화 구문 \(default initializer\)_ 을 자동으로 제공합니다.
+[기본 초기화 구문 \(Default Initializers\)](initialization.md#default-initializers) 에서 설명 했듯이 Swift는 모든 프로퍼티에 기본값을 제공하고 하나 이상의 초기화 구문 자체를 제공하지 않는 구조체 또는 기본 클래스에 대해 인수없는 _기본 초기화 구문 \(default initializer\)_ 을 자동으로 제공합니다.
 
-기본 초기화 구문은 타입이 `public` 으로 정의되지 않는한 초기화하는 타입과 같은 접근 수준을 가집니다. `public` 으로 정의된 타입의 경우 기본 초기화 구문은 internal로 간주합니다. 다른 모듈에서 사용할 때 인자가 없는 초기화 구문을 public 타입으로 초기화 하려면 명시적으로 타입의 정의의 부분으로 public 인자가 없는 초기화 구문을 제공해야 합니다.
+기본 초기화 구문은 타입이 `public` 으로 정의되지 않는한 초기화하는 타입과 같은 접근 수준을 가집니다. `public` 으로 정의된 타입의 경우 기본 초기화 구문은 internal로 간주합니다. 다른 모듈에서 사용할 때 인수가 없는 초기화 구문을 public 타입으로 초기화 하려면 명시적으로 타입의 정의의 부분으로 public 인수가 없는 초기화 구문을 제공해야 합니다.
 
 ### 구조체 타입에 대한 기본 멤버별 초기화 구문 \(Default Memberwise Initializers for Structure Types\)
 

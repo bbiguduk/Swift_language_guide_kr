@@ -796,7 +796,7 @@ The HTMLElement class provides a single initializer, which takes a name argument
 Here’s how you use the HTMLElement class to create and print a new instance:
 -->
 
-`HTMLElement` 클래스는 `name` 인자와 필요하면 `text` 인자를 사용하여 새로운 요소를 초기화 하는 단일 초기화 구문을 제공합니다. 이 클래스는 `HTMLElement` 인스턴스가 할당 해제될 때 메세지를 출력하는 초기화 해제 구문도 정의합니다.
+`HTMLElement` 클래스는 `name` 인수와 필요하면 `text` 인수를 사용하여 새로운 요소를 초기화 하는 단일 초기화 구문을 제공합니다. 이 클래스는 `HTMLElement` 인스턴스가 할당 해제될 때 메세지를 출력하는 초기화 해제 구문도 정의합니다.
 
 다음은 어떻게 `HTMLElement` 클래스가 새로운 인스턴스를 생성하고 출력하기 위해 사용되는지 보여줍니다:
 

@@ -78,7 +78,7 @@ counter.reset()
 Function parameters can have both a name (for use within the function’s body) and an argument label (for use when calling the function), as described in Function Argument Labels and Parameter Names. The same is true for method parameters, because methods are just functions that are associated with a type.
 -->
 
-함수 파라미터는 [함수 인자 라벨과 파라미터 명 \(Function Argument Labels and Parameter Names\)](functions.md#function-argument-labels-and-parameter-names) 에서 설명 했듯이 함수의 본문 내에서 사용하는 이름과 함수를 호출할 때 사용하는 인자 라벨 둘다 가질 수 있습니다. 메서드는 타입과 관련된 함수이므로 메서드 파라미터도 동일하게 적용됩니다.
+함수 파라미터는 [함수 인수 라벨과 파라미터 명 \(Function Argument Labels and Parameter Names\)](functions.md#function-argument-labels-and-parameter-names) 에서 설명 했듯이 함수의 본문 내에서 사용하는 이름과 함수를 호출할 때 사용하는 인수 라벨 둘다 가질 수 있습니다. 메서드는 타입과 관련된 함수이므로 메서드 파라미터도 동일하게 적용됩니다.
 
 ### self 프로퍼티 \(The self Property\)
 
