@@ -36,7 +36,7 @@ The available attribute always appears with a list of two or more comma-separate
 
 이 속성을 적용하여 특정 Swift 언어 버전 또는 특정 플랫폼과 운영체제 버전과 관련된 선언의 라이프 사이클을 나타냅니다.
 
-`available` 속성은 둘 이상의 콤마로 구분된 속성 인수의 목록으로 나타납니다. 이러한 인수는 다음의 플랫폼 또는 언어 이름 중 하나로 시작합니다:
+`available` 속성은 둘 이상의 콤마로 구분된 속성 인수의 리스트으로 나타납니다. 이러한 인수는 다음의 플랫폼 또는 언어 이름 중 하나로 시작합니다:
 
 * `iOS`
 * `iOSApplicationExtension`
@@ -724,7 +724,7 @@ Builds a partial result that propagates or erases type information outside a com
 For example, the code below defines a simple result builder that builds an array of integers. This code defines Component and Expression as type aliases, to make it easier to match the examples below to the list of methods above.
 -->
 
-예를 들어 아래 코드는 정수의 배열을 빌드하는 간다한 결과 빌더를 정의합니다. 이 코드는 타입 별칭으로 `Component` 와 `Expression` 을 정의하여 아래 예제를 위의 메서드의 목록보다 쉽게 일치하도록 만듭니다.&#x20;
+예를 들어 아래 코드는 정수의 배열을 빌드하는 간다한 결과 빌더를 정의합니다. 이 코드는 타입 별칭으로 `Component` 와 `Expression` 을 정의하여 아래 예제를 위의 메서드의 리스트보다 쉽게 일치하도록 만듭니다.&#x20;
 
 ```swift
 @resultBuilder
@@ -1047,7 +1047,7 @@ Apply this attribute to a protocol type as part of a type declaration’s list o
 The only supported protocol is Sendable.
 -->
 
-프로토콜의 요구사항의 강제성을 끄기위해 타입 선언 목록의 적용된 프로토콜 타입에 이 속성을 적용합니다.
+프로토콜의 요구사항의 강제성을 끄기위해 타입 선언 리스트의 적용된 프로토콜 타입에 이 속성을 적용합니다.
 
 지원하는 프로토콜은 [전달 가능 \(Sendable\)](https://developer.apple.com/documentation/swift/sendable) 만 있습니다.
 

@@ -283,7 +283,7 @@ The assignment is part of the optional chaining, which means none of the code on
 
 이 예제에서 `john.residence` 가 `nil` 이기 때문에 `john.residence` 에 `address` 프로퍼티에 설정하기 위한 시도는 실패 할 것입니다.
 
-이 할당은 `=` 연산자의 우항의 코드는 평가되지 않으므로 옵셔널 체이닝의 일부입니다. 이전 예제에서 상수에 접근하는 것은 어떠한 영향도 없기 때문에 `someAddress` 가 평가되지 않는다는 것을 쉽게 파악할 수 없습니다. 아래의 목록은 같은 할당을 수행하지만 주소를 생성하기 위해 함수를 사용합니다. 이 함수는 값을 반환하기 전에 "Function was called"를 출력하여 `=` 연산자 우항이 평가되었음을 알 수 있습니다.
+이 할당은 `=` 연산자의 우항의 코드는 평가되지 않으므로 옵셔널 체이닝의 일부입니다. 이전 예제에서 상수에 접근하는 것은 어떠한 영향도 없기 때문에 `someAddress` 가 평가되지 않는다는 것을 쉽게 파악할 수 없습니다. 아래의 리스트은 같은 할당을 수행하지만 주소를 생성하기 위해 함수를 사용합니다. 이 함수는 값을 반환하기 전에 "Function was called"를 출력하여 `=` 연산자 우항이 평가되었음을 알 수 있습니다.
 
 ```swift
 func createAddress() -> Address {

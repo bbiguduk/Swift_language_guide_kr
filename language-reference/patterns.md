@@ -10,7 +10,7 @@ The first kind of pattern is used for destructuring values in simple variable, c
 The second kind of pattern is used for full pattern matching, where the values you’re trying to match against may not be there at runtime. These include enumeration case patterns, optional patterns, expression patterns, and type-casting patterns. You use these patterns in a case label of a switch statement, a catch clause of a do statement, or in the case condition of an if, while, guard, or for-in statement.
 -->
 
-_패턴 (pattern)_ 은 단일 값 또는 복합 값의 구조를 나타냅니다. 예를 들어 튜플 `(1, 2)` 의 구조는 콤마로 구분된 두 요소의 목록입니다. 패턴은 특정값이 아닌 값의 구조를 나타내기 때문에 다양한 값과 일치 시킬 수 있습니다. 예를 들어 패턴 `(x, y)` 은 튜플 `(1, 2)` 와 다른 두 요소 튜플과 일치합니다. 패턴을 값과 일치시키는 것 외에도 복합 값의 일부 또는 전체를 추출하고 각 부분을 상수 또는 변수 이름으로 바인드 할 수 있습니다.
+_패턴 (pattern)_ 은 단일 값 또는 복합 값의 구조를 나타냅니다. 예를 들어 튜플 `(1, 2)` 의 구조는 콤마로 구분된 두 요소의 리스트입니다. 패턴은 특정값이 아닌 값의 구조를 나타내기 때문에 다양한 값과 일치 시킬 수 있습니다. 예를 들어 패턴 `(x, y)` 은 튜플 `(1, 2)` 와 다른 두 요소 튜플과 일치합니다. 패턴을 값과 일치시키는 것 외에도 복합 값의 일부 또는 전체를 추출하고 각 부분을 상수 또는 변수 이름으로 바인드 할 수 있습니다.
 
 Swift 에는 두가지의 기본 패턴이 있습니다: 모든 종류의 값과 일치하는 패턴과 런타임에 지정된 값과 일치하지 않을 수 있는 패턴이 있습니다.
 
@@ -111,7 +111,7 @@ You can constrain a tuple pattern to match certain kinds of tuple types by using
 When a tuple pattern is used as the pattern in a for-in statement or in a variable or constant declaration, it can contain only wildcard patterns, identifier patterns, optional patterns, or other tuple patterns that contain those. For example, the following code isn’t valid because the element 0 in the tuple pattern (x, 0) is an expression pattern:
 -->
 
-_튜플 패턴 (tuple pattern)_ 은 소괄호로 묶인 콤마로 구분된 0개 이상의 패턴의 목록입니다. 튜플 패턴은 해당 튜플 타입의 값과 일치합니다.
+_튜플 패턴 (tuple pattern)_ 은 소괄호로 묶인 콤마로 구분된 0개 이상의 패턴의 리스트입니다. 튜플 패턴은 해당 튜플 타입의 값과 일치합니다.
 
 타입 주석을 사용하여 튜플 타입의 특정 종류와 일치하도록 하기 위해 튜플 패턴을 제한할 수 있습니다. 예를 들어 상수 선언 `let (x, y): (Int, Int) = (1, 2)` 에서 튜플 패턴 `(x, y): (Int, Int)` 은 두 요소 모두 타입 `Int` 의 튜플 타입만 일치합니다.
 

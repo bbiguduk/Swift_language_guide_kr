@@ -26,7 +26,7 @@ If you’ve written concurrent code before, you might be used to working with th
 Although it’s possible to write concurrent code without using Swift’s language support, that code tends to be harder to read. For example, the following code downloads a list of photo names, downloads the first photo in that list, and shows that photo to the user:
 -->
 
-Swift 의 언어 지원을 사용하지 않고 동시성 코드를 작성할 수 있지만 해당 코드는 읽기가 더 어려운 경우가 많습니다. 예를 들어 다음 코드는 사진 이름 목록을 다운로드하고 해당 목록의 첫번째 사진을 다운로드하고 해당 사진을 사용자에게 보여줍니다:
+Swift 의 언어 지원을 사용하지 않고 동시성 코드를 작성할 수 있지만 해당 코드는 읽기가 더 어려운 경우가 많습니다. 예를 들어 다음 코드는 사진 이름 리스트을 다운로드하고 해당 리스트의 첫번째 사진을 다운로드하고 해당 사진을 사용자에게 보여줍니다:
 
 ```swift
 listPhotos(inGallery: "Summer Vacation") { photoNames in
@@ -109,7 +109,7 @@ The possible suspension points in your code marked with await indicate that the 
 위 예제의 동시성을 이해하기 위한 실행 순서는 다음과 같습니다:
 
 1. 코드는 첫번째 줄에서 실행을 시작하고 첫번째 `await` 까지 실행됩니다. `listPhotos(inGallery:)` 함수를 호출하고 해당 함수가 반환될 때까지 실행을 일시 중단합니다.
-2. 이 코드의 실행이 일시 중단되는 동안 같은 프로그램의 다른 동시 코드가 실행됩니다. 예를 들어 오랜시간 실행되는 백그라운드 작업이 새 사진을 목록을 업데이트 할 수 있습니다. 이 코드는 `await` 로 표시된 다음 중단 지점 또는 완료될 때까지 실행됩니다.
+2. 이 코드의 실행이 일시 중단되는 동안 같은 프로그램의 다른 동시 코드가 실행됩니다. 예를 들어 오랜시간 실행되는 백그라운드 작업이 새 사진을 리스트을 업데이트 할 수 있습니다. 이 코드는 `await` 로 표시된 다음 중단 지점 또는 완료될 때까지 실행됩니다.
 3. `listPhotos(inGallery:)` 가 반환된 후에 이 코드는 해당 지점에서 시작하여 계속 실행됩니다. 반환된 값을 `photoNames` 에 할당합니다.
 4. `sortedNames` 와 `name` 을 정의하는 라인은 일반적인 동기 코드 입니다. 이 라인은 `await` 로 표시되지 않았으므로 가능한 중단 지점이 없습니다.
 5. 다음 `await` 는 `downloadPhoto(named:)` 함수에 대한 호출을 표시합니다. 이 코드는 해당 함수가 반환될 때까지 실행을 다시 일시 중단하여 다른 동시 코드에 실행할 기회를 제공합니다.
@@ -407,7 +407,7 @@ In this case, the code running elsewhere would read incorrect information becaus
 If you try to access those properties from outside the actor, like you would with an instance of a class, you’ll get a compile-time error. For example:
 -->
 
-`update(with:)` 메서드는 행위자에서 이미 실행 중이므로 `max` 와 같은 프로퍼티에 대한 접근을 `await` 로 표시하지 않습니다. 이 메서드는 행위자가 변경 가능한 상태와 상호 작용하기 위해 한 번에 하나의 작업만 허용하는 이유 중 하나를 보여줍니다: 행위자의 상태에 대한 일부 업데이트는 일시적으로 불변성을 깨뜨립니다. `TemperatureLogger` 행위자는 온도 목록과 최대 온도를 추적하고 새로운 측정값을 기록할 때 최대 온도를 업데이트 합니다. 업데이트 도중에 새로운 측정값을 추가한 후 `max` 를 업데이트 하기 전에 온도 로거는 일시적으로 일치하지 않는 상태가 됩니다. 여러 작업이 동일한 인스턴스에 상호 작용하는 것을 방지하면 다음 이벤트 시퀀스와 같은 문제를 방지할 수 있습니다:
+`update(with:)` 메서드는 행위자에서 이미 실행 중이므로 `max` 와 같은 프로퍼티에 대한 접근을 `await` 로 표시하지 않습니다. 이 메서드는 행위자가 변경 가능한 상태와 상호 작용하기 위해 한 번에 하나의 작업만 허용하는 이유 중 하나를 보여줍니다: 행위자의 상태에 대한 일부 업데이트는 일시적으로 불변성을 깨뜨립니다. `TemperatureLogger` 행위자는 온도 리스트과 최대 온도를 추적하고 새로운 측정값을 기록할 때 최대 온도를 업데이트 합니다. 업데이트 도중에 새로운 측정값을 추가한 후 `max` 를 업데이트 하기 전에 온도 로거는 일시적으로 일치하지 않는 상태가 됩니다. 여러 작업이 동일한 인스턴스에 상호 작용하는 것을 방지하면 다음 이벤트 시퀀스와 같은 문제를 방지할 수 있습니다:
 
 1. 코드는 `update(with:)` 메서드를 호출합니다. 먼저 `measurements` 배열을 업데이트 합니다.
 2. 코드에서 `max` 를 업데이트 하기 전에 다른 코드에서 최대값과 온도 배열을 읽습니다.

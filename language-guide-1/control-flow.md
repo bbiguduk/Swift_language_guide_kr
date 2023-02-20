@@ -606,7 +606,7 @@ if let integerValue = possibleIntegerValue {
 
 `switch` 구문 이후에 이 예제는 값이 존재하는지 옵셔널 바인딩을 사용합니다. `possibleIntegerValue` 변수는 옵셔널 타입이기 때문에 초기값은 `nil` 이므로 `possibleIntegerValue` 가 `switch` 구문의 케이스 중 하나와 일치하여 실제 값이 설정된다면 옵셔널 바인딩은 성공할 것입니다.
 
-위 예제에서 가능한 모든 `Character` 값을 목록화 할 수 없기 때문에 `default` 케이스로 일치되지 않는 문자를 처리합니다. `default` 케이스는 어떠한 동작도 수행할 필요가 없으므로 `break` 구문만 적습니다. `default` 케이스에 일치되자마자 `break` 구문은 `switch` 구문의 실행을 종료하고 이어서 `if let` 구문을 실행합니다.
+위 예제에서 가능한 모든 `Character` 값을 리스트화 할 수 없기 때문에 `default` 케이스로 일치되지 않는 문자를 처리합니다. `default` 케이스는 어떠한 동작도 수행할 필요가 없으므로 `break` 구문만 적습니다. `default` 케이스에 일치되자마자 `break` 구문은 `switch` 구문의 실행을 종료하고 이어서 `if let` 구문을 실행합니다.
 
 ### Fallthrough
 
@@ -628,9 +628,9 @@ print(description)
 // Prints "The number 5 is a prime number, and also an integer."
 ```
 
-이 예제는 `description` 이라 불리는 새로운 `String` 변수를 선언하고 초기값을 할당합니다. 이 함수는 `switch` 구문을 사용하여 `integerToDescribe` 의 값을 고려합니다. `integerToDescribe` 의 값이 목록에서의 소수 중 하나이면 소수라는 것을 나타내는 텍스트를 `description` 뒤에 추가합니다. 그러면 `fallthrough` 키워드를 사용하여 `default` 케이스 또한 동작하게 됩니다. `default` 케이스는 추가 설명을 덧붙이고 `switch` 구문은 완료됩니다.
+이 예제는 `description` 이라 불리는 새로운 `String` 변수를 선언하고 초기값을 할당합니다. 이 함수는 `switch` 구문을 사용하여 `integerToDescribe` 의 값을 고려합니다. `integerToDescribe` 의 값이 리스트에서의 소수 중 하나이면 소수라는 것을 나타내는 텍스트를 `description` 뒤에 추가합니다. 그러면 `fallthrough` 키워드를 사용하여 `default` 케이스 또한 동작하게 됩니다. `default` 케이스는 추가 설명을 덧붙이고 `switch` 구문은 완료됩니다.
 
-`integerToDescribe` 의 값이 목록에 없는 소수이면 첫번째 `switch` 케이스와 전혀 일치하지 않습니다. 특정 케이스가 없기 때문에 `integerToDescribe` 는 `default` 케이스와 일치됩니다.
+`integerToDescribe` 의 값이 리스트에 없는 소수이면 첫번째 `switch` 케이스와 전혀 일치하지 않습니다. 특정 케이스가 없기 때문에 `integerToDescribe` 는 `default` 케이스와 일치됩니다.
 
 `switch` 구문 실행이 완료된 후에 숫자의 설명은 `print(_:separator:terminator:)` 함수를 사용하여 출력됩니다. 이 예제에서 숫자 `5` 는 소수로써 유효합니다.
 
@@ -769,7 +769,7 @@ if #available(iOS 10, macOS 10.12, *) {
 
 iOS에서 위의 특정 가용성 조건의 `if` 구문의 본문은 iOS 10 이상 버전에서만 실행되고 macOS에서는 macOS 10.12 이상 버전에서만 실행됩니다. 마지막 인수 `*` 는 필수이며 다른 플랫폼에서 `if` 의 본문이 최소 타겟 버전에서 실행되도록 지정합니다.
 
-일반적인 형식에서 가용성 조건은 플랫폼 이름 및 버전 목록을 사용합니다. `iOS`, `macOS`, `watchOS`, `tvOS` 와 같은 플랫폼 이름을 사용하고 자세한 내용은 [선언 속성 \(Declaration Attributes\)](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#ID348) 을 참고 바랍니다. iOS 8 또는 macOS 10.10과 같은 메이저 버전 번호를 지정하는 것 외에 iOS 11.2.6과 macOS 10.13.3과 같은 마이너 버전 번호로 지정할 수 있습니다.
+일반적인 형식에서 가용성 조건은 플랫폼 이름 및 버전 리스트을 사용합니다. `iOS`, `macOS`, `watchOS`, `tvOS` 와 같은 플랫폼 이름을 사용하고 자세한 내용은 [선언 속성 \(Declaration Attributes\)](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#ID348) 을 참고 바랍니다. iOS 8 또는 macOS 10.10과 같은 메이저 버전 번호를 지정하는 것 외에 iOS 11.2.6과 macOS 10.13.3과 같은 마이너 버전 번호로 지정할 수 있습니다.
 
 ```swift
 if #available(<#platform name#> <#version#>, <#...#>, *) {

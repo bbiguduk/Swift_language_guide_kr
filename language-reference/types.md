@@ -58,7 +58,7 @@ Type annotations can contain an optional list of type attributes before the type
 
 첫번째 예제에서 표현식 `someTuple` 은 튜플 타입 `(Double, Double)` 을 갖도록 지정됩니다. 두번째 예제는 함수 `someFunction` 에 파라미터 `a` 는 타입 `Int` 를 갖도록 지정합니다.
 
-타입 주석은 타입 앞에 타입 속성의 옵셔널 목록을 포함할 수 있습니다.
+타입 주석은 타입 앞에 타입 속성의 옵셔널 리스트을 포함할 수 있습니다.
 
 > GRAMMAR OF A TYPE ANNOTATION\
 > type-annotation → `:` [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar\_attributes) $$_{opt}$$ `inout` $$_{opt}$$ [type](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type)
@@ -108,7 +108,7 @@ You can use a tuple type as the return type of a function to enable the function
 When an element of a tuple type has a name, that name is part of the type.
 -->
 
-_튜플 타입 (tuple type)_ 은 소괄호로 묶인 콤마로 구분된 타입의 목록입니다.
+_튜플 타입 (tuple type)_ 은 소괄호로 묶인 콤마로 구분된 타입의 리스트입니다.
 
 튜플 타입을 함수의 반환 타입으로 사용하여 함수가 여러값을 포함하는 단일 튜플을 반환하도록 할 수 있습니다. 튜플 타입의 요소에 이름을 지정하고 해당 이름을 사용하여 개별 요소의 값을 참조할 수도 있습니다. 요소 이름은 바로 뒤에 콜론 (`:`) 이 오는 식별자로 구성됩니다. 이러한 기능을 보여주는 예제는 [여러개의 반환값이 있는 함수 (Functions with Multiple Return Values)](../language-guide-1/functions.md#functions-with-multiple-return-values) 를 참고 바랍니다.
 
@@ -157,7 +157,7 @@ If a function type has only one parameter and that parameter’s type is a tuple
 Argument names in functions and methods aren’t part of the corresponding function type. For example:
 -->
 
-_파라미터 타입 (parameter type)_ 은 콤마로 구분된 타입의 목록입니다. _반환 타입 (return type)_ 은 튜플 타입일 수 있기 때문에 함수 타입은 여러값을 반환하는 함수와 메서드를 지원합니다.
+_파라미터 타입 (parameter type)_ 은 콤마로 구분된 타입의 리스트입니다. _반환 타입 (return type)_ 은 튜플 타입일 수 있기 때문에 함수 타입은 여러값을 반환하는 함수와 메서드를 지원합니다.
 
 함수 타입 `() -> T` (여기서 `T` 는 모든 타입) 의 파라미터는 `autoclosure` 속성을 적용하여 호출 부분에서 암시적으로 클로저를 생성할 수 있습니다. 이것은 함수를 호출할 때 명시적으로 클로저를 작성할 필요없이 표현식의 평가를 연기하는 구문상 편리함을 제공합니다. 자동 클로저 함수 타입 파라미터의 예제는 [자동 클로저 (Autoclosures)](../language-guide-1/closures.md#autoclosures) 를 참고 바랍니다.
 
@@ -459,7 +459,7 @@ A protocol composition type defines a type that conforms to each protocol in a l
 Protocol composition types have the following form:
 -->
 
-_프로토콜 구성 타입 (protocol composition type)_ 은 지정된 프로토콜의 목록의 각 프로토콜을 준수하는 타입 또는 주어진 클래스의 하위 클래스와 지정된 프로토콜의 목록의 각 프로토콜을 준수하는 타입을 정의합니다. 프로토콜 구성 타입은 타입 주석, 제너릭 파라미터 절, 그리고 제너릭 `where` 절을 지정할 때만 사용할 수 있습니다.
+_프로토콜 구성 타입 (protocol composition type)_ 은 지정된 프로토콜의 리스트의 각 프로토콜을 준수하는 타입 또는 주어진 클래스의 하위 클래스와 지정된 프로토콜의 리스트의 각 프로토콜을 준수하는 타입을 정의합니다. 프로토콜 구성 타입은 타입 주석, 제너릭 파라미터 절, 그리고 제너릭 `where` 절을 지정할 때만 사용할 수 있습니다.
 
 프로토콜 구성 타입은 다음의 형식을 가집니다:
 
@@ -479,7 +479,7 @@ When a protocol composition type contains type aliases, it’s possible for the 
 
 프로토콜 구성 타입을 사용하면 타입이 준수하려는 각 프로토콜에서 상속되는 명명된 프로토콜을 새롭게 명시적으로 정의하지 않아도 타입이 여러 프로토콜의 요구사항을 준수하는 값을 지정할 수 있습니다. 예를 들어 `ProtocolA`, `ProtocolB`, 그리고 `ProtocolC` 를 상속하는 새로운 프로토콜을 선언하는 대신 프로토콜 구성 타입 `ProtocolA & ProtocolB & ProtocolC` 를 사용할 수 있습니다. 마찬가지로 `SuperClass` 의 하위 클래스와 `ProtocolA` 를 준수하는 새로운 프로토콜을 선언하는 대신에 `SuperClass & ProtocolA` 를 사용할 수 있습니다.
 
-프로토콜 구성 목록에 각 항목은 다음 중 하나입니다; 이 목록은 최대 하나의 클래스를 포함할 수 있습니다:
+프로토콜 구성 리스트에 각 항목은 다음 중 하나입니다; 이 리스트은 최대 하나의 클래스를 포함할 수 있습니다:
 
 * 클래스의 이름
 * 프로토콜의 이름
@@ -719,13 +719,13 @@ Other named types can only inherit from or conform to a list of protocols. Proto
 A type inheritance clause in an enumeration definition can be either a list of protocols, or in the case of an enumeration that assigns raw values to its cases, a single, named type that specifies the type of those raw values. For an example of an enumeration definition that uses a type inheritance clause to specify the type of its raw values, see Raw Values.
 -->
 
-_타입 상속 절 (type inheritance clause)_ 은 명명된 타입이 상속하는 클래스와 명명된 타입이 준수하는 프로토콜을 지정하기 위해 사용됩니다. 타입 상속 절은 콜론 (`:`) 으로 시작하고 그 뒤에 타입 식별자의 목록이 옵니다.
+_타입 상속 절 (type inheritance clause)_ 은 명명된 타입이 상속하는 클래스와 명명된 타입이 준수하는 프로토콜을 지정하기 위해 사용됩니다. 타입 상속 절은 콜론 (`:`) 으로 시작하고 그 뒤에 타입 식별자의 리스트이 옵니다.
 
-클래스 타입은 단일 상위 클래스를 상속할 수 있고 여러개의 프로토콜을 준수할 수 있습니다. 클래스를 정의할 때 상위 클래스의 이름은 타입 식별자의 목록에서 첫번째로 나타나야 하고 다음으로 준수하는 여러개의 프로토콜이 옵니다. 클래스가 다른 클래스를 상속하지 않으면 목록은 대신 프로토콜로 시작할 수 있습니다. 클래스 상속에 대한 자세한 설명과 예제는 [상속 (Inheritance)](../language-guide-1/inheritance.md) 를 참고 바랍니다.
+클래스 타입은 단일 상위 클래스를 상속할 수 있고 여러개의 프로토콜을 준수할 수 있습니다. 클래스를 정의할 때 상위 클래스의 이름은 타입 식별자의 리스트에서 첫번째로 나타나야 하고 다음으로 준수하는 여러개의 프로토콜이 옵니다. 클래스가 다른 클래스를 상속하지 않으면 리스트은 대신 프로토콜로 시작할 수 있습니다. 클래스 상속에 대한 자세한 설명과 예제는 [상속 (Inheritance)](../language-guide-1/inheritance.md) 를 참고 바랍니다.
 
-다른 명명된 타입은 프로토콜의 목록에서 상속하거나 준수할 수 있습니다. 프로토콜 타입은 여러 다른 프로토콜을 상속할 수 있습니다. 프로토콜 타입은 다른 프로토콜을 상속할 때 다른 프로토콜의 요구사항을 모으고 현재 프로토콜에서 상속되는 모든 타입은 모든 요구사항을 준수해야 합니다.
+다른 명명된 타입은 프로토콜의 리스트에서 상속하거나 준수할 수 있습니다. 프로토콜 타입은 여러 다른 프로토콜을 상속할 수 있습니다. 프로토콜 타입은 다른 프로토콜을 상속할 때 다른 프로토콜의 요구사항을 모으고 현재 프로토콜에서 상속되는 모든 타입은 모든 요구사항을 준수해야 합니다.
 
-열거형 정의에 타입 상속 절은 프로토콜의 목록이거나 케이스에 원시값 (raw values) 을 할당하는 열거형인 경우 해당 원시값의 타입을 지정하는 단일 명명된 타입일 수 있습니다. 타입 상속 절을 사용하여 원시값의 타입을 지정하는 열거형 정의의 예는 [원시값 (Raw Values)](../language-guide-1/enumerations.md#raw-values) 를 참고 바랍니다.
+열거형 정의에 타입 상속 절은 프로토콜의 리스트이거나 케이스에 원시값 (raw values) 을 할당하는 열거형인 경우 해당 원시값의 타입을 지정하는 단일 명명된 타입일 수 있습니다. 타입 상속 절을 사용하여 원시값의 타입을 지정하는 열거형 정의의 예는 [원시값 (Raw Values)](../language-guide-1/enumerations.md#raw-values) 를 참고 바랍니다.
 
 > GRAMMAR OF A TYPE INHERITANCE CLAUSE\
 > type-inheritance-clause → `:` [type-inheritance-list](https://docs.swift.org/swift-book/ReferenceManual/Types.html#grammar\_type-inheritance-list)\

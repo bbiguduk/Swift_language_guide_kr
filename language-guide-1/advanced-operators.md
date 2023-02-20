@@ -474,7 +474,7 @@ For information about the operators provided by the Swift standard library, incl
 
 이 계산의 결과는 `17` 입니다.
 
-연산자 우선순위 그룹과 연관성 설정의 전체 목록을 포함하여 Swift 표준 라이브러리에 의해 제공되는 연산자에 대한 자세한 내용은 [연산자 선언 \(Operator Declarations\)](https://developer.apple.com/documentation/swift/operator_declarations) 을 참고 바랍니다.
+연산자 우선순위 그룹과 연관성 설정의 전체 리스트을 포함하여 Swift 표준 라이브러리에 의해 제공되는 연산자에 대한 자세한 내용은 [연산자 선언 \(Operator Declarations\)](https://developer.apple.com/documentation/swift/operator_declarations) 을 참고 바랍니다.
 
 <!--
 NOTE
@@ -673,7 +673,7 @@ You can declare and implement your own custom operators in addition to the stand
 New operators are declared at a global level using the operator keyword, and are marked with the prefix, infix or postfix modifiers:
 -->
 
-Swift에서 제공하는 표준 연산자 외에 _사용자 정의 연산자 \(custom operators\)_ 를 선언하고 구현할 수 있습니다. 사용자 정의 연산자를 정의하는데 사용할 수 있는 문자의 목록은 [연산자 \(Operators\)](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID418) 를 참고 바랍니다.
+Swift에서 제공하는 표준 연산자 외에 _사용자 정의 연산자 \(custom operators\)_ 를 선언하고 구현할 수 있습니다. 사용자 정의 연산자를 정의하는데 사용할 수 있는 문자의 리스트은 [연산자 \(Operators\)](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID418) 를 참고 바랍니다.
 
 새로운 연산자는 `operator` 키워드를 사용하여 전역으로 선언되고 `prefix`, `infix` 또는 `postfix` 수식어를 사용하여 표기될 수 있습니다:
 
@@ -734,7 +734,7 @@ let plusMinusVector = firstVector +- secondVector
 This operator adds together the x values of two vectors, and subtracts the y value of the second vector from the first. Because it’s in essence an “additive” operator, it has been given the same precedence group as additive infix operators such as + and -. For information about the operators provided by the Swift standard library, including a complete list of the operator precedence groups and associativity settings, see Operator Declarations. For more information about precedence groups and to see the syntax for defining your own operators and precedence groups, see Operator Declaration.
 -->
 
-이 연산자는 두 벡터의 `x` 값을 더하고 첫번째 벡터에서 두번째 벡터의 `y` 값을 뺍니다. 본질적으로 "가산" 연산자이기 때문에 `+` 와 `-` 와 같은 가산 중위 연산자와 같은 우선순위 그룹이 지정되었습니다. 연산자 우선순위 그룹과 연관성 설정의 전체 목록을 포함하여 Swift 표준 라이브러리에서 제공하는 연산자에 대한 정보는 [연산자 선언 \(Operator Declarations\)](https://developer.apple.com/documentation/swift/operator_declarations) 을 참고 바랍니다. 우선순위 그룹에 대한 자세한 내용과 고유한 연산자와 우선순위 그룹에 대한 구문을 보려면 [연산자 선언 \(Operator Declaration\)](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID380) 를 참고 바랍니다.
+이 연산자는 두 벡터의 `x` 값을 더하고 첫번째 벡터에서 두번째 벡터의 `y` 값을 뺍니다. 본질적으로 "가산" 연산자이기 때문에 `+` 와 `-` 와 같은 가산 중위 연산자와 같은 우선순위 그룹이 지정되었습니다. 연산자 우선순위 그룹과 연관성 설정의 전체 리스트을 포함하여 Swift 표준 라이브러리에서 제공하는 연산자에 대한 정보는 [연산자 선언 \(Operator Declarations\)](https://developer.apple.com/documentation/swift/operator_declarations) 을 참고 바랍니다. 우선순위 그룹에 대한 자세한 내용과 고유한 연산자와 우선순위 그룹에 대한 구문을 보려면 [연산자 선언 \(Operator Declaration\)](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID380) 를 참고 바랍니다.
 
 <!--
 NOTE

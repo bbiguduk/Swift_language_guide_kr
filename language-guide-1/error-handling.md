@@ -178,7 +178,7 @@ Throwing initializers can propagate errors in the same way as throwing functions
 
 이 예제에서 `buyFavoriteSnack(person:vendingMachine:)` 함수는 주어진 사람의 좋아하는 스낵을 검색하고 `vend(itemNamed:)` 메서드를 호출하여 그 제품을 구입합니다. `vend(itemNamed:)` 메서드는 에러를 발생할 수 있으므로 `try` 키워드를 앞에 두어 호출됩니다.
 
-던지기 초기화 구문은 던지기 함수와 같은 방법으로 에러를 전파할 수 있습니다. 예를 들어 아래의 목록에서 `PurchasedSnack` 구조체의 초기화 구문은 초기화 프로세스 부분으로 던지기 함수를 호출하고 발생하는 모든 에러를 호출자에게 전파하여 처리합니다.
+던지기 초기화 구문은 던지기 함수와 같은 방법으로 에러를 전파할 수 있습니다. 예를 들어 아래의 리스트에서 `PurchasedSnack` 구조체의 초기화 구문은 초기화 프로세스 부분으로 던지기 함수를 호출하고 발생하는 모든 에러를 호출자에게 전파하여 처리합니다.
 
 ```swift
 struct PurchasedSnack {
@@ -271,7 +271,7 @@ Another way to catch several related errors is to list them after catch, separat
 
 `nourish(with:)` 함수에서 `vend(itemNamed:)` 가 `VendingMachineError` 열거형에 케이스 중 하나의 에러를 발생하면 `nourish(with:)` 는 메세지를 출력하여 에러를 처리합니다. 그렇지 않으면 `nourish(with:)` 는 호출 부분으로 에러를 전파합니다. 이 에러는 일반적인 `catch` 절에 의해 포착됩니다.
 
-연관된 에러를 포착하기 위한 다른 방법은 콤마로 구분하여 `catch` 다음에 목록 형식으로 작성하는 것입니다. 예를 들어:
+연관된 에러를 포착하기 위한 다른 방법은 콤마로 구분하여 `catch` 다음에 리스트 형식으로 작성하는 것입니다. 예를 들어:
 
 ```swift
 func eat(item: String) throws {
@@ -287,7 +287,7 @@ func eat(item: String) throws {
 The eat(item:) function lists the vending machine errors to catch, and its error text corresponds to the items in that list. If any of the three listed errors are thrown, this catch clause handles them by printing a message. Any other errors are propagated to the surrounding scope, including any vending-machine errors that might be added later.
 -->
 
-`eat(item:)` 함수는 포착할 자동 판매기 에러를 나열하며 에러 텍스트는 해당 목록의 항목에 해당합니다. 목록화 된 3가지 에러 중 어떤 에러가 발생하면 이 `catch` 절은 메세지를 출력하여 처리합니다. 나중에 추가될 수 있는 에러를 포함하여 다른 에러는 주변 범위로 전파됩니다.
+`eat(item:)` 함수는 포착할 자동 판매기 에러를 나열하며 에러 텍스트는 해당 리스트의 항목에 해당합니다. 리스트화 된 3가지 에러 중 어떤 에러가 발생하면 이 `catch` 절은 메세지를 출력하여 처리합니다. 나중에 추가될 수 있는 에러를 포함하여 다른 에러는 주변 범위로 전파됩니다.
 
 ### 에러를 옵셔널 값을 변환 \(Converting Errors to Optional Values\)
 

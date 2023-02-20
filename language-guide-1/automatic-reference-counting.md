@@ -720,7 +720,7 @@ The example below shows how you can create a strong reference cycle when using a
 
 이 강한 참조 사이클은 클래스와 같이 클로저는 _참조 타입 \(reference types\)_ 이기 때문에 발생합니다. 프로퍼티에 클로저를 할당하면 해당 클로저에 _참조_ 를 할당하는 것입니다. 본질적으로 두 강한 참조는 서로 유지되므로 위에서와 같은 문제입니다. 그러나 두 클래스 인스턴스가 아니라 이번에는 서로 유지하는 클래스 인스턴스와 클로저입니다.
 
-Swift는 _클로저 캡처 목록 \(closure capture list\)_ 으로 알려진 이 문제를 위해 해결책을 제공합니다. 그러나 클로저 캡처 목록으로 강한 참조 사이클을 끊는 방법에 대해 배우기 전에 이러한 사이클이 어떻게 야기되는지 이해하는 것이 더 유용합니다.
+Swift는 _클로저 캡처 리스트 \(closure capture list\)_ 으로 알려진 이 문제를 위해 해결책을 제공합니다. 그러나 클로저 캡처 리스트으로 강한 참조 사이클을 끊는 방법에 대해 배우기 전에 이러한 사이클이 어떻게 야기되는지 이해하는 것이 더 유용합니다.
 
 아래의 예제는 `self` 를 참조하는 클로저를 사용할 때 강한 참조 사이클이 어떻게 생성될 수 있는지 보여줍니다. 이 예제는 HTML 문서 내에 개별 요소에 대한 간단한 모델을 제공하는 `HTMLElement` 라는 클래스를 정의합니다:
 
@@ -858,7 +858,7 @@ Note that the message in the HTMLElement deinitializer isn’t printed, which sh
 You resolve a strong reference cycle between a closure and a class instance by defining a capture list as part of the closure’s definition. A capture list defines the rules to use when capturing one or more reference types within the closure’s body. As with strong reference cycles between two class instances, you declare each captured reference to be a weak or unowned reference rather than a strong reference. The appropriate choice of weak or unowned depends on the relationships between the different parts of your code.
 -->
 
-클로저의 정의의 부분으로 _캡처 목록 \(capture list\)_ 을 정의하여 클로저와 클래스 인스턴스 간의 강한 참조 사이클을 해결합니다. 캡처 목록은 클로저의 본문 내에서 하나 이상의 참조 타입을 캡처할 때 사용할 규칙을 정의합니다. 두 클래스 간의 강한 참조 사이클과 마찬가지로 캡처된 각 참조를 강한 참조가 아닌 약한 참조 또는 미소유 참조로 선언합니다. 약한 참조 또는 미소유 참조의 적절한 선택은 코드의 다른 부분 간의 관계에 따라 다릅니다.
+클로저의 정의의 부분으로 _캡처 리스트 \(capture list\)_ 을 정의하여 클로저와 클래스 인스턴스 간의 강한 참조 사이클을 해결합니다. 캡처 리스트은 클로저의 본문 내에서 하나 이상의 참조 타입을 캡처할 때 사용할 규칙을 정의합니다. 두 클래스 간의 강한 참조 사이클과 마찬가지로 캡처된 각 참조를 강한 참조가 아닌 약한 참조 또는 미소유 참조로 선언합니다. 약한 참조 또는 미소유 참조의 적절한 선택은 코드의 다른 부분 간의 관계에 따라 다릅니다.
 
 <!--
 NOTE
@@ -868,7 +868,7 @@ Swift requires you to write self.someProperty or self.someMethod() (rather than 
 > NOTE   
 > Swift는 클로저 내에서 `self` 의 멤버를 참조할 때마다 `someProperty` 또는 `someMethod()` 가 아닌 `self.someProperty` 또는 `self.someMethod()` 로 작성해야 합니다. 이것은 실수로 `self` 를 캡첩할 수 있는 것을 기억하는데 도움이 됩니다.
 
-### 캡처 목록 정의 \(Defining a Capture List\)
+### 캡처 리스트 정의 \(Defining a Capture List\)
 
 <!--
 Each item in a capture list is a pairing of the weak or unowned keyword with a reference to a class instance (such as self) or a variable initialized with some value (such as delegate = self.delegate). These pairings are written within a pair of square braces, separated by commas.
@@ -876,9 +876,9 @@ Each item in a capture list is a pairing of the weak or unowned keyword with a r
 Place the capture list before a closure’s parameter list and return type if they’re provided:
 -->
 
-캡처 목록에서 각 항목은 `self` 처럼 클래스 인스턴스 또는 `delegate = self.delegate` 와 같은 어떤 값을 초기화된 변수에 대한 참조가 있는 `weak` 또는 `unowned` 키워드와 쌍을 이룹니다. 이 쌍은 콤마로 구분하여 대괄호 내에 작성됩니다.
+캡처 리스트에서 각 항목은 `self` 처럼 클래스 인스턴스 또는 `delegate = self.delegate` 와 같은 어떤 값을 초기화된 변수에 대한 참조가 있는 `weak` 또는 `unowned` 키워드와 쌍을 이룹니다. 이 쌍은 콤마로 구분하여 대괄호 내에 작성됩니다.
 
-캡처 목록은 클로저의 파라미터 목록 전에 위치하고 반환 타입이 있다면 파라미터 목록 다음에 위치합니다:
+캡처 리스트은 클로저의 파라미터 리스트 전에 위치하고 반환 타입이 있다면 파라미터 리스트 다음에 위치합니다:
 
 ```swift
 lazy var someClosure = {
@@ -892,7 +892,7 @@ lazy var someClosure = {
 If a closure doesn’t specify a parameter list or return type because they can be inferred from context, place the capture list at the very start of the closure, followed by the in keyword:
 -->
 
-클로저는 컨텍스트로 부터 유추할 수 있기 때문에 파라미터 목록 또는 반환 타입을 지정하지 않으면 캡처 목록은 클로저의 가장 처음에 위치하고 이어서 `in` 키워드가 옵니다:
+클로저는 컨텍스트로 부터 유추할 수 있기 때문에 파라미터 리스트 또는 반환 타입을 지정하지 않으면 캡처 리스트은 클로저의 가장 처음에 위치하고 이어서 `in` 키워드가 옵니다:
 
 ```swift
 lazy var someClosure = {
@@ -960,7 +960,7 @@ This implementation of HTMLElement is identical to the previous implementation, 
 You can create and print an HTMLElement instance as before:
 -->
 
-`HTMLElement` 의 구현은 `asHTML` 클로저 내에서 캡처 목록의 추가를 제외하면 이전 구현과 동일합니다. 이러한 경우에 캡처 목록은 "강한 참조가 아닌 미소유 참조로 `self` 를 캡처합니다" 라는 의미의 `[unowned self]` 입니다.
+`HTMLElement` 의 구현은 `asHTML` 클로저 내에서 캡처 리스트의 추가를 제외하면 이전 구현과 동일합니다. 이러한 경우에 캡처 리스트은 "강한 참조가 아닌 미소유 참조로 `self` 를 캡처합니다" 라는 의미의 `[unowned self]` 입니다.
 
 이전과 같이 `HTMLElement` 인스턴스를 생성하고 출력할 수 있습니다:
 
@@ -974,7 +974,7 @@ print(paragraph!.asHTML())
 Here’s how the references look with the capture list in place:
 -->
 
-다음은 캡처 목록이 참조에서 어떻게 보이는지 나타냅니다:
+다음은 캡처 리스트이 참조에서 어떻게 보이는지 나타냅니다:
 
 ![Closure Reference Cycle 02](../.gitbook/assets/24_closureReferenceCycle02_2x.png)
 
@@ -993,5 +993,5 @@ paragraph = nil
 For more information about capture lists, see Capture Lists.
 -->
 
-더 자세한 내용은 [캡처 목록 \(Capture Lists\)](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#ID544) 을 참고 바랍니다.
+더 자세한 내용은 [캡처 리스트 \(Capture Lists\)](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#ID544) 을 참고 바랍니다.
 

@@ -490,7 +490,7 @@ _구문 (statements)_ 에 단일 표현식만 포함된 함수 선언은 해당 
 Function parameters are a comma-separated list where each parameter has one of several forms. The order of arguments in a function call must match the order of parameters in the function’s declaration. The simplest entry in a parameter list has the following form:
 -->
 
-함수 파라미터는 각 파라미터가 여러 형식 중 하나를 갖는 콤마로 구분된 목록입니다. 함수 호출에서 인수의 순서는 함수의 선언 내에 파라미터의 순서와 일치해야 합니다. 파라미터 목록에서 가장 간단한 형식은 다음과 같습니다:
+함수 파라미터는 각 파라미터가 여러 형식 중 하나를 갖는 콤마로 구분된 리스트입니다. 함수 호출에서 인수의 순서는 함수의 선언 내에 파라미터의 순서와 일치해야 합니다. 파라미터 리스트에서 가장 간단한 형식은 다음과 같습니다:
 
 ![](<../.gitbook/assets/스크린샷 2021-02-22 오후 1.15.00.png>)
 
@@ -562,7 +562,7 @@ In-out 파라미터는 다음과 같이 전달됩니다:
 
 메모리 안정성과 메모리 독점성에 대한 자세한 내용은 [메모리 안정성 (Memory Safety)](../language-guide-1/memory-safety.md) 을 참고 바랍니다.
 
-in-out 파라미터를 캡처하는 클로저 또는 중첩 함수는 비이스케이프 이어야 합니다. in-out 파라미터를 변경하지 않고 캡처 해야하는 경우 캡처 목록을 사용하여 파라미터를 변경하지 않고 명시적으로 캡처해야 합니다.
+in-out 파라미터를 캡처하는 클로저 또는 중첩 함수는 비이스케이프 이어야 합니다. in-out 파라미터를 변경하지 않고 캡처 해야하는 경우 캡처 리스트을 사용하여 파라미터를 변경하지 않고 명시적으로 캡처해야 합니다.
 
 ```swift
 func someFunction(a: inout Int) -> () -> Int {
@@ -1255,7 +1255,7 @@ enum MyEnum: SomeProtocol {
 To restrict the adoption of a protocol to class types only, include the AnyObject protocol in the inherited protocols list after the colon. For example, the following protocol can be adopted only by class types:
 -->
 
-클래스 타입에 대해서만 프로토콜의 채택을 제한하려면 콜론 뒤에 _상속된 프로토콜 (inherited protocols)_ 목록에 `AnyObject` 프로토콜을 추가해야 합니다. 예를 들어 다음의 프로토콜은 클래스 타입에 의해서만 채택될 수 있습니다:
+클래스 타입에 대해서만 프로토콜의 채택을 제한하려면 콜론 뒤에 _상속된 프로토콜 (inherited protocols)_ 리스트에 `AnyObject` 프로토콜을 추가해야 합니다. 예를 들어 다음의 프로토콜은 클래스 타입에 의해서만 채택될 수 있습니다:
 
 ```swift
 protocol SomeProtocol: AnyObject {
@@ -1655,7 +1655,7 @@ _타입 이름 (type name)_ 이 클래스, 구조체, 또는 열거형 타입 �
 Extension declarations can’t add class inheritance to an existing class, and therefore you can specify only a list of protocols after the type name and colon.
 -->
 
-확장 선언은 기존 클래스에 클래스 상속을 추가할 수 없으므로 _타입 이름 (type name)_ 과 콜론 뒤에 프로토콜의 목록만 지정할 수 있습니다.
+확장 선언은 기존 클래스에 클래스 상속을 추가할 수 없으므로 _타입 이름 (type name)_ 과 콜론 뒤에 프로토콜의 리스트만 지정할 수 있습니다.
 
 ### 조건부 준수성 (Conditional Conformance)
 
@@ -2005,7 +2005,7 @@ _우선순위 그룹 선언 (precedence group declaration)_ 은 프로그램에�
 The lower group names and higher group names lists specify the new precedence group’s relation to existing precedence groups. The lowerThan precedence group attribute may only be used to refer to precedence groups declared outside of the current module. When two operators compete with each other for their operands, such as in the expression 2 + 3 * 5, the operator with the higher relative precedence binds more tightly to its operands.
 -->
 
-_하위 그룹 이름 (lower group names)_ 과 _상위 그룹 이름 (higher group names)_ 목록은 기존 우선순위 그룹에 새로운 우선순위 그룹의 관계를 지정합니다. `lowerThan` 우선순위 그룹 속성은 현재 모듈의 외부에 선언된 우선순위 그룹을 참조하는 데만 사용됩니다. 표현식 `2 + 3 * 5` 에서와 같이 두 연산자가 피연산자에 대해 서로 경쟁할 때 상대적으로 우선순위가 높은 연산자가 피연산자에 더 밀접하게 바인딩 됩니다.
+_하위 그룹 이름 (lower group names)_ 과 _상위 그룹 이름 (higher group names)_ 리스트은 기존 우선순위 그룹에 새로운 우선순위 그룹의 관계를 지정합니다. `lowerThan` 우선순위 그룹 속성은 현재 모듈의 외부에 선언된 우선순위 그룹을 참조하는 데만 사용됩니다. 표현식 `2 + 3 * 5` 에서와 같이 두 연산자가 피연산자에 대해 서로 경쟁할 때 상대적으로 우선순위가 높은 연산자가 피연산자에 더 밀접하게 바인딩 됩니다.
 
 <!--
 NOTE
@@ -2024,7 +2024,7 @@ The associativity of an operator specifies how a sequence of operators with the 
 The assignment of a precedence group specifies the precedence of an operator when used in an operation that includes optional chaining. When set to true, an operator in the corresponding precedence group uses the same grouping rules during optional chaining as the assignment operators from the standard library. Otherwise, when set to false or omitted, operators in the precedence group follows the same optional chaining rules as operators that don’t perform assignment.
 -->
 
-Swift 는 표준 라이브러리에서 제공된 연산자와 함께 사용할 수많은 우선순위 그룹을 정의합니다. 예를 들어 덧셈 (`+`) 과 뺄셈 (`-`) 연산자는 `AdditionPrecedence` 그룹에 속하고 곱셈 (`*`) 과 나눗셈 (`/`) 연산자는 `MultiplicationPrecedence` 그룹에 속합니다. Swift 표준 라이브러리에서 제공하는 우선순위 그룹의 완벽한 목록은 [연산자 선언 (Operator Declarations)](https://developer.apple.com/documentation/swift/swift\_standard\_library/operator\_declarations) 을 참고 바랍니다.
+Swift 는 표준 라이브러리에서 제공된 연산자와 함께 사용할 수많은 우선순위 그룹을 정의합니다. 예를 들어 덧셈 (`+`) 과 뺄셈 (`-`) 연산자는 `AdditionPrecedence` 그룹에 속하고 곱셈 (`*`) 과 나눗셈 (`/`) 연산자는 `MultiplicationPrecedence` 그룹에 속합니다. Swift 표준 라이브러리에서 제공하는 우선순위 그룹의 완벽한 리스트은 [연산자 선언 (Operator Declarations)](https://developer.apple.com/documentation/swift/swift\_standard\_library/operator\_declarations) 을 참고 바랍니다.
 
 연산자의 _연관성 (associativity)_ 은 그룹화 괄호가 없을 때 동일한 우선순위 수준을 가진 일련의 연산자가 함께 그룹화 되는 방식을 지정합니다. 상황에 맞는 키워드 `left`, `right`, 또는 `none` 중 하나를 작성하여 연산자의 연관성을 지정합니다—연관성을 생략하면 기본적으로 `none` 입니다. 왼쪽 연관성 (left-associative) 연산자는 왼쪽에서 오른쪽으로 그룹화 합니다. 예를 들어 뺄셈 연산자 (`-`) 는 표현식 `4 - 5 - 6` 은 `(4 - 5) - 6` 으로 그룹화 되고 `-7` 로 평가되므로 왼쪽 연관성 (left-associative) 입니다. 오른쪽 연관성 (right-associative) 연산자는 오른쪽에서 왼쪽으로 그룹화 하고 `none` 의 연관성으로 지정된 연산자는 전혀 연관되지 않습니다. 동일한 우선순위 수준의 비연관성 연산자는 서로 인접하게 표시될 수 없습니다. 예를 들어 `<` 연산자는 `none` 의 연관성을 가집니다. 이것은 `1 < 2 < 3` 은 유효하지 않은 표현식이라는 의미입니다.
 

@@ -333,7 +333,7 @@ When you extend a generic type, you don’t provide a type parameter list as par
 The following example extends the generic Stack type to add a read-only computed property called topItem, which returns the top item on the stack without popping it from the stack:
 -->
 
-제너릭 타입을 확장할 때 확장의 정의의 부분으로 타입 파라미터 목록을 제공하지 않습니다. 대신에 _기존_ 타입 정의에서 타입 파라미터 목록은 확장의 본문 내에서 가능하고 기존 타입 파라미터 이름은 기존 정의에서 타입 파라미터를 참조하는데 사용됩니다.
+제너릭 타입을 확장할 때 확장의 정의의 부분으로 타입 파라미터 리스트을 제공하지 않습니다. 대신에 _기존_ 타입 정의에서 타입 파라미터 리스트은 확장의 본문 내에서 가능하고 기존 타입 파라미터 이름은 기존 정의에서 타입 파라미터를 참조하는데 사용됩니다.
 
 다음의 예제는 스택에 팝 없이 스택의 가장 상단의 항목을 반환하는 `topItem` 이라는 읽기전용 계산된 프로퍼티를 추가하기 위해 제너릭 `Stack` 타입을 확장합니다:
 
@@ -355,7 +355,7 @@ The topItem computed property can now be used with any Stack instance to access 
 
 `topItem` 프로퍼티는 `Element` 타입의 옵셔널 값을 반환합니다. 스택이 비어있다면 `topItem` 은 `nil` 을 반환하고 스택이 비어 있지 않다면 `topItem` 은 `items` 배열에서 마지막 항목을 반환합니다.
 
-이 확장은 타입 파라미터 목록을 정의하지 않습니다. 대신에 `Element` 라는 `Stack` 타입의 존재하는 타입 파라미터 이름은 `topItem` 계산된 프로퍼티의 옵셔널 타입임을 나타내기 위해 확장 내에서 사용됩니다.
+이 확장은 타입 파라미터 리스트을 정의하지 않습니다. 대신에 `Element` 라는 `Stack` 타입의 존재하는 타입 파라미터 이름은 `topItem` 계산된 프로퍼티의 옵셔널 타입임을 나타내기 위해 확장 내에서 사용됩니다.
 
 `topItem` 계산된 프로퍼티는 최상단 항목의 삭제없이 접근하고 조회하기 위해 모든 `Stack` 인스턴스에서 사용될 수 있습니다.
 
@@ -398,7 +398,7 @@ You can define your own type constraints when creating custom generic types, and
 You write type constraints by placing a single class or protocol constraint after a type parameter’s name, separated by a colon, as part of the type parameter list. The basic syntax for type constraints on a generic function is shown below (although the syntax is the same for generic types):
 -->
 
-타입 파라미터 목록의 부분으로 콜론으로 구분한 타입 파라미터의 이름 뒤에 단일 클래스 또는 프로토콜 제약을 위치하여 타입 제약을 작성합니다. 제너릭 함수에서 타입 제약에 대한 기본 구문은 아래와 같습니다 \(제너릭 타입의 구문은 동일함\):
+타입 파라미터 리스트의 부분으로 콜론으로 구분한 타입 파라미터의 이름 뒤에 단일 클래스 또는 프로토콜 제약을 위치하여 타입 제약을 작성합니다. 제너릭 함수에서 타입 제약에 대한 기본 구문은 아래와 같습니다 \(제너릭 타입의 구문은 동일함\):
 
 ```swift
 func someFunction<T: SomeClass, U: SomeProtocol>(someT: T, someU: U) {
@@ -829,7 +829,7 @@ Here’s how the allItemsMatch(_:_:) function looks in action:
 * `C1.Item == C2.Item` 으로 작성했듯이 `C1` 에 대한 `Item` 은 `C2` 에 대한 `Item` 과 동일해야 합니다.
 * `C1.Item: Equatable` 로 작성했듯이 `C1` 에 대한 `Item` 은 `Equatable` 프로토콜을 준수해야 합니다.
 
-첫번째 그리고 두번째 요구사항은 함수의 타입 파라미터 목록에 정의되고 세번째 그리고 네번째 요구사항은 함수의 제너릭 `where` 절에 정의됩니다.
+첫번째 그리고 두번째 요구사항은 함수의 타입 파라미터 리스트에 정의되고 세번째 그리고 네번째 요구사항은 함수의 제너릭 `where` 절에 정의됩니다.
 
 이 요구사항은 아래를 의미합니다:
 
@@ -981,7 +981,7 @@ You can include multiple requirements in a generic where clause that’s part of
 
 이 예제는 `Item` 타입이 `Double` 인 컨테이너에 `average()` 메서드를 추가합니다. 컨테이너의 항목을 더하고 컨테이너의 수로 나누어 평균을 계산합니다. 부동 소수점 나누기가 가능하기 위해 카운트를 `Int` 에서 `Double` 로 명시적으로 변환합니다.
 
-다른 곳에서 작성하는 제너릭 `where` 절과 마찬가지로 확장의 부분인 제너릭 `where` 절에 여러 요구사항을 포함할 수 있습니다. 콤마로 목록의 각 요구사항을 구분합니다.
+다른 곳에서 작성하는 제너릭 `where` 절과 마찬가지로 확장의 부분인 제너릭 `where` 절에 여러 요구사항을 포함할 수 있습니다. 콤마로 리스트의 각 요구사항을 구분합니다.
 
 ## 상황별 Where 절 \(Contextual Where Clauses\)
 

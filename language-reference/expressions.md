@@ -203,7 +203,7 @@ At parse time, an expression made up of infix operators is represented as a flat
 -->
 
 > NOTE\
-> 구문 분석 시 중위 연산자로 구성된 표현식은 단순 목록으로 표현됩니다. 이 목록은 연산자 우선순위를 적용하여 트리로 변환됩니다. 예를 들어 표현식 `2 + 3 * 5` 는 처음에는 5개의 항목 `2`, `+`, `3`, `*`, 그리고 `5` 의 단순 목록으로 이해됩니다. 이 프로세스는 트리 (2 + (3 \* 5)) 로 변환합니다.
+> 구문 분석 시 중위 연산자로 구성된 표현식은 단순 리스트으로 표현됩니다. 이 리스트은 연산자 우선순위를 적용하여 트리로 변환됩니다. 예를 들어 표현식 `2 + 3 * 5` 는 처음에는 5개의 항목 `2`, `+`, `3`, `*`, 그리고 `5` 의 단순 리스트으로 이해됩니다. 이 프로세스는 트리 (2 + (3 \* 5)) 로 변환합니다.
 >
 > GRAMMAR OF A INFIX EXPRESSION\
 > infix-expression → [infix-operator](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#grammar\_infix-operator) [prefix-expression](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_prefix-expression)\
@@ -614,7 +614,7 @@ For more information about escaping closures, see Escaping Closures.
 
 이스케이프 클로저에 대한 자세한 내용은 [이스케이프 클로저 (Escaping Closures)](../language-guide-1/closures.md#escaping-closures) 를 참고 바랍니다.
 
-#### **캡처 목록 (Capture Lists)**
+#### **캡처 리스트 (Capture Lists)**
 
 <!--
 By default, a closure expression captures constants and variables from its surrounding scope with strong references to those values. You can use a capture list to explicitly control how values are captured in a closure.
@@ -624,11 +624,11 @@ A capture list is written as a comma-separated list of expressions surrounded by
 The entries in the capture list are initialized when the closure is created. For each entry in the capture list, a constant is initialized to the value of the constant or variable that has the same name in the surrounding scope. For example in the code below, a is included in the capture list but b is not, which gives them different behavior.
 -->
 
-기본적으로 클로저 표현식은 해당 값의 강한 참조를 사용하여 주변 범위에서 상수와 변수를 캡처합니다. _캡처 목록 (capture list)_ 를 사용하여 클로저에서 값이 캡쳐되는 방법을 명시적으로 제어할 수 있습니다
+기본적으로 클로저 표현식은 해당 값의 강한 참조를 사용하여 주변 범위에서 상수와 변수를 캡처합니다. _캡처 리스트 (capture list)_ 를 사용하여 클로저에서 값이 캡쳐되는 방법을 명시적으로 제어할 수 있습니다
 
-캡처 목록은 파라미터의 목록 전에 대괄호로 둘러싸여 콤마로 구분하여 작성됩니다. 캡처 목록을 사용하면 파라미터 이름, 파라미터 타입, 그리고 반환 타입을 생략하더라도 `in` 키워드를 사용해야 합니다.
+캡처 리스트은 파라미터의 리스트 전에 대괄호로 둘러싸여 콤마로 구분하여 작성됩니다. 캡처 리스트을 사용하면 파라미터 이름, 파라미터 타입, 그리고 반환 타입을 생략하더라도 `in` 키워드를 사용해야 합니다.
 
-캡처 목록의 항목은 클로저가 생성될 때 초기화 됩니다. 캡처 목록의 각 항목에 대해 상수는 주변 범위에서 이름이 같은 상수 또는 변수의 값으로 초기화 됩니다. 예를 들어 아래 코드에서 `a` 는 캡처 목록에 포함되지만 `b` 는 포함되지 않으므로 다른 동작을 보여줍니다.
+캡처 리스트의 항목은 클로저가 생성될 때 초기화 됩니다. 캡처 리스트의 각 항목에 대해 상수는 주변 범위에서 이름이 같은 상수 또는 변수의 값으로 초기화 됩니다. 예를 들어 아래 코드에서 `a` 는 캡처 리스트에 포함되지만 `b` 는 포함되지 않으므로 다른 동작을 보여줍니다.
 
 ```swift
 var a = 0
@@ -673,7 +673,7 @@ closure()
 If the type of the expression’s value is a class, you can mark the expression in a capture list with weak or unowned to capture a weak or unowned reference to the expression’s value.
 -->
 
-표현식의 값의 타입이 클래스라면 표현식의 값을 약한 또는 미소유 참조로 캡처하기 위해 `weak` 또는 `unowned` 로 캡처 목록에 표현식을 표시할 수 있습니다.
+표현식의 값의 타입이 클래스라면 표현식의 값을 약한 또는 미소유 참조로 캡처하기 위해 `weak` 또는 `unowned` 로 캡처 리스트에 표현식을 표시할 수 있습니다.
 
 ```swift
 myFunction { print(self.title) }                    // implicit strong capture
@@ -686,7 +686,7 @@ myFunction { [unowned self] in print(self.title) }  // unowned capture
 You can also bind an arbitrary expression to a named value in a capture list. The expression is evaluated when the closure is created, and the value is captured with the specified strength. For example:
 -->
 
-캡처 목록의 명명된 값에 임의의 표현식을 바인딩 할 수도 있습니다. 표현식은 클로저가 생성될 때 평가되고 값은 지정된 강도로 캡처됩니다. 예를 들어:
+캡처 리스트의 명명된 값에 임의의 표현식을 바인딩 할 수도 있습니다. 표현식은 클로저가 생성될 때 평가되고 값은 지정된 강도로 캡처됩니다. 예를 들어:
 
 ```swift
 // Weak capture of "self.parent" as "parent"
@@ -697,7 +697,7 @@ myFunction { [weak parent = self.parent] in print(parent!.title) }
 For more information and examples of closure expressions, see Closure Expressions. For more information and examples of capture lists, see Resolving Strong Reference Cycles for Closures.
 -->
 
-클로저 표현식에 자세한 내용과 예제는 [클로저 표현식 (Closure Expressions)](../language-guide-1/closures.md#closure-expressions) 를 참고 바랍니다. 캡처 목록에 자세한 내용과 예제는 [클로저에 대한 강한 참조 사이클 해결 (Resolving Strong Reference Cycles for Closures)](../language-guide-1/automatic-reference-counting.md#resolving-strong-reference-cycles-for-closures) 를 참고 바랍니다.
+클로저 표현식에 자세한 내용과 예제는 [클로저 표현식 (Closure Expressions)](../language-guide-1/closures.md#closure-expressions) 를 참고 바랍니다. 캡처 리스트에 자세한 내용과 예제는 [클로저에 대한 강한 참조 사이클 해결 (Resolving Strong Reference Cycles for Closures)](../language-guide-1/automatic-reference-counting.md#resolving-strong-reference-cycles-for-closures) 를 참고 바랍니다.
 
 > GRAMMAR OF A CLOSURE EXPRESSION\
 > closure-expression → `{` [attributes](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#grammar_attributes) $$_{opt}$$ [closure-signature](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#grammar\_closure-signature) $$_{opt}$$ [statements](https://docs.swift.org/swift-book/ReferenceManual/Statements.html#grammar\_statements) $$_{opt}$$ `}`\
@@ -795,7 +795,7 @@ _괄호 안 표현식 (parenthesized expression)_ 은 표현식을 괄호로 둘
 A tuple expression consists of a comma-separated list of expressions surrounded by parentheses. Each expression can have an optional identifier before it, separated by a colon (:). It has the following form:
 -->
 
-_튜플 표현식 (tuple expression)_ 은 괄호호 묶인 콤마로 구분된 표현식의 목록으로 구성됩니다. 각 표현식은 표현식 앞에 콜론 (`:`) 으로 구분된 식별자를 가질 수 있습니다. 형식은 다음과 같습니다:
+_튜플 표현식 (tuple expression)_ 은 괄호호 묶인 콤마로 구분된 표현식의 리스트으로 구성됩니다. 각 표현식은 표현식 앞에 콜론 (`:`) 으로 구분된 식별자를 가질 수 있습니다. 형식은 다음과 같습니다:
 
 ![](<../.gitbook/assets/스크린샷 2021-02-21 오후 11.03.12.png>)
 
@@ -1237,7 +1237,7 @@ Swift 표준 라이브러리에 의해 제공되는 연산자에 대한 자세�
 A function call expression consists of a function name followed by a comma-separated list of the function’s arguments in parentheses. Function call expressions have the following form:
 -->
 
-_함수 호출 표현식 (function call expression)_ 은 함수 이름 다음에 소괄호로 둘러싸이고 콤마로 구분된 함수의 인수의 목록으로 구성됩니다. 함수 호출 표현식 형식은 다음과 같습니다:
+_함수 호출 표현식 (function call expression)_ 은 함수 이름 다음에 소괄호로 둘러싸이고 콤마로 구분된 함수의 인수의 리스트으로 구성됩니다. 함수 호출 표현식 형식은 다음과 같습니다:
 
 ![](<../.gitbook/assets/스크린샷 2021-02-21 오후 11.22.08.png>)
 
@@ -1360,7 +1360,7 @@ In a function call expression, if the argument and parameter have a different ty
 The following two function calls are equivalent:
 -->
 
-함수 호출 표현식에서 인수와 파라미터가 다른 타입을 갖는 경우 컴파일러는 다음 목록의 암시적 변환 중 하나를 적용하여 해당 타입을 일치시키려고 합니다:
+함수 호출 표현식에서 인수와 파라미터가 다른 타입을 갖는 경우 컴파일러는 다음 리스트의 암시적 변환 중 하나를 적용하여 해당 타입을 일치시키려고 합니다:
 
 * `inout SomeType` 은 `UnsafePointer<SomeType>` 또는 `UnsafeMutablePointer<SomeType>` 이 될 수 있습니다.
 * `inout Array<SomeType>` 은 `UnsafePointer<SomeType>` 또는 `UnsafeMutablePointer<SomeType>` 이 될 수 있습니다.
@@ -1538,7 +1538,7 @@ let d: (Int, Bool) -> Void  = instance.overloadedMethod(x:y:)  // Unambiguous
 If a period appears at the beginning of a line, it’s understood as part of an explicit member expression, not as an implicit member expression. For example, the following listing shows chained method calls split over several lines:
 -->
 
-줄 시작에 마침표가 나타나면 암시적 멤버 표현식이 아닌 명시적 멤버 표현식의 부분으로 이해됩니다. 예를 들어 다음 목록은 여러줄로 분할된 메서드 호출 체인을 보여줍니다:
+줄 시작에 마침표가 나타나면 암시적 멤버 표현식이 아닌 명시적 멤버 표현식의 부분으로 이해됩니다. 예를 들어 다음 리스트은 여러줄로 분할된 메서드 호출 체인을 보여줍니다:
 
 ```swift
 let x = [10, 3, 20, 15, 4]

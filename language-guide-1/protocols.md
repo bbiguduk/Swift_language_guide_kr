@@ -28,7 +28,7 @@ protocol SomeProtocol {
 Custom types state that they adopt a particular protocol by placing the protocol’s name after the type’s name, separated by a colon, as part of their definition. Multiple protocols can be listed, and are separated by commas:
 -->
 
-사용자 정의 타입은 콜론으로 구분된 타입의 이름 뒤에 특정 프로토콜의 이름을 위치시켜 정의의 부분으로 특정 프로토콜을 채택합니다. 여러 프로토콜은 콤마로 구분되고 목록화 할 수 있습니다:
+사용자 정의 타입은 콜론으로 구분된 타입의 이름 뒤에 특정 프로토콜의 이름을 위치시켜 정의의 부분으로 특정 프로토콜을 채택합니다. 여러 프로토콜은 콤마로 구분되고 리스트화 할 수 있습니다:
 
 ```swift
 struct SomeStructure: FirstProtocol, AnotherProtocol {
@@ -855,7 +855,7 @@ Note that the thing constant is of type TextRepresentable. It’s not of type Di
 A protocol can inherit one or more other protocols and can add further requirements on top of the requirements it inherits. The syntax for protocol inheritance is similar to the syntax for class inheritance, but with the option to list multiple inherited protocols, separated by commas:
 -->
 
-프로토콜은 하나 또는 그 이상의 다른 프로토콜을 _상속_ 할 수 있고 상속한 요구사항 위에 요구사항을 더 추가할 수 있습니다. 프로토콜 상속에 대한 구문은 클래스 상속에 대한 구문과 유사하지만 콤마로 구분하여 여러개의 상속된 프로토콜을 목록화 하는 옵션을 가지고 있습니다:
+프로토콜은 하나 또는 그 이상의 다른 프로토콜을 _상속_ 할 수 있고 상속한 요구사항 위에 요구사항을 더 추가할 수 있습니다. 프로토콜 상속에 대한 구문은 클래스 상속에 대한 구문과 유사하지만 콤마로 구분하여 여러개의 상속된 프로토콜을 리스트화 하는 옵션을 가지고 있습니다:
 
 ```swift
 protocol InheritingProtocol: SomeProtocol, AnotherProtocol {
@@ -934,7 +934,7 @@ print(game.prettyTextualDescription)
 You can limit protocol adoption to class types (and not structures or enumerations) by adding the AnyObject protocol to a protocol’s inheritance list.
 -->
 
-프로토콜 채택을 프로토콜의 상속 목록에 `AnyObject` 프로토콜을 추가하여 구조체 또는 열거형이 아닌 클래스 타입으로 제한할 수 있습니다.
+프로토콜 채택을 프로토콜의 상속 리스트에 `AnyObject` 프로토콜을 추가하여 구조체 또는 열거형이 아닌 클래스 타입으로 제한할 수 있습니다.
 
 ```swift
 protocol SomeClassOnlyProtocol: AnyObject, SomeInheritedProtocol {
@@ -968,7 +968,7 @@ Here’s an example that combines two protocols called Named and Aged into a sin
 
 동시에 여러개의 프로토콜을 준수하는 타입을 요구하는 것이 유용할 수 있습니다. _프로토콜 구성 \(protocol composition\)_ 을 사용하여 여러 프로토콜을 단일 요구사항으로 결합할 수 있습니다. 프로토콜 구성은 구성에 모든 프로토콜의 결합된 요구사항을 가진 임시 로컬 프로토콜로 정의된 것처럼 동작합니다. 프로토콜 구성은 새로운 프로토콜 타입을 정의하지 않습니다.
 
-프로토콜 구성은 `SomeProtocol & AnotherProtocol` 형식입니다. 앰퍼샌드 \(`&`\)로 구분하여 많은 프로토콜을 목록화 할 수 있습니다. 프로토콜 목록 외에도 프로토콜 구성은 요구된 상위 클래스를 지정하는데 사용할 수 있는 하나의 클래스 타입을 포함할 수도 있습니다.
+프로토콜 구성은 `SomeProtocol & AnotherProtocol` 형식입니다. 앰퍼샌드 \(`&`\)로 구분하여 많은 프로토콜을 리스트화 할 수 있습니다. 프로토콜 리스트 외에도 프로토콜 구성은 요구된 상위 클래스를 지정하는데 사용할 수 있는 하나의 클래스 타입을 포함할 수도 있습니다.
 
 다음은 `Named` 와 `Aged` 라는 두 프로토콜을 함수 파라미터에 단일 프로토콜 구성 요구사항으로 결합한 예입니다:
 

@@ -112,7 +112,7 @@ reversedNames = names.sorted(by: { s1, s2 in s1 > s2 } )
 
 Swift는 인라인 클로저에 `$0`, `$1`, `$2` 등 클로저의 인수값으로 참조하는데 사용할 수 있는 자동적으로 짧은 인수 이름 \(shorthand argument names\)을 제공합니다.
 
-클로저 표현식에 이런 짧은 인수 이름을 사용한다면 선언에 클로저의 인수 목록을 생략할 수 있고 짧은 인수 이름의 수와 타입은 함수 타입에서 유추됩니다. 클로저 표현식이 본문으로 전체가 구성되기 때문에 `in` 키워드를 생략할 수도 있습니다:
+클로저 표현식에 이런 짧은 인수 이름을 사용한다면 선언에 클로저의 인수 리스트을 생략할 수 있고 짧은 인수 이름의 수와 타입은 함수 타입에서 유추됩니다. 클로저 표현식이 본문으로 전체가 구성되기 때문에 `in` 키워드를 생략할 수도 있습니다:
 
 ```swift
 reversedNames = names.sorted(by: { $0 > $1 } )
@@ -314,7 +314,7 @@ incrementByTen()
 ```
 
 > NOTE  
-> 클래스 인스턴스의 프로퍼티에 클로저를 할당하고 클로저가 인스턴스 또는 멤버를 참조하여 해당 인스턴스를 캡처하면 클로저와 인스턴스 사이에 강한 참조 사이클이 생성됩니다. Swift는 캡처 목록을 사용하여 이러한 강한 참조 사이클을 깨뜨립니다. 자세한 내용은 [클로저의 강한 참조 사이클 \(Strong Reference Cycles for Closures\)](automatic-reference-counting.md#strong-reference-cycles-for-closures) 을 참고 바랍니다.
+> 클래스 인스턴스의 프로퍼티에 클로저를 할당하고 클로저가 인스턴스 또는 멤버를 참조하여 해당 인스턴스를 캡처하면 클로저와 인스턴스 사이에 강한 참조 사이클이 생성됩니다. Swift는 캡처 리스트을 사용하여 이러한 강한 참조 사이클을 깨뜨립니다. 자세한 내용은 [클로저의 강한 참조 사이클 \(Strong Reference Cycles for Closures\)](automatic-reference-counting.md#strong-reference-cycles-for-closures) 을 참고 바랍니다.
 
 ## 클로저는 참조 타입 \(Closures Are Reference Types\)
 
@@ -352,7 +352,7 @@ func someFunctionWithEscapingClosure(completionHandler: @escaping () -> Void) {
 
 `self` 를 참조하는 이스케이프 클로저은 `self` 가 클래스의 인스턴스를 참조하는 경우 특별한 고려가 필요합니다. 이스케이프 클로저에 `self` 캡처는 강한 참조 사이클이 생기기 쉽습니다. 참조 사이클에 대한 자세한 내용은 [자동 참조 카운팅 \(Automatic Reference Counting\)](automatic-reference-counting.md) 을 참조 바랍니다.
 
-일반적으로 클로저는 클로저 내부에서 변수를 사용하여 암시적으로 변수를 캡처하지만 이 경우에는 명시적이어야 합니다. `self` 를 캡처하려면 사용할 때 명시적으로 `self` 를 작성하거나 클로저의 캡처 목록에 `self` 를 포함합니다. `self` 를 명시적으로 작성하는데 의도를 표현하고 참조 사이클이 없음을 확인하도록 상기시켜 줍니다. 예를 들어 아래 코드에서 `someFunctionWithEscapingClosure(_:)` 에 전달된 클로저는 명시적으로 `self` 를 참조합니다. 반대로 `someFunctionWithNonescapingClosure(_:)` 에 전달된 클로저는 비이스케이프 클로저입니다. 즉 암시적으로 `self` 를 참조할 수 있습니다.
+일반적으로 클로저는 클로저 내부에서 변수를 사용하여 암시적으로 변수를 캡처하지만 이 경우에는 명시적이어야 합니다. `self` 를 캡처하려면 사용할 때 명시적으로 `self` 를 작성하거나 클로저의 캡처 리스트에 `self` 를 포함합니다. `self` 를 명시적으로 작성하는데 의도를 표현하고 참조 사이클이 없음을 확인하도록 상기시켜 줍니다. 예를 들어 아래 코드에서 `someFunctionWithEscapingClosure(_:)` 에 전달된 클로저는 명시적으로 `self` 를 참조합니다. 반대로 `someFunctionWithNonescapingClosure(_:)` 에 전달된 클로저는 비이스케이프 클로저입니다. 즉 암시적으로 `self` 를 참조할 수 있습니다.
 
 ```swift
 func someFunctionWithNonescapingClosure(closure: () -> Void) {
@@ -377,7 +377,7 @@ print(instance.x)
 // Prints "100"
 ```
 
-다음은 클로저의 캡처 목록에 포함하여 `self` 를 캡처하고 암시적으로 `self` 를 참조하는 `doSomething()` 입니다:
+다음은 클로저의 캡처 리스트에 포함하여 `self` 를 캡처하고 암시적으로 `self` 를 참조하는 `doSomething()` 입니다:
 
 ```swift
 class SomeOtherClass {

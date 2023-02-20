@@ -24,7 +24,7 @@ _제너릭 파라미터 절 (generic parameter clause)_ 은 해당 파라미터�
 The generic parameter list is a comma-separated list of generic parameters, each of which has the following form:
 -->
 
-_제너릭 파라미터 목록 (generic parameter list)_ 은 콤마로 구분된 제너릭 파라미터의 목록이고 각각 다음의 형식을 가집니다:
+_제너릭 파라미터 리스트 (generic parameter list)_ 은 콤마로 구분된 제너릭 파라미터의 리스트이고 각각 다음의 형식을 가집니다:
 
 ![](<../.gitbook/assets/스크린샷 2021-02-22 오후 3.42.32.png>)
 
@@ -135,7 +135,7 @@ _제너릭 인수 절 (generic argument clause)_ 은 제너릭 타입의 타입 
 The generic argument list is a comma-separated list of type arguments. A type argument is the name of an actual concrete type that replaces a corresponding type parameter in the generic parameter clause of a generic type. The result is a specialized version of that generic type. The example below shows a simplified version of the Swift standard library’s generic dictionary type.
 -->
 
-_제너릭 인수 목록 (generic argument list)_ 은 콤마로 구분된 타입 인수의 목록입니다. _타입 인수 (type argument)_ 는 제너릭 타입의 제너릭 파라미터 절에서 해당 타입 파라미터를 대체하는 실제 구체적인 타입의 이름입니다. 결과는 해당 제너릭 타입의 특수 버전입니다. 아래 예제는 Swift 표준 라이브러리의 제너릭 딕셔너리 타입의 간단한 버전을 보여줍니다.
+_제너릭 인수 리스트 (generic argument list)_ 은 콤마로 구분된 타입 인수의 리스트입니다. _타입 인수 (type argument)_ 는 제너릭 타입의 제너릭 파라미터 절에서 해당 타입 파라미터를 대체하는 실제 구체적인 타입의 이름입니다. 결과는 해당 제너릭 타입의 특수 버전입니다. 아래 예제는 Swift 표준 라이브러리의 제너릭 딕셔너리 타입의 간단한 버전을 보여줍니다.
 
 ```swift
 struct Dictionary<Key: Hashable, Value>: Collection, ExpressibleByDictionaryLiteral {
