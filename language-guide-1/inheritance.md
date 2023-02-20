@@ -1,13 +1,5 @@
 # 상속 \(Inheritance\)
 
-<!--
-A class can inherit methods, properties, and other characteristics from another class. When one class inherits from another, the inheriting class is known as a subclass, and the class it inherits from is known as its superclass. Inheritance is a fundamental behavior that differentiates classes from other types in Swift.
-
-Classes in Swift can call and access methods, properties, and subscripts belonging to their superclass and can provide their own overriding versions of those methods, properties, and subscripts to refine or modify their behavior. Swift helps to ensure your overrides are correct by checking that the override definition has a matching superclass definition.
-
-Classes can also add property observers to inherited properties in order to be notified when the value of a property changes. Property observers can be added to any property, regardless of whether it was originally defined as a stored or computed property.
--->
-
 클래스는 다른 클래스에서 메서드, 프로퍼티, 그리고 다른 특성을 _상속 \(inherit\)_ 할 수 있습니다. 클래스가 다른 클래스로 부터 상속될 때 상속하는 클래스를 _하위 클래스 \(subclass\)_ 라고 하고 상속된 클래스를 _상위 클래스 \(superclass\)_ 라고 합니다. 상속은 Swift에서 다른 타입과 클래스를 구분하는 기본적인 동작입니다.
 
 Swift에서 클래스는 상위 클래스에 속하는 메서드, 프로퍼티, 그리고 서브 스크립트를 호출하고 접근할 수 있으며 메서드, 프로퍼티, 그리고 서브 스크립트를 동작을 수정하기위해 재정의한 버전을 제공할 수 있습니다. Swift는 재정의에 일치하는 상위 클래스 정의가 있는지 확인하고 재정의가 올바른지 확인하는데 도움을 줍니다.
@@ -16,25 +8,10 @@ Swift에서 클래스는 상위 클래스에 속하는 메서드, 프로퍼티, 
 
 ## 기본 클래스 정의 \(Defining a Base Class\)
 
-<!--
-Any class that doesn’t inherit from another class is known as a base class.
--->
-
 다른 클래스에서 상속하지 않은 클래스를 _기본 클래스 \(base class\)_ 라고 합니다.
 
-<!--
-NOTE
-Swift classes don’t inherit from a universal base class. Classes you define without specifying a superclass automatically become base classes for you to build upon.
--->
-
 > NOTE   
-> Swift 클래스는 범용 기본 클래스에서 상속되지 않습니다. 상위 클래스 지정 없이 정의한 클래스는 자동적으로 빌드 할 기본 클래스가 됩니다.
-
-<!--
-The example below defines a base class called Vehicle. This base class defines a stored property called currentSpeed, with a default value of 0.0 (inferring a property type of Double). The currentSpeed property’s value is used by a read-only computed String property called description to create a description of the vehicle.
-
-The Vehicle base class also defines a method called makeNoise. This method doesn’t actually do anything for a base Vehicle instance, but will be customized by subclasses of Vehicle later on:
--->
+> Swift 클래스는 범용 기본 클래스를 상속하지 않습니다. 상위 클래스 지정 없이 정의한 클래스는 자동적으로 빌드 할 때 기본 클래스가 됩니다.
 
 아래 예제는 `Vehicle` 이라는 기본 클래스를 정의합니다. 이 기본 클래스는 `Double` 의 프로퍼티 타입으로 유추되는 `0.0` 의 기본값을 가지는 `currentSpeed` 라는 저장된 프로퍼티를 정의합니다. `currentSpeed` 프로퍼티의 값은 탈 것의 설명을 생성하기 위해 `description` 이라는 읽기전용 계산된 `String` 프로퍼티에 사용됩니다.
 
@@ -52,19 +29,11 @@ class Vehicle {
 }
 ```
 
-<!--
-You create a new instance of Vehicle with initializer syntax, which is written as a type name followed by empty parentheses:
--->
-
 타입 이름 뒤에 빈 소괄호를 작성한 _초기화 구문_ 으로 `Vehicle` 의 새로운 인스턴스를 생성합니다:
 
 ```swift
 let someVehicle = Vehicle()
 ```
-
-<!--
-Having created a new Vehicle instance, you can access its description property to print a human-readable description of the vehicle’s current speed:
--->
 
 새로운 `Vehicle` 인스턴스를 생성하면 탈 것의 현재 속도의 설명을 출력하기 위해 `description` 프로퍼티에 접근할 수 있습니다:
 
@@ -73,19 +42,9 @@ print("Vehicle: \(someVehicle.description)")
 // Vehicle: traveling at 0.0 miles per hour
 ```
 
-<!--
-The Vehicle class defines common characteristics for an arbitrary vehicle, but isn’t much use in itself. To make it more useful, you need to refine it to describe more specific kinds of vehicles.
--->
-
 `Vehicle` 클래스는 임의의 탈 것에 대한 공통 특성을 정의하지만 그 자체로는 많이 사용되지 않습니다. 더 유용하게 사용하기 위해 더 구체적인 탈 것 종류를 설명하기 위해 수정이 필요합니다.
 
 ## 하위 클래스 \(Subclassing\)
-
-<!--
-Subclassing is the act of basing a new class on an existing class. The subclass inherits characteristics from the existing class, which you can then refine. You can also add new characteristics to the subclass.
-
-To indicate that a subclass has a superclass, write the subclass name before the superclass name, separated by a colon:
--->
 
 _하위 클래스 \(Subclassing\)_ 는 기존 클래스를 기반으로 새로운 클래스를 만드는 작업입니다. 하위 클래스는 기존 클래스의 특성을 상속하므로 수정할 수 있습니다. 하위 클래스에 새로운 특성도 추가할 수 있습니다.
 
@@ -97,25 +56,13 @@ class SomeSubclass: SomeSuperclass {
 }
 ```
 
-<!--
-The following example defines a subclass called Bicycle, with a superclass of Vehicle:
--->
-
-다음의 예제는 `Vehicle` 의 상위 클래스로 `Bycycle` 이라는 하위 클래스를 정의합니다:
+다음의 예제는 `Vehicle` 을 상위 클래스로 가지는 `Bycycle` 이라는 하위 클래스를 정의합니다:
 
 ```swift
 class Bicycle: Vehicle {
     var hasBasket = false
 }
 ```
-
-<!--
-The new Bicycle class automatically gains all of the characteristics of Vehicle, such as its currentSpeed and description properties and its makeNoise() method.
-
-In addition to the characteristics it inherits, the Bicycle class defines a new stored property, hasBasket, with a default value of false (inferring a type of Bool for the property).
-
-By default, any new Bicycle instance you create will not have a basket. You can set the hasBasket property to true for a particular Bicycle instance after that instance is created:
--->
 
 새로운 `Bicycle` 클래스는 `currentSpeed` 와 `description` 프로퍼티와 `makeNoise()` 메서드와 같은 `Vehicle` 의 모든 특성을 자동적으로 얻습니다.
 
@@ -128,10 +75,6 @@ let bicycle = Bicycle()
 bicycle.hasBasket = true
 ```
 
-<!--
-You can also modify the inherited currentSpeed property of a Bicycle instance, and query the instance’s inherited description property:
--->
-
 `Bicycle` 인스턴스의 상속된 `currentSpeed` 프로퍼티를 수정할 수 있고 상속된 `description` 프로퍼티를 조회할 수도 있습니다:
 
 ```swift
@@ -140,10 +83,6 @@ print("Bicycle: \(bicycle.description)")
 // Bicycle: traveling at 15.0 miles per hour
 ```
 
-<!--
-Subclasses can themselves be subclassed. The next example creates a subclass of Bicycle for a two-seater bicycle known as a “tandem”:
--->
-
 하위 클래스는 그 자체로 하위 클래스화 될 수 있습니다. 다음 예제는 "tandem" 이라는 2개의 안장을 가진 자전거를 위한 `Bicycle` 의 하위 클래스를 생성합니다:
 
 ```swift
@@ -151,12 +90,6 @@ class Tandem: Bicycle {
     var currentNumberOfPassengers = 0
 }
 ```
-
-<!--
-Tandem inherits all of the properties and methods from Bicycle, which in turn inherits all of the properties and methods from Vehicle. The Tandem subclass also adds a new stored property called currentNumberOfPassengers, with a default value of 0.
-
-If you create an instance of Tandem, you can work with any of its new and inherited properties, and query the read-only description property it inherits from Vehicle:
--->
 
 `Tandem` 은 `Bicycle` 의 모든 프로퍼티와 메서드를 상속하고 차례로 `Vehicle` 의 모든 프로퍼티와 메서드를 상속합니다. `Tandem` 하위 클래스는 기본값 `0` 인 `currentNumberOfPassengers` 라는 새로운 저장된 프로퍼티도 추가합니다.
 
@@ -173,31 +106,13 @@ print("Tandem: \(tandem.description)")
 
 ## 재정의 \(Overriding\)
 
-<!--
-A subclass can provide its own custom implementation of an instance method, type method, instance property, type property, or subscript that it would otherwise inherit from a superclass. This is known as overriding.
-
-To override a characteristic that would otherwise be inherited, you prefix your overriding definition with the override keyword. Doing so clarifies that you intend to provide an override and haven’t provided a matching definition by mistake. Overriding by accident can cause unexpected behavior, and any overrides without the override keyword are diagnosed as an error when your code is compiled.
-
-The override keyword also prompts the Swift compiler to check that your overriding class’s superclass (or one of its parents) has a declaration that matches the one you provided for the override. This check ensures that your overriding definition is correct.
--->
-
-하위 클래스는 상위 클래스에서 상속할 인스턴스 메서드, 타입 메서드, 인스턴스 프로퍼티, 타입 프로퍼티, 또는 서브 스크립트 자체 사용자 구현을 제공할 수 있습니다. 이것을 _재정의 \(overriding\)_ 이라 합니다.
+하위 클래스는 상위 클래스에서 상속할 인스턴스 메서드, 타입 메서드, 인스턴스 프로퍼티, 타입 프로퍼티, 또는 서브 스크립트 자체 사용자 구현을 제공할 수 있습니다. 이것을 _재정의 \(overriding\)_ 라고 합니다.
 
 상속될 특성을 재정의 하려면 재정의 할 정의 앞에 `override` 키워드를 추가합니다. 이렇게 하면 재정의를 명확하게 제공하고 실수로 일치하는 정의를 제공하지 않도록 합니다. 실수로 재정의하면 예기치 않은 동작을 야기하고 `override` 키워드 없이 재정의하면 코드가 컴파일 될 때 에러를 발생합니다.
 
 `override` 키워드는 재정의 한 클래스의 상위 클래스 또는 상위 클래스 중 하나에 재정의를 위해 일치하는 선언을 Swift 컴파일러는 체크합니다. 이 체크는 재정의하는 정의가 옳다고 보장합니다.
 
 ### 상위 클래스 메서드, 프로퍼티, 그리고 서브 스크립트 접근 \(Accessing Superclass Methods, Properties, and Subscripts\)
-
-<!--
-When you provide a method, property, or subscript override for a subclass, it’s sometimes useful to use the existing superclass implementation as part of your override. For example, you can refine the behavior of that existing implementation, or store a modified value in an existing inherited variable.
-
-Where this is appropriate, you access the superclass version of a method, property, or subscript by using the super prefix:
-
-* An overridden method named someMethod() can call the superclass version of someMethod() by calling super.someMethod() within the overriding method implementation.
-* An overridden property called someProperty can access the superclass version of someProperty as super.someProperty within the overriding getter or setter implementation.
-* An overridden subscript for someIndex can access the superclass version of the same subscript as super[someIndex] from within the overriding subscript implementation.
--->
 
 하위 클래스에 메서드, 프로퍼티, 또는 서브 스크립트 재정의를 제공할 때 재정의의 일부로 상위 클래스 구현을 사용하는 것이 유용할 때가 있습니다. 예를 들어 기존 구현의 동작을 구체화 하거나 기존 상속된 변수에 수정된 값을 저장할 수 있습니다.
 
@@ -208,12 +123,6 @@ Where this is appropriate, you access the superclass version of a method, proper
 * `someIndex` 를 위한 재정의된 서브 스크립트는 재정의한 서브 스크립트 구현 내에서 `super[someIndex]` 로 상위 클래스 버전의 같은 서브 스크립트에 접근할 수 있습니다.
 
 ### 메서드 재정의 \(Overriding Methods\)
-
-<!--
-You can override an inherited instance or type method to provide a tailored or alternative implementation of the method within your subclass.
-
-The following example defines a new subclass of Vehicle called Train, which overrides the makeNoise() method that Train inherits from Vehicle:
--->
 
 상속된 인스턴스 또는 타입 메서드를 재정의하여 하위 클래스 내에서 메서드의 맞춤형 또는 대체 구현을 제공합니다.
 
@@ -227,10 +136,6 @@ class Train: Vehicle {
 }
 ```
 
-<!--
-If you create a new instance of Train and call its makeNoise() method, you can see that the Train subclass version of the method is called:
--->
-
 `Train` 에 새로운 인스턴스를 생성하고 `makeNoise()` 메서드를 호출한다면 `Train` 하위 클래스 버전의 메서드가 호출되는 것을 볼 수 있습니다:
 
 ```swift
@@ -241,35 +146,16 @@ train.makeNoise()
 
 ### 프로퍼티 재정의 \(Overriding Properties\)
 
-<!--
-You can override an inherited instance or type property to provide your own custom getter and setter for that property, or to add property observers to enable the overriding property to observe when the underlying property value changes.
--->
-
 프로퍼티에 고유한 사용자 정의 getter와 setter를 제공하거나 기본 프로퍼티 값이 변경될 때 재정의 한 프로퍼티가 관찰할 수 있도록 프로퍼티 관찰자를 추가 하기위해 상속된 인스턴스 또는 타입 프로퍼티를 재정의할 수 있습니다.
 
 #### 프로퍼티 getter와 setter 재정의 \(Overriding Property Getters and Setters\)
 
-<!--
-You can provide a custom getter (and setter, if appropriate) to override any inherited property, regardless of whether the inherited property is implemented as a stored or computed property at source. The stored or computed nature of an inherited property isn’t known by a subclass—it only knows that the inherited property has a certain name and type. You must always state both the name and the type of the property you are overriding, to enable the compiler to check that your override matches a superclass property with the same name and type.
-
-You can present an inherited read-only property as a read-write property by providing both a getter and a setter in your subclass property override. You can’t, however, present an inherited read-write property as a read-only property.
--->
-
-상속된 프로퍼티가 소스에서 저장된 또는 계산된 프로피티로 구현되었는지 여부와 상관없이 _모든_ 상속된 프로퍼티를 재정의 하기위해 사용자 지정 getter와 setter를 제공할 수 있습니다. 상속된 프로퍼티에 저장된 또는 계산된 특성은 하위 클래스에서 알 수 없습니다. 상속된 프로퍼티의 특정 이름과 타입만 알고 있습니다. 컴파일러가 재정의가 동일한 이름과 타입을 가진 상위 클래스 프로퍼티와 일치하는지 확인할 수 있도록 항상 재정의하는 프로퍼티의 이름과 타입을 모두 명시해야 합니다.
+상속된 프로퍼티가 소스에서 저장된 또는 계산된 프로피티로 구현되었는지 여부와 상관없이 _모든_ 상속된 프로퍼티를 재정의 하기위해 사용자 지정 getter와 setter를 제공할 수 있습니다. 상속된 프로퍼티에 저장된 또는 계산된 특성은 하위 클래스에서 알 수 없습니다. 상속된 프로퍼티의 특정 이름과 타입만 알고 있습니다. 컴파일러가 동일한 이름과 타입을 가진 상위 클래스 프로퍼티와 일치하는지 확인할 수 있도록 항상 재정의하는 프로퍼티의 이름과 타입을 모두 명시해야 합니다.
 
 하위 클래스에서 getter와 setter를 모두 제공하여 상속된 읽기전용 프로퍼티를 읽기-쓰기 프로퍼티로 표시할 수 있습니다. 그러나 상속된 읽기-쓰기 프로퍼티를 읽기전용 프로퍼티로 표시할 수 없습니다.
 
-<!--
-NOTE
-If you provide a setter as part of a property override, you must also provide a getter for that override. If you don’t want to modify the inherited property’s value within the overriding getter, you can simply pass through the inherited value by returning super.someProperty from the getter, where someProperty is the name of the property you are overriding.
--->
-
 > NOTE   
 > 프로퍼티 재정의의 부분으로 setter를 제공하면 getter도 제공해야 합니다. 재정의한 getter 내에서 상속된 프로퍼티의 값을 수정하고 싶지 않다면 `someProperty` 가 재정의하는 프로퍼티의 이름이라면 getter에서 `super.someProperty` 를 반환하면 상속된 값을 간편하게 전달할 수 있습니다.
-
-<!--
-The following example defines a new class called Car, which is a subclass of Vehicle. The Car class introduces a new stored property called gear, with a default integer value of 1. The Car class also overrides the description property it inherits from Vehicle, to provide a custom description that includes the current gear:
--->
 
 다음의 예제는 `Vehicle` 의 하위 클래스인 `Car` 라는 새로운 클래스를 정의합니다. `Car` 클래스는 기본 정수 값이 `1` 인 `gear` 라는 새로운 저장된 프로퍼티를 가집니다. `Car` 클래스는 현재 기어를 포함한 설명을 제공하기 위해 `Vehicle` 로 부터 상속한 `description` 프로퍼티를 재정의 합니다:
 
@@ -281,12 +167,6 @@ class Car: Vehicle {
     }
 }
 ```
-
-<!--
-The override of the description property starts by calling super.description, which returns the Vehicle class’s description property. The Car class’s version of description then adds some extra text onto the end of this description to provide information about the current gear.
-
-If you create an instance of the Car class and set its gear and currentSpeed properties, you can see that its description property returns the tailored description defined within the Car class:
--->
 
 `description` 프로퍼티의 재정의는 `Vehicle` 클래스의 `description` 프로퍼티를 반환하는 `super.description` 호출로 시작합니다. 그런 다음 `description` 의 `Car` 클래스의 버전은 현재 기어에 대한 정보를 추가합니다.
 
@@ -302,27 +182,12 @@ print("Car: \(car.description)")
 
 #### 프로퍼티 관찰자 재정의 \(Overriding Property Observers\)
 
-<!--
-You can use property overriding to add property observers to an inherited property. This enables you to be notified when the value of an inherited property changes, regardless of how that property was originally implemented. For more information on property observers, see Property Observers.
--->
-
 상속된 프로퍼티에 프로퍼티 관찰자를 추가하기 위해 프로퍼티 재정의를 사용할 수 있습니다. 이것은 기존에 구현된 프로퍼티가 어떻든 상관없이 상속된 프로퍼티의 값이 변경될 때 알림을 받을 수 있습니다. 자세한 내용은 [프로퍼티 관찰자 \(Property Observers\)](properties.md#property-observers) 을 참고 바랍니다.
-
-<!--
-NOTE
-You can’t add property observers to inherited constant stored properties or inherited read-only computed properties. The value of these properties can’t be set, and so it isn’t appropriate to provide a willSet or didSet implementation as part of an override.
-
-Note also that you can’t provide both an overriding setter and an overriding property observer for the same property. If you want to observe changes to a property’s value, and you are already providing a custom setter for that property, you can simply observe any value changes from within the custom setter.
--->
 
 > NOTE   
 > 상속된 저장된 프로퍼티 상수 또는 상속된 읽기전용 계산된 프로퍼티에 프로퍼티 관찰자를 추가할 수 없습니다. 이 프로퍼티의 값은 설정할 수 없으므로 재정의의 부분으로 `willSet` 또는 `didSet` 구현을 제공하기에 적절하지 않습니다.
 >
 > 같은 프로퍼티에 재정의한 setter와 재정의한 프로퍼티 관찰자를 동시에 제공할 수 없습니다. 프로퍼티의 값이 변경되는 것을 관찰하기 원하고 이미 프로퍼티에 사용자화 setter를 제공하고 있다면 사용자화 setter 내에서 간단하게 값 변경을 관찰할 수 있습니다.
-
-<!--
-The following example defines a new class called AutomaticCar, which is a subclass of Car. The AutomaticCar class represents a car with an automatic gearbox, which automatically selects an appropriate gear to use based on the current speed:
--->
 
 다음 예제는 `Car` 의 하위 클래스 인 `AutomaticCar` 라는 새로운 클래스를 정의합니다. `AutomaticCar` 클래스는 현재 속도에 기반하여 적절한 기어를 자동적으로 선택하는 자동 기어박스가 있는 자동차를 표시합니다:
 
@@ -336,10 +201,6 @@ class AutomaticCar: Car {
 }
 ```
 
-<!--
-Whenever you set the currentSpeed property of an AutomaticCar instance, the property’s didSet observer sets the instance’s gear property to an appropriate choice of gear for the new speed. Specifically, the property observer chooses a gear that’s the new currentSpeed value divided by 10, rounded down to the nearest integer, plus 1. A speed of 35.0 produces a gear of 4:
--->
-
 `AutomaticCar` 인스턴스에 `currentSpeed` 프로퍼티를 설정할 때마다 프로퍼티의 `didSet` 관찰자는 새로운 속도에 적절한 기어를 인스턴스의 `gear` 프로퍼티에 설정합니다. 특히 프로퍼티 관찰자는 새로운 `currentSpeed` 값을 `10` 으로 나눈다음 가까운 정수로 내림한 다음 `1` 을 더한 값을 기어로 선택합니다. `35.0` 의 속도는 기어가 `4` 가 됩니다:
 
 ```swift
@@ -350,14 +211,6 @@ print("AutomaticCar: \(automatic.description)")
 ```
 
 ## 재정의 방지 \(Preventing Overrides\)
-
-<!--
-You can prevent a method, property, or subscript from being overridden by marking it as final. Do this by writing the final modifier before the method, property, or subscript’s introducer keyword (such as final var, final func, final class func, and final subscript).
-
-Any attempt to override a final method, property, or subscript in a subclass is reported as a compile-time error. Methods, properties, or subscripts that you add to a class in an extension can also be marked as final within the extension’s definition.
-
-You can mark an entire class as final by writing the final modifier before the class keyword in its class definition (final class). Any attempt to subclass a final class is reported as a compile-time error.
--->
 
 _final_ 표시를 통해 실수로 메서드, 프로퍼티, 또는 서브 스크립트를 재정의 하는 것을 방지할 수 있습니다. 재정의를 방지하려면 메서드, 프로퍼티, 또는 서브 스크립트의 키워드 전에 `final` 수정자를 작성합니다 \(`final var`, `final func`, `final class func`, `final subscript` 와 같이 작성\).
 
