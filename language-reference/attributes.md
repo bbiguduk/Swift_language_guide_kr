@@ -1075,7 +1075,7 @@ Apply this attribute to a top-level function, instance method, or class or stati
 For example, the Swift standard library includes both a top-level min(_:_:) function and a min() method for sequences with comparable elements. The sequence method is declared with the warn_unqualified_access attribute to help reduce confusion when attempting to use one or the other from within a Sequence extension.
 -->
 
-해당 함수 또는 메서드가 모듈 이름, 타입 이름, 또는 인스턴스 변수 또는 상수와 같이 선행 한정자 없이 사용될 때 경고를 트리거하기 위해 최상위-수준 함수, 인스턴스 메서드, 또는 클래스 또는 정적 메서드에 이 속성을 적용합니다. 동일한 범위에서 접근할 수 있는 동일한 이름을 가지는 함수 간의 모호성을 방지하기 위해 이 속성을 사용합니다.
+해당 함수 또는 메서드가 모듈 이름, 타입 이름, 또는 인스턴스 변수 또는 상수와 같이 선행 한정자 없이 사용될 때 경고를 나타내기 위해 최상위-수준 함수, 인스턴스 메서드, 또는 클래스 또는 정적 메서드에 이 속성을 적용합니다. 동일한 범위에서 접근할 수 있는 동일한 이름을 가지는 함수 간의 모호성을 방지하기 위해 이 속성을 사용합니다.
 
 예를 들어 Swift 표준 라이브러리는 최상위-수준 [`min(_:_:)`](https://developer.apple.com/documentation/swift/1538339-min/) 함수와 비교 가능한 요소가 있는 시퀀스에 대한 [`min()`](https://developer.apple.com/documentation/swift/sequence/1641174-min) 메서드 모두 포함합니다. 시퀀스 메서드는 Sequence 확장 내에서 하나 또는 다른 것을 사용하려고 할 때 혼동을 줄이기 위해 `warn_unqualified_access` 속성으로 선언됩니다.
 

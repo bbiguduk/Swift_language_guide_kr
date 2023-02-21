@@ -134,7 +134,7 @@ func indexIsValid(row: Int, column: Int) -> Bool {
 }
 ```
 
-어셜션은 행렬 범위를 넘어서 서브 스크립트를 접근하려고 하면 트리거 됩니다:
+어셜션은 행렬 범위를 넘어서 서브 스크립트를 접근하려고 하면 에러가 발생됩니다:
 
 ```swift
 let someValue = matrix[2, 2]
