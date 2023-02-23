@@ -17,16 +17,16 @@ Swift 프로그래밍 언어의 일반적인 문법을 설명하는데 사용되
 
 예를 들어, getter-setter 블럭의 문법은 다음과 같이 정의됩니다:
 
-> GRAMMAR OF A GETTER-SETTER BLOCK  
-> 
-> _getter-setter-block_ → **`{`** _getter-clause setter-clause?_ **`}`** | **`{`** _setter-clause getter-clause_ **`}`**
+> Grammar of a getter-setter block:
+>
+> *getter-setter-block* → **`{`** *getter-clause* *setter-clause*_?_ **`}`** | **`{`** *setter-clause* *getter-clause* **`}`**
 
 이 정의는 getter-setter 블럭이 중괄호로 묶인 옵셔널 setter 절이 뒤따르는 getter 절 또는 중괄호로 묶인 getter 절이 뒤따르는 setter 절로 구성될 수 있음을 나타냅니다. 위의 문법 생성은 다음 두가지 생성과 동일하며 대안이 명시적으로 설명되어 있습니다:
 
-> GRAMMAR OF A GETTER-SETTER BLOCK  
+> Grammar of a getter-setter block:
 >
-> 
+>
 > *getter-setter-block* → **`{`** *getter-clause* *setter-clause*_?_ **`}`**
-> 
+>
 > *getter-setter-block* → **`{`** *setter-clause* *getter-clause* **`}`**
 
