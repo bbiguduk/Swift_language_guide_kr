@@ -215,7 +215,7 @@ struct LevelTracker {
 
 타입 프로퍼티와 타입 메서드 외에도 `LevelTracker` 는 게임을 통해 각 플레이어의 진행사항을 추적합니다. 플레이어가 현재 플레이 중인 레벨을 추적하는 `currentLevel` 이라는 인스턴스 프로퍼티를 사용합니다.
 
-`currentLevel` 프로퍼티 관리를 돕기위해 `LevelTracker` 는 `advance(to:)` 라는 인스턴스 메서드를 정의합니다. `currentLevel` 업데이트 전에 이 메서드는 요청된 새 레벨이 이미 풀렸는지 판단합니다. `advance(to:)` 메서드는 `currentLevel` 을 설정가능한지 아닌지를 나타내기 위해 부울값으로 반환합니다. `advance(to:)` 메서드를 호출하여 반환값을 무시하는 코드가 실수가 아니기 때문에 이 함수는 `@discardableResult` 속성으로 표시됩니다. 더 자세한 내용은 [속성 \(Attributes\)](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html) 을 참고 바랍니다.
+`currentLevel` 프로퍼티 관리를 돕기위해 `LevelTracker` 는 `advance(to:)` 라는 인스턴스 메서드를 정의합니다. `currentLevel` 업데이트 전에 이 메서드는 요청된 새 레벨이 이미 풀렸는지 판단합니다. `advance(to:)` 메서드는 `currentLevel` 을 설정가능한지 아닌지를 나타내기 위해 부울값으로 반환합니다. `advance(to:)` 메서드를 호출하여 반환값을 무시하는 코드가 실수가 아니기 때문에 이 함수는 `@discardableResult` 속성으로 표시됩니다. 더 자세한 내용은 [속성 \(Attributes\)](../language-reference/attributes.md) 을 참고 바랍니다.
 
 `LevelTracker` 구조체는 아래에서 봤듯이 각 플레이어의 진행상태를 추적하고 업데이트 하기 위해 `Player` 클래스와 함께 사용됩니다:
 

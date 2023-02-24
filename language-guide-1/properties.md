@@ -285,7 +285,7 @@ stepCounter.totalSteps = 896
 `didSet` 관찰자는 `totalSteps` 값이 업데이트 되고난 후에 호출됩니다. 이것은 오래된 값에 대해 `totalSteps` 의 새로운 값과 비교합니다. 걸음수가 증가했다면 걸음수가 얼마나 증가하였는지 출력합니다. `didSet` 관찰자는 오래된 값에 대한 사용자 파라미터 명을 제공하지 않고 대신에 `oldValue` 의 기본 이름을 사용합니다.
 
 > NOTE  
-> 관찰자를 가진 프로퍼티를 in-out 파라미터로 함수에 전달하면 `willSet` 과 `didSet` 관찰자는 항상 호출됩니다. 이것은 in-out 파라미터에 대한 copy-in-copy-out 메모리 모델 때문에 그렇습니다. 값은 함수 끝에서 프로퍼티에 항상 다시 작성됩니다. in-out 파라미터에 대한 자세한 내용은 [In-Out 파라미터 \(In-Out Parameters\)](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID545) 를 참고 바랍니다.
+> 관찰자를 가진 프로퍼티를 in-out 파라미터로 함수에 전달하면 `willSet` 과 `didSet` 관찰자는 항상 호출됩니다. 이것은 in-out 파라미터에 대한 copy-in-copy-out 메모리 모델 때문에 그렇습니다. 값은 함수 끝에서 프로퍼티에 항상 다시 작성됩니다. in-out 파라미터에 대한 자세한 내용은 [In-Out 파라미터 \(In-Out Parameters\)](../language-reference/declarations.md#in-out-파라미터-in-out-parameters) 를 참고 바랍니다.
 
 ## 프로퍼티 래퍼 \(Property Wrappers\)
 

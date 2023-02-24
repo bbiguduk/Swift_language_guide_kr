@@ -31,7 +31,7 @@ print("We're number \(one)!")
 > NOTE   
 > 동시 또는 다중 쓰레드 코드를 작성한 경우 메모리 접근 충돌이 익숙한 문제일 수 있습니다. 그러나 여기서 설명한 충돌 접근은 단일 쓰레드에서 발생할 수 있으며 동시 또는 다중 쓰레드 코드를 포함하지 않습니다.
 >
-> 단일 쓰레드 내에서 메모리 접근이 충돌하는 경우 Swift는 컴파일 이나 런타임 시 에러가 발생합니다. 다중 쓰레드 코드의 경우 [Thread Sanitizer](https://developer.apple.com/documentation/code_diagnostics/thread_sanitizer) 사용하여 쓰레드 간에 충돌하는 접근을 감지할 수 있습니다.
+> 단일 쓰레드 내에서 메모리 접근이 충돌하는 경우 Swift는 컴파일 이나 런타임 시 에러가 발생합니다. 다중 쓰레드 코드의 경우 [Thread Sanitizer](https://developer.apple.com/documentation/xcode/diagnosing_memory_thread_and_crash_issues_early) 사용하여 쓰레드 간에 충돌하는 접근을 감지할 수 있습니다.
 
 ### 메모리 접근의 특징 \(Characteristics of Memory Access\)
 

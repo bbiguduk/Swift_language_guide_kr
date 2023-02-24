@@ -393,7 +393,7 @@ if twoThree == anotherTwoThree {
 
 ## 사용자 정의 연산자 \(Custom Operators\)
 
-Swift에서 제공하는 표준 연산자 외에 _사용자 정의 연산자 \(custom operators\)_ 를 선언하고 구현할 수 있습니다. 사용자 정의 연산자를 정의하는데 사용할 수 있는 문자의 리스트은 [연산자 \(Operators\)](https://docs.swift.org/swift-book/ReferenceManual/LexicalStructure.html#ID418) 를 참고 바랍니다.
+Swift에서 제공하는 표준 연산자 외에 _사용자 정의 연산자 \(custom operators\)_ 를 선언하고 구현할 수 있습니다. 사용자 정의 연산자를 정의하는데 사용할 수 있는 문자의 리스트은 [연산자 \(Operators\)](../language-reference/lexical-structure.md#연산자-operators) 를 참고 바랍니다.
 
 새로운 연산자는 `operator` 키워드를 사용하여 전역으로 선언되고 `prefix`, `infix` 또는 `postfix` 수식어를 사용하여 표기될 수 있습니다:
 
@@ -438,7 +438,7 @@ let plusMinusVector = firstVector +- secondVector
 // plusMinusVector is a Vector2D instance with values of (4.0, -2.0)
 ```
 
-이 연산자는 두 벡터의 `x` 값을 더하고 첫번째 벡터에서 두번째 벡터의 `y` 값을 뺍니다. 본질적으로 "가산" 연산자이기 때문에 `+` 와 `-` 와 같은 가산 중위 연산자와 같은 우선순위 그룹이 지정되었습니다. 연산자 우선순위 그룹과 연관성 설정의 전체 리스트를 포함하여 Swift 표준 라이브러리에서 제공하는 연산자에 대한 정보는 [연산자 선언 \(Operator Declarations\)](https://developer.apple.com/documentation/swift/operator_declarations) 을 참고 바랍니다. 우선순위 그룹에 대한 자세한 내용과 고유한 연산자와 우선순위 그룹에 대한 구문을 보려면 [연산자 선언 \(Operator Declaration\)](https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#ID380) 을 참고 바랍니다.
+이 연산자는 두 벡터의 `x` 값을 더하고 첫번째 벡터에서 두번째 벡터의 `y` 값을 뺍니다. 본질적으로 "가산" 연산자이기 때문에 `+` 와 `-` 와 같은 가산 중위 연산자와 같은 우선순위 그룹이 지정되었습니다. 연산자 우선순위 그룹과 연관성 설정의 전체 리스트를 포함하여 Swift 표준 라이브러리에서 제공하는 연산자에 대한 정보는 [연산자 선언 \(Operator Declarations\)](https://developer.apple.com/documentation/swift/operator_declarations) 을 참고 바랍니다. 우선순위 그룹에 대한 자세한 내용과 고유한 연산자와 우선순위 그룹에 대한 구문을 보려면 [연산자 선언 \(Operator Declaration\)](../language-reference/declarations.md#연산자-선언-operator-declaration) 을 참고 바랍니다.
 
 > NOTE   
 > 접두사 또는 접미사 연산자를 정의할 때 우선순위를 지정하지 않습니다. 그러나 같은 피연산자에 접두사와 접미사 연산자를 모두 적용하면 접미사 연산자가 먼저 적용됩니다.
@@ -587,5 +587,5 @@ let manyStars = draw {
 
 위의 코드에서 `for` 루프는 그리기의 배열을 생성하고 `buildArray(_:)` 메서드는 해당 배열을 `Line` 으로 변환합니다.
 
-Swift 가 빌더 구문을 빌더 타입의 메서드 호출로 변환하는 방법에 대한 전체 리스트는 [resultBuilder](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#ID633) 를 참고 바랍니다.
+Swift 가 빌더 구문을 빌더 타입의 메서드 호출로 변환하는 방법에 대한 전체 리스트는 [resultBuilder](../language-reference/attributes.md#resultbuilder) 를 참고 바랍니다.
 

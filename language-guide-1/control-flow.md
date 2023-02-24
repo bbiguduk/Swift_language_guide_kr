@@ -538,7 +538,7 @@ _제어 변경 구문 \(Control transfer statements\)_ 은 한 코드에서 다�
 * `return`
 * `throw`
 
-`continue`, `break`, `fallthrough` 구문은 아래 설명되어 있습니다. `return` 구문은 [함수 \(Functions\)](https://docs.swift.org/swift-book/LanguageGuide/Functions.html) 에 설명되어 있고 `throw` 구문은 [Throwing 함수를 이용한 에러 전파 \(Propagating Errors Using Throwing Functions\)](https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html#ID510) 에 설명되어 있습니다.
+`continue`, `break`, `fallthrough` 구문은 아래 설명되어 있습니다. `return` 구문은 [함수 \(Functions\)](functions.md) 에 설명되어 있고 `throw` 구문은 [Throwing 함수를 이용한 에러 전파 \(Propagating Errors Using Throwing Functions\)](error-handling.md#던지기-함수를-이용한-에러-전파-propagating-errors-using-throwing-functions) 에 설명되어 있습니다.
 
 ### Continue
 
@@ -771,7 +771,7 @@ if #available(iOS 10, macOS 10.12, *) {
 
 iOS에서 위의 특정 가용성 조건의 `if` 구문의 본문은 iOS 10 이상 버전에서만 실행되고 macOS에서는 macOS 10.12 이상 버전에서만 실행됩니다. 마지막 인수 `*` 는 필수이며 다른 플랫폼에서 `if` 의 본문이 최소 타겟 버전에서 실행되도록 지정합니다.
 
-일반적인 형식에서 가용성 조건은 플랫폼 이름 및 버전 리스트을 사용합니다. `iOS`, `macOS`, `watchOS`, `tvOS` 와 같은 플랫폼 이름을 사용하고 자세한 내용은 [선언 속성 \(Declaration Attributes\)](https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#ID348) 을 참고 바랍니다. iOS 8 또는 macOS 10.10과 같은 메이저 버전 번호를 지정하는 것 외에 iOS 11.2.6과 macOS 10.13.3과 같은 마이너 버전 번호로 지정할 수 있습니다.
+일반적인 형식에서 가용성 조건은 플랫폼 이름 및 버전 리스트을 사용합니다. `iOS`, `macOS`, `watchOS`, `tvOS` 와 같은 플랫폼 이름을 사용하고 자세한 내용은 [선언 속성 \(Declaration Attributes\)](../language-reference/attributes.md#선언-속성-declaration-attributes) 을 참고 바랍니다. iOS 8 또는 macOS 10.10과 같은 메이저 버전 번호를 지정하는 것 외에 iOS 11.2.6과 macOS 10.13.3과 같은 마이너 버전 번호로 지정할 수 있습니다.
 
 ```swift
 if #available(<#platform name#> <#version#>, <#...#>, *) {

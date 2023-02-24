@@ -606,5 +606,5 @@ paragraph = nil
 // Prints "p is being deinitialized"
 ```
 
-더 자세한 내용은 [캡처 리스트 \(Capture Lists\)](https://docs.swift.org/swift-book/ReferenceManual/Expressions.html#ID544) 을 참고 바랍니다.
+더 자세한 내용은 [캡처 리스트 \(Capture Lists\)](../language-reference/expressions.md#캡처-리스트-capture-lists) 을 참고 바랍니다.
 

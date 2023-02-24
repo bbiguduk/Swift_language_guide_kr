@@ -346,7 +346,7 @@ Objective-C 로 표현될 수 있는 모든 선언에 이 속성을 적용합니
 
 열거형에 objc 속성을 적용하면 각 열거형 케이스는 열거형 이름과 케이스 이름의 연결로 Objective-C 코드에 노출됩니다. 케이스 이름의 첫번째 문자는 대문자입니다. 예를 들어 Swift `Planet` 열거형에서 명명된 케이스 `venus` 는 명명된 케이스 `PlanetVenus` 로 Objective-C 코드로 노출됩니다.
 
-`objc` 속성은 식별자로 구성된 단일 속성 인수를 선택적으로 허용합니다. 식별자는 `objc` 속성을 적용하는 엔티티에 대해 Objective-C 로 노출될 이름을 지정합니다. 클래스, 열거형, 열거형 케이스, 프로토콜, 메서드, getter, setter, 그리고 초기화 구문 이름으로 이 인수를 사용할 수 있습니다. 클래스, 프로토콜, 또는 열거형에 대해 Objective-C 이름을 지정하는 경우 [Objective-C 를 사용한 프로그래밍 (Programming with Objective-C)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple\_ref/doc/uid/TP40011210) 에 [규칙 (Conventions)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Conventions/Conventions.html#//apple\_ref/doc/uid/TP40011210-CH10-SW1) 에서 설명한대로 세글자의 접두사를 포함합니다. 아래 예제는 프로퍼티 자체의 이름이 아닌 `isEnabled` 로 Objective-C 에 `ExampleClass` 의 `enabled` 프로퍼티에 대한 getter 를 노출합니다.
+`objc` 속성은 식별자로 구성된 단일 속성 인수를 선택적으로 허용합니다. 식별자는 `objc` 속성을 적용하는 엔티티에 대해 Objective-C 로 노출될 이름을 지정합니다. 클래스, 열거형, 열거형 케이스, 프로토콜, 메서드, getter, setter, 그리고 초기화 구문 이름으로 이 인수를 사용할 수 있습니다. 클래스, 프로토콜, 또는 열거형에 대해 Objective-C 이름을 지정하는 경우 [Objective-C 를 사용한 프로그래밍 (Programming with Objective-C)](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Introduction/Introduction.html#//apple_ref/doc/uid/TP40011210) 에 [규칙 (Conventions)](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/ProgrammingWithObjectiveC/Conventions/Conventions.html#//apple_ref/doc/uid/TP40011210-CH10-SW1) 에서 설명한대로 세글자의 접두사를 포함합니다. 아래 예제는 프로퍼티 자체의 이름이 아닌 `isEnabled` 로 Objective-C 에 `ExampleClass` 의 `enabled` 프로퍼티에 대한 getter 를 노출합니다.
 
 ```swift
 class ExampleClass: NSObject {
@@ -358,7 +358,7 @@ class ExampleClass: NSObject {
 }
 ```
 
-더 자세한 내용은 [Objective-C 에 Swift 가져오기 (Importing Swift into Objective-C)](https://developer.apple.com/documentation/swift/imported\_c\_and\_objective-c\_apis/importing\_swift\_into\_objective-c) 를 참고 바랍니다.
+더 자세한 내용은 [Objective-C 에 Swift 가져오기 (Importing Swift into Objective-C)](https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_swift_into_objective-c) 를 참고 바랍니다.
 
 > NOTE\
 > objc 속성에 인수는 해당 선언에 대한 런타임 이름도 변경할 수 있습니다. [`NSClassFromString(_:)`](https://developer.apple.com/documentation/foundation/1395135-nsclassfromstring) 과 같이 Objective-C 런타임과 상호작용하는 함수를 호출할 때와 앱의 info.plist 파일의 클래스 이름을 지정할 때 런타임 이름을 사용합니다. 인수를 전달하여 이름을 지정하면 해당 이름은 Objective-C 코드에서 이름과 런타임 이름으로 사용됩니다. 인수를 생략하면 Objective-C 코드에서 사용된 이름은 Swift 코드의 이름과 일치하고 런타임 이름은 일반 Swift 컴파일러 이름 변경 규칙을 따릅니다.

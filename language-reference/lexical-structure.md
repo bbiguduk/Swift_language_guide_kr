@@ -12,7 +12,7 @@ Swift 의 _어휘 구조 (lexical structure)_ 는 언어의 유효한 토큰을 
 
 주석은 컴파일러에 의해 공백으로 처리됩니다. 한 줄 주석은 `//` 로 시작하고 줄바꿈 (U+000A) 또는 캐리지 리턴 (U+000D) 까지 계속됩니다. 여러줄 주석은 `/*` 로 시작하고 `*/` 으로 끝납니다. 여러줄 주석을 중첩할 수 있지만 주석 마커는 균형을 이루어야 합니다.
 
-주석은 [마크업 서식 참조 (Markup Formatting Reference)](https://developer.apple.com/library/archive/documentation/Xcode/Reference/xcode\_markup\_formatting\_ref/index.html) 에 설명된 대로 추가 서식 및 마크업을 포함할 수 있습니다.
+주석은 [마크업 서식 참조 (Markup Formatting Reference)](https://developer.apple.com/library/content/documentation/Xcode/Reference/xcode_markup_formatting_ref/index.html) 에 설명된 대로 추가 서식 및 마크업을 포함할 수 있습니다.
 
 > Grammar of whitespace:
 >

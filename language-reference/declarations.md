@@ -1543,7 +1543,7 @@ _하위 그룹 이름 (lower group names)_ 과 _상위 그룹 이름 (higher gro
 > _하위 그룹 이름 (lower group names)_ 과 _상위 그룹 이름 (higher group names)_ 을 사용하는 서로 관련된 우선순위 그룹은 단일 관계형 계층 (single relational hierarchy) 에 적합해야 하지만 선형 계층 (linear hierarchy) 을 형성할 필요는 없습니다. 이것은 상대적 우선순위가 정의되지 않은 우선순위 그룹일 수 있다는 의미입니다.\
 > 이러한 우선순위 연산자는 그룹화 괄호없이 나란히 사용할 수 없습니다.
 
-Swift 는 표준 라이브러리에서 제공된 연산자와 함께 사용할 수많은 우선순위 그룹을 정의합니다. 예를 들어 덧셈 (`+`) 과 뺄셈 (`-`) 연산자는 `AdditionPrecedence` 그룹에 속하고 곱셈 (`*`) 과 나눗셈 (`/`) 연산자는 `MultiplicationPrecedence` 그룹에 속합니다. Swift 표준 라이브러리에서 제공하는 우선순위 그룹의 완벽한 리스트는 [연산자 선언 (Operator Declarations)](https://developer.apple.com/documentation/swift/swift\_standard\_library/operator\_declarations) 을 참고 바랍니다.
+Swift 는 표준 라이브러리에서 제공된 연산자와 함께 사용할 수많은 우선순위 그룹을 정의합니다. 예를 들어 덧셈 (`+`) 과 뺄셈 (`-`) 연산자는 `AdditionPrecedence` 그룹에 속하고 곱셈 (`*`) 과 나눗셈 (`/`) 연산자는 `MultiplicationPrecedence` 그룹에 속합니다. Swift 표준 라이브러리에서 제공하는 우선순위 그룹의 완벽한 리스트는 [연산자 선언 (Operator Declarations)](https://developer.apple.com/documentation/swift/operator_declarations) 을 참고 바랍니다.
 
 연산자의 _연관성 (associativity)_ 은 그룹화 괄호가 없을 때 동일한 우선순위 수준을 가진 일련의 연산자가 함께 그룹화 되는 방식을 지정합니다. 상황에 맞는 키워드 `left`, `right`, 또는 `none` 중 하나를 작성하여 연산자의 연관성을 지정합니다 — 연관성을 생략하면 기본적으로 `none` 입니다. 왼쪽 연관성 (left-associative) 연산자는 왼쪽에서 오른쪽으로 그룹화 합니다. 예를 들어 뺄셈 연산자 (`-`) 는 표현식 `4 - 5 - 6` 은 `(4 - 5) - 6` 으로 그룹화 되고 `-7` 로 평가되므로 왼쪽 연관성 (left-associative) 입니다. 오른쪽 연관성 (right-associative) 연산자는 오른쪽에서 왼쪽으로 그룹화 하고 `none` 의 연관성으로 지정된 연산자는 전혀 연관되지 않습니다. 동일한 우선순위 수준의 비연관성 연산자는 서로 인접하게 표시될 수 없습니다. 예를 들어 `<` 연산자는 `none` 의 연관성을 가집니다. 이것은 `1 < 2 < 3` 은 유효하지 않은 표현식이라는 의미입니다.
 

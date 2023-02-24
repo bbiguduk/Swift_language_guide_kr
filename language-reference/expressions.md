@@ -18,7 +18,7 @@ _접두사 표현식 (Prefix expressions)_ 은 옵셔널 접두사 연산자 (pr
 
 이 연산자의 동작에 대한 자세한 설명은 [기본 연산자 (Basic Operators)](../language-guide-1/basic-operators.md) 와 [고급 연산자 (Advanced Operators)](../language-guide-1/advanced-operators.md) 를 참고 바랍니다.
 
-Swift 표준 라이브러리에 의해 제공되는 연산자의 자세한 설명은 [연산자 선언 (Operator Declarations)](https://developer.apple.com/documentation/swift/swift\_standard\_library/operator\_declarations) 을 참고 바랍니다.
+Swift 표준 라이브러리에 의해 제공되는 연산자의 자세한 설명은 [연산자 선언 (Operator Declarations)](https://developer.apple.com/documentation/swift/operator_declarations) 을 참고 바랍니다.
 
 > Grammar of a prefix expression:
 >
@@ -132,7 +132,7 @@ _중위 표현식 (Infix expressions)_ 은 좌항과 우항 인수를 가지는 
 
 이 연산자의 동작에 대한 자세한 설명은 [기본 연산자 (Basic Operators)](../language-guide-1/basic-operators.md) 와 [고급 연산자 (Advanced Operators)](../language-guide-1/advanced-operators.md) 를 참고 바랍니다.
 
-Swift 표준 라이브러리에 의해 제공되는 연산자에 대한 자세한 내용은 [연산자 선언 (Operator Declarations)](https://developer.apple.com/documentation/swift/swift\_standard\_library/operator\_declarations) 을 참고 바랍니다.
+Swift 표준 라이브러리에 의해 제공되는 연산자에 대한 자세한 내용은 [연산자 선언 (Operator Declarations)](https://developer.apple.com/documentation/swift/operator_declarations) 을 참고 바랍니다.
 
 > NOTE\
 > 구문 분석 시 중위 연산자로 구성된 표현식은 단순 리스트로 표현됩니다. 이 리스트는 연산자 우선순위를 적용하여 트리로 변환됩니다. 예를 들어 표현식 `2 + 3 * 5` 는 처음에는 5개의 항목 `2`, `+`, `3`, `*`, 그리고 `5` 의 단순 리스트로 이해됩니다. 이 프로세스는 트리 (2 + (3 \* 5)) 로 변환합니다.
@@ -218,7 +218,7 @@ f(x as Any)
 // Prints "Function for Any"
 ```
 
-브릿징 (Bridging) 을 사용하면 새로운 인스턴스를 생성할 필요없이 `NSString` 과 같은 해당 Foundation 타입으로 `String` 과 같은 Swift 표준 라이브러리 타입의 표현식으로 사용할 수 있습니다. 브릿징에 대한 자세한 설명은 [Foundation 타입 동작 (Working with Foundation Types)](https://developer.apple.com/documentation/swift/imported\_c\_and\_objective-c\_apis/working\_with\_foundation\_types) 을 참고 바랍니다.
+브릿징 (Bridging) 을 사용하면 새로운 인스턴스를 생성할 필요없이 `NSString` 과 같은 해당 Foundation 타입으로 `String` 과 같은 Swift 표준 라이브러리 타입의 표현식으로 사용할 수 있습니다. 브릿징에 대한 자세한 설명은 [Foundation 타입 동작 (Working with Foundation Types)](https://developer.apple.com/documentation/swift/imported_c_and_objective_c_apis/working_with_foundation_types) 을 참고 바랍니다.
 
 `as?` 연산자는 지정한 _타입_ 으로 _표현식_ 의 조건부 캐스팅을 수행합니다. `as?` 연산자는 지정한 _타입_ 의 옵셔널로 반환합니다. 런타임에 캐스팅이 성공하면 _표현식_ 의 값은 옵셔널로 래핑되고 반환됩니다; 그렇지 않으면 반환된 값은 `nil` 입니다. 지정된 _타입_ 으로 캐스팅이 실패하거나 성공이 보장되면 컴파일 시 에러가 발생합니다.
 
@@ -833,7 +833,7 @@ let taskKeyPath = \[Task][makeIndex()]
 let someTask = toDoList[keyPath: taskKeyPath]
 ```
 
-Objective-C API 와 함께 상혹작용하는 코드에서 키 경로를 사용하는 것에 대한 자세한 내용은 [Swift 에서 Objective-C 런타임 특성 사용 (Using Objective-C Runtime Features in Swift)](https://developer.apple.com/documentation/swift/using\_objective-c\_runtime\_features\_in\_swift) 을 참고 바랍니다. 키-값 코딩과 키-값 관찰에 대한 자세한 내용은 [키-값 코딩 프로그래밍 가이드 (Key-Value Coding Programming Guide)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/KeyValueCoding/index.html#//apple\_ref/doc/uid/10000107i) 와 [키-값 관찰 프로그래밍 가이드 (Key-Value Observing Programming Guide)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple\_ref/doc/uid/10000177i) 을 참고 바랍니다.
+Objective-C API 와 함께 상혹작용하는 코드에서 키 경로를 사용하는 것에 대한 자세한 내용은 [Swift 에서 Objective-C 런타임 특성 사용 (Using Objective-C Runtime Features in Swift)](https://developer.apple.com/documentation/swift/using_objective_c_runtime_features_in_swift) 을 참고 바랍니다. 키-값 코딩과 키-값 관찰에 대한 자세한 내용은 [키-값 코딩 프로그래밍 가이드 (Key-Value Coding Programming Guide)](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueCoding/index.html#//apple_ref/doc/uid/10000107i) 와 [키-값 관찰 프로그래밍 가이드 (Key-Value Observing Programming Guide)](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple_ref/doc/uid/10000177i) 을 참고 바랍니다.
 
 > Grammar of a key-path expression:
 >
@@ -893,7 +893,7 @@ let anotherSelector = #selector(SomeClass.doSomething(_:) as (SomeClass) -> (Str
 > NOTE\
 > _메서드 이름 (method name)_ 과 _프로퍼티 이름 (property name)_ 은 표현식이지만 절대 평가되지 않습니다.
 
-Objective-C API 와 상호작용하는 Swift 코드에서 선택기 사용에 대한 자세한 내용은 [Swift 에서 Objective-C 런타임 특성 사용 (Using Objective-C Runtime Features in Swift)](https://developer.apple.com/documentation/swift/using\_objective-c\_runtime\_features\_in\_swift) 을 참고 바랍니다.
+Objective-C API 와 상호작용하는 Swift 코드에서 선택기 사용에 대한 자세한 내용은 [Swift 에서 Objective-C 런타임 특성 사용 (Using Objective-C Runtime Features in Swift)](https://developer.apple.com/documentation/swift/using_objective_c_runtime_features_in_swift) 을 참고 바랍니다.
 
 > Grammar of a selector expression:
 >
@@ -944,7 +944,7 @@ print(keyPath == c.getSomeKeyPath())
 
 키 경로 문자열은 런타임이 아닌 컴파일 시에 생성되기 때문에 컴파일러는 프로퍼티가 존재하고 해당 프로퍼티가 Objective-C 런타임에 노출되는지 확인할 수 있습니다.
 
-Objective-C API 와 상호작용하는 Swift 코드에서 키 경로를 사용하는 것에 대한 자세한 내용은 [Swift 에서 Objective-C 런타임 특성 사용 (Using Objective-C Runtime Features in Swift)](https://developer.apple.com/documentation/swift/using\_objective-c\_runtime\_features\_in\_swift) 을 참고 바랍니다. 키-값 코딩과 키-값 관찰에 대한 자세한 내용은 [키-값 코딩 프로그래밍 가이드 (Key-Value Coding Programming Guide)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/KeyValueCoding/index.html#//apple\_ref/doc/uid/10000107i) 와 [키-값 관찰 프로그래밍 가이드 (Key-Value Observing Programming Guide)](https://developer.apple.com/library/archive/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple\_ref/doc/uid/10000177i) 를 참고 바랍니다.
+Objective-C API 와 상호작용하는 Swift 코드에서 키 경로를 사용하는 것에 대한 자세한 내용은 [Swift 에서 Objective-C 런타임 특성 사용 (Using Objective-C Runtime Features in Swift)](https://developer.apple.com/documentation/swift/using_objective_c_runtime_features_in_swift) 을 참고 바랍니다. 키-값 코딩과 키-값 관찰에 대한 자세한 내용은 [키-값 코딩 프로그래밍 가이드 (Key-Value Coding Programming Guide)](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueCoding/index.html#//apple_ref/doc/uid/10000107i) 와 [키-값 관찰 프로그래밍 가이드 (Key-Value Observing Programming Guide)](https://developer.apple.com/library/content/documentation/Cocoa/Conceptual/KeyValueObserving/KeyValueObserving.html#//apple_ref/doc/uid/10000177i) 를 참고 바랍니다.
 
 > NOTE\
 > _프로퍼티 이름 (property name)_ 은 표현식이지만 절대 평가되지 않습니다.
@@ -959,7 +959,7 @@ _접미사 표현식 (Postfix expressions)_ 은 접미사 연산자 (postfix ope
 
 이러한 연산자의 동작에 대한 자세한 내용은 [기본 연산자 (Basic Operators)](../language-guide-1/basic-operators.md) 와 [고급 연산자 (Advanced Operators)](../language-guide-1/advanced-operators.md) 를 참고 바랍니다.
 
-Swift 표준 라이브러리에 의해 제공되는 연산자에 대한 자세한 내용은 [연산자 선언 (Operator Declarations)](https://developer.apple.com/documentation/swift/swift\_standard\_library/operator\_declarations) 을 참고 바랍니다.
+Swift 표준 라이브러리에 의해 제공되는 연산자에 대한 자세한 내용은 [연산자 선언 (Operator Declarations)](https://developer.apple.com/documentation/swift/operator_declarations) 을 참고 바랍니다.
 
 > Grammar of a postfix expression:
 >
