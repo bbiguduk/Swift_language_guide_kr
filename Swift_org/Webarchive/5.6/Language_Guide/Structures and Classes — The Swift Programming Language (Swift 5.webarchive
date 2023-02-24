@@ -1,2199 +1,0 @@
-bplist00Ò4_WebSubresources_WebMainResourceª"&+/Ô	
-^WebResourceURL_WebResourceData_WebResourceMIMEType_WebResourceResponse_Ehttps://docs.swift.org/swift-book/_static/stylesheets/application.cssOOÇï»¿html{
-    font-size:100%;
-    -ms-text-size-adjust:100%;
-    -webkit-text-size-adjust:100%
-}
-body{
-    margin:0;
-    padding:0
-}
-ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,hgroup,p,blockquote,figure,form,fieldset,input,legend,pre,abbr{
-    margin:0;
-    padding:0
-}
-pre,code,address,caption,th,figcaption{
-    font-size:1em;
-    font-weight:normal;
-    font-style:normal
-}
-fieldset,iframe,img{
-    border:none
-}
-caption,th{
-    text-align:left
-}
-table{
-    border-collapse:collapse;
-    border-spacing:0
-}
-article,aside,footer,header,nav,main,section,summary,details,hgroup,figure,figcaption{
-    display:block
-}
-audio,canvas,video,progress{
-    display:inline-block;
-    vertical-align:baseline
-}
-button{
-    font:inherit;
-    vertical-align:middle
-}
-.highlight { background: #ffffff }
-.highlight .c, .highlight .cm, .highlight .cp, .highlight .c1, .highlight .cs { color: #007400; } /* Comment, Comment.Multiline, Comment.Preproc, Comment.Single, Comment.Special */
-.highlight .k, .highlight .kc, .highlight .kd, .highlight .kp, .highlight .kr, .highlight .nb { color: #AA0D91; } /* Keyword, Keyword.Constant, Keyword.Declaration, Keyword.Pseudo, Name.Builtin */
-.highlight .kt { color: #3F6E74 } /* Keyword.Reserved */
-.highlight .err { color: #a61717; } /* Error */
-.highlight .o { font-weight: bold } /* Operator */
-.highlight .gd { color: #000000;background-color: #fdd } /* Generic.Deleted */
-.highlight .gd .x { color: #000000;background-color: #faa } /* Generic.Deleted.Specific */
-.highlight .ge { font-style:italic } /* Generic.Emph */
-.highlight .gr { color: #a00 } /* Generic.Error */
-.highlight .gh { color: #999 } /* Generic.Heading */
-.highlight .gi { color: #000000;background-color: #dfd } /* Generic.Inserted */
-.highlight .gi .x { color: #000000;background-color: #afa } /* Generic.Inserted.Specific */
-.highlight .go { color: #888 } /* Generic.Output */
-.highlight .gp { color: #555 } /* Generic.Prompt */
-.highlight .gs { font-weight:bold } /* Generic.Strong */
-.highlight .gu { color: #aaa } /* Generic.Subheading */
-.highlight .gt { color: #a00 } /* Generic.Traceback */
-.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .mo { color: #1C00CF; } /* Literal.Number, Literal.Number.Float, Literal.Number.Hex, Literal.Number.Integer, Literal.Number.Oct */
-.highlight .s { color: #C41A16; } /* Literal.String */
-.highlight .na { color:teal }     /* Name.Attribute */
-.highlight .nc { color: #5C2699 } /* Name.Class */
-.highlight .no { color: teal }    /* Name.Constant */
-.highlight .ni { color: purple }  /* Name.Entity */
-.highlight .ne { color: #990000 } /* Name.Exception */
-.highlight .nn { color: #555 }    /* Name.Namespace */
-.highlight .nt { color: navy } 	  /* Name.Tag */
-.highlight .nv, .highlight .nf { color: #3F6E74 } /* Name.Variable, Name.Function */
-.highlight .ow { font-weight:bold } /* Operator.Word */
-.highlight .w { color: #bbb } /* Text.Whitespace */
-.highlight .sb { color: #d14 } /* Literal.String.Backtick */
-.highlight .sc { color: #d14 } /* Literal.String.Char */
-.highlight .sd { color: #d14 } /* Literal.String.Doc */
-.highlight .s2 { color: #d14 } /* Literal.String.Double */
-.highlight .se { color: #d14 } /* Literal.String.Escape */
-.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
-.highlight .si { color: #d14 } /* Literal.String.Interpol */
-.highlight .sx { color: #d14 } /* Literal.String.Other */
-.highlight .sr { color: #009926 } /* Literal.String.Regex */
-.highlight .s1 { color: #d14 } /* Literal.String.Single */
-.highlight .ss { color: #990073 } /* Literal.String.Symbol */
-.highlight .bp { color: #999 } /* Name.Builtin.Pseudo */
-.highlight .vc { color:teal } /* Name.Variable.Class */
-.highlight .vg { color:teal } /* Name.Variable.Global */
-.highlight .vi { color:teal } /* Name.Variable.Instance */
-.highlight .il { color: #099 } /* Literal.Number.Integer.Long */
-
-*,*:before,*:after{
-    -moz-box-sizing:border-box;
-    -webkit-box-sizing:border-box;
-    box-sizing:border-box
-}
-html,body{
-    height:100%
-}
-body{
-    font-family:-apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
-    font-size:18px;
-    line-height:1.5;
-    color:#333;
-    font-weight:300
-}
-body pre,body code{
-    font-family:Menlo, Consolas, Monaco, "Courier New", monospace, serif
-}
-a:link{
-    color:#0088cc;
-    text-decoration:none
-}
-a:visited{
-    color:#7766cc
-}
-a:active{
-    color:#0088cc
-}
-a:hover{
-    color:#0088cc;
-    text-decoration:underline
-}
-p{
-    margin-bottom:1.5em
-}
-h1{
-    margin-bottom:0.8em;
-    font-size:3em;
-    font-weight:300;
-    line-height:1
-}
-h1.active+.main-nav{
-    border-top:1px solid #333
-}
-h2{
-    margin-bottom:0.5em;
-    font-size:2.5em;
-    font-weight:300;
-    line-height:1
-}
-h3{
-    margin-bottom:0.5em;
-    font-size:1.5em;
-    font-weight:300;
-    line-height:1
-}
-h4{
-    margin-bottom:0.5em;
-    font-size:1.25em;
-    font-weight:300;
-    line-height:1.2
-}
-h5{
-    margin-bottom:0.5em;
-    font-size:1.175em;
-    font-weight:500;
-    line-height:1.4
-}
-h6{
-    margin-bottom:0.5em;
-    font-size:1em;
-    font-weight:700;
-    line-height:1.5
-}
-pre{
-    font-size:14px;
-    line-height:18px;
-    border-left:3px #ef5138 solid;
-    margin:0.5em;
-    margin-left:10px;
-    margin-bottom:1.5em;
-    padding:0.5em;
-    padding-left:1em;
-    overflow:scroll
-}
-p>code,li>code,dd>code,blockquote>code,td>code{
-    color:#000;
-    padding:3px 8px;
-    font-size:14px;
-    white-space:nowrap;
-    border:1px solid #E5E5E5;
-    background-color:#f7f7f7
-}
-hr{
-    border:none;
-    border-top:1px #f3f3f3 solid;
-    margin:2em 0
-}
-hr:last-child{
-    display:none
-}
-details{
-    margin-bottom:2em
-}
-details :first-child{
-    margin-top:1.5em
-}
-cite{
-    display:block
-}
-cite:before{
-    content:"â€” "
-}
-#logo{
-    text-indent:-9999px;
-    height:48px;
-    width:100%;
-    margin-top:20px;
-    margin-bottom:0.5em;
-    padding-bottom:10px
-}
-#logo a{
-    display:block;
-    width:190px;
-    height:48px;
-    background-image:url("../images/swift.svg");
-    background-repeat:no-repeat;
-    background-size:190px 48px;
-    background-position-x: -8px;
-}
-nav[role="navigation"]{
-    width:250px;
-    position:fixed;
-    overflow:scroll;
-    left:0;
-    top:0;
-    bottom:0;
-    background:#FAFAFA;
-    border-right:1px solid #e6e6e6;
-    padding:20px 30px
-}
-nav[role="navigation"] ul{
-    border-top:1px solid #e6e6e6;
-    font-weight:400;
-    margin-bottom:30px;
-    list-style:none
-}
-nav[role="navigation"] ul ul{
-    list-style:none
-}
-nav[role="navigation"] ul li{
-    border-bottom:1px solid #e6e6e6
-}
-nav[role="navigation"] ul li.active{
-    border-bottom:1px solid #333
-}
-nav[role="navigation"] ul li.active a{
-    font-weight:700
-}
-nav[role="navigation"] ul li a:link{
-    color:#333;
-    text-decoration:none;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    font-size:12px;
-    display:block;
-    padding:10px
-}
-nav[role="navigation"] ul li a:visited{
-    color:#333
-}
-nav[role="navigation"] ul li a:active{
-    font-weight:700
-}
-nav[role="navigation"] ul li a:hover{
-    color:#0088cc
-}
-nav[role="navigation"] ul li ul{
-    margin-bottom:10px;
-    border-top:none
-}
-nav[role="navigation"] ul li ul li{
-    border-bottom:none;
-    padding:0.1em
-}
-nav[role="navigation"] ul li ul li.active{
-    border-bottom:none
-}
-nav[role="navigation"] ul li ul li.active a{
-    font-weight:700
-}
-nav[role="navigation"] ul li ul a:link{
-    color:#0088cc;
-    text-decoration:none;
-    text-transform:none;
-    letter-spacing:0;
-    font-size:12px;
-    display:block;
-    margin-left:15px;
-    padding:0 0 3px;
-    border-bottom:none;
-    font-weight:300
-}
-nav[role="navigation"] ul li ul a:hover{
-    text-decoration:underline
-}
-nav[role="navigation"] h2{
-    font-size:0.75em;
-    font-weight:600;
-    text-transform:lowercase;
-    font-variant:small-caps;
-    color:#999;
-    padding-bottom:0.5em
-}
-main{
-    max-width:798px;
-    min-width:320px;
-    margin-left:250px;
-    padding: 35px 30px 0;
-    min-height:100%;
-    height:auto !important;
-    height:100%
-}
-footer[role="contentinfo"]{
-    background:#333;
-    color:white;
-    padding:20px 30px;
-    margin-left:250px;
-    min-height:74px
-}
-footer[role="contentinfo"] p{
-    font-size:0.625em;
-    color:#ccc;
-    line-height:1em;
-    margin-bottom:1em
-}
-footer[role="contentinfo"] p.privacy a{
-    color:#ccc;
-    border-right:1px solid #ccc;
-    margin-right:6px;
-    padding-right:8px
-}
-footer[role="contentinfo"] p.privacy a:last-child{
-    border:none;
-    margin:0;
-    padding:0
-}
-footer[role="contentinfo"] aside{
-    position:relative;
-    width:100%;
-    max-width:700px;
-    margin-right:68px
-}
-footer[role="contentinfo"] aside i{
-    width:16px;
-    height:16px;
-    background-repeat:no-repeat;
-    background-size:16px;
-    display:block;
-    margin-left:1em;
-    float:right;
-    text-indent: -5000em;
-}
-footer[role="contentinfo"] aside i.twitter{
-    background-image:url("../images/icon-twitter.svg")
-}
-footer[role="contentinfo"] aside i.feed{
-    background-image:url("../images/icon-feed.svg")
-}
-article:first-of-type{
-    padding-bottom:36px
-}
-article h2{
-    padding-top:1.1em
-}
-article h3{
-    padding-top:1em
-}
-article h4{
-    padding-top:1em;
-    border-bottom:1px #f3f3f3 solid;
-    padding-bottom:0.5em
-}
-article h5{
-    margin-top:1em
-}
-article header{
-    width:100%;
-    display:inline-block;
-    padding-bottom:3em
-}
-article header h1{
-    padding-bottom:0.125em
-}
-article header .byline{
-    float:left;
-    font-size:14px;
-    margin-left:3em
-}
-article header .byline img{
-    width:32px;
-    height:32px;
-    border-radius:50%;
-    border:1px #ccc solid;
-    position:absolute;
-    margin-right:0.25em;
-    margin-top:-6px
-}
-article header .byline span{
-    padding-left:42px
-}
-article header time{
-    float:left;
-    text-transform:uppercase;
-    font-size:14px;
-    font-weight:400;
-    color:#aaa
-}
-article header .tags{
-    display:block;
-    font-size:12px;
-    font-weight:400;
-    margin-top:0
-}
-article:not(:first-of-type){
-    border-top:1px solid #e6e6e6;
-    padding:36px 0
-}
-article blockquote{
-    border-left:3px #c3c3c3 solid;
-    margin:0.5em;
-    margin-left:10px;
-    margin-bottom:1.5em;
-    padding:0.5em;
-    padding-left:1em;
-    color:#333
-}
-article ul,article ol{
-    padding-left:40px;
-    margin:1em 0
-}
-article ul ul,article ul ol,article ol ul,article ol ol{
-    margin:0
-}
-article ul{
-    list-style:disc
-}
-article ul ul{
-    list-style:circle
-}
-article ul ul ul{
-    list-style:square
-}
-article ol{
-    list-style:decimal
-}
-article dl{
-    margin:2em 0 1em 0
-}
-article dl dt{
-    display:block;
-}
-article dl dd{
-    margin:0 0 1em 1em
-}
-article table{
-    width:auto;
-    min-width:68%;
-    margin:2em auto 3em auto;
-    border-collapse:separate;
-    border:1px #e3e3e3 solid
-}
-article table th{
-    background:#fafafa;
-    font-weight:700;
-    text-align:center
-}
-article table th,article table td{
-    padding:0.5em 1.5em;
-    border-bottom:1px #f3f3f3 solid
-}
-article table th:not(:first-child),article table td:not(:first-child){
-    border-left:1px #f3f3f3 solid
-}
-article table tr:last-child td{
-    border-bottom:none
-}
-article details{
-    margin-top:0;
-    cursor:pointer
-}
-article details summary{
-    padding-bottom:0.5em;
-    outline:none;
-    margin-top:0
-}
-article details summary:after{
-    content:"Expand";
-    text-transform:lowercase;
-    font-variant:small-caps;
-    border-bottom:1px #ccc dashed
-}
-article details[open] summary:after{
-    content:"Collapse"
-}
-article details[open] *:not(summary){
-    cursor:auto
-}
-article details.download{
-    margin-top:0;
-    cursor:pointer
-}
-article details.download summary{
-    padding-bottom:0.5em;
-    outline:none;
-    margin-top:0
-}
-article details.download summary:after{
-    content:none;
-    text-transform:lowercase;
-    font-variant:small-caps;
-    border-bottom:1px #ccc dashed
-}
-article details.download[open] summary:after{
-    content:none
-}
-article details.download[open] *:not(summary){
-    cursor:auto
-}
-article>details{
-    margin-left:40px
-}
-article .good pre,article pre.good{
-    background:#E6FFE5;
-    border-color:#C0FFBC
-}
-article .good pre:before,article pre.good:before{
-    content:"âœ…";
-    float:right
-}
-article .bad pre,article pre.bad{
-    background:#F9E2E4;
-    border-color:#F6B7BE
-}
-article .bad pre:before,article pre.bad:before{
-    content:"â›”ï¸";
-    float:right
-}
-article footer{
-    margin:4em 0 0 0;
-    padding:1.5em 0 1em 0;
-    border-top:1px #F3F3F3 solid
-}
-article footer:after{
-    content:"";
-    display:table;
-    clear:both
-}
-article footer nav [rel="prev"]{
-    width:45%;
-    float:left;
-    text-align:left
-}
-article footer nav [rel="prev"]:before{
-    content:"â† "
-}
-article footer nav [rel="next"]{
-    width:45%;
-    float:right;
-    text-align:right
-}
-article footer nav [rel="next"]:after{
-    content:" â†’"
-}
-.title a:link,.title a:visited{
-    color:#333
-}
-.alert,.success,.info,.warning,.danger{
-    border-width:1px;
-    border-style:solid;
-    padding:0.5em;
-    margin:0.5em 0 1.5em 0
-}
-.alert p:first-child,.success p:first-child,.info p:first-child,.warning p:first-child,.danger p:first-child{
-    margin-top:0
-}
-.alert p:last-child,.success p:last-child,.info p:last-child,.warning p:last-child,.danger p:last-child{
-    margin-bottom:0
-}
-.alert code,.success code,.info code,.warning code,.danger code{
-    border:none;
-    background:transparent;
-    padding:0
-}
-code{
-    white-space:pre-line
-}
-pre code{
-    white-space:inherit
-}
-pre code .graphic{
-    font-size:19px;
-    line-height:0
-}
-pre code .commentary,pre code .graphic{
-    font-family:"Helvetica Neue", Helvetica, Arial, Verdana, sans-serif
-}
-@supports (overflow: -webkit-marquee) and (justify-content: inherit){
-    .alert:before,.success:before,.info:before,.warning:before,.danger:before{
-        font-size:1em;
-        float:left;
-        clear:left;
-        padding-left:0.125em;
-        width:2em
-    }
-    .alert p,.success p,.info p,.warning p,.danger p{
-        padding-left:2em
-    }
-    .success:before{
-        content:"âœ…"
-    }
-    .info:before{
-        content:"â„¹ï¸"
-    }
-    .warning:before{
-        content:"âš ï¸"
-    }
-    .danger:before{
-        content:"â—ï¸"
-    }
-}
-.success{
-    border-color:#149e39;
-    background-color:#e0ffe8
-}
-.info{
-    border-color:#139CFE;
-    background-color:#DEF0FD
-}
-.warning{
-    border-color:#FFFF10;
-    background-color:#FFFFEB
-}
-.danger{
-    border-color:#D5001B;
-    background-color:#FEE1E2
-}
-table.downloads{
-    width:100%;
-    table-layout:fixed
-}
-table.downloads th{
-    font-size:0.75em
-}
-table.downloads .platform{
-    width:40%
-}
-table.downloads .download{
-    width:60%
-}
-table.downloads .download a.debug,table.downloads .download a.signature{
-    font-size:0.7em;
-    display:block
-}
-table.downloads .download a{
-    font-weight:700;
-    font-size:1em
-}
-table.downloads .download a:not([download]){
-    font-weight:400
-}
-table.downloads .download a:not([download]):before{
-    content:"("
-}
-table.downloads .download a:not([download]):after{
-    content:")"
-}
-article input.detail[type=checkbox]{
-    visibility:hidden;
-    cursor:pointer;
-    height:0;
-    width:100%;
-    margin-bottom:2em;
-    display:block;
-    font-size:inherit;
-    font-style:inherit;
-    font-weight:inherit;
-    font-family:inherit;
-    position:relative;
-    top:-.85rem
-}
-article p+input.detail[type=checkbox]{
-    margin-top:auto
-}
-article .screenonly{
-    display:none
-}
-@media screen{
-    article .screenonly{
-        display:inherit
-    }
-    article input.detail[type=checkbox]:before{
-        content:"â–¶ ";
-        visibility:visible;
-        font-size:80%
-    }
-    article input.detail[type=checkbox]:after{
-        text-transform:lowercase;
-        font-variant:small-caps;
-        border-bottom:1px #ccc dashed;
-        color:#666666;
-        content:"More detail";
-        visibility:visible
-    }
-    article input.detail[type=checkbox]:checked:before{
-        content:"â–¼ "
-    }
-    article input.detail[type=checkbox]:checked:after{
-        content:"Less detail"
-    }
-    article input.detail[type=checkbox]+.more{
-        transition:0.5s opacity ease, 0.5s max-height ease
-    }
-    article input.detail[type=checkbox]:checked+.more{
-        visibility:visible;
-        max-height:1000rem
-    }
-    article input.detail[type=checkbox]:not(:checked)+.more{
-        overflow:hidden;
-        max-height:0px;
-        opacity:0
-    }
-}
-article .more>p:first-of-type{
-    margin-top:0
-}
-@media only screen and (max-width: 767px){
-    nav[role="navigation"]{
-        width:100%;
-        position:relative;
-        background:#FAFAFA;
-        border-bottom:1px solid #e6e6e6;
-        border-right:none;
-        padding:20px 30px;
-        overflow:hidden
-    }
-    nav[role="navigation"].open>*{
-        display:block
-    }
-    nav[role="navigation"]>h2,nav[role="navigation"] ul{
-        display:none
-    }
-    .menu-toggle{
-        float:right;
-        content:' ';
-        height:20px;
-        width:20px;
-        background-image:url("../images/icon-close.svg");
-        background-repeat:no-repeat;
-        background-position:center center;
-        background-size:21px 21px;
-        margin-top:-48px;
-        margin-right:12px;
-        cursor:pointer
-    }
-    .menu-toggle.open{
-        background-image:url("../images/icon-menu.svg")
-    }
-    #logo a{
-        width:198px;
-        margin:0 auto
-    }
-    main{
-        max-width:100%;
-        min-width:320px;
-        margin-left:0;
-        padding:30px 30px 0
-    }
-    footer[role="contentinfo"]{
-        margin-left:0
-    }
-    h1{
-        font-size:48px;
-        font-weight:200;
-        line-height:1
-    }
-    h2{
-        font-size:40px;
-        font-weight:300;
-        line-height:1.1
-    }
-    h3{
-        font-size:38px;
-        font-weight:300;
-        line-height:1.1
-    }
-    h4{
-        font-size:36px;
-        font-weight:300;
-        line-height:1.2
-    }
-    h5{
-        font-size:24px;
-        font-weight:500;
-        line-height:1.4
-    }
-    h6{
-        font-size:18px;
-        font-weight:700;
-        line-height:1.5
-    }
-    table.downloads{
-        border:1px #f3f3f3 solid
-    }
-    table.downloads,table.downloads thead,table.downloads tbody,table.downloads th,table.downloads td,table.downloads tr{
-        display:block !important
-    }
-    table.downloads thead tr{
-        position:absolute;
-        top:-9999px;
-        left:-9999px
-    }
-    table.downloads tr{
-        border:1px solid #f3f3f3
-    }
-    table.downloads td{
-        border-left:none !important;
-        border-right:none !important;
-        border-bottom:1px solid #f3f3f3 !important;
-        position:relative;
-        padding-left:35%;
-        width:100% !important
-    }
-    table.downloads td:before{
-        position:absolute;
-        top:0.5em;
-        left:0.5em;
-        width:27.5%;
-        padding-right:10px;
-        white-space:nowrap;
-        text-align:right
-    }
-    table.downloads td.platform:before{
-        content:"Platform"
-    }
-    table.downloads td.download:before{
-        content:"Download";
-        top:1em
-    }
-    table.downloads td.date:before{
-        content:"Date"
-    }
-}
-@media only print{
-    html body{
-        background:white;
-        font-size:12pt;
-        padding:0.5in
-    }
-    html body *{
-        -webkit-print-color-adjust:exact
-    }
-    a{
-        color:black !important;
-        text-decoration:underline !important
-    }
-    h1,h2,h3,h4,h5,h6,p,article>div,pre,table{
-        page-break-inside:avoid
-    }
-    details:not([open]){
-        visibility:visible
-    }
-    details:not([open]) summary{
-        display:none !important
-    }
-    details:not([open])>*,details:not([open]){
-        display:block
-    }
-    .alert,.success,.info,.warning,.danger{
-        margin:1.5em 0
-    }
-    main{
-        width:auto;
-        padding:0;
-        border:0;
-        float:none !important;
-        color:black;
-        background:transparent;
-        margin:0;
-        max-width:100%;
-        min-height:1in
-    }
-    nav[role="navigation"]{
-        background:transparent;
-        border:none;
-        width:auto;
-        position:static;
-        padding:0
-    }
-    nav[role="navigation"] h2,nav[role="navigation"] ul{
-        display:none
-    }
-    nav[role="navigation"] #logo{
-        position:static;
-        margin-bottom:1.5em
-    }
-    nav[role="navigation"] #logo a{
-        background-position:-15px
-    }
-    footer[role="contentinfo"]{
-        display:none
-    }
-}
- Xtext/cssOÂbplist00Ô
-X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯1'-.4567cdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…†‡ˆ‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€0€€ €Ó()$+,WNS.base[NS.relative€ €€_Ehttps://docs.swift.org/swift-book/_static/stylesheets/application.cssÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃñ¹-œ< ÈÓ89:NbWNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKLM€	€
-€€€€€€€€€€€€€€€€€¯PQRSTUVWXYZ[\]^_`a€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-€.€/\Content-Type_X-Frame-Options]Last-ModifiedSAge_Content-EncodingVServer_X-XSS-ProtectionSViaWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-RangesWX-CacheXtext/cssZSAMEORIGIN_Mon, 14 Mar 2022 19:10:43 GMTQ3TgzipUApple]1; mode=block_vhttps/1.1 jptyo7-edge-bx-007.ts.apple.com (acdn/141.13253), https/1.1 jptyo7-edge-lx-001.ts.apple.com (acdn/141.13253)_.81653798-7975-4920-9c56-bf9afd4ff246-906326605_max-age=180, public_Thu, 17 Mar 2022 13:42:44 GMT_#max-age=31536000; includeSubdomainsT5684Zkeep-alive_€
-
-YnBsaXN0MDDfEBIBAgMEBQYHCAkKCwwNDg8QERITFRcZGx0fISMlJykrLS8xMzVcQ29udGVudC1UeXBlV1gtQ2FjaGVURXRhZ1NBZ2VfEBBDb250ZW50LUVuY29kaW5nVlNlcnZlcl8QEFgtWFNTLVByb3RlY3Rpb25TVmlhV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zXUxhc3QtTW9kaWZpZWShFFh0ZXh0L2Nzc6EWWWhpdC1zdGFsZaEYXxAUIjRmYzctNWRhMzI2ZmQ0ZjJjMCKhGlEzoRxUZ3ppcKEeVUFwcGxloSBdMTsgbW9kZT1ibG9ja6EiXxB2aHR0cHMvMS4xIGpwdHlvNy1lZGdlLWJ4LTAwNy50cy5hcHBsZS5jb20gKGFjZG4vMTQxLjEzMjUzKSwgaHR0cHMvMS4xIGpwdHlvNy1lZGdlLWx4LTAwMS50cy5hcHBsZS5jb20gKGFjZG4vMTQxLjEzMjUzKaEkXxAuODE2NTM3OTgtNzk3NS00OTIwLTljNTYtYmY5YWZkNGZmMjQ2LTkwNjMyNjYwNaEmXxATbWF4LWFnZT0xODAsIHB1YmxpY6EoXxAdVGh1LCAxNyBNYXIgMjAyMiAxMzo0Mjo0NCBHTVShKl8QI21heC1hZ2U9MzE1MzYwMDA7IGluY2x1ZGVTdWJkb21haW5zoSxUNTY4NKEuWmtlZXAtYWxpdmWhMFdub3NuaWZmoTJVYnl0ZXOhNFpTQU1FT1JJR0lOoTZfEB1Nb24sIDE0IE1hciAyMDIyIDE5OjEwOjQzIEdNVAAIAC8APABEAEkATQBgAGcAegB+AIYAlACZALUAxADPAOgA9gEIARYBGAEhASMBLQEvAUYBSAFKAUwBUQFTAVkBWwFpAWsB5AHmAhcCGQIvAjECUQJTAnkCewKAAoICjQKPApcCmQKfAqECrAKuAAAAAAAAAgEAAAAAAAAANwAAAAAAAAAAAAAAAAAAAs4=Wnosniff_"4fc7-5da326fd4f2c0"UbytesYhit-staleÒ/0Š‹_NSMutableDictionary£ŠŒ3\NSDictionaryÒ/0_NSHTTPURLResponse£‘3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d ˜  ¹ Û ı "%GNpsv˜º½¿ÁÃÅÇÉËÍÎĞÒÔÖİåñóõ÷?DOX^ajsuw~†‘§©«­¯±³µ·¹»½¿ÁÃÅÇÉËÍãåçéëíïñóõ÷ùûıÿ	*8<OVimuƒˆ¤³¾Çàåóû/16<JÃô
-*PU`	ä	ì
-
-	
-
-
-.
-2
-?
-D
-X
-\
-p             ’              
-~Ô_:https://docs.swift.org/swift-book/_static/images/swift.svgO¬<?xml version="1.0" encoding="iso-8859-1"?>
-<svg version="1.1" id="artwork" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="191.1856px" height="59.3911px" viewBox="0 0 191.1856 59.3911" enable-background="new 0 0 191.1856 59.3911"
-	 xml:space="preserve">
-<g>
-	<g>
-		<path fill="#F05138" d="M59.3867,16.4501c-0.0035-0.5973-0.0101-1.1943-0.0266-1.7923c-0.0348-1.3008-0.1117-2.6134-0.3429-3.9003
-			c-0.2346-1.3069-0.6181-2.5221-1.2225-3.7093c-0.5933-1.1659-1.3689-2.2328-2.2941-3.158
-			c-0.925-0.9252-1.9919-1.7007-3.1583-2.2943c-1.1862-0.6037-2.4016-0.9871-3.7073-1.2217
-			c-1.2876-0.2319-2.6002-0.3083-3.902-0.3435c-0.5977-0.0162-1.1948-0.023-1.7923-0.0267C42.2315,0,41.5218,0,40.8128,0H25.0912
-			h-6.5131c-0.7097,0-1.4186,0-2.1276,0.0041c-0.5977,0.0037-1.1955,0.0105-1.7923,0.0267
-			c-0.3254,0.0088-0.6515,0.0202-0.9778,0.0359c-0.9788,0.0472-1.9591,0.1337-2.9243,0.3076
-			c-0.9793,0.176-1.9079,0.4356-2.8113,0.8091C7.6437,1.3078,7.3453,1.445,7.0487,1.5959C6.1739,2.0411,5.3549,2.5886,4.61,3.2248
-			c-0.2483,0.2121-0.4884,0.434-0.7196,0.6653c-0.9254,0.9252-1.701,1.9921-2.2943,3.158
-			c-0.6044,1.1872-0.9874,2.4024-1.2222,3.7093c-0.231,1.2869-0.3078,2.5995-0.3428,3.9003
-			c-0.0164,0.598-0.0233,1.195-0.0272,1.7923C-0.0006,17.1594,0,17.8689,0,18.5781V28.26v12.5525
-			c0,0.7099-0.0007,1.4187,0.0039,2.1286c0.0039,0.5973,0.0108,1.1943,0.0272,1.7913c0.035,1.3015,0.1117,2.6144,0.3428,3.9007
-			c0.2348,1.3065,0.6178,2.5228,1.2222,3.7097c0.5933,1.1662,1.3689,2.2328,2.2943,3.1576c0.9247,0.9256,1.9919,1.701,3.1584,2.295
-			c1.1863,0.6038,2.4016,0.9867,3.7076,1.2213c1.2868,0.2316,2.6004,0.3086,3.9019,0.3434c0.5968,0.0159,1.1946,0.023,1.7923,0.0264
-			c0.709,0.0051,1.4179,0.0044,2.1276,0.0044h22.2346c0.709,0,1.4187,0.0007,2.1278-0.0044
-			c0.5975-0.0034,1.1946-0.0105,1.7923-0.0264c1.3018-0.0348,2.6144-0.1119,3.902-0.3434c1.3057-0.2346,2.5211-0.6176,3.7073-1.2213
-			c1.1664-0.5939,2.2333-1.3694,3.1583-2.295c0.9252-0.9249,1.7009-1.9914,2.2941-3.1576c0.6044-1.1869,0.9879-2.4031,1.2225-3.7097
-			c0.2312-1.2863,0.3081-2.5992,0.3429-3.9007c0.0164-0.597,0.023-1.1939,0.0266-1.7913c0.0046-0.7099,0.0042-1.4187,0.0042-2.1286
-			V18.5781C59.3909,17.8689,59.3912,17.1594,59.3867,16.4501z"/>
-		<path fill="#FFFFFF" d="M47.0606,36.6607c-0.0014-0.0018-0.0027-0.0031-0.0042-0.0048c0.0657-0.2236,0.1335-0.4458,0.191-0.675
-			c2.465-9.8209-3.5511-21.4319-13.7316-27.5454c4.4613,6.0479,6.4339,13.3733,4.6813,19.7795
-			c-0.1563,0.5714-0.3442,1.1198-0.5519,1.6528c-0.2254-0.1481-0.5094-0.3162-0.8908-0.5265c0,0-10.1269-6.2527-21.1028-17.3122
-			c-0.288-0.2903,5.8528,8.777,12.8219,16.1399c-3.2834-1.8427-12.4338-8.5004-18.2266-13.8023
-			c0.7117,1.1869,1.5582,2.3298,2.4887,3.4301c4.8375,6.1349,11.1462,13.7044,18.7043,19.5169
-			c-5.3104,3.2498-12.8141,3.5025-20.2852,0.0034c-1.8479-0.866-3.5851-1.9109-5.1932-3.0981
-			c3.1625,5.0585,8.0332,9.4229,13.9613,11.9708c7.0695,3.0381,14.0996,2.8321,19.3356,0.0498l-0.0041,0.006
-			c0.0239-0.0151,0.0543-0.0316,0.0791-0.0469c0.215-0.1156,0.4284-0.2333,0.6371-0.3576
-			c2.5157-1.3058,7.4847-2.6306,10.1518,2.5588C50.7755,49.6699,52.1635,42.9395,47.0606,36.6607z"/>
-	</g>
-</g>
-<g id="XMLID_1_">
-	<g>
-		<path d="M81.9306,38.5423c0.464,4.1203,4.3938,6.8217,9.8514,6.8217c5.1854,0,8.9239-2.7014,8.9239-6.4393
-			c0-3.2203-2.2648-5.186-7.4776-6.4953l-5.0484-1.2825c-7.259-1.8013-10.534-5.0764-10.534-10.4792
-			c0-6.6585,5.8127-11.2709,14.0819-11.2709c8.0226,0,13.7263,4.6392,13.9175,11.3257h-5.3212
-			c-0.4098-4.0935-3.7391-6.6049-8.7327-6.6049c-4.94,0-8.3783,2.5382-8.3783,6.2493c0,2.8926,2.129,4.6124,7.3686,5.9497
-			l4.2025,1.0913c8.1323,1.9926,11.4615,5.158,11.4615,10.8617c0,7.259-5.7585,11.8166-14.9278,11.8166
-			c-8.5141,0-14.3268-4.5308-14.7634-11.5437H81.9306z"/>
-		<path d="M140.0488,49.4308h-5.3492l-6.2493-21.777h-0.109l-6.2219,21.777h-5.3486l-7.9142-28.5183h5.1848l5.5124,22.8963h0.1096
-			l6.2219-22.8963h5.021l6.2767,22.8963h0.1096l5.5125-22.8963h5.13L140.0488,49.4308z"/>
-		<path d="M151.3891,13.2442c0-1.7185,1.4195-3.1106,3.1387-3.1106c1.7466,0,3.1655,1.3921,3.1655,3.1106
-			c0,1.7197-1.4189,3.1387-3.1655,3.1387C152.8086,16.3829,151.3891,14.964,151.3891,13.2442z M151.9353,20.9125h5.2122v28.5183
-			h-5.2122V20.9125z"/>
-		<path d="M191.1856,25.1156v-4.2032h-5.5125v-6.8217h-5.1854v6.8217h-4.2299h-5.7335v-2.5102
-			c0.0268-2.5382,1.0096-3.6027,3.3567-3.6027c0.7636,0,1.5279,0.0828,2.1558,0.1912v-4.0935
-			c-0.9281-0.1364-1.774-0.218-2.7562-0.218c-5.5673,0-7.9142,2.3202-7.9142,7.6414v2.5918h-3.9839v4.2032h3.9839v24.3151h5.1848
-			V25.1156h5.7067h4.2299v16.8381c0,5.5125,2.1016,7.6402,7.5592,7.6402c1.1735,0,2.5108-0.0816,3.1113-0.218v-4.2567
-			c-0.355,0.0548-1.3922,0.1364-1.9651,0.1364c-2.4286,0-3.5199-1.1461-3.5199-3.7111V25.1156H191.1856z"/>
-	</g>
-</g>
-</svg>
-]image/svg+xmlOcbplist00Ô
-X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯/'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€.€€ €Ó()$+,WNS.base[NS.relative€ €€_:https://docs.swift.org/swift-book/_static/images/swift.svgÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃñ¹-œG‘ ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
-€€€€€€€€€€€€€€€€¯OPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGINTmissQ0_vhttps/1.1 jptyo7-edge-bx-007.ts.apple.com (acdn/141.13253), https/1.1 jptyo7-edge-lx-006.ts.apple.com (acdn/141.13253)UApple]1; mode=block_.81653798-7975-4920-9c56-bf9afd4ff246-906328327_max-age=180, public_Thu, 17 Mar 2022 13:42:44 GMT_#max-age=31536000; includeSubdomainsT4780Zkeep-alive_T
-
-YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1Nb24sIDE0IE1hciAyMDIyIDE5OjEwOjQzIEdNVKEXXxAUIjEyYWMtNWRhMzI2ZmQ0ZjJjMCKhGVEwoRtfEHZodHRwcy8xLjEganB0eW83LWVkZ2UtYngtMDA3LnRzLmFwcGxlLmNvbSAoYWNkbi8xNDEuMTMyNTMpLCBodHRwcy8xLjEganB0eW83LWVkZ2UtbHgtMDA2LnRzLmFwcGxlLmNvbSAoYWNkbi8xNDEuMTMyNTMpoR1VQXBwbGWhH10xOyBtb2RlPWJsb2NroSFfEC44MTY1Mzc5OC03OTc1LTQ5MjAtOWM1Ni1iZjlhZmQ0ZmYyNDYtOTA2MzI4MzI3oSNfEBNtYXgtYWdlPTE4MCwgcHVibGljoSVfEB1UaHUsIDE3IE1hciAyMDIyIDEzOjQyOjQ0IEdNVKEnXxAjbWF4LWFnZT0zMTUzNjAwMDsgaW5jbHVkZVN1YmRvbWFpbnOhKVQ0NzgwoStaa2VlcC1hbGl2ZaEtV25vc25pZmahL1VieXRlc6ExWlNBTUVPUklHSU6hM1RtaXNzAAgALQA6AEgATQBRAFUAXABvAHcAhQCKAKYAtQDAANkA5wD5AQEBAwERARMBMwE1AUwBTgFQAVIBywHNAdMB1QHjAeUCFgIYAi4CMAJQAlICeAJ6An8CgQKMAo4ClgKYAp4CoAKrAq0AAAAAAAACAQAAAAAAAAA0AAAAAAAAAAAAAAAAAAACsg==Wnosniff_"12ac-5da326fd4f2c0"Ubytes_Mon, 14 Mar 2022 19:10:43 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionaryÒ/0Š‹_NSHTTPURLResponse£Œ3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d – œ · Ù û ş #ELnqt–¸»½¿ÁÃÅÇÉËÌÎĞÒÔÛãïñóõ27BKQT]fhjqy„™›Ÿ¡£¥§©«­¯±³µ·¹»½ÒÔÖØÚÜŞàâäæèêìîğòôöø#'.AIW\x‡’›´¹ÇÕãîóõnt‚³Éé	w		–	œ	¼	Á	×	Û	è	í
-
-
-                           
-'Ô_Ahttps://docs.swift.org/swift-book/_static/images/icon-twitter.svgO<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
-<path fill="#cccccc" d="M16 3.038c-0.589 0.261-1.221 0.438-1.885 0.517 0.678-0.406 1.198-1.050 1.443-1.816-0.634 0.376-1.337 0.649-2.085 0.797-0.599-0.638-1.452-1.037-2.396-1.037-1.813 0-3.283 1.47-3.283 3.282 0 0.257 0.029 0.508 0.085 0.748-2.728-0.137-5.147-1.444-6.766-3.43-0.283 0.485-0.444 1.049-0.444 1.65 0 1.139 0.579 2.144 1.46 2.732-0.538-0.017-1.044-0.165-1.487-0.411-0 0.014-0 0.027-0 0.041 0 1.59 1.132 2.917 2.633 3.219-0.275 0.075-0.565 0.115-0.865 0.115-0.212 0-0.417-0.021-0.618-0.059 0.418 1.304 1.63 2.253 3.066 2.28-1.123 0.88-2.539 1.405-4.077 1.405-0.265 0-0.526-0.016-0.783-0.046 1.453 0.931 3.178 1.475 5.032 1.475 6.038 0 9.34-5.002 9.34-9.34 0-0.142-0.003-0.284-0.010-0.425 0.642-0.463 1.198-1.041 1.638-1.699z"></path>
-</svg>
-O
-åbplist00Ô
-X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯/'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€.€€ €Ó()$+,WNS.base[NS.relative€ €€_Ahttps://docs.swift.org/swift-book/_static/images/icon-twitter.svgÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃñ¹-œPP ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
-€€€€€€€€€€€€€€€€¯OPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGINYhit-freshQ0_9http/1.1 jptyo7-edge-bx-027.ts.apple.com (acdn/141.13253)UApple]1; mode=block_.ff21c3ed-2bce-46b1-b675-95ef0e171e07-982436213_max-age=180, public_Thu, 17 Mar 2022 13:42:44 GMT_#max-age=31536000; includeSubdomainsT1032Zkeep-alive_
-
-YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1Nb24sIDE0IE1hciAyMDIyIDE5OjEwOjQzIEdNVKEXXxATIjQwOC01ZGEzMjZmZDRmMmMwIqEZUTChG18QOWh0dHAvMS4xIGpwdHlvNy1lZGdlLWJ4LTAyNy50cy5hcHBsZS5jb20gKGFjZG4vMTQxLjEzMjUzKaEdVUFwcGxloR9dMTsgbW9kZT1ibG9ja6EhXxAuZmYyMWMzZWQtMmJjZS00NmIxLWI2NzUtOTVlZjBlMTcxZTA3LTk4MjQzNjIxM6EjXxATbWF4LWFnZT0xODAsIHB1YmxpY6ElXxAdVGh1LCAxNyBNYXIgMjAyMiAxMzo0Mjo0NCBHTVShJ18QI21heC1hZ2U9MzE1MzYwMDA7IGluY2x1ZGVTdWJkb21haW5zoSlUMTAzMqErWmtlZXAtYWxpdmWhLVdub3NuaWZmoS9VYnl0ZXOhMVpTQU1FT1JJR0lOoTNZaGl0LWZyZXNoAAgALQA6AEgATQBRAFUAXABvAHcAhQCKAKYAtQDAANkA5wD5AQEBAwERARMBMwE1AUsBTQFPAVEBjQGPAZUBlwGlAacB2AHaAfAB8gISAhQCOgI8AkECQwJOAlACWAJaAmACYgJtAm8AAAAAAAACAQAAAAAAAAA0AAAAAAAAAAAAAAAAAAACeQ==Wnosniff_"408-5da326fd4f2c0"Ubytes_Mon, 14 Mar 2022 19:10:43 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionaryÒ/0Š‹_NSHTTPURLResponse£Œ3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d – œ · Ù û ş #ELnqt–¸»½¿ÁÃÅÇÉËÌÎĞÒÔÛãïñóõ9>IRX[dmoqx€‹ ¢¤¦¨ª¬®°²´¶¸º¼¾ÀÂÄÙÛİßáãåçéëíïñóõ÷ùûıÿ&*.5HP^c™¢»ÀÎÜêõÿ=CQ‚˜¸Şãîú				>	C	Y	]	j	o	ƒ	‡	›                           	©Ô_>https://docs.swift.org/swift-book/_static/images/icon-feed.svgO<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
-<path fill="#cccccc" d="M2.13 11.733c-1.175 0-2.13 0.958-2.13 2.126 0 1.174 0.955 2.122 2.13 2.122 1.179 0 2.133-0.948 2.133-2.122-0-1.168-0.954-2.126-2.133-2.126zM0.002 5.436v3.067c1.997 0 3.874 0.781 5.288 2.196 1.412 1.411 2.192 3.297 2.192 5.302h3.080c-0-5.825-4.739-10.564-10.56-10.564zM0.006 0v3.068c7.122 0 12.918 5.802 12.918 12.932h3.076c0-8.82-7.176-16-15.994-16z"></path>
-</svg>
-Onbplist00Ô
-X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯/'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€.€€ €Ó()$+,WNS.base[NS.relative€ €€_>https://docs.swift.org/swift-book/_static/images/icon-feed.svgÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃñ¹-œX› ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
-€€€€€€€€€€€€€€€€¯OPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGINYhit-staleQ0_vhttps/1.1 jptyo7-edge-bx-025.ts.apple.com (acdn/141.13253), https/1.1 jptyo7-edge-lx-004.ts.apple.com (acdn/141.13253)UApple]1; mode=block_.cde4a1da-aade-4f93-93d6-a48facd39138-984131565_max-age=180, public_Thu, 17 Mar 2022 13:42:44 GMT_#max-age=31536000; includeSubdomainsS669Zkeep-alive_X
-
-YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1Nb24sIDE0IE1hciAyMDIyIDE5OjEwOjQzIEdNVKEXXxATIjI5ZC01ZGEzMjZmZDRmMmMwIqEZUTChG18Qdmh0dHBzLzEuMSBqcHR5bzctZWRnZS1ieC0wMjUudHMuYXBwbGUuY29tIChhY2RuLzE0MS4xMzI1MyksIGh0dHBzLzEuMSBqcHR5bzctZWRnZS1seC0wMDQudHMuYXBwbGUuY29tIChhY2RuLzE0MS4xMzI1MymhHVVBcHBsZaEfXTE7IG1vZGU9YmxvY2uhIV8QLmNkZTRhMWRhLWFhZGUtNGY5My05M2Q2LWE0OGZhY2QzOTEzOC05ODQxMzE1NjWhI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHVRodSwgMTcgTWFyIDIwMjIgMTM6NDI6NDQgR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpUzY2OaErWmtlZXAtYWxpdmWhLVdub3NuaWZmoS9VYnl0ZXOhMVpTQU1FT1JJR0lOoTNZaGl0LXN0YWxlAAgALQA6AEgATQBRAFUAXABvAHcAhQCKAKYAtQDAANkA5wD5AQEBAwERARMBMwE1AUsBTQFPAVEBygHMAdIB1AHiAeQCFQIXAi0CLwJPAlECdwJ5An0CfwKKAowClAKWApwCngKpAqsAAAAAAAACAQAAAAAAAAA0AAAAAAAAAAAAAAAAAAACtQ==Wnosniff_"29d-5da326fd4f2c0"Ubytes_Mon, 14 Mar 2022 19:10:43 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionaryÒ/0Š‹_NSHTTPURLResponse£Œ3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d – œ · Ù û ş #ELnqt–¸»½¿ÁÃÅÇÉËÌÎĞÒÔÛãïñóõ6;FOUXajlnu}ˆŸ¡£¥§©«­¯±³µ·¹»½¿ÁÖØÚÜŞàâäæèêìîğòôöøúü	#'+2EM[`|‹–Ÿ¸½ËÙçòüşw}‹¼Òò'	ƒ	‹	¡	§	Ç	Ì	â	æ	ó	ø
-
-
-$                           
-2Ô_>https://docs.swift.org/swift-book/_static/stylesheets/tspl.cssOwï»¿/* code listings */
-
-div.Swift {
-    font-family: Menlo, monospace;
-    font-size:14px;
-    line-height:18px;
-    margin:0.5em;
-    margin-left:10px;
-    margin-bottom:1.5em;
-    padding:0.5em;
-    padding-left:1em;
-    overflow:scroll
-}
-
-.code-sample {
-    display: block;
-    font-size: 1.4em;
-    margin-left: 21px;
-}
-.code-sample .code-lines {
-    margin-left: 0;
-}
-.code-lines {
-    counter-reset: li;
-    line-height: 1.6em;
-    list-style: none;
-    margin: 0 0 0 20px;
-    padding: 0;
-}
-
-.code-sample .code-lines li {
-    list-style-type: none;
-    margin: 0;
-    padding-right: 10px;
-}
-.code-lines li {
-    padding-left: 0;
-    text-indent: -13px;
-    white-space: pre-wrap;
-    border-left: 18px solid transparent;
-}
-
-.code-lines li::before {
-    color: rgba(128,128,128,1);
-    content: counter(li);
-    counter-increment: li;
-    font-family: Menlo,monospace;
-    font-size: .9em;
-    margin-right: 16px;
-    -webkit-user-select: none;
-}
-.code-sample .code-lines li::before {
-    margin-left: -35px;
-    margin-right: 25px;
-}
-.code-sample .code-lines li:nth-child(n+10)::before {
-    margin-left: -43px;
-    margin-right: 25px;
-}
-.code-sample .code-lines li:only-of-type::before {
-    color: rgba(255,255,255,1);
-    content: ' ';
-}
-
-/* no line numbering in syntax outlines */
-.syntax-outline .code-lines li::before {
-    content: ' ';
-}
-.syntax-outline .code-lines {
-    line-height: 1.9em;
-}
-.syntax-outline div.Swift {
-    border-color: transparent;
-}
-
-.code-sample div.Swift {
-    width: 93%;
-    margin-left: 13px;
-    overflow: visible;
-}
-div.Swift {
-    border-left: 5px solid rgba(205,233,244,1);
-    padding: 4px 0 2px 10px;
-    margin: 10px 0 21px;
-    line-height: 22px;
-}
-
-.highlight .gi { /* code placeholder capsule */
-    background-color: rgba(233, 239, 250, 1);
-    border: 1px solid rgba(196, 212, 241, 1);
-    border-radius: 10px;
-    color: rgba(0, 0, 0, 1);
-    padding: 2px 6px;
-    font-style: inherit;
-    white-space: nowrap
-}
-
-/* grammar */
-
-.admonition.grammar {
-    border-left: 5px solid rgba(233,233,233,1);
-    margin: 20px 0;
-    padding-left: 15px;
-    padding-bottom: 1px;
-    font-size: 0.8em;
-    background: transparent;
-}
-.admonition.grammar p.admonition-title {
-    margin-bottom: 8px;
-}
-.admonition.grammar p {
-    margin: 0;
-}
-.admonition.grammar p.syntax-def {
-    margin-left: 25px;
-    text-indent: -25px;
-}
-.admonition.grammar .syntax-def-name {
-    color: rgba(128,128,128,1);
-    font-style: italic;
-    font-size: 15px;
-}
-.admonition.grammar .arrow {
-    padding: 0 6px;
-}
-.admonition.grammar code {
-    padding: 0;
-    border: 0;
-    background: transparent;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 0 3px;
-}
-.admonition.grammar a.syntax-def {
-    font-size: 15px;
-    font-style: italic;
-    padding: 0 3px;
-}
-.admonition.grammar sub {
-    color: rgba(128,128,128,1);
-    font-size: 12px;
-    font-style: italic;
-    margin-left: -3px;
-    padding-right: 5px;
-    vertical-align: baseline;
-    position: relative;
-    top: 0.3em; 
-}
-.admonition.grammar .syntax-group {
-    margin-bottom: 10px;
-}
-
-/* navigation overrides */
-
-nav[role="navigation"] h2 {
-    font-size: 1em;
-    color: #333;
-    padding: 0 12px 2px;
-}
-nav[role="navigation"] h2 div {
-    font-weight: 100;
-    padding-top: 3px;
-}
-nav[role="navigation"] ul li ul a:link {
-    color: #333;
-}
-nav[role="navigation"] ul li ul a.current:link {
-    font-weight: bold;
-}
-nav[role="navigation"] .return {
-    padding: 0 0 20px;
-    margin-top: Â -10px;
-    text-indent: -18px;
-    margin-left: 18px;
-}
-
-/* general overrides */
-
-img.align-center {
-    max-width: 100%;
-    height: auto;
-    margin: 10px auto;
-    display: block;
-}
-
-a.headerlink {
-    display: none;
-}
-
-body {
-    background: #fff;
-}
-p {
-    margin-bottom: 1em;
-}
-
-h2 {
-    font-size: 2em;
-}
-h3 { 
-    font-size: 1.4em;
-}
-@media only screen and (max-width: 767px) {
-    h2 {
-        font-size: 2em;
-    }
-    h3 { 
-        font-size: 1.4em;
-    }
-}
-
-.playground_link a {
-    font-weight: bold;
-}
-
-p>code.literal, li>code.literal, dt>code.literal, dd>code.literal {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    color: #666;
-    font-size: 0.9em;
-}
-a>code.literal {
-    background-color: transparent;
-    border: none;
-    padding: 0;
-    font-size: 0.9em;
-}
-article table {
-    border-collapse: collapse;
-    border-color: #ddd;
-}
-
-article table th, article table td, article table th:not(:first-child), article table td:not(:first-child) {
-    border-color: #ddd;
-}
-
-.admonition {
-    margin-left: 34px;
-    border-left: solid 5px #ccc;
-    background-color: #f5f5f5;
-    padding: 10px;
-    font-size: 0.85em;
-    margin-bottom: 1.5em;
-}
-.admonition-experiment {
-    border-color: #0088cc;
-}
-.admonition-beta {
-    margin-top: 4em;
-    clear: both;
-}
-.admonition .admonition-title {
-    text-transform: uppercase;
-    color: #777;
-    font-weight: normal;
-    font-size: 0.7em;
-    letter-spacing: 2px;
-    margin-bottom: 0.7em;
-}
-.admonition .last {
-    margin-bottom: 0;
-}
-
-nav[role="navigation"].open ul {
-    display: block;
-}
-
-/* intrapage navigation */
-
-#bashful {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    margin: 0;
-    z-index: 10;
-}
-
-#bashful .inner {
-    position: relative;
-    width: 100%;
-    max-width: 985px;
-}
-
-#jump_to {
-    position: absolute;
-    right: 15px;
-}
-
-#jump_to_toggle {
-    display: block;
-    float: right;
-    background: rgb(250, 250, 250) right 1px no-repeat url(../images/icon-caret-sm.svg);
-    border: 1px solid rgb(230, 230, 230);
-    border-top: none;
-    padding: 5px 27px 5px 8px;
-    color: #333;
-    font: 12px Helvetica, Arial, Verdana, sans-serif;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    line-height: 14px;
-    height: 25px;
-    cursor: pointer;
-}
-  
-#jump_to.open #jump_to_toggle {
-    border-bottom-color: rgb(250, 250, 250);
-    background-image: url(../images/icon-close-sm.svg);
-}
-
-#jump_to menu {
-    display: none;
-}
-
-#jump_to.open menu {
-    display: block;
-    margin: 24px 0 0;
-    padding: 0 15px;
-    background: rgb(250, 250, 250);
-    border: 1px solid rgb(230, 230, 230);
-    width: 300px;
-    font-size: 12px;
-    line-height: 15px;
-    color: #666;
-}
-
-#jump_to menu ul {
-    list-style: none;
-    margin: 15px 0;
-    padding: 0;
-}
-
-#jump_to menu ul ul {
-    margin: 0;
-}
-
-/* hide h1 level nav */
-#jump_to menu ul a {
-    display: none;
-}
-/* show >= h2 level nav */
-#jump_to menu ul ul a {
-    display: inline;
-    color: #333;
-}
-/* indent h3 level nav */
-#jump_to menu ul ul ul {
-    display: none;
-    padding-left: 15px;
-    margin-bottom: 10px;
-}
-/* hide >= h4 level nav */
-#jump_to menu ul ul ul ul {
-    display: none;
-}
-
-#jump_to menu ul ul li {
-    margin: 6px 0;
-}
-
-#jump_to_overlay {
-    position: fixed;
-    display: none;
-    width: 100%;
-    height: 100%;
-    top: 0; 
-    left: 0;
-    background-color: transparent;
-    z-index: 5;
-    cursor: default;
-}
-
-.next_previous p {
-    display: inline;
-    margin: 0;
-}
-.next_previous .previous a {
-    float: left;
-    padding: 0 25px;
-    background: 0 3px url(../images/icon-next_previous.svg) no-repeat;
-    display: block;
-}
-.next_previous .next a {
-    float: right;
-    padding: 0 25px;
-    background: right -18px url(../images/icon-next_previous.svg) no-repeat;
-    display: block;
-}
-footer {
-    margin-top: 4em;
-    clear: both;
-}
-
-@media only screen and (max-width: 767px) {
-    #jump_to, #bashful {
-        display: none;
-    }
-
-    .code-sample {
-        margin-left: 10px;
-    }
-    .admonition {
-        margin-left: 23px;
-    }
-}
-O»bplist00Ô
-X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯1'-.4567cdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…†‡ˆ‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€0€€ €Ó()$+,WNS.base[NS.relative€ €€_>https://docs.swift.org/swift-book/_static/stylesheets/tspl.cssÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃñ¹-œ`š ÈÓ89:NbWNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKLM€	€
-€€€€€€€€€€€€€€€€€¯PQRSTUVWXYZ[\]^_`a€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-€.€/\Content-Type_X-Frame-Options]Last-ModifiedSAge_Content-EncodingVServer_X-XSS-ProtectionSViaWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-RangesWX-CacheXtext/cssZSAMEORIGIN_Mon, 14 Mar 2022 19:10:43 GMTQ3TgzipUApple]1; mode=block_vhttps/1.1 jptyo7-edge-bx-005.ts.apple.com (acdn/141.13253), https/1.1 jptyo7-edge-lx-005.ts.apple.com (acdn/141.13253)_.99e01c52-a07d-4eec-bd55-4c3efa979621-911104186_max-age=180, public_Thu, 17 Mar 2022 13:42:44 GMT_#max-age=31536000; includeSubdomainsT2390Zkeep-alive_€
-
-YnBsaXN0MDDfEBIBAgMEBQYHCAkKCwwNDg8QERITFRcZGx0fISMlJykrLS8xMzVcQ29udGVudC1UeXBlV1gtQ2FjaGVURXRhZ1NBZ2VfEBBDb250ZW50LUVuY29kaW5nVlNlcnZlcl8QEFgtWFNTLVByb3RlY3Rpb25TVmlhV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zXUxhc3QtTW9kaWZpZWShFFh0ZXh0L2Nzc6EWWWhpdC1zdGFsZaEYXxAUIjFkNzctNWRhMzI2ZmQ0ZjJjMCKhGlEzoRxUZ3ppcKEeVUFwcGxloSBdMTsgbW9kZT1ibG9ja6EiXxB2aHR0cHMvMS4xIGpwdHlvNy1lZGdlLWJ4LTAwNS50cy5hcHBsZS5jb20gKGFjZG4vMTQxLjEzMjUzKSwgaHR0cHMvMS4xIGpwdHlvNy1lZGdlLWx4LTAwNS50cy5hcHBsZS5jb20gKGFjZG4vMTQxLjEzMjUzKaEkXxAuOTllMDFjNTItYTA3ZC00ZWVjLWJkNTUtNGMzZWZhOTc5NjIxLTkxMTEwNDE4NqEmXxATbWF4LWFnZT0xODAsIHB1YmxpY6EoXxAdVGh1LCAxNyBNYXIgMjAyMiAxMzo0Mjo0NCBHTVShKl8QI21heC1hZ2U9MzE1MzYwMDA7IGluY2x1ZGVTdWJkb21haW5zoSxUMjM5MKEuWmtlZXAtYWxpdmWhMFdub3NuaWZmoTJVYnl0ZXOhNFpTQU1FT1JJR0lOoTZfEB1Nb24sIDE0IE1hciAyMDIyIDE5OjEwOjQzIEdNVAAIAC8APABEAEkATQBgAGcAegB+AIYAlACZALUAxADPAOgA9gEIARYBGAEhASMBLQEvAUYBSAFKAUwBUQFTAVkBWwFpAWsB5AHmAhcCGQIvAjECUQJTAnkCewKAAoICjQKPApcCmQKfAqECrAKuAAAAAAAAAgEAAAAAAAAANwAAAAAAAAAAAAAAAAAAAs4=Wnosniff_"1d77-5da326fd4f2c0"UbytesYhit-staleÒ/0Š‹_NSMutableDictionary£ŠŒ3\NSDictionaryÒ/0_NSHTTPURLResponse£‘3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d ˜  ¹ Û ı "%GNpsv˜º½¿ÁÃÅÇÉËÍÎĞÒÔÖİåñóõ÷8=HQWZclnpwŠ ¢¤¦¨ª¬®°²´¶¸º¼¾ÀÂÄÆÜŞàâäæèêìîğòôöøúüş #15HObfn|¬·ÀÙŞìôı(*/5C¼í#INY	İ	å	ü
-
-
-
-'
-+
-8
-=
-Q
-U
-i             ’              
-wÔ !_Bhttps://docs.swift.org/swift-book/_static/images/icon-caret-sm.svgO&<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="21px" height="21px" viewBox="0 0 21 21" enable-background="new 0 0 21 21" xml:space="preserve">
-<title>icon-close</title>
-<desc>Close Icon</desc>
-<g id="Container">
-	<g id="icon-close">
-		<path id="Line-Copy-8" fill="none" stroke="#333333" stroke-linecap="square" d="M7.002,8.338l3.655,3.655"/>
-		<path id="Line-Copy-7" fill="none" stroke="#333333" stroke-linecap="square" d="M10.657,11.993l3.655-3.655"/>
-	</g>
-</g>
-</svg>
-Orbplist00Ô
-X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯/'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€.€€ €Ó()$+,WNS.base[NS.relative€ €€_Bhttps://docs.swift.org/swift-book/_static/images/icon-caret-sm.svgÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃñ¹-œh˜ ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
-€€€€€€€€€€€€€€€€¯OPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGINYhit-staleQ0_vhttps/1.1 jptyo7-edge-bx-005.ts.apple.com (acdn/141.13253), https/1.1 jptyo7-edge-lx-009.ts.apple.com (acdn/141.13253)UApple]1; mode=block_.99e01c52-a07d-4eec-bd55-4c3efa979621-911105802_max-age=180, public_Thu, 17 Mar 2022 13:42:44 GMT_#max-age=31536000; includeSubdomainsS806Zkeep-alive_X
-
-YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1Nb24sIDE0IE1hciAyMDIyIDE5OjEwOjQzIEdNVKEXXxATIjMyNi01ZGEzMjZmZDRmMmMwIqEZUTChG18Qdmh0dHBzLzEuMSBqcHR5bzctZWRnZS1ieC0wMDUudHMuYXBwbGUuY29tIChhY2RuLzE0MS4xMzI1MyksIGh0dHBzLzEuMSBqcHR5bzctZWRnZS1seC0wMDkudHMuYXBwbGUuY29tIChhY2RuLzE0MS4xMzI1MymhHVVBcHBsZaEfXTE7IG1vZGU9YmxvY2uhIV8QLjk5ZTAxYzUyLWEwN2QtNGVlYy1iZDU1LTRjM2VmYTk3OTYyMS05MTExMDU4MDKhI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHVRodSwgMTcgTWFyIDIwMjIgMTM6NDI6NDQgR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpUzgwNqErWmtlZXAtYWxpdmWhLVdub3NuaWZmoS9VYnl0ZXOhMVpTQU1FT1JJR0lOoTNZaGl0LXN0YWxlAAgALQA6AEgATQBRAFUAXABvAHcAhQCKAKYAtQDAANkA5wD5AQEBAwERARMBMwE1AUsBTQFPAVEBygHMAdIB1AHiAeQCFQIXAi0CLwJPAlECdwJ5An0CfwKKAowClAKWApwCngKpAqsAAAAAAAACAQAAAAAAAAA0AAAAAAAAAAAAAAAAAAACtQ==Wnosniff_"326-5da326fd4f2c0"Ubytes_Mon, 14 Mar 2022 19:10:43 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionaryÒ/0Š‹_NSHTTPURLResponse£Œ3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d – œ · Ù û ş #ELnqt–¸»½¿ÁÃÅÇÉËÌÎĞÒÔÛãïñóõ:?JSY\enpryŒ¡£¥§©«­¯±³µ·¹»½¿ÁÃÅÚÜŞàâäæèêìîğòôöøúüş '+/6IQ_d€š£¼ÁÏİëö {ÀÖö +	‡		¥	«	Ë	Ğ	æ	ê	÷	ü
-
-
-(                           
-6Ô#$%_Ghttps://docs.swift.org/swift-book/_static/images/icon-next_previous.svgOC<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 15.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="21px" height="41.918px" viewBox="0 0 21 41.918" enable-background="new 0 0 21 41.918" xml:space="preserve">
-<title>icon-close</title>
-<desc>Close Icon</desc>
-<g id="Container">
-	<g id="icon-close">
-		<path id="Line-Copy-8" fill="none" stroke="#333333" stroke-linecap="square" d="M7.005,10.5l5.5,5.813"/>
-		<path id="Line-Copy-7" fill="none" stroke="#333333" stroke-linecap="square" d="M7.005,10.5l5.5-5.5"/>
-	</g>
-</g>
-<g id="Container_1_">
-	<g id="icon-close_1_">
-		<path id="Line-Copy-8_1_" fill="none" stroke="#333333" stroke-linecap="square" d="M8.006,37.347l5.5-5.813"/>
-		<path id="Line-Copy-7_1_" fill="none" stroke="#333333" stroke-linecap="square" d="M8.006,26.033l5.5,5.5"/>
-	</g>
-</g>
-</svg>
-Oxbplist00Ô
-X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯/'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€.€€ €Ó()$+,WNS.base[NS.relative€ €€_Ghttps://docs.swift.org/swift-book/_static/images/icon-next_previous.svgÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃñ¹-œp* ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
-€€€€€€€€€€€€€€€€¯OPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified]image/svg+xmlZSAMEORIGINYhit-staleQ0_vhttps/1.1 jptyo7-edge-bx-007.ts.apple.com (acdn/141.13253), https/1.1 jptyo7-edge-lx-009.ts.apple.com (acdn/141.13253)UApple]1; mode=block_.81653798-7975-4920-9c56-bf9afd4ff246-906328346_max-age=180, public_Thu, 17 Mar 2022 13:42:44 GMT_#max-age=31536000; includeSubdomainsT1091Zkeep-alive_X
-
-YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE11pbWFnZS9zdmcreG1soRVfEB1Nb24sIDE0IE1hciAyMDIyIDE5OjEwOjQzIEdNVKEXXxATIjQ0My01ZGEzMjZmZDRmMmMwIqEZUTChG18Qdmh0dHBzLzEuMSBqcHR5bzctZWRnZS1ieC0wMDcudHMuYXBwbGUuY29tIChhY2RuLzE0MS4xMzI1MyksIGh0dHBzLzEuMSBqcHR5bzctZWRnZS1seC0wMDkudHMuYXBwbGUuY29tIChhY2RuLzE0MS4xMzI1MymhHVVBcHBsZaEfXTE7IG1vZGU9YmxvY2uhIV8QLjgxNjUzNzk4LTc5NzUtNDkyMC05YzU2LWJmOWFmZDRmZjI0Ni05MDYzMjgzNDahI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHVRodSwgMTcgTWFyIDIwMjIgMTM6NDI6NDQgR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpVDEwOTGhK1prZWVwLWFsaXZloS1Xbm9zbmlmZqEvVWJ5dGVzoTFaU0FNRU9SSUdJTqEzWWhpdC1zdGFsZQAIAC0AOgBIAE0AUQBVAFwAbwB3AIUAigCmALUAwADZAOcA+QEBAQMBEQETATMBNQFLAU0BTwFRAcoBzAHSAdQB4gHkAhUCFwItAi8CTwJRAncCeQJ+AoACiwKNApUClwKdAp8CqgKsAAAAAAAAAgEAAAAAAAAANAAAAAAAAAAAAAAAAAAAArY=Wnosniff_"443-5da326fd4f2c0"Ubytes_Mon, 14 Mar 2022 19:10:43 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionaryÒ/0Š‹_NSHTTPURLResponse£Œ3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d – œ · Ù û ş #ELnqt–¸»½¿ÁÃÅÇÉËÌÎĞÒÔÛãïñóõ?DOX^ajsuw~†‘¦¨ª¬®°²´¶¸º¼¾ÀÂÄÆÈÊßáãåçéëíïñóõ÷ùûıÿ$,04;NVdi…”Ÿ¨ÁÆÔâğû€†”ÅÛû!&1		•	«	±	Ñ	Ö	ì	ğ	ı
-
-
-
-.                           
-<Ô'()*_Bhttps://docs.swift.org/swift-book/_images/sharedStateStruct_2x.pngO›	‰PNG
-
-   IHDR    Ì   ”H5˜   sRGB ®Îé   DeXIfMM *    ‡i                                  Ì    ƒ0  @ IDATxìİ|UåùÀñç†Vd°!Lq!î…ÑºĞ¢Ö…µT‹£Õkû×ªV­u´*îQëE+N¬uâÙ{ï„ !ÉÿyNrÂÉÉMroî½É¹7¿÷ó9Ş3ßóï¹†7OŞ!BB @ @ @ @ @ â$¡ù\®Ë»ºÌ×e“.‹t9U €  € W`ˆíq]¾Ğe­.«uyG PM ½Ú T«´`'ÔS¸Íz|¡.3uyN—íº$*µÔŒ?Ñeß:êv¶o› €  €  ?šÕŸ|ÙÙï?õí«ms¬xF—4ß	‰üıÁw+6@ @ jfåQ,ËõÜ³âY _^¿S–"İ÷¥.c|ç²‰  €  € ñ˜¨Yù7(Ó}½#¸E=ÇZú¯Ÿ«ûŞô]Œn?åY&ø³‰  € ˆ6ph]HPù_Ö|½•è¶UBH €  €  8ë5¸No]Ü]¿:‚Ûîã»¶@·÷¬åºŸøÎ}¢–óØ ),@Wå~¹<ZJXàîiÏÖõ“t9P—På~ûÿû¯º\¹Ï~¾Ìî×íbß>6@ @ @ ¾ßÓìòjÉò‡ºÿÖZ¹»ıõxke8Ë=È' à pèaä°ÜŸ÷õº}‘.{öï«ë6¡µ>¬-õÔö—Ç]ºLÓe•.áRİÙ¶ò@kß	[u»}å¾múYê;învÖ•½uÉÒe†.t©í\=$6K+[©L;ôsgåº•e¸.u™^¹ÏÿaåªK_]æé2S÷z]%!€  €  Tt“Õ£ŸÔå‚ÊV÷·³+·½Vw¶ú|ïN]·Ö‹n=Şò³º¼õ$²X¿Îoûüçê®°)Òß1Ü‹İ|İmk	é¦ºÒE«Ëopwò‰  € »ü]•ÿ¼ûPµ5´YĞí®`Ÿ9ÕÎ¨Ø°JÃïuY¯‹÷\[_£Ë•º¸-uÕI£ô¿şsÃmÛX(Şdƒ.Û˜ˆ–¯ÿ|k¥ø¢.İt	—nÔŞk®Óm«4¼¥‹Şì³çö¦½uã#],êcŸfó®.t!!€  €  LÈ³?Ø»õÛ÷tı Ï¶í·ús¸ô±ît¯«íóıÊßˆà\«SûSC~Ç°<BºxËdLK—é²H÷ØM¶“„  € 5"ZK>ÙıÇuqÍ¬$_÷}ê9Ç=×ÿùÓÉs}C‡v¯H*)Öjğ{¹«á‡ÿÑƒş²f¸èçÏtñıçÚv¡.êBB @ @ Y¬¾ì­Û^¥Ût³Cî~›ä$\Š¤NKà°¡¿cXYÃÑışF 7…{0ö!€  €€H$CûŸMRâVìÓº.ûÓ›ºÃ{Îİ~M—IºX Ï{ì	İvÓ±ºb7[¼ÁI;ßº4¸ÇÔu7…ûk¥Ul¦ëbIôŞËòè£‹7İ¨ŞsVú¶İcnàğĞ0Ç¿Õ}Ïèò¥ï˜uY¬	@ @ d°:nı×>ûWÚÿ»ÂaÆZZ}İÿvë‘ãÖã­îné]lß]¼÷ókÌ÷¦†şayø‡vOo0Ô-C¯8ë € xü•ë†kÿpÚr³.é²P÷UûëÜouñ§Su‡{}Ú8ƒ]='YCkÄÃ=ÇİÕYºâÍg {Àóyºïë–|†çx/]· 7›ôÅ›üC;·@—ëu9ZÇÅÉºCÛò….Şü¬õ¡7¯Şão{²  €  €@@²´\VŸvë²VwÓ)ºâî·ÏÛÜa>ÏòûT˜sÜ]?ñëmTàcŸ±ş.phÏñ.cu±:ÿQºÓ…„  € aüCoÅÀ¿n•ˆpe´l?ÔÅ{ş8ÛéK{ê¶÷œùÛf$Cnzó¹>L>{è>ëÅ~óüCû+çãŞÕãtÃ{¿ùºmÁDzVwxÏc¼C¿Û €  € A¸@ä­ÃZ7µÑë½ã_¦ëŒ—8ŒõwŒpCkõHB  „û¥: Å¢ ƒÀ^z­µ¼³¿Ğõ÷åcÇÜ´QW¬Å]o±™Õ–êâ&$6$yïe×[ğÓŸæéÿúvú¯óşn|îİáY÷_÷O=fÃøŸïklµ¡ÏçË†M@ @ &ğC_Î6Ì›¬%â;î†~öÔåÏv¢W½õğxıqC¢Mş ™@zd§qLà-Ïİ2eêz].Ôe¤.–¬‹±Ù†ê²R—Îºdëâ&ª­p7êø´q İ¿ÖqZµC]t«£g‘be—æèÎc<ì~¯y¶½«Ó½¾u»Î›nÔ[êK8|µ¾“8  €  €@	tÒûZï7­Ñ•©îFå§Oöì³@£ÿæÃq[MÄïÖrrfÜJHF “ Ã˜ø¸&X­wşÚwwkaøDår^å1Ú'çè’_¹/Ú¶z7Eq¡_èMë½¾ukáèMşk½Çvx7|ë}¾¾|ØD @ @ H?ĞÂxwï Û‹|låÛ¶k®Ğe—o¼7Z¯ëwÚD†$€€÷‡O ŠC@ hnàĞ²;¶2Ï¥•ŸîÇ|]¹Ëİ¨çÓÆL‰&-ñl‰¬-ùù¯­í:ÿ~ÿóıCO˜ë?)Ìö´0ûØ…  €  €@Püİ”[kÁz×S¸<=ş=]&×s^¬‡ıuğDşkY¹ @à°h\‚@ÀüU´®öÈµºX«A·»r†®ß­K"’µ"ôŞËş¢hôW,ìŞş1­ërCÒlßE_ëö£¾}l"€  €  L=µ°‡7°ÀpLtà°1Çh —!€@,cÑãZ‚)p¶¯XÖêÎíâ;C×İŠ‡òÒÅ?>Šîrö·±M%ºØÉÑ&ï½ìÚKtù?_&{é¶àæ†gb÷ó¦±º.phã/zƒ•6AK$c=zóf@ @ Æ°º}Ès£wtıZÏ¶wµ§n¼àÙqš®[¾Ø³/–Õ=j¹Ø[ïOôïµİ € 4oõñm¬w¹]×s=‹h¸‡uqÏq?Ñ}nú¾®¸ûíÓş‘äÔO«XXEÄ{Î3ãîê,ß9İÏ“|çØ8%?Ò¥Eå94´Ö…Ş{=WyÌı¸Ñwü:÷@˜O«PMõÿ;İNóœkÃù¾sl	@ @  
-|¡…òÖ—\O!øÎ·±½é,İğæ÷”÷ oıTß¹eº=Nû=$S7Åú;†Õã½e*u3æ@ "ğ½ÿ°Öµn3[;ozM7¼×XkÄÏuy_—í¾c…º½·.şIàĞ®ñßËîkyZ?oÜı½t¿7E8´ëFèboŞv¯7uYìÛoçüS €  € A°?Î{ëµPó×íıå¾ÃwÍ‹¾¢	ZCïı½ëïúòõ×û£ùƒÀ¡“M@ ¢hHàĞº(æFİtß;ºxÿá·¾MÏ9!Ìõ¶+ÒÀaw=7’{­Ñó¬…¢?E8´ëí¯°º„{&ï>&fèBB @ @ ˆ¿×Byë¯GPÈc|×ëv–çºh‡vÙ£ºxËà®û‡±üAàĞó‚XE @ !‘-Ğ÷.¯è2^—ºÆ0µœ'èbÁEûË¥[°Okø€.=t©-E8´ëí^6¾a¸{Ù`ÊébİÂ¥u§·l×…;)Ì¾>ºo’.›uñ^o­§ër¦.V. €  € Ağ×¹¯‰  ö;ÀF]¼uàqë¢ÚÎ—êò•.n¾%ºş‚.şÔĞß1ì:oyí÷D€_œò"(M(ĞVï½—.íu±àuo¶¸‘Úh¦{êÒA_Ñ‡‰NùzÇÑZ5ÎÓ¥X €  € D/`=v,pXßïù;FôOÁ €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  € 4†@¨1nÂ=@ ¸\õÙ)—ñ*¥Ÿùšgf\ò%HfB	ÉR)½¥ŸÉ#f$óÃPv@ *@}:¡¼d@’
-ÔYŸ&p˜¤o•b#Ğ¬n˜‘![‹n×`á)/OkVÏÎÃ"€@ä¡P™'JV»_ÈCvF~!g"€  âÔ§SüóxÄI L}šÀaœlÉ$`•œ-…“5h82Aw [H5L‘™'<LµËó € 4H€útƒØ¸f-à©OÓr§Yxx’@ ¢¥!AÃ$xUÀØìg	@ ¤²çõi¾ ¹€§>M‹ÃÈÙ8[ÀÆ`™F÷äÆ†ç~¤€€u³Æ˜‡)ğ.y@ †PŸn¸W"ĞÜ*ëÓ´8lî_ ØD(Œiä7DÙ®€ıì°Ÿ!$@ š³ õéæüöyvb¨¬O8Œ‘«@ ‘6{2	h¨ ?C*Çu € ©"À¿…©ò&yšF@†8lzîŠ ‘”K~$§q V€Ÿ!aYØ‰  ĞŒø·°½lèÏ‡	p%Kˆ›@fÜr"#hüiogF ğ
-ğo¡WƒuˆV “Àa´dœ  €  €  €  €@3 pØ^2ˆ  €  €  €  €@´£ã|@ @ @ @ š Ãfğ’yD@ @ @ @ ¢ p­ç#€  €  €  €  Ğ6ƒ—Ì#"€  €  €  €  ­ ÃhÅ8@ @ @ @ f @à°¼d@ @ @ @ hF+Æù €  €  €  € 4‡Íà%óˆ €  €  €  € D+@à0Z1ÎG @ @ @ @ 8l/™GD @ @ @ @ Z‡ÑŠq> €  €  €  € Í@€Àa3xÉ<" €  €  €  € Ñ
-8ŒVŒó@ @ @ @ h›ÁKæ@ bimZÚI €  €  ­ õéhÅ‚q~z0ŠA)@ ˆLà„Á¤c›ÎÉ,,å[J"»0†³úå¶’7/$]Ú·”+^Z"¾>†Ü¸@ @ ¦ >İtöÉxg‡ÉøÖ(3 P@‡Ö-äª£º†=kû®2Y°~‡ÌX½Mf®Ùöœ ï¼õ”^2´[[§ˆc«ÃÍ	/îyäÊ€N­ûüòè®.Î@ @ ¦ >_êÓñõlÌÜ6¦6÷B IÀ*:×îQïİ^›±I®|y©,Ø°£ŞsSù„ó‡çÊ‰{vtqÊ¼­òà§ëª=îÛs¶Êu£Ê%½EH&ÏÚRí €  € ©'@}:ºwJ}::¯d:›Àa2½-ÊŠ ÄYà¤!Ù2¸sÙ÷¶éR´³,Î¹'Ovû÷l'gïŸë¸pGiÀá'K
-¥÷¾‘2äóeEÉó`”@ @ ¡Ô§+x©O'ôkÖ¤™8lR~n 4Àà›¦É’M­
-íõqæÉÅ‡vvnn]p­ûíŞZYkalRâ’òZ‡;Ğ.#M¯)“²(.k’¥åQ]îŞ‰Ø·rk‰ØR_Šõìúí»¢@«¯@G @ ˆY€útÌ„N]šútìÃÆç~ €@Ø¸†n0êãÅ…bËa}3eHåX÷É¬Qªş:!ÈMßï)#zgJŸœV²±h—|»r›ÜşßÕòÚÌğã
-ªùüö¸nrˆ~æ¶k);õ¾‹6îÇ?[/w¸F
-vÔlÕØ;;Cş|bÅ}ìVÖ™«‹å•ï6Ë­SVII„‘Ç_è˜?:(Ïyç¿ÙX#:åÒÁÒ)³âŸ½\(_¯Ø&§ï-7ĞCºeµ¬zş3öÉ×cÄ3œ€é™ûæhWåîÎ9/*”K_\u¾­Dûçê˜‰×ÛÍÉã
-äêW—Éí§æËñ:ñKoµ^ªAŞû>Zë<¿ÆQI €  € M,@}Z„út	›èö›Û"€ M-`Á?7pØS»àz“Ô?·Ÿd¶ª˜½Øå´K—cöÈr–»?XãÌ.ì½f¬Ü×_B¡PÕîŒô4¤]¡o:©—œ¦ysÏlÙ¦­İd÷yìœ~Ò^ÇdtSÛŒ2<?ÓYÆjÀîÄæDÔÒ¯«ÿÜIS,¸çOƒ;·–n•Ïi­!-e·mQu{~vÛtİ_ñÏcšó,å’«ÛnŞ«|­òŞü–mŞ)O¨õ˜a9n$?[ƒ¶jfå° "	@ @ xÔ§©Oï[ÿUüæÿ|É@ à£WLbÅühQAUi-¨õĞÙ}«‚†ïÌÙ"=½P,X¸¹x—sŞåGt‘“öÚ}½…
-ïÛ§*hx‡¶J<ğörÖãóeÎÚbçk¹8şàNU÷ÉÓ@¤İÇ~¥cşzÒR¹åİ•R°½Ô9oŸmåoÚ/QiÚÊb¹õİUòÅÒİÆiÚªÒöÙRROs¿x<Ã	:)‹§Ìİ*¯Nß$¥–?;²‹d·ÙTM”ù"€  € D/@}Z„útôß›d»‚‡ÉöÆ(/ Ğ ÖÚòÏÆ)´´·vO>xXPÎMoÎŞ=S°u¡u[Ü½¥û¿sÚ£ÚİøíâüäùımëÆìvYîŸ×Êi‘hŠu’•k^[æŒUø…¿^^$Çìà\3w]EÑ6¬K³{Ÿ«¶Éáÿ˜Y5â¤é›å£Ÿïå\c“–üõ½UòÕòmÎv<ÿcØrÇiùNGËû3å7ZşHR¼áäçVYÜ£½¼{éÎí[é{³Éklr €  €@Ó	PŸoO}:¼K*í%p˜Jo“gA j˜ı»aµyöë2yÖîÀ¡;¾Ÿ]ğÒ´ÒOÇtÓWÜ¢­;´I—!]ÛH«!Ù¡­òÖ”H™¶”KKIíüïï!~²N>Ô–ŒóÖïĞe­›EÕçíì¦‰¯­
-Ú>ƒñS]Ü²Ø¹‰º÷oèg<Áì^Ÿµ{ÌÈ÷ç8-;;ª±¥µù’†–ë@ @ â!@}:Š5ó >]Ó$h{íP@ şøæ
-ùı+ªİÑÆtÓ}göuWk|Zp ûİªbgÒ“ÛŞ[-WWNø1Z»ßÚbiÁúíòÚŒÍÎä(ó5ˆè¦=»ì¾Ïì5ÛİİUŸ³µ‹³8ô–©ê„ ¬Äã¾ÔŞÉb½£ç¯Û^ÕR™I €  €  >Û‹¡>›_c\Mà°1”¹ ĞÄ—ê,ÀkK¤½Nvbã
-¶¨ŒFÙ>²î±nš§¬ºÆùk©-İdİ{§¯Ş&ë,ëx†î$)ıóZËÏuÆãKí,'?4WŞÑ±ü,e´Ø}Ÿ]ŞÈYe†Şû¶Jß}ŸÊÃøˆÇ3”3kr Ş%…@ @ ê >]—NÃQŸn¸]c]Ià°±¤¹ Ğ„ÖvÉ¦N	Ğ^Æ¨˜¤äÚQ=ÄÆ.,Òq	İd“™Ø¬Æ–®ÖÉJ^Ññ#MO|±Al±	=Ìo'6`ô¸óœñ[·L“›u¦àá:iŠ%ï}úæ´’÷ì Å{»HÏ^[³E¢ãMŞ \ß,Ñ6áK§Ì–ŞÓã²ïgˆK¡È@ @ îÔ§©OÇıK•$înî‘$¦˜ € ±	üá­•²«r¶à.í[Ê•Gv­–á4ízì¦3÷ËuWOk÷wêĞrÖ¾9ÎbcZê!ÇÌr–aİÚÈ¦âRykÎVùÅ¿—ÊO]äœcÿéÑawğÎ{ŸGä‰·M¡Uuİw:yJ}ÉÆ
-tÓ‘ıÛ‹§á¤SætOëH÷¼pŸ}=c:†;îİïgğæÍ: €  €@0¨O×ı^¨O×í“lGiq˜loŒò"€ 1
-,Ü°CûlŒ?¤³“Ó¯Gv•‰¯‘ÛJí›ßY)ç+y;cX¶üfd7™4}“3I‡øÎ9 Ï9ÏÆæ{ö›Îzm1øö„ÁÎú]erÁ“uÂ•ÍN+¿s4/7M]Rä®Š÷>GiğÙqœrå¶K—G÷¬êNıáÂ™2¯zkÄªL<+s<36·oİB¦]½·üóóõ2¼W;f{Î¬¹ºbKEkL;rTÿ,ùû˜|ív],N]/%aºQ»9ÄûÜ|ùD @ ® õéšï†útM“TÙCà0UŞ$Ï D!ğ§·WÊÚ…Ø‚ƒ6Còoí.¿~u™“ƒÍ‚|İäåN·b;~óÉ½œÅ›ıfYùÂ§Víú@ƒ{¯jpñdĞÙ‰,×¾Ãî8‡v¢ÍÆ|íëË«®ñŞÇÎ«­mñ¦E%rÙ‹½»j]Cg†©Á¾½t¶gK{vi#Ñ®Ñ–Ğ â	{v¼Zº+¿5{‹Üôı2i©ã.ZËÄ+*[a>ùå)ÙYû „ñ~§°ü@ @ ğÔ§«¿"êÓÕ=Ri‹®Ê©ô6y@ Bïğá©ëªÎ¾üˆ.ÒÓÓøÖ)«åØ{gË´•Û¤ÔÓân§¶&|ú«2üo3œynvÊØÇæËu\½µ¢õ4,Óƒ/hËÄÃÿ>«Ú5v­İgä=³åÛÕïS´£Tızƒ¹ù;ñvvïîÓz_Ÿúğ\ùdñîÖ‰ÛvVä3^»K{'[ñ_o÷8ı‘ùÎµÛ+Z^j¼ã&ú¯q·ãùn|"€  € [€útõ÷C}ººG*my‡”J¥çâY@ ®œZ{S¯Tx¾$y†6-C2¨S)Ğ@Úâ;¤rxÄZKoÿ°ØØ‰½:fÈÂ-ÑkvÔw‘^ÓZgNÔ¹µlÕkoÜ)±¼ü<íîl÷Ÿ¡-wFpoÿÃ´ÔY§ëê¢ì?ßİç3¸yò£ÀQ×‰‘Ë@ ’X€út ^õéÈ_õéÈ­ëL*Ó%Í}@ z*:Ñ›qT pXİƒ-@ æ%@}ºy½oĞU9¨d‰  €  €  €  €@²8Lö7Hù@ @ @ @ H€ Ã ’% €  €  €  € É.@à0Ùß åG @ @ @ @ €J– €  €  €  € $» Ãdƒ”@ @ @ @ 8L *Y"€  €  €  €  ì“ıR~@ @ @ @  @à0¨d‰  €  €  €  €@²8Lö7Hù@ @ @ @ H€ Ã ’% €  €  €  € É.@à0Ùß åG @ @ @ @ €J– €  €  €  € $» Ãdƒ”@ @ @ @ ¤ûó|cÃ†!R*ãËËeT($ùú™é?‡m‚" ßÑBı.ÕÏ·¤…<4:7wFPÊF9@ @ y
-PŸnï=YŸšút²¾9Ê 4@È½ÍŒòòŒeë6İ^.2AÊËi‰èÂğ™<¡P™~¡'öê”ı‹!¡ĞÎä)8%­UàÊ©ú#‰„ Ä pçAUuráR" >'Y€útßNÃÊF}ºan\… UN€Ğ*9K×nœ\^^~AÃ*V’M@Şö¶ï²}§“­ø”@ ’W€útò¾;Jî >íÁ`@ÀœÀ¡µ4Ôõ‘ "#+¿Ó)ò8< € ]€útĞßå‹R€út”`œ ¤ª@šÁâtONÕ'ä¹š¥€}§ñ…šåÓóĞ €  Ğ˜Ô§S›{5– õéÆ’æ> €@°Òl"º'û%QºØ8öİ&!€  € ‰ >haòo
-êÓM¡Î=@ À	è˜p2*p¥¢@ÄA€ïvÉ@ ê ÎQ/'$© ßí$}qˆ£@Z($ùqÌ¬Œ ßíÀ¼
-
-‚  €@JPçHé×Û¬ïv³~ı<< àX‹ÃL,HE¾Û©øVy&@ ‚'@#xï„ÅG€ïv|ÉHfgVåd~ Ê  €  €  €  € ñ pSrD @ @ @ @ é&ı+ä@ @ @ @ ˆ¿ Ãø›’# €  €  €  € I/@à0é_!€  €  €  €  €@üÆß”@ @ @ @ Hz‡Iÿ
-y @ @ @ @ â/ÿ,É@ 1ÒB"'é(ú!“fl–²òÆ¸+÷@ @ @ 5¨O§Æ{ä)+@‹ÃÄú’;4CûdÊ°nmıIOÑ á+?(/ërÚĞì¸ß¿©+îB† €  € hªz'õé@-(\@hqA1@ yŞ¿|Oùry‘|çÌF}ˆROÃÒrÏFœJÑTÏ§â'4›6-CrÉ!¥c›tyòËõ2oı:ï×:=$?ÑIìß^zçdÈgKŠ´•è&™2¯ Îë:g¦ËÏì*ûõl+]2[Ê‚;ä½y[å¡O×IIMLìÕNÎØ'[ëÛ^Ö–Èä±ÏÖË¦âÒ:ïÇA@ @ )šªŞI}º)ŞvÅ=©O7}´w&p­ç#€ xM»'Ÿxÿ	i_åÉ³¶¤T»‹qËI½ä¨íåÔ‡æÊšÂ]»$ùÚÑü{ğ¬¾2 SkçI>_VXgà°]FšLÒV¡#fI™û6ï’Cú´—ŸÙE.}a‰Ü÷ñÚ°"£eÉî!í[·r¯ŞZ"ûk@pì¾9ÎµGşc–¬+ªézÚĞòÌ¸Ò*=M6•ˆıÌ°w`'ußlY›Bï",;@ @ ¨OGçÓ¨OÇ4ÁÙ8L00Ù#€ ‰°6†“g/`è>ï Î­å Ş™N Ëİ—ÌŸY­ÒäÖSòåâC:ÉNıóô"mı×7·U½dAF>¥-¯xi‰lÑV'îÕQşqzo™8¶,X¿]Ş»µZ>yíÒå©óûK›–iòËW–Ê3_o•8Ü¯G[ùÅÑ]å¼áyòÈûÊÉÍ«vİ®mäy6nßU&'>0K['HÏò›‘İä²#ºÈK?ÚC×€#	@ @@„útã~¨O7®w¼îÆ‡ñ’$@ ”èÕRf^3L.9´³|²¸PöûëtùÏÌÍõ>¯u5şv¹ºX~ôô"Ù¸­T¬KÌ«ÚZôÿ^_î\éá]jäsd¿ö’Û®¥vI^+·¿¿Ú	ÚI_¯Ø&>µP–lÜ!£wÔÀ¢M³;YP3½EH&<¿Øém•áe›wÊÏ_^"sÖËašï>İ<Îİ%d@ @ 9
-PŸNŞ·N‹Ãä}w”(pŒvÍ=E'*9¬o¦‰vÉ[³·Ê]ÿ[í‹Â·­¶(»ò¨.Úu5Súä´’¹ë¶;cØMühmØkşï¸î24ÌD,<¹°Î1ïìŞçÏ•ïkK·şÚJî@Y÷æ—¾Û$Ö¥¸gÇ–rî¿†+¢³/Òçúı¨îU­ğl\>K·š/E;w­·J[Îıî?A3ç„$øO' vhÓB~¦-ïùpMµ¬ë^rÜyÒ²Eš¶6Üà´Rô>êÓ_m›Õş$}']4own»Ÿ¥ïV{/qÖ-ğ8[ƒ€½õûbc,—”8û34`x¾¶D,ÜQ*/|»±ÚuvÍßŞ[-hëÇñwvZ>V;@ @  ‘Ö;İâRŸv%‚ıI}:Øï§®Ò8¬K'‚cKgÍ”ŒÖm¤kß¾œÙ)Å……²véÉÊÉ•ì®]#»ˆ³@ ÉlV¶—/ÚÃ	fèørY:6İñÚ*ìoÌ#Õ»”Zaäµ’ÉrÆÊ[¬-Èl9\'³8]Ç£;{¿\­ãî,«ö\µûïpçÎMÖµµ/zÆ‡îŞêŸÖ&í9óî:6¥Ú­kV†Œ×É=~úÜ"9aÏ²g—6µ£y®£úgé8|CÛÏÒñƒ;h ÍÚ¾U¤¹k·»«1}ÚLÖæIZ±e§XÀ²¡iå–zËw²dÓÎ¨²Ø¯gÅ»zcvõÖ‰-ÓBr÷½nÄ–áŞİÛÊOwå×+Ç¬<X»zß«Ado²V†ûèùß¬(ªöLxÎn›.¯é¤+Ûwíö¶kÊo'8¡‡“uw&!€ A >¤·AYhZhêVRêÓ±½/êÓÔ§#ù8ŒD©sºú—Ò}ÀòÓ;ş^ÇYÑZ:s†<qÃurèi§Ë‰ÿ4º‹9šD ¯mn9¹—}Ï,Á¶ĞéB:fï¹ã´|9mïlfÊ‡‹
-«•í3+&Ø¸øÙEò Î’kÉJw/ë"Wë¸t¿cEµkÆi7Uoúèg{Ê¡l¬+§--hhİ[Ç>6_>_Väœ~€¶|æ‚’ŸQëåÑ>×±gWåõŠQOÕgßÿ¶éÎlÀUâ´òÚOJ¯ìúÇ´Û]«-ÿüÎÊßÙ™„¤‚­F69Mm©›vq¶´BnÊiÛB^Ô±åŒoØ?¯µX×o²îÅÿúb½œ¯-×ë(6sótm}8Jƒ°—k×æ^ıê2ï%î^vÂ9ûçÊÃg÷•MÚ¶XÑİ;Ôş¾«eÈ ĞHÔ§	šÛ phëö8Ô§c{©Ô§©OGò"p‰ç € õtno]}8AC;µ¸¤\Ò®¨”û‹vGµIB¼Ãı5hwÌYòŠvvƒ†v]‰Îº{åËKåä!ÙÚ…¹«\¯ÃêmÇì¬èÒøƒ;9üD”nĞĞv|¹|›Lxa±¼=a°ì²¾¬aR´Ï&‹„ízdêzma×"¢ümæã¦Hn0oCåìÇƒµÅè«ã:İ¹¯Ôq·n/ÕINúiĞ¯f0ï|í~şöœ-ò¨¿J'D))-sº=[ øÀÛgÈ4_7f÷^ëu&eKÏ´V†×êá´N<ùÁ¹òÑÏ÷ª
-0:'ñ@ @  ÑÖ;©OÇşâ¨OWˆútøïÃğ.ìE ¢°qåŞõt5u/şnÕ6gµ—v)ö¦¡:û­¥wçÖœÙfìıhQœ¥İ•»whY­µš7H×­²•Ï?soÅı·J‘kUK—ßhŸ+Ò2Åã¼Ş¬Ş3yÆ;ÌŒ²Sg8¶€ğ¨AYN—ñ4m¢xÊCsÅº#Ûˆ–ÜnİŞûÛ¤*×ßÃ	Ûä*kK´;NkglÃ{~ĞG¬¥ê,O·ïÌVAÔ¢ebcıüóÜ~rÆ>92iú&9ç‰:Îd™36c«ôØëÖb‘@ @ ÀD[ï¤>û«£>M}:’oÃH”8¨G`¥¡®Í^ÁöŠèLºvAö¦üÊ.¶ë8ƒÖ•ÙŸu®,Ú¸uŞn®şóêÛ¶»vÊl)³ÖTÿkš{•ÙºÅZ@*\Šö¹ÂåÑœ÷­.(‘4¾òÈ.Î$1ËÕúdº“X·eKk4(èM§ëwÂÆ¥´IlöÖ±½ÂS‡v”×_>üÙ^2DÙ=,­®ÃÑÆÁüàŠ=u¬ÉvrÛ”Uò›×–UMæb]œ­õ#AC¯6ë €  hëÔ§ƒğÖ_êÓ‰7®ïëŠâøÂo¿‘ÙS?£°uf¦ì±ÿp9ä´1’–~ğşm[·Ê‡/>/ËçÎ‘r8 ÏĞ½eÿãFEqGNE  „ZÙjÿÎİ¿¹¸T[’íªñkœ}+»¸Ö8!ÊeÚâ­¶TÇ¡°ÁPËÇ-my6ÆşïÌÒ±$Ãÿ|õßß§óÖïğïNø¶U€Ğ ŞczË§‹å´‡çV›=9¯]ÅØ†6ùŠ7İtROgótTg±oB–Oß,WOZ&÷í#¿Ô.Ì¿®ëpåÖŠ‰[.ÑÉéÖl]Óª;Ó2³Y—mÂi+ßÁûl¬#€ u	PŸ®K‡c¤¶@mµÕÚêî~êÓÿ^PŸ¦>É·‡Àa$Jœ3ûÓOäÉ?Ş mÚ·—²]¥²}[‘ÌÿêKY<ã;9÷ºjä°vÉyäw¿‘ÂM%­EÉéÖ]>|éùö½wåè³Ï©q>;‚À„	†•••=¢e™¬Ëëİºu›zÃ7Ğá±/g}e°ğá©ëäñÏ×7 ‡È.±
-˜uûè¢c0Ö–:g&ç?6áGcMR›]}û—kàĞ’u>ëñù5f;ŞOÇº´d-İÔ¾UšX‹Óë·×ºçL™·ÕY®³%»ÉfË¶´C› 3r¿7¿"øìß·r6eï½Üc|"€ A >„·@-@}:~ÂÔ§c·¤>-B}ºşïQrş¶Xÿs5ê›Ö¬–7yHÆßú7é=d¨”ìØ!3?şH^ğ>™õÉÇ<œ.}t¿7½zï?œ á¾#•S.ÿ™d´n#‘_xN^½÷nï©¬#P(”¦­cĞÙríªU«6\|ñÅoj«Ú×õûûæ<¸X`âSÙk+ºÛÌÆ^3OëblE­«5`Í«Âï™£ãàY«7›˜c¶gL<;{P§Ö’§]™k›%|‘í-©œpÅZ¹%"ıåUNºHòşß‚êA´H®‰Ç9/OÛäÌm­ı¶ïªşwtÔ	rl²“/—ï²y›EhãNvÕ`¯^&áæ­éY9f¦[a¶²®Ñ`ôÇ:6¦Í²myø“Û%ş¥iı‡ØF š\€út“¿
-ĞHÔ§ãM}:vKêÓ"Ô§ëÿ8¬ß¨Ş3Š6o–3}4´“[¶j%û3R6¯[+o?öˆ,Ÿ=»Zàpãª•²è»iN+Ã1WşRZ¤W¼ëÒ|ä™g;]—-ğHB èDÌÕ2£AÃs´T¦AÄÏõóuİ÷ú}÷İ÷¥®W”ı±|_,+’5:6İøƒ;ËıŸ¬“:ù…›,`ôÙU{‰G×ıú¯e«NvKz}æf'pxŸvm=õáy²Egòµ”¥«‰º/Qi¾¶˜³d³:_öâ’¸ßfâÇkãg¼3|G'ÌY¨£÷ì(GôË¬šuÛîsËÉ½œIi¬Õ©7@lÂ5 xüàrÃèrİäê“À´ÖÉMşxb§¨ïÍ¯hyè–ûı.YàğÏßï)ÇMœãîvÄë,úîŸùšÀa+ êÓy¤‘¨O7œútÃíÜ+©O‹öÒ¡>í~jû$pX›Lû­µ`ÿıö¯qE×>}}[Ö¯«vlİ²eÎö GT½'>ø§Å¢wë]@+=6ØÜAúy~ŞøÓŸştí%—\ò†®¿®Añ·&Nœ¸)èÏĞ˜å+Ğ`à/ÿ½Ô™äÂ‚„ëXtÖpˆÎ¶|â^.¸¿ÕI-üACÂõÎŞ=C³;(´Í¾ë¶ğÛªÁ¡¿¾·ºêqnÑ	2Î'GÈ’Y×ìíüã¨ÃªÊ1ÚÚÍf‚¶À–›OÕEqXyê«r•Áwéá]ä8ğ¿Úu¶@[Ò­×qo~wUîĞxYtËj)wé8…Ş´_e×ßkí®³#wª:d3bßõ¿5Î¶EÎ¥ã>;®¿¼=a°¼ğÍF
-jP°ƒ3)Í–<ñ£šĞ	Ï/–/~1T®ÕCÓ@àËßm’µh¶IlÆÒIlÒœ)úîî÷OŸızƒ¨=v`ç]?¢AÉmZÈ…Z¾mÒåò;³+W–@  Ô§ò"(F“
-PŸŸú4õiëQC}:ºÿor6Ã†¨ù®ÉÊµFW5S«¶cW••V´îqÏ(Ğq-uèÜÙİUí³c§ğû«ÄFÜ4ÀÕY[ÌUü–·\S3£]»jNâQÛ“jÅÇ¾ÈØRªI[#~â¶F¼ÿşû¿­íºæ´ÿÉ/78­ï<-_.?¢‹vMÖ~©š,wÑÓåÑÏjöü¾ğÀ<9¬_ûL¿Ñà•›l¬;oà°H»­¿}ºÜqZoùş^äœòœñó^øv£¼üîê½İKãúi3¾oü^ƒšûk—ì‹­øÙöÅÒÂ¤fµj!c÷Í	ës¸ï}”jóÁ»d÷úñè|yDÇd<W¸¶èÿòvŸ>ıÑyN ÕŸñ¢;å»fÊMÚrğŒ}rœ ¯{ucşÓ[+äVû»1[wèãÕü©óûËIC:Ê­§ä;—Y0ùb,åAÏd)n~|"€ A >„·Ğğ2PŸÜútäV‘œI}:¥`œC}:ï¡!¥ pØ5ÿ5îtN¾ıö‹a])$Aÿ9¡ZfaöŸÇ6É$ A1KÖ*ÑÆI´õºÿI¢‡kù«0ƒV–ÿ}…®ú¬Ö§±®¬Co.í2Ò¤¯¶"[[Xv–e7ƒÃÿ1Ë]êsã¶R÷ÔBç[ÏşBë&›8ÅºMûS,Ïåæõ_}şÿŞ;ÛÙ´.¶Ö%w§?ÚåàÏ9ë¶×ùë+ú«36Kçë¾vÆ™´Ö‚Ÿ--’ÛêÄÏÕ{şà±ù’­-êX”õ=-Ú°C¬¸¼Dïı·•”Éi:³uE?¨w¦¬Ó±§­ÚV­;´÷|Ö@ @PŸÄk Á°
-´&êÓ¾×D}ÚĞMêÓ}1‹ÀaHñ>ÅºbX*Úº%lÖÅÕûØ‡=‰qĞ±ø¬Ÿ`ø(nÜî’]zé¥ûê_I¿äi´R³V„ÎÄ)ºş¦·«²šG’E³:ÇZN÷ŒsÏ‡ÿ¿ãºË±ÚUøo®äyƒ†ÇjwålKñÃ…‰ïI^W°+ÏÔ¼,R>K»£ÛMÚT\*S5Ğm²nîok`š„ ¤¢ õé`½UêÓ‘¿êÓ‘[E{&õéhÅ’ï|êÓMóÎ6{^ÏÎ]—Ï©h…ã/Â2L…„@²	hpĞš°}¡ÁÂ×ÓÓÓ_¿ç{¾Ğ})Óª0ÙŞ‡·¼_éŒ½6™Æ¾=öpº·~º¸Ğ™øôaÙ2fXìÜU&×¿Q}ïõ¬#€  4êÓA{#”'Ô§ã¡˜˜<¨O'Æ•\“C€Àa¼§Î½ò%3;G~ûL{ÿ¿2ì¨£«J±zÑ"ùôµIUÛ¬ pÖšPËøºßxàªå»÷Ş{^ôæS¼É³·È¹O,›uß¿œÔ«ÚƒÏĞ.¬W½²T¾^±­Ú~6@ ² õé ¿Ê¥ õé(ÁšâtêÓM¡Î=ƒ"@à°	ŞDzF†ŒşñOä…Ûn‘çn¹I¾òtí×_6­Y-³>ıD†-ŸLz¥	JÆ-¨[@ƒƒÖªğ+¾®Ÿ¯wëÖmê7Ü°{°¼º/çh
-<ıõFyNgôİWg¶”w––Éüu;d—gã’@ H&êÓÉô¶(«W€ú´W#¹Ö©O'×û¢´ñ p?Ë¨rÚwä±’Ñº•üçş‰2çóÏœ%§[w9å²+$»k7‡Qirrc	è8…Óô^4Öı¸O|lN’/—os–øæLn € 4¾ õéÆ7ç±PŸİ°)s >İ”úÜ»©B“×l ­ISéWŞ·hË)/+ÓîËÙM\’Ô»ı	]r™ô$™_ë•Sùù”Ìï²#;âß ¼‡/õé¦ÁÔ§÷¨O'Î¶Qr¦>İ(ÌÜT Åa Şn»P
-Š€  €  €@r
-PŸNÎ÷F©@ ‚/ü"RB@ @ @ @ hl‡-Îı@ @ @ @ H‡Iğ’(" €  €  €  € -@à°±Å¹ €  €  €  € I @à0	^ED ÔèÕ1C&ÚYì“„  €  € Ñ	PŸÎ‹³ˆT€Àa¤Rœ‡ $PàÕñåŞ±}ä??Øà»d·i!‡õÍ”¾9ñ	>Ú'S†ukÓàòp! €  € %@}º±¤¹OsHonÌó"€ A(-+wŠUZ^ñÙ2Ö·½¼ªÇ;ß_-W½²´!YT»æıË÷”/—ÉÁwÎ¬¶?Õ6,@:jPY±e§<øéºzïû{u÷ì(Ãº·•E»ä›ÛäşOÖÊª­%µ^›×.]®8¢‹ì×£­ä´M—9ë¶ËËÓ6Ék37×zh’è$Göo/½5 üÙ’"™4c“L™WPçuD @ š› õé¦{ãÔ§›Î¾1îLà°1”¹ PÀIÍÕ`T™<kK=gÆvø–“zÉQÚË©z¿5…»bË,É¯ÎÌH“›¾ßS.;¼‹¤¥…ä‹¥…uÛ´Éc?ì'gî—ë<ùF¶o&§î-?;²‹üäÙEò¢ıéhú=á ÉËl)…;J¥`{©Ö¯½\tP'yiÚFûØ|©ŒW»´–oÒÊÈYR¦'l*Ş%‡ôiïÜëÒ–È}¯­v> €  €@s >İøoŸútã›7Å	6…:÷D |ÖZíá©ë}{ã¿9¨sk9¨w¦´JoŞ#UŒ”%÷ŸÙWúä´’ÙkŠep—ú»dÿñ„NĞğ¶Ê%Ï-–Ùk·K«!9ox®Ü9¦·<qnùvåw2ıª×±uù×yı¥]F9ûñùòÜ7ÅÚ”î‘×ÊÙú°ùåÑ]å¯ï­®ºÆ]yğ¬¾NĞğ©/×Ë/-‘-Å¥râ^å§÷–‰Ú­}ÁúíòöÜ­îé|"€  € ÍZ€útã¾~êÓëİ”wkŞ¿96¥<÷FùÆêF  @ IDAT hëï.oşt°tÑ€¿´T¾{V½å°Á¶¯<ª«,Ş¸CN|`®4´‹v”–;ßË_\"m´… ½iÌ°lé¡×şõ½UòleĞĞÏÓàâŸXàœzveFïu3ÓåûdËÌÕÅò£§ÉÆm¥¢·’Wgl–ÿ{}¹sê¥ÚR’„  €  €@cPŸnlñ¦½-›ÖŸ»#€@¯ãâ]8"Oşş¿5òÉ’BçIl,»»ÆäË´•ÅrË”UUOwí÷ºË^]ÛÈ¸'J‰v;Ô©µÜ0ºGÕqweÒôMòô×İÍ°Ÿ¹:FŞ¯Gv•{eJ($òÁÂyì³ÚÇæûı¨îÒ7·•“×~=Û:Ÿ·š/E;K«ò·¿Ğşî?©ª•c´{ó)C³ÉW6nÛ%oÍŞ*wıoµÌòœ–«ûöh'ïÍÛêt-^°a‡˜§¥ºF—<@İZhwæ~¾^İÊj<ç_¬—»Ïè-#òÛU;6 ¯µƒX"oÍ©Ù}¡Ş{“Zî¦µã¸ó¤e‹4yêË²Ó"†ôôWäfír~’¶>ì¢ÆæŞåÜCÃ* € $™ õiêÓîW–ú´+¼O‡Á{'”’D`û®29{ÿ\™¾ª¸*ph£sÈÓÉ,vV^|H'ÙVRæíñ2[¥Éğ^»ƒLmµµZ÷²tÓÎ:‡C4øøöOI7=·¤´L,ød]]Ï; WşôöÊ°rGõÏ’ı{UmÜ<KÇî ãêíHÍÕn·µ¥S†t”—/ÚC[½í’íâœ¥İoÜQĞ±ûÆ<2¯¶Ë"ŞoÁVë2I*×2¹|[$§ÖzÎŸŞZuı5 hiÙæaóµ1
-mrj|±jÌBkè¶ô_Ø;;C²5h¹P»ûÓ~=+¾oÌ®>yJKÍÜ”=µ£¥½u‚–5tWöó±  € I"@}šú´ûU¥>íJï“ÀağŞ	%B $øbY‘ØìmC»íÏ‚¶Ï;nk°,öÊnå´VsÍ‚_{Ü4Íİ”ïéoM\µ]ÛÊ=4² á¿´…Û„çK¡¶~Óaöäê‘İœ€R¸ë8»j÷+ ´É<ö¿mºXk»úR_èİrr/9úYÚ²±Pl‚1{çÈ§åËišÏá}3åÃE­-ëË«¶ã˜|X'‰$íÒÖw-õy$§ÖzNmGe¬5ÍÓY-ÕÀm¸Ô¶ešôÓVó5h•HÒy`¶ô¤¶*ô§nY-]+¶ì©9§myñG{ÈÑ²œñ-˜Ù½ò<ÿõl#€  € É @}šú´û=¥>íJï“ÀağŞ	%B $°.«3t:kè¦4ph]IÏÜ7Glıu%Ùº([šZÙÙ=7ÚÏ:¡ÆQ4š¯A¬?³¨ª«õdıË»«ä@mí8F'ÛˆgêÜ¾¥œû¯NĞĞò-.)—§ôùòµµÜ_´»¬M´kàĞÿ®İ#IÚÈ²I’½»mÚµûÇw’;ß_-‹µe¨7]|§kñ7+"ki]Ÿ¯Ó±mÌDÿĞŸÜÀá¹ÙÒ`ÔæÕñ.çW¾¼D¶êÌÌh°µ[VEËCÿõl#€  € É @}šú´û=¥>íJï“ÀağŞ	%B $°€’Gg“kÏe§ûñï'/›½ØZZàph·ŠnÂ±w®@Nµ¹*hè¥ú÷ôÍqî(•wÃt…ınUE€Ì&‰5M]Z$¶9Ù8‚×¿±BşzJ¾L½jˆÓıøãE’×®¥\tPŒÑÉ)şsõŒOi'õìĞÒ	Úú9ÿ\ ;jFC3uæú…²ñ0mÆºçÆĞ.Ğ!9å¡¹ÎwÊ¾s–Ü®çÎÿA @ ’P€ú4õiêÓÁş—Àa°ß¥C €XEç'‡tvÆ¶Û\\êŒS8uI‘ìÓ½ĞiqhÅ·‰Ûu|C›0%–Ô¥}Åì¥µŒ³·tSı]£½ÿJ·/\ÏÛ‚íÁ®tĞ¯™¤¿½·ÚyÖuûÁ³ú:Omc.ZÀÖ’_ún“³^Û:êø“/$]µ‹ñ9:«²;©ÿüÕ%ÎlÌWÙEl"›åúÎOÖ áw:¦%ë¶liMáî®ÌÎşƒ  € $™ õiêÓÔ§ƒı?-Ã`¿J‡ ° ¡%çp»vãµ.¤3×Ë§ºÿŒ}*º[àğ«åEU£ÄúHe5¨9YF:¶^4÷4´ëm6çx¥|mµ¸oŠV™õåiåyuFõ	Cê»&^ÇíŞw¸V×™•÷ÑII¬›°½W7ˆø«/«óV­ÓC2I»[Ô«'-•gêhh[ëê~Ç˜ŞòéâB9íá¹ÕfO¶––VzÆ@¬óæD @ *@}:öC}º¦!õéš&İCà°¡r\‡ ¨€	4XèsøùÒBgrûË©Í’ÜUÇ´cÏÖ$ŠÒÆ€±”—şGw®ÎĞ›Œé8¦1'G‰ÕÈº»ã:şî¸nrÌZşO×ÕÚzĞîg3Ÿ<¿¿3õ_§¬ÒqëÓq¹-Mš¾IÎz|¾lßU=„»Ÿ‘hÉZ"’@ @ d >ûÛ£>]ÓútM“†îI×V#…ÚÓ*³¡pA°ïvPËF¹RGÀZùÙlpCº¶ufvÿbj3¯×n¤ßÓñé,€ø™cMsÖVÌì{P~øÙ6QI}©ÄfRÑ”¥]fƒ’>W¿k^­»µ[Ö2ı+(éàŞíäÆÑ=mÂ’ºÒİ:öé:qÍ#S×ÉÕ<ëËÓ6É„ÃºH†N™í¶×YºGj°r‰N¬ò¥¶x$!€@ÓPŸnúw@	#@}:1®äZ]€útu†lQŸ®©F}º¦IC÷¤ëï`Kõâ½š×!TÊïvP‹G¹RHÀZµ_®´ÍH“>YWõdD¼Tƒ?–ìœXÓ,mİ¸J[¢Ôzgï—S­«ë0í*}Ùáë½ÅüõÁÇñ:;ğe/Öìª7³8`ãö¹c÷Å)Ë„gÓA¯O?À¹Ïy:ëtaekĞp7¾ö{İ à¿uüÃ‹Ÿ]î”ûŞÑ	iê»½gG9¢_fÕ¬Öv¢±ØJgãyXƒ‰è^£0ì@ z¨O×KÄ	I*@}:I_\›útl/útM?êÓ5MºÇZ¾¥ÿ 8l¨ ×VÀ¾Û-K)«è\s\wç™¼ÂOuÿOì)ku¢‹E«w)íŸÛJ.Q13®]ØO·-Ñ?SşxBgİşóŠ›¾\^1ƒ±µ<³ÖjOœ×_¾`€œ?|³|³b›ôÉÉS‡f;­Ù®8²kÕµáVújƒ\utW¹ôğ.b]ş;¿@gõ-•õE»äæwW…»$åöı\'9¬oûªç²V}–úçµvf/®: +Ö’påÖšÜ7¶ôÕwv½Î mãYÖ–,ÀkßKyíÒå?{êÕ“–É´Ê‰OìkWù+İ÷ì¸şòö„ÁòÂ7îÑÇî §í-3WËÄÖ†Í‹ ĞøÔ§ßœ;6 õéÆqæ.d§><ßêÓÉó®âQÒti!IiègR^É@„BeÒ¢ü¡@”…B¤¼ÀgK+G‹´{òÚÂ]UÏkCKáº)[ĞéÚQ»„îE‡ôi/¶¸iÉ¦UCÛ÷¯/7È6mİvÇ˜|9q¯Î2İv¹ô…Å²Pï__àĞş9ú¾9òûã{Èş:NŞÅ‡V´RüB»R7—ÀáÁÚ¥{ì¾×¸Îö™­cDú÷_÷úr=R=px‘|ÏŞ?W>ZX ~{¥7‹ë#<İÊë·û½úO¼ùšAÛ—5h|Æ£óå‘³ûÊ¹ÃóœÅfqş`Aœşè<'ØëÏ‡mh"êÓMÏm*@}:¡¼d^]€útu oQŸúŠoùœfo¬İx·ş2rY|³&7šN 
-İ3ºsÎåMWî+§g@»¸<P|3é¤-ØlÒ5`e´w°™~­»ëÎÊ±£½ó/`ÿPîÜZ[–¶Ò t‘lØ¶;8ø»§Àî<¨¢Ii
-<
-lêÓÁ~?”.zêÓÑ›ò
-êÓu¾êÓuò¤ÌAêÓ±½J§2=£¼<céÚ“5«‘±eÇÕB`J~çœ†„BÕû†¢h"**:Qqq2„ p…]‰ >UòlBêÓMˆ×[SŸ+'™!ĞœîÉ`±@‹ıUI¬I:	dĞï®}‡	&ãË£Ì € $· õéä~”¾R€ú4_@ Ÿ@º»]Ù:ëò76l˜(¥2^‡Q¥ƒáæëg¦{ŸM@¿£…ú]êÜ¬cÎÍ´2R@ hÔ§›Ç{Nµ§¤>jo”çA â+À¸?ñõ$7ˆ§ ]+â©I^4Oº*7Ï÷ÎS#€ TPŸæ›€ 1
-0“rŒ€\  €  €  €  €@*
-8LÅ·Ê3!€  €  €  €  £ Ã¹@ @ @ @ T p˜Šo•gB @ @ @ @ F‡1r9 €  €  €  € ©(@à0ß*Ï„  €  €  €  €@Œcär@ @ @ @ RQ€Àa*¾U	@ @ @ @ ÆÈå €  €  €  € ¤¢ ÃT|«< €  €  €  € 1
-8ŒË@ @ @ @ HE‡©øVy&@ @ @ @ b p# —#€  €  €  €  ŠSñ­òL €  €  €  € Ä(@à0F@.G @ @ @ @ ¦â[å™@ @ @ @ ˆQ€ÀaŒ€\  €  €  €  €@*
-8LÅ·Ê3!€  €  €  €  £ Ã¹@ @ @ @ T p˜Šo•gB @ @ @ @ F‡1r9 €  €  €  € ©(@à0ß*Ï„  €  €  €  €@Œcär@ @ @ @ RQ€Àa*¾U	@ @ @ @ ÆÈå €  €  €  € ¤¢ ÃT|«<©#P˜:Â“ €@ğ3¤	Ğ¹% €@ ø·0P¯ƒÂ t…“îQ`š‘@H–6£§åQ@ Şü‰·(ù!€ $› ÿ&Û£¼K@†8Ö+¡4 à(½åİdˆJ€Ÿ!Qqq2 €@
-
-ğoa
-¾T	FĞŸ!Ñ›[!€@”!yHB¡²(¯ât@@œŸö3„„  €@s >İœß>Ï@lö»¸ş!p#W#€@"î1CPMLä-ÈRTÀ~vØÏ € ÍY€úts~û<;±	TÖ§	ÆÆÈÕ h¬v¿Ğàá”Dß†ü@ …ìg†ıì !€  €€8ÿ&RŸæ›€ ÑxêÓ£ã\h|†ì”™'HZèº-7>?wD ©¬;…ı¬°Ÿö³ƒ„  € âü›H}šoD"¦>Šä:ÎA !pÕgC¤\ÆK¨|”~æk™2Q.
- M)P¨­’—Šşnã8Ñ=¹)ß÷F º õé ¿!Ê‡@SPŸn
-uî‰  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  €  € 	„":‹“@ @ @ @ ¹®úlˆ”Ëx	•ÒÏ|}˜Ìä~ J q(”,•òĞ[úùÜ1b†7O‡^Ö@ @ @ H5fdÈÖ¢Û5X8AÊËÓRíñxˆ“@(T¦ÁÃ‰’ÕîrÃ–+Ã8Ù’ €  €  € ° á–ÂÉ4¸²Q ¦@H¦H‡Ì,xÈ_‚ùŠ( €  €  € ±T´4$h»$9 Ğ|ìö³C-›ÏkçI@ @ @ š“€i(2îÉÍé¥ó¬ÄIÀº-‹KSvdƒ  €  €  € A°‰P„1ƒôJ(I#àŒ‡OWå¤yc@ @ @ (löd ĞPıBà°¡x\‡  €  €  €@Ê%?ÈÅ£l pıBà0àïˆâ!€  €  €  Ğ@Ì^Çe €€	d8ä‹€  €  €  €  € 5Ö a €  €  €  € 8ä;€  €  €  €  € 5Ö a €  €  €  € 8ä;€  €  €  €  € 5Ö a €  €  €  € 8ä;€  €  €  €  € 5Ö a €  €  €  € 8ä;€  €  €  €  € 5Ö a €  €  €  € 8ä;€  €  €  €  € 5Ö a €  €  €  € 8ä;€  €  €  €  € 5Ö a €  €  €  € 8ä;€  €  €  €  € 5Ö a €  €  €  €@<BšY›–ö_R2	¤'Sa)+ €  €  €  €@ÃNÜA:¶iádğÁÂY¾¥¤á™Exe¿ÜVòæ%ƒ¤Kû–rÅKKäñÏ×Gx%§5µ Ã¦~Ü@ @ @ %Ğ¡u¹ê¨®aË´}W™,X¿Cf¬Ş&3×l{NwŞzJ/Ú­­SÄ1ÏÕÀáæ„÷¼re@§ÖÎ}~ytW‡	ßÆÏ’œ@ @ @ @ ,pxıèõ>Ék36É•//•vÔ{n*Ÿpşğ\9qÏÎ#N™·Uüt]µÇ}{ÎV¹nT¹¤·ÉäY[ªc#Øƒı~( €  €  € Tà¤!Ù2¸sÙ÷¶éR´³, ¥L|±öïÙNÎŞ?×¹QáÒÃO–Jï?|#=:dÈçËŠ_ î7‡q£$#@ @ @ HEÁ7M“%›*ZZlÜyrñ¡Gµ.¸Öıöo­¬õÑmRâ’òZ‡;Ğ.#M¯)“²(.k’¥åQ]îŞ‰Ø·rk‰ØR_Šõìúí»¢@«¯@Íü8Ãfşàñ@ @ @ @ n×ĞF}¼¸Pl9¬o¦©+ğà>™52è¯‚Üôı2¢w¦ôÉi%‹vÉ·+·Éíÿ]-¯Í?®à¡šÏoë&‡ègn»–²Sï»hãyü³õr÷‡k¤`GÍV½³3äÏ'VÜÇîie¹ºX^ùn³Ü:e•”Dyü…éø£ƒòœçxş›5¡S.,2+ÂH<¹P¾^±MNß;[n<¡‡tËjYõügì“#®Çˆ;f8Ó3÷ÍÑ®Êİs>^T(—<¿¸ê|[‰öÎÕ1¯9¶›“ÇÿÈÕ¯.“ÛOÍ—ãuâ—Şj½Tƒ¼÷}´Öy~£’b p—"€  €  €  €@ó°àŸ8ì©]p½ÉjŸÛO2[UÌ^lÇrÚ¥Ë1{d9Ëİ¬qfö^3VnÏë/¡P¨jwFzšÒ®Ğ7ÔKNÓ<¹g¶lÓVˆn²û<vN?i¯c2º©mFŸé,c5`wâs"jé×Uƒî¤)Üó§Á[K·Êç´Ö–²Û¶¨ºÆ=?»mºî¯7¥9ÏR.¹ºíæ½Ê×ê°!ÏàÍoÙæò„Z–ãAò³5h«fV*’.Pñ¦~=W"€  €  €  € ÍN`ôàŠÉ@ìÁ?ZTPõüÔzèì¾UAÃwæl‘‹^(,Ü\¼Ë9ïò#ºÈI{í¾ŞB…÷íS4¼C[%xû9ëñù2gm±sµ\p§ªûäi Òîã¿Ò±=i©ÜòîJ)Ø^êœ·O¶ò7m‰—¨4me±Üúî*ùbéî@ã4mUiûl)©§¹_<á”Å‚†Sæn•Wÿ¿½û€¯²¾8~2!„2˜aoPÄYP+2Ô¶¯ŠĞ–bqÛ¾Uß-Îjm‹(â¨µµnAQÁ- Ã²÷!aeA’÷œ'y’{³HÈMroòû>—{ï3şÏÿù>WŞ—ÓóÿŸ5G$Ï#Ãò¶‘‰QT­-‡†Ü/‡ùéro €  €  €  Pc¦šùgëZ;C§'O'”sÛ‡J*ÛZ7ãnnıÔFç°çtºñ7:Åùå‰]ï6Ù²Ü5®‰“‘h;Nh‘•{ŞÛí¬U¸Lƒ+÷dÈÅ=Z8çl:TD´/6¥Ù½ÎÚı™2âïëŠ×Q|gÍQùêö>Î9V´äáEûeÅLç»/ÿ°B'özl\’“áh}/ÕB(wëø«Ò|ucŞTlyQ÷(ùä¦ŞÎå›ès³â5Vœ…vzOÏ³@ @ @ @ ‘løuÿ
-ïôµ•©2}IàĞ]ßÏNxcÕaé¢ëºm…iÖa‹ˆPéÛ:Bš„I¶fåLË•|Í”’üöO»ËÓß’/5“qsJ¶¾’İ.ŠßÏÖéÈn›õurqĞĞ¶ÙŒ‹õåÅ­À¡{ıÓ}÷Å=˜İ¼õ%kF~¶%ÍÉìŒQckíctùÎÓ!ç8ä7€  €  €  € œ†À>Ü+÷}°×ëL[ĞmOş ³û±Ì»	{è±«÷ŸpŠ<²è€ÜUTğãR~k/k[S²ä½µGâ([4ˆè¶Ş‰%×Ùp0Ëİ\ü¾A§8»CÏ1à|qË5ãÑcv²Øìè-‡²Š3 •™V‡5ÀãT@ @ @ hø7iàäô\‰Òb'¶®`HQ4Ê¶•n6=Öm›5€UÙ:ašqè6›Ş»æ@¦L Cu=C·HJ×¸¦r»V<¾ñÜ3g“|¬kùY)¹ÎIÏÈYQ‡×mZr¢İ~ñæ‹{( jr­>K‡µÊKç €  €  €  è6vç‘ç6.è%“Î.,R2}T;±µ3t]B·Y1«jlí.-Vò–®7XÕöâ²T±—ô’Ô\¬ Ë¤!qÎú‡MÃ‚å­<X‹¦Xó¼Nç–Mä³­%Zl¿çéÉe3íÏæ€kWªJ´|‰ó<Ü'Ÿ}}>x	”„§½6ó@ @ @ @ ´Àïì““EÕ‚£Âä‘­½Y¥Sİöƒ­ÜÎ»åıí#?<³¥ó²5­uŒ—KzD;¯şm"äÈ‰<Y°ñ¸üâí]ò³×¶;ÇØíZ”ï<¯3ùì8ñÌ)´ áİ¢‹Ï[­ÅSNÕl­@·ì%‰“Î˜C=²#İãÊ{ïì±¦cyû=·ùú<ûæ³oÈ8ô#½ €  €  €  €@#Ø–š-Ï/=$S†%8wû«‹ZË¬¯ÊáÌ<çûï“ëµ’p¼]Õ?Vî¾¨¼³æˆS¤Ã|×Šs³µù^ûî°ó¹“f~4­—ó9ûd¾Üğò6-¸rÔÉò»VûrÛ’îGñ¼Îù$|mR7g\­š‡Êï.m_<úËmi²p³w6bq'6zTlj"«î:C^ø6Ewh®ÃX#Ë~Ü{¬0Óöœß5Zş6>I§]Ÿç–¤Hn9Ó¨İ|}n¿¼ûN€À¡ï,é	@ @ @ À?Ú'7èbZ…äÿ»¸­üêİİÎ[ä{çïq¦ÛşÆtp^,Gµ²òä¹ÛŠ7}¡Á½w5¸8Ft¶F¢tî°»Î¡hÕ˜§ÏÛS|çuì¸k4‹Ñ^-5#Wn~}‡ç¦
-? •¡×i°¯V{¶Ö;1Bî×©ÑÖ^Ô âe½[H\Ó•l8&ş~¾„éº‹–™xkQæËËS%7§âE}}Î`ùÃ§LUö)'!€  €  €  €@C°õŸYr¨ø6o9/QÚ{L#~há¹ø‰²j_¦äydÜåh6á++Reğ_Ö:ynvÈ5Ïo‘{50xàxaö4Ì×¯kfâˆ¿­÷:ÇÎµë\4sƒüw¯÷u2²óäµ•©Ò÷Õâ9Ø½^yï6ûzì3›ä›%Ù‰™9…ıLÑéÒÅVJŸo×˜ğìçÜ´¬ÂÌËtƒçº‰¥Ïq¿ûòÜ>y÷€çxßõJO €  €  €  P¿w,©8Õ«~GÖ¨®$=ã#$Mi;gKÑòˆX ÆÖNì.Ç4·SÏÉ>ÕIzNS­œÜ3¡©×svÎ‘š<ü8îl×_«ˆ9U¸vé›	ÓªÓ•MQ.}¼ûİ—÷àöÉ{ÍÖÌ³@ @ @ ğO‡şù\$ÀTå zX@ @ @ @ º pXWÒ\@ @ @ @   p@‹¡"€  €  €  €  PWëJšë €  €  €  €  @èa1T@ @ @ @ êJ€Àa]Is@ @ @ @ H€Àa =,†Š  €  €  €  €@]	8¬+i®ƒ  €  €  €  €@ 	8 ‡ÅP@ @ @ @ ¨+‡u%Íu@ @ @ @  ‡ô°* €  €  €  € u%@à°®¤¹ €  €  €  € $@à0€CE @ @ @ @ ®Ö•4×A @ @ @ @ €Bh¬@ @ ¿ø 5µ¯äÉ”‚$Iúé÷ƒf€V@£éúİ¥ï$Dæ\ÚªÕÚF‹Á#€ ”*³… €  €  Pmµá»y´@dš0³§Ú‚œPïAAùúÄYâcÑ7((§ŞÇÃ j.pÇı+‰† œ¾ ÿÍéÛq& €  € €w%_PPp3AC~+ oûÛoÙ~Ó{@Àg}FIG €  € UÀ2õŞ/j¬÷Ï}78‹Š~ÓîÆ¸!@ ê	8¬G#€  €  à%`k:Ó“½¶òÀ°ß´³^g`ß£G ¨¡ Ãr: €  €@#ĞB(LOnä¿†xû¶N§ı¶i € Z€Àa£~üÜ< €  €@M¬zrMûà|üQ€ß¶?>Æ„ Ô­ Ãºõæj €  € L (H’Ø-q;8ü¶ù! € 8ä7€  €  €@4++²§s*~+ÀoÛoC êL€ÀaQs!@ @ @ @ G€Àaà<+FŠ  €  €  €  €@	8¬3j.„  €  €  €  €@à8œgÅH@ @ @ @ ¨3‡uFÍ…@ @ @ @ ‡ó¬) €  €  €  € u&@à°Î¨¹ €  €  €  € #8Ce¤ €  €  €  €€o‚ƒDÆô}“wÖ•üßôK/4$2ÒÓä^@ @ @ 0s;EJÿ6u>ê+5høÖO{È›ú×/Öç×¯¯ûòùĞa£ ã°Q?~n@ @ @ úøì–Ş²|O†ıëº:HG†a^Ç¢¾îËGÃ¯Õn"Â‚äÆa	*//O‘Í)Ù•^¯ihüøìxÙ5J:¶—¥;34Kôˆ,ÜœVéy	‘¡rûÈÖ2°}3IŒ“­©Ù²hóq™³øäV’b:¤Cs¹j@¬ï%‡Òså‹miòüÒ9r"¯Òë5ÄâSå@ @ @ @ R÷tzòåOm” «<ı±J­^ÑAÎï%cçl’ƒé'ëcµrÍ4ø÷ô;K·ø¦NÿßîN¯4pØ<<XŞÑ¬Ğ‹zDK¾ûœ8)Ã:EÉm#å¦×wÊ“_'—;ÎQ=£åõÉİ%ªiˆh`øÀñ\9K‚×œÙÒ9wäß×Ë¡Œ²®ãúÅÈ«“ºI“Ğ`IÍÈËß¿¥L/£Ü ÉèY”Wj#ÃR |E @ @ @ †/`9†ó7ø_ÀĞ•ï™ĞTÎéé°Ümüİ$Xº2I¦‹—M÷Ü®Ù[59å-YÑ‚†s53ñÖ7vÊ1Íú»¼OŒü}BG™uM'Ùš’%m:îÕO\óP™;±«D„Ë/ßÚ%¯®L•}8Ø®™üâ‚Örıà8yö:Ë˜9›½ÎëÛ:Bş­ÁÆ¬“ùrùìõš˜&ícÂåî‹ÚÈÍç%Ê?î.#4àØ˜k6¦§Í½"€  €  €  € u,Ğ6:LÖİÓ_n<7A¾Ù‘.^#ï¯;zÊQØTã«uÊğº'äÇ¯l—Ã™ybSÌßÕlÑßÌÛãœÓˆÄ2ıŒì%­š‡é”ädyô³NĞĞZ¹7S&Ïİ&;gË¥½b4°h¥qJš5CC‚dÚ¿w8Ó -¸¼ûhÜşæNÙ˜|B†k¿ÚÖızœ%#¬ûOdÖ½9WD @ @ Á;tH6,],½Î*-âãüırƒ àujî•Z¨dxçH”ËãŸp‚Eå]¡™f”İq~¢N]”N-›È¦CYÎv³¾J.÷œß\ÒVú•Sˆå†—·Uºæ]{âàVò}ÍtëªYrßi Ê¦7¿±úˆØ”âö1arİKÛÊ¢³­ª÷uß¨¶ÅYx¶.ŸµGÆ&IFNÉÚzû5sî×ïÍœàx ¶ˆ‘Û4cpæ—½*XW¶¼ä¤!q¬Ù†©N–¢ç­¾²"UPû+ô™$jÿÓ¹ízÖVï?áyŠóÙ4ØQ/¶Æâ‰Ü\g{¸'j&bzv¼şßÃ^çÙ9Yt@fköã”¡	Næ£×øÃüp¹5@ @ êKàÅ÷ÊíÛdéûïÊ­OÌ®¯ap] «rüæOº;Ãp]_.Z×¦­YaçéšxãŸõRj·Õ-®‰ÌŸÚÓY+o‡fÙk„³˜ ëÑıh`+¹T×/LÏÉ÷è¡Óë:wn³i¨M5øø“W-pènõ~·œ´éšwWëÚxÖöjZëèp™¢Å=~ş¯írYïÒ;1¢ÂÀauîëü®Ñº_aÀĞÖö³6ºW´Yî[aÛ”œå~¬Ñ»U²6çª´½ÇrÄ–§ÛöË•~®–GrªÕÅÀö…ÏêƒŞÙ‰aÁAò«::Óˆ­Ã3Ú6“ƒÓ•ç­Y9T§z?¡AdÏfY†ôøïöfxİ“c›…Ê{Zt%ëd‰·{NRsùıeíœnlºscjÓÓæ^@ @ ¨# àÂŒ‡ÔÑ¹²@gÚ<8¦ƒ\0s½V°Mw¦?£¥<6.IÆ«ÁHùr{º×-ÎşAa©¯m—§µJ®5(=>!I¦O”»t]ºû>ØëuÎ$¦êÙ¾º­·œ«ÁÆÊÚõšihAC›ŞzÍó[äÛİÎáƒ4#ğÕºIRlx…§W÷¾.µ¡¸¯·4ˆ:Vïı¬GÖ8Õ€‹wøèÃ{?ë!bO½Æ ]nºf8şéã}§}e§I![™>¬8ME­Nq¶¶WnkÙ,Dş£k^Ğ-ÚYß°k\S±©ĞÍ¦¿´,E&jÆbŠ@±ÊÍk4ûp”aoÑ©Í-5@x×»»=O‘ò®e\{V+yæGåˆfÀĞ@tÛ?o¯È‡äAr €  € ø“À¿ûƒlüv©ôr¶?‹± €€Ÿ
-$DÙTß­NĞĞ†x"·@æêTTÊİ¯ÓQ­Hˆgàğ,Ú]Ø=ZŞÒ©ÂnĞĞÎËÕª»w¼¹KÆôÕ)Ì­å·8ôÎ³£ª×¦-\nág tƒ†ÖÃò=™2íõòÑ´^rÒæ²–Óª{_åtQk›]’¢vUûw¬òq}47˜—ZTı¸—fŒ¾;¥‡3û]wğxV9é¢A¿²Á¼‰:ıü£Çä9İ§DÉÍËw¦=[ xÈ£keU©iÌîµR´’²5‹gZ–áôQíœìÄ1Oo’¯nïS`tj8l™[D @ @ ®¢Z¶’Á£/«ëËr=P[Wî©¦îm¬ŞŸé|ì SŠ=[?­~kí“Me«"[ÅŞ¯¶§ÉuºrÛa^Ùj}Tõ³MC¶ñ•®Ü[xıã’¡ûšT0å·º÷UÕ1ùâ¸zgcú¢O_÷"9ZáØÂ£zF;SÆƒ5EñÊ9›Ä¦#ÛˆÖÜiİ×·¢*¿İÎ	[q•äô\ŞŞÔYÛpæÕÄ2U×{LûlRDÍÈÎ[;ó…ëºÈUZÊ;kÈµ/nÕu&óµ›„‰=nV£hÅcæ&@ @ @ ğ_}º†^y9{iY…Ñ™P‚ìÙ’Š¦ØNÕum*séÖ3¡0°hëÖyNs-}Ü©¾ÛUã#ÃdıÁ²E6ì\³M‹µ€Ty­º÷U^yÛ´\i§Aã;F&:Ebö¨õºEOlÚ²µƒôlô7aëRZ›3tmEÏ áØ~1òÒõ]åËÛúH_İg×°v hG[ó‹[{ëZ“Íå‘…ûåî÷vs±)Î–ıØX‚†æBàĞh €  €  PF`ëÊòİÂO$y×N)ÈÏ—¸dè˜±’Ô»O™cSöì–…/¿Xf{¯s†Iÿ.,³İİğú#ILb¢\2q’lın¥lXüìX»Fš·h!İ’sÇOà¢õİs<ßíØï>şÈ)Ä*‰:ËĞ+ÇJBRGÏÃdÏ¦òõ›ÿ‘á®v]±àCIèØQ.¹áÇÎqŸ¾:Wv®Y-í{õ’Ë~:UÂš–l^¾LVş™9°_šFFJbÇN2ìÊqÒ<&ÆëZ|A ê”4´^*ZÿÎİ~ôDf’,sÁäô4gÛá¢)®e¨æ†|Íx«¨U²«Ü`¨õã¿¢>ëbû÷zDëZ’U+bÓÍ)Ùu1,¯kXàuğßQïH—qÏlòª×¼pmC+¾âÙş|E{çë-ª³£TA–·×•»ŞÙ-O\ÓI~©S˜U´Öá¾ã……[&ŸïLk¶©ésŠÖÎ´Î¬ê²ìYµ¯î<ï­®?8¬kq®‡  €  €@ Ì›ı¤|ıÖúÛ iÕ®½de¤Ë¾­[dÕ§‹dôO¦ÈyWÿÀë.r²²48·©x[nv¶¤N•ñ	•×|ñ™´îÒUÚuë.sÿø;i¦Ã¼Ü\Ù¯×Ú²b¹ì\·F®»wFq¿>~ñŸòé+/KX“&Òºs±1,ûp¾¬øxL¸ã—^×=’"«>ûTbeñ»ïè?æ´ïµR •J³22œ eVzá=6‰hæÜ£{-;æß?àÜ»mkÙºìŞ°^Öóµ|óö[2õ/Õ€e'÷pŞ¨P`Ú´iıóóóŸÕæëk^›6m–Ì˜1£‘Lx¬å´v¤ŸYrHşùmÊiõQ•“,\hÓuÆŠZBd`†V¬àG]G©ÈîTÛ÷hàĞšMşá?·”©v<P×º´f™ˆn‹j,–qº5%«LĞĞ=fáæãÎÇÁZ-ÙmV-ÛZ¶¦^¦¹m)>»ûÏ,ª¦ìy-w_C~Ì_wC~"Ü €  € õ,`™†4ŒÓ€áu÷ÍøIN€Ím/Í¸W<÷Œt4Ø	Ö¹Cm«¿_<ó¼ûÕ	ú=?ıÿŠ¿WöÁ2ø>Ô>§<ü¨tìÓWNæäÈzÍ<|ïÉ™NpÎ®kÛ=ÛöÕ«œ aû=1ÚšŠÖömÙ,/üvº¼3óoÎ#¢¼«¥nZö­3N«úüÔ·É²æK¿#å®æJê¾}ò›oË,´à¨ÛVkÀÑ¦í{ö’‰¿ı½“a˜}"S3ßO^zAŞ›õùéƒ¸‡ó@…ˆÖ@ô =À^Ó÷ïßŸ:uêÔ5«v?œ={víEÀ*U`îØ\8uØ*ÿóÛ²÷`SŒ-«¯²lÀ²g•¿e£®ƒgYoV˜cƒÇšxvtÏø¦§S™+*R~UÛš[TpÅ²Üj£İÿñ~'ƒ®*}¾Õ;ˆV•s|qÌ›«8²-Û/ë¤wÖ§/Ò9Vìdù’’Í™º¡­;ÙZƒ½zš”W·¦}Ñš™n ÚÆzPƒÑ_ëÚ˜VeÛú(İÜ)ño¬:\zWƒş^µœÔMÀÍ!€  €  €€§€­]1íf'hhŸ-ó°Sß~r±N)	qz¶İ-ãØ1¹âç7CÃÃåŒ‘çË¹cÇ;İïÕiÆ¥ÛWo¼îlwûâmƒ0/¼öz'‹p¹NG.İú!‘±±ÎTè®:»^ò½¢¬ÅÎÎçô£G¼NkÕ®\ó«{4óñ·ÅÓ’-+Ñ².#tÊ²Mƒ¶¬DÕĞßE¼¯Õ áKúßØA".¾ñÆïÓ×`İg±/ZËvgÈA]›nÊĞé[T(Å=ÔF;ï Çï$Ñ\ªi›·î¨ÓÅ“:µµ…GÏú¥Ûj«mÑŒ9knUg__gÖ×Éò ®áW•×7;Ó}}ù*õ÷±ÌÙ¦—ö‘óºDzóà˜NQË:õ[ ğK 6×b'3.mçu}iªÅMşpyáöE[
-3İƒfsÈùø§ïNuv·[€xÚğIÓ*Î¯®l\C2İ_ï €  €  àÒõ
-múo·³,)Ê»Ùš~öòe«èZ¶† µc‡
-ÿ!ç|)úãàÎÒ,:Ú+ëÑİß¥ÿ çã¡=»ÜMÅï¶®¡Û¢[Å9míF·Ù¶Œc…Aw[»î=Ä^¥›8mŠ´e?fgfJÓæÍKÂwª, B‹p£ïçèûï~şóŸ'k ñı<O3Ìš5Ë;¢]åæiZùö—oïrŠ\,½³<£kÑY6 /ïãLÁı?-jq\ól„ë[R¡Ù-²bÕwİ¿ãzxÑâÓ,°vıà89¿[´¬¿çÂz\ÿÇ‘5ÛÍ*A[`Ëí§ø$|˜»"UîÔ5øn¡ëÀêz„ŸêÔÙ4Í¤KÑuød¿®Pw]´‰“ÇuBÏ6°hêï=·ÕêÈñÅ»¬"öãŸt¾+³ü¯®GøÚ¤®òÑ´^òúw‡5(˜.£{µpŠâXµäY_%Ÿë~˜öï²ìıdú¨v2\3ß\}D’5ĞlEl¦‹+š³PŸİS<õl¯­Luµ÷há<ëg5(Ù""D&ëøb"Bå–ÿìpª+{ÓĞ?8lèO˜ûC @ @ šGVmËfiT³›*î™1èyRxDaUÔ¼¼<ÏÍÎçcÉÉ¢»ç~}w™}y'%ÕcN§ià¦Ìi™Ç;k'ÚÚ‹ÖoÎ‰’­¯ã)eƒšeNnà4À• s…ÿÊoà÷ZÓÛ;YôÛ¬J?ú;LĞãn°—ş7§ÙˆßhVâ<ı>ï©§úoUúhèÇ¼¼<ÕÉ:üë¸$¹å¼D'3ÚîÙy?ye›<·´ìÌïÉCâdxï%ìœ»5xå6[ëÎ3p˜¡ÓV?ºF×Q¾ß§…\;(ÎY?ïõÿv‚—«ï:Ã=Õ§ïV9øÒ'7Ê}Ô<K§dO=×~"Ëv¥\à0Z³ÿ®9³e¹>#J=<M|\JşJ± ßUÏm‘guMÆë4€k/û{ú>=á¹ÍN µtÇÛçÈ°Ç×ÉŸ5sğª- ¯{ŒMcşã‚½ò„KOc¶éĞ£Õ|îÄ®rEßyèÊ$ç4&OÕb)O{Kqûkèïúæş@ @ ¨¦€ıƒ,:‡9  [IDAT8´vÖÔªæP*<ÜÆ¢S¦+ªhl•œãÛ—dVØQvX!”NÿµdefHlëÖ:¥ºŸ4iÖLÂµòòêÏ?u‰Uè†C¨‘€­YV¢­“hŸËF¸kt…ú;9ì¿­ğâŸip(èÎ¥î·©¬ıÒJìáÁÒY³È’ÓsË­²ìv0âïëİÕz?œ™'“ænsÎ±µõ,ãÑmV8Å¦M—n5¹/·¯Oõş?}bƒóÕ¦ØÚ”ÜœÒÑ.÷`?~ßx(«Òçxª¡¿»ö¨$Ü»ÒYgÒ²—îÊÔÌ²Õ´=ûÙ¤×¼úù-«ƒ=tªq‚>§í©ÙbSÀK¯—èy^fn¾ŒÓjÌ6ıœ‘rH×>\µ?Ók:´çñı3Ã†ş„¹?@ @ ª)Ğ\+§ñïY‘V}Ù¦8ÿà®ª`©&×áoıí1'hxíôû¤Ï¹#¼öíÙ¸¡ÑŸ|òIKíd=>¯_Fù_nºé¦35ëpeù{½·j`0Y„Náıü¡çTe5÷>˜oÎôÑ5:mµ6Úo.i+ëTáß¸W,ç4¼X§+Ç6•/·Õşß™•»jã¾ı­O‹”¯×éèöªN;r"O–h ±ºÍ¦¹¤éÆŞ6ö_ ÷  €  €@)«¦l•ŒmÊ²eØy6«Z¼ôı÷¤ëÀ³œ&ûêò³eîX³Zl
-±­uXºYF¢[Jo®ö÷Üìl9¸c‡Ä$$”	Zg‡÷Ö:cÕà„:Ğß«¥°-Óßî¼ĞĞĞy3gÎ\¦ÛLVaAÖÂ…VhÅ^+¦qf»îÎôÖÅ;ÒjÄúÇÊøş-%çd¾üöƒ½µpeºD şj^^¨şï €  €  €€z;×éíÃgçH¾Çú‚º¼ùøc²ìÃùZ¿9½ÎêŒqşœÙe*öÚ+rï÷GËÇ/ş³Æ*–ÕhEOl]Ã-ãÙ–¼ÿ®cCO>W_à°_Ñ×D&êÚ…çÌ=ûwO<ñÄ·«Y[gÌßpL®{q«S˜äş+:È¢[zËÛSzÈ¤³ãe÷‘l¹âéM²rofm]~¨Wúı¿öõzë\@ @ Ê6v¼¬øh¬ùòsIİ¿Oz"'ÒÒdÃ’År<5Eº8SÜÀ{¾·òãÜ¯š‰·Ïù¼cíj¯ ^J¶íÖ½ø¸ÓıàŒñãzÍ’²w·g˜“a¸síÙ¸t‰Ä$&Ê9WŒ9İî½Î;óâïÉâwŞ’9wÿJ³Ï•ØÄÖN%eËÈLêİGv­_çu<_¨H@ƒƒ–U¸Bƒ‚N‘“6mÚ,™1cFÉbyÈözxeåaù—Vô=S+[åœ¼|Ùr([6ëzy¶î †*@à°¡>Yî@ @ Ó°lÂ©şU>|æiùnÑB±JÂÖBÃÂdè•ãä’‰“$X“x¶£Dûô•—=79Ÿw¯_/ör[L|‚O‡ÎÿòWYğì3òİÂOŠ¯aãpáEò½I?‘¨Øò+xºc©êûèÿTòµî²æ9Ó´Í¡}Ï^2ùO÷ËûOÎªj7‡€è:…«”a)`5I–ïÉt^yŒêÔ|Ñê_“3@ @ h0ó¦6ø\“£J~~®ó—X&`è/Ò¦ŸÌÉÖLÃÖN€³6Æu2'G§,,s_­§Xc®iŸ—%¶âßŒ5E¬ÏóïXÒàÿ~ªO^®@c ã°1<eî@ @ Ø´_oV¼¤¶[hx¸ÄiQ–ÒM§–ŞÄw@ „ ÅQÄcä&@ @ @ @ ğ­ CßzÒ €  €  €  € B€ÀaƒxŒÜ €  €  €  € ¾ pè[OzC @ @ @ @ A8l‘›@ @ @ @ ñ
-tˆ	—iç&ˆ½Ó@Àw}gIO €  €  €  PïNé!O\ÓIŞÿYÓ¾zlDˆï)[ú&øxn§Héß&â´ÇÃ‰øƒ@¨?‚1 €  €  €  € §+—_àœšWPø~:ıï%ïjàñ¯Ÿ;ßÚu:]xóÙ-½eùú×u^ÛÊ—¸æ¡rëy‰2°]3iÙ,T6Ê’7W‘÷Ö­ô‡th.WˆÕ m”JÏ•/¶¥ÉóKSäÈ‰¼JÏswş\3K[G…ÉcúœeU~NBd¨Ü>²µlßL#Ãdkj¶,Ú|\æ,>$¹E¿·_ŞË pX¾[@ @ @ @ @®˜³I.ïİBæ¯?V«#~ğŠr~·(«×;˜~²V¯åÏ_Ğ5Jş=¹›Äi0.=;OÒ4€7¼K”üäœxycÕa¹æù-R^\n\¿yuR7i,©¹bY™ãû·”ICâeÔ“$ù¦ÚFÈWw”Ï¶¦ÉŒ÷VJ4ªg´¼>¹»D5‘(8+giĞòš3[Êm#eäß×Ë¡ŒÆû+ÅóØÉTe>"€  €  €  €@à	ì× Ğ3KRdŸ¾×fë™ĞTÎéé¾jó:şÜwŒâ^º¾«4‘ıs‹Dß³\ÚÎøNzüé¿²tgºLĞ@à//h]æú¶Ğ`cwÉÍ+‹ŸX/ñÓWJ§?üWf~qPhÖâ?î^æœÒîÕN‚‚‚dÆ•-rîÄ®,¿ÔìÑö:>ãY¬‘—–¥H¯Äyö:—îïå8,…M €  €  €  € eÆ÷•vZ„æáEûåµï‹;9|sJ¶üÏ‹[~4°U™§‹—Ğ ™öï²psšsŞî£9rû›;ecò	'cÑ2
-+jı4ğ8A¯ıÙ–ãNÆaEÇÙö‘šıØªy˜NIN–GuJ³P^¹7S&Ïİ&;gË¥½b4°TY7ìS¦*ó3@ @ @ @ :İ³…L>;NşöùAùF3Õ¬Y¦Øãã“dÕ¾òàÂıÅcšş½¶ÒGG“^Şæ¬M×3¾©Ì¸´]ñ~÷Ã;kÈ++»_Ë}o¥ëñıê¢Ö2¤C¤f¯IÑ{‡Ê=Ö6Ş7ª­tnÕÄÙokåY{dl’dä”¬¯g¿~³¯¼?.ÔéÍWö³uı"åpæIY°á¸<şùÑä»€kİâš:ÓŒl,;-|›®!xDï¯·fôy¶pNçLk~ı¿ŞÏÇş²è€Ìşag™24An}c§ç©ÅŸ§ës°lÃßbŠ²¯kZ[½ÿ„óîù‡]oƒ*;¶l"1¡r"·v³T=¯ˆŸ	âScÌ €  €  € ¸@ÖÉ|ùÑY­dwÜÀáÙIÍåÚAq2²kWàĞ²Õ2só‹ZD6	–Áº^Ûš…KÛá²ëHN¥C›.ûÑÏ{J=67/_,ĞeÓj¯ÔJşøÑ>·;¯÷ó»FëÚx…Ãæzk£{µĞ5üJ¢~›’³¼Îñüreßyó'İ€a¸®í­S}Gk¶ÛyºNàøg7{zZŸ-ØÚIƒ`Ui¶Ößò=™U9´Âc~3oØ«¼Ö16\b50»-ÅÛÃÆgÛß[{D²N–¸Yçè3ÿıe…A`+´R^ë­SÄ¯ĞR¾ĞµmI+ï¯móŠÖºªÓÊŸø*ÙkŸehÛL¾Û›!ğ¥U.@à°rö"€  €  €  €@-,Û!V¹_›’ì4Ú¶ö:6Q³Æ¬ I´	;Ä6‘¾M)…¿ºÿyUñ÷ïõˆ–Óz¯èÃÌ«::AC[çÎ¦Ì¦çä‹&ÃÉ]µ‘è¾òÚÅ³6o~K€cÏˆuÖÊ³
-½§j5`öà˜rÁÌõšÙ˜îLFKyl\’ŒÓ~Fhâ—Û³-OÕWEû-0ùÌÿt©h·×ö“šnö¿ßzmóå—ë5èkíåå©^İ¶‰s¾ï=æ¨»VÇÏü¨³“¥xBŸ…Ëk–mìmxEŸî\ ï¯+›ùhS íO')Z ååå)N€z”|o‘èT¾ëİİå]Šm¥–á+ €  €  € Ô¾@†ŠÖ8!–è¶A8|eEªü@+ßÚgË³)ÊÖ–Mgv­î{·¸&Z9Z¶Ê’Ÿ¾º]rŠæ	ÛÛıŸì—!šùf~}Ù¢Âäº—¶:ACë÷DnÌÕûKÒÌ¼ûµB³Z©iàĞÿ¦Ó«Ò4É²ÖÚ Æ}ïè¶²C×´õ=›8LÑJÊÖleAË2œ®ÅN,óoÌÓ›ä«Ûûˆ{œsPÑ=tZúuÍÄ/·¥É'›ï²)íV¹ùıu%äâúa¢NkÿH§S?§AÕ;5«Ô2LÃB‚õ‡<ºVV•3Ùó|>
-8ä—€  €  €  € õ"`ÁÀIš¦3xEg.;Óï›¿G¬z±eZà°_›Âé«5öJ(@Î_´8hèyÓo¯9êóÀazv|²©$Øå^oõşÂéÂ4³²¦mÉ®±W}¶ö-Âäİ)=œ!\ûÂVIËöPF6	qöeèöfZéø…ëºÈU:õØÖ¤¼VªXÙ‚€MBƒŠîıüF×·)•mèî«ìıê±òÛÑíœ",ë4¸šœ+¶>£­m8óêN2õµí²¾’)æ•õİ˜ö8lLO›{E @ @ @À,ø³a	N@çè‰<gªê’º]º“qhCµŒÄ,]ßĞ
-¦Ô¤%F†@vé4ÖòÚ®#§z\Şy•mÛw,Ç	\•>&-«0°ª±@o1ºfãü{JklA@w½JÏû:P´–`qko]3²¹<¢Åoî~o·0´c[êˆ©:­ØÈnëªEil:ó×ÛÓäãr°îq¥ß'è4ğMê¦ÙŒ™rÆƒ«½„cûÅÈK×w•/oë#}uß4ïéÓ¥ûjìß	6ö_ ÷  €  €  €@=	XĞš­s˜¥ÓxgåÉºƒ'd±n·Œ4k8\±'£¸0Š³±ä{¦<»±Œ7_·Šº´jÎ¾jIšµxfEEJ_ÃÆóîÚ£¥7Ÿö÷¦š!øfZVè]ïì’W+¨h½ïxa°vòÙñÎ”áŸi¶ßœÅ%•¬­ê²YµÏ;xûkÍ6Õ}U©¤ìy¾¢½óu‚ŸÙ¡s<›e–ŞõÎnyâšNNaœ_±Ö¡'O™ÏË°@ @ @ êBÀ‚„i,t×9üvWº“f™ˆV(£µ®hû^«  U1ÚtXkqZt¥¼ÖJ3Ş±]¢…aê£8Š%K¾<±«SúaÍ|xQÅë,î-ÊòÌÖtÂËÚX¦2²øÜS*ôê¢àñ\½Gkç1Y†¢µc÷rŞ/~bƒXÁ(-¦ÓS§¥oÕÊÎ¥ƒ†ÎúÇÂ¢µëº–´Êó¿ŠÊï‰½ €  € Ô™€f¤ë?f"ëì‚\:°ßv]ŠË4bËò³`OßÖÍœŠÃn¢U,NÑ5é¾×3Ú	 .Õ€bMÛÆ¢õìÎI*ÿ¯l+Trª–[TPÅ²ãü¥}«~÷T1k.¿tô­7aU¨'h1™g—’SU(¶êØ6İøÜÎQ’YÀõ¼´U˜¶öÆªÃ›e‘ø"tMÄòÚÈ®Qd.Å;
-¶¤5ë?C?[ĞÙ*f=2¯.¬j·µ­r‡•û°@ @ Jôß,»ô€>•ÄNP è·€#gÈ&`Ù…V5·Yx°Ìş¦dúªoèÜNM£X'ë5»q¿®9x‘fèıh`K¯iµıuªôÍ#NI·E³Ø¬M/7ÿgç)¯‹Vku`{Õe›®Sˆ§é³y{õ§ÈHU®mÏÖ‡ú~{¹dÖÆâSzjÕäiÃœÌÓÒSÇéTãŠÚ®ûH¦®}9Z3=›
-¿Ô åè^12ãÒvrïü½»Å¦WÿáòvÎ¶E[Ê®ñ:˜/Bà €  € 5Ğ¬¬`!pXCNõOûmûçÈUC° à=—´unË3@¸X·ÿáòö’¬Å+¶ö^§ÎŠfL>;®˜¢‹~·v^×HùÃe…A!ûş–¶–ï)¬`œu²ÀÉŒ{Qc¼rC7™8ø¨S<£SËpÛ/ÖÉœ»udk;­Â6wEªÜyAk¹iD¢ØáO·¤iá<IÑ¢|²¿ÂóÒºÚs±×<TŞŸZXM¹ô=Ú:‚«<š¯­Lu®÷h!ëï9Ãñn"“‡ÄKLD¨ÜòŸNuåÒıœÎ÷iÿŞ!Ë~ÑO¦j'Ã5Xù¦şìwdU•§‹—NZYy¡[yêëäÓé¾QCà°Q=nn@ @Àç!2Gò‚nÓÅ—ÊŸKåóÒ!u ”/!sêàJ\Yº«°@Êvœì1uÔ‡ÖÊ›¦ÜY…*İ†uŠ{¹m§Æp‡¶í¥å©ÎTÖÇÆ'Éå}bœ×–CYrÓë;d›^ÿTCËì»ôÉrßèvrVûf2õÜÂ,Åe:•º±Ïö˜ê=¼K‰µkî¾?ğ±w Õ·£ÕÎÖ+¼¢oŒ<te’s¨Ä™ªÅRö(–âöqºïhöø:ù³f7Z‘»GweÓ˜ÿ¸`¯<¤ë2–7¹ø@>8>¬ãƒ( €  € SàƒäÃÿ(((¸¹qŞ=wİ‚‚‚f^šĞò–†xoêîXRQQßFÅPÑÍÆk¶œø°õ÷N·Ù´W[§1‡Tµ£µ€‰­)yHíWíÏt«ÕA5Õ¬Æ::A×<´à´M7· &­j«æÄQ €  € T(°¶  |WòáùzÀEÄG`aRBËËúyÏœñ3RW€À¡+Á;œ¦ Ó)NÓ@ @ p,ÀbËÒ›âIC ô·k¿a‚†øğ3 P;dÖ+½"€  € 4RRSûJLÑ‚)£´¸D’¾G6R
-n; ô7šnÕ“B(º^ç¥­Z­€a3Äª
-qXU)C 
-V Ãf@ @ @ Z€Àa@?>€?0UÙc@ @ @ @ @ÀÏúÙa8 €  €  €  € øƒ Cx
-Œ@ @ @ @ ? pèg„á €  €  €  €  àıá)0@ @ @ @ üL€À¡Ÿ=†ƒ  €  €  €  €€?8ô‡§À@ @ @ @ ğ3‡~ö@ €  €  €  € ş @àĞc@ @ @ @ @ÀÏúÙa8 €  €  €  € øƒ Cx
-Œ@ @ @ @ ? pèg„á €  €  €  €  àıá)0@ @ @ @ üL€À¡Ÿ=†ƒ  €  €  €  €€?8ô‡§À@ @ @ @ ğ3‡~ö@ €  €  €  € ş @àĞc@ @ @ @ @ÀÏúÙa8 €  €  €  € øƒ Cx
-Œ@ @ @ @ ? pèg„á €  €  €  €  àıá)0@ @ @ @ üL€À¡Ÿ=†ƒ  €  €  €  €€?8ô‡§À@ @ @ @ ğ3‡~ö@ €  €  €  € ş @àĞc@ @ @ @ @ÀÏúÙa8 €  €  € øH İGıĞ4Nt‡óÁs× €  €  € ] Hv5ô[äş@ ôï‡µèK× €  €  € Ô›@AĞ‚z»6F ÀĞ¿Cşcä@ @ @ (+$s$((¿ì¶ € §°¿;ôï‡§pb7 €  €  € )ğØÙkõş³rìêWÀşîĞ¿CÖïcàê €  €  € Ô@tó_hğpaí]€@ Á	Øßöw‡6‡îérC €  €  € 	Ìè›#-"/“à ™L[æW •
-Øôdû»ÂşÎ°¿;´Uz;@ @ @ @ aÜ¹´¯È	*¥ïIzS‘ãÆ¸¨@ºFw‰S²uQm‰öÿ8½JPÙ    IEND®B`‚Yimage/pngOmbplist00Ô
-X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯/'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€.€€ €Ó()$+,WNS.base[NS.relative€ €€_Bhttps://docs.swift.org/swift-book/_images/sharedStateStruct_2x.pngÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃñ¹-œw’ ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
-€€€€€€€€€€€€€€€€¯OPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-ModifiedYimage/pngZSAMEORIGINYhit-staleQ1_vhttps/1.1 jptyo7-edge-bx-001.ts.apple.com (acdn/141.13253), https/1.1 jptyo7-edge-lx-011.ts.apple.com (acdn/141.13253)UApple]1; mode=block_.1312d39d-3f49-42c4-bc85-389bcacbcdcd-913834841_max-age=180, public_Thu, 17 Mar 2022 13:42:44 GMT_#max-age=31536000; includeSubdomainsU39689Zkeep-alive_T
-
-YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE1lpbWFnZS9wbmehFV8QHU1vbiwgMTQgTWFyIDIwMjIgMTk6MTA6NDMgR01UoRdfEBQiOWIwOS01ZGEzMjZmZDRmMmMwIqEZUTGhG18Qdmh0dHBzLzEuMSBqcHR5bzctZWRnZS1ieC0wMDEudHMuYXBwbGUuY29tIChhY2RuLzE0MS4xMzI1MyksIGh0dHBzLzEuMSBqcHR5bzctZWRnZS1seC0wMTEudHMuYXBwbGUuY29tIChhY2RuLzE0MS4xMzI1MymhHVVBcHBsZaEfXTE7IG1vZGU9YmxvY2uhIV8QLjEzMTJkMzlkLTNmNDktNDJjNC1iYzg1LTM4OWJjYWNiY2RjZC05MTM4MzQ4NDGhI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHVRodSwgMTcgTWFyIDIwMjIgMTM6NDI6NDQgR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpVTM5Njg5oStaa2VlcC1hbGl2ZaEtV25vc25pZmahL1VieXRlc6ExWlNBTUVPUklHSU6hM1loaXQtc3RhbGUACAAtADoASABNAFEAVQBcAG8AdwCFAIoApgC1AMAA2QDnAPkBAQEDAQ0BDwEvATEBSAFKAUwBTgHHAckBzwHRAd8B4QISAhQCKgIsAkwCTgJ0AnYCfAJ+AokCiwKTApUCmwKdAqgCqgAAAAAAAAIBAAAAAAAAADQAAAAAAAAAAAAAAAAAAAK0Wnosniff_"9b09-5da326fd4f2c0"Ubytes_Mon, 14 Mar 2022 19:10:43 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionaryÒ/0Š‹_NSHTTPURLResponse£Œ3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d – œ · Ù û ş #ELnqt–¸»½¿ÁÃÅÇÉËÌÎĞÒÔÛãïñóõ:?JSY\enpryŒ¡£¥§©«­¯±³µ·¹»½¿ÁÃÅÚÜŞàâäæèêìîğòôöøúüş '+/6IQ_d€š£¼ÁÏİçòüşw}‹¼Òò)		‰	 	¦	Æ	Ë	á	å	ò	÷
-
-
-#                           
-1Ô,-)._Ahttps://docs.swift.org/swift-book/_images/sharedStateClass_2x.pngO¢l‰PNG
-
-   IHDR  Â  ,   àÀ5   sRGB ®Îé   DeXIfMM *    ‡i                           Â       ,    […1‘  @ IDATxìİœõùøñç£÷Ş{/Ò‹P°÷[4vM~cş¶Ä¨‰)šh°Ä®vQ@@Á® ˆôŞ{ïîşÏ3w³ÌÎíŞíím»»Ï7¯ag¾Ó¾ó]³ßg¿÷Œ@ @ @ @ @ @ È(£¯·ëô¹NKuÚ¡Ó
-ÎÕ‰‚  €  € ä'ĞQ7xU§é:mÖi£NŸéDA ˆ£@FÍ¡@ Â
-Ü¥–ÏAvêúå:Í×émê¯RZü½Nİ}'¨¦ËÕ}u,"€  €  €@ñè­—ôˆï²¬?r³¯.ÜâÅºb”Né¾âÙñŠE@ @ TxA”U€i­n{i/âw!Ú²Oëfèt~ÏË¡@ @ @ 5Fh3ü}”L­kAóÊë66Ü¿ÿb­›àÛ .ôL·øÖ³ˆ  €  PŒ
-·/”Gtê'ƒô¸Ş/­ÿÑeû2KA @ @ â/`U¿E'oŸÀ¿'‚ËïâÛw.·³ß¯|Û¾f;ª@ " 5J„Pl† )!`è·<-i§ógéÔK§´œzûïÚ:˜³Ë—¾ƒ=§Ë|u,"€  €  €@ñ¢—U+Ì¥]®õ³Î­ö÷'løw%¯ € ñ __ ±°/‰ïøùg]ş¥N/zê»ê¼åó¶ÑááJ#]a#2ê4[§:…*¥´²BÎŠr¾vëråœºıúzÌ·Ş]¬£3'èTE§y:-Ó)Ü¶ºJìœem&§Ò×Ã9óÖ–:m×inNÿÅÚÙI§æ:-Ñi¾Nîş:KA @ @ (,Øíû>ÿ¦NWçTXÄê,ÌYö¾ØwxëWTõVê¼.wûv<ëSØ_œZ¬Æß÷°:ÿ¶Z²DÚ×qwvë.ÛHu·´Ñ™º:YŸb›[É+ €  €@lü©Qşæğ8¶ ·ûg‰öZ#Ä¶öåó¶êäİÖæ7ét§NîÈruÊPı×¿m¨eËáç-öğË)nÇõoo£ÈßÓ©¾N¡ÊÃZéİç~]¶/Ÿu²‡è¸ëìº½å]øV'î»ÛØ«Ù|®S+( €  €  PpLÛ@÷{öïãY¶zûª|§•î~á^¿ÌÙñÓ¶µïöşM_Ç‘¦“·M·r›N+tr×=j•@ @ øD·‘Öö€÷KÚÊÍi¢u?x¶q·õ¿NÑmj{ö&nçŠäË®ê¾Ès.w6T |¬®ô·µŒ»ƒ¾şZ'oÜ¿­-ïÕéZ( €  €  P0ûŞîı}—.[Ùş²Ô­·‡^†*‘ô
-¶¯cm?IëıƒkuaÔ!€  € ÄF ’@¸|°‡Vº_>íÕR¥øË­ğn³K—?ÑiŒNö®{]—İršÎX Ù&o°İ¶·?]t×õ×y·„Åa_çêd#,¼ç²c4ÓÉ[Öï6ë}Ëî:7~rˆõ³´n”N3|ë,EJ;( €  €  ¹€ıE§û=Ü^[æìêï³ôqHÁmıÿÀûËM·?a}+êdu‡tòÏ»­’ñ–hû:v ÜÎéî»m îg@ ˆ±€ÿK¥¥ı°/`6=®Ó+:-×Éırf£ş “¿œ«î6öjyºëy6²àşÑâ}=ëİÙ:ã=Nw…çõß6–åBÏúÆ:oAjïqì! Şâ„Û¶{tzP§:YşA»&K¿bÓt¼Ç³ÑáŞr•.x×Oò®d@ @ ò¨¢kí{½ûÚún9GgÜz{ı»»"Äë¥¾mG†ØÆ­ú•o[ï`w{-l_'T Ü®ãk.ÖÉú§êÔY'
- €  €@œüpïLÿ¼}5úÂšöNŞí¯±J_i¯ËŞmŞğ­·ÅHá¬÷çÁÇi­uşÑå-<Ûùá6ú£—g½wv°.xÏ·T—-8î/£µÂ»ùÂıB,#€  €  Zàj­ö~—¶9n)¯3öWîú5:oÁåP%ğÂöuBÂmT:(v¡‚%Åî"¹ (ô*md´\hé»b[ç–í:c#¢kù&{bûjÜbñhŠ÷\¶¿óıe‰V|á«ôïç]=V~ôVxæıû½¦ëìA¡şëûÊ³ÍF{}¾Ã°ˆ  €  €@±¸Üw…–^Ñ-6Rü3wA_éÔÏ³ïYo V}‡âİh $C #'åœ €@”/é~O{ö­¤óÍtºV§A:Y±”&4î¤ÓzêèT]'·Xx»Ç«åÑvGGä±YĞªººTÍSc¹ı¬¡Ê"­èYaçûÄ³ìë]ğÍÛ~Şò°.Ø”_±@øÇùmÄz@ @ J¸@m½~û+L·lÒ™©îBÎ«ÆÏöÔYàÜ?Å³:f³ñèëØÈöù1k!B RH€@x
-İš‚ ù
-lÔ-fú¶²à¯çL¿ÈYgoËÍw…NMrê
-úRAw° öìhù¿½e«wÁ7o#Ğ½Å¿¯wİ!ï‚o>Úëkè;‹ €  €  [à"­òÆNªêò
-ßfe}Ë¶Ï:õÕÇz1Ú¾@^}„uC9 
-Şÿ˜§B{h ­Àóº£·cœ–s Õ9¯îËRyÊ]ÈçÕrı¤¬òml#4Âÿ:ÿ¾áöó×û¯ï?ºÁbÿF!–g‡¨£
-@ @ ‚üiQÊéê¦Á›äZª¥5CtŸkMl+ü}xöubÛr† $A€@xĞ9%ÄEÀ?ÚÂş„ÑFflÖÉFu»éQÊèüÓ:Å£Ø(oï¹l¤…ÒğAµsûst[ª”hÊBßN3uùe_‹ €  €  PpFºKß‚ïæìaôxÂÙ×‰’İ@ Ô :÷‚– €@á.óín£¢İ”"ótŞıké>:ùóúi•S_Şf´Ñé[g®`ÿxÏe{Ş¤Ó}‡è ËşèD›‡ÏÎç-ëB¨@¸å/÷ßí‘äJ÷›y@ @ J’€õ1Ò<ü™Îÿ?Ï²w¶‘.¼ë©8Oç­oqÀSW˜ÙÖavöö?âİ×	Óª@ @ 
-+ğ‚ÀrÔ¹Ó?u¾¦g²¼ÚP~Q'w÷õ%­sË™:ãÖÛ«}Ylë®ÔWû‚j_h½ÛŒò¬wgø¶iã®ğ¼åÛÆòë]§S©œm,n£¿½çz;gûò°oııîŠ¯öÅ|ªoûût9İ³­À—ú¶±:
- €  € „˜®«¼ßÛ¯¿©³f™o{Ëî-—ê‚÷x#½+}óçú¶ÍÔåkt²şP%ÜRØ¾õ'¼m:æ˜W@ @ Ä	øáŞ/hyÍ¯×&ÚhoùD¼ûØhñuúR§ƒ¾u{uùü%’@¸íã?—×i#°½mpëk½·$nûõÖÉ¾{mçš ÓJ_½móšN@ @ /`ƒ^¼ß¯-@ìïcø÷ş—oŸ÷|$n#À½ç÷Îî;®¿ÿQ¾p&‹ €  €@2¢	„[J”C4¶¾Ö}¦“÷d¨ùıºÍ°û[U¤ğºm$çÚ¤ÛÙr)h Üö·Ñ){t
-uMŞ:—Ñ‰‚  €  € áĞUŞïÑß…ß4°f oŸº\%°V¤ pÛíe¼mpçığÂôu„{n³ €  €@²"	„[àzNêtƒNy=ûÀ¾äİ¢“ËmD‡ûEÒ^mÄöó:5Ô)\‰4nûÛ¹,?x¨sÙCm^ÑÉş¬1TyX+½m»?ÔF!êšiİvêäİßF‹ÏÕé¬]@ @ È[ÀÿİÿŞ¼7wÖZ_d»NŞïâ×xö+h ¼œî{«N?éä÷ˆÎ¿«“¿DÛ×±ı¼íµ~(–DŠåmå¢@ 
-ºM*ëdÁjK§b_ ãQÊëAÛëTU'ËOnğx—&zËƒn£Î—èt@'
- €  € ]ûËN„ç×oId_§èjÒr@ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ @ (9i%çR¹R@ ˆ
-<ş§"ÇnÌ¬¡zMD²*Ñ+¡Ù €€O m¯V¬–ô´‰"¥ş'÷>0Ï·‹ €  kú±åx 2y÷/„§Ì¢! €€Oàí‡ÊÈÒÌjí-üN÷­e(fi™zA#¤Uúoå’‡³‹ãr@ H¾ ı‹äßZ€ 	Èİ¿ @~N… D,`_R—/Y2(â}Ø(i2YZ–F0¼8ÜL®@ eè_¤Ì­ ! `Oÿ‚†	¶çt €@D6œ xDTl„ ÅLÀşÛ—ı×0ÅìÂ¸@ ’(@ÿ"‰øœ’*àé_0"<©w‚“#€ !,g_æÑÙ¤C	aC”ı3ÆôŒÎä/!·›ËD ˆ¯ ı‹øúrt(ÙıF„[E@ ¤	èƒ1É	^Òn:×‹ Aö\ûo!@ 
-/@ÿ¢ğ†Š¶@vÿ‚@xÑ¾‹´Š£@fÖĞâxY\ P ş[X .6F @ ¬ ÿŸ–† P‚ô¿…ÂKĞıæR@ È4)2-¥¡ €@üøoaül92 €@ÉàÿSKÖıæj@ ´@á¡a¨E ’(U)‰'çÔ €@ŠğßÂ¹4@ Èğÿ©Eşr ¬JÂcÀÈ!@ @ @ @ @ RW€@xêŞZ†  €  €  €  €  á1@ä €  €  €  €  € ©+@ <uï-C @ @ @ @ ˆ ğ r@ @ @ @ @ Ô º÷†–!€  €  €  €  € Ä@€@x9 €  €  €  €  €@ê
-Oİ{CË@ @ @ @ @ b @ <ˆ@ @ @ @ @ u„§î½¡e €  €  €  €  € 1 D  €  €  €  €  ºÂS÷ŞĞ2@ @ @ @ @ "‡@ @ @ @ @ H]á©{oh €  €  €  €  €@„Ç ‘C €  €  €  €  € ¤® ğÔ½7´@ 	T,]º]—‚  €  € É ‘L}Î]T2ŠjÃi7 € EEàÏıÉ='ö•Ÿ7m”o¾$¨é—¶ï$éiiÎ¶Ÿ,]${h¿’¸V%ñ®sÍ €  €@É ÿûNÿ"şÆÉ8ğd¨sN@ "#pA›öÒ¹N=§½Ç²2å‘o¿”¬­¯Z¶¬ÜÕëäÀš¯Ö¬”É«VH™ôRò}N‘2¥2¤wƒF2¬Ekyñ‚ÀvyÍ¼qÎ…’¡û[i÷ÜS²hû¶¼6Ë:ÿu-Ü¶EF-˜›ç¹®9¡«4¯Z=°Íãß-EüìTÀ™T°*`“Ù@ @ 
-Ğ¿î7Ñ¿(‚$^2ğ$âsj@ Ô¨Q¾¼<Øo` ¡ã—-‘é×–İ™Ó›·
-ÚnÈ[¯8«g“ÏW.—3[µ•½‡É7kW»»‰×ªeË]×®ƒå£%Ãj·Àù³gœ-å2§‚yjú÷q„	L‰  €  Pâè_Ğ¿(ñ‚$#<‰øœ@ õ>ĞÑÛG5˜í–a-[»³A¯ÃZ¶	,oİ¿O¾Xµ2°|Î;#åÔ7^”FOÿ]6ëº¢\ª–+'çë(ùpå²ö'ÁÃmG= €  € %Q€şEğ]§ìÁR|„Ç×—£#€ qmÈä•+W1Üğv+-‹÷-Z¹‹â|¹Õ4*nÉÔd*_­Y%»r«bşZ>£àäUNÓµ¤Kvò‚4èºÎİÃn~mçna×…[m;Â/¿úh¬ò;&ë@ @ ˆD€şEn%ú¹M¨‰@Á{ÍñiGE @ eŞY8W†æº{7h(µÊW­öÚÛ­n}©W©r`ùóó6óÅ•×IMİÇÊUcŞ“Ÿ7otæíŸº*Ê_•S5‘:+Ê×0yöLyoÑüÀ6áfZV«."½ë7”f:¿]Û4KıÏißÉ'K‡Ü­i•ªò—S;ùÊ[V¯.õÁó·n‘uäûß~øFdà‡<€VjÖ\W®"köìÚ¤]ZrbÃÆAuá¢iG¢­Âµz@ @ 
-#@ÿ"XşE°Kñ ?[Œ  PLl„÷Í{m®LOK—Ó5(şæ¼Ù«ó·´(Sô!™ŞÒ¾fmrWrª*”>;»mšòù×IC*»År‰[ú•K>xÛ­
-ùjÙyõì¤R™²õ54Ø>°igzzúrÇ¤qu6cû¼rÖRYóx»¥Bé2ÒSé6]Ü®“ûuY¿w»:èuåÎR«Bçœ×œĞMùîË õîhğmû÷‹åF¯ïùqÀ»a4íH´•·½Ì#€  €  KúÙšô/bù®âX‘%%¶A (Ñş?_Ö"8O¸7o¸?-J^péhno|êº5òÆÜY²z×.}Ş%Nà=Ôş5õÿ~^ şÙŠeòË±ˆ¿w<àìr{Ïå¬VÇó–Û(vÛÇ‚ÿ¤ü¼{òùë÷_Ëœ”-]êÖ“œvF¨S:u wG»»AowãRiirU§.Îâ›ófÉV†‡*Ñ¶#‘V¡ÚM €  € ± ‘-Iÿ"Vï(© #Â#•b;@ -àıóÅ34n¹µ-÷wrå¥OƒF7P¨3ciMÎó<tò¡¯'ËÃß|ál]!£´|rÉ•ÎÈîP»ß{b?©®Áp+—/•ÓG¿æÌ¿,3å{¦¿yîÅÎò£§	¤HùÃIÇ÷™·e³ô}ır@Ó¢X³d¡|{õ¯œùË:œ OhŠ”Ÿ6mp–ıÿ¼2g¦\×¥»´¬^Cú5j*_¯]ål2´y+i3²İ¶±‘é¡J4íH´U¨vS‡  €  €@,è_dkÒ¿ˆå»Šcå'Àˆğü„X  €€
-8#½5İ‡•ššÄr…[Ú¼¥”JÏş¿ÓPiQœBüÓ©v]IÓQÔVl¿Ç¾û:°Õş£Gä_~XöÏxóp¿¯¹Ä[hPİ~Ú¸Av<èìÒ±vm)[ª”3ßÛ¬ñÓ´@ÜV~§Áótr‹w[·Î}µæËvlw¯ó<Ó!>kÓF™©S¸â=v¤íH´U¸¶S  €  €@¬è_dKÒ¿ˆÕ;ŠãD"ÀˆğH”Ø@ ÄØŸ/Zîï!:òÙŠåÿaıZçÕÅ)HZ”æ¼vË¼­›œÚî²½ÎÔ€vVVV Xî]×®f­Àâ³ÃÎ	Ìûg,ŸyÍC>GG€[r·,Ü¶Õ¼Z`÷?°AÎL–¾¾ª#¾ÿÔÿ4¹¸}GÍC>VÊh°ıÜÖíœ-lDG^%šv$Ú*¯ö³@ @ XĞ¿ÈV¤‹wÇˆT€@x¤Rl‡  PâŞ^07·¼àj:{p¦["M‹bÛ—ÎEnóGeÚKP9š™)™·ÜÛşR¶Ôñÿû^²}›É©îßÎ–K§g·`µ[ìØşâ=†;ŠÜ¿»üÚœŸåá~ƒœåµë(õ›e32ô:É›šã<¯M;m•WûY‡  €  €@¬è_dKÒ¿ˆÕ;Šãä'p¼'ß–¬G @ „Øˆïgœí<Ä²G½r¦>Œ²NÅJJAÒ¢ØËwîh¶ÕŞî¶Ñn±‘ÜnÊ·Î}]´}«ô¬Ÿšå}àå‡šã;¿âİ§yµjòåñL(Î®–ZÅ-¡FŒ»ëìuÕî]2yÕr9­YKùU×R^sš[»l±l9ú!™ÎúO4íH´•ÛV^@ @ ˆ§ ı‹l]úñ|—ql¯ 9Â½Ì#€  ‡€ûç‹¶‰å÷~fèY­’ÅvZ¸mK`ßÆUªÊ/:u	,[Pü'÷,ûgfoŞ¨º¤}§À¼ÍØ¾–¦äR­·ÉİíİÇòy{Ç™[|@“æãÌÙrüøJßÌ+³³S œ¢Ìì®?
-XyyöO¾­r/FÓD[ån55 €  € Ä^€şÅqSúÇ-˜‹Ÿ #ÂãgË‘@ Š¡€÷Ï›T­¸Â‚¤E±æmİ"_hÎñM³Ğ/Ÿy¾Œ^ºc›Ö‘ÖƒšµÛ?óø÷_ià¼³ææÎÛußoî+ctTx£ÊUÅ‚ÜWtììì2cÃz­é\¬x÷9UƒŞ£Ï»D,ŸwÍòœ4'îèóoôa˜“µ]ù•÷-g”*eË9›nŞ·WÆ-]’ßnQµ#ÑVù^ €  €  #úÙô/bô†â0y
-Ï“‡• € xÿ|Ñ]SĞ´(î~÷~1I>¿üZ©X¦Œ“å—]º»«œ€ñİ}ú†L²dÇv¹ÿËÉòøÀ!N0üñCu~h`_›Ùyğ€\ûÉû:ï>6šıb-n“·lÛ¿_n›ğ‰·*ìüş£GäíóäMbåÍy³åhVîÜãşDÛDZùÛÌ2 €  € ñ ‘-Kÿ"^ï0ë 5ŠWƒy@ òğşù¢»iAÓ¢¸ûM]¿VN|õyùaİ9šóÀË5šû‘o¿?|ñ™æ÷fw÷Ê~ıÛÔoä´‘¯ÈìÍå˜çá—‡•·4(İóågeîÖÍA;Ù>ƒF¾,³6ï³ïğa=t|á?2;‚´(îA½©P¼óîúp¯Ñ´#ÑVáÚN= €  € ± q\ÓÛ§ğÎß"ôı‹Ğ.Ôæğ¦Í½–@ Ä<zøègâ[Ã$P>#ÃIS²vÏîŸÑöm[£–ì9|HVîÚ)Ç²ò•Ó´*mkÖ”İ‡²÷É7+¢¢iG¢­"º6ŠÀ}æ»j|d9* €@I Q’îvàZı9šïõÆÆp&šv$Ú*†—Ë¡
-(@ç¢€`l Ä]€/ªq'æ PD„‘E3@ RZ€şEJß‡ ‰ 5Jâ¬9 €  €  €  €  €@„'S"€  €  €  €  € $N€@xâ¬9 €  €  €  €  €@„'S"€  €  €  €  € $N€@xâ¬9 €  €  €  €  €@„'S"€  €  €  €  € $N€@xâ¬9 €  €  €  €  €@„'S"€  €  €  €  € $N€@xâ¬9 €  €  €  €  €@„'S"€  €  €  €  € $N€@xâ¬9 €  €  €  €  €@„'S"€  €  €  €  € $N€@xâ¬9 €  €  €  €  €@„'S"€  €  €  €  € $N€@xâ¬9 €  €  €  €  €@„'S"€  €  €  €  € $N€@xâ¬9 €  €  €  €  €@„'S"€  €  €  €  € $N€@xâ¬9 €  €  €  €  €@„'S"€  €  €  €  € $N€@xâ¬9 €  €  €  €  €@„'S"€  €  €  €  € $N #q§âL €  €  PÒ¾Ù°¤ã±crCVšÕko’•%•Jš×‹@ª¤¥É^mãê´,™Xª”ü¯oıÖóR½Í´@ ‚
-0"¼ bl  €  € ù
-ÌËÊ*3eİ²§f¦ÍÎ¹Sà‚çËÆ$EÀ>›öµÏª}fí³kŸá¤4†“"€  'áq‚å° €  € ”T mY·l¼deŞ–••EŸ£¤¾¸î")à|fõ³kŸa‚áEòÒh@ 0|)C5 €  € D'°yıòfIÖ èöf/HûÛg9ÚB@ ˆ… ğX(r@ @ p,'xšdİ}û,Ûgºè_	W€  €€pŞ €  €  3çÁ˜¤C‰™'B ™–&Å>ÓÉlçF @ VÂc%Éq@ @ @@²Òd( P|øLŸ{É• € %]€@xIpı €  € ÄV IlÇÑ@ É|¦“|8= €@l„ÇÆ‘£ €  €  €€
-deI% @ øğ™.>÷’+A Jº ğ’şàú@ @ @ @ @ b.@ ¼˜ß`.@ @ @ @ (éÂKú;€ëG @ @ @ @ Š¹@F1¿>.@ b-.irvë¶ú¯È˜%‹$S²Šõõrq €  €  ?úñ³åÈÉ ü{@@ RH c­ÚR­lù\-ú~İš”2Ÿ£Ağ.ºÂiï…ï½%ï/^«íTähT¹Š4­RMæmİ,;Ì½A5ÕË•“5ëÈú½»eÅ®Q]@ @ Š› ı‹âvGC_ı‹Ğ.©VK <ÕîíA HªÀ“ƒ‡Ëàæ-sµ¡Òßÿ,ûÉUŸìŠcYÇG€{ç“İ®T?ÿ5't•GN,ÃF¿&Ÿ._“æÒ¨‰||ñ/äÉißÉ]Ÿ“cr@ @ ¢-@ÿ¢hß¿H[Oÿ"R©änG <¹şœ@ Åîûò3ùÇ´o­ú×àaÒ®fíÀr¼fş:pˆœÚ¸™œûîHÙ´_Ä§ùdé">úuIÓÜ(ã—-‰x?6D @ @ øĞ¿ˆ¿1g@ Rá‘J± €@‰øqÃº ë|ğ`lÒf4ÄBÛµ¤OÃÆR6£`ÿ×lãÁÇ/' ‚”*@ @ ’.@ÿ"é·€ HÌ1ƒ  €  €  €  €  €@1(Ø°³bÀ%!€ \ tzº¼vö…A;şSó"ÏÜ¸AnìÖS®ÕüËÍªU—ÍûöÉo&“ÏW-Ú¶BFi¹³×Ir’€nV­š,Ş¾M¦¬Z!#~š&áò\kæ¹¸]G¹²ciY½†8zDælŞ$OMÿ^fék¸R¿b%¹³÷IÒ¥N=©«ó¶n‘ÏW.——fÿ$Ç³k‡Û;²z{`åå:ËÓÓ§Ê·ëVçÚéÁ¾œô*7Œû0(Ïø§æêd¥[İúÎëß´Í†½{ÄşœÒ[şxréT»®·Ê™¿úã÷äHff®zoEA=^;ëYµ{§ÜÿÕd9­i9·M;±\ØÛì—	š[ûÉ¿{Ï¼çMåùåÊË/:u‘AM›K£ÊUhşõû¯eş¶-!›]³|y¹»O_éU¿¡“’æë5«ä•Ù3CnK% €  €@şô/‚è_Äª§ìš¨%ú‰’.øy„ÜŒ=@ /®	©-•‡•:+JÃÊUäísåú.İå¦n½>µ+T”•+–m¦•±Ç_r•´ªQSVîÜ!+wí”¾X½ m¹¬C'9cÔë²÷Èá }láÈ^­öıºîÛµ«Å}mçnNİï¿%c–,ÊµÏğ–­åÍs.’jèÜ¨å{÷ÊùmÛËå;Ëu]ºiní7d÷áC¹ö+hE‡šu´í'ˆåë¤äşMšÉ­>
-rŸªuİëeÀ+–.ãœöô­$Óó Lû‘@¾nQµïY¯A ²Q•*RN\øåØò„GãqIûNòó¦2}ÃzyÿÂËdëşıR¦T)mwÒ¼•ômÜTÎï­@[¢©U¾‚4«Z-¢İíkñŒë#Ú6¿Ê–Ê1_!}4’õ{öHmCúäR½îşo¼(Ó|©r:Öª-“.¿VêWª,G“åúş]ïSäúÍ#ßùnT~'g= €  €€#@ÿ"ø@ÿ‚şı‹àÏD¬–„ÇJ’ã € %Hà »¿<Â¹âßö>YşqÚN`üW]{ˆ¤}oÑ|n—ÕjÈ¦}{ƒdv¿qÜGòÂ¬Î:òÔárK÷ŞrÏ‰}å¯'ícAJ‚Ïİ²Iz¾ü¬Øù­ØˆÜo¯ºAş=äÌ\ğêåÊÉËg/è¼äƒÑòÎÂyÎ>•4àlm°`ø£ËíÇ:õÉøç´·^	œöÃ/×ÑÖí¥ûK#d™Wó*×|ò~Ğj38YLÈ«Æ£…şxñ¸>Ì³ÿë/9şrjj#Ãÿ­÷ì<mó)›„ü ¯öø×Ù¨—õ~ERf“Ò}8’MóİÆ†:~Ùb9}ÔkÎôÁ¨÷ÔO®Ò÷›½?¿õjĞ19ı,'şÆÜYrË§;?Ú”Ò†ì}ûôĞ3ƒ¶e@ @ 2ú‘9å·ı‹ãBô/[0w\€@øqæ@ 
-!ğ›^'Ê•½+£td¸[¶~ğdwMÿ1PGG¸xA nÛZ:;'—³[µuR¦<¨pïÃµÑÑãVŞÕ`¶·e{ğÌI¯½ 6š¸Lz)9¬R·\{B7­^Iùö‹@ÜÖÙhó_ıĞIïqK÷^ò‡/&ÉÃ¹G »Ç).¯…ñ°Ñ÷voİÑî•ÑzŸ[êÑ`q¯úƒDˆ”0±›§)kş­iV")áÒçD²¯›u{vËmC,ÊãÇÈ9­ÛIïú‚6·¿f8µIsYª£ô¯×÷û~³ö<¦? Ù3çë_6P@ @ 
-/@ÿ¢ğ†ñ<ı‹Ğºô/B»¤J-ğT¹´(â–âÄu9j×qª-G·¿XPÑR\ª)FhÚ‰ušÊÄ-ã—-‘Ã|ıeçîòÃºµ2qÅÒ@ <\Š7‡ö‹¸‡	¼Z wüò%N—µêÈÔõkëŠëLa<,Íg+—å¢™»5;7{“*Us­+h…İƒdÜ‡–,ÌÕT{,Ù±Mzj`»ZÙr²óĞAg›v5³ÓÙ{Ç‚{w¶c÷Š0 ÅU K œ7MÿªK_;öé©ÏKH+®—Êu!€@è_$?‚SÓ¿Dÿ"´KªÔO•;A;@ ".*¸í¿¤&U²s@ßØµ§¦Ôhç_È;Ş¬jõ @øV}0ãß~øF~b?ùô²«Å~e·NÒ€ø‡‹ÊöƒrËÍ7m_ C••;³ëm»d`Cµ)u…ñ°ÜÙŞún;÷ÊIo©AŠj±÷R¨²''w|†¦íqKİ
-•œÙÕ»w¹UA¯«w…®Úˆ@ Ì›:]^yìÎ•\sïoå„“zÇôªV.\,e5ÅYıfy§ıŠéI9¤œ ı‹”»%A¢ÄX  HÉá)y[h Pô–iNğüŠ/İyè€lŞ·/×ænİöƒûs­»ÿ«Éò¿ŸgÈİš‹ù,M¡b§´é©!‡ô!”ŸÈëš³Ù[ì;VjÚ•PåXVv½»]¨mŠS{©êa£Ê»Ö­¹=Kôc}0i,ŠjUÒ$|pßû0Sï¾áê½Û0 $[ Sÿñ³ÑÁÏšÕ¦~ç—ò+„Z%é¥ÿH˜æùÁ0äÆQTş÷¾‡¥QËæòë'‰bovA â"@ÿ"µï$ı‹Ğ÷‡şEh—T©%*w‚v € E\`_y¶·îÏp¿8ë'yuÎÏ¾âU:×niS‹jÕÅF–ÿ®ÏÉòâğóœâŞÑßÛt¹•º+ÊîœÑ½ŞÖÑ¼×VÜí¼ë¢÷ö£JÙ²ŞÅ¤Ì»×™H‚\èàf-’ò°Ì‚´qŸ¦ˆ±b9éC•šåË‡ª¦J¨ÀØWGÊ²¹óåº?Ş-•«>…T¬3õÓG½›ïáz6Ş¡W¹á{53J–´ïÙ-ßc%zƒ­ë7ÊÈ=-z÷ÁŸŸèÓs>ˆ‘ ıúÑ¿™è_DoWœ÷$^œï.×† ¤˜ÀÂm[õ¨× d ÜÆàÚHÜL_"K½aÿ;š3ŠÛ²|ç¹Wti0¼°]G±czáóõá‹êv½4Ò|Ï¹G«[½•y[6;¯…ùgËşìÑí¡reW.SFÜÜÒyÃj%^AóDzäuáÖÙƒOï21Üê úd¼^´=ûıÛ'ç½Ô(]èÓ0øášşõ,#€@ÉØ²n½¬^¼T9’’^¹z5¹ú;Ã¶-¿à}»]Ãî›ì‡õÙf_·1ÿ]Nö½àüÄ[€şExaúô/Â¿;Jîá%÷Şså €@Â¦o\'›öí•ºôçfş(ó4Xí–z+É´ko’åÊKƒÿ<4Šû¹açÈõºÏ¦L’ÇøÚİE,@î>¤e¹/5Ë}páOé/ö(—/•-9#ÄmçK4pŞ¿I3ùQĞè}(gàÀœY¼}›³ÇUºÊÓ3¦ÊƒÙW´ö=9x¸”)U*ß#.Õ‡3Z1›ÛtÄ{¬K"=¢iûıAÂ¦T.¶n•ú×A:zı²ö‚Û¹v]¹­{ŸTn>mC ‚2J—–ær?¯#h#@  şÑ¿ şİQr×/¹÷+G 
-%pu§.R¯beé×¸©sœsZ·{È¥•CÇÊSÓpæ½ÿìÑô)¿ûüSyãœ‹œ ·¥H±QkÕ–á-ÛHcÍmÁn*“g4¸|¹æäÔÓ¤‹æ‘¶eV×‡hÙ>mkÖ’ÏV,“Y›6yO%Ó7®—ÿLŸ*¿éu’Ì¾á651÷JÏúä"„:zTnútLĞ>¶pC—îÒT ék“•úÃúçäVv:$OLıÖ™·¾Y»JflX/=ôØî¸GìIák4Ëæ-e…\ÿxÉ"9·MûÀö¡fFÎ›-wõ:YníÑG7k)_¬^)öÀFK'ãşÛ¾ş6º#Ñ-è$3t£õÕÖ’ZwPß×÷L ¯ëû÷­ó.ûáãçÍœ÷ı¹úşiöOrGÏK*× *0iô{²mcözk—­pL>~ù)ãI‘U¥F5~Õå!½VÌ_(Ó'%ëW®’ŒŒ©×´‰ô=ëô°#›ßzò©^»¶œqå%²dö\±‡XÚ1*V©"mºu–şšç;=F9¼?{çÙ¸jM®v_~ç­RJÛšW™1åkY0ı'Ùºq“4hŞTÚ÷èæ<`ÓÒÇìÜºM®üİaw_:{Ìûq†¬\°H*Tª¨×ÕEú=,×umX¹Z¾ü(û‡äúÿ÷V–Ï_ £tì“‡‘&mZê>xî%Ù·g¯\xË!SÁÌ›6Cf~õ­tëŠtÔT+ˆŸ ıúñ{w¥æ‘é_$ş¾äı%ñíáŒ € EDà×=Or¿ns¯ÔÀø•9{4P*n«ßÔ€¯
-·‘Ò·kĞ7-ç¡–Ë5}É/Ç~ /Ïé2ğ:sÓFòÖ«òØ€!‡dÚÊúçæOıø½<ôõ”\éTlıŸ—9›7ÉÃıÉ½O¶*}xæ12¯[?ıDæ¤ºpVäüsmçnrJ£ìà¾·şûíIàŞ@x–®¹èƒQòÒ™çÉÀ¦-ä-¼ãÀ™°b©\?öCü[’–¼‹†>côkNÀ½{İrc·ÎÓ5eˆ?®¿?)|í`Ñxäİê’·ö}ÿî×÷İ¿“á­Ú8ÓRı‹€['|ì¤ë!^òŞ\1^Ë	îÀ<ä¬Z<s¶åı
-”:æ½3Ÿ¾ù¶|ööûRºl©ß¬©Òı§Nš,?NşB.½ãf'ëİŞæg}óƒXnÔª…¼úØ?4 ^Yê½ë–¯”Å?Ïv‚â×İ÷şİ¢ZŞº~ƒ¬Yº,°ï®mÛåèá#NÛJåÑ«|íoOÊìo³¯Z³†,Ú¹K¦MšâÌ˜)›×®· ô+ş]ÊWª$–Ûü ş8¼H=—Ï[ şëÚ³s§Ìú£Ó¾¬Lûf‘[¶ÉÜİÙuN…şãfÛ3“şú;i×½«ôÔßİ,ğúÕ˜±²lÎ|ré:f(¬À-·ÜÒY\û’g¼Nãê×¯?õ¡‡ÊÎ“WØƒáıé_„Ó¿(Âoä6şEÁ
-¹¹ç+Y!Äî € ±xôşìŞ[l–ÒG©h–­£È7km›")–sÛF@ïÕÑåk5 }Ìz°{aİ
-•d©ÜçŒš`·oRUGıÕ×‘ò–.ÅŸë¼ +§QË…¯¶&Ê£ ×\Ô¶­­ÍL×r6EøŞ-j×—í½ïÏ|WM‰Q°FLY»$²ÿ0ì°EnkàÎÕÚ÷>û¤Ôª_/Ïö[ }Äÿ$[·t¼Ujdÿ…•Õ_üÓãrD€»ï¹K…Ê•‚sïEWIYıÿ7«¿ä›¤yû¶Npzî´éòáó/ËŞ]»å¶Çvêİ-g¹íW½Nmùãÿq«üúôï•Ëco¿æïCÀF‚gZ¯%Wÿş.çúl;»®×ŸxÒ	TÛ7ÿöş›A»ßsÁ•Îèo€_rûN
-—#‡Ëœ¦É˜_Ë¾®Ç
-›ÚeıŠ•òÏ;ï•îúÉwİtlÿÂêEKäß÷Ü¯ıì.×ßOĞê=´ÿÓµ7;?6Üõ¯ÇƒÖ•´…ZóßãŞô[o½µ«şhı¡C¶éga‚şÇ8Oxşùç³L«sÒ¿ÈS’şE<¯¤1UØé_„¥‰ÙŠ<~»Ù98 € !öig|îÖ‚å…¶ô*ŞÜâ!¢r›Ğ¶)Şe—†·©°ÅşL.%Qñ¼†dÛ›w>Ùmáü P´¾ü0;¥ÇÅ·İ(nÜ®¨QËæ2ä²åıg_’iŸ!Î;+×…îÛ½[GTßvg”)-]û$Û6l’ñoŒ’µK–Öyw¶ÔÏ=ğoU`¾±0~uèô-"˜±íV.Ö`¶ùİb×u‘¦"±ó§‡y†ñ-eŠ›ÇÜFÊw?µ¯Ï·Ê¸×GÉ*}¦»Î=n4¯MÚ¶–Zê9#èìÛ”eÎ÷SÅõ=æ)Í¹Øpú>«©ë®Ğ øÏ¼ñÆÔ×qZ7îÙgŸ¡óüÀÏWOÿÂâY¤áÁHÑYúñ¿1ÂãoÌ@ @ @ °W¯‘Š•+;#ıµ:¡£Sµyí:ÿ*g¹´ş¥T›®s­«×´±S·Csp‡*ÇÕ‘ÙËC­’rÊ‡¬/hå¦5ë¤Œ>Ó#TûZw9ÁÉn©\BÛÏ¶ñË›neW˜ëòoÉr9>aä;Nj•^ƒNì2KSºX ¾«æ§ (Š§ë¹úè«=…ûá›o¾yóM7İô©ÎÓãGŒ±#Qmá< €@q ^Üî(×ƒ  €  € EJÀF9ghº°çî$W»å<¨yÇæĞ™ªÔÌN£âß±¬’­XníP¥ZíZ…Jê˜ş:­^§QCu`¹j­šúpÑà‡]»+«æ¤‡q—İW7HîºÜí
-òêÂ-—¹·´(Ëç.v=ºJåjÙÎ.È1Kâ¶°­£#šCßĞ’’Ç5‡û(Ô.¯£õWÛ¤ÿ=8¦£Å¿wG‹?÷Üs³BíC €@há¡]¨E @ @ " .IÏ(%•Â\»éˆä:B?d3!,ÄIÒÓÃ§–ÖÑ­a¬¾ëÌ*Ö¥Fİ:Nš•Å?Ï‘ƒš¥\Å
-â¦E± 9TĞÏ†ûğ¤ëçÁæcÿ¡H¥¦- €@„Ç“C!€  €  € ¨X¥²>p²¬“» û¦òö–Şd÷]a›h£®S¥Xğó:éQzjzK‹b"íØ»gª41åÛ¡¹¬íÁ/¡ÁHùÖ'¶ş‡eæuvtoÖ€·ó MŸàM¢æyíÊ:@ Ÿ p‹ €  €  €@aÒ3²»Z‡"xP³¥Y>oìÛ³ÇÉî?·‚Ö ˜¿:å—ë4¬¯yÈWˆå7÷§HÙ¼n½ì×ë÷°ÌÂ\\z©ûıû#>LçSN”^xÙ	€·íŞÕI‹bq{H'D
-èg=SÏ7]?÷ã222Æ=óÌ3ÓµQß‰¼	œŠ­@ø¿E+¶—Ì…!€  €  € ñ¨Y¯®s‚©§ä{¢½º;Û|üÒbAooùüåîó.—Oß|Û[]$æÛõèæ{Ëç…  @ IDAT´ó½/ÊM9â–ƒ ~oÄÿÜÅ˜¿ÖÔT'VÌøYvmÛÑñËk:”½zÈ¢™³eê¤ÉÎ} -JDtlíì~K§«ô¿u5÷wŸçŸşáÿş÷¿?0GA L€á¼@ @ @ t×¼Ş_'ßŸ(KfÍ‘–'t{€¥¥AtÑyAgëwö0™>ùKgÚ¢#¥;öî¡	&Ò4UÇ"Y0ı'©^§¶œ2|hĞ>…]Ø³s§<{ÿŸÃæÊßı:è!‘S'N–úPO·ìØºÍ™4ú½À¨n{å€óÏv7Ñë<W~úòY6w¾üí¶ßJ«::#Û—Î™'­»tû±À{ÌÀ…œ±QÜ–W}æWßÊã7ß)-:µ—zM;íuÚ iĞ¼iÈ3ôÔß>ñ­w¥š>È³Uç!·£Â
-h°ÛF}ÿ¤Aîqú:®~ıúSzè!«£ € ÄQ€@xq94 €  € ”LúÍšÈ¯üƒLı®¬Óô ?LøÜhÔªE®@x)M£rû_ÿ$c_}Kf|ñµ¬Z´ÄÙÖÒ†t?µ¯»ê2©\½ZL!>"KgÏ{Ì£G­³@ıŠ‹‚êlaò{êªÖ¬/£yÏïüÇ£2æ¥×dÁ3À´¿;ŸÜGÎùåUòÄwöõÌE·Ş 5êÖ–Ÿ¾øFˆ˜+‹~šåœ¢M×ÂÂÛvë"•ªV‘½»vK7u§ /Íó=[­¿xQ@ )PôÍ%R‡s!€ Éxôşà¿‰NF8' 
-÷ı™ïª©p
-Ø†)k—ğÿc!Ì,ğœ–&ôÎ¯Ø(é#‡K	Qºt~›™õ–/İ@é–û¯¼^,X~ÿKÿu«âòjéfÌ³t™2yæZ·ílù¶›ägş‘+¯y\WD:°Qkş{\DîUÈfÒ¿ÉB%”<ü¿…•<®@ @ ˆ©@F™ÈÚÕk×Šé¹“u°ÏŞùÀI3ôÒ‹²SÃx‚àKfÏ•{÷IóöíâŞ<M?áÜó;‘¥± x›®	‚ç‡Åz@ Š  ğ"xÓh2 jé’&g·n«ÿŠŒY²H2…Á€©vh € ‰hÔ¢¹|úÆhyeÅ?d æoÚ¶ÔQás¾›*s§NwFÇŸ~ÅE‰nV®óY.ñ…?ı¬íšæä;?ãÊKrmC$V€şEb½9%E€@xI¹Ó\' Gs4şÁEW8g¸ğ½·äıÅâx¶Ô;teıSëÎµëåjØº½»eå®¹ê‹KEu}è[‡šud½^çŠb|Åå~q €@¢Úõè*WşîÍ}>RÆ½>*èôõš4’s®¿Zj°<ÙÅò·Û=«Ô¨.çıêZiÒ¦U²›Äù(ñô/è_Ğ¿(ñÿˆ ğ¸°rP@ d	ÓœšnñÎ»uÅıÕ‚àß\}C®ËüûßÈİS&æª/.§4j"_üyrÚwr×çŸ—Ëâ:@ b(Ğ­ÿ)Ò¥ïI²~Å*Ù©¹Ïí µÔ“Úêç™¯;†MÈ÷P¿ø¿_kşötçA™ùnÌ oŸÂ;Ÿ“§ÀIè_Ğ¿H·a±lğby[¹(@ ±Ÿ,]$ÃG¿®Z‘ñË–Äíä­«××Ï¾P>Öóıå»¯âv‚xŞÖÍ2lôkİzÔk œ:8°ÌLjüuà9µq39÷İ‘²iÿ¾Ôn,­C Š @º™µlîL©ØüÊÕ«¥b³h%Z€şı‹¢ü ‘ºw/W ü›K:;&7d¥ÉPmväW)u›OË(™lÜ«W¾:-K&ê šÿõ­ßz^É”àªSEÀÆƒ_¿ ¸{K—‘>Ëü­[Üª”xİyè |º|i -ò:fRW mZÎûªlF®¯E©ÛhZ†  € cúô/ŠòÛ›şEêŞ½t·ió²²ÊLY·ìé£™i³3EîÔN|‚à®¯¤–€}6í3jŸUûÌÚg×>Ã©ÕJZƒ  €  €  €  €@j8CŸ,€¶eİ²ñ"YƒgyMÒ
-È[ ++KĞÊºM?Ãíõ³<¬cZÚá¼÷`-±øãÉı¥Síº¹võÇïÉ‘Lı™&D±‡Ş\Ş¡³<şıW²vÏn¹ºSWÔ´…4¬\E,½È_¿ÿZæê«·tÖsÜÕûd§ªF¹òÎk¿ÆMåå3Ï÷n&#~š&Ó6¬ª³…
-¥åÎ^'ÉI:’¼Yµj²xû6™²j…³½?ß`iıÓí×4õŠ·üSó_ÏÜ¸AnìÖS®=¡«£ºlŞ·O~3iœ|¾j¹wÓ¨çk—¯ ·tï-İëÕ—jú Ê;wÊ‡úÀÑ–,Ìó˜ƒ›µ_tì"k×‘Rié²pÛyzÆTùnİš°ûÄÃ=HÍòååî>}¥Wı†Nú›¯×¬’WfÏtWÉ×N Íõ^ZéV·¾óú÷A§Ë¾#GœyûgÃŞ=rß—Ÿ–£}¸ïû§§O•o×­Ïy°ï iW³¶Ü0îÃ ó»ë£¹gî¾¼"€  € EE€şı‹¢ò^ÕNú¡TR¯Î	„o^¿üŸO½æÑ"ˆT K?ÃÙŸe¹=Ò}ØÂ´Ñt=5¶[U©"å4èüË±„„w¨YG.ëp‚Œš?Gş{úÙN`Õâì¦AàKÚw”~¯¿Ğ®[±’œ×¦söZiRµªœW!»Î©Ğ>Ö ±?ŞJsŠ¿ä*iU£¦¬Ü¹CVîÚ)}õ´í íè$gŒz]ö9şÛQºæ²?c³R§bE'@ÿö‚¹r}—îrS·^N½ıS»BEiP¹r`¹03½5¸<éòk¤JÙr²çĞ!Ùqğ€œÚ¤¹\Û¹›¼<ë'ù¥GC•v†Ü©?dfe:Áıêú#^Ş±³ü~òDùÛÔoríVP;@ÇZµµ}×JıJ•åˆæN[®¿ë}Š€ä»/s#ÚŠZúc@³ª‘åhµígl\í©œıNmÒÌùáÁ,å•Ó[´RÏãCìGñ\b´ï÷}o¹.CÂíÇ şÚ['|œ+Í=s.†@ @ "&@ÿ‚şı‹*Iÿ“şEôÿqË°œàG3³n9Şí‹ş`ì‰ ÉH“¬[ô3=‚œáÉ½%åì×|ò~Ğ¥~{Õr²™#)O&òÖ«²ÿèi§Áç?èó«uÄõ_ô!“CF½8Ì¤•Ë¤ú¿s–»Ö©'3¯¿U¿Ì“«täy~åùaç8AğÇ}$/Ìšáln£zŸ2Ü}Ï‰}å¯'sH½İ_á,ÿVƒÌÿĞ`³ÆÕµ‡3Zı½Eó5¼]ZT«!›öYªşÂ{ø§Ám$ıÈy³ÅF©Û(ø÷.¸L®Ó üks–/V¯:‘· øâm[<.Ü¾UÒ%MıËÇ_),V,‘Y›7íWPÛù™ÓÏr‚àoÌ%·|ú±óÃA)ıÁÀìzfĞñ³`£¦_ôòw¼£™Ç¤ô_·:¢úÓŞz%°İ‡^.ç¶i/İ_!Ë4Ğ®$ãıÍ=×~ê@ @ T Aÿ‚şEüûŸ%½‘á<S,µŠº€¥I±Ï´^Ç]EıZhñX·w·Ü¡©EÜbÜ›?ãŒü¶ô±(İ5İÅ@ik)FÜ ¸×Ò¶Ü9i¼œİª­“2åA„çõcğoz(W~ô®ŒÒ‘ánÙv w
-w]A^ËêÓnşfŠl=°_&®XØuö–MòÂÏ3ä¯ƒ†Ê‰ç
-„ßÕ+;UÌíÇŠÙYÉÔ«øfíjyà«Éò÷ÓN—s[·
-„Gãa£‘mtúR}ıØå° ­X°ş1Mcc÷ê|]‹2O€úï¿èPş”6í§âùşˆæÅé29, €  Òô/²oı‹ãoSúÇ-Ü9ú"Yi24Ï€«Å+	ç3]$ZJ#K²À˜Å‹r]ş£GeÙNz*eÊÊîÃ‡rmSŠNš7ÛÊç+sçñ¶€î·4¾TÓ´4Ğ”ë4t¸béT¼AğpÛESo#ŒGjš˜PeÚ†µNu½J•r­nW³–Ğ\Ö6ZŞ_ş£9Âmò—h<ì<VÆ/_‚{k9ÌcŸº~­ØTÔJ<ßÑÜ³¢æG{@ @ XĞ¿ÈV¤qüİDÿâ¸…;GÿBáŠÙß±»j¼"€@ªğ™Nõ;Dû4ğ¼;¤Âœàw©ô´ëRÙ¤Jv¾é»öä÷îïæoVµzğPtïqb1?¤YKÖ²µ>0±–ØA+—-+55gv¸bı\º}{¸Õ!ë£ñ¨[!;¿z÷®Ç\½+t}È‹ie<ßÑÜ³bÊÌe!€  € y
-Ğ¿æ¡ìQ”–è_Ä÷neè_7çjßsrtˆ£ Ÿé8ârè"% i¬²óĞÙ¼o_®¶»uÛîÏµÎ[±Ls‚Ç«Xß:÷bgdú!ÿ¥æ·´(û–Zú@Î_têòÔéúĞPKñRRï$½çWïİ&Òù&UªJ×ºõ"Ú\ÿ;'kùT(q}Äè=œ
-N´@ (ê…ù>í½ö¸~ÔÑ¿ÈÖ¦á}×eÏÇê=œûÈE§ÆF„S@ (v[÷g¸_œõ“¼:çç¨¯Ï‚Òñ*h~mKÏò½¦i:ê5çA”î¹4i6¾eÿ>©W±`¿cGã±ïHöµ×
-3:½fùònsıj MäÃ2İàœäı‘¡jUªè_ „*ÑÜ³PÇ¡@ @ ğ±únVïm5ı‹ãbô/[¸s±z»Ç+Š¯Â‹â]£Í €@	8’ó°FË!_Y¸m«³IzBÂm°mšşÏ2™¬â>ôùŸ§Á­=-«ÕÛ¬Ezm}7•æU«É
-Íaî-v½·tï%“ôá›£=øŒÆcQÎƒ8û4hä=E`¾OÃĞõ
-0óã†urï”‰íË‘èvBwt}¸€tDÊc#ûáÂŠJñ—ÊeÊ8)qüõ¶Í=uê@ @ BĞ¿Èv¡Û>!ı‹ĞŸ·T¨%
-w6 € D$°|çÉÒ¼–O»a>¹œ¾qlÚ·WnèÒC›ù£ØSÃİb£©§]{““»Á(ôƒ9İãôu£¶ÏÊæ­äÏ¨õjeËÉİ'ö{¸1úJ„ÿuàP¹â£wåhVvš”Rú·nÏ;Gºk0|ìÒÅAûGã±`ëVÙ ¤£µ/kß)è¡¡k×•Ûº÷	:GaælÙ,6%£,İ±Í9­½Wn›86æMX¼=ûøWuê*OëƒLw<èœÃî×“ƒ‡K™R¥B3š{ò@T"€  € „ ‘ÍBÿ"äÛ#êJúQÓÅ}Gáq'æ €@ñ¸¡Kwiª#’İâv}°ï@a{Ì©Ş}è<1õ[w“B¿Ğ<Ú£æÏ‘Ë;v–Å7ÿF¾Z½JæjNíÒH|yöO2kó¦À9öhJ“ß}ş©¼qÎENĞÛR¤ØÛµjËğ–m¤±ÎıÃ”I¹‚àWk^îz+K?4[9§u;±jZ9tì¨<5ıgŞûOËjÕåÚÎİUîhnVÿ¹ÿ @ı‡‹ÊŒëËï/š/ê7H.ëĞIêWª$—/Ó‡d–—«Nè*Ÿhì¶úğÌPå©pÎw±§[V¯!Ÿ._"Õõ!›ÖÖ†•«Èä•Ëåã%Á9´£ñ8¨×{Ïä	òº¾uŞ%bÜŸ7op<ÎÕs½¤æwô<1T‹TİÈy³å®^'Ë­=úÈ`}péš«İÜj:øø_]K4ïoÖ®’ÖKúdÃ÷ÈGúCÆ} éæ-e…ş¸c÷êÜ6íƒÎcÑÜ³\¡@ ("ô/ß(úÇ-Šâı‹Ô½kÂS÷ŞĞ2@ ¥,ğ{J£ì`±·¡¿?©_`qİİ1„ÛoútŒ¦Ù!Wvì"ƒ›·3tt¸•ÏV.
-„[İ›à´Qá6êövr¦å<dùíòË±hğ|¦mT~İó$'`éV^©ñ+söh`?T ¼¹Âÿß)Ü]¯'6l,6¹e•¦1ñÂWk0ôÜwGÊs:Š{`ÓÎdÒ'~øF&®X*×ëåPå°şĞpÒ«/ÈƒNW‡ÎÎpÛÎ¸ùï¿—¿%îİ?7Ôpÿ‘#ò¯ÁÃdx«6Î´TG8ß:ác±4Å!n#ÑÏıš<Ğw€t¯Û@nìÖÓa›®éZüğhŞö‡–}0J^:ó<ç_¢?`ì8p@&Ø=û¡şXs¡÷6ÍGsÏ‚À €  PDè_¿Qô/[Å9ú©{×Ò¦¬]ÛD8©{­´#0°QkKL)ªŞÏ—#¼wéšã»\F†Ô p~¹¾+–.­9µ«ËfÍ×lSª•šêÅRe¬ÑÜb×—åüÏ­Éıjv™ob\¹sgÈ xî½D¢ñ¨­ÍL×6nJA¿P×m]¹RbyÈí‡X—ªú`Ìúú–.%¿÷¬ÿÜÑÜ3ÿ1ŠÜò}æÿÏŠÜMùbİ’=ú*Ø}‹àuÒdJŠ€ş_ÿŞ[W.)×[,¯“şEÄ·•ş…=G‰şEÄo˜7¤!T6cDx9 €@|,¸ÿè‘ˆ¾OG5ÏİšœÔ‘4p½æâö—H¥ö«ÉJß3ıÇ	µÇ–ûCªØÕYJ˜x•]úW6ES¢¹gÑœ‡}ˆÀj=F‡‡C €@jØgš‚@‰ !ÚÃ¢ë7;ı‹X‹F¼ôèweO@ @ @ X -K&×°„ EY€ÏtQ¾{´@À+@ Ü«Á< €  € J@Ÿ_ü?}&Cf¡ÂÎ öY¶ÏtJ4†F €  PHá…dw@ @ 8.Ğ·~ëyY’6âxs PTì³lŸé¢Ú~Ú  €€W€@¸Wƒy@ @ (´@-~›&i“} € I°Ï°}–“Ö NŒ  €@Œ„Ç”Ã!€  €  PÒ:¦¥®İ°å0IK†4)%ıİÀõ5ç3«Ÿ]ûÛg¹¨µŸö"€  N #Ü
-ê@ @ @ hrh·³aÉˆcÇä†¬4ªÇj’•%•¢=&û!€@|ÒÒd¯yµ=³TzÖÿúÖoE:”øPsT@ $
-O"~¢N¥½yÓfˆèkÇ>=EáOÔ©9 €  €@	ÈÉ/|W	gàò@ @ ’,@j”$ß€Dœ~ŞÔéòÊ£—Wû‡ÌıáÇ˜ŸråÂÅ²aåê˜—"€  €  €  €  € ±`Dx,ãxŒÌÌLùlôûù¡ß9Ã¥|Å
-!·K/uü÷´ôãó!7¢ò¿÷=,Z6—_?ñH{³ €  €  €  €  _á9¾c_)ËæÎ—ëşx·T®V5¾ê8z¦&Tœ8êİ|÷è5x@Ø@x‡^=ä†îÕÌ(YÒ¾g·|•è¶®ß(#ÿõ´tèİC_|~¢OÏù@ @ @ @ @ ˜Ï¹Á[Ö­—Õ‹—ÊÑ#GRò–W®^M®¾çÎ°mË/xß®G×°û&{ÅáCûº%»)œ@ ˆ¤Kšœİº­ş+2fÉ"É”¬"~E4@ @ ’%@ÿ"Yòñ9/ğø¸Æü¨¥KKóíb~\ˆ  €@q8Gƒà\t…sI¾÷–¼¿xAqº<®@ @ (@ÿ"Ø	8U‰„OılÛ¸Ùa^»l…óúñËoH™²eôUjT“áW]XöÎ¬˜¿P¦OşJÖ¯\%R¯ié{Öéndó[O>#Õk×–3®¼D–Ì+öK;FÅ*U¤M·ÎÒ_ó|§Ç(‡÷gï| W­ñ6×™¿üÎ[¥”¶5¯2cÊ×²`úO²uã&iĞ¼©´ïÑMN8©·Xú˜[·É•¿»#ìîKgÏ“y?Î•I…JõººH¿³‡åº.{¸æ—us`ï^çuùü2ê©AÇ>yØiÒ¦U îƒç^’}{öÊ…·Ü2Ì¼i3dæWßJ·ş§HGMµBA Š«@«ê5ä»È‚m[dô‚¹R©tù¿>§È.ı+›ıø}¾—}rÃÆ2´y+Y·g·¼0kF¾Û÷ªßP.lÛANiÔD¶ìß'_¯Y%¯Ì™);»o
-å7½N”nuëKİŠ•dÙí2eÕ
-ùŸïˆ>#\)W*C®ëÜMú7i&M«T•iÖéèî…2Y÷Í¯Ó4`nñÎ»uş×ºt—F•«ÊˆŸ¦É&½®³Zµ‘õÊGKÈÌMı›³Œ  €  €@± ú¶zûŞùĞ[‹Ğ¿'“õyGDS£qk…åwà‡rÎ³xælqş:ç¬u6yşOß|[>{û})]¶ŒÔoÖTéşS'M–'!—Şq³ˆõï8ë›œÀr£V-äÕÇş¡ğÊrôèQY·|¥,şy¶¿î¾ÿóïÕòÖõdÍÒe}wmÛ.GqÚ¦ñ…°åµ¿=)³¿ıÁY_µfY´s—L›4Å	</˜1S6¯]6nAèWı»”¯TI,·ùÁıûe‘z.Ÿ·@ü×µgçN™;õGç<Y™ÙA‹[¶ÉÜİÙunıÁl‹oüüõwÒ®{Wé9¨¿»Yàõ«1ceÙœù2äÒuÌ PX[n¹¥³>¸ö%=ÎxÆÕ¯_êC=>ŠWØ²?ØÕû”ÍÏ„—)ã,¯Ù½+Ï@¸Ì0XnëÑ[ÒÓÒeº™ó„Ÿ×ºŒ:ï)«?¤nÓÿ¶ŸÜ¨±œ¯AñkNè&CG½*›5€ì/C›·”wÏ¿L*ëËöŒŠûöJ÷zäâöä×ïÿú‹²åÀ~ÿnRQÿjÌEWÊ f-$3+Sv8('iğı×=O”['|"ÏÎşÿ	ÿ>YºH†~]Ò47ÊøeKü«s-ßĞ¥‡ôÑŞWÇì@x[¹©[/Y½{'ğ\ZT €  € Wú¡ï,ı‹Ğ.Eµ6hQ½¤ÈÛ}óŸïllÜ¹:BûÎ>*µê×Ô‡š± ºÁ·néx«Ô¨îlfAõÿô¸¼÷ì‹ÒVGBW¨\)×î6İFVßúØCÒ¼}['8=wÚtùğù—³GˆëHj«/l¹ì7·âéß? +.ªó/ØHp‚W¯]K®şı]ÎõÙ6v]¯?ñ¤X :\Ù¾i³|òÊ›rë£:)\:,s~˜&c^|-0òİ›Ú¥M×ÎòÈH‹+Š¬_±Rşyç½Ò¥ïIrÅ]·…;…Sßs`?ùnüD™¥íôÂ÷hĞ~ùÜÒ°E³°£òó<8+#–––®<û›şß†¶İxãô/8Æi€|ÂóÏ?¿5Ì®T#Rœ~îŒs¤Yµê²PG’·«Y;ßöu¬U[Ş¹àR9¨?Üùº3¢»Qå*òû“úi0½¼áeÒWƒÚŞR«|yÎÅR¾t†üîóOeÔü9²~ï^O~ÛûùE§.òÒ™çËÙï¾éİÍ™aØ¹N|ä¼ÙrÇÄ±Î÷á-ÛÈ†)#Î8ÛU>iåñzı°ŸVÇ/Ï? îße@ @ (˜ ı‹‚y±uòÒ“ß„¢×‚/?ÌNéqñm7Š·«hÔ²¹¹ìB9¸o¿Lûü‹¶o÷n9ÿÆkÁîŒ2¥¥«€û=ÜÙ~í’Ğ{AıÜ	9{í­ç*h¥h·rñí7‚à¶l×u‘¦"9¦Apeï®İrÁM×ò˜ÛHùî§öuÒ½Ø>«ôA¤±(MÚ¶–Zê9#è¨³·Ìù~ª3ê°çÀşŞjæˆ¹€ÅkêA¯Ğ ø$ß¤Añnºé¦tê©ëì}RNàÁ¾dÂe×8)Jî<A¼‘ıcd~½±kOÉH/%·|ú±“šÄÍk4Êo&“EÛ¶jª”¦Ò¥Nİ ÃôoÜTjV¨ ÿûy†üsÚwNÜ6°T#×~ò¾¬ÚµSÎhÙJÊûRuY*•‹Úu”ù[7ËuŸ| ÛûóÃu”÷¿üÌ9Ç­=z‹@ @ H¼ ı‹Ä›sÆÂ”èáÑòm\½F*V®ì¤9ñ£Õ	ªÍk×ùW9Ë¥õO×m4´¿ÔkÚØ©Ú¡9¸C•cGêÈìå¡VI¹
-åCÖ´rÓšuR¦\¹íkİå'wº¥r	Ul?ÛÆ_,oº•]a®Ë¿}$Ë=ô“	#ßqR«ôtj`%^ª”tÕüà% oûA±¾öÑ×‡o¾ùæÍÿTçÇéˆñ‰#FŒØ‘¨¶$ú<¯u¬Òô÷5YNûÿí\×ÆÅEDDA±`ï(–Ä5jâ3=FMó¥¿ä%1½¿5¶$Æ˜¨1öl‰%ö^ {EQ+`Ş9w™uwÙÕ…]`—ı®¿u§Ü¹åg–¹gÎ|§V0õ«¦ô£/°ÜÅòcGèkÖ©¶¤¡V•=†G5kÅR~T‰?óÃ¾…Ôpë@›¦O»vç‡\Dß±†ó;º’¼²'Ë¢‹= ^}%cQ–å4>Ü¸––q½¦©¬g	Ó²-µeù‹Ú•*Ñ¡‹”W³hB[jŸiÅa=‚uºWŸ<FOE/¢£—/Q•2º¿|îZì^I6€oAié4÷À>£|ÂîË-hJï~¬ƒ×œcÃ¸–ª²A[RL².‡¶]¾å8ñF¯U±U*Uš®ßÔÅ‰}4Š ü;.ŞàY·d“>ÍŠ‹¡OºtWŞÕ¸|‘1ÑÒ›í:QÃªÆÆxÙ÷ğóî¨E®o    ¢'€ùEÑA^Z€ùE^h!¯£€!<#q9ù<y²Ñeò[ä:úkcKº”d^)¡BŒŠé¥Ø$I´µÍ¥J,WòæÔqævÙm›x«ûÔ°X^EŸ*\ôœÙısäaLwjFzKı2ÍoÍºfÍ®É¢„5 ò•*ZSŒËçaƒ­/{4›P—§cÀÒ ã\º56*úòÒÃòáßƒ[ì-¾‰½ÆÅB=yòä=º\ÅãÿÁ¬õ¼ûÜYÖ˜>£ä1Î³vtI6bŠtwÂØ½‚ïŸ—û•VtqåƒP6‚¦¦§s°ÅëÔ90ˆåàˆÓöì¤Ç£ê\W­7¬êK­üHŒ¬­ù;ÌÍêÿ ¥p>¼mŞ€¡8áKºpıºşx1š/<œB*W¡lü=ÁÈXoz ë[mĞzÎAi™úüùYÚlÔµ&‰ÉyGâk²Ú=ÏÖæ¹nypàÍó%‡Ò[ÆBeŞë©ÚÙ”h¦è£:)®6œGZ&ñoâ[];gY7Ü0IPMI¦4Jp éñQ÷Q Î”Ôˆ=ĞÏ¸ıp¸^epy;¦G ¡.Í@ÿsáŠş   Ç'€ù…nŒ0¿ ÂüÂñ¯Wgm!áù9ñs÷ô /×¦ì‘ìp{B*ŠìwwËªìİj±]lè3»ïN†f°bcåj¾J‚åĞî%CSº\YÒdQÄHD€¯IrñˆÎ¸,[v¿u¤†[Ù–`64ÂÛfüHâ©4GãÏğo»÷¦şì­İ¾F ÚnXÜŒ>•\¼uÅóW<„³7¯²kÒŒ~İMkâOBÙpúİ­Ôç÷_•w÷ÿºõ¢y¬MİvúT–Û8KÓÙ;ıÁğÆÔ‘e:x•OéÕWÁG°´RŒªßpûÄ#ıÕ6èíu«ŒêÊëJßº¡ôë][“n²—s‰Oßµ&«İóX2Àó9i±.¿råÕ¾„´£<5hÄ}îÏ1nĞõÌLò÷ª`´_¤S~‰İCÃÙÃû<¿!ğ+slò9Šâ$Ï²®xe6®¿ºz…Ñ1²âç•S¯¥Ê¥Ë¨s£K­ ¥^‡Ï9ÿœ|ZGXnÅ0mş$ôÔ½‘d¸Ë        M ó"Ì/0¿pì«Ô¹[Cx>Æ¯\…òT¢T)öÒsù8Úqy“”KW,6P¼®%‰øñ}”<J–GY”RlX	oÕÂQšèğí˜4i’hX¶€9|
-¯£G`¯ğ]ÖÔÈFÅ$6x«@š¼¼ÜP…™[S„Såïìa‹æêİâ5,’%u*U¦»t£–ş5ôû¤c¥Øcüİõ«•qtÅñ£ú¾îe#éTÖ“ş42ŠÚø×ÌecëO1»H"HàE1„ïJL¤­gu2TXVEáÕ¤ÍØ»¸+K¶ˆäŠf—
-3³²hÌÊ¥Ô'$TÕßaC¸-O'âÎ'Ó·,cM²§Ë>®÷™åKèØå‹ªjñŒ—u‘1±WòóÒ}oIòƒ!^àÿmßEytËƒ	1:kùT¦œÿ†óƒ•ÇĞ´ûî§·jG™üÆ“Èˆ>xËi“IÆÜ4i†p‘×‘ÆŞ<0Œ‚8¸ç–^Iá¾IM-ŸéñùYÿœå]ª•ó"ÍØ/,{“ÎÑÆÓ§òS   ° æD˜_`~aÃ%„CïB †ğ@î9»Ò^©·ÄNäCÅí§«©©J+Ü4ŸxAßÉÃÎ4¿£¬ûÖğcòã$úæ¦)I	gè÷W4¸íÜÙƒTRz¡Åšò·oC¦NSğĞft,v?‰A\‚t"@aàk=‹ëÛÎ×}´§§gô„	¶ó6[ìª…Ù|›ëºÆ²"¸mĞÖ
-Œ=¯3ræHYhÛÓÙ:“ÙæÒÖ³§Õæê9ÆWÃ<GÙØ+ÇJ9ùİ!YŸåt±»w³H©HúÛ@BC;@ô§7œ§!ìÙ,ŞÅ	i©Ú®<o9sšäSØ)>åŠ‘ìÈµ›™FëöhÇµt•ÇY´Öî3€r0ËÅ‡ĞC‹çí™”ÅcQŠÇ=ùÅ‡›Ùr9èÒ –ŸMwŞMû.$QÒÕ«Jß]´Á'ô¸F,]Äch,#&õeğÃyX!èçôB2¦}çşJÑG+q)½\	ûıÖÏ;¸/§Åº¯µ§N|@ @ @ @ 
-Ÿ æ¤æ˜_`~QøWŸkÔèéİ¼{/«T×ÙÚ²b5tÇ´l¦áüøy~¤‘ÑûïßÒÒ_fS·Á¨ç°Áw,ÇÑv†5oªáó&ş@¾ñ2•aÉI7Ø@=oâ÷ÖÜ*,u"iÿİtåÂEªX¥ò]ë’¶…·lN1›·Ñ–•ìÍÉ–È¢Ü2ØÀEñöæâ¢ùÜ[6eÊ½5ï»ï¾³_-NPÒ~@fÎêŸš¡Zïa`˜6ìN÷Úu¨WºVÅ‡Dú¢<¿eS…µ¶mM†¯8VĞévˆhÁ2-a¹ŠeocIµ+zÛdÏUp1ÚÈ$‰÷ºáO(ı÷/6¯§×V¯¤¬œ‘™ñà64‚KÓ9÷a¯ñDjôıx#ƒw¿ºaôKß´=ÉÃ§'­©'1-j”¯ <õ¿ˆìAò€£Ïï¿èƒnÊ¹"é\N»Ô
-ş   (60¿(6Ci¶#Ú½?æfñ`c!€!<r3Öõ^·8š6.]A‡÷ÄPFHXŠJä şFCÑ±O/Ú¾j­ú$³§tx«æü¾¸Ku¤ıÛw’·oUjß;Êè[WR/_¦Io½o±˜a/=o$rËŠUt‰ƒzjéÒùjqåoóô^İÈ²Ëı}´,ÜÏ~´síz:»>{æE
-i®ŒüGbâ¨n“†$ËÔhã‚xq‹®ú®6Ğ'#ÇPpÃúT=°¦
-Úò.äTËl-";)ğ³æR%Ÿ*Ò8Ül>l[	°±[Ü\w²ñ;š¿£ıüü¶Œ;ö¶ë«­¸Ğñb¨Õïå‰-Á.×²¸Hd\ÍÈP/ÿÕ°‰İhh6øËé×•7²iÁâ¡,éâk¦»ò´.^ïÕª[uŒxGÿqä Uy!“LD$I S‘6yŠ™~ÏMµTÒİCé½ïMJÔ6©ïºtWßæÏRJw.b÷WW­ ïzö¡—X2å­ğ3¬EŞœüé+–¾ÙœpŠúÏIç®éÆIÊğ)«{XrÆ~Ã¶`@ @ @ @À¹	`~ùæÎ}vëaÏ!îW;zç?´â·¹”Àò ›—ÿ­ö„ç2„{°ŒÊ³Ÿ¾GNŸE;Ö¬£“«¼"Ò¬sê5|(•÷Öy"Úk@ofdÒ‘½q‹»É¯§&1ÔßŸÛØ²jŞ"}6ñ¼64„—dÌ1_~D‹ü™öoÛ¥ÓbünÜ®5õ}|8}şÜ+úcí½0hô“T¹ZUÚ¹f=?ˆˆ¥ƒ;÷¨*êE°lCxhÓ&äU±¥]I¡¦Ì	
-Š ë|ïå²ù‰’­°\†È‘lbY’¨Ù?SKnh©K`m²§!\Óµş·ÓcvkÕØı»[í`§–™Ÿ'äHÎÈC‹^¿Í ÕñÇŠÑ œN¹Ü²<Ë›„²§ÿÑKsÁµƒW<¦[øÕĞ6©oMâF¤W†,œC¢9o˜š²î»$-Ÿá>,ƒ € € € ¸Ì/8Ï§ï:ÍÀc~á4CUl
-C¸ÁĞŠø¨Fo«-bxvsw#1z›K¥Ù+mà¨'ÔG¼¤3Ù›±2{‚{–(a.»ÚöÉÜ÷‰7ó‹fçÚ/å™Û+£É†g>ÉßaÙò^4ô…Ñª4ÑK— ”ZJ»rÅÈë\ÛşÙü_µÅ\ßu6°ªıRO¯U‘9%Ø˜Â¸¹ÊÔ6¸¹»«ö‰!¼%{‡# 8>–9†Ï)»·Á¥å`Óé@ştóêşfáòëâÆÿ4‰üÖ½v¾nàÕ|§rDOÛ™’xcoä‡íI4ÈMS–@‘4ß@gû?˜ÿê€R¤qÌ(_Qw>'(¦ZáÿÜO£šµ¢’ü`ÙÔ.öH~*Á6wœ=£‚o    &€ùærúc~áÂ?yìºy+o)Ù=KZ6h›ö×»ªNgÖt»³­ÿõû%5dNÆÀ~xo,]O»JAõsëìÚ»Ÿbüïô»%‘¹xêE4ÎÜónÇb?€@ÑĞ4áº…ĞO^Ú•J•¦WÚØ÷Íí‰	JKúÉ&Íiò®m*úºÖk1Òn}ôi¥Oî?îsJÉH×våù;&9I¯açƒà yh!†ğ;ßCİfM×·8´r6Z·¤Ôôtš½?F¿]ßëOŸ¤ÁuilÇ®ôÖ?«ôûd¡4Ö|¿S¤Ú¶ú¤±‡¹^=Æä=Y?¾c@-ZÇåhéÓ®QTŠNÿ°g‡Í/´2ñ       àÜ0¿p¾ñÃüÂùÆ¬8µ†ğâ4š6ö% 8ˆ–ıòıtüKêÊÚáµBëÑö
-Ù¸…b·lWŞñ=dc-¶.ZâvîævmUzçÎ”Ôv(œ—€x¿×1’†6hH~^^´âØQ’Y††7Š %¬-’öJ©ì•üÒßË80ã eô‰ñ÷©J½ëÔ£š¬íıúh‹Ü^m-Œr^hÑ†Ú³A[Kâu-I<ñçô¬mVßcşZJš÷oûbI&ÜÃN÷x~dùÁ…è†Wâà•Ï._BWMä¹F-ûƒ¶?6’şÛ¾‹ªS<½“Ø»<Ä»²*«v%oZuâ˜z@aX±ø³¼¼j9ıÆíYùà#4÷@ÕãÙ¨ÂOëÓ¾óI4qç6ÃCÔò“MšQ­Š·%ÉD·]Ò;ºRfÖ-µœÂûÏ·lPËø@ @ @ @ xÀü¢èÆóÌ/ŠîìËÍ0„çŸ]±;2¬y{é9Ö>ŸIÑ3ŒeZªPß'¦l,/ê$úíĞ³BeoêÿÔ£X/¤¨›„úA ¬$Ÿr…úq ÄÉ½úRW–¹Ï)Şöùæõ´âøz‚®öL¿ÆíU^á_wëMÏ6o­—[¯ãÇÿ\@Óöî²gu]V›5éúsµÑ›D˜në]œÉ,%=XÏ}f¿At_H(}ÙC•‘’~ƒFD/¢©ì¡mš³|IÛŸ§ÒG»ÑÀ°p5ÎZ‘Mù`ÃúŒÇÜœlÊ‚CûiàüÙôã½ıiO•Hf­;u‚Ì›M¦r*R®åÛ³¹iz­mGı&Ñ#„!\       P,`~QtÃˆùæEwöå¿f·Õ§;— PşûŠ#­$••EgŸ¤Ë¬}.@}ü«SU?½ÉÊb
-,[ê¥Ë¬ßî®eX%N^p×€º"Œä¬>zË%~—ı½Ê+éS9e¸ÜY³;[ı³ÿà•ã˜A½•g²x'#å@…’¥¨µ %3¿½Iç¬’(ñ.]šêUö!ß²åèøåKt„B˜ê›k‰üˆ…ñµyÌ¶=Mø%$$ğÆûø{æ‚Ã.ƒ € Ø™ æ<Ã°ÂüÂv¦˜_ØÎ%ä áyã…Ü à`wŠa²ÜH¹Qµ {@ @ ‡ á8@ @ @Àv˜_ØÎ%€ îÅ¢è€ € € € € € € € € € X  C¸0Ø                   P< XfñGô@ @ @ @ ’Àú³‡Ãoİ¢'³İ(ŠÈño½²¡h¸077JãîÇ»eÓ
-õ}¿ºq.Œ] (¦à^Lİ    ¢$—]ruÂÑñ7³ÜöfaxÁ‹rDP7X& ×¦\£r­Ê5+×®\Ã–À  p>0„;ß˜¡Å         àĞÄ€–œpt)eg=“9‡CÆÔ5Ë×®\Ã0†³Á€ €€sÀM©sZ        G éÌ±ÿeSv¤Ã5°š€\Ãr-[} 2‚ € €€ƒ€!ÜÁÍ    g" šàn”=Ê™ÚŒ¶‚ ˜' ×²\Óæ÷b+€ € 8Âk¼ĞZ    ph*0&äPzŒĞ8°–€È¤È5mm~ä  G& C¸#Ú        NF Û¢œ¬Éh.€Ààš¾ì p*0„;Õp¡±         àğ¾…h €@^àšÎ-ä pX0„;ìĞ a         à|²³ÉËùZƒ X"€kÚl p6ÎÖ`´@ @À±	”pw§Ê¥ËĞÍì,ºš‘I7nİtì£u          K ó‡4œ áN7dh0€ 87nÒ‹­ÚÑ3Í[SíŠ•ÈÍM¶èR™ÏŞ+öÆğîµëPû ã·†oñƒ€“W.Slrí<wVÃï$Ğ'$”úÖ£>Uéüµk´;é,Û¾…Î_¿f¶Ö—øœ-_²”Ù}²q{b-9rÈâş¼î(íáI5nJkS­
-iëÙZ|ø ­:y<¯E!?€ € € k˜_`~QÔ'¸œƒÃÂSTPÕ­\EÍ/ö$%òüb3»vÕbó
-ó¿0ë²Øa'ÛC¸“š  Hà¥ÖíéóÈ”šB?îİI»Ï%ªfz•(I7³²±ÉvmSTPz¹M‹e®8v„F,]D'S®XÌ“Ÿu½+ÓŒ>é#éÃÿä§ˆbqŒ;¹Ñ¬şĞàú)›ßß–ó°Yu?ê[/ŒkŞ†ÌŸEkâOäêëï¡Ò%rm×6LŞµÍn†ğr%JĞâAÃ(²v0eñC’K×oP[~xò|‹64zùšÄu! € € € è`~ùEQ^eyğ×ƒ¨ûuiÇEv¬iS£&İW7”^hÙ†Íÿ–?’«‰…yÏ_˜uåê¨oğd§½4h~9ñ¢é `B@®i“MX'08,\Õqÿ¼Y´½\]5½ü÷2úëÄQÕıî\É›F7oEQÁ!4wÀPj;}ª’Œ±Ÿrü ¡5ßí;Ÿl¯"²œ—Z·SFğeGÓc. Ä«iäÁ?†£šµ¢o»÷¦_û¢SÇÑ•ôt}ÿ*–*¥Œà¿ï¥Ï·lĞo7\Hârì•¦öê§Œà3ãöÒs+şä¶Ü ŞuêÑ¸¨{ibÏ>tôÒEZ™sîØ«N”      ÎJ óİÈa~Q4gğ×İ{)#ø’ÃéãMÿĞ¦„Sjn÷H£¦ôV‡.4³ß ª7ùºpıºQó¿0ë2ê¤“¯H°Ìx'ïš `L ×´1¬Úlğ/\W6‚æ,…²'éœúlO<CsÄQ×_§Ñ?ìÜÂ¯kP£ázU<Ë’<WnÜ ı®ŒàBà?å¿cı»‡üËW N5kñ-[N­ï¿¬Î[9wM?öòà—ºñÃ¢}ç“è±%èâëª}âÉÿæÚ¿T;ä	€ € € €€ æ:˜_ş!šô5hLé7oª·z7²<››qôò%z{İ*špU.S–:Ô2j\aŞóf]F,+nÙ´‚3ób0˜è¹¦A
-š@)šÔ³¯¾š
-¬³,(Óî½_¿M[IÌy”4RÎÚ¾ø”ËôÚê•T¿Š½Õ¾µö ²,!ñÏ©“4dá-›ş»'{VkHÁŞŞt™Ÿ¢¿ı-k´%™h´µd£³h–É¾}«±.s3å5ı_6:ÊMÌÛwV†Ñ-gNÑË«–ÓÕÌL}ÚB–­x”õœW­FY·h/¸Ç³Şô>6œæ%I}?ÅìRºĞÕªÓoìlšªò”x/‹œG¥Ò¥éøåË´ğĞ~ZÄúÑ¦IÚóoî›$	J*©cÍZ¹ØOÜ¹UiP«ÿÉk~cZ¶¥¶ìI^»R%:tñ­fjÉ/ÆcgKâÙ-ñÿœ:A—ÙËÚ4É‰á"ø«ª$d´ıÕÊy©Å¤«–õı´¼¶~?Âõ—àkF¼Áå\2L³âbè“.İé¾zTæwÒ4<Ë       Pœ`~aıhb~a=«üäôæ9Ö¸›éà…ótÖÌ¢{Y'|@h5TÒ¨øÂ¼ç/ÌºŒ:YV<y^ö}v–Ûó¬©)ŞáH  NL€fy¸gïÄ]@Ó„€‡›;õgıe-•ä?&ò1Ü¦í¹l±¶HUÙĞZÙG­7©VM²§íÙE›AÙ ¬¥ÕıµEõ-Ğ3ú¤‡8X‰$‘‘hã_“úÕ«¯4–Ûı<•bÙÛVKì<”î'®\"ñvãØX,1<+–*MİX§YÎMÙğœ’‘®ŒñÚ±òı^ÇHe,¿Á^ E­OE4Wÿs!ÍÚc˜ı®Ëâ­,InªLS+6Ú¯dı¹
-Ü®T–î¸ÄŞÂƒ”~ÚôxôB£CÄ€«q–qX±"õ/{{<dÛlD—`Œ†)„5Å—N!ìå{4ˆ‡‰üåFnhƒ†ÔsöJËÌ0<$ÏË>lÔ—€©Ö$¹‰ßÁ†j[’Èø|ó‰Å""|««}g¯¦åÑÂ¢ˆ!:™ƒlf©Ç%FÙmZiZÍO¿Œµâ“x›Œº8p¦¤FüĞæÜ‰c†Y°      .A óÌ/,è…=¿'«ÿ¬Ñ½µi®MÍy®*1–›ÜÛæ=aÖe3oóìàW7nuÂÑ‰DÙÏ8sGĞv ¾ŠÉmb¿8° ‚&píf&yõ±¾šä^SŞÄÕ¿ıL¿ÍÜ‚xoËGRÊ‹oªïw:v¥„´ztÉ|eõ`ã``aPeàÿ†°‘VŒà[Ïœ¦>¿ÿª<Àå	¼x6¿×éßã^êÂ$¦©Wp=
-™øµjÛæGF°1»‰&tÀø/HŒÂ{x†zÕ52„w®Y[é¾mãºú³æù™4µ3£‡§ïzÜ§nzDŞÂÚÔÍ’ö›Ñò–`—bøyÊcX¼²Åë{kŠ?Ö¤ı»Û(Ğ£èHkìÅÈ»ë‰Ñ4gçãï–¦ôê«Œà#¢ÑÔ=;Tv1Æ~Ã:Úâ‘ş*ü”×ılI}9€ÌfŞ0WæMö.ñé»ævÙe[%æ*mÒøaÇbïzÍÊûÆ³N·¼­ ¯8^ÍÈ õ§O*ïÃüÀÅÉÏ«¼*Fäƒ´$Şü2Æ]j©;uø|ôÏÉ§åÁ7€ € € ¸
-Ì/(ù<kÇóó¤
-r~!ÎY(³Oİ0šÅoz&s MÃT˜÷ü…Y—a‹Ã²§tÂ×?øÅä„£õ³);²8t
-} W$À¯«ªòµìŠ}GŸ—@­
-•”á±Å´It½¯µ$Ê†é0Ëwcıg‘ğĞdPRÙ`ùùæôï–íH¤PäÆÄÔ“WôÛ4©‰¿ÙÓVŒbX–ºbXVEô¡«{é$2´ú$ğ¢¤§XÒE3‚ËúÎsgé½õkhÂcÉ”/·n”ÍwLì€NÿjØ„kÑFy{Ï`½jÃ$¯€¾»~5ç›¨ÇuA6eÿŞäs4u÷ú42Jy¾¯aq[“ò»Ö
-V’+š\ÊÙš1+—RŸPõ`á6„Û"ÇÆşo·m²ª¹)Å"ì§öî§ŞBx^§¼(SW­œN#|ú}¨ËÅˆñû8{É‹–{àº´›0DÎü‰¶ğ[“v£z!çf9ŒßŠøãaÄÚúcVF«·~ä‡Z>[ëÃñ       àª0¿ÀüÂç¾8¯,áûvOv
-ñ®¢Ş‚&ÓyÔ©İËÆ=aÖeOP–2„‡»¹e™ü—õ  !¾IDATÄeg÷J:sìn”=
-2)04hXG@äPÄ\Œàr-[wr€c9”wÙ¸lh7×2Ñy–iºqë&•”HÖŠ6Õˆ3KÑ¼q½²O§¤(C©a¹ÙûËcHĞKÓ´*G¶"Œõ¦Í¥:w£—[·W»D*&¨¢7y—)£ŒıçÏÎåå‘~ëÍ´ ³²õ¬Î kj¨7W¯5ÛVõUÙä€iİê§ãÙó¾‘òJNÈñ‚7ÍgÍºía<¶¦®;åy—åm$@åâCTĞLÓ¼šGøÙ´4ºgÖ4£ˆïÏ±œÎ·ì%>©g’‡4¶ì½øí…>Wå¡CTPšÓ¹³NOß¹¿RôÑÃ$’D‚	@ @ @ @ ÿ0¿Àü"ÿgù#Ëò=ºÜ»K*Ç÷õ¯´îÀ.XÄVÆNN…yÏ_˜u©£ÿ”!\ú“c@{vıÙÃy^şd¶Eñæ@~CÛØU®u]g%À¿ÁiÜöx	Œ)šàCqÖ‘D»E[M¼¼­IUØ ,A/ED4±Ës€N/¾)©i"£bMY†yt·4··ˆ,‹hƒÿÅºİ¦©„»‡ÚdI»´§§Ş˜éáî¦ŒàbTŸ:Nï™nZ¦¬w¯]‡zÕ©Ka4T¼Ê³Q¿
-ËtØ3²÷½¤,£iŒ–¯i·×fã½-†pÃ2‹jùI–”y«CÚqö=´øw³îßnÛL¿í‹¥]ìéoú eÜ-th}åA/ÁVwK´©+‰ll¯Áºõ"åóEd:Í)}~ÿE½• kAOÏ™	ÆcSÅ8@ @ @ \Œ æºÇüÂ>'¾ÈaFüø¾°6ş,ÙŸ¦³¼¥ÌØ»S¿¯0ïù³.}‹É‚Ş®õG4ÃyùßÚ:¾A @ @  ˆG¶x#ß-ÉÇò¡+-m‘¯Xê¤’“¸Ê‡ÔoDµ¬Îx·zd¿<ìÏä6%]½j6»èÁ‰¤Š¹ôâßËhË±hi+ë’·ä¶7fã½h{›&1ÂÏê÷€òÄNgãûZ–@YÑ©öáÀ"«b¯”ãÄÀFßëfû¦õ÷âc­»¼Ö/"ªéTŞíX~ØN9x·lyÚ/å“zöUºÛ÷±±ùjf¦Ùã÷ñÊÇR’4"%îãk³!ükà7'úª[/ÚœpŠúÏiô`Ä§¬î¡‡¡¥va;€ € € €€e˜_`~aïù…áÙ¶YâHñ½ü¡‘cèmv¼14„æ=aÖeØÿâ°œË^:…>€ € 8KFJÓÖ‹Ö³”ÈÁ+çÚo´»5šíi?ÏÜ×ØxúĞâ¹FõägåÓÍëi.D|³}'³†ğ¡”|Ë’DÍş™ÒØ°¯¥.µíj—~IúaÏNš³[«ÆîßİjY°Ìv5jÒì~ƒ)™#½GÍN‰wğ°®Å{––"S=zHúMİÑ´5‰¸$‘i²p‰¤aÒ¢¾kù÷a@ @ @ @Àz˜_`~QâÓw­?aÌä¬ÈoçVà·“yşdzß.Ù_º¨bI¼Ÿò,•"±«$i÷ò…qÏ_˜u©Î£ÿ`/Fƒ‰®€ €@q$P†åFÄ+÷$Ğ45‚KëTªl×n¸p:Ö¬ÅÒ$eŒt£µJ$('—6+·¡åÑ¾ÜO‡¸¼ÎAÔ¾F mHˆ×v©o	ò)iÊîíFFpÙfM¿Äs]’Ü¨İ-I¿$5¯îoÖ.Şét7WÀQuPşÛv6^_½Âª#²Ä%ÜN©>ËÊH ÊÖwëÁñ›wJ3ú¤µ¨æø/ÌJÁ´® ßkF+^+W^9ıoûÎtğâyzcÍ_*è©¶Ïğ[ÎƒQÍZ©à:¦7ÓróÉçr~‹”€ €€1_Eq[wñwxëê!¦q¬ €@Ş`~a™æÄ2’õé§ûĞ+«–Ó[6ä‚%óA–±LMOç7yo¿}j{~Ì/rá¶ûÂí‚ € Ø“€Ò¼’~ƒDr#´r6:^Ğ?ªiK
-àíöLKXª£{cÙ“øs¡‘aø¶èÃ.İèƒkè­VİµÚ,6—Æ^áß³œL{Í™atŒæ±Ü=(„~2ğÒ®ÄŞï¯´é`”×ÜŠ{Å@ úâ5¼Ê›5èjÇmOL Ñ ~²Isš¼kÅ¿-R½œm}ôi¥Uí?îs%;£—×ï˜ä$½öu^Ío~éû²!SÏÊ\äeî–V;Ê<jÓ8Š9xÁºÉzõZê\—îçàƒüğ ÆBYnî4í¾û•ö·œ/g9Àè;ëVkE}ÿÅ²8ÇØs¤'SG6¾¯;}R¿ÿÓ®QTŠöü°g‡Ñ¹¦Ï€ "#š®›‘ÉªVÆØB•¸-Ûé§¿T5>òú‹Ô¨m+»Ö~åüº˜|ükRéröÏa×†¢0 »ÀüÂ2JÌ/ˆV8F7ÙáèåÖíiŞ8:Î+†éõ¶UL§%‡İ¿ÛzÏù…!å‚[†!¼àØ¢d  uøõ±¡ájkIåuı*GİÖÒª“Çh{bn¯ØŸÙHü<\=ìqZÄÒ(Ç/_fcu-
-foğ,+Ò. P+Âæï¯·m¢G5¥G7U†÷Å|ƒ#şßâ=|oH=:ÁÆç	;¶Z]Ï&ş^§HemVÍvrpF-Íg=ñ÷:FÒĞÉÏË‹Ä8+èÃEäCÙËùNInâgï‹¡Ã³NİôOüIŠeÃm	f;·ì1ğf–Wö^bó_úRFo‘H/ñpŸªÔ»N=tô?«WÚd¿S[jŸÜ0.e#x ëÄ‹¡_8˜KâÙıª§ºxwkÀA1Ğ¾ÏÑïbéâõëÔ‚½ô×§[l—!™Y·ä†å–ğpçÀ¨%ô›äá…¥”Í;^f’ßú¦•„u.ßP¯çó¶Gpˆò8Ùw>‰&îÜfépl("‹¾ŸN‡÷Ääªı£9Ó©$¿6]ÔiãÒ”vY'½t·¶„6kBµBëŞ-›İ÷gñoè_¿Í¿k¹ûö¦2ŒĞîü{«%7;ÈUieißÛVÿCË~ùzç?$œ@ œ‹ æ˜_ØûŒ=Å²†¯¬Z¡âûÄ>õ,ı»—ˆ’H$Sºñ¡âseSF/ÿÃ¨j[ïù1¿0ÂY`+0„Z   `J >]?ŒÒoöõô2ZC­9CøëkV*ãîˆˆ4’%&$°äT":Ğßtï­/Ïbøl÷óTú¤kwÎÁ*ÛæÙÅ+`&Ê|cí_wÔ6mƒıŠëŸGö`­ğÎ4pşl}–ø”+Ôƒ­LîÕWf”àŒ§xÛçìE¾âøz‚½·ï–^¶˜½.Ñ°ğ&Ô-(XÜåñH04„Ë¶_¹ıb,şº[oz¶yk½G£x+?şç6ï’lN•Ê²1º‘o5ÕæjìÙŞƒ½¹Í¥Òìum˜D¢$jÖtåáÿD“fôF»Ûôm|nXº˜v'%b´,!äuÉ:w£#—.Ğ7Û7í7]YÀpdìä·†ñy%ñæ_wê˜7Û¢¬Ši9X(<½‡¥kıïÓW¸ãÉ	¹Öê3òÂÆè$^ëÖ¤²å½ŠÆÎrU+fß=æFËn],Â´lNO¾ıºúÍ¬ß¢©5İ-Ô<çÏ$ÒÌ¯ÆSƒVÍ©Û÷jİ¨@€óÌ/
-â:ç(‰;ôA§{hDÓFUˆ—økì`#sÓdË=?æ¦4f]$A‘@ @ ‰ÀGoÉÃd$3J{xr`ÌŠ*Àa:O®%ÙKÛÚLuªl‘d#ªUÔê4—×Ömş,ïáÁÁo¨ò¢G.õK~ië6ÒŠ,Ë’x3Uô¦$¾Á“+'¯%)Œ½ïËñwìùsfµá-ñæwcmx¬œ¯RWmf¿õìé<ÕeXË,¿ñ>îUp°WŸ>|ç 'ì“4ùÛWß¢øƒ‡ÉQ<ÂO=N™¬Oª¥Ë,ññë—ã¨Fpõêm³ú®R½U¨ìm´­0Vnrğé×§òŞ•èáWÇX¬²fİ:äiğ–ÅŒ°ã¯ßØä~æø	úß˜×©å=]hÈó# …Qd×€ºø=vŒ¡È_+0¿°Èó‹hÔWŸ_HÿyşY×»Š’ë”7jS2nÿíµDÏ–{~Ì/,QµÏvc÷(û”‰R@ @ @ @ˆ¯¡F¸T"ÖëBWæ½IRöIöĞ.Œt†5¦MS^¬r¬ä¿vóvÀÓò×¯²q"–_ñC"¨ÔÜ›Ö°ÉëÉ9µŸo åƒ  ¶¨dt¸x&K*]®53ÚWÔ+bäv´65Ô à0¿¸ó8¸úüBú/QòÉK²åó‹¼Î{^ÂóÎG€ € € € € 8«))´qéJJ`OêëW¯‘·oUjØ¦%5lmüÊ³=º%ŞÙkıI§¥k)©T©ª…³tFëî‘äYòv|ÓºölØLû¶í s,yR¦\9ª^;Ú÷"¿ê¦Ym^Ï`oòu‹—Ò‰‡èRr2Uõ÷£FáÔ¶Wwr7£Å=ëë	ä]µ*õ6˜ï%	by|ß*W¡ÕkÚ˜:±Î·¹ãòÓPñÒN<y*×¡M&RW¦™$øåfæØ	•78<Lyk§\¼¤Æ$¢C[5î¦ÇÉúµÔ4Ú±f‰#ÃêµjR×}©ZÍ £ìgOÄ«²dãõ´4µïØ¾ı4û›‰FùÚ1ËÀz!úm&ÿHW¹£4+·uíúg5íÔ^/ú±      `0„Û#
-    pTñ‡Ğ”w>¢Üª%–ÀŒGc÷ÑöUkí.i!FÒq¯½M7nue`có¡İ{i÷úMôô»oæ2†ßbI«Ÿ>şíß¾So}ü)ùÌYepŞ¼ü/4ê)jŞµ£İğ^8{¦¼ûÉ·<¨\­ª2jÇlÚJ»×m¤§Æş‡J–.mTßõ›É?¨„Óô¿dxyºÉíN`ƒ³ôMŒâ½ñ²Ñ1ù]9Ï}?uä¨şğ+.ÒÍŒLòÜHæ£ßœkAÚğÃŸÑ~Ğ!^èÒ71ªï\»:÷¿WõMŒÛò Ä4eò›RÓ>üœNò¹R¥\Ä.ò3»×m¢Ñ½cdĞNå İ±[tA³³ÄïèròŠM1|,?‡†PmkA-";îRËÿ,ş“ğû¨û¹öaCñ"0jÔ¨ÆLöGîÕRşDûùùm;v¬ùİÅ«ëè€ );ÜFi»P9€ € € € € Ø…À¬¯&(#øƒc¡¦Û+Ïe1XÿôÉ—´íï5Ô¢k'ªÓ¨]êZ2ıWeèÅg©YçªL	ûó§_‘šw­Û Œï†•­^ğ‡2‚‡²gõC/=GåÊ—W»ÅÀüËßÒÜï¦RpÃúì‘ícxX¾—çL˜¬Œà<3‚ZGEªrÄ¿pêtÚ´l%­š·Xy~›Vp!1‰şœ>“F<–‚ê‡*ãtìÖí´pÊ4‡øşƒj»éqy]úÂh£CÆóƒy˜p§$íŸ3~Š2‚wêw/I°S1†ËöèŸgqºÓá´ø‡ŸIÔO½û•,UŠÎ:ÍÑÕëhéŒÙôôûÿÕ_/¢1}0Sl˜DšFxö4èßÏèó˜[hÁ36.]AâùojO½|…Åîg÷Ú¹<ĞÍ•…mÎMÀÍÍÍäI‰|ş{öìÙ#FŒXÎoUD³|ù”)S ¡æÜCŒÖƒ 8(Ât`Ğ,     Û	HÀÆîC*æĞ¦Môú±ìH›¨{”a÷äÁCv3„‹V·ÈŸ4n×Z_½”7s›İØ˜]E¿][X31•.[ÆÈ.ûÄà*R$ó'ıHë—,£>ıK;$ßßâå,^Çá,	£Á¥0‘‘ ›ûØ+}İKÍÂE^fØKÏêİÒO‘Ïò¥¿Ì¦Ó,#rÓ$Ô“ßşĞt³Z¯Éæ½~Ğì¾¼l<¾ï %'œQõ÷}|¸şPéW^Oïl¨·”$˜è€‘ëw‹Ê£G(<÷Ë)0´®zK@pˆ<¼™ ¥˜M[H˜ÈC$×#Àc/?±ü!ş½Èb£ø6şæmÑ“&MÚÁËºW\z  v%àn×ÒP€ € € € € 8ñ
-ÏlC#¸Ö¼Àº!jQ¼qí•ÄÀ,2K~ú•R/İ®UšâñíPÃ¨*‘à¸qí:‡7Ğ{‚fhÔ¦•ZMŒÏ­™m˜ÏÚeM{»^“F¹£qPX=J¿~DÄ4•(YRçM·‹Üˆ¤KÜséVæM–9fö#0öHI		ªs²'²ãnZğÌÈ¥ˆ¡ß‡µÓ…‡È­Ø#5ïÒQy©kÒ*Z™â%îîáA¬äÚØ(.všÖüı.¶92ñé§ŸÎŸ!,©âíÚtĞ{ ° <Âmã‡£A @ @ @ @ œ€€xáØ¹‡’N'¨ ˆé×oğwªİ[Ş®gw:°}—òà–àœµ8XbíaÔˆäâlš.%%«M¢Óm.•g½j1æ_<§Ëg.O^¶]>¯S\ØÄÚã±›5­¥œ¤ÃôEnWÅ*•Š®PÅ¼®TxÖ­[Fùµ	úæÔqÚj|§^Ò=ÌºÌ%KÛµ¼ân.•*£ÓJ¿uë¦¹İyŞ&†ğå3§½lønÙY¯É¢„5 ò•*æ¹LG9€¶¾ìÑ|ÎQÚãÈí}}kÃ}9ïÃò¹Å‰½Å7iŞâ“'OŞcm9È   @C8Î     bMà—Ï¿Q*Å ^ŸDE‚A^MI¥kÖÙµï ó•	_ÒŒ)†ğøÃGè8Kr¬f½éÆá4üÕ1Fßl8Tõ‹7°¥ÄF/bİK»ó´j*™råÈËŒÑUÛV®¼WÊu”ÌLÊlRÍîÑm¼Ûş;š§]•«ùR?9´;Fy™Ë›š,ŠÉ‘@ànø\•$^ã¢3.Ëöùq¸[ÅØ  Å€ áÅ`Ñ     óönÜ¢ŒàµØûé÷ŞTp-§heÛÛ.e³aŠ":¶S	Ö·u­š»ìS%H¥–´À˜†2*Ú>ùÎ¸qƒ232¨¬Óå*èq¶êŞUï‘lXŸ³.‹Æº¤Ô+)f»fa»ÙÌ¼QtÀï;@"Ò‚½ÂE¥T™2ŞªE×\°Å³–u×`éYDÁVîd¥=:‚½ÂwYÓlş=Ibƒ·
-¤ÉËË'NœxI;™k‹ø °‚ áV@B     ç$púÈ1Õğ¶=»ÁeãùÄD»wJäAÜÜİ•1\
-İm	œé[ÃŸ¾xş:yğ°QUkø)mhi§xk‹İ0ÅÒj¬`¸9ßË¾5tå	4S“æ0-Ì\;Ló8Úºo€¿jÒñ¸ıÔ¾wT®æ‰á¹ ’»‡nJ~ÍzñÆíÛĞ‚©Ó”<´Y‹İ¯â%J•,ˆ&¢L'#À¿òšÈv¾£===£'L˜°·ÁëÛÉÆÍpL–é˜ã‚V € € € € Ø€¦¹|p×^£Ò$øáÚKŒ¶Ùº"/_0Œ>xâ–]1öL>sü„*¾
-Kc&1”×gmh	¹ş¥†»TÆè³Ô¶†­[íËïJÍºÁJ‡zËÊU”Ú¨ñJ—¶¿9äQài½a×¨"Z©ZDfd7KÒ˜jŸÇnÙN»×m,–iã¹Çn³FÍUZ†ÛŞ²9É9)ã  ‹b”Km»ÈÆîYüÎçC5Öşn=eÊ”w¿ûî»m0‚»Ôy€Î‚ 0x„0`         Pt¶mEË88¡BS.]¢ĞˆÆt55MI¢4`cdRÂ³Û²b]JÖ–”WØÈ-iåìyÊË[–E£Ëı}dQ¥J>U¨i§ö´ëŸ4şõ±Ô¨MKªâWN8L1›·*Ïï}zkÙõßıG<FGc÷Ñ¢~¦C{b(¨~(]K»J"ërñ\5aâ-›éóÛ² }N3ÿ7¾yéjIâMxò4íß±‹Ä˜ß{øPî[Y[ª1:6õòešôÖûFÛW†½ô¼QHSö—4ö¿ÍSåXSö"#í?éGúéã/©NÃª_2¾	GOPç~÷ÒÚEVk—eñâÖÆü“‘c(¸a}ªX“äÍ€–÷t!ÿ ZfëiÙIy„¯˜5—ä¼ıx$×!ÀÆnñúŞÉFîhşöóóÛ2vìX]À ×Á€‚ €@¡€!¼Ğ‘£B     Â"à]Õ‡{ãeš;q*‰&¸|ÄğØ™Øb\siûªµ*È¥é¾Õóë7U¬RÙÈ.;†¾0Š*W«J¢WĞ*©¥ÁAÊPkÎà)m|yÜ´`òÊKxÿvtp¹
-¨Ïcÿ¢}sÏµróóİ¬sex^ôıtZ¿d™¾ˆ*Õ«ÑçG*®~£nfd*}tKEİÌÌ4Úe‰½!OsìÛõŠ¢
-ŞŞüàcÒà?t„j…Õ¥ÇŞ|™R/_1ªÃ+ƒF?©Æ|çšõtxO,Ü¹G_/¢‘ECxhÓ&äU±‰vyS$×"À:ßòŠJs×ê5z  EOÀX€®èÛƒ€ € |ô4 q€ €€xã}Ü«:á™°úôa‡ı;–rñeee)C¸†Vd)Ø+S[µÛ·”›rá¢òìööõ±ÚÃZ<‰Ï'£2åÊyIÛ­a&e¤§ÓÅÄ$òªTQfMv;íªßİÜİôŞûëXvFÿ¨T¼à*É¸KpÓ%KŞñ¼’|âA~ÇúÕ	_²÷ºN»½ Úek¹]êÚÿ"±µQ8Şz˜_XÏ
-9A Š5x„ëáEç@ @ @ @ @ 4*{k‹úï‚0‚KáRnEö<—O^’»‡‡
-¬™—clÉ[²T)ª^«¦-E8Ä±"]3óë	äS½:dmÏ’%ŒÚ³i«Z¯Q'Èh»½WdÜ…éİ’È¿ˆ¼¿•àèFğ»õûA @ @ÀYÀî,#…v‚ € € € € € ˜% 2Ù\¤nÒ®\Qºê>ş~t$&Ni­Ÿ>rŒ³Öz@ÂÍ6Î`£èÇØ¹›b6ê4ã{l°‹      I †ğ‚¤‹²A @ @ @ @ @ 
-…À“o½Fs¿›J±›·QÜÖú:ÅË¾Ã}=ÉŒÎ›—ÿ­£ÊÛ	ıŸz”ë…èÛ‰   ‚% CxÁòEé            …@ ly/zøµ“hÁ'>CWSS•|Uö—}şõòó¬]î^¬ôØ+Ú     Ö€!ÜJÈ           àÄÛÚœ¼#4¾¼w%GhÚ     .IÀİ%{Nƒ € € € € € € € € € ¸Â]f¨ÑQ         pM0„»æ¸£×                   à2`w™¡FGA @ @ @ @ @ @ @ @ @À5	Àîšã^ƒ € € € € € € € € €€Ë€!Üe†         ×$ C¸k;z                  .C †p—jt@ @ @ @ @ @ @ @ @ \“ á®9îè5€ € € € € € € € € ¸Â]f¨ÑQ         pM0„»æ¸£×                   à2`w™¡FGA @ @ @ @ @ @ @ @ @À5	Àîšã^ƒ € € € € € € € € €€Ë€!Üe†         ×$ C¸k;z àĞÜÒºyh€ 
-ü
-æ¨ÄÍğw¬ ¸¢H(*¸¦‹Š¼=ëÅßT{ÒDY  ÎJÀ-†pg;´@ 8ˆ/ÎCß@ @ÀJø-´”fÃØ9à  I `\Ó6ÀsC1†2h€@‘ˆw/ÒêQ9€ €@nîn+roÄ p1ø-tÚwË&üsÚÑCÃA 7\Ó¹™8İüMuº!CƒA 
-€ ÿÂ^ \Q$€ ØFÀã{"·,ÛÊÀÑ   àÌä7P~‘œ‘€‡}ïæ†¿cÎ8vh3˜kY®iÓíXw6˜_8Ûˆ¡½  ö& ›_Àno®(@ l%ğúÛq\ÄD[‹Áñ   àÄ&’î·Ğ‰»àºMïàW7.›ÜğwÌuOô¼kY®ébÔ%×ì
-æ®9îè5€€!5¿€!Ü	–A @ÀQ„¸¿Hn´ÊQšƒv€ €@¡ß>ùDrj¾şÁ/º‘ş9õ(¢ñ®N@®a¹–]C±é?æÅf(Ñ <0˜_ÀGvÈ  …B`ğØªãÑ‹%R&@&¥Pˆ£ "' ¯+òoüöÉo ’SwsË¨Z£N/rsŸ ™§J4Ş	¨k–¯]¹†åZvAÅ³Ë˜_ÏqE¯@ î@ ÷üÂí¹±@ @À|ò^8Ñ­')+;Š›H”íåÍB@ @Àvni\F<© ^¬_
-9Û‘:`	ëÏ¿u‹Ìv#õw,;›ğwÌÇ	Mrmnn¤~%0¦h‚C¥˜Ÿ˜_óF÷@À•	Üy~ñÒ”?h€õ    IEND®B`‚Ocbplist00Ô
-X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯/'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰U$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€€€	€€.€€ €Ó()$+,WNS.base[NS.relative€ €€_Ahttps://docs.swift.org/swift-book/_images/sharedStateClass_2x.pngÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃñ¹-œ~á ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
-€€€€€€€€€€€€€€€€¯OPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-ModifiedYimage/pngZSAMEORIGINTmissQ1_vhttps/1.1 jptyo7-edge-bx-007.ts.apple.com (acdn/141.13253), https/1.1 jptyo7-edge-lx-012.ts.apple.com (acdn/141.13253)UApple]1; mode=block_.81653798-7975-4920-9c56-bf9afd4ff246-906326621_max-age=180, public_Thu, 17 Mar 2022 13:42:44 GMT_#max-age=31536000; includeSubdomainsU41580Zkeep-alive_P
-
-YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE1lpbWFnZS9wbmehFV8QHU1vbiwgMTQgTWFyIDIwMjIgMTk6MTA6NDMgR01UoRdfEBQiYTI2Yy01ZGEzMjZmZDRmMmMwIqEZUTGhG18Qdmh0dHBzLzEuMSBqcHR5bzctZWRnZS1ieC0wMDcudHMuYXBwbGUuY29tIChhY2RuLzE0MS4xMzI1MyksIGh0dHBzLzEuMSBqcHR5bzctZWRnZS1seC0wMTIudHMuYXBwbGUuY29tIChhY2RuLzE0MS4xMzI1MymhHVVBcHBsZaEfXTE7IG1vZGU9YmxvY2uhIV8QLjgxNjUzNzk4LTc5NzUtNDkyMC05YzU2LWJmOWFmZDRmZjI0Ni05MDYzMjY2MjGhI18QE21heC1hZ2U9MTgwLCBwdWJsaWOhJV8QHVRodSwgMTcgTWFyIDIwMjIgMTM6NDI6NDQgR01UoSdfECNtYXgtYWdlPTMxNTM2MDAwOyBpbmNsdWRlU3ViZG9tYWluc6EpVTQxNTgwoStaa2VlcC1hbGl2ZaEtV25vc25pZmahL1VieXRlc6ExWlNBTUVPUklHSU6hM1RtaXNzAAgALQA6AEgATQBRAFUAXABvAHcAhQCKAKYAtQDAANkA5wD5AQEBAwENAQ8BLwExAUgBSgFMAU4BxwHJAc8B0QHfAeECEgIUAioCLAJMAk4CdAJ2AnwCfgKJAosCkwKVApsCnQKoAqoAAAAAAAACAQAAAAAAAAA0AAAAAAAAAAAAAAAAAAACrw==Wnosniff_"a26c-5da326fd4f2c0"Ubytes_Mon, 14 Mar 2022 19:10:43 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionaryÒ/0Š‹_NSHTTPURLResponse£Œ3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d – œ · Ù û ş #ELnqt–¸»½¿ÁÃÅÇÉËÌÎĞÒÔÛãïñóõ9>IRX[dmoqx€‹ ¢¤¦¨ª¬®°²´¶¸º¼¾ÀÂÄÙÛİßáãåçéëíïñóõ÷ùûıÿ&*.5HP^c™¢»ÀÎÜæñöøqw…¶Ìì#	w		–	œ	¼	Á	×	Û	è	í
-
-
-                           
-'Ô0123_Dhttps://docs.swift.org/swift-book/_static/javascripts/application.jsO?/*! gumshoe v3.0.0 | (c) 2015 Chris Ferdinandi | MIT License | http://github.com/cferdinandi/gumshoe */
-!function(e, t) {
-    "function" == typeof define && define.amd ? define([], t(e)) : "object" == typeof exports ? module.exports = t(e) : e.gumshoe = t(e)
-}("undefined" != typeof global ? global : this.window || this.global, function(e) {
-    "use strict";
-    var t,
-        n,
-        a,
-        o,
-        r,
-        c,
-        s = {},
-        i = "querySelector" in document && "addEventListener" in e && "classList" in document.createElement("_"),
-        l = [],
-        u = {
-            selector: "[data-gumshoe] a",
-            selectorHeader: "[data-gumshoe-header]",
-            offset: 0,
-            activeClass: "active",
-            callback: function() {}
-        },
-        f = function(e, t, n) {
-            if ("[object Object]" === Object.prototype.toString.call(e))
-                for (var a in e)
-                    Object.prototype.hasOwnProperty.call(e, a) && t.call(n, e[a], a, e);
-            else
-                for (var o = 0, r = e.length; r > o; o++)
-                    t.call(n, e[o], o, e)
-        },
-        d = function() {
-            var e = {},
-                t = !1,
-                n = 0,
-                a = arguments.length;
-            "[object Boolean]" === Object.prototype.toString.call(arguments[0]) && (t = arguments[0], n++);
-            for (var o = function(n) {
-                for (var a in n)
-                    Object.prototype.hasOwnProperty.call(n, a) && (t && "[object Object]" === Object.prototype.toString.call(n[a]) ? e[a] = d(!0, e[a], n[a]) : e[a] = n[a])
-            }; a > n; n++) {
-                var r = arguments[n];
-                o(r)
-            }
-            return e
-        },
-        v = function(e) {
-            return Math.max(e.scrollHeight, e.offsetHeight, e.clientHeight)
-        },
-        g = function() {
-            return Math.max(document.body.scrollHeight, document.documentElement.scrollHeight, document.body.offsetHeight, document.documentElement.offsetHeight, document.body.clientHeight, document.documentElement.clientHeight)
-        },
-        m = function(e) {
-            var n = 0;
-            if (e.offsetParent)
-                do n += e.offsetTop, e = e.offsetParent;
-                while (e);
-            return n = n - r - t.offset, n >= 0 ? n : 0
-        },
-        p = function() {
-            l.sort(function(e, t) {
-                return e.distance > t.distance ? -1 : e.distance < t.distance ? 1 : 0
-            })
-        };
-    s.setDistances = function() {
-        a = g(), r = o ? v(o) + m(o) : 0, f(l, function(e) {
-            e.distance = m(e.target)
-        }), p()
-    };
-    var h = function() {
-            var e = document.querySelectorAll(t.selector);
-            f(e, function(e) {
-                e.hash && l.push({
-                    nav: e,
-                    target: document.querySelector(e.hash),
-                    parent: "li" === e.parentNode.tagName.toLowerCase() ? e.parentNode : null,
-                    distance: 0
-                })
-            })
-        },
-        y = function(e) {
-            c && (c.nav.classList.remove(t.activeClass), c.parent && c.parent.classList.remove(t.activeClass)), e.nav.classList.add(t.activeClass), e.parent && e.parent.classList.add(t.activeClass), t.callback(e), c = {
-                nav: e.nav,
-                parent: e.parent
-            }
-        };
-    s.getCurrentNav = function() {
-        var t = e.pageYOffset;
-        if (e.innerHeight + t >= a)
-            return y(l[0]);
-        for (var n = 0, o = l.length; o > n; n++) {
-            var r = l[n];
-            if (r.distance < t)
-                return y(r)
-        }
-    };
-    var b = function() {
-        f(l, function(e) {
-            e.nav.classList.contains(t.activeClass) && (c = {
-                nav: e.nav,
-                parent: e.parent
-            })
-        })
-    };
-    s.destroy = function() {
-        t && (e.removeEventListener("resize", H, !1), e.removeEventListener("scroll", H, !1), l = [], t = null, n = null, a = null, o = null, r = null, c = null)
-    };
-    var H = function(e) {
-        n || (n = setTimeout(function() {
-            n = null, "scroll" === e.type && s.getCurrentNav(), "resize" === e.type && (s.setDistances(), s.getCurrentNav())
-        }, 66))
-    };
-    return s.init = function(n) {
-        i && (s.destroy(), t = d(u, n || {}), o = document.querySelector(t.selectorHeader), h(), 0 !== l.length && (b(), s.setDistances(), s.getCurrentNav(), e.addEventListener("resize", H, !1), e.addEventListener("scroll", H, !1)))
-    }, s
-});
-
-
-(function() {
-    gumshoe.init({
-        selector: 'nav[role="navigation"] > ul li.active ul li a',
-        selectorHeader: 'nav[role="navigation"] > ul li.active',
-        offset: 0,
-        activeClass: 'active',
-        callback: function(nav) {
-            var title = document.title + " - " + nav.target.textContent
-            var hash = "#" + nav.target.id;
-            if (window.location.hash !== hash) {
-                history.replaceState(null, title, window.location.pathname + hash);
-            }
-        }
-    });
-
-    function hasClass(element, className) {
-        if (!element || !className) {
-            return false;
-        }
-
-        var classString = element.className,
-            nameIndex = classString.indexOf(className);
-        return (nameIndex != -1);
-    }
-
-    function toggleClass(element, className) {
-        if (!element || !className) {
-            return;
-        }
-
-        var classString = element.className,
-            nameIndex = classString.indexOf(className);
-        if (nameIndex == -1) {
-            classString += ' ' + className;
-        } else {
-            classString = classString.substr(0, nameIndex) + classString.substr(nameIndex + className.length);
-        }
-        element.className = classString;
-    }
-
-    document.getElementById('menu-toggle').addEventListener('mousedown', function() {
-        toggleClass(document.getElementById('menu-toggle'), 'open');
-        toggleClass(document.querySelector('nav[role="navigation"]'), 'open');
-    });
-
-    function toggleMenu(display) {
-        var menuElement = document.getElementById('jump_to');
-        var overlayElement = document.getElementById('jump_to_overlay');
-        if (display) {
-            menuElement.className = 'open';
-            overlayElement.style.display = 'block';
-        } else {
-            menuElement.className = '';
-            overlayElement.style.display = 'none';
-        }
-    }
-
-    document.getElementById('jump_to_toggle').addEventListener('mousedown', function() {
-        toggleMenu(!hasClass(document.getElementById('jump_to'), 'open'));
-    });
-    var menuLinks = document.getElementById('jump_to').getElementsByTagName('a');
-    if (menuLinks.length == 1) {
-        document.getElementById('bashful').style.display = 'none';
-    }
-    Array.prototype.forEach.call(menuLinks, function (el, index, array) {
-        el.addEventListener('click', function(event) {
-            toggleMenu(false);
-        });
-    });
-    document.getElementById('jump_to_overlay').addEventListener('mousedown', function() {
-        toggleMenu(false);
-    });
-})();
-
-_application/javascriptO bplist00Ô
-X$versionY$archiverT$topX$objects † _NSKeyedArchiverÑ	_WebResourceResponse€¯0'-.4567abcdefghijklmnopqrstuvwxyz{|}~€‚ƒ„…‰ŠU$nullİ !"#$%&___nsurlrequest_proto_prop_obj_6___nsurlrequest_proto_prop_obj_3R$2___nsurlrequest_proto_prop_obj_0R$3___nsurlrequest_proto_prop_obj_4V$class___nsurlrequest_proto_prop_obj_1R$4R$0___nsurlrequest_proto_prop_obj_5___nsurlrequest_proto_prop_obj_2R$1€.€€	€€/€€ €Ó()$+,WNS.base[NS.relative€ €€_Dhttps://docs.swift.org/swift-book/_static/javascripts/application.jsÒ/012Z$classnameX$classesUNSURL¢13XNSObject#AÃñ¹-œ…ı ÈÓ89:M`WNS.keysZNS.objects¯;<=>?@ABCDEFGHIJKL€	€
-€€€€€€€€€€€€€€€€¯NOPQRSTUVWXYZ[\]^_€€€€€€ €!€"€#€$€%€&€'€(€)€*€+€,€-\Content-Type_X-Frame-OptionsWX-CacheSAgeSViaVServer_X-XSS-ProtectionWCDNUUID]Cache-ControlTDate_Strict-Transport-Security^Content-LengthZConnectionX__hhaa___X-Content-Type-OptionsTEtag]Accept-Ranges]Last-Modified_application/javascriptZSAMEORIGINYhit-freshQ1_9http/1.1 jptyo7-edge-bx-027.ts.apple.com (acdn/141.13253)UApple]1; mode=block_.ff21c3ed-2bce-46b1-b675-95ef0e171e07-982434996_max-age=180, public_Thu, 17 Mar 2022 13:42:44 GMT_#max-age=31536000; includeSubdomainsT7231Zkeep-alive_
-
-YnBsaXN0MDDfEBEBAgMEBQYHCAkKCwwNDg8QERIUFhgaHB4gIiQmKCosLjAyXENvbnRlbnQtVHlwZV1MYXN0LU1vZGlmaWVkVEV0YWdTQWdlU1ZpYVZTZXJ2ZXJfEBBYLVhTUy1Qcm90ZWN0aW9uV0NETlVVSURdQ2FjaGUtQ29udHJvbFREYXRlXxAZU3RyaWN0LVRyYW5zcG9ydC1TZWN1cml0eV5Db250ZW50LUxlbmd0aFpDb25uZWN0aW9uXxAWWC1Db250ZW50LVR5cGUtT3B0aW9uc11BY2NlcHQtUmFuZ2VzXxAPWC1GcmFtZS1PcHRpb25zV1gtQ2FjaGWhE18QFmFwcGxpY2F0aW9uL2phdmFzY3JpcHShFV8QHU1vbiwgMTQgTWFyIDIwMjIgMTk6MTA6NDMgR01UoRdfEBQiMWMzZi01ZGEzMjZmZDRmMmMwIqEZUTGhG18QOWh0dHAvMS4xIGpwdHlvNy1lZGdlLWJ4LTAyNy50cy5hcHBsZS5jb20gKGFjZG4vMTQxLjEzMjUzKaEdVUFwcGxloR9dMTsgbW9kZT1ibG9ja6EhXxAuZmYyMWMzZWQtMmJjZS00NmIxLWI2NzUtOTVlZjBlMTcxZTA3LTk4MjQzNDk5NqEjXxATbWF4LWFnZT0xODAsIHB1YmxpY6ElXxAdVGh1LCAxNyBNYXIgMjAyMiAxMzo0Mjo0NCBHTVShJ18QI21heC1hZ2U9MzE1MzYwMDA7IGluY2x1ZGVTdWJkb21haW5zoSlUNzIzMaErWmtlZXAtYWxpdmWhLVdub3NuaWZmoS9VYnl0ZXOhMVpTQU1FT1JJR0lOoTNZaGl0LWZyZXNoAAgALQA6AEgATQBRAFUAXABvAHcAhQCKAKYAtQDAANkA5wD5AQEBAwEcAR4BPgFAAVcBWQFbAV0BmQGbAaEBowGxAbMB5AHmAfwB/gIeAiACRgJIAk0CTwJaAlwCZAJmAmwCbgJ5AnsAAAAAAAACAQAAAAAAAAA0AAAAAAAAAAAAAAAAAAAChQ==Wnosniff_"1c3f-5da326fd4f2c0"Ubytes_Mon, 14 Mar 2022 19:10:43 GMTÒ/0†‡_NSMutableDictionary£†ˆ3\NSDictionary_application/javascriptÒ/0‹Œ_NSHTTPURLResponse£3_NSHTTPURLResponse]NSURLResponse    $ ) 2 7 I L b d —  ¸ Ú ü ÿ!$FMoru—¹¼¾ÀÂÄÆÈÊÌÍÏÑÓÕÜäğòôö=BMV\_hqsu|„¤¦¨ª¬®°²´¶¸º¼¾ÀÂÄÆÈİßáãåçéëíïñóõ÷ùûıÿ"*.29LTbgƒ’¦¿ÄÒàùLR`‘§Çíòı		!	8	>	^	c	y	}	Š	£	¨	¼	À	Ô                           	âÕ56789:;_WebResourceFrameName_WebResourceTextEncodingName_Ihttps://docs.swift.org/swift-book/LanguageGuide/ClassesAndStructures.htmlPO£<!DOCTYPE html><html><head>
-    <meta charset="utf-8">
-    <meta name="author" content="Apple Inc.">
-    <meta name="viewport" content="width=device-width initial-scale=1">
-    
-    <title>Structures and Classes â€” The Swift Programming Language (Swift 5.6)</title>
-    
-    <link rel="license" href="/LICENSE.txt">
-    <link rel="stylesheet" media="all" href="../_static/stylesheets/application.css">
-    <link rel="stylesheet" media="all" href="../_static/stylesheets/tspl.css">
-    <link rel="shortcut icon" sizes="16x16 24x24 32x32 48x48 64x64" type="image/vnd.microsoft.icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
-    <link rel="mask-icon" href="/assets/images/icon-swift.svg" color="#F05339"> 
-  </head>
-  <body>
-
-
-<nav role="navigation">
-    <header role="banner">
-      <h1 id="logo">
-        <a href="https://swift.org/" title="Swift.org" role="img" aria-label="Swift.org">
-          Swift.org
-        </a>
-      </h1>
-    </header>
-
-    <div id="menu-toggle" class="menu-toggle open"></div>
-
-    <h2>The Swift Programming Language<div>Swift 5.6</div></h2>
-
-    <ul>
-    <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../">Welcome to Swift</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="TheBasics.html">Language Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="TheBasics.html">The Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="BasicOperators.html">Basic Operators</a></li>
-<li class="toctree-l2"><a class="reference internal" href="StringsAndCharacters.html">Strings and Characters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="CollectionTypes.html">Collection Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ControlFlow.html">Control Flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Functions.html">Functions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Closures.html">Closures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Enumerations.html">Enumerations</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Structures and Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Properties.html">Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Methods.html">Methods</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Subscripts.html">Subscripts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Inheritance.html">Inheritance</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Initialization.html">Initialization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Deinitialization.html">Deinitialization</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OptionalChaining.html">Optional Chaining</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ErrorHandling.html">Error Handling</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Concurrency.html">Concurrency</a></li>
-<li class="toctree-l2"><a class="reference internal" href="TypeCasting.html">Type Casting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="NestedTypes.html">Nested Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Extensions.html">Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Protocols.html">Protocols</a></li>
-<li class="toctree-l2"><a class="reference internal" href="Generics.html">Generics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="OpaqueTypes.html">Opaque Types</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AutomaticReferenceCounting.html">Automatic Reference Counting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="MemorySafety.html">Memory Safety</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AccessControl.html">Access Control</a></li>
-<li class="toctree-l2"><a class="reference internal" href="AdvancedOperators.html">Advanced Operators</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../ReferenceManual/AboutTheLanguageReference.html">Language Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../RevisionHistory/RevisionHistory.html">Revision History</a></li>
-</ul>
-
-    <li class="toctree-l1 return"><a class="reference internal" href="https://swift.org/">â† Return to Swift.org</a></li>
-    </ul>
-</nav>
-
-
-
-
-<main role="main">
-    <article class="page">
-        <menu id="bashful" type="toolbar">
-          <div class="inner">
-            <menuitem id="jump_to" class="menu-bar-item closed">
-            <span id="jump_to_toggle">On This Page</span>
-            <div class="chevron">
-                <div class="chevy chevron-left"></div>
-                <div class="chevy chevron-right"></div>
-            </div>
-            <menu type="list" class="details">
-                <ul>
-<li><a class="reference internal" href="#">Structures and Classes</a><ul>
-<li><a class="reference internal" href="#ID83">Comparing Structures and Classes</a><ul>
-<li><a class="reference internal" href="#ID84">Definition Syntax</a></li>
-<li><a class="reference internal" href="#ID85">Structure and Class Instances</a></li>
-<li><a class="reference internal" href="#ID86">Accessing Properties</a></li>
-<li><a class="reference internal" href="#ID87">Memberwise Initializers for Structure Types</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#ID88">Structures and Enumerations Are Value Types</a></li>
-<li><a class="reference internal" href="#ID89">Classes Are Reference Types</a><ul>
-<li><a class="reference internal" href="#ID90">Identity Operators</a></li>
-<li><a class="reference internal" href="#ID91">Pointers</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
-            </menu>
-            </menuitem>
-          </div>
-        </menu>
-
-        
-  <div class="section" id="structures-and-classes">
-<h1>Structures and Classes<a class="headerlink" href="#structures-and-classes" title="Permalink to this headline">Â¶</a></h1>
-<p><em>Structures</em> and <em>classes</em> are general-purpose, flexible constructs that become the building blocks of your programâ€™s code. You define properties and methods to add functionality to your structures and classes using the same syntax you use to define constants, variables, and functions.</p>
-<p>Unlike other programming languages, Swift doesnâ€™t require you to create separate interface and implementation files for custom structures and classes. In Swift, you define a structure or class in a single file, and the external interface to that class or structure is automatically made available for other code to use.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">An instance of a class is traditionally known as an <em>object</em>. However, Swift structures and classes are much closer in functionality than in other languages, and much of this chapter describes functionality that applies to instances of <em>either</em> a class or a structure type. Because of this, the more general term <em>instance</em> is used.</p>
-</div>
-<div class="section" id="ID83">
-<h2>Comparing Structures and Classes<a class="headerlink" href="#ID83" title="Permalink to this headline">Â¶</a></h2>
-<p>Structures and classes in Swift have many things in common. Both can:</p>
-<ul class="simple">
-<li>Define properties to store values</li>
-<li>Define methods to provide functionality</li>
-<li>Define subscripts to provide access to their values using subscript syntax</li>
-<li>Define initializers to set up their initial state</li>
-<li>Be extended to expand their functionality beyond a default implementation</li>
-<li>Conform to protocols to provide standard functionality of a certain kind</li>
-</ul>
-<p>For more information, see <a class="reference internal" href="Properties.html"><span class="doc">Properties</span></a>, <a class="reference internal" href="Methods.html"><span class="doc">Methods</span></a>, <a class="reference internal" href="Subscripts.html"><span class="doc">Subscripts</span></a>, <a class="reference internal" href="Initialization.html"><span class="doc">Initialization</span></a>, <a class="reference internal" href="Extensions.html"><span class="doc">Extensions</span></a>, and <a class="reference internal" href="Protocols.html"><span class="doc">Protocols</span></a>.</p>
-<p>Classes have additional capabilities that structures donâ€™t have:</p>
-<ul class="simple">
-<li>Inheritance enables one class to inherit the characteristics of another.</li>
-<li>Type casting enables you to check and interpret the type of a class instance at runtime.</li>
-<li>Deinitializers enable an instance of a class to free up any resources it has assigned.</li>
-<li>Reference counting allows more than one reference to a class instance.</li>
-</ul>
-<p>For more information, see <a class="reference internal" href="Inheritance.html"><span class="doc">Inheritance</span></a>, <a class="reference internal" href="TypeCasting.html"><span class="doc">Type Casting</span></a>, <a class="reference internal" href="Deinitialization.html"><span class="doc">Deinitialization</span></a>, and <a class="reference internal" href="AutomaticReferenceCounting.html"><span class="doc">Automatic Reference Counting</span></a>.</p>
-<p>The additional capabilities that classes support come at the cost of increased complexity. As a general guideline, prefer structures because theyâ€™re easier to reason about, and use classes when theyâ€™re appropriate or necessary. In practice, this means most of the custom data types you define will be structures and enumerations. For a more detailed comparison, see <a class="reference external" href="https://developer.apple.com/documentation/swift/choosing_between_structures_and_classes">Choosing Between Structures and Classes</a>.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Classes and actors share many of the same characteristics and behaviors. For information about actors, see <a class="reference internal" href="Concurrency.html"><span class="doc">Concurrency</span></a>.</p>
-</div>
-<div class="section" id="ID84">
-<h3>Definition Syntax<a class="headerlink" href="#ID84" title="Permalink to this headline">Â¶</a></h3>
-<p>Structures and classes have a similar definition syntax. You introduce structures with the <code class="docutils literal notranslate"><span class="pre">struct</span></code> keyword and classes with the <code class="docutils literal notranslate"><span class="pre">class</span></code> keyword. Both place their entire definition within a pair of braces:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">SomeStructure</span> {
-</li><li>    <span class="c">// structure definition goes here</span>
-</li><li>}
-</li><li><span class="k">class</span> <span class="nv">SomeClass</span> {
-</li><li>    <span class="c">// class definition goes here</span>
-</li><li>}
-</li></ol></div></div></div>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Whenever you define a new structure or class, you define a new Swift type. Give types <code class="docutils literal notranslate"><span class="pre">UpperCamelCase</span></code> names (such as <code class="docutils literal notranslate"><span class="pre">SomeStructure</span></code> and <code class="docutils literal notranslate"><span class="pre">SomeClass</span></code> here) to match the capitalization of standard Swift types (such as <code class="docutils literal notranslate"><span class="pre">String</span></code>, <code class="docutils literal notranslate"><span class="pre">Int</span></code>, and <code class="docutils literal notranslate"><span class="pre">Bool</span></code>). Give properties and methods <code class="docutils literal notranslate"><span class="pre">lowerCamelCase</span></code> names (such as <code class="docutils literal notranslate"><span class="pre">frameRate</span></code> and <code class="docutils literal notranslate"><span class="pre">incrementCount</span></code>) to differentiate them from type names.</p>
-</div>
-<p>Hereâ€™s an example of a structure definition and a class definition:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">struct</span> <span class="nv">Resolution</span> {
-</li><li>    <span class="k">var</span> <span class="nv">width</span> = <span class="m">0</span>
-</li><li>    <span class="k">var</span> <span class="nv">height</span> = <span class="m">0</span>
-</li><li>}
-</li><li><span class="k">class</span> <span class="nv">VideoMode</span> {
-</li><li>    <span class="k">var</span> <span class="nv">resolution</span> = <span class="nv">Resolution</span>()
-</li><li>    <span class="k">var</span> <span class="nv">interlaced</span> = <span class="k">false</span>
-</li><li>    <span class="k">var</span> <span class="nv">frameRate</span> = <span class="m">0.0</span>
-</li><li>    <span class="k">var</span> <span class="nv">name</span>: <span class="nc">String</span>?
-</li><li>}
-</li></ol></div></div></div>
-<p>The example above defines a new structure called <code class="docutils literal notranslate"><span class="pre">Resolution</span></code>, to describe a pixel-based display resolution. This structure has two stored properties called <code class="docutils literal notranslate"><span class="pre">width</span></code> and <code class="docutils literal notranslate"><span class="pre">height</span></code>. Stored properties are constants or variables that are bundled up and stored as part of the structure or class. These two properties are inferred to be of type <code class="docutils literal notranslate"><span class="pre">Int</span></code> by setting them to an initial integer value of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
-<p>The example above also defines a new class called <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code>, to describe a specific video mode for video display. This class has four variable stored properties. The first, <code class="docutils literal notranslate"><span class="pre">resolution</span></code>, is initialized with a new <code class="docutils literal notranslate"><span class="pre">Resolution</span></code> structure instance, which infers a property type of <code class="docutils literal notranslate"><span class="pre">Resolution</span></code>. For the other three properties, new <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code> instances will be initialized with an <code class="docutils literal notranslate"><span class="pre">interlaced</span></code> setting of <code class="docutils literal notranslate"><span class="pre">false</span></code> (meaning â€œnoninterlaced videoâ€), a playback frame rate of <code class="docutils literal notranslate"><span class="pre">0.0</span></code>, and an optional <code class="docutils literal notranslate"><span class="pre">String</span></code> value called <code class="docutils literal notranslate"><span class="pre">name</span></code>. The <code class="docutils literal notranslate"><span class="pre">name</span></code> property is automatically given a default value of <code class="docutils literal notranslate"><span class="pre">nil</span></code>, or â€œno <code class="docutils literal notranslate"><span class="pre">name</span></code> valueâ€, because itâ€™s of an optional type.</p>
-</div>
-<div class="section" id="ID85">
-<h3>Structure and Class Instances<a class="headerlink" href="#ID85" title="Permalink to this headline">Â¶</a></h3>
-<p>The <code class="docutils literal notranslate"><span class="pre">Resolution</span></code> structure definition and the <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code> class definition only describe what a <code class="docutils literal notranslate"><span class="pre">Resolution</span></code> or <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code> will look like. They themselves donâ€™t describe a specific resolution or video mode. To do that, you need to create an instance of the structure or class.</p>
-<p>The syntax for creating instances is very similar for both structures and classes:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">someResolution</span> = <span class="nv">Resolution</span>()
-</li><li><span class="k">let</span> <span class="nv">someVideoMode</span> = <span class="nv">VideoMode</span>()
-</li></ol></div></div></div>
-<p>Structures and classes both use initializer syntax for new instances. The simplest form of initializer syntax uses the type name of the class or structure followed by empty parentheses, such as <code class="docutils literal notranslate"><span class="pre">Resolution()</span></code> or <code class="docutils literal notranslate"><span class="pre">VideoMode()</span></code>. This creates a new instance of the class or structure, with any properties initialized to their default values. Class and structure initialization is described in more detail in <a class="reference internal" href="Initialization.html"><span class="doc">Initialization</span></a>.</p>
-</div>
-<div class="section" id="ID86">
-<h3>Accessing Properties<a class="headerlink" href="#ID86" title="Permalink to this headline">Â¶</a></h3>
-<p>You can access the properties of an instance using <em>dot syntax</em>. In dot syntax, you write the property name immediately after the instance name, separated by a period (<code class="docutils literal notranslate"><span class="pre">.</span></code>), without any spaces:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="s">"The width of someResolution is </span>\<span class="p">(</span><span class="nv">someResolution</span>.<span class="nv">width</span><span class="p">)</span><span class="s">"</span>)
-</li><li><span class="c">// Prints "The width of someResolution is 0"</span>
-</li></ol></div></div></div>
-<p>In this example, <code class="docutils literal notranslate"><span class="pre">someResolution.width</span></code> refers to the <code class="docutils literal notranslate"><span class="pre">width</span></code> property of <code class="docutils literal notranslate"><span class="pre">someResolution</span></code>, and returns its default initial value of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
-<p>You can drill down into subproperties, such as the <code class="docutils literal notranslate"><span class="pre">width</span></code> property in the <code class="docutils literal notranslate"><span class="pre">resolution</span></code> property of a <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code>:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="s">"The width of someVideoMode is </span>\<span class="p">(</span><span class="nv">someVideoMode</span>.<span class="nv">resolution</span>.<span class="nv">width</span><span class="p">)</span><span class="s">"</span>)
-</li><li><span class="c">// Prints "The width of someVideoMode is 0"</span>
-</li></ol></div></div></div>
-<p>You can also use dot syntax to assign a new value to a variable property:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">someVideoMode</span>.<span class="nv">resolution</span>.<span class="nv">width</span> = <span class="m">1280</span>
-</li><li><span class="nv">print</span>(<span class="s">"The width of someVideoMode is now </span>\<span class="p">(</span><span class="nv">someVideoMode</span>.<span class="nv">resolution</span>.<span class="nv">width</span><span class="p">)</span><span class="s">"</span>)
-</li><li><span class="c">// Prints "The width of someVideoMode is now 1280"</span>
-</li></ol></div></div></div>
-</div>
-<div class="section" id="ID87">
-<h3>Memberwise Initializers for Structure Types<a class="headerlink" href="#ID87" title="Permalink to this headline">Â¶</a></h3>
-<p>All structures have an automatically generated <em>memberwise initializer</em>, which you can use to initialize the member properties of new structure instances. Initial values for the properties of the new instance can be passed to the memberwise initializer by name:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">vga</span> = <span class="nv">Resolution</span>(<span class="nv">width</span>: <span class="m">640</span>, <span class="nv">height</span>: <span class="m">480</span>)
-</li></ol></div></div></div>
-<p>Unlike structures, class instances donâ€™t receive a default memberwise initializer. Initializers are described in more detail in <a class="reference internal" href="Initialization.html"><span class="doc">Initialization</span></a>.</p>
-</div>
-</div>
-<div class="section" id="ID88">
-<h2>Structures and Enumerations Are Value Types<a class="headerlink" href="#ID88" title="Permalink to this headline">Â¶</a></h2>
-<p>A <em>value type</em> is a type whose value is <em>copied</em> when itâ€™s assigned to a variable or constant, or when itâ€™s passed to a function.</p>
-<p>Youâ€™ve actually been using value types extensively throughout the previous chapters. In fact, all of the basic types in Swiftâ€”integers, floating-point numbers, Booleans, strings, arrays and dictionariesâ€”are value types, and are implemented as structures behind the scenes.</p>
-<p>All structures and enumerations are value types in Swift. This means that any structure and enumeration instances you createâ€”and any value types they have as propertiesâ€”are always copied when theyâ€™re passed around in your code.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Collections defined by the standard library like arrays, dictionaries, and strings use an optimization to reduce the performance cost of copying. Instead of making a copy immediately, these collections share the memory where the elements are stored between the original instance and any copies. If one of the copies of the collection is modified, the elements are copied just before the modification. The behavior you see in your code is always as if a copy took place immediately.</p>
-</div>
-<p>Consider this example, which uses the <code class="docutils literal notranslate"><span class="pre">Resolution</span></code> structure from the previous example:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">hd</span> = <span class="nv">Resolution</span>(<span class="nv">width</span>: <span class="m">1920</span>, <span class="nv">height</span>: <span class="m">1080</span>)
-</li><li><span class="k">var</span> <span class="nv">cinema</span> = <span class="nv">hd</span>
-</li></ol></div></div></div>
-<p>This example declares a constant called <code class="docutils literal notranslate"><span class="pre">hd</span></code> and sets it to a <code class="docutils literal notranslate"><span class="pre">Resolution</span></code> instance initialized with the width and height of full HD video (1920 pixels wide by 1080 pixels high).</p>
-<p>It then declares a variable called <code class="docutils literal notranslate"><span class="pre">cinema</span></code> and sets it to the current value of <code class="docutils literal notranslate"><span class="pre">hd</span></code>. Because <code class="docutils literal notranslate"><span class="pre">Resolution</span></code> is a structure, a <em>copy</em> of the existing instance is made, and this new copy is assigned to <code class="docutils literal notranslate"><span class="pre">cinema</span></code>. Even though <code class="docutils literal notranslate"><span class="pre">hd</span></code> and <code class="docutils literal notranslate"><span class="pre">cinema</span></code> now have the same width and height, theyâ€™re two completely different instances behind the scenes.</p>
-<p>Next, the <code class="docutils literal notranslate"><span class="pre">width</span></code> property of <code class="docutils literal notranslate"><span class="pre">cinema</span></code> is amended to be the width of the slightly wider 2K standard used for digital cinema projection (2048 pixels wide and 1080 pixels high):</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">cinema</span>.<span class="nv">width</span> = <span class="m">2048</span>
-</li></ol></div></div></div>
-<p>Checking the <code class="docutils literal notranslate"><span class="pre">width</span></code> property of <code class="docutils literal notranslate"><span class="pre">cinema</span></code> shows that it has indeed changed to be <code class="docutils literal notranslate"><span class="pre">2048</span></code>:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="s">"cinema is now </span>\<span class="p">(</span><span class="nv">cinema</span>.<span class="nv">width</span><span class="p">)</span><span class="s"> pixels wide"</span>)
-</li><li><span class="c">// Prints "cinema is now 2048 pixels wide"</span>
-</li></ol></div></div></div>
-<p>However, the <code class="docutils literal notranslate"><span class="pre">width</span></code> property of the original <code class="docutils literal notranslate"><span class="pre">hd</span></code> instance still has the old value of <code class="docutils literal notranslate"><span class="pre">1920</span></code>:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="s">"hd is still </span>\<span class="p">(</span><span class="nv">hd</span>.<span class="nv">width</span><span class="p">)</span><span class="s"> pixels wide"</span>)
-</li><li><span class="c">// Prints "hd is still 1920 pixels wide"</span>
-</li></ol></div></div></div>
-<p>When <code class="docutils literal notranslate"><span class="pre">cinema</span></code> was given the current value of <code class="docutils literal notranslate"><span class="pre">hd</span></code>, the <em>values</em> stored in <code class="docutils literal notranslate"><span class="pre">hd</span></code> were copied into the new <code class="docutils literal notranslate"><span class="pre">cinema</span></code> instance. The end result was two completely separate instances that contained the same numeric values. However, because theyâ€™re separate instances, setting the width of <code class="docutils literal notranslate"><span class="pre">cinema</span></code> to <code class="docutils literal notranslate"><span class="pre">2048</span></code> doesnâ€™t affect the width stored in <code class="docutils literal notranslate"><span class="pre">hd</span></code>, as shown in the figure below:</p>
-<img alt="../_images/sharedStateStruct_2x.png" class="align-center" src="../_images/sharedStateStruct_2x.png" style="width: 647px;">
-<p>The same behavior applies to enumerations:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">enum</span> <span class="nv">CompassPoint</span> {
-</li><li>    <span class="k">case</span> <span class="nv">north</span>, <span class="nv">south</span>, <span class="nv">east</span>, <span class="nv">west</span>
-</li><li>    <span class="k">mutating</span> <span class="k">func</span> <span class="nv">turnNorth</span>() {
-</li><li>        <span class="k">self</span> = .<span class="nv">north</span>
-</li><li>    }
-</li><li>}
-</li><li><span class="k">var</span> <span class="nv">currentDirection</span> = <span class="nv">CompassPoint</span>.<span class="nv">west</span>
-</li><li><span class="k">let</span> <span class="nv">rememberedDirection</span> = <span class="nv">currentDirection</span>
-</li><li><span class="nv">currentDirection</span>.<span class="nv">turnNorth</span>()
-</li><li>
-</li><li><span class="nv">print</span>(<span class="s">"The current direction is </span>\<span class="p">(</span><span class="nv">currentDirection</span><span class="p">)</span><span class="s">"</span>)
-</li><li><span class="nv">print</span>(<span class="s">"The remembered direction is </span>\<span class="p">(</span><span class="nv">rememberedDirection</span><span class="p">)</span><span class="s">"</span>)
-</li><li><span class="c">// Prints "The current direction is north"</span>
-</li><li><span class="c">// Prints "The remembered direction is west"</span>
-</li></ol></div></div></div>
-<p>When <code class="docutils literal notranslate"><span class="pre">rememberedDirection</span></code> is assigned the value of <code class="docutils literal notranslate"><span class="pre">currentDirection</span></code>, itâ€™s actually set to a copy of that value. Changing the value of <code class="docutils literal notranslate"><span class="pre">currentDirection</span></code> thereafter doesnâ€™t affect the copy of the original value that was stored in <code class="docutils literal notranslate"><span class="pre">rememberedDirection</span></code>.</p>
-</div>
-<div class="section" id="ID89">
-<h2>Classes Are Reference Types<a class="headerlink" href="#ID89" title="Permalink to this headline">Â¶</a></h2>
-<p>Unlike value types, <em>reference types</em> are <em>not</em> copied when theyâ€™re assigned to a variable or constant, or when theyâ€™re passed to a function. Rather than a copy, a reference to the same existing instance is used.</p>
-<p>Hereâ€™s an example, using the <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code> class defined above:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">tenEighty</span> = <span class="nv">VideoMode</span>()
-</li><li><span class="nv">tenEighty</span>.<span class="nv">resolution</span> = <span class="nv">hd</span>
-</li><li><span class="nv">tenEighty</span>.<span class="nv">interlaced</span> = <span class="k">true</span>
-</li><li><span class="nv">tenEighty</span>.<span class="nv">name</span> = <span class="s">"1080i"</span>
-</li><li><span class="nv">tenEighty</span>.<span class="nv">frameRate</span> = <span class="m">25.0</span>
-</li></ol></div></div></div>
-<p>This example declares a new constant called <code class="docutils literal notranslate"><span class="pre">tenEighty</span></code> and sets it to refer to a new instance of the <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code> class. The video mode is assigned a copy of the HD resolution of <code class="docutils literal notranslate"><span class="pre">1920</span></code> by <code class="docutils literal notranslate"><span class="pre">1080</span></code> from before. Itâ€™s set to be interlaced, its name is set to <code class="docutils literal notranslate"><span class="pre">"1080i"</span></code>, and its frame rate is set to <code class="docutils literal notranslate"><span class="pre">25.0</span></code> frames per second.</p>
-<p>Next, <code class="docutils literal notranslate"><span class="pre">tenEighty</span></code> is assigned to a new constant, called <code class="docutils literal notranslate"><span class="pre">alsoTenEighty</span></code>, and the frame rate of <code class="docutils literal notranslate"><span class="pre">alsoTenEighty</span></code> is modified:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">let</span> <span class="nv">alsoTenEighty</span> = <span class="nv">tenEighty</span>
-</li><li><span class="nv">alsoTenEighty</span>.<span class="nv">frameRate</span> = <span class="m">30.0</span>
-</li></ol></div></div></div>
-<p>Because classes are reference types, <code class="docutils literal notranslate"><span class="pre">tenEighty</span></code> and <code class="docutils literal notranslate"><span class="pre">alsoTenEighty</span></code> actually both refer to the <em>same</em> <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code> instance. Effectively, theyâ€™re just two different names for the same single instance, as shown in the figure below:</p>
-<img alt="../_images/sharedStateClass_2x.png" class="align-center" src="../_images/sharedStateClass_2x.png" style="width: 737px;">
-<p>Checking the <code class="docutils literal notranslate"><span class="pre">frameRate</span></code> property of <code class="docutils literal notranslate"><span class="pre">tenEighty</span></code> shows that it correctly reports the new frame rate of <code class="docutils literal notranslate"><span class="pre">30.0</span></code> from the underlying <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code> instance:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="nv">print</span>(<span class="s">"The frameRate property of tenEighty is now </span>\<span class="p">(</span><span class="nv">tenEighty</span>.<span class="nv">frameRate</span><span class="p">)</span><span class="s">"</span>)
-</li><li><span class="c">// Prints "The frameRate property of tenEighty is now 30.0"</span>
-</li></ol></div></div></div>
-<p>This example also shows how reference types can be harder to reason about. If <code class="docutils literal notranslate"><span class="pre">tenEighty</span></code> and <code class="docutils literal notranslate"><span class="pre">alsoTenEighty</span></code> were far apart in your programâ€™s code, it could be difficult to find all the ways that the video mode is changed. Wherever you use <code class="docutils literal notranslate"><span class="pre">tenEighty</span></code>, you also have to think about the code that uses <code class="docutils literal notranslate"><span class="pre">alsoTenEighty</span></code>, and vice versa. In contrast, value types are easier to reason about because all of the code that interacts with the same value is close together in your source files.</p>
-<p>Note that <code class="docutils literal notranslate"><span class="pre">tenEighty</span></code> and <code class="docutils literal notranslate"><span class="pre">alsoTenEighty</span></code> are declared as <em>constants</em>, rather than variables. However, you can still change <code class="docutils literal notranslate"><span class="pre">tenEighty.frameRate</span></code> and <code class="docutils literal notranslate"><span class="pre">alsoTenEighty.frameRate</span></code> because the values of the <code class="docutils literal notranslate"><span class="pre">tenEighty</span></code> and <code class="docutils literal notranslate"><span class="pre">alsoTenEighty</span></code> constants themselves donâ€™t actually change. <code class="docutils literal notranslate"><span class="pre">tenEighty</span></code> and <code class="docutils literal notranslate"><span class="pre">alsoTenEighty</span></code> themselves donâ€™t â€œstoreâ€ the <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code> instanceâ€”instead, they both <em>refer</em> to a <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code> instance behind the scenes. Itâ€™s the <code class="docutils literal notranslate"><span class="pre">frameRate</span></code> property of the underlying <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code> thatâ€™s changed, not the values of the constant references to that <code class="docutils literal notranslate"><span class="pre">VideoMode</span></code>.</p>
-<div class="section" id="ID90">
-<h3>Identity Operators<a class="headerlink" href="#ID90" title="Permalink to this headline">Â¶</a></h3>
-<p>Because classes are reference types, itâ€™s possible for multiple constants and variables to refer to the same single instance of a class behind the scenes. (The same isnâ€™t true for structures and enumerations, because theyâ€™re always copied when theyâ€™re assigned to a constant or variable, or passed to a function.)</p>
-<p>It can sometimes be useful to find out whether two constants or variables refer to exactly the same instance of a class. To enable this, Swift provides two identity operators:</p>
-<ul class="simple">
-<li>Identical to (<code class="docutils literal notranslate"><span class="pre">===</span></code>)</li>
-<li>Not identical to (<code class="docutils literal notranslate"><span class="pre">!==</span></code>)</li>
-</ul>
-<p>Use these operators to check whether two constants or variables refer to the same single instance:</p>
-<div class="highlight-swift notranslate"><div class="code-sample"><div class="Swift highlight"><ol class="code-lines"><li><span class="k">if</span> <span class="nv">tenEighty</span> === <span class="nv">alsoTenEighty</span> {
-</li><li>    <span class="nv">print</span>(<span class="s">"tenEighty and alsoTenEighty refer to the same VideoMode instance."</span>)
-</li><li>}
-</li><li><span class="c">// Prints "tenEighty and alsoTenEighty refer to the same VideoMode instance."</span>
-</li></ol></div></div></div>
-<p>Note that <em>identical to</em> (represented by three equals signs, or <code class="docutils literal notranslate"><span class="pre">===</span></code>) doesnâ€™t mean the same thing as <em>equal to</em> (represented by two equals signs, or <code class="docutils literal notranslate"><span class="pre">==</span></code>). <em>Identical to</em> means that two constants or variables of class type refer to exactly the same class instance. <em>Equal to</em> means that two instances are considered equal or equivalent in value, for some appropriate meaning of <em>equal</em>, as defined by the typeâ€™s designer.</p>
-<p>When you define your own custom structures and classes, itâ€™s your responsibility to decide what qualifies as two instances being equal. The process of defining your own implementations of the <code class="docutils literal notranslate"><span class="pre">==</span></code> and <code class="docutils literal notranslate"><span class="pre">!=</span></code> operators is described in <a class="reference internal" href="AdvancedOperators.html#ID45"><span class="std std-ref">Equivalence Operators</span></a>.</p>
-</div>
-<div class="section" id="ID91">
-<h3>Pointers<a class="headerlink" href="#ID91" title="Permalink to this headline">Â¶</a></h3>
-<p>If you have experience with C, C++, or Objective-C, you may know that these languages use <em>pointers</em> to refer to addresses in memory. A Swift constant or variable that refers to an instance of some reference type is similar to a pointer in C, but isnâ€™t a direct pointer to an address in memory, and doesnâ€™t require you to write an asterisk (<code class="docutils literal notranslate"><span class="pre">*</span></code>) to indicate that you are creating a reference. Instead, these references are defined like any other constant or variable in Swift. The standard library provides pointer and buffer types that you can use if you need to interact with pointers directlyâ€”see <a class="reference external" href="https://developer.apple.com/documentation/swift/swift_standard_library/manual_memory_management">Manual Memory Management</a>.</p>
-</div>
-</div>
-</div>
-
-
-    </article>
-    <div class="next_previous">
-        <p class="previous"><a href="Enumerations.html">Enumerations</a></p>
-        <p class="next"><a href="Properties.html">Properties</a></p>
-    </div>
-</main>
-
-
-<footer role="contentinfo">
-  <aside>
-    <a href="//swift.org/atom.xml" title="Subscribe to Site Updates"><i class="feed">Subscribe</i></a>
-    <a href="https://twitter.com/swiftlang" rel="nofollow" title="Follow @SwiftLang on Twitter"><i class="twitter">Twitter</i></a>
-  </aside>
-
-  <p class="copyright">Copyright Â© 2022 Apple Inc. All rights reserved.</p>
-  <p class="trademark">Swift and the Swift logo are trademarks of Apple Inc.</p>
-  <p class="privacy">
-    <a href="//www.apple.com/privacy/privacy-policy/">Privacy Policy</a>
-    <a href="//www.apple.com/legal/privacy/en-ww/cookies/">Cookies</a>
-  </p>
-</footer>
-<div id="jump_to_overlay"></div>
-<script src="../_static/javascripts/application.js"></script>
-  
-</body></html>Ytext/htmlUUTF-8            1   <   E   T   f   |   ’   Ú  P¥  P®  \t  \}  \º  oj  ox  zß  zè  {,  8  Š!  Š*  Šk    ˜~  ˜‡  ˜È  ¶C  Â  Â  ÂP  Åz  Ğğ  Ğù  ÑC  ÕŠ  á  á  áT |a |k ‡Ü ‡å ˆ) *™ 6  6	 6P R“ R¬ ]Ğ ]Û ]ò ^ ^\ ^] ğ ú             <              
