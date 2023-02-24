@@ -923,7 +923,7 @@ actor <#actor name#>: <#adopted protocols#> {
 
 액터는 참조 타입입니다; 액터의 인스턴스는 변수나 상수에 할당되거나 함수 호출에 인수로 전달될 때 복사되지 않고 참조됩니다. 참조 타입에 대한 자세한 내용은 [클래스는 참조 타입 (Classes Are Reference Types)](../language-guide-1/structures-and-classes.md#classes-are-reference-types) 을 참조 바랍니다.
 
-[확장 선언 (Extension Declaration)](declarations.md#extension-declaration) 에서 설명한 대로 확장 선언을 사용하여 구조체 타입의 동작을 확장할 수 있습니다.
+[확장 선언 (Extension Declaration)](declarations.md#extension-declaration) 에서 설명한 대로 확장 선언을 사용하여 액터 타입의 동작을 확장할 수 있습니다.
 
 > Grammar of an actor declaration:
 >
