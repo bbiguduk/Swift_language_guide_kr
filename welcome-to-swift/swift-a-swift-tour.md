@@ -1,5 +1,7 @@
 # Swift 둘러보기 \(A Swift Tour\)
 
+Swift 의 기능과 구문을 살펴봅니다.
+
 전통적으로 새로운 언어의 첫번째 프로그램은 "Hello, world!" 를 출력해야 한다고 합니다. Swift 에서는 이것을 한줄로 표기할 수 있습니다:
 
 ```swift

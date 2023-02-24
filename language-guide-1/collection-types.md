@@ -1,5 +1,7 @@
 # 콜렉션 타입 \(Collection Types\)
 
+배열, 집합, 그리고 딕셔너리를 사용하여 데이터를 구성합니다.
+
 Swift는 콜렉션의 값을 저장하기 위한 배열 \(array\), 집합 \(set\), 딕셔너리 \(dictionary\)와 같은 3개의 원시적인 _콜렉션 타입 \(collection types\)_ 을 제공합니다. 배열은 콜렉션 값에 순서를 가지고 있습니다. 집합은 반복되지 않은 값에 순서가 없는 콜렉션 타입입니다. 딕셔너리는 키-값 쌍의 순서가 없는 콜렉션 타입입니다.
 
 ![Collection types intro](../.gitbook/assets/CollectionTypes_intro_2x~dark.png)

@@ -1,5 +1,7 @@
 # 기본 \(The Basics\)
 
+일반적인 종류의 데이터로 동작하고 기본 구문을 작성합니다.
+
 Swift는 iOS, macOS, watchOS, 그리고 tvOS app 개발을 위한 프로그래밍 언어입니다. C 또는 Objective-C 의 개발경험을 가지고 있다면 Swift 의 많은 부분이 유사할 것입니다.
 
 Swift는 정수 (integer)에 대한 `Int`, 부동 소수점 (floating-point)에 대한 `Double` 및 `Float`, 부울 (Boolean) 값에 대한 `Bool` 및 텍스트 데이터에 대한 `String`을 포함하여 C와 Objective-C 모든 기초 타입을 자체 버전에 맞게 제공합니다. Swift는 또한 [콜렉션 타입 \(Collection Types\)](collection-types.md)에서 자세히 다룰 `Array`, `Set`, 그리고 `Dictionary` 인 3개의 기본 콜렉션 타입을 제공합니다.

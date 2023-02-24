@@ -1,5 +1,7 @@
 # 버전 호환성 \(Version Compatibility\)
 
+이전 언어 모드에서 사용가능한 기능에 대해 배웁니다.
+
 이 문서는 Xcode 14 에 포함된 Swift 의 기본 버전인 Swift 5.8 에 대해 설명합니다. Xcode 14 를 사용하여 Swift 5.8, Swift 4.2 또는 Swift 4 로 작성된 대상을 빌드할 수 있습니다.
 
 Xcode 14 를 사용하여 Swift 4 와 Swift 4.2 코드를 사용하면 Swift 5.8 대부분의 기능을 사용할 수 있습니다. 즉, 다음 변경사항은 Swift 5.8 이후 버전에서만 사용 가능합니다:

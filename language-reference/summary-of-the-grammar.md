@@ -1,5 +1,7 @@
 # 문법 정리 \(Summary of the Grammar\)
 
+전체 일반 문법을 살펴봅니다.
+
 ## 어휘 구조 \(Lexical Structure\)
 
 > Grammar of whitespace:
