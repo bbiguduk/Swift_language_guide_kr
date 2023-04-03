@@ -2,9 +2,10 @@
 
 ## Revision History
 
-### 2023-02-25(토)
+### 2023-04-04(화)
 
 * Swift 5.8 기반으로 문서 작업
+* 에러 처리 외의 `defer` 를 표시하는 [연기된 동작 (Deferred Actions)](../language-guide-1/control-flow.md#연기된-동작-deferred-actions) 추가
 * 오탈자 수정
 
 ### 2022-09-13(화)

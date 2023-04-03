@@ -15,7 +15,7 @@ Swift에서 확장은 다음을 수행할 수 있습니다:
 
 Swift에서 프로토콜을 확장하여 그것의 요구사항의 구현을 제공하거나 준수하는 타입의 기능을 추가할 수도 있습니다. 더 자세한 내용은 [프로토콜 확장 \(Protocol Extensions\)](protocols.md#protocol-extensions) 을 참고 바랍니다.
 
-> NOTE   
+> Note   
 > 확장은 타입에 새로운 기능을 추가할 수 있지만 기존 기능을 재정의 할 수는 없습니다.
 
 ## 확장 구문 \(Extension Syntax\)
@@ -40,7 +40,7 @@ extension SomeType: SomeProtocol, AnotherProtocol {
 
 확장은 [제너릭 타입 확장 \(Extending a Generic Type\)](generics.md#extending-a-generic-type) 에 설명된대로 기존 일반 타입을 확장하기 위해 사용될 수 있습니다. [제너릭 Where 절이 있는 확장 \(Extensions with a Generic Where Clause\)](generics.md#where-extensions-with-a-generic-where-clause) 에 설명된 대로 일반 타입을 확장하여 조건부로 기능을 추가할 수도 있습니다.
 
-> NOTE   
+> Note   
 > 기존 타입에 새로운 기능을 추가하기 위해 확장을 정의한다면 새로운 기능은 확장이 정의되기 전에 생성 된 기존 인스턴스에서도 사용 가능합니다.
 
 ## 계산된 프로퍼티 \(Computed Properties\)
@@ -77,7 +77,7 @@ print("A marathon is \(aMarathon) meters long")
 // Prints "A marathon is 42195.0 meters long"
 ```
 
-> NOTE   
+> Note   
 > 확장은 새로운 계산된 프로퍼티를 추가할 수 있지만 저장된 프로퍼티나 기존 프로퍼티에 프로퍼티 관찰자를 추가할 수 없습니다.
 
 ## 초기화 구문 \(Initializers\)
@@ -133,7 +133,7 @@ let centerRect = Rect(center: Point(x: 4.0, y: 4.0),
 // centerRect's origin is (2.5, 2.5) and its size is (3.0, 3.0)
 ```
 
-> NOTE   
+> Note   
 > 확장으로 새로운 초기화 구문을 제공하면 초기화 구문이 완료되면 각 인스턴스가 완전히 초기화 되었는지 확인해야 합니다.
 
 ## 메서드 \(Methods\)
@@ -265,6 +265,6 @@ printIntegerKinds([3, 19, -27, 0, -6, 0, 7])
 
 `printIntegerKinds(_:)` 함수는 `Int` 값의 배열을 입력 받고 반복합니다. 배열의 각 정수에 대해 함수는 해당 정수의 `kind` 계산된 프로퍼티를 고려하고 적절한 설명을 출력합니다.
 
-> NOTE   
+> Note   
 > `number.kind` 는 `Int.Kind` 타입으로 이미 알고 있습니다. 이러한 점 때문에 모든 `Int.Kind` 케이스 값은 `switch` 구문 내에서 `Int.Kind.negative` 가 아닌 `.negative` 로 짧게 작성될 수 있습니다.
 

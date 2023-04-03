@@ -33,7 +33,7 @@ let implicitDouble = 70.0
 let explicitDouble: Double = 70
 ```
 
-> EXPERIMENT  
+> Experiment  
 > 명시적 타입이 `Float` 이고 값이 `4` 인 상수를 만들어 봅시다.
 
 값은 다른 타입의 값으로 절대 변경되지 않습니다. 값을 다른 타입으로 변경해야 한다면 원하는 타입의 인스턴스를 명시적으로 만들어야 합니다.
@@ -44,7 +44,7 @@ let width = 94
 let widthLabel = label + String(width)
 ```
 
-> EXPERIMENT  
+> Experiment  
 > 마지막 줄에서 `String` 으로 변환하는 부분을 삭제해 보십시오. 어떠한 에러가 발생합니까?
 
 문자열 (string) 값으로 포함하는 더 간단한 방법이 있습니다: 소괄호 안에 값을 작성하고 소괄호 전에 역슬래시 \(`\`\)를 작성하면 됩니다. 예를 들어:
@@ -56,16 +56,20 @@ let appleSummary = "I have \(apples) apples."
 let fruitSummary = "I have \(apples + oranges) pieces of fruit."
 ```
 
-> EXPERIMENT  
+> Experiment  
 > `\()` 을 사용하여 문자열에 부동 소수점 (floating-point) 계산을 포함하고 인사말에 누군가의 이름을 포함해 보십시오.
 
 여러줄의 문자열에 대해 쌍따옴표 3개 \(`"""`\)를 사용하면 됩니다. 닫는 따옴표의 들여쓰기와 일치하는 한 각 인용된 줄의 시작부분에 있는 들여쓰기는 제거됩니다. 예를 들어:
 
 ```swift
 let quotation = """
-I said "I have \(apples) apples."
-And then I said "I have \(apples + oranges) pieces of fruit."
-"""
+        Even though there's whitespace to the left,
+        the actual lines aren't indented.
+            Except for this line.
+        Double quotes (") can appear without being escaped.
+
+        I still have \(apples + oranges) pieces of fruit.
+        """
 ```
 
 대괄호 \(`[]`\) 를 사용하여 배열 (array)과 딕셔너리 (dictionary)를 생성하고 대괄호에 인덱스 또는 키를 작성하여 해당 요소에 접근할 수 있습니다. 마지막 요소 뒤에 쉼표도 허용 합니다.
@@ -89,7 +93,7 @@ print(fruits)
 // Prints "["strawberries", "grapes", "tangerines", "blueberries"]"
 ```
 
-빈 배열 또는 빈 딕셔너리를 작성하려해도 대괄호를 사용합니다. 배열은 `[]` 로 작성하고 딕셔너리는 `[:]` 로 작성합니다.
+빈 배열 또는 딕셔너리를 작성할 때도 괄호를 사용합니다. 배열을 작성할 때는 `[]`, 딕셔너리는 `[:]` 로 작성합니다.
 
 ```swift
 fruits = []
@@ -137,7 +141,7 @@ if let name = optionalName {
 }
 ```
 
-> EXPERIMENT  
+> Experiment  
 > `optionalName` 을 `nil` 로 변경하십시오. 어떤 인사말을 얻습니까? `optionalName` 이 `nil` 인 경우 다른 인사말을 설정하기 위해 `else` 절을 추가하십시오.
 
 옵셔널 값이 `nil` 이면 조건은 `false` 이고 중괄호 안에 코드는 건너뜁니다. 옵셔널 값이 `nil` 이 아니면 옵셔널 값은 언래핑 되고 `let` 뒤의 상수로 할당되어 코드 블럭 안에서 언래핑 된 값으로 사용할 수 있습니다.
@@ -176,7 +180,7 @@ default:
 // Prints "Is it a spicy red pepper?"
 ```
 
-> EXPERIMENT  
+> Experiment  
 > default 케이스를 삭제해 봅시다. 어떤 에러가 발생합니까?
 
 패턴과 일치하는 값을 상수에 할당하기 위해 패턴에서 `let` 을 어떻게 사용하는지 확인 하시기 바랍니다.
@@ -203,7 +207,7 @@ print(largest)
 // Prints "25"
 ```
 
-> EXPERIMENT  
+> Experiment  
 > `_` 을 변수의 이름으로 변경하고 어떤 숫자가 가장 큰지 추적하십시오.
 
 조건이 바뀔 때까지 코드의 블럭을 반복하려면 `while` 을 사용해야 합니다. 대신 루프의 조건이 끝에 있을 수 있으므로 적어도 한번은 루프가 실행되도록 합니다.
@@ -223,6 +227,9 @@ repeat {
 print(m)
 // Prints "128"
 ```
+
+> Experiment
+> 루프 조건이 이미 참일 때 `while` 과 `repeat`-`while` 이 어떻게 다른지 살펴보기위해 `m < 100` 에서 `m < 0` 으로 조건을 변경해 봅시다.
 
 인덱스의 범위를 만들기 위해선 `..<` 을 사용하여 루프에 인덱스를 만들 수 있습니다.
 
@@ -248,7 +255,7 @@ func greet(person: String, day: String) -> String {
 greet(person: "Bob", day: "Tuesday")
 ```
 
-> EXPERIMENT  
+> Experiment  
 > `day` 파라미터를 지워 봅시다. 인사말에 오늘의 특별 점심을 포함하기 위해 파라미터를 추가해 봅시다.
 
 기본적으로 함수는 파라미터 이름을 인수의 라벨로 사용합니다. 파라미터 이름 전에 인수 라벨을 작성하거나 인수 라벨을 사용하지 않으려면 `_` 을 작성해야 합니다.
@@ -340,7 +347,7 @@ numbers.map({ (number: Int) -> Int in
 })
 ```
 
-> EXPERIMENT  
+> Experiment  
 > 모든 홀수에 대해 0을 반환도록 클로저를 다시 작성하십시오.
 
 더 간단하게 클로저를 작성하기 위해 몇가지 선택사항이 있습니다. 대리자 \(delegate\)에 대한 콜백과 같이 클로저의 타입을 이미 알고 있다면 파라미터의 타입, 반환 타입 또는 둘다 생략할 수 있습니다. 단일 클로저 구문은 암시적으로 구문의 값만 반환합니다.
@@ -372,7 +379,7 @@ class Shape {
 }
 ```
 
-> EXPERIMENT  
+> Experiment  
 > `let` 을 사용하여 상수 프로퍼티를 추가하고 인수를 가지는 다른 메서드를 추가해 보시기 바랍니다.
 
 클래스 이름 뒤에 소괄호를 넣어 클래스의 인스턴스를 생성합니다. 인스턴스의 프로퍼티와 메서드에 접근하기 위헤 점 구문을 사용합니다.
@@ -431,7 +438,7 @@ test.area()
 test.simpleDescription()
 ```
 
-> EXPERIMENT  
+> Experiment  
 > 초기화 구문에 반지름과 이름을 인수로 가지는 `Circle` 이라는 `NamedShape` 의 하위 클래스를 만들어 보세요. `Circle` 클래스에 `area()` 와 `simpleDescription()` 메서드를 구현해 보세요.
 
 저장된 단순 프로퍼티 외에도 프로퍼티는 getter 와 setter 를 가질 수 있습니다.
@@ -540,7 +547,7 @@ let ace = Rank.ace
 let aceRawValue = ace.rawValue
 ```
 
-> EXPERIMENT  
+> Experiment  
 > 원시값으로 2개의 `Rank` 값을 비교하는 함수를 작성해 보세요.
 
 기본적으로 Swift 는 0을 시작으로 매번 증가하는 원시값 (raw value)을 할당하지만 명시적으로 특정 값으로 이 동작을 변경할 수 있습니다. 위의 예제에서 `Ace` 는 명시적으로 `1` 의 값이 주어지고 나머지 원시값은 순서대로 할당됩니다. 열거형의 원시 타입으로 문자열 또는 부동 소수점도 사용할 수 있습니다. 열거형 케이스의 원시값에 접근하기 위해 `rawValue` 프로퍼티를 사용합니다.
@@ -576,7 +583,7 @@ let hearts = Suit.hearts
 let heartsDescription = hearts.simpleDescription()
 ```
 
-> EXPERIMENT  
+> Experiment  
 > 스페이드와 클럽의 경우 "black" 을 반환하고 하트와 다이아몬드의 경우 "red" 를 반환하는 `color()` 메서드를 `Suit` 에 추가하십시오.
 
 위에서 열거형의 `hearts` 케이스를 참조하는 두가지 방법에 유의하십시오: `hearts` 상수에 값을 할당할 때 명시적으로 타입을 지정하지 않았으므로 열거형 케이스 `Suit.hearts` 전체 이름으로 참조됩니다. 스위치에서 `self` 의 값은 이미 카드 \(suit\) 로 알고 있기 때문에 열거형 케이스는 짧은 형식인 `.hearts` 로 참조됩니다. 값의 타입을 이미 알고 있다면 언제나 짧은 형식을 사용할 수 있습니다.
@@ -601,7 +608,7 @@ case let .failure(message):
 // Prints "Sunrise is at 6:00 am and sunset is at 8:09 pm."
 ```
 
-> EXPERIMENT  
+> Experiment  
 > `ServerResponse` 에 세번째 케이스를 추가하십시오.
 
 스위치 케이스에 대한 값이 일치하는 부분으로 `ServerResponse` 값에서 일출과 일몰 시간이 어떻게 추출되는지 확인하시기 바랍니다.
@@ -620,7 +627,7 @@ let threeOfSpades = Card(rank: .three, suit: .spades)
 let threeOfSpadesDescription = threeOfSpades.simpleDescription()
 ```
 
-> EXPERIMENT  
+> Experiment  
 > 랭크와 카드의 각 조합에 대한 카드 한장으로 전체 카드 덱을 포함하는 배열을 반환하는 함수를 작성하십시오.
 
 ## 동시성 \(Concurrency\)
@@ -704,7 +711,7 @@ b.adjust()
 let bDescription = b.simpleDescription
 ```
 
-> EXPERIMENT  
+> Experiment  
 > `ExampleProtocol` 에 다른 요구사항을 추가하십시오. 프로토콜을 여전히 준수하기 위해 `SimpleClass` 와 `SimpleStructure` 에 무엇을 바꿔야 할까요?
 
 구조체를 수정하는 메서드를 표시하기위해 `SimpleStructure` 의 선언에서 `mutating` 키워드 사용을 주목하시기 바랍니다. 클래스의 메서드는 항상 클래스를 수정할 수 있으므로 `SimpleClass` 의 선언에는 `mutating` 으로 표시된 메서드가 필요하지 않습니다.
@@ -724,7 +731,7 @@ print(7.simpleDescription)
 // Prints "The number 7"
 ```
 
-> EXPERIMENT  
+> Experiment  
 > `Double` 타입에 대해 `absoluteValue` 프로퍼티를 추가하기 위해 확장을 작성하십시오.
 
 다른 명명된 타입처럼 프로토콜 이름을 사용할 수 있습니다 — 예를 들어 타입이 다르지만 모두 단일 프로토콜을 준수하는 객체의 콜렉션을 생성할 수 있습니다. 타입이 프로토콜 타입인 값으로 동작하는 경우 프로토콜 정의 외부의 메서드를 사용할 수 없습니다.
@@ -773,7 +780,7 @@ do {
 // Prints "Job sent"
 ```
 
-> EXPERIMENT  
+> Experiment  
 > `send(job:toPrinter:)` 함수에서 에러가 발생하도록 프린터 이름을 `"Never Has Toner"` 로 변경합니다.
 
 특정 에러를 처리하는 여러개의 `catch` 블럭을 제공할 수 있습니다. 스위치에서 `case` 이후에 하는 것처럼 `catch` 이후에 패턴을 작성합니다.
@@ -792,7 +799,7 @@ do {
 // Prints "Job sent"
 ```
 
-> EXPERIMENT  
+> Experiment  
 > `do` 블럭 내에 에러를 발생하는 코드를 추가하십시오. 첫번째 `catch` 블럭에서 에러를 처리하려면 어떤 종류의 에러를 던져야 할까요? 두번째와 세번째 블럭에 대해선 무슨 에러를 던져야 할까요?
 
 에러를 처리하는 다른 방법은 결과를 옵셔널로 바꾸는 `try?` 를 사용하는 것입니다. 함수에서 에러가 발생하면 특정 에러는 버려지고 결과는 `nil` 입니다. 그렇지 않으면 결과는 함수가 반환한 옵셔널 값을 포함합니다.
@@ -867,7 +874,7 @@ func anyCommonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> Bool
 anyCommonElements([1, 2, 3], [3])
 ```
 
-> EXPERIMENT  
+> Experiment  
 > 두 시퀀스가 공통으로 가지는 요소의 배열을 반환하는 함수를 만들기 위해 `anyCommonElements(_:_:)` 함수를 수정하십시오.
 
 `<T: Equatable>` 을 작성하는 것은 `<T> ... where T: Equatable` 을 작성하는 것과 같습니다.

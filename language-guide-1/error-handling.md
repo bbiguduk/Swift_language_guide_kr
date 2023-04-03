@@ -8,7 +8,7 @@ _에러 처리 \(Error handling\)_ 는 프로그램의 에러 조건에서 응�
 
 예를 들어 디스크의 파일에서 데이터를 읽고 처리하는 작업을 생각해 봅시다. 지정된 위치에 파일이 존재하지 않거나 파일에 읽기 권한이 없거나 적절한 형식으로 인코딩 되지 않는 것을 포함하여 작업이 실패할 수 있는 많은 방법이 있습니다. 이러한 다른 상황을 구분하면 프로그램에서 일부 에러를 해결하고 해결할 수 없는 에러를 전달할 수 있습니다.
 
-> NOTE  
+> Note  
 > Swift에서 에러 처리는 Cocoa와 Objective-C에 `NSError` 를 사용하는 에러 처리 패턴과 상호 운용됩니다. 더많은 정보는 [Swift에서 Cocoa 에러 처리 \(Handling Cocoa Errors in Swift\)](https://developer.apple.com/documentation/swift/cocoa_design_patterns/handling_cocoa_errors_in_swift) 를 참고 바랍니다.
 
 ## 에러 표현과 던지기 \(Representing and Throwing Errors\)
@@ -39,7 +39,7 @@ Swift에서는 에러를 처리하는 4가지 방법이 있습니다. 함수에�
 
 함수에서 에러가 발생하면 프로그램의 흐름이 변경되므로 코드에서 에러가 발생할 수 있는 위치를 신속하게 알 수 있어야 합니다. 코드에서 이러한 위치를 식별하려면 에러가 발생할 수 있는 함수, 메서드, 또는 초기화 구문을 호출하는 코드 이전에 `try` 또는 `try?` 또는 `try!` 키워드를 작성합니다. 이 키워드는 아래에 설명되어 있습니다.
 
-> NOTE  
+> Note  
 > Swift에서 에러 처리는 `try`, `catch` 그리고 `throw` 키워드를 사용하는 다른 언어에서 에러 처리와 유사합니다. Objective-C를 포함하여 많은 언어에서의 예외 처리와 달리 Swift에서 에러 처리는 계산 비용이 많이 드는 프로세스 인 호출 스택 해제가 포함되지 않습니다. 따라서 `throw` 구문의 성능 특성은 `return` 구문의 성능 특성과 비슷합니다.
 
 ### 던지기 함수를 이용한 에러 전파 \(Propagating Errors Using Throwing Functions\)
@@ -54,7 +54,7 @@ func cannotThrowErrors() -> String
 
 던지기 함수는 내부에서 발생한 에러를 호출된 범위로 전파합니다.
 
-> NOTE  
+> Note  
 > 던지기 함수는 에러를 전파만 할 수 있습니다. 던지기 선언이 되지 않은 함수 내에서 발생된 모든 에러는 함수 내에서 처리되어야 합니다.
 
 아래 예제에서 `VendingMachine` 클래스는 요청된 항목이 불가능 하거나 품절이거나 현재 입금액을 초과하는 비용이 있는 경우 적절한 `VendingMachineError` 를 발생하는 `vend(itemNamed:)` 메서드를 가지고 있습니다:
@@ -273,6 +273,6 @@ func processFile(filename: String) throws {
 
 위의 예제는 `open(_:)` 함수에 `close(_:)` 에 대한 호출이 있는지 확인하기 위해 `defer` 구문을 사용합니다.
 
-> NOTE  
+> Note  
 > 에러 처리 코드가 포함되지 않았을 때도 `defer` 구문을 사용할 수 있습니다.
 

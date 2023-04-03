@@ -28,7 +28,7 @@ print("We're number \(one)!")
 
 이 예제는 또한 메모리에 충돌하는 접근을 수정할 때 발생할 수 있는 문제를 보여줍니다: 때로는 충돌을 수정하는 여러가지 방법이 있으며 어떤 답변이 올바른지 항상 명확하지 않습니다. 이 예제에서 기존 총 금액 또는 업데이트 된 총 금액을 원하는지에 따라 $5 또는 $320이 정답이 될 수 있습니다. 충돌하는 접근을 수정하려면 수행할 작업의 의도를 파악해야 합니다.
 
-> NOTE   
+> Note   
 > 동시 또는 다중 쓰레드 코드를 작성한 경우 메모리 접근 충돌이 익숙한 문제일 수 있습니다. 그러나 여기서 설명한 충돌 접근은 단일 쓰레드에서 발생할 수 있으며 동시 또는 다중 쓰레드 코드를 포함하지 않습니다.
 >
 > 단일 쓰레드 내에서 메모리 접근이 충돌하는 경우 Swift는 컴파일 이나 런타임 시 에러가 발생합니다. 다중 쓰레드 코드의 경우 [Thread Sanitizer](https://developer.apple.com/documentation/xcode/diagnosing_memory_thread_and_crash_issues_early) 사용하여 쓰레드 간에 충돌하는 접근을 감지할 수 있습니다.
@@ -114,7 +114,7 @@ balance(&playerOneScore, &playerOneScore)
 
 위의 `balance(_:_:)` 함수는 총 값을 균등하게 나누기 위해 두 파라미터를 수정합니다. `playerOneScore` 와 `playerTwoScore` 를 인수로 사용하여 호출하면 두 쓰기 접근은 동시에 오버랩 되지만 메모리의 다른 위치를 접근하므로 충돌이 발생하지 않습니다. 반대로 두 파라미터 모두에 대해 값으로 `playerOneScore` 를 전달하면 동시에 메모리의 같은 위치를 두 쓰기 접근이 수행되므로 충돌이 일어납니다.
 
-> NOTE   
+> Note   
 > 연산자는 함수이므로 in-out 파라미터에 장기 접근을 할 수도 있습니다. 예를 들어 `balance(_:_:)` 가 `<^>`라는 연산자 함수라면 `playerOneScore <^> playerOneScore` 를 작성하면 `balance(&playerOneScore, &playerOneScore)` 와 동일한 충돌이 발생합니다.
 
 ## 메서드에서 self에 충돌 접근 \(Conflicting Access to self in Methods\)

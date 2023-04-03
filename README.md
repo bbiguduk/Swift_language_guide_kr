@@ -1,4 +1,4 @@
-# The Swift Programming Language
+# The Swift Programming Language (한국어)
 
 [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bbiguduk\&repo=Swift\_language\_guide\_kr\&theme=midnight-purple)](https://github.com/anuraghazra/github-readme-stats)
 
@@ -12,7 +12,7 @@
 
 ### 업데이트
 
-* [Swift 5.8, 2023-02-25](revision-history/document-revision-history.md#2023-02-25)
+* [Swift 5.8, 2023-04-04](revision-history/document-revision-history.md#2023-04-04)
 * [Swift 5.7, 2022-09-13](revision-history/document-revision-history.md#2022-09-13)
 * [Swift 5.6, 2022-03-17](revision-history/document-revision-history.md#2022-03-17)
 * [Swift 5.5, 2021-08-14](revision-history/document-revision-history.md#2021-08-14)

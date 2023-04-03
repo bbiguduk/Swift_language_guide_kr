@@ -142,7 +142,7 @@ _변수 선언 (variable declaration)_ 은 프로그램에 명명된 변수 값�
 
 변수 선언은 명명된, 변경 가능한 값, 저장된 그리고 계산된 변수와 프로퍼티, 저장된 변수와 프로퍼티 관찰자, 그리고 정적 변수 프로퍼티의 다양한 종류의 선언 형식을 가집니다. 사용할 적절한 형식은 변수가 선언되는 범위와 선언하려는 변수의 종류에 따라 다릅니다.
 
-> NOTE\
+> Note\
 > [프로토콜 프로퍼티 선언 (Protocol Property Declaration)](declarations.md#protocol-property-declaration) 에서 설명한대로 프로토콜 선언의 컨텍스트에서 프로퍼티를 선언할 수도 있습니다.
 
 [재정의 (Overriding)](../language-guide-1/inheritance.md#overriding) 에서 설명한대로 `override` 선언 수식어로 하위 클래스의 프로퍼티 선언을 표시하여 하위 클래스에 프로퍼티를 재정의 할 수 있습니다.
@@ -927,7 +927,7 @@ protocol <#protocol name#>: <#inherited protocols#> {
 
 프로토콜 타입은 다른 프로토콜을 상속할 수 있습니다. 프로토콜 타입이 다른 프로토콜을 상속할 때 다른 프로토콜의 요구사항이 집계되고 현재 프로토콜에서 상속한 모든 타입은 모든 요구사항을 준수해야 합니다. 프로토콜 상속 사용법에 대한 예제는 [프로토콜 상속 (Protocol Inheritance)](../language-guide-1/protocols.md#protocol-inheritance) 을 참고 바랍니다.
 
-> NOTE\
+> Note\
 > [프로토콜 구성 타입 (Protocol Composition Type)](types.md#protocol-composition-type) 과 [프로토콜 구성 (Protocol Composition)](../language-guide-1/protocols.md#protocol-composition) 에서 설명 한대로 프로토콜 구성 타입을 사용하여 여러개 프로토콜의 준수성 요구사항을 집계할 수도 있습니다.
 
 해당 타입에 확장 선언에서 프로토콜을 채택하기 위해 이전에 선언된 타입에 프로토콜 준수를 추가할 수 있습니다. 확장에서 채택된 프로토콜의 모든 요구사항을 구현해야 합니다. 타입이 이미 모든 요구사항을 구현한 경우 빈 확장 선언의 본문으로 남겨둘 수 있습니다.
@@ -957,7 +957,7 @@ protocol SomeProtocol: AnyObject {
 
 `AnyObject` 요구사항으로 표시된 프로토콜을 상속하는 모든 프로토콜은 마찬가지로 클래스 타입에 의해서만 채택될 수 있습니다.
 
-> NOTE\
+> Note\
 > `objc` 속성으로 표시된 프로토콜은 해당 프로토콜에 암시적으로 `AnyObject` 요구사항이 적용됩니다; 명시적으로 `AnyObject` 요구사항을 프로토콜에 표시할 필요가 없습니다.
 
 프로토콜은 명명된 타입 이므로 [타입으로의 프로토콜 (Protocols as Types)](../language-guide-1/protocols.md#protocols-as-types) 에서 설명 한대로 다른 명명된 타입으로 코드의 동일한 위치에 나타날 수 있습니다. 그러나 프로토콜은 실제로 지정하는 요구사항에 대해 구현을 제공하지 않으므로 프로토콜의 인스턴스를 구성할 수 없습니다.
@@ -1116,7 +1116,7 @@ convenience init(<#parameters#>) {
 
 메서드, 프로퍼티, 그리고 서브 스크립트와 마찬가지로 `override` 선언 수식어로 재정의된 지정된 초기화 구문을 표시해야 합니다.
 
-> NOTE\
+> Note\
 > `required` 선언 수식어로 초기화 구문을 표시하면 하위 클래스에서 필수 초기화 구문을 재정의 할 때 `override` 수식어로 초기화 구문을 표시하지 않아도 됩니다.
 
 함수와 메서드처럼 초기화 구문은 에러를 던지거나 다시 던질 수 있습니다. 그리고 함수와 메서드처럼 적절한 동작을 나타내기 위해 초기화 구문의 파라미터 뒤에 `throws` 또는 `rethrows` 키워드를 사용합니다. 마찬가지로 초기화 구문은 비동기일 수 있으며 이것을 나타내기위해 `async` 키워드를 사용합니다.
@@ -1501,7 +1501,7 @@ precedencegroup <#precedence group name#> {
 
 _하위 그룹 이름 (lower group names)_ 과 _상위 그룹 이름 (higher group names)_ 리스트는 기존 우선순위 그룹에 새로운 우선순위 그룹의 관계를 지정합니다. `lowerThan` 우선순위 그룹 속성은 현재 모듈의 외부에 선언된 우선순위 그룹을 참조하는 데만 사용됩니다. 표현식 `2 + 3 * 5` 에서와 같이 두 연산자가 피연산자에 대해 서로 경쟁할 때 상대적으로 우선순위가 높은 연산자가 피연산자에 더 밀접하게 바인딩 됩니다.
 
-> NOTE\
+> Note\
 > _하위 그룹 이름 (lower group names)_ 과 _상위 그룹 이름 (higher group names)_ 을 사용하는 서로 관련된 우선순위 그룹은 단일 관계형 계층 (single relational hierarchy) 에 적합해야 하지만 선형 계층 (linear hierarchy) 을 형성할 필요는 없습니다. 이것은 상대적 우선순위가 정의되지 않은 우선순위 그룹일 수 있다는 의미입니다.\
 > 이러한 우선순위 연산자는 그룹화 괄호없이 나란히 사용할 수 없습니다.
 

@@ -6,7 +6,7 @@ _클로저 \(Closures\)_ 는 코드에서 주변에 전달과 사용할 수 있�
 
 클로저는 정의된 컨텍스트에서 모든 상수와 변수에 대한 참조를 캡처하고 저장할 수 있습니다. 이러한 상수와 변수를 _폐쇄 \(closing over\)_ 라고 합니다. Swift는 캡처의 모든 메모리 관리를 처리합니다.
 
-> NOTE  
+> Note  
 > 캡처에 대한 개념이 생소하더라도 걱정하지 마십시오. 아래 [캡처값 \(Capturing Values\)](closures.md#capturing-values) 에서 자세히 다루도록 하겠습니다.
 
 [함수 \(Functions\)](functions.md) 에서 소개한 전역과 중첩 함수는 클로저의 특별한 케이스 입니다. 클로저는 3가지 형태 중 하나를 취합니다:
@@ -204,7 +204,7 @@ let strings = numbers.map { (number) -> String in
 
 클로저 표현식은 호출될 때마다 `output` 이라는 문자열을 만듭니다. 나머지 연산자 \(`number % 10`\)를 이용하여 `number` 의 마지막 숫자를 계산하고 `digitNames` 딕셔너리에 적절한 숫자 문자열을 찾습니다. 클로저는 0보다 큰 정수에 대한 문자열 표현을 생성하는데 사용할 수 있습니다.
 
-> NOTE  
+> Note  
 > 딕셔너리 서브 스크립트는 키가 존재하지 않는경우에 값을 찾는 것을 실패하기 위해 옵셔널 값을 반환합니다. 그래서 `digitNames` 딕셔너리의 서브 스크립트를 호출할 때는 느낌표를 붙여 줍니다 \(`!`\). 위의 예제에서 `digitNames` 딕셔너리에 `number % 10` 은 항상 유효한 서브 스크립트 키를 보장하므로 느낌표는 서브 스크립트의 옵셔널 반환 값에 저장된 `String` 값을 강제로 언래핑 하는데 사용됩니다.
 
 `digitNames` 딕셔너리에서 반환된 문자열이 `output` _앞에_ 추가되어 숫자의 문자열 버전을 역순으로 효과적으로 빌드합니다 \(표현식 `number % 10` 은 `16` 의 경우 `6`, `58` 의 경우 `8`, `510` 의 경우 `0` 을 제공합니다\).
@@ -239,7 +239,7 @@ loadPicture(from: someServer) { picture in
 
 이 예제에서 `loadPicture(from:completion:onFailure:)` 함수는 네트워크 작업을 백그라운드로 전달하고 네트워크 작업이 완료되면 두 완료 처리기 중 하나를 호출합니다. 이러한 방식으로 함수를 작성하면 두 상황을 모두 처리하는 하나의 클로저를 사용하는 대신 성공적인 다운로드 후 사용자 인터페이스를 업데이트 하는 코드에서 네트워크 오류를 처리하는 코드를 명확하게 분리할 수 있습니다.
 
-> NOTE
+> Note
 > 완료 핸들러 \(Completion handlers\) 는 특히 여러 핸들러가 중첩되어 있으면 읽기 어려울 수 있습니다. 이것을 대체하기 위해선 [동시성 \(Concurrency\)](concurrency.md) 에서 설명되어진 것과 같이 비동기 코드를 사용하면 됩니다.
 
 ## 캡처값 \(Capturing Values\)
@@ -278,7 +278,7 @@ func incrementer() -> Int {
 
 `incrementer()` 함수는 파라미터가 없으며 함수 본문 내에 `runningTotal` 과 `amount` 를 참조하고 있습니다. 둘러싸인 함수에 `runningTotal` 과 `amount` 대한 _참조 \(reference\)_ 를 캡처하고 함수 내에서 사용합니다. 참조를 캡처하는 것은 `makeIncrementer` 호출이 종료될 때 `runningTotal` 과 `amount` 가 사라지지 않고 다음에 `incrementer` 함수가 호출될 때 `runningTotal` 을 사용할 수 있습니다.
 
-> NOTE  
+> Note  
 > 최적화로 Swift는 값이 클로저에 의해 변경되지 않고 클로저가 생성된 후 값이 변경되지 않는 경우 값의 복사본을 캡처하고 저장할 수 있습니다.
 >
 > Swift는 더이상 필요하지 않을때 변수를 처리하는 것과 관련된 모든 메모리 관리도 처리합니다.
@@ -315,7 +315,7 @@ incrementByTen()
 // returns a value of 40
 ```
 
-> NOTE  
+> Note  
 > 클래스 인스턴스의 프로퍼티에 클로저를 할당하고 클로저가 인스턴스 또는 멤버를 참조하여 해당 인스턴스를 캡처하면 클로저와 인스턴스 사이에 강한 참조 사이클이 생성됩니다. Swift는 캡처 리스트을 사용하여 이러한 강한 참조 사이클을 깨뜨립니다. 자세한 내용은 [클로저의 강한 참조 사이클 \(Strong Reference Cycles for Closures\)](automatic-reference-counting.md#strong-reference-cycles-for-closures) 을 참고 바랍니다.
 
 ## 클로저는 참조 타입 \(Closures Are Reference Types\)
@@ -452,7 +452,7 @@ serve(customer: customersInLine.remove(at: 0))
 // Prints "Now serving Ewa!"
 ```
 
-> NOTE  
+> Note  
 > 자동 클로저 남용은 코드 이해를 어렵게 만들 수 있습니다. 컨텍스트와 함수 이름은 판단이 연기되고 있음을 분명히 해야합니다.
 
 <!--

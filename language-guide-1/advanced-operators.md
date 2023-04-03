@@ -270,7 +270,7 @@ signedOverflow = signedOverflow &- 1
 
 연산자 우선순위 그룹과 연관성 설정의 전체 리스트를 포함하여 Swift 표준 라이브러리에 의해 제공되는 연산자에 대한 자세한 내용은 [연산자 선언 (Operator Declarations)](https://developer.apple.com/documentation/swift/operator\_declarations) 을 참고 바랍니다.
 
-> NOTE\
+> Note\
 > Swift의 연산자 우선순위와 연관성 규칙은 C와 Objective-C보다 더 간단하고 예측 가능합니다. 그러나 이것은 C 기반 언어와 정확하게 일치하지 않음을 의미합니다. 기존 코드를 Swift로 이식할 때 연산자 상호작용이 의도한대로 작동하는지 계속 확인해야 합니다.
 
 ## 연산자 메서드 (Operator Methods)
@@ -359,7 +359,7 @@ original += vectorToAdd
 // original now has values of (4.0, 6.0)
 ```
 
-> NOTE\
+> Note\
 > 기본 할당 연산자 (`=`)는 오버로드가 불가능합니다. 복합 할당 연산자만 오버로드 될 수 있습니다. 마찬가지로 삼항 조건 연산자 (`a ? b : c`)는 오버로드 할 수 없습니다.
 
 ### 등가 연산자 (Equivalence Operators)
@@ -440,7 +440,7 @@ let plusMinusVector = firstVector +- secondVector
 
 이 연산자는 두 벡터의 `x` 값을 더하고 첫번째 벡터에서 두번째 벡터의 `y` 값을 뺍니다. 본질적으로 "가산" 연산자이기 때문에 `+` 와 `-` 와 같은 가산 중위 연산자와 같은 우선순위 그룹이 지정되었습니다. 연산자 우선순위 그룹과 연관성 설정의 전체 리스트를 포함하여 Swift 표준 라이브러리에서 제공하는 연산자에 대한 정보는 [연산자 선언 (Operator Declarations)](https://developer.apple.com/documentation/swift/operator\_declarations) 을 참고 바랍니다. 우선순위 그룹에 대한 자세한 내용과 고유한 연산자와 우선순위 그룹에 대한 구문을 보려면 [연산자 선언 (Operator Declaration)](../language-reference/declarations.md#연산자-선언-operator-declaration) 을 참고 바랍니다.
 
-> NOTE\
+> Note\
 > 접두사 또는 접미사 연산자를 정의할 때 우선순위를 지정하지 않습니다. 그러나 같은 피연산자에 접두사와 접미사 연산자를 모두 적용하면 접미사 연산자가 먼저 적용됩니다.
 
 ## 결과 빌더 (Result Builders)

@@ -150,7 +150,7 @@ print("And another one: \(generator.random())")
 
 프로토콜을 채택하는 모든 타입의 인스턴스를 변경하기 위한 프로토콜 인스턴스 메서드 요구사항을 정의하는 경우 프로토콜의 정의의 부분으로 `mutating` 키워드로 메서드를 표시합니다. 이를 통해 구조체와 열거형이 프로토콜을 채택하고 메서드 요구사항을 충족할 수 있습니다.
 
-> NOTE   
+> Note   
 > `mutating` 으로 프로토콜 인스턴스 메서드 요구사항을 표시하면 클래스에 대한 해당 메서드의 구현을 작성할 때 `mutating` 키워드를 작성할 필요가 없습니다. `mutating` 키워드는 구조체와 열거형에 의해서만 사용됩니다.
 
 아래의 예제는 `toggle` 이라는 단일 인스턴스 메서드 요구사항을 정의하는 `Togglable` 이라는 프로토콜을 정의합니다. 이름에서 알 수 있듯이 `toggle()` 메서드는 해당 타입의 프로퍼티를 수정하여 모든 준수하는 타입의 상태를 전환하거나 반전하기 위한 것입니다.
@@ -210,7 +210,7 @@ class SomeClass: SomeProtocol {
 
 더 자세한 정보는 [필수 초기화 구문 \(Required Initializers\)](initialization.md#required-initializers) 을 참고 바랍니다.
 
-> NOTE   
+> Note   
 > final 클래스는 하위 클래스가 될 수 없으므로 `final` 수식어로 표시된 클래스에 `required` 수식어를 프로토콜 초기화 구문 구현에 표시할 필요가 없습니다. `final` 수식어에 대한 자세한 내용은 [재정의 방지 \(Preventing Overrides\)](inheritance.md#preventing-overrides) 를 참고 바랍니다.
 
 하위 클래스가 상위 클래스의 지정된 초기화 구문을 재정의 하고 프로토콜로 부터 일치하는 초기화 구문 요구사항이 구현되면 `required` 와 `override` 수식어 둘 다 초기화 구문 구현에 표시합니다:
@@ -250,7 +250,7 @@ class SomeSubClass: SomeSuperClass, SomeProtocol {
 * 상수, 변수, 또는 프로퍼티의 타입으로
 * 배열, 딕셔너리, 또는 다른 컨테이너에서 항목의 타입
 
-> NOTE   
+> Note   
 > 프로토콜은 타입이므로 Swift에서 다른 타입 \(`Int`, `String`, 그리고 `Double`\)과 일치하도록 프로토콜 이름을 대문자로 시작합니다 \(`FullyNamed` 그리고 `RandomNumberGenerator`\).
 
 다음은 타입으로 사용한 프로토콜의 예입니다:
@@ -408,7 +408,7 @@ game.play()
 
 기존 타입에 대해 소스 코드에서 접근할 수 없지만 새로운 프로토콜을 채택하고 준수하기 위해 기존 타입을 확장할 수 있습니다. 확장은 기존 타입에 새로운 프로퍼티, 메서드, 그리고 서브 스크립트를 추가할 수 있으므로 프로토콜이 요구할 수 있는 모든 요구사항을 추가할 수 있습니다. 자세한 내용은 [확장 \(Extensions\)](extensions.md) 을 참고 바랍니다.
 
-> NOTE   
+> Note   
 > 타입의 기존 인스턴스는 확장에 인스턴스의 타입이 추가될 때 자동으로 프로토콜을 채택하고 준수합니다.
 
 예를 들어 `TextRepresentable` 이라는 프로토콜은 텍스트로 표현할 수 있는 모든 타입으로 구현될 수 있습니다. 이것은 자신의 설명이거나 현재 상태의 텍스트 버전일 수 있습니다:
@@ -492,7 +492,7 @@ print(somethingTextRepresentable.textualDescription)
 // Prints "A hamster named Simon"
 ```
 
-> NOTE   
+> Note   
 > 타입은 요구사항이 충족된다고 해서 프로토콜을 자동으로 채택하지 않습니다. 항상 프로토콜 채택을 명시적으로 선언해야 합니다.
 
 ## 합성된 구현을 사용하여 프로토콜 채택 \(Adopting a Protocol Using a Synthesized Implementation\)
@@ -639,7 +639,7 @@ protocol SomeClassOnlyProtocol: AnyObject, SomeInheritedProtocol {
 
 위의 예제에서 `SomeClassOnlyProtocol` 은 클래스 타입에만 채택될 수 있습니다. `SomeClassOnlyProtocol` 을 구조체 또는 열거형 정의에 채택하면 컴파일 시 에러가 발생합니다.
 
-> NOTE   
+> Note   
 > 프로토콜의 요구사항에 의해 정의된 동작이 준수하는 타입에 값 의미 체계가 아닌 참조 의미 체계가 있다고 가정하거나 요구하는 경우 클래스 전용 프로토콜을 사용합니다. 참조와 값 의미 체계에 대한 자세한 내용은 [구조체와 열거형은 값 타입 \(Structures and Enumerations Are Value Types\)](structures-and-classes.md#structures-and-enumerations-are-value-types) 과 [클래스는 참조 타입 \(Classes Are Reference Types\)](structures-and-classes.md#classes-are-reference-types) 을 참고 바랍니다.
 
 ## 프로토콜 구성 \(Protocol Composition\)
@@ -798,7 +798,7 @@ for object in objects {
 
 `CounterDataSource` 프로토콜은 `increment(forCount:)` 라는 옵셔널 메서드 요구사항과 `fixedIncrement` 라는 옵셔널 프로퍼티 요구사항을 정의합니다. 이 요구사항은 `Counter` 인스턴스에 대해 적절한 증가값을 제공하기 위해 데이터 소스에 대한 2가지 다른 방법을 정의합니다.
 
-> NOTE   
+> Note   
 > 엄밀히 말하면 프로토콜 요구사항을 구현하지 않고도 `CounterDataSource` 를 준수하는 사용자 정의 클래스를 작성할 수 있습니다. 둘 다 옵셔널 입니다. 기술적으로는 허용되지만 좋은 데이터 소스로는 적합합지 않습니다.
 
 아래 정의된 `Counter` 클래스는 `CounterDataSource?` 타입의 옵셔널 `dataSource` 프로퍼티를 가지고 있습니다:
@@ -918,7 +918,7 @@ print("And here's a random Boolean: \(generator.randomBool())")
 
 해당 프로토콜의 모든 메서드 또는 계산된 프로퍼티 요구사항에 기본 구현을 제공하기 위해 프로토콜 확장을 사용할 수 있습니다. 준수하는 타입이 필수 메서드 또는 프로퍼티의 자체 구현을 제공하면 해당 구현은 확장에 의해 제공되는 구현 대신 사용됩니다.
 
-> NOTE   
+> Note   
 > 확장에 의해 제공된 기본 구현을 가진 프로토콜 요구사항은 옵셔널 프로토콜 요구사항과 다릅니다. 준수하는 타입이 자체 구현을 제공할 필요는 없지만 기본 구현을 가진 요구사항은 옵셔널 체이닝 없이 호출될 수 있습니다.
 
 예를 들어 `TextRepresentable` 프로토콜을 상속하는 `PrettyTextRepresentable` 프로토콜은 `textualDescription` 프로퍼티 접근의 결과를 반환하기 위해 필요한 `prettyTextualDescription` 프로퍼티의 기본 구현을 제공할 수 있습니다:
@@ -968,6 +968,6 @@ print(differentNumbers.allEqual())
 // Prints "false"
 ```
 
-> NOTE   
+> Note   
 > 준수하는 타입이 같은 메서드 또는 프로퍼티에 대한 구현을 제공하는 여러 제약조건의 확장에 대한 요구사항을 충족한다면 Swift는 가장 전문화 된 제약조건에 해당하는 구현을 사용합니다.
 

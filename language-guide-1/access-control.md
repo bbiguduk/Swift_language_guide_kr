@@ -8,7 +8,7 @@ _접근 제어 \(Access control\)_ 는 다른 소스 파일과 모듈에서 코�
 
 다양한 수준의 접근 제어를 제공하는 것 외에도 Swift는 일반적인 시나리오에 대한 기본 접근 수준을 제공하여 명시적으로 접근 제어 수준을 지정할 필요성을 줄여줍니다. 실제로 단일 앱을 작성한다면 접근 제어 수준을 전혀 지정할 필요가 없습니다.
 
-> NOTE   
+> Note   
 > 프로퍼티, 타입, 함수 등에 접근 제어를 적용할 수 있는 코드의 다양한 측면은 간결성을 위해 아래 섹션에서 "엔티티" 라고 합니다.
 
 ## 모듈과 소스 파일 \(Modules and Source Files\)
@@ -57,7 +57,7 @@ Swift에서 접근 수준은 전반적인 기본 원칙을 따릅니다: _엔티
 
 프레임워크를 개발할 때 프레임워크를 가져오는 앱과 같은 다른 모듈에서 보고 접근할 수 있게 하기 위해 해당 프레임워크에 대한 공용 인터페이스를 open 또는 public으로 표시합니다. 이 공용 인터페이스는 프레임워크 용 애플리케이션 프로그래밍 인터페이스 또는 API 입니다.
 
-> NOTE   
+> Note   
 > 프레임워크의 내부 구현 세부정보는 여전히 internal의 기본 접근 수준을 사용할 수 있거나 프레임워크의 내부 코드의 다른 부분에서 가리기 위해 private 또는 file private로 표기될 수 있습니다. 프레임워크 API의 부분이 되길 원한다면 엔티티를 open 또는 public으로 표시해야 합니다.
 
 ### 유닛 테스트 타겟에 대한 접근 수준 \(Access Levels for Unit Test Targets\)
@@ -124,7 +124,7 @@ private class SomePrivateClass {                // explicitly private class
 
 튜플 타입에 대한 접근 수준은 해당 튜플에서 사용되는 모든 타입에 가장 제한적인 접근 수준입니다. 예를 들어 하나는 internal 접근이고 하나는 private 접근인 2개의 다른 타입의 튜플을 구성하는 경우 해당 복합 튜플 타입에 대한 접근 수준은 private 입니다.
 
-> NOTE   
+> Note   
 > 튜플 타입은 클래스, 구조체, 열거형, 그리고 함수와 같이 독립형 정의가 없습니다. 튜플 타입의 접근 수준은 튜플 타입을 구성하는 타입에서 자동으로 결정되고 명시적으로 지정할 수 없습니다.
 
 ### 함수 타입 \(Function Types\)
@@ -224,7 +224,7 @@ private var privateInstance = SomePrivateClass()
 
 해당 변수, 프로퍼티, 또는 서브 스크립트에 읽기-쓰기 범위를 제한하기 위해 getter 보다 _더 낮은_ 접근 수준으로 setter를 제공할 수 있습니다. `var` 또는 `subscript` 전에 `fileprivate(set)`, `private(set)`, 또는 `internal(set)` 을 작성하여 더 낮은 접근 수준을 할당합니다.
 
-> NOTE   
+> Note   
 > 이 규칙은 저장된 프로퍼티 뿐만 아니라 계산된 프로퍼티에도 적용됩니다. 저장된 프로퍼티에 대해 명시적으로 getter와 setter를 작성하지 않아도 Swift는 저장된 프로퍼티의 저장소에 대한 접근을 제공하기 위해 여전히 암시적으로 getter와 setter를 합성합니다. 계산된 프로퍼티의 명시적 setter와 같은 방식으로 합성된 setter의 접근 수준을 변경하기 위해 `fileprivate(set)`, `private(set)`, 그리고 `internal(set)` 을 사용합니다.
 
 아래 예제는 문자열 프로퍼티가 몇번 수정되는지 추적하는 `TrackedString` 이라는 구조체를 정의합니다:
@@ -295,7 +295,7 @@ public struct TrackedString {
 
 프로토콜 정의 내의 각 요구사항의 접근 수준은 자동으로 프로토콜과 같은 접근 수준으로 설정됩니다. 프로토콜 요구사항을 지원하는 프로토콜과 다른 접근 수준으로 설정할 수 없습니다. 이렇게 하면 모든 프로토콜의 요구사항은 프로토콜을 채택하는 모든 타입에서 볼 수 있습니다.
 
-> NOTE   
+> Note   
 > public 프로토콜을 정의한다면 프로토콜의 요구사항은 구현될 때 public 접근 수준을 요구합니다. 이 동작은 public 타입 정의가 타입의 멤버에 대한 internal의 접근 수준을 의미하는 다른 타입과 다릅니다.
 
 ### 프로토콜 상속 \(Protocol Inheritance\)
@@ -310,7 +310,7 @@ public struct TrackedString {
 
 프로토콜을 준수하기 위해 타입을 작성하거나 확장할 때 각 프로토콜 요구사항의 타입의 구현이 해당 프로토콜에 대한 타입의 준수성과 최소한 같은 접근 수준을 가지고 있는지 확인해야 합니다. 예를 들어 public 타입이 internal 프로토콜을 준수하는 경우 각 프로토콜 요구사항의 타입의 구현은 적어도 internal 이어야 합니다.
 
-> NOTE   
+> Note   
 > Objective-C처럼 Swift에서 프로토콜 준수성은 전역입니다 — 같은 프로그램 내에서 타입이 두가지 다른 방식으로 프로토콜을 준수하는 것은 불가능 합니다.
 
 ## 확장 \(Extensions\)
@@ -359,6 +359,6 @@ extension SomeStruct: SomeProtocol {
 
 정의한 모든 타입 별칭은 접근 제어의 목적을 위해 고유한 타입으로 처리됩니다. 타입 별칭은 별칭이 지정된 타입의 접근 수준보다 작거나 같은 접근 수준을 가질 수 있습니다. 예를 들어 private 타입 별칭은 private, file-private, internal, public, 또는 open 타입의 별칭이 가능하지만 public 타입 별칭은 internal, file-private, 또는 private 타입의 별칭만 가능합니다.
 
-> NOTE   
+> Note   
 > 이 규칙은 프로토콜 준수성을 충족하는데 사용되는 관련된 타입의 타입 별칭에도 적용됩니다.
 

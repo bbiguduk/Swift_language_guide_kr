@@ -4,7 +4,7 @@
 
 _옵셔널 체이닝 \(Optional chaining\)_ 은 현재 `nil` 일 수 있는 옵셔널 인 프로퍼티, 메서드, 그리고 서브 스크립트를 조회하고 호출하기 위한 프로세스 입니다. 옵셔널에 값이 포함되어 있으면 프로퍼티, 메서드, 또는 서브 스크립트는 호출에 성공합니다. 옵셔널이 `nil` 이면 프로퍼티, 메서드, 또는 서브 스크립트 호출은 `nil` 을 반환합니다. 여러 조회는 함께 연결될 수 있고 체인에 어느 부분이라도 `nil` 이면 전체 체인은 실패합니다.
 
-> NOTE  
+> Note  
 > Swift에서 옵셔널 체이닝은 Objective-C에서 메시징 `nil` 과 유사하지만 모든 타입에 대해 동작하고 성공 또는 실패 여부를 확인할 수 있습니다.
 
 ## 강제 언래핑의 대한 대안으로 옵셔널 체이닝 \(Optional Chaining as an Alternative to Forced Unwrapping\)
@@ -241,7 +241,7 @@ if (john.residence?.address = someAddress) != nil {
 
 옵셔널 값의 서브 스크립트에서 값을 조회하고 설정하고 해당 서브 스크립트 호출이 성공했는지 확인하기 위해 옵셔널 체이닝을 사용할 수 있습니다.
 
-> NOTE  
+> Note  
 > 옵셔널 체이닝을 통해 옵셔널 값의 서브 스크립트에 접근할 때 물음표는 서브 스크립트의 대괄호 전에 위치합니다. 옵셔널 체이닝 물음표는 항상 옵셔널 표현구 부분의 바로 다음에 위치합니다.
 
 아래의 예제는 `Residence` 클래스에 정의된 서브 스크립트를 사용하여 `john.residence` 프로퍼티에 `rooms` 배열의 첫번째 방 이름을 조회합니다. 현재 `john.residence` 는 `nil` 이므로 서브 스크립트 호출은 실패합니다:
@@ -369,6 +369,6 @@ if let beginsWithThe =
 // Prints "John's building identifier begins with "The"."
 ```
 
-> NOTE  
+> Note  
 > 위의 예제에서 연결하려는 옵셔널 값이 `buildingIdentifier()` 메서드 자체가 아닌 `buildingIdentifier()` 메서드의 반환값이므로 소괄호 _뒤에_ 옵셔널 체이닝 물음표를 위치시킵니다.
 

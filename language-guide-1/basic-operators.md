@@ -76,7 +76,7 @@ C와 Objective-C에서의 산술 연산자와 다르게 Swift 산술 연산자�
 
 _나머지 연산자 \(remainder operator\)_ \(`a % b`\)는 `a` 안에 들어갈 `b` 의 배수가 몇인지를 계산하고 남은 값 \(나머지\)을 반환합니다.
 
-> NOTE  
+> Note  
 > 나머지 연산자 \(`%`\)는 다른 언어에서는 _모듈로 연산자 \(modulo operator\)_ 라고 합니다. 그러나 음수에 대한 Swift의 동작은 모듈로 연산이 아닌 나머지 입니다.
 
 여기 나머지 연산자가 어떻게 동작하는지 살펴봅시다. `9 % 4` 를 계산하기위해 `9` 안에 얼마나 많은 `4` 가 들어가는지 알아야 합니다:
@@ -150,7 +150,7 @@ a += 2
 
 표현식 `a += 2` 는 `a = a + 2` 의 짧은 표현입니다. 효과적으로 덧셈과 대입은 동시에 수행되고 하나의 연산자로 결합됩니다.
 
-> NOTE  
+> Note  
 > 복합 대입 연산자는 값을 반환하지 않습니다. 예를 들어 `let b = a += 2` 로 작성할 수 없습니다.
 
 Swift 표준 라이브러리에서 제공하는 연산자에 대한 내용은 [연산자 선언 \(Operator Declarations\)](https://developer.apple.com/documentation/swift/operator_declarations) 을 참고 바랍니다.
@@ -166,7 +166,7 @@ Swift는 아래의 비교 연산자 \(comparison operators\)를 제공합니다:
 * 보다 크거나 같음 \(`a >= b`\)
 * 보다 작거나 같음 \(`a <= b`\)
 
-> NOTE  
+> Note  
 > Swift는 또한 2개의 객체 참조가 동일한 객체 인스턴스를 참조하는지 판별하는 2개의 _식별 연산자 \(identity operators\)_ \(`===` 와 `!==`\)를 제공합니다. 자세한 내용은 [식별 연산자 \(Identity Operators\)](structures-and-classes.md#identity-operators) 를 참고 바랍니다.
 
 각 비교 연산자는 구문이 `true` 인지 아닌지 판단하기 위해 `Bool` 값을 반환합니다:
@@ -211,7 +211,7 @@ if name == "world" {
 ("blue", false) < ("purple", true)  // Error because < can't compare Boolean values
 ```
 
-> NOTE  
+> Note  
 > Swift 표준 라이브러리는 7개 미만의 요소를 가지고 있는 튜플에 대해 튜플 비교 연산자를 제공합니다. 7개 이상의 요소의 튜플을 비교하려면 비교 연산자를 직접 구현해야 합니다.
 
 ## 삼항 조건 연산자 \(Ternary Conditional Operator\)
@@ -267,7 +267,7 @@ a != nil ? a! : b
 
 위 코드는 삼항 조건 연산자를 사용하고 `a` 가 `nil` 이 아닐경우 `a` 안에 래핑된 값을 접근하기 위해 강제 언래핑 \(`a!`\) 하며 `a` 가 `nil` 일 경우 `b` 를 반환합니다. nil-결합 연산자는 조건 검사 및 언래핑을 간결하고 읽기 쉬운 형태로 캡슐화 합니다.
 
-> NOTE  
+> Note  
 > `a` 의 값이 `nil` 이 아닐경우 `b` 는 절대 반환되지 않습니다. 이러한 경우를 _연산 생략 \(short-circuit evaluation\)_ 이라 합니다.
 
 아래 예제는 기본 컬러 이름과 옵셔널 사용자가 정의한 컬러 이름 중 선택하기 위해 nil-결합 연산자를 사용합니다:
@@ -454,7 +454,7 @@ if enteredDoorCode && passedRetinaScan || hasDoorKey || knowsOverridePassword {
 
 `enteredDoorCode`, `passedRetinaScan`, 그리고 `hasDoorKey` 의 값을 기반으로 첫번째 2개의 표현식은 `false` 입니다. 그러나 긴급 비밀번호는 알고 있으므로 이 표현식의 결과는 `true` 입니다.
 
-> NOTE  
+> Note  
 > Swift 논리적 연산자 `&&` 와 `||` 은 왼쪽 우선결합 \(left-associative\) 입니다. 그 의미는 여러개의 논리적 연산자로 이루어진 복합 표현식은 가장 왼쪽부터 판단한다는 뜻입니다.
 
 ### 명시적 소괄호 \(Explicit Parentheses\)

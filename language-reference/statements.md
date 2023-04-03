@@ -425,7 +425,7 @@ return <#expression#>
 
 `return` 구문 다음에 표현식이 오면 표현식의 값은 호출한 함수 또는 메서드에 반환됩니다. 표현식의 값이 함수 또는 메서드 선언에 선언된 반환 타입의 값과 일치하지 않으면 표현식의 값은 호출한 함수 또는 메서드에 반환되기 전에 반환 타입을 변환합니다.
 
-> NOTE\
+> Note\
 > [실패 가능한 초기화 구문 (Failable Initializers)](declarations.md#failable-initializers) 에서 설명한대로 `return` 구문의 특수한 형식 (`return nil`) 은 초기화 실패를 나타내기 위해 실패 가능한 초기화 구문에서 사용될 수 있습니다.
 
 `return` 구문 다음에 표현식이 없으면 반환값이 없는 함수 또는 메서드에 반환하기 위해서만 사용될 수 있습니다 (즉, 함수 또는 메서드의 반환 타입이 `Void` 또는 `()` 인 경우에 해당됩니다).
@@ -613,7 +613,7 @@ print("Compiled with the Swift 5 compiler or later in a Swift mode earlier than 
 
 `targetEnvironment()` 플랫폼 조건은 지정한 환경에 대해 코드가 컴파일 되면 `true` 를 반환하고 그렇지 않으면 `false` 를 반환합니다.
 
-> NOTE\
+> Note\
 > `arch(arm)` 플랫폼 조건은 ARM 64 기기에 대해 `true` 를 반환하지 않습니다. `arch(i386)` 플랫폼 조건은 32-비트 iOS 시뮬레이터에 대해 코드가 컴파일 될 때 `true` 를 반환합니다.
 
 논리 연산자 `&&`, `||`, 그리고 `!` 사용하여 컴파일러 조건을 결합하고 부정할 수 있고 그룹화를 위한 소괄호를 사용할 수 있습니다. 이러한 연산자는 부울 표현식을 결합하는데 사용되는 논리 연산자와 동일한 연관성과 우선순위를 갖습니다.
@@ -630,7 +630,7 @@ print("Compiled with the Swift 5 compiler or later in a Swift mode earlier than 
 #endif
 ```
 
-> NOTE\
+> Note\
 > 조건부 컴파일러 블럭의 본문에서 각 구문은 컴파일 되지 않아도 구문 분석됩니다. 그러나 컴파일러 조건이 swift() 또는 compiler() 플랫폼 조건을 포함하면 예외가 있습니다: 이 구문은 플랫폼 조건에서 지정한 언어 또는 컴파일러 버전이 일치하는 경우에만 분석됩니다. 이 예외는 이전 컴파일러가 최신 버전의 Swift 에 도입된 구문을 분석하지 않도록 합니다.
 
 조건부 컴파일러 블럭에서 명시적 멤버 표현식을 래핑하는 방법에 대한 자세한 내용은 [명시적 멤버 표현식 (Explicit Member Expression)](expressions.md#explicit-member-expression) 을 참고하시기 바랍니다.
