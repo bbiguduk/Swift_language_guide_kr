@@ -623,7 +623,7 @@ if let firstNumber = Int("4") {
 > Note  
 > `if` 구문에서 옵셔널 바인딩으로 생성된 상수와 변수는 오직 `if` 구문의 본문 안에서만 사용가능합니다. 반면에 `guard` 구문으로 생성된 상수와 변수는 [이른 종료 \(Early Exit\)](control-flow.md#early-exit) 에 설명된 것처럼 `guard` 구문 다음 코드 라인부터 사용 가능합니다.
 
-### 암시적으로 언래핑 된 옵셔널 \(Implicitly Unwrapped Optionals\)
+### 암시적으로 언래핑된 옵셔널 \(Implicitly Unwrapped Optionals\)
 
 위에서 설명했듯이 옵셔널은 상수 또는 변수가 "값이 없음"을 허락하고 알려줍니다. 옵셔널은 값이 존재하는지 `if` 구문에서 체크할 수 있고 값이 존재한다면 옵셔널 값에 접근하기위해 옵셔널 바인딩을 이용할 수 있습니다.
 

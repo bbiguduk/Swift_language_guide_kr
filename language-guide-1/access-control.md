@@ -218,7 +218,7 @@ internal class B: A {
 private var privateInstance = SomePrivateClass()
 ```
 
-### Getter와 Setter \(Getters and Setters\)
+### Getter 와 Setter \(Getters and Setters\)
 
 상수, 변수, 프로퍼티, 그리고 서브 스크립트에 대한 getter와 setter는 자동으로 속해있는 상수, 변수, 프로퍼티, 또는 서브 스크립트와 같은 접근 수준을 받습니다.
 

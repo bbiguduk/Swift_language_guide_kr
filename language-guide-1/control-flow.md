@@ -491,7 +491,7 @@ case let (x, y):
 
 이전 예제와 마찬가지로 마지막 케이스는 가능한 남아있는 값과 모두 일치하므로 `switch` 구문을 완벽하게 하기 위해 `default` 케이스가 필요치 않습니다.
 
-### 혼합 케이스 \(Compound Cases\)
+### 합성 케이스 \(Compound Cases\)
 
 같은 본문을 공유하는 여러개의 스위치 케이스는 `case` 다음에 각 패턴 사이에 콤마로 구분하여 여러개의 패턴으로 결합될 수 있습니다. 여러 패턴 중 어떤 패턴이 일치하면 해당 케이스로 고려됩니다. 패턴이 길면 여러줄로 작성할 수 있습니다. 예를 들어:
 
@@ -538,7 +538,7 @@ _제어 변경 구문 \(Control transfer statements\)_ 은 한 코드에서 다�
 
 `continue`, `break`, `fallthrough` 구문은 아래 설명되어 있습니다. `return` 구문은 [함수 \(Functions\)](functions.md) 에 설명되어 있고 `throw` 구문은 [Throwing 함수를 이용한 에러 전파 \(Propagating Errors Using Throwing Functions\)](error-handling.md#던지기-함수를-이용한-에러-전파-propagating-errors-using-throwing-functions) 에 설명되어 있습니다.
 
-### Continue
+### 계속 (Continue)
 
 `continue` 구문은 루프를 통해 다음 반복을 시작하려고 멈추기위해 부릅니다. 이것은 루프를 완전히 벗어나지 않고 "현재 루프 반복은 완료 되었습니다." 라고 말합니다.
 
@@ -560,11 +560,11 @@ print(puzzleOutput)
 
 위 코드는 모음 또는 공백이 일치하면 현재 반복의 루프를 종료하고 즉시 다음 반복을 시작하기 위해 `continue` 키워드를 호출합니다.
 
-### Break
+### 중단 (Break)
 
 `break` 구문은 전체 제어흐름 구문을 즉시 종료합니다. `break` 구문은 `switch` 내부나 루프 구문에서 `switch` 또는 루프 구문을 다른 경우보다 일찍 종료시킬 때 사용될 수 있습니다.
 
-#### 루프 구문에서 Break \(Break in a Loop Statement\)
+#### 루프 구문에서 중단 \(Break in a Loop Statement\)
 
 루프 구문 내에서 사용할 때 `break` 는 루프의 실행을 즉시 종료하고 제어를 루프의 닫기 중괄호 \(`}`\) 다음으로 이전합니다. 루프의 현재 반복으로 부터 코드는 더이상 실행되지 않고 루프의 반복은 더이상 시작되지 않습니다.
 

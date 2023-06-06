@@ -60,7 +60,7 @@ directionToHead = .east
 
 `directionToHead` 의 타입은 이미 알고 있으므로 값을 설정할 때 타입을 삭제할 수 있습니다. 따라서 명시적으로 타입화 된 열거형 값으로 작업할 때 코드를 쉽게 읽을 수 있습니다.
 
-## Switch 구문에서 열거형 값 일치 \(Matching Enumeration Values with Switch Statement\)
+## 스위치 구문에서 열거형 값 일치 \(Matching Enumeration Values with Switch Statement\)
 
 `switch` 구문으로 각각의 열거형 값을 일치시킬 수 있습니다:
 

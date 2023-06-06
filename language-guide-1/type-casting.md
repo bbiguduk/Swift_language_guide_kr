@@ -125,7 +125,7 @@ for item in library {
 > Note  
 > 캐스팅은 실제로 인스턴스를 수정하거나 값을 변경하지 않습니다. 기본 인스턴스는 동일하게 유지됩니다. 캐스트된 타입의 인스턴스로 처리하고 접근 합니다.
 
-## Any와 AnyObject에 대한 타입 캐스팅 \(Type Casting for Any and AnyObject\)
+## Any 와 AnyObject 에 대한 타입 캐스팅 \(Type Casting for Any and AnyObject\)
 
 Swift는 비특정 타입 작업을 위해 2개의 특별한 타입을 제공합니다:
 

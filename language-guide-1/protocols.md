@@ -469,7 +469,7 @@ print(myDice.textualDescription)
 // Prints "[A 6-sided dice, A 12-sided dice]"
 ```
 
-### 확장과 함께 프로토콜 채택 선언 \(Declaring Protocol Adoption with an Extension\)
+### 확장으로 프로토콜 채택 선언 \(Declaring Protocol Adoption with an Extension\)
 
 타입이 이미 프로토콜의 모든 요구사항을 준수하지만 해당 프로토콜을 채택한다고 아직 명시하지 않은 경우 빈 확장을 사용하여 프로토콜을 채택하도록 만들 수 있습니다:
 
@@ -642,13 +642,13 @@ protocol SomeClassOnlyProtocol: AnyObject, SomeInheritedProtocol {
 > Note   
 > 프로토콜의 요구사항에 의해 정의된 동작이 준수하는 타입에 값 의미 체계가 아닌 참조 의미 체계가 있다고 가정하거나 요구하는 경우 클래스 전용 프로토콜을 사용합니다. 참조와 값 의미 체계에 대한 자세한 내용은 [구조체와 열거형은 값 타입 \(Structures and Enumerations Are Value Types\)](structures-and-classes.md#structures-and-enumerations-are-value-types) 과 [클래스는 참조 타입 \(Classes Are Reference Types\)](structures-and-classes.md#classes-are-reference-types) 을 참고 바랍니다.
 
-## 프로토콜 구성 \(Protocol Composition\)
+## 프로토콜 혼합 \(Protocol Composition\)
 
-동시에 여러개의 프로토콜을 준수하는 타입을 요구하는 것이 유용할 수 있습니다. _프로토콜 구성 \(protocol composition\)_ 을 사용하여 여러 프로토콜을 단일 요구사항으로 결합할 수 있습니다. 프로토콜 구성은 구성에 모든 프로토콜의 결합된 요구사항을 가진 임시 로컬 프로토콜로 정의된 것처럼 동작합니다. 프로토콜 구성은 새로운 프로토콜 타입을 정의하지 않습니다.
+동시에 여러개의 프로토콜을 준수하는 타입을 요구하는 것이 유용할 수 있습니다. _프로토콜 혼합 \(protocol composition\)_ 을 사용하여 여러 프로토콜을 단일 요구사항으로 결합할 수 있습니다. 프로토콜 혼합은 구성에 모든 프로토콜의 결합된 요구사항을 가진 임시 로컬 프로토콜로 정의된 것처럼 동작합니다. 프로토콜 혼합은 새로운 프로토콜 타입을 정의하지 않습니다.
 
-프로토콜 구성은 `SomeProtocol & AnotherProtocol` 형식입니다. 앰퍼샌드 \(`&`\)로 구분하여 많은 프로토콜을 리스트화 할 수 있습니다. 프로토콜 리스트 외에도 프로토콜 구성은 요구된 상위 클래스를 지정하는데 사용할 수 있는 하나의 클래스 타입을 포함할 수도 있습니다.
+프로토콜 혼합은 `SomeProtocol & AnotherProtocol` 형식입니다. 앰퍼샌드 \(`&`\)로 구분하여 많은 프로토콜을 리스트화 할 수 있습니다. 프로토콜 리스트 외에도 프로토콜 혼합은 요구된 상위 클래스를 지정하는데 사용할 수 있는 하나의 클래스 타입을 포함할 수도 있습니다.
 
-다음은 `Named` 와 `Aged` 라는 두 프로토콜을 함수 파라미터에 단일 프로토콜 구성 요구사항으로 결합한 예입니다:
+다음은 `Named` 와 `Aged` 라는 두 프로토콜을 함수 파라미터에 단일 프로토콜 혼합 요구사항으로 결합한 예입니다:
 
 ```swift
 protocol Named {

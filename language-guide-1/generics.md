@@ -224,7 +224,7 @@ if let topItem = stackOfStrings.topItem {
 // Prints "The top item on the stack is tres."
 ```
 
-제너릭 타입의 확장은 아래 [제너릭 Where 절의 확장 \(Extensions with a Generic Where Clause\)](generics.md#where-extensions-with-a-generic-where-clause) 에서 설명 하듯이 확장된 타입의 인스턴스는 새로운 기능을 얻기 위해 충족해야 할 요구사항도 포함할 수 있습니다.
+제너릭 타입의 확장은 아래 [Where 절이 있는 제너릭 확장 \(Extensions with a Generic Where Clause\)](generics.md#where-extensions-with-a-generic-where-clause) 에서 설명 하듯이 확장된 타입의 인스턴스는 새로운 기능을 얻기 위해 충족해야 할 요구사항도 포함할 수 있습니다.
 
 ## 타입 제약 \(Type Constraints\)
 
@@ -568,7 +568,7 @@ if allItemsMatch(stackOfStrings, arrayOfStrings) {
 
 위의 예제는 `String` 값을 저장하는 `Stack` 인스턴스를 생성하고 스택에 3개의 문자열을 푸쉬합니다. 이 예제는 스택과 동일한 3개의 문자열을 포함하는 배열 리터럴로 초기화 된 `Array` 인스턴스도 생성합니다. 스택과 배열은 다른 타입이지만 둘다 `Container` 프로토콜을 준수하고 둘다 같은 타입의 값을 포함합니다. 따라서 이 2개의 컨테이너를 인수로 `allItemsMatch(_:_:)` 함수를 호출합니다. 위의 예제에서 `allItemsMatch(_:_:)` 함수는 두 컨테이너의 모든 항목이 정확히 일치한다고 알려줍니다.
 
-## 제너릭 Where 절이 있는 확장 \(Extensions with a Generic Where Clause\)
+## Where 절이 있는 제너릭 확장 \(Extensions with a Generic Where Clause\)
 
 <!--
 You can also use a generic where clause as part of an extension. The example below extends the generic Stack structure from the previous examples to add an isTop(_:) method.
