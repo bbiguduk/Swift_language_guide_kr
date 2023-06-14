@@ -467,6 +467,10 @@
 >
 > *opaque-type* → **`some`** *type*
 
+> Grammar of a boxed protocol type
+>
+> *boxed-protocol-type* --> **``any``** *type*
+
 > Grammar of a metatype type:
 >
 > *metatype-type* → *type* **`.`** **`Type`** | *type* **`.`** **`Protocol`**
@@ -551,6 +555,8 @@
 >
 > *primary-expression* → *superclass-expression*
 >
+> *primary-expression* → *conditional-expression*
+>
 > *primary-expression* → *closure-expression*
 >
 > *primary-expression* → *parenthesized-expression*
@@ -623,6 +629,28 @@
 > *superclass-subscript-expression* → **`super`** **`[`** *function-call-argument-list* **`]`**
 >
 > *superclass-initializer-expression* → **`super`** **`.`** **`init`**
+
+> Grammar of a conditional expression:
+>
+> *conditional-expression* → *if-expression* | *switch-expression*
+>
+>
+>
+> *if-expression* → **`if`** *condition-list* **`{`** *statement* **`}`** *if-expression-tail*
+>
+> *if-expression-tail* → **`else`** *if-expression*
+>
+> *if-expression-tail* → **`else`** **`{`** *statement* **`}`** *if-expression-tail*
+>
+>
+>
+> *switch-expression* → **`switch`** *expression* **`{`** *switch-expression-cases* **`}`**
+>
+> *switch-expression-cases* → *switch-expression-case* *switch-expression-cases*_?_
+>
+> *switch-expression-case* → *case-label* *statement*
+>
+> *switch-expression-case* → *default-label* *statement*
 
 > Grammar of a closure expression:
 >

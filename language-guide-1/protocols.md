@@ -32,6 +32,9 @@ class SomeClass: SomeSuperclass, FirstProtocol, AnotherProtocol {
 }
 ```
 
+> Note
+> 프로토콜은 타입이기 때문에 Swift 에서 다른 타입 (`Int`, `String`, 그리고 `Double` 등) 의 이름처럼 대문자로 시작합니다 (`FullyNamed` 그리고 `RandomNumberGenerator` 등).
+
 ## 프로퍼티 요구사항 \(Property Requirements\)
 
 프로토콜은 특정 이름과 타입을 가진 인스턴스 프로퍼티 또는 타입 프로퍼티를 제공하기 위해 모든 준수하는 타입을 요구할 수 있습니다. 프로토콜은 요구된 프로퍼티 이름과 타입만 지정하고 프로퍼티가 저장된 프로퍼티 또는 계산된 프로퍼티 인지에 대한 것은 지정하지 않습니다. 프로토콜은 각 프로퍼티가 gettable 인지 gettable과 settable 인지도 지정해줘야 합니다.
@@ -242,54 +245,15 @@ class SomeSubClass: SomeSuperClass, SomeProtocol {
 
 ## 타입으로 프로토콜 \(Protocols as Types\)
 
-프로토콜 자체는 어떤 기능도 구현하지 않습니다. 그럼에도 불구하고 프로토콜을 코드에서 완전한 타입으로 사용할 수 있습니다. 타입으로 프로토콜을 사용하는 것은 "T가 프로토콜을 준수하는 타입 T가 존재한다" 라는 구절에서 비롯된 _존재 타입 \(existential type\)_ 이라고 합니다.
+프로토콜 자체는 어떤 기능도 구현하지 않습니다. 이런점과 상관없이 코드에서 타입으로 프로토콜을 사용할 수 있습니다.
 
-다음을 포함하여 다른 타입이 허용되는 여러 위치에서 프로토콜을 사용할 수 있습니다:
+타입으로 프로토콜을 사용하는 가장 일반적인 방법은 일반 제약조건 (generic constraint) 으로 프로토콜을 사용하는 것입니다. 일반 제약조건이 있는 코드는 프로토콜을 준수하는 어떠한 타입에서 동작할 수 있고 특정 타입은 API 를 사용하는 코드에 의해 선택됩니다. 예를 들어, 하나의 인자를 가지고 그 인자의 타입이 제네릭인 함수를 호출할 때 호출자는 타입을 선택합니다.
 
-* 함수, 메서드, 또는 초기화 구문에서 파라미터 타입 또는 반환 타입으로
-* 상수, 변수, 또는 프로퍼티의 타입으로
-* 배열, 딕셔너리, 또는 다른 컨테이너에서 항목의 타입
+불투명한 타입을 가지는 코드는 프로토콜을 준수하는 일부 타입에서 동작합니다. 기본 타입은 컴파일 시간에 알 수 있으며 API 구현은 해당 타입을 선택하지만 해당 타입의 식별자는 API 의 클라이언트로 부터 숨깁니다. 불투명한 타입을 사용하면 추상 레이어를 통해 API 의 자세한 구현이 노출되는 것을 방지할 수 있습니다 - 예를 들어, 함수로부터 특정 반환 타입을 숨기고 값이 지정된 프로토콜을 준수한다는 것만 보장합니다.
 
-> Note   
-> 프로토콜은 타입이므로 Swift에서 다른 타입 \(`Int`, `String`, 그리고 `Double`\)과 일치하도록 프로토콜 이름을 대문자로 시작합니다 \(`FullyNamed` 그리고 `RandomNumberGenerator`\).
+박스형 프로토콜 타입을 가지는 코드는 런타임 때 선택된 프로토콜을 준수하는 모든 타입에서 동작합니다. 런타임 유연성을 지원하기 위해 Swift 는 필요할 때 성능 비용을 가지는 _박스 (box)_ 라고 알려진 간접 참조 수준을 추가합니다. 유연성 때문에 Swift 는 컴파일 시에 기본 타입을 알 수 없습니다. 이것은 프로토콜에 의해 요구되는 멤버만 접근할 수 있다는 의미입니다. 기본 타입의 다른 API 에 접근하려면 런타임 시 캐스팅이 필요합니다.
 
-다음은 타입으로 사용한 프로토콜의 예입니다:
-
-```swift
-class Dice {
-    let sides: Int
-    let generator: RandomNumberGenerator
-    init(sides: Int, generator: RandomNumberGenerator) {
-        self.sides = sides
-        self.generator = generator
-    }
-    func roll() -> Int {
-        return Int(generator.random() * Double(sides)) + 1
-    }
-}
-```
-
-이 예제는 보드 게임에서 사용하기 위한 _n_ 면의 주사위를 나타내는 `Dice` 라는 새로운 클래스를 정의합니다. `Dice` 인스턴스는 얼마나 많은 면을 가지고 있는지를 나타내는 `sides` 라는 정수 프로퍼티를 가지고 주사위 굴린 값을 생성하기 위해 난수 생성기를 제공하는 `generator` 라는 프로퍼티를 가집니다.
-
-`generator` 프로퍼티는 `RandomNumberGenerator` 타입입니다. 따라서 `RandomNumberGenerator` 프로토콜을 채택하는 _모든_ 타입에 인스턴스로 설정할 수 있습니다. 인스턴스가 `RandomNumberGenerator` 프로토콜을 채택해야 된다는 것을 제외하고 이 프로퍼티에 할당하는 인스턴스에 다른 것은 필요하지 않습니다. 타입은 `RandomNumberGenerator` 이므로 `Dice` 클래스 내의 코드는 이 프로토콜을 준수하는 모든 생성기에 적용하는 방식으로만 `generator` 와 상호작용 할 수 있습니다. 생성기의 기본 타입으로 정의된 메서드 또는 프로퍼티는 사용할 수 없습니다. 그러나 [다운 캐스팅 \(Downcasting\)](type-casting.md#downcasting) 에서 설명 했듯이 상위 클래스에서 하위 클래스로 다운 캐스트 할 수 있는 방법과 동일하게 프로토콜 타입에서 기본 타입으로 다운 캐스트 할 수 있습니다.
-
-`Dice` 는 초기화 상태를 설정하기 위해 초기화 구문을 가지고 있습니다. 이 초기화 구문은 `RandomNumberGenerator` 타입의 `generator` 라는 파라미터를 가지고 있습니다. 새로운 `Dice` 인스턴스로 초기화 할 때 파라미터로 준수하는 타입의 값을 전달할 수 있습니다.
-
-`Dice` 는 1과 주사위의 면의 숫자 사이의 정수 값을 반환하는 `roll` 인스턴스 메서드를 제공합니다. 이 메서드는 `0.0` 과 `1.0` 사이의 새로운 난수를 생성하는 생성기의 `random()` 메서드를 호출하고 올바른 범위 내의 주사위 굴림값을 생성하기 위해 난수를 사용합니다. `generator` 는 `RandomNumberGenerator` 를 채택하기 때문에 `random()` 메서드를 호출할 수 있습니다.
-
-아래는 `Dice` 클래스가 난수 생성서기로 `LinearCongruentialGenerator` 인스턴스와 6면 주사위를 생성하기 위해 어떻게 사용될 수 있는지 보여줍니다:
-
-```swift
-var d6 = Dice(sides: 6, generator: LinearCongruentialGenerator())
-for _ in 1...5 {
-    print("Random dice roll is \(d6.roll())")
-}
-// Random dice roll is 3
-// Random dice roll is 5
-// Random dice roll is 4
-// Random dice roll is 5
-// Random dice roll is 4
-```
+기본 제약조건으로 프로토콜을 사용하는 것에 대한 자세한 내용은 [제너릭 (Generics)](generics.md) 을 참고 바랍니다. 불투명한 타입과 박스형 프로토콜 타입에 대한 자세한 내용은 [불투명한 타입과 박스형 타입 (Opaque and Boxed Types)](opaque-types.md) 을 참고 바랍니다.
 
 ## 위임 \(Delegation\)
 

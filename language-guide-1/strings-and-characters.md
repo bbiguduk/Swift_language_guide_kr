@@ -82,7 +82,7 @@ It also ends with a line break.
 문자열 리터럴은 아래와 같은 특수 문자를 포함할 수 있습니다:
 
 * 이스케이프 된 문자 `\0` (null 문자), `\\` (역슬래시), `\t` (수평 탭), `\n` (개행), `\r` (캐리지 리턴), `\"` (쌍따옴표) 와 `\'` (홑따옴표)
-* `\\u{n}` 로 쓰여진 임의의 유니코드 스칼라 값. 여기서 _n_ 은 1-8 자리의 16진수 (유니코드는 아래 [유니코드 (Unicode)](strings-and-characters.md#unicode) 에서 설명합니다.)
+* `\u{n}` 로 쓰여진 임의의 유니코드 스칼라 값. 여기서 _n_ 은 1-8 자리의 16진수 (유니코드는 아래 [유니코드 (Unicode)](strings-and-characters.md#unicode) 에서 설명합니다.)
 
 아래 코드는 특수 문자의 4개의 예를 보여줍니다. `wiseWords` 상수는 2개의 이스케이프 된 쌍따옴표를 포함합니다. `dollarSign`, `blackHeart` 그리고 `sparklingHeart` 는 유니코드 스칼라 형태를 보여줍니다:
 

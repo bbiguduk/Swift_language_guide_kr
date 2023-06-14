@@ -440,14 +440,24 @@ s.$x.wrapper  // WrapperWithProjection value
 
 #### 결과-빌딩 메서드 (Result-Building Methods)
 
-결과 빌더는 아래 설명한대로 정적 메서드를 구현합니다. 결과 빌더의 모든 기능은 정적 메서드를 통해 노출되므로 해당 타입의 인스턴스를 초기화 하지 않습니다. `buildBlock(_:)` 메서드는 필수입니다. DSL 에서 추가 기능을 활성화 하는 다른 메서드는 옵셔널 입니다. 결과 빌더 타입의 선언은 프로토콜 준수를 포함할 필요가 없습니다.
+결과 빌더는 아래 설명한대로 정적 메서드를 구현합니다. 결과 빌더의 모든 기능은 정적 메서드를 통해 노출되므로 해당 타입의 인스턴스를 초기화 하지 않습니다. 결과 빌더는 `buildBlock(_:)` 메서드를 구현하거나 `buildPartialBlock(first:)` 와 `buildPartialBlock(accumulated:next:)` 메서드를 구현해야 합니다. DSL 에서 추가 기능을 활성화 하는 다른 메서드는 옵셔널 입니다. 결과 빌더 타입의 선언은 프로토콜 준수를 포함할 필요가 없습니다.
 
 정적 메서드의 설명은 기호로 세가지 타입을 사용합니다. `Expression` 타입은 결과 빌더의 입력의 타입에 대한 기호이고 `Component` 는 부분 결과의 타입에 대한 기호이며 `FinalResult` 는 결과 빌더가 생성하는 결과의 타입에 대한 기호입니다. 이러한 타입을 결과 빌더가 사용하는 실제 타입으로 바꿉니다. 결과-빌딩 메서드가 `Expression` 또는 `FinalResult` 에 대한 타입을 지정하지 않으면 `Component` 와 기본적으로 동일합니다.
 
 결과-빌딩 메서드는 다음과 같습니다:
 
 `static func buildBlock(_ components: Component...) -> Component` \
-부분 결과의 배열을 단일 부분 결과로 결합합니다. 결과 빌더는 이 메서드를 구현해야 합니다.
+부분 결과의 배열을 단일 부분 결과로 결합합니다.
+
+`static func buildPartialBlock(first: Component) -> Component` \
+첫번째 컴포넌트로 부터 부분 결과 컴포넌트를 빌드합니다. 한번에 하나의 컴포넌트 빌딩 블럭을 지원하기위해 이 메서드와 `buildPartialBlock(accumulated:next:)` 메서드를 구현합니다. `buildBlock(_:)` 과 비교하여 이 접근은 인수의 다른 갯수를 처리하는 일반적인 오버로드의 필요성을 줄여줍니다.
+
+`static func buildPartialBlock(accumulated: Component, next: Component) -> Component` \
+누적된 컴포넌트와 새로운 컴포넌트를 결합하여 부분 결과 컴포넌트를 빌드합니다. 한번에 하나의 컴포넌트 빌딩 블럭을 지원하기위해 이 메서드와 `buildPartialBlock(first:)` 메서드를 구현합니다. `buildBlock(_:)` 과 비교하여 이 접근은 인수의 다른 갯수를 처리하는 일반적인 오버로드의 필요성을 줄여줍니다.
+
+결과 빌더는 위에 나열된 블럭-빌딩 메서드 세가지 모두 구현할 수 있습니다. 이 경우에 가용성에 따라 호출되는 메서드가 결정됩니다. 기본적으로, Swift 는 `buildPartialBlock(first:)` 와 `buildPartialBlock(second:)` 메서드를 호출합니다. Swift 가 `buildBlock(_:)` 을 호출하도록 하려면 `buildPartialBlock(first:)` 와 `buildPartialBlock(second:)` 에 작성하기 전에 동봉 선언 (enclosing declaration) 을 사용가능으로 표시합니다.
+
+추가적인 결과-빌딩 메서드는 다음과 같습니다:  
 
 `static func buildOptional(_ component: Component?) -> Component` \
 `nil` 이 가능한 부분 결과로 부터 부분 결과를 빌드합니다. `else` 절을 포함하지 않은 `if` 구문을 지원하려면 이 메서드를 구현해야 합니다.

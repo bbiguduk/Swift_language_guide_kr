@@ -127,6 +127,18 @@ print(teamScore)
 
 if 문에서는 조건부가 반드시 부울 \(Boolean\)로 표현되어야 합니다 — 즉, `if score { ... }` 와 같은 코드는 암시적으로 0과 비교하는 것이 아니라 에러를 의미합니다.
 
+조건을 기준으로 값을 선택하기위해 할당의 동등 사인 (`=`) 뒤나 `return` 뒤에 `if` 또는 `switch` 를 작성할 수 있습니다.
+
+```swift
+let scoreDecoration = if teamScore > 10 {
+    "🎉"
+} else {
+    ""
+}
+print("Score:", teamScore, scoreDecoration)
+// Prints "Score: 11 🎉"
+```
+
 `if` 와 `let` 을 사용하여 누락될 수 있는 값에 대해 사용할 수 있습니다. 이러한 값은 옵셔널 (optional)로 표기됩니다. 옵셔널 값은 값을 포함하거나 값이 없음을 나타내는 `nil` 을 포함합니다. 옵셔널로 값을 표시하기 위해 값의 타입 뒤에 물음표 \(`?`\) 를 작성합니다.
 
 ```swift
@@ -734,10 +746,10 @@ print(7.simpleDescription)
 > Experiment  
 > `Double` 타입에 대해 `absoluteValue` 프로퍼티를 추가하기 위해 확장을 작성하십시오.
 
-다른 명명된 타입처럼 프로토콜 이름을 사용할 수 있습니다 — 예를 들어 타입이 다르지만 모두 단일 프로토콜을 준수하는 객체의 콜렉션을 생성할 수 있습니다. 타입이 프로토콜 타입인 값으로 동작하는 경우 프로토콜 정의 외부의 메서드를 사용할 수 없습니다.
+다른 명명된 타입처럼 프로토콜 이름을 사용할 수 있습니다 — 예를 들어 타입이 다르지만 모두 단일 프로토콜을 준수하는 객체의 콜렉션을 생성할 수 있습니다. 타입이 박스형 프로토콜 타입인 값으로 동작하는 경우 프로토콜 정의 외부의 메서드를 사용할 수 없습니다.
 
 ```swift
-let protocolValue: ExampleProtocol = a
+let protocolValue: any ExampleProtocol = a
 print(protocolValue.simpleDescription)
 // Prints "A very simple class.  Now 100% adjusted."
 // print(protocolValue.anotherProperty)  // Uncomment to see the error

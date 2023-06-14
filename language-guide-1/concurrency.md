@@ -301,3 +301,19 @@ struct TemperatureReading {
     var measurement: Int
 }
 ```
+
+명시적으로 타입을 보낼 수 없는 것으로 나타내려면 `Sendable` 프로토콜에 대한 암시적으로 준수를 재정의하고 확장을 사용합니다:
+
+```swift
+struct FileDescriptor {
+    let rawValue: CInt
+}
+
+
+@available(*, unavailable)
+extension FileDescriptor: Sendable { }
+```
+
+위의 코드는 POSIX 파일 디스크립터에 대한 래퍼의 일부분을 보여줍니다. 파일 디스크립터의 인터페이스는 정수를 사용하여 열린 파일에 대해 식별하고 상호작용 하고 정수값을 보낼 수 있지만, 비동기적 도메인을 통해 전송하는 것은 안전하지 않습니다.
+
+위의 코드에서 `NonsendableTemperatureReading` 은 암시적으로 보낼 수 있는 구조체입니다. 그러나 확장에 `Sendable` 에 대한 준수를 사용할 수 없게 만들어 타입 전송을 막을 수 있습니다.

@@ -250,6 +250,8 @@ _기본 표현식 (Primary expressions)_ 은 표현식의 가장 기본입니다
 >
 > *primary-expression* → *superclass-expression*
 >
+> *primary-expression* → *conditional-expression*
+>
 > *primary-expression* → *closure-expression*
 >
 > *primary-expression* → *parenthesized-expression*
@@ -435,6 +437,77 @@ super.init(<#initializer arguments#>)
 > *superclass-subscript-expression* → **`super`** **`[`** *function-call-argument-list* **`]`**
 >
 > *superclass-initializer-expression* → **`super`** **`.`** **`init`**
+
+### 조건 표현식 (Conditional Expression)
+
+_조건 표현식 (conditional expression)_ 은 조건의 값을 기반으로 주어진 몇몇 값 중 하나로 평가합니다. 다음의 형식을 가집니다:
+
+```swift
+if <#condition 1#> {
+   <#expression used if condition 1 is true#>
+} else if <#condition 2#> {
+   <#expression used if condition 2 is true#>
+} else {
+   <#expression used if both conditions are false#>
+}
+
+
+switch <#expression#> {
+case <#pattern 1#>:
+    <#expression 1#>
+case <#pattern 2#> where <#condition#>:
+    <#expression 2#>
+default:
+    <#expression 3#>
+}
+```
+
+조건 표현식은 아래에서 설명하는 다른점을 제외하고는 `if` 구문 또는 `switch` 구문과 같은 동작과 구문을 가집니다.
+
+조건 표현식은 다음 컨텍스트에서만 나타납니다:
+
+  - 변수에 할당된 값.
+  - 변수 또는 상수 선언에서 초기값.
+  - `throw` 표현식으로 에러를 발생.
+  - 함수, 클로저, 또는 프로퍼티 getter 에 의해 반환된 값.
+  - 조건 표현식의 구문안에서의 값.
+
+조건 표현식의 구문은 조건에 상관없이 값을 생성하므로 완벽합니다. 이것은 각 `if` 분기는 적절한 `else` 분기가 필요합니다. 
+
+각 분기는 분기의 조건이 참일 때 조건 표현식의 값으로 사용되는 단일 표현식, `throw` 구문, 또는 반환하지 않는 함수 호출을 포함합니다.
+
+각 분기는 같은 타입의 값을 생성해야 합니다. 각 분기의 타입 검사는 독립적이기 때문에 분기가 다른 종류의 리터럴을 포함하거나 분기의 값이 `nil` 과 같을 때 값의 타입을 명시해야 합니다. 이 정보를 제공해야 할 때, 할당되는 결과 변수에 타입 명시를 추가하거나 분기의 값에 `as` 캐스트를 추가합니다.
+
+```swift
+let number: Double = if someCondition { 10 } else { 12.34 }
+let number = if someCondition { 10 as Double } else { 12.34 }
+```
+
+결과 빌더 (result builder) 내에서 조건 표현식은 변수 또는 상수의 초기값으로만 나타날 수 있습니다. 변수 또는 상수 선언 외부의 결과 빌더에서 `if` 또는 `switch` 를 작성하면 해당 코드는 분기 구문으로 이해하고 결과 빌더의 메서드 중 하나가 해당 코드를 변환한다는 의미입니다.
+
+조건 표현식의 분기 중 하나가 에러를 발생하더라도 `try` 표현식에 조건 표현식을 작성하면 안됩니다. 
+
+> Grammar of a conditional expression:
+>
+> *conditional-expression* → *if-expression* | *switch-expression*
+>
+>
+>
+> *if-expression* → **`if`** *condition-list* **`{`** *statement* **`}`** *if-expression-tail*
+>
+> *if-expression-tail* → **`else`** *if-expression*
+>
+> *if-expression-tail* → **`else`** **`{`** *statement* **`}`** *if-expression-tail*
+>
+>
+>
+> *switch-expression* → **`switch`** *expression* **`{`** *switch-expression-cases* **`}`**
+>
+> *switch-expression-cases* → *switch-expression-case* *switch-expression-cases*_?_
+>
+> *switch-expression-case* → *case-label* *statement*
+>
+> *switch-expression-case* → *default-label* *statement*
 
 ### 클로저 표현식 (Closure Expression)
 

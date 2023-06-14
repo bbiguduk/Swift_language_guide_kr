@@ -260,9 +260,9 @@ temperatureInFahrenheit = 40
 if temperatureInFahrenheit <= 32 {
     print("It's very cold. Consider wearing a scarf.")
 } else {
-    print("It's not that cold. Wear a t-shirt.")
+    print("It's not that cold. Wear a T-shirt.")
 }
-// Prints "It's not that cold. Wear a t-shirt."
+// Prints "It's not that cold. Wear a T-shirt."
 ```
 
 2개의 중괄호 중 하나는 항상 실행됩니다. 기온이 증가하여 화씨 `40` 도를 가지므로 더이상 추워서 스카프를 해야 한다고 충고하지 않으며 `else` 구문이 실행 됩니다.
@@ -276,7 +276,7 @@ if temperatureInFahrenheit <= 32 {
 } else if temperatureInFahrenheit >= 86 {
     print("It's really warm. Don't forget to wear sunscreen.")
 } else {
-    print("It's not that cold. Wear a t-shirt.")
+    print("It's not that cold. Wear a T-shirt.")
 }
 // Prints "It's really warm. Don't forget to wear sunscreen."
 ```
@@ -295,6 +295,84 @@ if temperatureInFahrenheit <= 32 {
 ```
 
 기온이 너무 춥지도 따뜻하지도 않아 `if` 또는 `else if` 조건에 포함되지 않으므로 아무런 메세지가 출력되지 않습니다.
+
+Swift 는 값을 설정할 때 사용할 수 있는 `if` 의 짧은 구문을 제공합니다. 예를 들어, 아래 코드와 같습니다:
+
+```swift
+let temperatureInCelsius = 25
+let weatherAdvice: String
+
+
+if temperatureInCelsius <= 0 {
+    weatherAdvice = "It's very cold. Consider wearing a scarf."
+} else if temperatureInCelsius >= 30 {
+    weatherAdvice = "It's really warm. Don't forget to wear sunscreen."
+} else {
+    weatherAdvice = "It's not that cold. Wear a T-shirt."
+}
+
+
+print(weatherAdvice)
+// Prints "It's not that cold. Wear a T-shirt."
+```
+
+여기서, 각 분기는 `if` 구문 이후에 출력되는 `weatherAdvice` 상수에 값을 설정합니다.
+
+`if` 표현식을 다른 표현을 사용하여 더 간결하게 코드를 작성할 수 있습니다:
+
+```swift
+let weatherAdvice = if temperatureInCelsius <= 0 {
+    "It's very cold. Consider wearing a scarf."
+} else if temperatureInCelsius >= 30 {
+    "It's really warm. Don't forget to wear sunscreen."
+} else {
+    "It's not that cold. Wear a T-shirt."
+}
+
+
+print(weatherAdvice)
+// Prints "It's not that cold. Wear a T-shirt."
+```
+
+이 `if` 표현식에서 각 분기는 하나의 값을 포함합니다. 분기의 조건이 참이면, 값은 `weatherAdvice` 에 할당되고 `if` 표현식 전체에 대한 값으로 사용됩니다. 모든 `if` 분기는 `else if` 분기 또는 `else` 분기를 가지고 있어 분기 중 하나에 항상 일치하고 `if` 표현식이 어떤 조건이 참인지 상관없이 값을 항상 생성합니다.
+
+할당 구문은 `if` 표현식 바깥에서 시작하므로 각 구문안에 `weatherAdvice =` 를 반복할 필요가 없습니다. 대신에 `if` 표현식의 각 구문은 `weatherAdvice` 의 값을 세가지 중 하나로 생성하고 할당합니다.
+
+`if` 표현식의 모든 구문은 동일한 타입의 값을 포함해야 합니다. Swift 는 각 분기의 타입을 개별적으로 확인하기 때문에 둘 이상의 타입으로 사용될 수 있는 `nil` 과 같은 값은 Swift 가 `if` 표현식의 타입을 자동으로 결정하는 것을 방지합니다. 대신에 타입을 명시적으로 지정해야 합니다 - 예를 들어:
+
+```swift
+let freezeWarning: String? = if temperatureInCelsius <= 0 {
+    "It's below freezing. Watch for ice!"
+} else {
+    nil
+}
+```
+
+위의 코드에서 `if` 표현식 중 하나의 분기는 문자열 값을 가지고 다른 분기는 `nil` 값을 가집니다. `nil` 값은 모든 옵셔널 타입의 값으로 사용될 수 있으므로 [타입 명시 (Type Annotations)](the-basics.md#타입-명시-type-annotations) 에서 설명했듯이 `freezeWarning` 은 옵셔널 문자열이라고 명시적으로 작성되어야 합니다.
+
+타입 정보를 제공하기 위한 다른 방법은 `freezeWarning` 에 대한 타입을 명시적으로 제공하는 대신에 `nil` 에 대한 타입을 명시적으로 제공하는 것입니다:
+
+```swift
+let freezeWarning = if temperatureInCelsius <= 0 {
+    "It's below freezing. Watch for ice!"
+} else {
+    nil as String?
+}
+```
+
+`if` 표현식은 에러를 전파하거나 반환하지 않는 `fatalError(_:file:line:)` 과 같은 함수를 호출하여 예기치 않은 실패를 나타낼 수 있습니다. 예를 들어:
+
+```swift
+let weatherAdvice = if temperatureInCelsius > 100 {
+    throw TemperatureError.boiling
+} else {
+    "It's a reasonable temperature."
+}
+```
+
+이 예제에서 `if` 표현식은 물의 끓는점인 100℃ 보다 높은지 확인합니다. 이렇게 뜨거운 온도는 텍스트의 요약을 반환하는 대신에 `.boiling` 에러를 발생시킵니다. `if` 표현식은 에러를 발생할 수 있지만 `try` 를 전에 작성하지 않습니다. 에러에 대한 자세한 내용은 [에러 처리 (Error Handling)](error-handling.md) 를 참고 바랍니다.
+
+위의 예제에서와 같이 할당의 오른편으로 `if` 표현식을 사용하는 것 외에 함수 또는 클로저가 반환하는 값으로도 사용할 수 있습니다.
 
 ### Switch
 
@@ -326,16 +404,38 @@ default:
 let someCharacter: Character = "z"
 switch someCharacter {
 case "a":
-    print("The first letter of the alphabet")
+    print("The first letter of the Latin alphabet")
 case "z":
-    print("The last letter of the alphabet")
+    print("The last letter of the Latin alphabet")
 default:
     print("Some other character")
 }
-// Prints "The last letter of the alphabet"
+// Prints "The last letter of the Latin alphabet"
 ```
 
 `switch` 구문의 첫번째 케이스는 영어 알파벳의 첫번째 문자인 `a` 와 일치하고 두번째 케이스는 마지막 문자인 `z` 와 일치합니다. `switch` 는 모든 알파벳 문자 뿐만 아니라 모든 가능한 문자에 대한 케이스를 가지고 있어야 하므로 이 `switch` 구문은 `a` 와 `z` 을 제외한 다른 모든 문자는 `default` 케이스를 사용합니다. 이렇게 함으로 `switch` 구문은 완벽하다는 것을 보장합니다.
+
+`if` 구문과 같이 `switch` 구문도 아래와 같은 표현식 형태를 가지고 있습니다:
+
+```swift
+let anotherCharacter: Character = "a"
+let message = switch anotherCharacter {
+case "a":
+    "The first letter of the Latin alphabet"
+case "z":
+    "The last letter of the Latin alphabet"
+default:
+    "Some other character"
+}
+
+
+print(message)
+// Prints "The first letter of the Latin alphabet"
+```
+
+이 예제에서 `switch` 표현식에 각 케이스는 `anotherCharacter` 와 동일한 케이스일 때 사용될 `message` 에 대한 값을 포함합니다. `switch` 는 항상 동일한 케이스가 존해하기 때문에 값은 항상 할당됩니다.
+
+`if` 표현식과 마찬가지로 주어진 케이스에 대해 값을 제공하는 대신에 에러를 발생시키거나 반환되지 않는 `fatalError(_:file:line:)` 과 같은 함수를 호출할 수 있습니다. 위의 예제에서와 같이 할당의 오른편에 있는 `switch` 표현식을 함수 또는 클로저가 반환하는 값으로 사용할 수 있습니다. 
 
 ### 명시적 Fallthrough \(No Implicit Fallthrough\)
 
