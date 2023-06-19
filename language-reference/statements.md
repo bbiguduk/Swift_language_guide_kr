@@ -726,24 +726,7 @@ print("Compiled with the Swift 5 compiler or later in a Swift mode earlier than 
 
 ### 컴파일-시간 진단 구문 (Compile-Time Diagnostic Statement)
 
-컴파일-시간 진단 구문 (compile-time diagnostic statement) 은 컴파일 동안 컴파일러에서 에러 또는 경고가 발생합니다. 컴파일-시간 진단 구문은 다음의 형식을 가집니다:
-
-```swift
-#error("<#error message#>")
-#warning("<#warning message#>")
-```
-
-첫번째 형식은 치명적인 에러로 _에러 메세지 (error message)_ 를 내보내고 컴파일 프로세스를 중단합니다. 두번째 형식은 치명적이지 않은 경고로 _경고 메세지 (warning message)_ 를 내보냅니다. 정적 문자열 리터럴 (static string literal) 로 진단 메세지를 작성합니다. 정적 문자열 리터럴은 문자열 보간 또는 연결과 같은 기능을 사용할 수 없지만 여러줄 문자열 리터럴 구문은 사용할 수 있습니다.
-
-> Grammar of a compile-time diagnostic statement:
->
-> *diagnostic-statement* → **`#error`** **`(`** *diagnostic-message* **`)`**
->
-> *diagnostic-statement* → **`#warning`** **`(`** *diagnostic-message* **`)`**
->
->
->
-> *diagnostic-message* → *static-string-literal*
+Swift 5.9 이전에는 컴파일 중에 `#warning` 과 `#error` 구문은 진단을 내보냅니다. 이 동작은 이제 Swift 표준 라이브러리에 [`warning(_:)`](http://developer.apple.com/documentation/swift/documentation/swift/warning(_:)) 와 [`error(_:)`](http://developer.apple.com/documentation/swift/documentation/swift/error(_:)) 매크로로 제공됩니다.
 
 ## 가용성 조건 (Availability Condition)
 

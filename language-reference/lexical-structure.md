@@ -146,7 +146,11 @@ _식별자 (Identifiers)_ 는 A 부터 Z 까지 대문자 또는 소문자, 언�
 * 구문에 사용되는 키워드: `break`, `case`, `catch`, `continue`, `default`, `defer`, `do`, `else`, `fallthrough`, `for`, `guard`, `if`, `in`, `repeat`, `return`, `throw`, `switch`, `where`, 그리고 `while`.
 * 표현식과 타입에 사용되는 키워드: `Any`, `as`, `await`, `catch`, `false`, `is`, `nil`, `rethrows`, `self`, `Self`, `super`, `throw`, `throws`, `true`, 그리고 `try`.
 * 패턴에 사용되는 키워드: `_`.
-* 숫자 기호 (`#`) 로 시작하는 키워드: `#available`, `#colorLiteral`, `#column`, `#dsohandle`, `#elseif`, `#else`, `#endif`, `#error`, `#fileID`, `#fileLiteral`, `#filePath`, `#file`, `#function`, `#if`, `#imageLiteral`, `#keyPath`, `#line`, `#selector`, `#sourceLocation`, 그리고 `#warning`.
+* 숫자 기호 (`#`) 로 시작하는 키워드: `#available`, `#colorLiteral`, `#elseif`, `#else`, `#endif`, `#if`, `#imageLiteral`, `#keyPath`, `#selector`, `#sourceLocation`.
+
+> Note:
+> Swift 5.9 이전에는 다음의 키워드는 예약되어 있고, 이제는 Swift 표준 라이브러리에 매크로로 구현되어 있습니다: `#column`, `#dsohandle`, `#error`, `#fileID`, `#fileLiteral`, `#filePath`, `#file`, `#function`, `#line`, 그리고 `#warning`.
+
 * 특정 컨텍스트에서 예약된 키워드: `associativity`, `convenience`, `didSet`, `dynamic`, `final`, `get`, `indirect`, `infix`, `lazy`, `left`, `mutating`, `none`, `nonmutating`, `optional`, `override`, `postfix`, `precedence`, `prefix`, `Protocol`, `required`, `right`, `set`, `some`, `Type`, `unowned`, `weak`, 그리고 `willSet`. 컨텍스트 외부에서는 식별자로 사용될 수 있습니다.
 
 다음 토큰은 구두점으로 예약되어 있으므로 연산자로 사용될 수 없습니다: `(`, `)`, `{`, `}`, `[`, `]`, `.`, `,`, `:`, `;`, `=`, `@`, `#`, `&` (접두사 연산자로), `->`, \`\`\`\`\`, `?`, 그리고 `!` (접미사 연산자로).

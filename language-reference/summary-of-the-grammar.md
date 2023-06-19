@@ -567,6 +567,8 @@
 >
 > *primary-expression* → *wildcard-expression*
 >
+> *primary-expression* → *macro-expansion-expression*
+>
 > *primary-expression* → *key-path-expression*
 >
 > *primary-expression* → *selector-expression*
@@ -578,10 +580,6 @@
 > *literal-expression* → *literal*
 >
 > *literal-expression* → *array-literal* | *dictionary-literal* | *playground-literal*
->
-> *literal-expression* → **`#file`** | **`#fileID`** | **`#filePath`**
->
-> *literal-expression* → **`#line`** | **`#column`** | **`#function`** | **`#dsohandle`**
 >
 >
 >
@@ -709,6 +707,10 @@
 > Grammar of a wildcard expression:
 >
 > *wildcard-expression* → **`_`**
+
+> Grammar of a macro-expansion expression:
+>
+> *macro-expansion-expression* → **`#`** *identifier* *generic-argument-clause*_?_ *function-call-argument-clause*_?_ *trailing-closures*_?_
 
 > Grammar of a key-path expression:
 >
@@ -1075,16 +1077,6 @@
 > *line-number* → A decimal integer greater than zero
 >
 > *file-path* → *static-string-literal*
-
-> Grammar of a compile-time diagnostic statement:
->
-> *diagnostic-statement* → **`#error`** **`(`** *diagnostic-message* **`)`**
->
-> *diagnostic-statement* → **`#warning`** **`(`** *diagnostic-message* **`)`**
->
->
->
-> *diagnostic-message* → *static-string-literal*
 
 > Grammar of an availability condition:
 >
@@ -1461,6 +1453,18 @@
 > *subscript-head* → *attributes*_?_ *declaration-modifiers*_?_ **`subscript`** *generic-parameter-clause*_?_ *parameter-clause*
 >
 > *subscript-result* → **`->`** *attributes*_?_ *type*
+
+> Grammar of a macro declaration:
+>
+> *macro-declaration* → *macro-head* *identifier* *generic-parameter-clause*_?_ *macro-signature* *macro-definition*_?_ *generic-where-clause*
+>
+> *macro-head* → *attributes*_?_ *declaration-modifiers*_?_ **`macro`** 
+>
+> *macro-signature* → *parameter-clause* *macro-function-signature-result*_?_
+>
+> *macro-function-signature-result* → **`->`** *type*
+>
+> *macro-definition* → **`=`** *expression*
 
 > Grammar of an operator declaration:
 >

@@ -2,6 +2,16 @@
 
 ## Revision History
 
+### 2023-06-19(월)
+
+* Swift 5.9 Beta 기반으로 문서 작업
+* [제어 흐름 \(Control Flow\)](../language-guide-1/control-flow.md) 챕터와 [조건 표현식 (Conditional Expression)](../language-reference/expressions.md#조건-표현식-conditional-expression) 섹션에 `if` 와 `switch` 표현식에 대한 내용을 추가
+* 컴파일 때 코드를 생성하는 것에 대한 [매크로 (Macros)](../language-guide-1/macros.md) 챕터 추가
+* [불투명한 타입과 박스형 타입 \(Opaque and Boxed Types\)](../language-guide-1/opaque-types.md) 챕터에 박스형 프로토콜 타입 (boxed protocol type) 에 대한 내용을 추가
+* `buildPartialBlock(first:)` 와 `buildPartialBlock(accumulated:next:)` 메서드에 대한 내용을 [결과-빌딩 메서드 (Result-Building Methods)](../language-reference/attributes.md#결과-빌딩-메서드-result-building-methods) 섹션에 추가
+* Swift-DocC 적용한 [TSPLK (The Swift Programming Language Korean)](https://bbiguduk.github.io/swift-book-korean/documentation/tsplk/) 페이지 오픈
+> GitBook 과 Swift-DocC 둘 다 운영할 계획입니다.
+
 ### 2023-04-04(화)
 
 * Swift 5.8 기반으로 문서 작업

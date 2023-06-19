@@ -36,6 +36,8 @@ Swift 에서 대부분의 선언은 선언과 동시에 구현되거나 초기�
 >
 > _declaration_ → _subscript-declaration_
 >
+> *declaration* → *macro-declaration*
+>
 > _declaration_ → _operator-declaration_
 >
 > _declaration_ → _precedence-group-declaration_
@@ -1431,6 +1433,32 @@ _파라미터 (parameters)_ 또는 _반환 타입 (return type)_ 이 오버로�
 > _subscript-head_ → _attributes?_ _declaration-modifiers?_ **`subscript`** _generic-parameter-clause?_ _parameter-clause_
 >
 > _subscript-result_ → **`->`** _attributes?_ _type_
+
+## 매크로 선언 (Macro Declaration)
+
+_매크로 선언 (macro declaration)_ 은 새로운 매크로를 도입합니다. `macro` 키워드로 시작하고 다음의 형식을 가집니다:
+
+```swift
+macro <#name#> = <#macro implementation#>
+```
+
+_매크로 구현 (macro implementation)_ 은 또다른 매크로이며, 매크로의 확장을 수행하는 코드의 위치를 나타냅니다. 매크로의 구현을 포함하는 타입의 이름과 해당 타입을 포함하는 모듈의 이름을 전달하여 Swift 표준 라이브러리에서 `externalMacro(module:type:)` 매크로를 호출합니다.
+
+함수에서 사용하는 동일한 모델에 따라 매크로는 오버로드 될 수 있습니다. 매크로 선언은 파일 범위에서만 나타납니다.
+
+자세한 내용은 [매크로 (Macros)](../language-guide-1/macros.md) 를 참고 바랍니다.
+
+> Grammar of a macro declaration:
+>
+> *macro-declaration* → *macro-head* *identifier* *generic-parameter-clause*_?_ *macro-signature* *macro-definition*_?_ *generic-where-clause*
+>
+> *macro-head* → *attributes*_?_ *declaration-modifiers*_?_ **`macro`**
+>
+> *macro-signature* → *parameter-clause* *macro-function-signature-result*_?_
+>
+> *macro-function-signature-result* → **`->`** *type*
+>
+> *macro-definition* → **`=`** *expression*
 
 ## 연산자 선언 (Operator Declaration)
 
