@@ -275,7 +275,15 @@ _기본 표현식 (Primary expressions)_ 은 표현식의 가장 기본입니다
 _리터럴 표현식 (literal expression)_ 은 일반 리터럴 (문자열 또는 숫자 등), 배열 또는 딕셔너리 리터럴, 플레이그라운드 리터럴로 구성됩니다:
 
 > Note:
-> Swift 5.9 이전에는 다음의 특수 리터럴이 인식되었고, 이제는 Swift 표준 라이브러리에 매크로로 구현되어 있습니다: `#column`, `#dsohandle`, `#fileID`, `#filePath`, `#file`, `#function`, 그리고 `#line`.
+> Swift 5.9 이전에는 다음의 특수 리터럴이 인식됩니다: `#column`, `#dsohandle`, `#fileID`, `#filePath`, `#file`, `#function`, 그리고 `#line`.
+> 이것은 현재 Swift 표준 라이브러리에 매크로 (macros) 로 구현되어 있습니다:
+> [`column`](https://developer.apple.com/documentation/swift/column),
+> [`dsohandle`](https://developer.apple.com/documentation/swift/dsohandle),
+> [`fileID`](https://developer.apple.com/documentation/swift/fileID),
+> [`filePath`](https://developer.apple.com/documentation/swift/filePath),
+> [`file`](https://developer.apple.com/documentation/swift/file),
+> [`function`](https://developer.apple.com/documentation/swift/function),
+> 그리고 [`line`](https://developer.apple.com/documentation/swift/line).
 
 _배열 리터럴 (array literal)_ 은 순서가 있는 값의 콜렉션입니다. 형식은 아래와 같습니다:
 
