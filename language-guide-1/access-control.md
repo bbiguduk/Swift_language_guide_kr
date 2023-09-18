@@ -69,11 +69,13 @@ Swift에서 접근 수준은 전반적인 기본 원칙을 따릅니다: _엔티
 엔티티의 선언의 시작에 `open`, `public`, `internal`, `fileprivate`, 또는 `private` 수식어 중 하나를 위치시켜 엔티티에 대한 접근 수준을 정의합니다.
 
 ```swift
+open class SomeOpenClass {}
 public class SomePublicClass {}
 internal class SomeInternalClass {}
 fileprivate class SomeFilePrivateClass {}
 private class SomePrivateClass {}
 
+open var someOpenVariable = 0
 public var somePublicVariable = 0
 internal let someInternalConstant = 0
 fileprivate func someFilePrivateFunction() {}
