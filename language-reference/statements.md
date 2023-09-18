@@ -585,7 +585,7 @@ _컴파일러 조건 (compilation condition)_ 은 `true` 와 `false` 불린 리�
 
 |         플랫폼 조건        |                         유효 인수                         |
 | :-------------------: | :---------------------------------------------------: |
-|         `os()`        | `macOS`, `iOS`, `watchOS`, `tvOS`, `Linux`, `Windows` |
+|         `os()`        | `macOS`, `iOS`, `watchOS`, `tvOS`, `visionOS`, `Linux`, `Windows` |
 |        `arch()`       |            `i386`, `x86_64`, `arm`, `arm64`           |
 |       `swift()`       |                 `>=` 또는 `<` 다음에 버전 번호                 |
 |      `compiler()`     |                 `>=` 또는 `<` 다음에 버전 번호                 |
@@ -781,6 +781,8 @@ if #unavailable(<#platform name#> <#version#>, <#...#>) {
 > *platform-name* → **`watchOS`** | **`watchOSApplicationExtension`**
 >
 > *platform-name* → **`tvOS`** | **`tvOSApplicationExtension`**
+>
+> *platform-name* → **`visionOS`**
 >
 > *platform-version* → *decimal-digits*
 >
