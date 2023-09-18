@@ -151,14 +151,14 @@ _식별자 (Identifiers)_ 는 A 부터 Z 까지 대문자 또는 소문자, 언�
 > Note:
 > Swift 5.9 이전에는 다음의 키워드는 예약되어 있습니다: `#column`, `#dsohandle`, `#error`, `#fileID`, `#filePath`, `#file`, `#function`, `#line`, 그리고 `#warning`.
 > 이것은 현재 Swift 표준 라이브러리에 매크로로 구현되어 있습니다:
-> [`column`](https://developer.apple.com/documentation/swift/column),
-> [`dsohandle`](https://developer.apple.com/documentation/swift/dsohandle),
+> [`column`](https://developer.apple.com/documentation/swift/column()),
+> [`dsohandle`](https://developer.apple.com/documentation/swift/dsohandle()),
 > [`error(_:)`](https://developer.apple.com/documentation/swift/error(_:)),
-> [`fileID`](https://developer.apple.com/documentation/swift/fileID),
-> [`filePath`](https://developer.apple.com/documentation/swift/filePath),
-> [`file`](https://developer.apple.com/documentation/swift/file),
-> [`function`](https://developer.apple.com/documentation/swift/function),
-> [`line`](https://developer.apple.com/documentation/swift/line),
+> [`fileID`](https://developer.apple.com/documentation/swift/fileID()),
+> [`filePath`](https://developer.apple.com/documentation/swift/filePath()),
+> [`file`](https://developer.apple.com/documentation/swift/file()),
+> [`function`](https://developer.apple.com/documentation/swift/function()),
+> [`line`](https://developer.apple.com/documentation/swift/line()),
 > 그리고 [`warning(_:)`](https://developer.apple.com/documentation/swift/warning(_:)).
 
 * 특정 컨텍스트에서 예약된 키워드: `associativity`, `convenience`, `didSet`, `dynamic`, `final`, `get`, `indirect`, `infix`, `lazy`, `left`, `mutating`, `none`, `nonmutating`, `optional`, `override`, `postfix`, `precedence`, `prefix`, `Protocol`, `required`, `right`, `set`, `some`, `Type`, `unowned`, `weak`, 그리고 `willSet`. 컨텍스트 외부에서는 식별자로 사용될 수 있습니다.
