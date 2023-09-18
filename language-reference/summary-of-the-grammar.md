@@ -638,7 +638,7 @@
 >
 > *if-expression-tail* → **`else`** *if-expression*
 >
-> *if-expression-tail* → **`else`** **`{`** *statement* **`}`** *if-expression-tail*
+> *if-expression-tail* → **`else`** **`{`** *statement* **`}`**
 >
 >
 >

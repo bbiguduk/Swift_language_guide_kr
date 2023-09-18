@@ -476,7 +476,7 @@ let number = if someCondition { 10 as Double } else { 12.34 }
 >
 > *if-expression-tail* → **`else`** *if-expression*
 >
-> *if-expression-tail* → **`else`** **`{`** *statement* **`}`** *if-expression-tail*
+> *if-expression-tail* → **`else`** **`{`** *statement* **`}`**
 >
 >
 >
