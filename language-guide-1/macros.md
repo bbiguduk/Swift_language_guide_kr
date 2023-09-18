@@ -65,7 +65,7 @@ struct SundaeToppings {
 }
 ```
 
-이 버전의 `SundaeToppings` 는 Swift 표준 라이브러리에 [`@OptionSet`](https://developer.apple.com/documentation/swift/optionset-swift.macro) 매크로를 호출합니다. 이 매크로는 private 열거형에 케이스의 목록을 읽고 각 옵션에 대한 상수 목록을 생성하고 [`OptionSet`](https://developer.apple.com/documentation/swift/optionset-swift.protocol) 프로토콜의 준수성을 추가합니다.
+이 버전의 `SundaeToppings` 는 `@OptionSet` 매크로를 호출합니다. 이 매크로는 private 열거형에 케이스의 목록을 읽고 각 옵션에 대한 상수 목록을 생성하고 [`OptionSet`](https://developer.apple.com/documentation/swift/optionset-swift.protocol) 프로토콜의 준수성을 추가합니다.
 
 비교를 위해 `@OptionSet` 매크로의 확장 버전은 다음과 같습니다. 이 코드를 작성하지 않고 매크로의 확장을 보기위해 Swift 에 요청한 경우에만 볼 수 있습니다.
 
