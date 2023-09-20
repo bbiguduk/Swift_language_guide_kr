@@ -72,30 +72,18 @@ extension Collection where Element: SomeProtocol {
 
 > Grammar of a generic parameter clause:
 >
-> *generic-parameter-clause* → **`<`** *generic-parameter-list* **`>`**
->
-> *generic-parameter-list* → *generic-parameter* | *generic-parameter* **`,`** *generic-parameter-list*
->
-> *generic-parameter* → *type-name*
->
-> *generic-parameter* → *type-name* **`:`** *type-identifier*
->
+> *generic-parameter-clause* → **`<`** *generic-parameter-list* **`>`** \
+> *generic-parameter-list* → *generic-parameter* | *generic-parameter* **`,`** *generic-parameter-list* \
+> *generic-parameter* → *type-name* \
+> *generic-parameter* → *type-name* **`:`** *type-identifier* \
 > *generic-parameter* → *type-name* **`:`** *protocol-composition-type*
 >
->
->
-> *generic-where-clause* → **`where`** *requirement-list*
->
-> *requirement-list* → *requirement* | *requirement* **`,`** *requirement-list*
->
+> *generic-where-clause* → **`where`** *requirement-list* \
+> *requirement-list* → *requirement* | *requirement* **`,`** *requirement-list* \
 > *requirement* → *conformance-requirement* | *same-type-requirement*
 >
->
->
-> *conformance-requirement* → *type-identifier* **`:`** *type-identifier*
->
-> *conformance-requirement* → *type-identifier* **`:`** *protocol-composition-type*
->
+> *conformance-requirement* → *type-identifier* **`:`** *type-identifier* \
+> *conformance-requirement* → *type-identifier* **`:`** *protocol-composition-type* \
 > *same-type-requirement* → *type-identifier* **`==`** *type*
 
 ## 제너릭 인수 절 (Generic Argument Clause)
@@ -126,8 +114,6 @@ let arrayOfArrays: Array<Array<Int>> = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 
 > Grammar of a generic argument clause:
 >
-> *generic-argument-clause* → **`<`** *generic-argument-list* **`>`**
->
-> *generic-argument-list* → *generic-argument* | *generic-argument* **`,`** *generic-argument-list*
->
+> *generic-argument-clause* → **`<`** *generic-argument-list* **`>`** \
+> *generic-argument-list* → *generic-argument* | *generic-argument* **`,`** *generic-argument-list* \
 > *generic-argument* → *type*

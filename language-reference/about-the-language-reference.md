@@ -28,7 +28,6 @@ Swift 프로그래밍 언어의 일반적인 문법을 설명하는데 사용되
 > Grammar of a getter-setter block:
 >
 >
-> *getter-setter-block* → **`{`** *getter-clause* *setter-clause*_?_ **`}`**
->
+> *getter-setter-block* → **`{`** *getter-clause* *setter-clause*_?_ **`}`** \
 > *getter-setter-block* → **`{`** *setter-clause* *getter-clause* **`}`**
 

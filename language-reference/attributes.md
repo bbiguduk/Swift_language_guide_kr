@@ -832,24 +832,14 @@ switch 케이스에만 switch 케이스 속성을 적용할 수 있습니다.
 
 > Grammar of an attribute:
 >
-> *attribute* → **`@`** *attribute-name* *attribute-argument-clause*_?_
->
-> *attribute-name* → *identifier*
->
-> *attribute-argument-clause* → **`(`** *balanced-tokens*_?_ **`)`**
->
+> *attribute* → **`@`** *attribute-name* *attribute-argument-clause*_?_ \
+> *attribute-name* → *identifier* \
+> *attribute-argument-clause* → **`(`** *balanced-tokens*_?_ **`)`** \
 > *attributes* → *attribute* *attributes*_?_
 >
->
->
-> *balanced-tokens* → *balanced-token* *balanced-tokens*_?_
->
-> *balanced-token* → **`(`** *balanced-tokens*_?_ **`)`**
->
-> *balanced-token* → **`[`** *balanced-tokens*_?_ **`]`**
->
-> *balanced-token* → **`{`** *balanced-tokens*_?_ **`}`**
->
-> *balanced-token* → Any identifier, keyword, literal, or operator
->
+> *balanced-tokens* → *balanced-token* *balanced-tokens*_?_ \
+> *balanced-token* → **`(`** *balanced-tokens*_?_ **`)`** \
+> *balanced-token* → **`[`** *balanced-tokens*_?_ **`]`** \
+> *balanced-token* → **`{`** *balanced-tokens*_?_ **`}`** \
+> *balanced-token* → Any identifier, keyword, literal, or operator \
 > *balanced-token* → Any punctuation except  **`(`**,  **`)`**,  **`[`**,  **`]`**,  **`{`**, or  **`}`**
