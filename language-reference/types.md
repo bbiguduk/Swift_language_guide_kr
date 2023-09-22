@@ -22,8 +22,8 @@ _복합 타입 (compound type)_ 은 Swift 언어 자체에 정의된 이름이 �
 > *type* → *optional-type* \
 > *type* → *implicitly-unwrapped-optional-type* \
 > *type* → *protocol-composition-type* \
-> *type* → *boxed-protocol-type* \
 > *type* → *opaque-type* \
+> *type* → *boxed-protocol-type* \
 > *type* → *metatype-type* \
 > *type* → *any-type* \
 > *type* → *self-type* \
