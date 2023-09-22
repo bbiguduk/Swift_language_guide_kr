@@ -693,7 +693,52 @@ if (someNumber % 2) == 1 {
 var manualOptional = ArrayBuilder.buildOptional(partialResult)
 ```
 
-* 코드 블럭 또는 `do` 구문은 `buildBlock(_:)` 메서드에 대한 호출이 됩니다. 블럭 내부의 각 구문은 한번에 하나씩 변환되고 `buildBlock(_:)` 메서드에 대한 인수가 됩니다. 예를 들어 다음의 선언은 동일합니다:
+- 결과 빌더가 `buildPartialBlock(first:)` 와 `buildPartialBlock(accumulated:next:)` 메서드를 구현하는 경우,
+  코드 블럭 또는 `do` 구문은 해당 메서드를 호출합니다.
+  블럭의 첫번째 구문은 `buildPartialBlock(first:)` 메서드 인수로 변환되고,
+  나머지 구문은 `buildPartialBlock(accumulated:next:)` 메서드를 중첩 호출하게 됩니다.
+  예를 들어, 다음 선언은 동일한 구문입니다:
+
+```swift
+struct DrawBoth<First: Drawable, Second: Drawable>: Drawable {
+    var first: First
+    var second: Second
+    func draw() -> String { return first.draw() + second.draw() }
+}
+
+
+@resultBuilder
+struct DrawingPartialBlockBuilder {
+    static func buildPartialBlock<D: Drawable>(first: D) -> D {
+        return first
+    }
+    static func buildPartialBlock<Accumulated: Drawable, Next: Drawable>(
+        accumulated: Accumulated, next: Next
+    ) -> DrawBoth<Accumulated, Next> {
+        return DrawBoth(first: accumulated, second: next)
+    }
+}
+
+
+@DrawingPartialBlockBuilder var builderBlock: some Drawable {
+    Text("First")
+    Line(elements: [Text("Second"), Text("Third")])
+    Text("Last")
+}
+
+
+let partialResult1 = DrawingPartialBlockBuilder.buildPartialBlock(first: Text("first"))
+let partialResult2 = DrawingPartialBlockBuilder.buildPartialBlock(
+    accumulated: partialResult1,
+    next: Line(elements: [Text("Second"), Text("Third")])
+)
+let manualResult = DrawingPartialBlockBuilder.buildPartialBlock(
+    accumulated: partialResult2,
+    next: Text("Last")
+)
+```
+
+* 그렇지 않으면, 코드 블럭 또는 `do` 구문은 `buildBlock(_:)` 메서드에 대한 호출이 됩니다. 블럭 내부의 각 구문은 한번에 하나씩 변환되고 `buildBlock(_:)` 메서드에 대한 인수가 됩니다. 예를 들어 다음의 선언은 동일합니다:
 
 ```swift
 @ArrayBuilder var builderBlock: [Int] {
