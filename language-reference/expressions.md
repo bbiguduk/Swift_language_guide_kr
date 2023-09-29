@@ -8,8 +8,7 @@ Swift 에서 접두사 표현식 (prefix expressions), 이진 표현식 (binary 
 
 > Grammar of an expression:
 >
-> *expression* → *try-operator*_?_ *await-operator*_?_ *prefix-expression* *infix-expressions*_?_
->
+> *expression* → *try-operator*_?_ *await-operator*_?_ *prefix-expression* *infix-expressions*_?_ \
 > *expression-list* → *expression* | *expression* **`,`** *expression-list*
 
 ## 접두사 표현식 (Prefix Expressions)
@@ -22,8 +21,7 @@ Swift 표준 라이브러리에 의해 제공되는 연산자의 자세한 설�
 
 > Grammar of a prefix expression:
 >
-> *prefix-expression* → *prefix-operator*_?_ *postfix-expression*
->
+> *prefix-expression* → *prefix-operator*_?_ *postfix-expression* \
 > *prefix-expression* → *in-out-expression*
 
 ### In-Out 표현식 (In-Out Expression)
@@ -139,14 +137,10 @@ Swift 표준 라이브러리에 의해 제공되는 연산자에 대한 자세�
 
 > Grammar of an infix expression:
 >
-> *infix-expression* → *infix-operator* *prefix-expression*
->
-> *infix-expression* → *assignment-operator* *try-operator*_?_ *prefix-expression*
->
-> *infix-expression* → *conditional-operator* *try-operator*_?_ *prefix-expression*
->
-> *infix-expression* → *type-casting-operator*
->
+> *infix-expression* → *infix-operator* *prefix-expression* \
+> *infix-expression* → *assignment-operator* *try-operator*_?_ *await-operator*_?_ *prefix-expression* \
+> *infix-expression* → *conditional-operator* *try-operator*_?_ *await-operator*_?_ *prefix-expression* \
+> *infix-expression* → *type-casting-operator* \
 > *infix-expressions* → *infix-expression* *infix-expressions*_?_
 
 ### 할당 연산자 (Assignment Operator)
@@ -228,12 +222,9 @@ f(x as Any)
 
 > Grammar of a type-casting operator:
 >
-> *type-casting-operator* → **`is`** *type*
->
-> *type-casting-operator* → **`as`** *type*
->
-> *type-casting-operator* → **`as`** **`?`** *type*
->
+> *type-casting-operator* → **`is`** *type* \
+> *type-casting-operator* → **`as`** *type* \
+> *type-casting-operator* → **`as`** **`?`** *type* \
 > *type-casting-operator* → **`as`** **`!`** *type*
 
 ## 기본 표현식 (Primary Expressions)
@@ -242,32 +233,19 @@ _기본 표현식 (Primary expressions)_ 은 표현식의 가장 기본입니다
 
 > Grammar of a primary expression:
 >
-> *primary-expression* → *identifier* *generic-argument-clause*_?_
->
-> *primary-expression* → *literal-expression*
->
-> *primary-expression* → *self-expression*
->
-> *primary-expression* → *superclass-expression*
->
-> *primary-expression* → *conditional-expression*
->
-> *primary-expression* → *closure-expression*
->
-> *primary-expression* → *parenthesized-expression*
->
-> *primary-expression* → *tuple-expression*
->
-> *primary-expression* → *implicit-member-expression*
->
-> *primary-expression* → *wildcard-expression*
->
-> *primary-expression* → *macro-expansion-expression*
->
-> *primary-expression* → *key-path-expression*
->
-> *primary-expression* → *selector-expression*
->
+> *primary-expression* → *identifier* *generic-argument-clause*_?_ \
+> *primary-expression* → *literal-expression* \
+> *primary-expression* → *self-expression* \
+> *primary-expression* → *superclass-expression* \
+> *primary-expression* → *conditional-expression* \
+> *primary-expression* → *closure-expression* \
+> *primary-expression* → *parenthesized-expression* \
+> *primary-expression* → *tuple-expression* \
+> *primary-expression* → *implicit-member-expression* \
+> *primary-expression* → *wildcard-expression* \
+> *primary-expression* → *macro-expansion-expression* \
+> *primary-expression* → *key-path-expression* \
+> *primary-expression* → *selector-expression* \
 > *primary-expression* → *key-path-string-expression*
 
 ### 리터럴 표현식 (Literal Expression)
@@ -275,7 +253,15 @@ _기본 표현식 (Primary expressions)_ 은 표현식의 가장 기본입니다
 _리터럴 표현식 (literal expression)_ 은 일반 리터럴 (문자열 또는 숫자 등), 배열 또는 딕셔너리 리터럴, 플레이그라운드 리터럴로 구성됩니다:
 
 > Note:
-> Swift 5.9 이전에는 다음의 특수 리터럴이 인식되었고, 이제는 Swift 표준 라이브러리에 매크로로 구현되어 있습니다: `#column`, `#dsohandle`, `#fileID`, `#filePath`, `#file`, `#function`, 그리고 `#line`.
+> Swift 5.9 이전에는 다음의 특수 리터럴이 인식됩니다: `#column`, `#dsohandle`, `#fileID`, `#filePath`, `#file`, `#function`, 그리고 `#line`.
+> 이것은 현재 Swift 표준 라이브러리에 매크로 (macros) 로 구현되어 있습니다:
+> [`column()`](https://developer.apple.com/documentation/swift/column()),
+> [`dsohandle()`](https://developer.apple.com/documentation/swift/dsohandle()),
+> [`fileID()`](https://developer.apple.com/documentation/swift/fileID()),
+> [`filePath()`](https://developer.apple.com/documentation/swift/filePath()),
+> [`file()`](https://developer.apple.com/documentation/swift/file()),
+> [`function()`](https://developer.apple.com/documentation/swift/function()),
+> 그리고 [`line()`](https://developer.apple.com/documentation/swift/line()).
 
 _배열 리터럴 (array literal)_ 은 순서가 있는 값의 콜렉션입니다. 형식은 아래와 같습니다:
 
@@ -307,32 +293,19 @@ Xcode 에서 플레이그라운드 리터럴 사용에 대한 정보는 Xcode �
 
 > Grammar of a literal expression:
 >
-> *literal-expression* → *literal*
->
+> *literal-expression* → *literal* \
 > *literal-expression* → *array-literal* | *dictionary-literal* | *playground-literal*
 >
->
->
-> *array-literal* → **`[`** *array-literal-items*_?_ **`]`**
->
-> *array-literal-items* → *array-literal-item* **`,`**_?_ | *array-literal-item* **`,`** *array-literal-items*
->
+> *array-literal* → **`[`** *array-literal-items*_?_ **`]`** \
+> *array-literal-items* → *array-literal-item* **`,`**_?_ | *array-literal-item* **`,`** *array-literal-items* \
 > *array-literal-item* → *expression*
 >
->
->
-> *dictionary-literal* → **`[`** *dictionary-literal-items* **`]`** | **`[`** **`:`** **`]`**
->
-> *dictionary-literal-items* → *dictionary-literal-item* **`,`**_?_ | *dictionary-literal-item* **`,`** *dictionary-literal-items*
->
+> *dictionary-literal* → **`[`** *dictionary-literal-items* **`]`** | **`[`** **`:`** **`]`** \
+> *dictionary-literal-items* → *dictionary-literal-item* **`,`**_?_ | *dictionary-literal-item* **`,`** *dictionary-literal-items* \
 > *dictionary-literal-item* → *expression* **`:`** *expression*
 >
->
->
-> *playground-literal* → **`#colorLiteral`** **`(`** **`red`** **`:`** *expression* **`,`** **`green`** **`:`** *expression* **`,`** **`blue`** **`:`** *expression* **`,`** **`alpha`** **`:`** *expression* **`)`**
->
-> *playground-literal* → **`#fileLiteral`** **`(`** **`resourceName`** **`:`** *expression* **`)`**
->
+> *playground-literal* → **`#colorLiteral`** **`(`** **`red`** **`:`** *expression* **`,`** **`green`** **`:`** *expression* **`,`** **`blue`** **`:`** *expression* **`,`** **`alpha`** **`:`** *expression* **`)`** \
+> *playground-literal* → **`#fileLiteral`** **`(`** **`resourceName`** **`:`** *expression* **`)`** \
 > *playground-literal* → **`#imageLiteral`** **`(`** **`resourceName`** **`:`** *expression* **`)`**
 
 ### Self 표현식 (Self Expression)
@@ -375,12 +348,8 @@ struct Point {
 >
 > *self-expression* → **`self`** | *self-method-expression* | *self-subscript-expression* | *self-initializer-expression*
 >
->
->
-> *self-method-expression* → **`self`** **`.`** *identifier*
->
-> *self-subscript-expression* → **`self`** **`[`** *function-call-argument-list* **`]`**
->
+> *self-method-expression* → **`self`** **`.`** *identifier* \
+> *self-subscript-expression* → **`self`** **`[`** *function-call-argument-list* **`]`** \
 > *self-initializer-expression* → **`self`** **`.`** **`init`**
 
 ### 상위 클래스 표현식 (Superclass Expression)
@@ -401,12 +370,8 @@ super.init(<#initializer arguments#>)
 >
 > *superclass-expression* → *superclass-method-expression* | *superclass-subscript-expression* | *superclass-initializer-expression*
 >
->
->
-> *superclass-method-expression* → **`super`** **`.`** *identifier*
->
-> *superclass-subscript-expression* → **`super`** **`[`** *function-call-argument-list* **`]`**
->
+> *superclass-method-expression* → **`super`** **`.`** *identifier* \
+> *superclass-subscript-expression* → **`super`** **`[`** *function-call-argument-list* **`]`** \
 > *superclass-initializer-expression* → **`super`** **`.`** **`init`**
 
 ### 조건 표현식 (Conditional Expression)
@@ -462,22 +427,13 @@ let number = if someCondition { 10 as Double } else { 12.34 }
 >
 > *conditional-expression* → *if-expression* | *switch-expression*
 >
+> *if-expression* → **`if`** *condition-list* **`{`** *statement* **`}`** *if-expression-tail* \
+> *if-expression-tail* → **`else`** *if-expression* \
+> *if-expression-tail* → **`else`** **`{`** *statement* **`}`**
 >
->
-> *if-expression* → **`if`** *condition-list* **`{`** *statement* **`}`** *if-expression-tail*
->
-> *if-expression-tail* → **`else`** *if-expression*
->
-> *if-expression-tail* → **`else`** **`{`** *statement* **`}`** *if-expression-tail*
->
->
->
-> *switch-expression* → **`switch`** *expression* **`{`** *switch-expression-cases* **`}`**
->
-> *switch-expression-cases* → *switch-expression-case* *switch-expression-cases*_?_
->
-> *switch-expression-case* → *case-label* *statement*
->
+> *switch-expression* → **`switch`** *expression* **`{`** *switch-expression-cases* **`}`** \
+> *switch-expression-cases* → *switch-expression-case* *switch-expression-cases*_?_ \
+> *switch-expression-case* → *case-label* *statement* \
 > *switch-expression-case* → *default-label* *statement*
 
 ### 클로저 표현식 (Closure Expression)
@@ -593,36 +549,20 @@ myFunction { [weak parent = self.parent] in print(parent!.title) }
 >
 > *closure-expression* → **`{`** *attributes*_?_ *closure-signature*_?_ *statements*_?_ **`}`**
 >
->
->
-> *closure-signature* → *capture-list*_?_ *closure-parameter-clause* **`async`**_?_ **`throws`**_?_ *function-result*_?_ **`in`**
->
+> *closure-signature* → *capture-list*_?_ *closure-parameter-clause* **`async`**_?_ **`throws`**_?_ *function-result*_?_ **`in`** \
 > *closure-signature* → *capture-list* **`in`**
 >
->
->
-> *closure-parameter-clause* → **`(`** **`)`** | **`(`** *closure-parameter-list* **`)`** | *identifier-list*
->
-> *closure-parameter-list* → *closure-parameter* | *closure-parameter* **`,`** *closure-parameter-list*
->
-> *closure-parameter* → *closure-parameter-name* *type-annotation*_?_
->
-> *closure-parameter* → *closure-parameter-name* *type-annotation* **`...`**
->
+> *closure-parameter-clause* → **`(`** **`)`** | **`(`** *closure-parameter-list* **`)`** | *identifier-list* \
+> *closure-parameter-list* → *closure-parameter* | *closure-parameter* **`,`** *closure-parameter-list* \
+> *closure-parameter* → *closure-parameter-name* *type-annotation*_?_ \
+> *closure-parameter* → *closure-parameter-name* *type-annotation* **`...`** \
 > *closure-parameter-name* → *identifier*
 >
->
->
-> *capture-list* → **`[`** *capture-list-items* **`]`**
->
-> *capture-list-items* → *capture-list-item* | *capture-list-item* **`,`** *capture-list-items*
->
-> *capture-list-item* → *capture-specifier*_?_ *identifier*
->
-> *capture-list-item* → *capture-specifier*_?_ *identifier* **`=`** *expression*
->
-> *capture-list-item* → *capture-specifier*_?_ *self-expression*
->
+> *capture-list* → **`[`** *capture-list-items* **`]`** \
+> *capture-list-items* → *capture-list-item* | *capture-list-item* **`,`** *capture-list-items* \
+> *capture-list-item* → *capture-specifier*_?_ *identifier* \
+> *capture-list-item* → *capture-specifier*_?_ *identifier* **`=`** *expression* \
+> *capture-list-item* → *capture-specifier*_?_ *self-expression* \
 > *capture-specifier* → **`weak`** | **`unowned`** | **`unowned(safe)`** | **`unowned(unsafe)`**
 
 ### 암시적 멤버 표현식 (Implicit Member Expression)
@@ -668,8 +608,7 @@ let z: SomeClass = .sharedSubclass
 
 > Grammar of a implicit member expression:
 >
-> *implicit-member-expression* → **`.`** *identifier*
->
+> *implicit-member-expression* → **`.`** *identifier* \
 > *implicit-member-expression* → **`.`** *identifier* **`.`** *postfix-expression*
 
 ### 괄호 안 표현식 (Parenthesized Expression)
@@ -697,10 +636,8 @@ _튜플 표현식 (tuple expression)_ 은 괄호호 묶인 콤마로 구분된 �
 
 > Grammar of a tuple expression:
 >
-> *tuple-expression* → **`(`** **`)`** | **`(`** *tuple-element* **`,`** *tuple-element-list* **`)`**
->
-> *tuple-element-list* → *tuple-element* | *tuple-element* **`,`** *tuple-element-list*
->
+> *tuple-expression* → **`(`** **`)`** | **`(`** *tuple-element* **`,`** *tuple-element-list* **`)`** \
+> *tuple-element-list* → *tuple-element* | *tuple-element* **`,`** *tuple-element-list* \
 > *tuple-element* → *expression* | *identifier* **`:`** *expression*
 
 ### 와일드카드 표현식 (Wildcard Expression)
@@ -724,9 +661,48 @@ _매크로-확장 표현식 (macro-expansion expression)_ 은 매크로 이름 �
 <#macro name#>(<#macro argument 1#>, <#macro argument 2#>)
 ```
 
-매크로-확장 표현식은 인수를 가지지 않으면 소괄호를 생략합니다.
+매크로-확장 표현식은 인수를 사용하지 않는 경우에
+매크로의 이름뒤에 오는 소괄호를 생략합니다.
 
-매크로 표현식은 Swift 표준 라이브러리에 [`file`](http://developer.apple.com/documentation/swift/documentation/swift/file) 과 [`line`](http://developer.apple.com/documentation/swift/documentation/swift/line) 매크로를 제외하고 파라미터의 기본값으로 나타날 수 없습니다. 함수 또는 메서드 파라미터의 기본값으로 사용될 때 이러한 매크로 값은 호출 사이트에서 기본값 표현식이 평가될 때 결정됩니다.
+매크로-확장 표현식은 Swift 표준 라이브러리에 [`file()`](http://developer.apple.com/documentation/swift/documentation/swift/file()) 과 [`line()`](http://developer.apple.com/documentation/swift/documentation/swift/line()) 매크로를 제외하고 파라미터의 기본값으로 나타날 수 없습니다.
+함수 또는 메서드 파라미터의 기본값으로 사용될 때,
+이러한 매크로는 함수 정의에 나타나는 위치가 아닌 호출 위치의 코드를 사용하여 평가됩니다.
+
+독립형 매크로를 호출하려면 매크로 표현식을 사용합니다.
+첨부된 매크로를 호출하려면,
+[속성 (Attributes)](attributes.md) 에서 설명한 사용자 정의 속성 구문을 사용합니다.
+독립형 매크로와 첨부된 매크로 모두 아래와 같이 확장합니다:
+
+1. Swift 는 소스 코드를 분석해서 추상 구문 트리 (AST) 를 생성합니다.
+
+2. 매크로 구현은 AST 노드를 입력으로 수신하고 해당 매크로에 필요한 변환을 수행합니다.
+
+3. 매크로 구현을 통해 변환된 AST 노드는 본래 AST 에 추가됩니다.
+
+각 매크로의 확장은 독립적입니다.
+그러나 성능 최적화로
+Swift 는 매크로를 구현하는 외부 프로세스를 시작하고
+여러 매크로를 확장 하기위해 동일한 프로세스를 재사용합니다.
+매크로를 구현할 때,
+해당 코드는 이전에 확장된 매크로가 무엇인지 또는
+현재시간과 같이 외부 상태에 의존하면 안됩니다.
+
+여러 역할을 가지는 중첩된 매크로와 첨부된 매크로에 대해 확장 프로세스는 반복됩니다.
+중첩된 매크로-확장 표현식은 외부에서 안으로 확장됩니다.
+예를 들어, 아래 코드에서
+`outerMacro(_:)` 가 먼저 확장되고 `innerMacro(_:)` 에 확장되지 않은 호출이
+`outerMacro(_:)` 가 입력으로 받는 추상 구문 트리에 나타납니다.
+
+```swift
+#outerMacro(12, #innerMacro(34), "some text")
+```
+
+여러 역할을 가지는 첨부된 매크로는 각 역할에 대해 한 번씩 확장됩니다.
+각 확장은 동일한 AST 를 입력으로 받습니다.
+Swift 는 생성된 모든 AST 노드를 수집하고
+AST 에서 적절한 위치에 배치하여 전체 확장을 형성합니다.
+
+Swift 에서 매크로의 개요는 [매크로 (Macros)](../language-guide-1/macros.md) 를 참고 바랍니다.
 
 > Grammar of a macro-expansion expression:
 >
@@ -897,16 +873,11 @@ Objective-C API 와 함께 상혹작용하는 코드에서 키 경로를 사용�
 
 > Grammar of a key-path expression:
 >
-> *key-path-expression* → **`\`** *type*_?_ **`.`** *key-path-components*
->
-> *key-path-components* → *key-path-component* | *key-path-component* **`.`** *key-path-components*
->
+> *key-path-expression* → **`\`** *type*_?_ **`.`** *key-path-components* \
+> *key-path-components* → *key-path-component* | *key-path-component* **`.`** *key-path-components* \
 > *key-path-component* → *identifier* *key-path-postfixes*_?_ | *key-path-postfixes*
 >
->
->
-> *key-path-postfixes* → *key-path-postfix* *key-path-postfixes*_?_
->
+> *key-path-postfixes* → *key-path-postfix* *key-path-postfixes*_?_ \
 > *key-path-postfix* → **`?`** | **`!`** | **`self`** | **`[`** *function-call-argument-list* **`]`**
 
 ### 선택기 표현식 (Selector Expression)
@@ -957,10 +928,8 @@ Objective-C API 와 상호작용하는 Swift 코드에서 선택기 사용에 �
 
 > Grammar of a selector expression:
 >
-> *selector-expression* → **`#selector`** **`(`** *expression* **`)`**
->
-> *selector-expression* → **`#selector`** **`(`** **`getter:`** *expression* **`)`**
->
+> *selector-expression* → **`#selector`** **`(`** *expression* **`)`** \
+> *selector-expression* → **`#selector`** **`(`** **`getter:`** *expression* **`)`** \
 > *selector-expression* → **`#selector`** **`(`** **`setter:`** *expression* **`)`**
 
 ### 키-경로 문자열 표현식 (Key-Path String Expression)
@@ -1023,22 +992,14 @@ Swift 표준 라이브러리에 의해 제공되는 연산자에 대한 자세�
 
 > Grammar of a postfix expression:
 >
-> *postfix-expression* → *primary-expression*
->
-> *postfix-expression* → *postfix-expression* *postfix-operator*
->
-> *postfix-expression* → *function-call-expression*
->
-> *postfix-expression* → *initializer-expression*
->
-> *postfix-expression* → *explicit-member-expression*
->
-> *postfix-expression* → *postfix-self-expression*
->
-> *postfix-expression* → *subscript-expression*
->
-> *postfix-expression* → *forced-value-expression*
->
+> *postfix-expression* → *primary-expression* \
+> *postfix-expression* → *postfix-expression* *postfix-operator* \
+> *postfix-expression* → *function-call-expression* \
+> *postfix-expression* → *initializer-expression* \
+> *postfix-expression* → *explicit-member-expression* \
+> *postfix-expression* → *postfix-self-expression* \
+> *postfix-expression* → *subscript-expression* \
+> *postfix-expression* → *forced-value-expression* \
 > *postfix-expression* → *optional-chaining-expression*
 
 ### 함수 호출 표현식 (Function Call Expression)
@@ -1147,26 +1108,16 @@ withUnsafePointer(to: myNumber) { unsafeFunction(pointer: $0) }
 
 > Grammar of a function call expression:
 >
-> *function-call-expression* → *postfix-expression* *function-call-argument-clause*
->
+> *function-call-expression* → *postfix-expression* *function-call-argument-clause* \
 > *function-call-expression* → *postfix-expression* *function-call-argument-clause*_?_ *trailing-closures*
 >
->
->
-> *function-call-argument-clause* → **`(`** **`)`** | **`(`** *function-call-argument-list* **`)`**
->
-> *function-call-argument-list* → *function-call-argument* | *function-call-argument* **`,`** *function-call-argument-list*
->
-> *function-call-argument* → *expression* | *identifier* **`:`** *expression*
->
+> *function-call-argument-clause* → **`(`** **`)`** | **`(`** *function-call-argument-list* **`)`** \
+> *function-call-argument-list* → *function-call-argument* | *function-call-argument* **`,`** *function-call-argument-list* \
+> *function-call-argument* → *expression* | *identifier* **`:`** *expression* \
 > *function-call-argument* → *operator* | *identifier* **`:`** *operator*
 >
->
->
-> *trailing-closures* → *closure-expression* *labeled-trailing-closures*_?_
->
-> *labeled-trailing-closures* → *labeled-trailing-closure* *labeled-trailing-closures*_?_
->
+> *trailing-closures* → *closure-expression* *labeled-trailing-closures*_?_ \
+> *labeled-trailing-closures* → *labeled-trailing-closure* *labeled-trailing-closures*_?_ \
 > *labeled-trailing-closure* → *identifier* **`:`** *closure-expression*
 
 ### 초기화 구문 표현식 (Initializer Expression)
@@ -1210,8 +1161,7 @@ let s4 = type(of: someValue)(data: 5)       // Error
 
 > Grammar of an initializer expression:
 >
-> *initializer-expression* → *postfix-expression* **`.`** **`init`**
->
+> *initializer-expression* → *postfix-expression* **`.`** **`init`** \
 > *initializer-expression* → *postfix-expression* **`.`** **`init`** **`(`** *argument-names* **`)`**
 
 ### 명시적 멤버 표현식 (Explicit Member Expression)
@@ -1291,18 +1241,12 @@ let numbers = [10, 20, 33, 43, 50]
 
 > Grammar of an explicit member expression:
 >
-> *explicit-member-expression* → *postfix-expression* **`.`** *decimal-digits*
->
-> *explicit-member-expression* → *postfix-expression* **`.`** *identifier* *generic-argument-clause*_?_
->
-> *explicit-member-expression* → *postfix-expression* **`.`** *identifier* **`(`** *argument-names* **`)`**
->
+> *explicit-member-expression* → *postfix-expression* **`.`** *decimal-digits* \
+> *explicit-member-expression* → *postfix-expression* **`.`** *identifier* *generic-argument-clause*_?_ \
+> *explicit-member-expression* → *postfix-expression* **`.`** *identifier* **`(`** *argument-names* **`)`** \
 > *explicit-member-expression* → *postfix-expression* *conditional-compilation-block*
 >
->
->
-> *argument-names* → *argument-name* *argument-names*_?_
->
+> *argument-names* → *argument-name* *argument-names*_?_ \
 > *argument-name* → *identifier* **`:`**
 
 ### 접미사 Self 표현식 (Postfix Self Expression)

@@ -2,6 +2,16 @@
 
 ## Revision History
 
+### 2023-09-30(토)
+
+- Swift 5.9 기반으로 문서 작업
+- [기본 (The Basics)](../language-guide-1/the-basics.md) 에 옵셔널에 대한 내용을 추가
+- [Swift 둘러보기 (A Swift Tour)](../welcome-to-swift/swift-a-swift-tour.md) 에 동시성 예제 추가
+- [결과 변환 (Result Transformations)](../language-reference/attributes.md#결과-변환-result-transformations) 섹션에
+  `buildPartialBlock(first:)` 와 `buildPartialBlock(accumulated:next:)` 메서드에 대한 내용 추가
+- [available](../language-reference/attributes.md#available) 과 [조건부 컴파일 블럭 (Conditional Compilation Block)](../language-reference/statements.md#조건부-컴파일-블럭-conditional-compilation-block) 에서
+  플랫폼 목록에 visionOS 추가
+
 ### 2023-06-19(월)
 
 * Swift 5.9 Beta 기반으로 문서 작업

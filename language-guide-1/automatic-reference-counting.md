@@ -509,7 +509,7 @@ print(paragraph!.asHTML())
 > Note   
 > 클로저는 여러번 `self` 를 참조하지만 `HTMLElement` 인스턴스에 대해 하나의 강한 참조만 캡처합니다.
 
-`paragraph` 변수를 `nil` 로 설정하고 `HTMLElement` 인스턴스에 대한 강한 참조를 끊으면 강한 참조 사이클 때문에 `HTMLElement` 인스턴스와 해당 클로저는 할당 해제되지 않습니다:
+`paragraph` 변수를 `nil` 로 설정하고 `HTMLElement` 인스턴스에 대한 강한 참조를 끊으면 강한 참조 사이클은 `HTMLElement` 인스턴스와 해당 클로저를 할당 해제하지 않습니다:
 
 ```swift
 paragraph = nil

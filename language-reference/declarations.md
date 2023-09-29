@@ -8,41 +8,24 @@ Swift 에서 대부분의 선언은 선언과 동시에 구현되거나 초기�
 
 > Grammar of a declaration:
 >
-> _declaration_ → _import-declaration_
->
-> _declaration_ → _constant-declaration_
->
-> _declaration_ → _variable-declaration_
->
-> _declaration_ → _typealias-declaration_
->
-> _declaration_ → _function-declaration_
->
-> _declaration_ → _enum-declaration_
->
-> _declaration_ → _struct-declaration_
->
-> _declaration_ → _class-declaration_
->
-> _declaration_ → _actor-declaration_
->
-> _declaration_ → _protocol-declaration_
->
-> _declaration_ → _initializer-declaration_
->
-> _declaration_ → _deinitializer-declaration_
->
-> _declaration_ → _extension-declaration_
->
-> _declaration_ → _subscript-declaration_
->
-> *declaration* → *macro-declaration*
->
-> _declaration_ → _operator-declaration_
->
-> _declaration_ → _precedence-group-declaration_
->
-> _declarations_ → _declaration_ _declarations?_
+> *declaration* → *import-declaration* \
+> *declaration* → *constant-declaration* \
+> *declaration* → *variable-declaration* \
+> *declaration* → *typealias-declaration* \
+> *declaration* → *function-declaration* \
+> *declaration* → *enum-declaration* \
+> *declaration* → *struct-declaration* \
+> *declaration* → *class-declaration* \
+> *declaration* → *actor-declaration* \
+> *declaration* → *protocol-declaration* \
+> *declaration* → *initializer-declaration* \
+> *declaration* → *deinitializer-declaration* \
+> *declaration* → *extension-declaration* \
+> *declaration* → *subscript-declaration* \
+> *declaration* → *macro-declaration* \
+> *declaration* → *operator-declaration* \
+> *declaration* → *precedence-group-declaration* \
+> *declarations* → *declaration* *declarations*_?_
 
 ## 최상위-수준 코드 (Top-Level Code)
 
@@ -91,8 +74,7 @@ import <#module#>.<#submodule#>
 >
 > _import-declaration_ → _attributes?_ **`import`** _import-kind?_ _import-path_
 >
-> _import-kind_ → **`typealias`** | **`struct`** | **`class`** | **`enum`** | **`protocol`** | **`let`** | **`var`** | **`func`**
->
+> _import-kind_ → **`typealias`** | **`struct`** | **`class`** | **`enum`** | **`protocol`** | **`let`** | **`var`** | **`func`** \
 > _import-path_ → _identifier_ | _identifier_ **`.`** _import-path_
 
 ## 상수 선언 (Constant Declaration)
@@ -132,10 +114,8 @@ print("The second number is \(secondNumber).")
 >
 > _constant-declaration_ → _attributes?_ _declaration-modifiers?_ **`let`** _pattern-initializer-list_
 >
-> _pattern-initializer-list_ → _pattern-initializer_ | _pattern-initializer_ **`,`** _pattern-initializer-list_
->
-> _pattern-initializer_ → _pattern_ _initializer?_
->
+> _pattern-initializer-list_ → _pattern-initializer_ | _pattern-initializer_ **`,`** _pattern-initializer-list_ \
+> _pattern-initializer_ → _pattern_ _initializer?_ \
 > _initializer_ → **`=`** _expression_
 
 ## 변수 선언 (Variable Declaration)
@@ -266,48 +246,31 @@ newAndOld.x = 200
 
 > Grammar of a variable declaration:
 >
-> _variable-declaration_ → _variable-declaration-head_ _pattern-initializer-list_
->
-> _variable-declaration_ → _variable-declaration-head_ _variable-name_ _type-annotation_ _code-block_
->
-> _variable-declaration_ → _variable-declaration-head_ _variable-name_ _type-annotation_ _getter-setter-block_
->
-> _variable-declaration_ → _variable-declaration-head_ _variable-name_ _type-annotation_ _getter-setter-keyword-block_
->
-> _variable-declaration_ → _variable-declaration-head_ _variable-name_ _initializer_ _willSet-didSet-block_
->
+> _variable-declaration_ → _variable-declaration-head_ _pattern-initializer-list_ \
+> _variable-declaration_ → _variable-declaration-head_ _variable-name_ _type-annotation_ _code-block_ \
+> _variable-declaration_ → _variable-declaration-head_ _variable-name_ _type-annotation_ _getter-setter-block_ \
+> _variable-declaration_ → _variable-declaration-head_ _variable-name_ _type-annotation_ _getter-setter-keyword-block_ \
+> _variable-declaration_ → _variable-declaration-head_ _variable-name_ _initializer_ _willSet-didSet-block_ \
 > _variable-declaration_ → _variable-declaration-head_ _variable-name_ _type-annotation_ _initializer?_ _willSet-didSet-block_
 >
-> _variable-declaration-head_ → _attributes?_ _declaration-modifiers?_ **`var`**
->
+> _variable-declaration-head_ → _attributes?_ _declaration-modifiers?_ **`var`** \
 > _variable-name_ → _identifier_
 >
-> _getter-setter-block_ → _code-block_
->
-> _getter-setter-block_ → **`{`** _getter-clause_ _setter-clause?_ **`}`**
->
-> _getter-setter-block_ → **`{`** _setter-clause_ _getter-clause_ **`}`**
->
-> _getter-clause_ → _attributes?_ _mutation-modifier?_ **`get`** _code-block_
->
-> _setter-clause_ → _attributes?_ _mutation-modifier?_ **`set`** _setter-name?_ _code-block_
->
+> _getter-setter-block_ → _code-block_ \
+> _getter-setter-block_ → **`{`** _getter-clause_ _setter-clause?_ **`}`** \
+> _getter-setter-block_ → **`{`** _setter-clause_ _getter-clause_ **`}`** \
+> _getter-clause_ → _attributes?_ _mutation-modifier?_ **`get`** _code-block_ \
+> _setter-clause_ → _attributes?_ _mutation-modifier?_ **`set`** _setter-name?_ _code-block_ \
 > _setter-name_ → **`(`** _identifier_ **`)`**
 >
-> _getter-setter-keyword-block_ → **`{`** _getter-keyword-clause_ _setter-keyword-clause?_ **`}`**
->
-> _getter-setter-keyword-block_ → **`{`** _setter-keyword-clause_ _getter-keyword-clause_ **`}`**
->
-> _getter-keyword-clause_ → _attributes?_ _mutation-modifier?_ **`get`**
->
+> _getter-setter-keyword-block_ → **`{`** _getter-keyword-clause_ _setter-keyword-clause?_ **`}`** \
+> _getter-setter-keyword-block_ → **`{`** _setter-keyword-clause_ _getter-keyword-clause_ **`}`** \
+> _getter-keyword-clause_ → _attributes?_ _mutation-modifier?_ **`get`** \
 > _setter-keyword-clause_ → _attributes?_ _mutation-modifier?_ **`set`**
 >
-> _willSet-didSet-block_ → **`{`** _willSet-clause_ _didSet-clause?_ **`}`**
->
-> _willSet-didSet-block_ → **`{`** _didSet-clause_ _willSet-clause?_ **`}`**
->
-> _willSet-clause_ → _attributes?_ **`willSet`** _setter-name?_ _code-block_
->
+> _willSet-didSet-block_ → **`{`** _willSet-clause_ _didSet-clause?_ **`}`** \
+> _willSet-didSet-block_ → **`{`** _didSet-clause_ _willSet-clause?_ **`}`** \
+> _willSet-clause_ → _attributes?_ **`willSet`** _setter-name?_ _code-block_ \
 > _didSet-clause_ → _attributes?_ **`didSet`** _setter-name?_ _code-block_
 
 ## 타입 별칭 선언 (Type Alias Declaration)
@@ -363,10 +326,8 @@ func sum<T: Sequence>(_ sequence: T) -> Int where T.Element == Int {
 
 > Grammar of a type alias declaration:
 >
-> _typealias-declaration_ → _attributes?_ _access-level-modifier?_ **`typealias`** _typealias-name_ _generic-parameter-clause?_ _typealias-assignment_
->
-> _typealias-name_ → _identifier_
->
+> _typealias-declaration_ → _attributes?_ _access-level-modifier?_ **`typealias`** _typealias-name_ _generic-parameter-clause?_ _typealias-assignment_ \
+> _typealias-name_ → _identifier_ \
 > _typealias-assignment_ → **`=`** _type_
 
 ## 함수 선언 (Function Declaration)
@@ -611,32 +572,21 @@ Swift 는 함수 또는 메서드가 호출자에게 반환하지 않음을 나�
 >
 > _function-declaration_ → _function-head_ _function-name_ _generic-parameter-clause?_ _function-signature_ _generic-where-clause?_ _function-body?_
 >
-> _function-head_ → _attributes?_ _declaration-modifiers?_ **`func`**
->
+> _function-head_ → _attributes?_ _declaration-modifiers?_ **`func`** \
 > _function-name_ → _identifier_ | _operator_
 >
-> _function-signature_ → _parameter-clause_ **`async`**_?_ **`throws`**_?_ _function-result?_
->
-> _function-signature_ → _parameter-clause_ **`async`**_?_ **`rethrows`** _function-result?_
->
-> _function-result_ → **`->`** _attributes?_ _type_
->
+> _function-signature_ → _parameter-clause_ **`async`**_?_ **`throws`**_?_ _function-result?_ \
+> _function-signature_ → _parameter-clause_ **`async`**_?_ **`rethrows`** _function-result?_ \
+> _function-result_ → **`->`** _attributes?_ _type_ \
 > _function-body_ → _code-block_
 >
-> _parameter-clause_ → **`(`** **`)`** | **`(`** _parameter-list_ **`)`**
->
-> _parameter-list_ → _parameter_ | _parameter_ **`,`** _parameter-list_
->
-> _parameter_ → _external-parameter-name?_ _local-parameter-name_ _type-annotation_ _default-argument-clause?_
->
-> _parameter_ → _external-parameter-name?_ _local-parameter-name_ _type-annotation_
->
-> _parameter_ → _external-parameter-name?_ _local-parameter-name_ _type-annotation_ **`...`**
->
-> _external-parameter-name_ → _identifier_
->
-> _local-parameter-name_ → _identifier_
->
+> _parameter-clause_ → **`(`** **`)`** | **`(`** _parameter-list_ **`)`** \
+> _parameter-list_ → _parameter_ | _parameter_ **`,`** _parameter-list_ \
+> _parameter_ → _external-parameter-name?_ _local-parameter-name_ _type-annotation_ _default-argument-clause?_ \
+> _parameter_ → _external-parameter-name?_ _local-parameter-name_ _type-annotation_ \
+> _parameter_ → _external-parameter-name?_ _local-parameter-name_ _type-annotation_ **`...`** \
+> _external-parameter-name_ → _identifier_ \
+> _local-parameter-name_ → _identifier_ \
 > _default-argument-clause_ → **`=`** _expression_
 
 ## 열거형 선언 (Enumeration Declaration)
@@ -747,40 +697,25 @@ enum GamePlayMode: String {
 
 > Grammar of an enumeration declaration:
 >
-> _enum-declaration_ → _attributes?_ _access-level-modifier?_ _union-style-enum_
->
+> _enum-declaration_ → _attributes?_ _access-level-modifier?_ _union-style-enum_ \
 > _enum-declaration_ → _attributes?_ _access-level-modifier?_ _raw-value-style-enum_
 >
-> _union-style-enum_ → **`indirect`**_?_ **`enum`** _enum-name_ _generic-parameter-clause?_ _type-inheritance-clause?_ _generic-where-clause?_ **`{`** _union-style-enum-members?_ **`}`**
->
-> _union-style-enum-members_ → _union-style-enum-member_ _union-style-enum-members?_
->
-> _union-style-enum-member_ → _declaration_ | _union-style-enum-case-clause_ | _compiler-control-statement_
->
-> _union-style-enum-case-clause_ → _attributes?_ **`indirect`**_?_ **`case`** _union-style-enum-case-list_
->
-> _union-style-enum-case-list_ → _union-style-enum-case_ | _union-style-enum-case_ **`,`** _union-style-enum-case-list_
->
-> _union-style-enum-case_ → _enum-case-name_ _tuple-type?_
->
-> _enum-name_ → _identifier_
->
+> _union-style-enum_ → **`indirect`**_?_ **`enum`** _enum-name_ _generic-parameter-clause?_ _type-inheritance-clause?_ _generic-where-clause?_ **`{`** _union-style-enum-members?_ **`}`** \
+> _union-style-enum-members_ → _union-style-enum-member_ _union-style-enum-members?_ \
+> _union-style-enum-member_ → _declaration_ | _union-style-enum-case-clause_ | _compiler-control-statement_ \
+> _union-style-enum-case-clause_ → _attributes?_ **`indirect`**_?_ **`case`** _union-style-enum-case-list_ \
+> _union-style-enum-case-list_ → _union-style-enum-case_ | _union-style-enum-case_ **`,`** _union-style-enum-case-list_ \
+> _union-style-enum-case_ → _enum-case-name_ _tuple-type?_ \
+> _enum-name_ → _identifier_ \
 > _enum-case-name_ → _identifier_
 >
-> _raw-value-style-enum_ → **`enum`** _enum-name_ _generic-parameter-clause?_ _type-inheritance-clause_ _generic-where-clause?_ **`{`** _raw-value-style-enum-members_ **`}`**
->
-> _raw-value-style-enum-members_ → _raw-value-style-enum-member_ _raw-value-style-enum-members?_
->
-> _raw-value-style-enum-member_ → _declaration_ | _raw-value-style-enum-case-clause_ | _compiler-control-statement_
->
-> _raw-value-style-enum-case-clause_ → _attributes?_ **`case`** _raw-value-style-enum-case-list_
->
-> _raw-value-style-enum-case-list_ → _raw-value-style-enum-case_ | _raw-value-style-enum-case_ **`,`** _raw-value-style-enum-case-list_
->
-> _raw-value-style-enum-case_ → _enum-case-name_ _raw-value-assignment?_
->
-> _raw-value-assignment_ → **`=`** _raw-value-literal_
->
+> _raw-value-style-enum_ → **`enum`** _enum-name_ _generic-parameter-clause?_ _type-inheritance-clause_ _generic-where-clause?_ **`{`** _raw-value-style-enum-members_ **`}`** \
+> _raw-value-style-enum-members_ → _raw-value-style-enum-member_ _raw-value-style-enum-members?_ \
+> _raw-value-style-enum-member_ → _declaration_ | _raw-value-style-enum-case-clause_ | _compiler-control-statement_ \
+> _raw-value-style-enum-case-clause_ → _attributes?_ **`case`** _raw-value-style-enum-case-list_ \
+> _raw-value-style-enum-case-list_ → _raw-value-style-enum-case_ | _raw-value-style-enum-case_ **`,`** _raw-value-style-enum-case-list_ \
+> _raw-value-style-enum-case_ → _enum-case-name_ _raw-value-assignment?_ \
+> _raw-value-assignment_ → **`=`** _raw-value-literal_ \
 > _raw-value-literal_ → _numeric-literal_ | _static-string-literal_ | _boolean-literal_
 
 ## 구조체 선언 (Structure Declaration)
@@ -813,14 +748,11 @@ struct <#structure name#>: <#adopted protocols#> {
 
 > Grammar of a structure declaration:
 >
-> _struct-declaration_ → _attributes?_ _access-level-modifier?_ **`struct`** _struct-name_ _generic-parameter-clause?_ _type-inheritance-clause?_ _generic-where-clause?_ _struct-body_
->
-> _struct-name_ → _identifier_
->
+> _struct-declaration_ → _attributes?_ _access-level-modifier?_ **`struct`** _struct-name_ _generic-parameter-clause?_ _type-inheritance-clause?_ _generic-where-clause?_ _struct-body_ \
+> _struct-name_ → _identifier_ \
 > _struct-body_ → **`{`** _struct-members?_ **`}`**
 >
-> _struct-members_ → _struct-member_ _struct-members?_
->
+> _struct-members_ → _struct-member_ _struct-members?_ \
 > _struct-member_ → _declaration_ | _compiler-control-statement_
 
 ## 클래스 선언 (Class Declaration)
@@ -858,16 +790,12 @@ _상위 클래스 (superclass)_ 에 선언된 프로퍼티와 메서드가 현�
 
 > Grammar of a class declaration:
 >
-> _class-declaration_ → _attributes?_ _access-level-modifier?_ **`final`**_?_ **`class`** _class-name_ _generic-parameter-clause?_ _type-inheritance-clause?_ _generic-where-clause?_ _class-body_
->
-> _class-declaration_ → _attributes?_ **`final`** _access-level-modifier?_ **`class`** _class-name_ _generic-parameter-clause?_ _type-inheritance-clause?_ _generic-where-clause?_ _class-body_
->
-> _class-name_ → _identifier_
->
+> _class-declaration_ → _attributes?_ _access-level-modifier?_ **`final`**_?_ **`class`** _class-name_ _generic-parameter-clause?_ _type-inheritance-clause?_ _generic-where-clause?_ _class-body_ \
+> _class-declaration_ → _attributes?_ **`final`** _access-level-modifier?_ **`class`** _class-name_ _generic-parameter-clause?_ _type-inheritance-clause?_ _generic-where-clause?_ _class-body_ \
+> _class-name_ → _identifier_ \
 > _class-body_ → **`{`** _class-members?_ **`}`**
 >
-> _class-members_ → _class-member_ _class-members?_
->
+> _class-members_ → _class-member_ _class-members?_ \
 > _class-member_ → _declaration_ | _compiler-control-statement_
 
 ## 액터 선언 (Actor Declaration)
@@ -905,14 +833,11 @@ actor <#actor name#>: <#adopted protocols#> {
 
 > Grammar of an actor declaration:
 >
-> _actor-declaration_ → _attributes?_ _access-level-modifier?_ **`actor`** _actor-name_ _generic-parameter-clause?_ _type-inheritance-clause?_ _generic-where-clause?_ _actor-body_
->
-> _actor-name_ → _identifier_
->
+> _actor-declaration_ → _attributes?_ _access-level-modifier?_ **`actor`** _actor-name_ _generic-parameter-clause?_ _type-inheritance-clause?_ _generic-where-clause?_ _actor-body_ \
+> _actor-name_ → _identifier_ \
 > _actor-body_ → **`{`** _actor-members?_ **`}`**
 >
-> _actor-members_ → _actor-member_ _actor-members?_
->
+> _actor-members_ → _actor-member_ _actor-members?_ \
 > _actor-member_ → _declaration_ | _compiler-control-statement_
 
 ## 프로토콜 선언 (Protocol Declaration)
@@ -968,26 +893,18 @@ protocol SomeProtocol: AnyObject {
 
 > Grammar of a protocol declaration:
 >
-> _protocol-declaration_ → _attributes?_ _access-level-modifier?_ **`protocol`** _protocol-name_ _type-inheritance-clause?_ _generic-where-clause?_ _protocol-body_
->
-> _protocol-name_ → _identifier_
->
+> _protocol-declaration_ → _attributes?_ _access-level-modifier?_ **`protocol`** _protocol-name_ _type-inheritance-clause?_ _generic-where-clause?_ _protocol-body_ \
+> _protocol-name_ → _identifier_ \
 > _protocol-body_ → **`{`** _protocol-members?_ **`}`**
 >
-> _protocol-members_ → _protocol-member_ _protocol-members?_
->
+> _protocol-members_ → _protocol-member_ _protocol-members?_ \
 > _protocol-member_ → _protocol-member-declaration_ | _compiler-control-statement_
 >
-> _protocol-member-declaration_ → _protocol-property-declaration_
->
-> _protocol-member-declaration_ → _protocol-method-declaration_
->
-> _protocol-member-declaration_ → _protocol-initializer-declaration_
->
-> _protocol-member-declaration_ → _protocol-subscript-declaration_
->
-> _protocol-member-declaration_ → _protocol-associated-type-declaration_
->
+> _protocol-member-declaration_ → _protocol-property-declaration_ \
+> _protocol-member-declaration_ → _protocol-method-declaration_ \
+> _protocol-member-declaration_ → _protocol-initializer-declaration_ \
+> _protocol-member-declaration_ → _protocol-subscript-declaration_ \
+> _protocol-member-declaration_ → _protocol-associated-type-declaration_ \
 > _protocol-member-declaration_ → _typealias-declaration_
 
 ### 프로토콜 프로퍼티 선언 (Protocol Property Declaration)
@@ -1034,8 +951,7 @@ getter 와 setter 요구사항은 다양한 방법으로 준수하는 타입으�
 
 > Grammar of a protocol initializer declaration:
 >
-> _protocol-initializer-declaration_ → _initializer-head_ _generic-parameter-clause?_ _parameter-clause_ **`throws`**_?_ _generic-where-clause?_
->
+> _protocol-initializer-declaration_ → _initializer-head_ _generic-parameter-clause?_ _parameter-clause_ **`throws`**_?_ _generic-where-clause?_ \
 > _protocol-initializer-declaration_ → _initializer-head_ _generic-parameter-clause?_ _parameter-clause_ **`rethrows`** _generic-where-clause?_
 
 ### 프로토콜 서브 스크립트 선언 (Protocol Subscript Declaration)
@@ -1167,16 +1083,11 @@ if let actualInstance = SomeStruct(input: "Hello") {
 
 > Grammar of an initializer declaration:
 >
-> _initializer-declaration_ → _initializer-head_ _generic-parameter-clause?_ _parameter-clause_ **`async`**_?_ **`throws`**_?_ _generic-where-clause?_ _initializer-body_
->
-> _initializer-declaration_ → _initializer-head_ _generic-parameter-clause?_ _parameter-clause_ **`async`**_?_ **`rethrows`** _generic-where-clause?_ _initializer-body_
->
-> _initializer-head_ → _attributes?_ _declaration-modifiers?_ **`init`**
->
-> _initializer-head_ → _attributes?_ _declaration-modifiers?_ **`init`** **`?`**
->
-> _initializer-head_ → _attributes?_ _declaration-modifiers?_ **`init`** **`!`**
->
+> _initializer-declaration_ → _initializer-head_ _generic-parameter-clause?_ _parameter-clause_ **`async`**_?_ **`throws`**_?_ _generic-where-clause?_ _initializer-body_ \
+> _initializer-declaration_ → _initializer-head_ _generic-parameter-clause?_ _parameter-clause_ **`async`**_?_ **`rethrows`** _generic-where-clause?_ _initializer-body_ \
+> _initializer-head_ → _attributes?_ _declaration-modifiers?_ **`init`** \
+> _initializer-head_ → _attributes?_ _declaration-modifiers?_ **`init`** **`?`** \
+> _initializer-head_ → _attributes?_ _declaration-modifiers?_ **`init`** **`!`** \
 > _initializer-body_ → _code-block_
 
 ## 초기화 해제 구문 선언 (Deinitializer Declaration)
@@ -1379,12 +1290,10 @@ extension Array: Loggable where Element: MarkedLoggable { }
 
 > Grammar of an extension declaration:
 >
-> _extension-declaration_ → _attributes?_ _access-level-modifier?_ **`extension`** _type-identifier_ _type-inheritance-clause?_ _generic-where-clause?_ _extension-body_
->
+> _extension-declaration_ → _attributes?_ _access-level-modifier?_ **`extension`** _type-identifier_ _type-inheritance-clause?_ _generic-where-clause?_ _extension-body_ \
 > _extension-body_ → **`{`** _extension-members?_ **`}`**
 >
-> _extension-members_ → _extension-member_ _extension-members?_
->
+> _extension-members_ → _extension-member_ _extension-members?_ \
 > _extension-member_ → _declaration_ | _compiler-control-statement_
 
 ## 서브 스크립트 선언 (Subscript Declaration)
@@ -1424,14 +1333,10 @@ _파라미터 (parameters)_ 또는 _반환 타입 (return type)_ 이 오버로�
 
 > Grammar of a subscript declaration:
 >
-> _subscript-declaration_ → _subscript-head_ _subscript-result_ _generic-where-clause?_ _code-block_
->
-> _subscript-declaration_ → _subscript-head_ _subscript-result_ _generic-where-clause?_ _getter-setter-block_
->
-> _subscript-declaration_ → _subscript-head_ _subscript-result_ _generic-where-clause?_ _getter-setter-keyword-block_
->
-> _subscript-head_ → _attributes?_ _declaration-modifiers?_ **`subscript`** _generic-parameter-clause?_ _parameter-clause_
->
+> _subscript-declaration_ → _subscript-head_ _subscript-result_ _generic-where-clause?_ _code-block_ \
+> _subscript-declaration_ → _subscript-head_ _subscript-result_ _generic-where-clause?_ _getter-setter-block_ \
+> _subscript-declaration_ → _subscript-head_ _subscript-result_ _generic-where-clause?_ _getter-setter-keyword-block_ \
+> _subscript-head_ → _attributes?_ _declaration-modifiers?_ **`subscript`** _generic-parameter-clause?_ _parameter-clause_ \
 > _subscript-result_ → **`->`** _attributes?_ _type_
 
 ## 매크로 선언 (Macro Declaration)
@@ -1442,22 +1347,21 @@ _매크로 선언 (macro declaration)_ 은 새로운 매크로를 도입합니�
 macro <#name#> = <#macro implementation#>
 ```
 
-_매크로 구현 (macro implementation)_ 은 또다른 매크로이며, 매크로의 확장을 수행하는 코드의 위치를 나타냅니다. 매크로의 구현을 포함하는 타입의 이름과 해당 타입을 포함하는 모듈의 이름을 전달하여 Swift 표준 라이브러리에서 `externalMacro(module:type:)` 매크로를 호출합니다.
+_매크로 구현 (macro implementation)_ 은 또다른 매크로이며, 매크로의 확장을 수행하는 코드의 위치를 나타냅니다.
+매크로 확장을 수행하는 코드는 Swift 코드와 상호작용 하기위해
+[SwiftSyntax][http://github.com/apple/swift-syntax/] 모듈을 사용하는 별도의 Swift 프로그램 입니다.
+매크로의 구현을 포함하는 타입의 이름과 해당 타입을 포함하는 모듈의 이름을 전달하여 Swift 표준 라이브러리에서 `externalMacro(module:type:)` 매크로를 호출합니다.
 
 함수에서 사용하는 동일한 모델에 따라 매크로는 오버로드 될 수 있습니다. 매크로 선언은 파일 범위에서만 나타납니다.
 
-자세한 내용은 [매크로 (Macros)](../language-guide-1/macros.md) 를 참고 바랍니다.
+Swift 에서 매크로의 개요는 [매크로 (Macros)](../language-guide-1/macros.md) 를 참고 바랍니다.
 
 > Grammar of a macro declaration:
 >
-> *macro-declaration* → *macro-head* *identifier* *generic-parameter-clause*_?_ *macro-signature* *macro-definition*_?_ *generic-where-clause*
->
-> *macro-head* → *attributes*_?_ *declaration-modifiers*_?_ **`macro`**
->
-> *macro-signature* → *parameter-clause* *macro-function-signature-result*_?_
->
-> *macro-function-signature-result* → **`->`** *type*
->
+> *macro-declaration* → *macro-head* *identifier* *generic-parameter-clause*_?_ *macro-signature* *macro-definition*_?_ *generic-where-clause* \
+> *macro-head* → *attributes*_?_ *declaration-modifiers*_?_ **`macro`** \
+> *macro-signature* → *parameter-clause* *macro-function-signature-result*_?_ \
+> *macro-function-signature-result* → **`->`** *type* \
 > *macro-definition* → **`=`** *expression*
 
 ## 연산자 선언 (Operator Declaration)
@@ -1504,10 +1408,8 @@ _접미사 연산자 (postfix operator)_ 는 표현식 `a!` 에서 접미사 강
 >
 > _operator-declaration_ → _prefix-operator-declaration_ | _postfix-operator-declaration_ | _infix-operator-declaration_
 >
-> _prefix-operator-declaration_ → **`prefix`** **`operator`** _operator_
->
-> _postfix-operator-declaration_ → **`postfix`** **`operator`** _operator_
->
+> _prefix-operator-declaration_ → **`prefix`** **`operator`** _operator_ \
+> _postfix-operator-declaration_ → **`postfix`** **`operator`** _operator_ \
 > _infix-operator-declaration_ → **`infix`** **`operator`** _operator_ _infix-operator-group?_
 >
 > _infix-operator-group_ → **`:`** _precedence-group-name_
@@ -1543,28 +1445,21 @@ Swift 는 표준 라이브러리에서 제공된 연산자와 함께 사용할 �
 >
 > _precedence-group-declaration_ → **`precedencegroup`** _precedence-group-name_ **`{`** _precedence-group-attributes?_ **`}`**
 >
-> _precedence-group-attributes_ → _precedence-group-attribute_ _precedence-group-attributes?_
->
-> _precedence-group-attribute_ → _precedence-group-relation_
->
-> _precedence-group-attribute_ → _precedence-group-assignment_
->
+> _precedence-group-attributes_ → _precedence-group-attribute_ _precedence-group-attributes?_ \
+> _precedence-group-attribute_ → _precedence-group-relation_ \
+> _precedence-group-attribute_ → _precedence-group-assignment_ \
 > _precedence-group-attribute_ → _precedence-group-associativity_
 >
-> _precedence-group-relation_ → **`higherThan`** **`:`** _precedence-group-names_
->
+> _precedence-group-relation_ → **`higherThan`** **`:`** _precedence-group-names_ \
 > _precedence-group-relation_ → **`lowerThan`** **`:`** _precedence-group-names_
 >
 > _precedence-group-assignment_ → **`assignment`** **`:`** _boolean-literal_
 >
-> _precedence-group-associativity_ → **`associativity`** **`:`** **`left`**
->
-> _precedence-group-associativity_ → **`associativity`** **`:`** **`right`**
->
+> _precedence-group-associativity_ → **`associativity`** **`:`** **`left`** \
+> _precedence-group-associativity_ → **`associativity`** **`:`** **`right`** \
 > _precedence-group-associativity_ → **`associativity`** **`:`** **`none`**
 >
-> _precedence-group-names_ → _precedence-group-name_ | _precedence-group-name_ **`,`** _precedence-group-names_
->
+> _precedence-group-names_ → _precedence-group-name_ | _precedence-group-name_ **`,`** _precedence-group-names_ \
 > _precedence-group-name_ → _identifier_
 
 ## 선언 수식어 (Declaration Modifiers)
@@ -1649,24 +1544,16 @@ Swift 는 다섯 수준의 접근 제어를 제공합니다: open, public, inter
 
 > Grammar of a declaration modifier:
 >
-> _declaration-modifier_ → **`class`** | **`convenience`** | **`dynamic`** | **`final`** | **`infix`** | **`lazy`** | **`optional`** | **`override`** | **`postfix`** | **`prefix`** | **`required`** | **`static`** | **`unowned`** | **`unowned`** **`(`** **`safe`** **`)`** | **`unowned`** **`(`** **`unsafe`** **`)`** | **`weak`**
->
-> _declaration-modifier_ → _access-level-modifier_
->
-> _declaration-modifier_ → _mutation-modifier_
->
-> _declaration-modifier_ → _actor-isolation-modifier_
->
+> _declaration-modifier_ → **`class`** | **`convenience`** | **`dynamic`** | **`final`** | **`infix`** | **`lazy`** | **`optional`** | **`override`** | **`postfix`** | **`prefix`** | **`required`** | **`static`** | **`unowned`** | **`unowned`** **`(`** **`safe`** **`)`** | **`unowned`** **`(`** **`unsafe`** **`)`** | **`weak`** \
+> _declaration-modifier_ → _access-level-modifier_ \
+> _declaration-modifier_ → _mutation-modifier_ \
+> _declaration-modifier_ → _actor-isolation-modifier_ \
 > _declaration-modifiers_ → _declaration-modifier_ _declaration-modifiers?_
 >
-> _access-level-modifier_ → **`private`** | **`private`** **`(`** **`set`** **`)`**
->
-> _access-level-modifier_ → **`fileprivate`** | **`fileprivate`** **`(`** **`set`** **`)`**
->
-> _access-level-modifier_ → **`internal`** | **`internal`** **`(`** **`set`** **`)`**
->
-> _access-level-modifier_ → **`public`** | **`public`** **`(`** **`set`** **`)`**
->
+> _access-level-modifier_ → **`private`** | **`private`** **`(`** **`set`** **`)`** \
+> _access-level-modifier_ → **`fileprivate`** | **`fileprivate`** **`(`** **`set`** **`)`** \
+> _access-level-modifier_ → **`internal`** | **`internal`** **`(`** **`set`** **`)`** \
+> _access-level-modifier_ → **`public`** | **`public`** **`(`** **`set`** **`)`** \
 > _access-level-modifier_ → **`open`** | **`open`** **`(`** **`set`** **`)`**
 >
 > _mutation-modifier_ → **`mutating`** | **`nonmutating`**

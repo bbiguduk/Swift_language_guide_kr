@@ -13,6 +13,12 @@ Swift 에는 두 종류의 속성 (attributes) 이 있습니다 — 선언에 �
 
 어떤 선언 속성은 속성에 대한 추가 정보와 특정 선언에 어떻게 적용하는지 지정하는 인수를 허용합니다. 이러한 _속성 인수 (attribute arguments)_ 는 소괄호로 둘러싸이고 해당 형식이 속한 속성에 의해 정의됩니다.
 
+첨부된 매크로와 프로퍼티 래퍼도 속성 구문을 사용합니다.
+매크로 확장에 대한 자세한 내용은
+[매크로-확장 표현식 (Macro-Expansion Expression)](expressions.md#매크로-확장-표현식-macro-expansion-expression) 을 참고 바랍니다.
+프로퍼티 래퍼에 대한 자세한 내용은
+[propertyWrapper](#propertywrapper) 를 참고 바랍니다.
+
 ## 선언 속성 (Declaration Attributes)
 
 선언 속성 (declaration attribute) 은 선언에만 적용할 수 있습니다.
@@ -73,6 +79,7 @@ peer, member, 그리고 accessor 매크로 역할은 매크로가 생성하는 �
 * `watchOSApplicationExtension`
 * `tvOS`
 * `tvOSApplicationExtension`
+* `visionOS`
 * `swift`
 
 또한 별표 (`*`) 를 사용하여 위에 나열된 모든 플랫폼 이름에 대한 선언의 가용성을 나타낼 수도 있습니다. Swift 버전을 사용하여 지정한 가용 `available` 속성은 별표를 사용할 수 없습니다.
@@ -499,7 +506,7 @@ s.$x.wrapper  // WrapperWithProjection value
 `static func buildPartialBlock(accumulated: Component, next: Component) -> Component` \
 누적된 컴포넌트와 새로운 컴포넌트를 결합하여 부분 결과 컴포넌트를 빌드합니다. 한번에 하나의 컴포넌트 빌딩 블럭을 지원하기위해 이 메서드와 `buildPartialBlock(first:)` 메서드를 구현합니다. `buildBlock(_:)` 과 비교하여 이 접근은 인수의 다른 갯수를 처리하는 일반적인 오버로드의 필요성을 줄여줍니다.
 
-결과 빌더는 위에 나열된 블럭-빌딩 메서드 세가지 모두 구현할 수 있습니다. 이 경우에 가용성에 따라 호출되는 메서드가 결정됩니다. 기본적으로, Swift 는 `buildPartialBlock(first:)` 와 `buildPartialBlock(second:)` 메서드를 호출합니다. Swift 가 `buildBlock(_:)` 을 호출하도록 하려면 `buildPartialBlock(first:)` 와 `buildPartialBlock(second:)` 에 작성하기 전에 동봉 선언 (enclosing declaration) 을 사용가능으로 표시합니다.
+결과 빌더는 위에 나열된 블럭-빌딩 메서드 세가지 모두 구현할 수 있습니다. 이 경우에 가용성에 따라 호출되는 메서드가 결정됩니다. 기본적으로, Swift 는 `buildPartialBlock(first:)` 와 `buildPartialBlock(accumulated:next:)` 메서드를 호출합니다. Swift 가 `buildBlock(_:)` 을 호출하도록 하려면 `buildPartialBlock(first:)` 와 `buildPartialBlock(accumulated:next:)` 에 작성하기 전에 동봉 선언 (enclosing declaration) 을 사용가능으로 표시합니다.
 
 추가적인 결과-빌딩 메서드는 다음과 같습니다:  
 
@@ -692,7 +699,52 @@ if (someNumber % 2) == 1 {
 var manualOptional = ArrayBuilder.buildOptional(partialResult)
 ```
 
-* 코드 블럭 또는 `do` 구문은 `buildBlock(_:)` 메서드에 대한 호출이 됩니다. 블럭 내부의 각 구문은 한번에 하나씩 변환되고 `buildBlock(_:)` 메서드에 대한 인수가 됩니다. 예를 들어 다음의 선언은 동일합니다:
+- 결과 빌더가 `buildPartialBlock(first:)` 와 `buildPartialBlock(accumulated:next:)` 메서드를 구현하는 경우,
+  코드 블럭 또는 `do` 구문은 해당 메서드를 호출합니다.
+  블럭의 첫번째 구문은 `buildPartialBlock(first:)` 메서드 인수로 변환되고,
+  나머지 구문은 `buildPartialBlock(accumulated:next:)` 메서드를 중첩 호출하게 됩니다.
+  예를 들어, 다음 선언은 동일한 구문입니다:
+
+```swift
+struct DrawBoth<First: Drawable, Second: Drawable>: Drawable {
+    var first: First
+    var second: Second
+    func draw() -> String { return first.draw() + second.draw() }
+}
+
+
+@resultBuilder
+struct DrawingPartialBlockBuilder {
+    static func buildPartialBlock<D: Drawable>(first: D) -> D {
+        return first
+    }
+    static func buildPartialBlock<Accumulated: Drawable, Next: Drawable>(
+        accumulated: Accumulated, next: Next
+    ) -> DrawBoth<Accumulated, Next> {
+        return DrawBoth(first: accumulated, second: next)
+    }
+}
+
+
+@DrawingPartialBlockBuilder var builderBlock: some Drawable {
+    Text("First")
+    Line(elements: [Text("Second"), Text("Third")])
+    Text("Last")
+}
+
+
+let partialResult1 = DrawingPartialBlockBuilder.buildPartialBlock(first: Text("first"))
+let partialResult2 = DrawingPartialBlockBuilder.buildPartialBlock(
+    accumulated: partialResult1,
+    next: Line(elements: [Text("Second"), Text("Third")])
+)
+let manualResult = DrawingPartialBlockBuilder.buildPartialBlock(
+    accumulated: partialResult2,
+    next: Text("Last")
+)
+```
+
+* 그렇지 않으면, 코드 블럭 또는 `do` 구문은 `buildBlock(_:)` 메서드에 대한 호출이 됩니다. 블럭 내부의 각 구문은 한번에 하나씩 변환되고 `buildBlock(_:)` 메서드에 대한 인수가 됩니다. 예를 들어 다음의 선언은 동일합니다:
 
 ```swift
 @ArrayBuilder var builderBlock: [Int] {
@@ -831,24 +883,14 @@ switch 케이스에만 switch 케이스 속성을 적용할 수 있습니다.
 
 > Grammar of an attribute:
 >
-> *attribute* → **`@`** *attribute-name* *attribute-argument-clause*_?_
->
-> *attribute-name* → *identifier*
->
-> *attribute-argument-clause* → **`(`** *balanced-tokens*_?_ **`)`**
->
+> *attribute* → **`@`** *attribute-name* *attribute-argument-clause*_?_ \
+> *attribute-name* → *identifier* \
+> *attribute-argument-clause* → **`(`** *balanced-tokens*_?_ **`)`** \
 > *attributes* → *attribute* *attributes*_?_
 >
->
->
-> *balanced-tokens* → *balanced-token* *balanced-tokens*_?_
->
-> *balanced-token* → **`(`** *balanced-tokens*_?_ **`)`**
->
-> *balanced-token* → **`[`** *balanced-tokens*_?_ **`]`**
->
-> *balanced-token* → **`{`** *balanced-tokens*_?_ **`}`**
->
-> *balanced-token* → Any identifier, keyword, literal, or operator
->
+> *balanced-tokens* → *balanced-token* *balanced-tokens*_?_ \
+> *balanced-token* → **`(`** *balanced-tokens*_?_ **`)`** \
+> *balanced-token* → **`[`** *balanced-tokens*_?_ **`]`** \
+> *balanced-token* → **`{`** *balanced-tokens*_?_ **`}`** \
+> *balanced-token* → Any identifier, keyword, literal, or operator \
 > *balanced-token* → Any punctuation except  **`(`**,  **`)`**,  **`[`**,  **`]`**,  **`{`**, or  **`}`**

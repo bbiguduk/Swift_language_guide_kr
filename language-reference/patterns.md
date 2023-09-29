@@ -12,20 +12,13 @@ Swift 에는 두가지의 기본 패턴이 있습니다: 모든 종류의 값과
 
 > Grammar of a pattern:
 >
-> *pattern* → *wildcard-pattern* *type-annotation*_?_
->
-> *pattern* → *identifier-pattern* *type-annotation*_?_
->
-> *pattern* → *value-binding-pattern*
->
-> *pattern* → *tuple-pattern* *type-annotation*_?_
->
-> *pattern* → *enum-case-pattern*
->
-> *pattern* → *optional-pattern*
->
-> *pattern* → *type-casting-pattern*
->
+> *pattern* → *wildcard-pattern* *type-annotation*_?_ \
+> *pattern* → *identifier-pattern* *type-annotation*_?_ \
+> *pattern* → *value-binding-pattern* \
+> *pattern* → *tuple-pattern* *type-annotation*_?_ \
+> *pattern* → *enum-case-pattern* \
+> *pattern* → *optional-pattern* \
+> *pattern* → *type-casting-pattern* \
 > *pattern* → *expression-pattern*
 
 ## 와일드 카드 패턴 (Wildcard Pattern)
@@ -106,10 +99,8 @@ let (a): Int = 2 // a: Int = 2
 
 > Grammar of a tuple pattern:
 >
-> *tuple-pattern* → **`(`** *tuple-pattern-element-list*_?_ **`)`**
->
-> *tuple-pattern-element-list* → *tuple-pattern-element* | *tuple-pattern-element* **`,`** *tuple-pattern-element-list*
->
+> *tuple-pattern* → **`(`** *tuple-pattern-element-list*_?_ **`)`** \
+> *tuple-pattern-element-list* → *tuple-pattern-element* | *tuple-pattern-element* **`,`** *tuple-pattern-element-list* \
 > *tuple-pattern-element* → *pattern* | *identifier* **`:`** *pattern*
 
 ## 열거형 케이스 패턴 (Enumeration Case Pattern)
@@ -191,10 +182,8 @@ is <#type#>
 
 > Grammar of a type casting pattern:
 >
-> *type-casting-pattern* → *is-pattern* | *as-pattern*
->
-> *is-pattern* → **`is`** *type*
->
+> *type-casting-pattern* → *is-pattern* | *as-pattern* \
+> *is-pattern* → **`is`** *type* \
 > *as-pattern* → *pattern* **`as`** *type*
 
 ## 표현식 패턴 (Expression Pattern)

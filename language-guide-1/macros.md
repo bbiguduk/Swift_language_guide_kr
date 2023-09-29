@@ -29,7 +29,7 @@ func myFunction() {
 }
 ```
 
-첫번재 줄에서 `#function` 은 Swift 표준 라이브러리에 [`function`](https://developer.apple.com/documentation/swift/function) 을 호출합니다. 이 코드를 컴파일 할 때 Swift 는 `#function` 을 현재 함수의 이름으로 대체하는 매크로의 구현을 호출합니다. 이 코드를 실행하고 `myFunction()` 을 호출할 때 "Currently running myFunction()" 을 보여줍니다. 두번째 줄에서 `#warning` 은 Swift 표준 라이브러리에서 [`warning(_:)`](https://developer.apple.com/documentation/swift/warning(_:)) 매크로를 호출하여 사용자 지정 컴파일 경고를 생성합니다.
+첫번재 줄에서 `#function` 은 Swift 표준 라이브러리에 [`function()`](https://developer.apple.com/documentation/swift/function()) 을 호출합니다. 이 코드를 컴파일 할 때 Swift 는 `#function` 을 현재 함수의 이름으로 대체하는 매크로의 구현을 호출합니다. 이 코드를 실행하고 `myFunction()` 을 호출할 때 "Currently running myFunction()" 을 보여줍니다. 두번째 줄에서 `#warning` 은 Swift 표준 라이브러리에서 [`warning(_:)`](https://developer.apple.com/documentation/swift/warning(_:)) 매크로를 호출하여 사용자 지정 컴파일 경고를 생성합니다.
 
 독립 매크로는 `#function` 과 같이 값을 생성하거나 `#warning` 과 같이 컴파일 때 동작을 수행할 수 있습니다.
 
@@ -65,7 +65,7 @@ struct SundaeToppings {
 }
 ```
 
-이 버전의 `SundaeToppings` 는 Swift 표준 라이브러리에 [`@OptionSet`](https://developer.apple.com/documentation/swift/optionset-swift.macro) 매크로를 호출합니다. 이 매크로는 private 열거형에 케이스의 목록을 읽고 각 옵션에 대한 상수 목록을 생성하고 [`OptionSet`](https://developer.apple.com/documentation/swift/optionset-swift.protocol) 프로토콜의 준수성을 추가합니다.
+이 버전의 `SundaeToppings` 는 `@OptionSet` 매크로를 호출합니다. 이 매크로는 private 열거형에 케이스의 목록을 읽고 각 옵션에 대한 상수 목록을 생성하고 [`OptionSet`](https://developer.apple.com/documentation/swift/optionset) 프로토콜의 준수성을 추가합니다.
 
 비교를 위해 `@OptionSet` 매크로의 확장 버전은 다음과 같습니다. 이 코드를 작성하지 않고 매크로의 확장을 보기위해 Swift 에 요청한 경우에만 볼 수 있습니다.
 
@@ -281,6 +281,19 @@ private func fourCharacterCode(for characters: String) -> UInt32? {
     return result.bigEndian
 }
 enum CustomError: Error { case message(String) }
+```
+
+이 매크로를 기존에 Swift Package Manager 프로젝트에 추가하는 경우에,
+매크로 타겟에 대한 시작지점으로 역할하고
+타겟을 정의하는 매크로의 목록의 타입을 추가합니다:
+
+```swift
+import SwiftCompilerPlugin
+
+@main
+struct MyProjectMacros: CompilerPlugin {
+    var providingMacros: [Macro.Type] = [FourCharacterCode.self]
+}
 ```
 
 `#fourCharacterCode` 매크로는 표현식을 생성하는 독립 매크로이므로, 구현한 `FourCharacterCode` 타입은 `ExpressionMacro` 프로토콜을 준수합니다. `ExpressionMacro` 프로토콜은 AST 를 확장하는 `expansion(of:in:)` 메서드 인 하나의 요구사항을 가집니다. 매크로 역할과 해당 SwiftSystem 프로토콜의 목록은 [속성 (Attributes)](../language-reference/attributes.md) 에 [attached](../language-reference/attributes.md#attached) 와 [freestanding](../language-reference/attributes.md#freestanding) 을 참고 바랍니다.
