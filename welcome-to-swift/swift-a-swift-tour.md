@@ -687,6 +687,50 @@ Task {
 // Prints "Hello Guest, user ID 97"
 ```
 
+동시성 코드를 구성 하기위해 작업 그룹 (task group) 을 사용합니다.
+
+```swift
+let userIDs = await withTaskGroup(of: Int.self) { taskGroup in
+    for server in ["primary", "secondary", "development"] {
+        taskGroup.addTask {
+            return await fetchUserID(from: server)
+        }
+    }
+
+    var results: [Int] = []
+    for await result in taskGroup {
+        results.append(result)
+    }
+    return results
+}
+```
+
+액터는 다양한 비동기 함수가 동시에 동일한 액터의 인스턴스와 안전하게 상호작용 할 수 있다는 것을
+제외하고는 클래스와 유사합니다.
+
+```swift
+actor ServerConnection {
+    var server: String = "primary"
+    private var activeUsers: [Int] = []
+    func connect() async -> Int {
+        let userID = await fetchUserID(from: server)
+        // ... communicate with server ...
+        activeUsers.append(userID)
+        return userID
+    }
+}
+```
+
+액터의 메서드를 호출하거나 프로퍼티에 접근할 때,
+액터에서 이미 실행 중인 다른 코드가 완료될 때까지
+기다리고 있는 것을 나타내기 위해
+코드에 `await` 를 표기합니다.
+
+```swift
+let server = ServerConnection()
+let userID = await server.connect()
+```
+
 ## 프로토콜과 확장 \(Protocols and Extensions\)
 
 프로토콜을 선언하려면 `protocol` 을 사용해야 합니다.
