@@ -1347,11 +1347,14 @@ _매크로 선언 (macro declaration)_ 은 새로운 매크로를 도입합니�
 macro <#name#> = <#macro implementation#>
 ```
 
-_매크로 구현 (macro implementation)_ 은 또다른 매크로이며, 매크로의 확장을 수행하는 코드의 위치를 나타냅니다. 매크로의 구현을 포함하는 타입의 이름과 해당 타입을 포함하는 모듈의 이름을 전달하여 Swift 표준 라이브러리에서 `externalMacro(module:type:)` 매크로를 호출합니다.
+_매크로 구현 (macro implementation)_ 은 또다른 매크로이며, 매크로의 확장을 수행하는 코드의 위치를 나타냅니다.
+매크로 확장을 수행하는 코드는 Swift 코드와 상호작용 하기위해
+[SwiftSyntax][http://github.com/apple/swift-syntax/] 모듈을 사용하는 별도의 Swift 프로그램 입니다.
+매크로의 구현을 포함하는 타입의 이름과 해당 타입을 포함하는 모듈의 이름을 전달하여 Swift 표준 라이브러리에서 `externalMacro(module:type:)` 매크로를 호출합니다.
 
 함수에서 사용하는 동일한 모델에 따라 매크로는 오버로드 될 수 있습니다. 매크로 선언은 파일 범위에서만 나타납니다.
 
-자세한 내용은 [매크로 (Macros)](../language-guide-1/macros.md) 를 참고 바랍니다.
+Swift 에서 매크로의 개요는 [매크로 (Macros)](../language-guide-1/macros.md) 를 참고 바랍니다.
 
 > Grammar of a macro declaration:
 >
