@@ -283,6 +283,19 @@ private func fourCharacterCode(for characters: String) -> UInt32? {
 enum CustomError: Error { case message(String) }
 ```
 
+이 매크로를 기존에 Swift Package Manager 프로젝트에 추가하는 경우에,
+매크로 타겟에 대한 시작지점으로 역할하고
+타겟을 정의하는 매크로의 목록의 타입을 추가합니다:
+
+```swift
+import SwiftCompilerPlugin
+
+@main
+struct MyProjectMacros: CompilerPlugin {
+    var providingMacros: [Macro.Type] = [FourCharacterCode.self]
+}
+```
+
 `#fourCharacterCode` 매크로는 표현식을 생성하는 독립 매크로이므로, 구현한 `FourCharacterCode` 타입은 `ExpressionMacro` 프로토콜을 준수합니다. `ExpressionMacro` 프로토콜은 AST 를 확장하는 `expansion(of:in:)` 메서드 인 하나의 요구사항을 가집니다. 매크로 역할과 해당 SwiftSystem 프로토콜의 목록은 [속성 (Attributes)](../language-reference/attributes.md) 에 [attached](../language-reference/attributes.md#attached) 와 [freestanding](../language-reference/attributes.md#freestanding) 을 참고 바랍니다.
 
 `#fourCharacterCode` 매크로를 확장하기 위해, Swift 는 이 매크로를 사용하는 코드에 대한 AST 를 매크로 구현을 포함하는 라이브러리로 보냅니다. 라이브러리에서 Swift 는 `FourCharacterCode.expansion(of:in:)` 을 호출하고, AST 와 컨텍스트를 인수로 메서드에 전달합니다. `expansion(of:in:)` 의 구현은 `#fourCharacterCode` 에 인수로 전달된 문자열을 찾고, 정수 리터럴 값으로 계산합니다.
