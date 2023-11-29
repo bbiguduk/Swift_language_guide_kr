@@ -310,7 +310,7 @@
 
 > Grammar of an in-out expression:
 >
-> *in-out-expression* → **`&`** *identifier*
+> *in-out-expression* → **`&`** *primary-expression*
 
 > Grammar of a try expression:
 >

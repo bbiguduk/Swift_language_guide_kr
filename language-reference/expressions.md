@@ -38,7 +38,7 @@ in-out 표현식은 [포인터 타입에 대한 암시적 변환 (Implicit Conve
 
 > Grammar of an in-out expression:
 >
-> *in-out-expression* → **`&`** *identifier*
+> *in-out-expression* → **`&`** *primary-expression*
 
 ### Try 연산자 (Try Operator)
 
