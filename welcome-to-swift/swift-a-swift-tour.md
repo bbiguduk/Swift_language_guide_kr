@@ -690,15 +690,15 @@ Task {
 동시성 코드를 구성 하기위해 작업 그룹 (task group) 을 사용합니다.
 
 ```swift
-let userIDs = await withTaskGroup(of: Int.self) { taskGroup in
+let userIDs = await withTaskGroup(of: Int.self) { group in
     for server in ["primary", "secondary", "development"] {
-        taskGroup.addTask {
+        group.addTask {
             return await fetchUserID(from: server)
         }
     }
 
     var results: [Int] = []
-    for await result in taskGroup {
+    for await result in group {
         results.append(result)
     }
     return results
