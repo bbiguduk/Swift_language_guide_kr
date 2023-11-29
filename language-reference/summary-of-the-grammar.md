@@ -735,7 +735,6 @@
 > *declaration* → *subscript-declaration* \
 > *declaration* → *operator-declaration* \
 > *declaration* → *precedence-group-declaration* \
-> *declarations* → *declaration* *declarations*_?_
 
 > Grammar of a top-level declaration:
 >
