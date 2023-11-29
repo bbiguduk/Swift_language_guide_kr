@@ -233,11 +233,11 @@ Swift 에서 제어 표현식의 타입에서 가능한 모든 값은 적어도 
 
 #### 향후 열거형 케이스 전환 (Switching Over Future Enumeration Cases)
 
-_비고정 열거형 (nonfrozen enumeration)_ 은 앱을 컴파일하고 출시한 후에도 나중에 새로운 열거형 케이스를 얻을 수 있는 특별한 종류의 열거형입니다. 비고정 열거형을 전환하려면 추가 고려사항이 필요합니다. 라이브러리 작성자가 비고정으로 열거형을 표시할 때 새로운 열거형 케이스를 추가할 권한이 있으며 해당 열거형과 상호작용하는 모든 코드는 다시 컴파일되지 않고 향후 케이스를 처리할 수 있습니다. 라이브러리 진화 모드에서 컴파일된 코드, 표준 라이브러리의 코드, Apple 프레임워크용 Swift 오버레이, 그리고 C 그리고 Objective-C 코드는 비고정 열거형을 선언할 수 있습니다. 고정과 비고정 열거형에 대한 자세한 내용은 [고정 (frozen)](attributes.md#frozen) 을 참고 바랍니다.
+_비고정 열거형 (nonfrozen enumeration)_ 은 앱을 컴파일하고 출시한 후에도 나중에 새로운 열거형 케이스를 얻을 수 있는 특별한 종류의 열거형입니다. 비고정 열거형을 전환하려면 추가 고려사항이 필요합니다. 라이브러리 작성자가 비고정으로 열거형을 표시할 때 새로운 열거형 케이스를 추가할 권한이 있으며 해당 열거형과 상호작용하는 모든 코드는 다시 컴파일되지 않고 향후 케이스를 처리할 수 있습니다. 라이브러리 진화 모드에서 컴파일된 코드, Swift 표준 라이브러리의 코드, Apple 프레임워크용 Swift 오버레이, 그리고 C 그리고 Objective-C 코드는 비고정 열거형을 선언할 수 있습니다. 고정과 비고정 열거형에 대한 자세한 내용은 [고정 (frozen)](attributes.md#frozen) 을 참고 바랍니다.
 
 비고정 열거형 값을 변경할 때 열거형의 모든 케이스가 해당 전환 케이스가 있더라도 기본 케이스를 포함해야 합니다.향후에 추가된 열거형 케이스에만 일치되는 기본 케이스를 나타내기 위해 기본 케이스에 `@unknown` 속성을 적용할 수 있습니다. Swift 는 컴파일 시에 모든 열거형 케이스와 일치하는 기본 케이스가 있다면 경고를 발생시킵니다. 향후 이 경고는 라이브러리 작성자가 해당 스위치 케이스가 없는 열거형에 새로운 케이스를 추가했음을 알려줍니다.
 
-다음 예제는 표준 라이브러리의 [`Mirror.AncestorRepresentation`](https://developer.apple.com/documentation/swift/mirror/ancestorrepresentation) 열거형의 세가지 기존 케이스를 모두 전환합니다. 향후에 추가 케이스를 추가하면 컴파일러는 새로운 케이스를 고려하기 위해 switch 구문을 업데이트 해야 한다고 나타내는 경고를 생성합니다.
+다음 예제는 Swift 표준 라이브러리의 [`Mirror.AncestorRepresentation`](https://developer.apple.com/documentation/swift/mirror/ancestorrepresentation) 열거형의 세가지 기존 케이스를 모두 전환합니다. 향후에 추가 케이스를 추가하면 컴파일러는 새로운 케이스를 고려하기 위해 switch 구문을 업데이트 해야 한다고 나타내는 경고를 생성합니다.
 
 ```swift
 let representation: Mirror.AncestorRepresentation = .generated

@@ -899,7 +899,7 @@ extension PrettyTextRepresentable  {
 
 프로토콜 확장을 정의할 때 확장의 메서드와 프로퍼티를 사용할 수 있기 전에 준수하는 타입이 충족해야 하는 제약조건을 지정할 수 있습니다. 일반적인 `where` 절을 작성하여 확장하는 프로토콜의 이름 뒤에 제약조건을 작성합니다. 자세한 내용은 [제너릭 Where 절 \(Generic Where Clauses\)](generics.md#where-generic-where-clauses) 을 참고 바랍니다.
 
-예를 들어 `Equatable` 프로토콜을 준수하는 항목의 모든 콜렉션에 적용하는 `Collection` 프로토콜의 확장을 정의할 수 있습니다. 콜렉션의 요소를 표준 라이브러리의 일부인 `Equatable` 프로토콜로 제한하면 두 요소간의 같음과 다름에 대한 확인을 위해 `==` 와 `!=` 연산자를 사용할 수 있습니다.
+예를 들어 `Equatable` 프로토콜을 준수하는 항목의 모든 콜렉션에 적용하는 `Collection` 프로토콜의 확장을 정의할 수 있습니다. 콜렉션의 요소를 Swift 표준 라이브러리의 일부인 `Equatable` 프로토콜로 제한하면 두 요소간의 같음과 다름에 대한 확인을 위해 `==` 와 `!=` 연산자를 사용할 수 있습니다.
 
 ```swift
 extension Collection where Element: Equatable {
