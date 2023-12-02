@@ -112,12 +112,14 @@ public macro OptionSet<RawType>() =
 
 ```swift
 @attached(member)
-@attached(conformance)
+@attached(extension, conformances: OptionSet)
 public macro OptionSet<RawType>() =
         #externalMacro(module: "SwiftMacros", type: "OptionSetMacro")
 ```
 
-`@attached` 속성은 각 매크로 역할에 대해 한번씩 선언에서 두번 나타납니다. 첫번째는 `@attached(member)` 를 사용하고 매크로가 적용된 타입에 새로운 멤버를 추가한다고 나타냅니다. `@OptionSet` 매크로는 `OptionSet` 프로토콜에 의해 요구되는 `init(rawValue:)` 초기화 구문과 멤버를 추가합니다. 두번째는 `@attached(conformance)` 를 사용하고 `@OptionSet` 이 프로토콜의 준수성을 하나 이상 추가한다고 나타냅니다. `@OptionSet` 매크로는 매크로를 적용한 타입을 확장하여 `OptionSet` 프로토콜의 준수성을 추가합니다.  
+`@attached` 속성은 각 매크로 역할에 대해 한번씩 선언에서 두번 나타납니다. 첫번째는 `@attached(member)` 를 사용하고 매크로가 적용된 타입에 새로운 멤버를 추가한다고 나타냅니다. `@OptionSet` 매크로는 `OptionSet` 프로토콜에 의해 요구되는 `init(rawValue:)` 초기화 구문과 멤버를 추가합니다.
+두번째는 `@attached(extension, conformances: OptionSet)` 를 사용하고 `@OptionSet` 이 `OptionSet` 프로토콜의 준수성을 추가한다고 나타냅니다.
+`@OptionSet` 매크로는 매크로를 적용한 타입을 확장하여 `OptionSet` 프로토콜의 준수성을 추가합니다.  
 
 독립 매크로에 대해 매크로의 역할을 지정하기 위해 `@freestanding` 속성을 작성합니다:
 
@@ -134,7 +136,7 @@ public macro line<T: ExpressibleByIntegerLiteral>() -> T =
 ```swift
 @attached(member, names: named(RawValue), named(rawValue),
         named(`init`), arbitrary)
-@attached(conformance)
+@attached(extension, conformances: OptionSet)
 public macro OptionSet<RawType>() =
         #externalMacro(module: "SwiftMacros", type: "OptionSetMacro")
 ```
@@ -191,17 +193,17 @@ let magicNumber = #fourCharacterCode("ABCD")
 
 `#fourCharacterCode` 의 구현은 확장된 코드를 포함하는 새로운 AST 를 생성합니다. 다음은 코드가 컴파일러에 무엇을 반환하는지 나타냅니다:
 
-![A tree diagram with a sigle node, the integer literal 1145258561.](../.gitbook/assets/macro-ast-output~dark%402x.png)
+![A tree diagram with the integer literal 1145258561 of type UInt32.](../.gitbook/assets/macro-ast-output~dark%402x.png)
 
 컴파일러가 이 확장을 받으면, 매크로 호출을 포함하는 AST 요소를 매크로의 확장이 포함된 요소로 대체합니다. 매크로 확장 후에, 컴파일러는 프로그램이 여전히 Swift 에 유효하고 모든 타입이 올바른지 다시 확인합니다. 그러면 컴파일 될 수 있는 최종 AST 가 생성됩니다.
 
-![A tree diagram, with a constant as the root element.  The constant has a name, magic number, and a value.  The constant's value is the integer literal 1145258561](../.gitbook/assets/macro-ast-result~dark%402x.png)
+![A tree diagram, with a constant as the root element.  The constant has a name, magic number, and a value.  The constant's value is the integer literal 1145258561 of type UInt32](../.gitbook/assets/macro-ast-result~dark%402x.png)
 
 
 This AST corresponds to Swift code like this:
 
 ```
-let magicNumber = 1145258561
+let magicNumber = 1145258561 as UInt32
 ```
 
 이 예제에서, 입력 소스코드는 하나의 매크로만 가지지만, 실제 프로그램에서는 동일한 매크로의 여러 인스턴스와 다른 매크로에 대한 여러 호출이 있을 수 있습니다. 컴파일러는 한 번에 하나씩 매크로를 확장합니다.
@@ -238,7 +240,7 @@ targets: [
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/apple/swift-syntax.git", from: "some-tag"),
+    .package(url: "https://github.com/apple/swift-syntax", from: "509.0.0")
 ],
 ```
 
@@ -265,7 +267,7 @@ public struct FourCharacterCode: ExpressionMacro {
             throw CustomError.message("Invalid four-character code")
         }
 
-        return "\(raw: result)"
+        return "\(raw: result) as UInt32"
     }
 }
 
@@ -278,7 +280,7 @@ private func fourCharacterCode(for characters: String) -> UInt32? {
         guard let asciiValue = character.asciiValue else { return nil }
         result += UInt32(asciiValue)
     }
-    return result.bigEndian
+    return result
 }
 enum CustomError: Error { case message(String) }
 ```
@@ -298,7 +300,7 @@ struct MyProjectMacros: CompilerPlugin {
 
 `#fourCharacterCode` 매크로는 표현식을 생성하는 독립 매크로이므로, 구현한 `FourCharacterCode` 타입은 `ExpressionMacro` 프로토콜을 준수합니다. `ExpressionMacro` 프로토콜은 AST 를 확장하는 `expansion(of:in:)` 메서드 인 하나의 요구사항을 가집니다. 매크로 역할과 해당 SwiftSystem 프로토콜의 목록은 [속성 (Attributes)](../language-reference/attributes.md) 에 [attached](../language-reference/attributes.md#attached) 와 [freestanding](../language-reference/attributes.md#freestanding) 을 참고 바랍니다.
 
-`#fourCharacterCode` 매크로를 확장하기 위해, Swift 는 이 매크로를 사용하는 코드에 대한 AST 를 매크로 구현을 포함하는 라이브러리로 보냅니다. 라이브러리에서 Swift 는 `FourCharacterCode.expansion(of:in:)` 을 호출하고, AST 와 컨텍스트를 인수로 메서드에 전달합니다. `expansion(of:in:)` 의 구현은 `#fourCharacterCode` 에 인수로 전달된 문자열을 찾고, 정수 리터럴 값으로 계산합니다.
+`#fourCharacterCode` 매크로를 확장하기 위해, Swift 는 이 매크로를 사용하는 코드에 대한 AST 를 매크로 구현을 포함하는 라이브러리로 보냅니다. 라이브러리에서 Swift 는 `FourCharacterCode.expansion(of:in:)` 을 호출하고, AST 와 컨텍스트를 인수로 메서드에 전달합니다. `expansion(of:in:)` 의 구현은 `#fourCharacterCode` 에 인수로 전달된 문자열을 찾고, 부호없는 32-bit 정수 리터럴 값으로 계산합니다.
 
 위 예제에서, 첫번재 `guard` 블럭은 AST 에서 문자열 리터럴을 추출하고, `literalSegment` 에 해당 AST 요소를 할당합니다. 두번째 `guard` 블럭에서 private `fourCharacterCode(for:)` 함수를 호출합니다. 해당 블럭들은 매크로가 올바르게 사용되지 않으면 에러가 발생합니다 - 에러 메세지는 잘못된 호출 부분에서 컴파일 에러가 됩니다. 예를 들어, `#fourCharacterCode("AB" + "CD")` 로 매크로를 호출하면 컴파일러는 "Need a static string." 이라는 에러가 발생합니다.
 
@@ -322,13 +324,13 @@ let file = BasicMacroExpansionContext.KnownSourceFile(
 let context = BasicMacroExpansionContext(sourceFiles: [source: file])
 
 let transformedSF = source.expand(
-    macros:["fourCharacterCode": FourCC.self],
+    macros:["fourCharacterCode": FourCharacterCode.self],
     in: context
 )
 
 let expectedDescription =
     """
-    let abcd = 1145258561
+    let abcd = 1145258561 as UInt32
     """
 
 precondition(transformedSF.description == expectedDescription)

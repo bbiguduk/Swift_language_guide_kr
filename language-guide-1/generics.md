@@ -700,7 +700,7 @@ extension Container where Item: Equatable {
 
 ## 제너릭 Where 절이 있는 연관된 타입 \(Associated Types with a Generic Where Clause\)
 
-연관된 타입에 제너릭 `where` 절을 포함할 수 있습니다. 예를 들어 표준 라이브러리에서 `Sequence` 프로토콜이 사용하는 것과 같이 반복자를 포함하는 `Container` 의 버전을 만들고 싶다고 가정해 봅시다. 작성 방법은 아래와 같습니다:
+연관된 타입에 제너릭 `where` 절을 포함할 수 있습니다. 예를 들어 Swift 표준 라이브러리에서 `Sequence` 프로토콜이 사용하는 것과 같이 반복자를 포함하는 `Container` 의 버전을 만들고 싶다고 가정해 봅시다. 작성 방법은 아래와 같습니다:
 
 ```swift
 protocol Container {

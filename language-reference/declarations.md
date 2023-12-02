@@ -87,7 +87,20 @@ let <#constant name#>: <#type#> = <#expression#>
 
 상수 선언은 _상수 이름 (constant name)_ 과 초기화 구문 _표현식 (expression)_ 의 값 사이의 변경 불가능한 바인딩을 정의합니다; 상수의 값이 설정된 후에 변경할 수 없습니다. 이 말은 상수가 클래스 객체로 초기화되면 이 객체 자체는 변경할 수 있지만 이 상수 이름과 참조하는 객체 간의 바인딩은 변경할 수 없습니다.
 
-상수가 전역 범위로 선언되면 값으로 반드시 초기화 되어야 합니다. 상수 선언이 함수 또는 메서드의 컨텍스트에 나타나면 해당 값을 처음 읽기 전에 값을 설정한다는 보장이 있는 한 나중에 초기화 될 수 있습니다. 컴파일러가 상수의 값을 읽지 않는다는 것을 증명할 수 있으면 상수에 값을 설정하지 않아도 됩니다. 상수 선언이 클래스 또는 구조체 선언의 컨텍스트에서 나타나면 _상수 프로퍼티 (constant property)_ 로 간주됩니다. 상수 선언은 계산된 프로퍼티가 아니므로 getter 또는 setter 를 가지지 않습니다.
+상수가 전역 범위로 선언되면 값으로 반드시 초기화 되어야 합니다. 상수 선언이 함수 또는 메서드의 컨텍스트에 나타나면 해당 값을 처음 읽기 전에 값을 설정한다는 보장이 있는 한 나중에 초기화 될 수 있습니다. 컴파일러가 상수의 값을 읽지 않는다는 것을 증명할 수 있으면 상수에 값을 설정하지 않아도 됩니다.
+이 분석을 *확정 초기화 (definite initialization)* 라고 불립니다 ---
+컴파일러는 읽기 전에 확실하게 값이 설정되어 있다는 것을 증명합니다.
+
+> Note:
+> 확정 초기화 (Definite initialization) 는
+> 도메인 지식을 요구하는 증명을 구성할 수 없으며,
+> 조건문에서 상태를 추적하는 것에는 제한이 있습니다.
+> 상수에 항상 값이 있다고 결정할 수 있지만,
+> 컴파일러가 이를 증명할 수 없는 경우에,
+> 값을 설정하는 코드 경로를 단순화하거나,
+> 변수 선언을 사용합니다.
+
+상수 선언이 클래스 또는 구조체 선언의 컨텍스트에서 나타나면 _상수 프로퍼티 (constant property)_ 로 간주됩니다. 상수 선언은 계산된 프로퍼티가 아니므로 getter 또는 setter 를 가지지 않습니다.
 
 상수 선언의 _상수 이름 (constant name)_ 이 튜플 패턴인 경우 튜플에서 각 항목의 이름은 초기화 구문 _표현식 (expression)_ 에서 해당 값으로 바인딩 됩니다.
 
@@ -391,7 +404,44 @@ func repeatGreeting(_ greeting: String, count n: Int) { /* Greet n times */ }
 repeatGreeting("Hello, world!", count: 2) //  count is labeled, greeting is not
 ```
 
-### In-Out 파라미터 (In-Out Parameters)
+### 파라미터 수식어 (Parameter Modifiers)
+
+*파라미터 수식어 (parameter modifier)* 는 함수에 전달된 인수를 변경합니다.
+
+```swift
+<#argument label#> <#parameter name#>: <#parameter modifier#> <#parameter type#>
+```
+
+파라미터 수식어를 사용하려면,
+인수의 타입 전에
+`inout`, `borrowing`, 또는 `consuming` 을 작성합니다.
+
+```swift
+func someFunction(a: inout A, b: consuming B, c: C) { ... }
+```
+
+#### In-Out 파라미터 (In-Out Parameters)
+
+기본적으로, Swift 에서 함수 인수는 값으로 전달됩니다:
+함수에서 수정된 것은 호출자에게 보여지지 않습니다.
+대신 in-out 파라미터를 만드려면,
+`inout` 파라미터 수식어를 적용합니다.
+
+```swift
+func someFunction(a: inout Int) {
+    a += 1
+}
+```
+
+in-out 파라미터를 포함하는 함수를 호출할 때,
+인수의 값이 변경될 수 있는 함수 호출인 것을 나타내기위해
+in-out 인수는 앰퍼샌드 (`&`) 를 앞에 붙여야 합니다.
+
+```swift
+var x = 7
+someFunction(&x)
+print(x)  // Prints "8"
+```
 
 In-out 파라미터는 다음과 같이 전달됩니다:
 
@@ -403,7 +453,30 @@ In-out 파라미터는 다음과 같이 전달됩니다:
 
 최적화로 인수가 메모리의 물리적 주소에 저장된 값인 경우 동일한 메모리 위치가 함수 본문 내부 및 외부에서 사용됩니다. 이런 최적화 동작을 _call by reference_ 라고 합니다; copy-in copy-out 모델의 모든 요구사항을 충족하는 동시에 복사의 오버헤드를 제거합니다. call-by-reference 최적화에 의존하지 않고 copy-in copy-out 에 의해 주어진 모델을 사용하여 작성하면 최적화에 상관없이 올바르게 작동되도록 합니다.
 
-함수 내에서 기존 값이 현재 범위에서 사용가능 하더라도 in-out 인수로 전달된 값은 접근하면 안됩니다. 기존 값에 접근하는 것은 값에 대한 동시 접근이며 Swift 의 메모리 독점 보장을 위반합니다. 같은 이유로 여러개의 in-out 파라미터에 동일한 값을 전달할 수 없습니다.
+함수 내에서 기존 값이 현재 범위에서 사용가능 하더라도 in-out 인수로 전달된 값은 접근하면 안됩니다. 기존 값에 접근하는 것은 값에 대한 동시 접근이며 메모리 독점성을 위반합니다.
+
+```swift
+var someValue: Int
+func someFunction(a: inout Int) {
+    a += someValue
+}
+
+// Error: This causes a runtime exclusivity violation
+someFunction(&someValue)
+```
+
+같은 이유로 여러개의 in-out 파라미터에 동일한 값을 전달할 수 없습니다.
+
+```swift
+var someValue: Int
+func someFunction(a: inout Int, b: inout Int) {
+    a += b
+    b += 1
+}
+
+// Error: Cannot pass the same value to multiple in-out parameters
+someFunction(&someValue, &someValue)
+```
 
 메모리 안정성과 메모리 독점성에 대한 자세한 내용은 [메모리 안정성 (Memory Safety)](../language-guide-1/memory-safety.md) 을 참고 바랍니다.
 
@@ -430,6 +503,133 @@ func multithreadedFunction(queue: DispatchQueue, x: inout Int) {
 ```
 
 in-out 파라미터에 대한 자세한 설명과 예제는 [In-Out 파라미터 (In-Out Parameters)](../language-guide-1/functions.md#in-out-in-out-parameters) 를 참고 바랍니다.
+
+#### 파라미터 차용과 소비 (Borrowing and Consuming Parameters)
+
+기본적으로, Swift 는 일련의 규칙을 사용해,
+함수 호출에서 객체의 생명주기를 자동으로 관리하고,
+필요할 때 값을 복사합니다.
+기본 규칙은 대부분 상황에서 오버헤드를 최소화 하도록 설계되어 있습니다 ---
+특별한 제어를 원하면,
+`borrowing` 또는 `consuming` 파라미터 수식어를 적용할 수 있습니다.
+이 경우에,
+복사 작업을 명시적으로 표시하려면 `copy` 를 사용합니다.
+
+기본 규칙을 사용하는 것과 상관없이,
+Swift 는 객체 생명주기와 소유권이
+모든 상황에서 올바르게 관리되도록 보장합니다.
+이 파라미터 수식어는 정확성이 아닌 특정 사용 패턴에
+상대적 효율성에만 영향을 줍니다.
+
+`borrowing` 수식어는 함수가
+파라미터의 값을 유지하지 않음을 나타냅니다.
+이 경우에, 호출자는 객체의 소유권과
+객체의 생명주기에 대한 책임을 유지합니다.
+`borrowing` 을 사용하여 함수가
+객체를 일시적으로만 사용할 때 오버헤드를 최소화 합니다.
+
+```swift
+// `isLessThan` does not keep either argument
+func isLessThan(lhs: borrowing A, rhs: borrowing A) -> Bool {
+    ...
+}
+```
+
+예를 들어, 전역 변수에 값을 저장하기 위해
+함수가 파라미터의 값을 유지해야 하는 경우 ---
+값을 명시적으로 복사하기 위해 `copy` 를 사용합니다.
+
+```swift
+// As above, but this `isLessThan` also wants to record the smallest value
+func isLessThan(lhs: borrowing A, rhs: borrowing A) -> Bool {
+    if lhs < storedValue {
+        storedValue = copy lhs
+    } else if rhs < storedValue {
+        storedValue = copy rhs
+    }
+    return lhs < rhs
+}
+```
+
+반대로,
+`consuming` 파라미터 수식어는
+함수가 값의 소유권을 가지고 있고,
+함수가 반환하기 전에 값을 저장하거나 파기하는 책임이 있음을
+나타냅니다.
+
+```swift
+// `store` keeps its argument, so mark it `consuming`
+func store(a: consuming A) {
+    someGlobalVariable = a
+}
+```
+
+`consuming` 을 사용하면 호출자가 함수 호출 후에 더이상 객체를 사용할 필요가 없을 때
+오버헤드를 최소화 합니다.
+
+```swift
+// Usually, this is the last thing you do with a value
+store(a: value)
+```
+
+함수 호출 후에 복사가능한 객체 사용을 유지하려면,
+컴파일러는 자동으로 함수 호출 전에 객체의 복사본을 만듭니다.
+
+```swift
+// The compiler inserts an implicit copy here
+store(a: someValue)  // This function consumes someValue
+print(someValue)  // This uses the copy of someValue
+```
+
+`inout` 과 다르게, `borrowing` 과
+`consuming` 파라미터는 함수 호출할 때
+특별한 표기법이 필요하지 않습니다:
+
+```swift
+func someFunction(a: borrowing A, b: consuming B) { ... }
+
+someFunction(a: someA, b: someB)
+```
+
+`borrowing` 또는 `consuming` 를 명시적으로 사용하는 것은
+런타임 소유권 관리의 오버헤드를 더 엄격하게 관리하려는
+의도를 나타냅니다.
+복사는 예기치 않은 런타임 소유권 동작을 야기할 수 있으므로,
+명시적인 `copy` 키워드를 사용하지 않으면
+복사할 수 없습니다:
+
+```swift
+func borrowingFunction1(a: borrowing A) {
+    // Error: Cannot implicitly copy a
+    // This assignment requires a copy because
+    // `a` is only borrowed from the caller.
+    someGlobalVariable = a
+}
+
+func borrowingFunction2(a: borrowing A) {
+    // OK: Explicit copying works
+    someGlobalVariable = copy a
+}
+
+func consumingFunction1(a: consuming A) {
+    // Error: Cannot implicitly copy a
+    // This assignment requires a copy because
+    // of the following `print`
+    someGlobalVariable = a
+    print(a)
+}
+
+func consumingFunction2(a: consuming A) {
+    // OK: Explicit copying works regardless
+    someGlobalVariable = copy a
+    print(a)
+}
+
+func consumingFunction3(a: consuming A) {
+    // OK: No copy needed here because this is the last use
+    someGlobalVariable = a
+}
+```
 
 ### 특별한 종류의 파라미터 (Special Kinds of Parameters)
 
@@ -582,11 +782,14 @@ Swift 는 함수 또는 메서드가 호출자에게 반환하지 않음을 나�
 >
 > _parameter-clause_ → **`(`** **`)`** | **`(`** _parameter-list_ **`)`** \
 > _parameter-list_ → _parameter_ | _parameter_ **`,`** _parameter-list_ \
-> _parameter_ → _external-parameter-name?_ _local-parameter-name_ _type-annotation_ _default-argument-clause?_ \
-> _parameter_ → _external-parameter-name?_ _local-parameter-name_ _type-annotation_ \
-> _parameter_ → _external-parameter-name?_ _local-parameter-name_ _type-annotation_ **`...`** \
+> *parameter* → *external-parameter-name*_?_ *local-parameter-name* *parameter-type-annotation* *default-argument-clause*_?_ \
+> *parameter* → *external-parameter-name*_?_ *local-parameter-name* *parameter-type-annotation* \
+> *parameter* → *external-parameter-name*_?_ *local-parameter-name* *parameter-type-annotation* **`...`**
+> 
 > _external-parameter-name_ → _identifier_ \
 > _local-parameter-name_ → _identifier_ \
+> *parameter-type-annotation* → **`:`** *attributes*_?_ *parameter-modifier*_?_ *type* \
+> *parameter-modifier* → **`inout`** | **`borrowing`** | **`consuming`** \
 > _default-argument-clause_ → **`=`** _expression_
 
 ## 열거형 선언 (Enumeration Declaration)
@@ -1439,7 +1642,7 @@ Swift 는 표준 라이브러리에서 제공된 연산자와 함께 사용할 �
 
 연산자의 _연관성 (associativity)_ 은 그룹화 괄호가 없을 때 동일한 우선순위 수준을 가진 일련의 연산자가 함께 그룹화 되는 방식을 지정합니다. 상황에 맞는 키워드 `left`, `right`, 또는 `none` 중 하나를 작성하여 연산자의 연관성을 지정합니다 — 연관성을 생략하면 기본적으로 `none` 입니다. 왼쪽 연관성 (left-associative) 연산자는 왼쪽에서 오른쪽으로 그룹화 합니다. 예를 들어 뺄셈 연산자 (`-`) 는 표현식 `4 - 5 - 6` 은 `(4 - 5) - 6` 으로 그룹화 되고 `-7` 로 평가되므로 왼쪽 연관성 (left-associative) 입니다. 오른쪽 연관성 (right-associative) 연산자는 오른쪽에서 왼쪽으로 그룹화 하고 `none` 의 연관성으로 지정된 연산자는 전혀 연관되지 않습니다. 동일한 우선순위 수준의 비연관성 연산자는 서로 인접하게 표시될 수 없습니다. 예를 들어 `<` 연산자는 `none` 의 연관성을 가집니다. 이것은 `1 < 2 < 3` 은 유효하지 않은 표현식이라는 의미입니다.
 
-우선순위 그룹의 _할당 (assignment)_ 은 옵셔널 체이닝을 포함하는 동작을 사용할 때 연산자의 우선순위를 지정합니다. `true` 로 설정하면 해당 우선순위 그룹에서 연산자는 옵셔널 체이닝 중에 표준 라이브러리의 할당 연산자와 동일한 그룹화 규칙을 사용합니다. 그렇지 않으면 `false` 로 설정하거나 생략된 경우 우선순위 그룹에서 연산자는 할당을 수행하지 않은 연산자와 동일한 옵셔널 체이닝 규칙을 따릅니다.
+우선순위 그룹의 _할당 (assignment)_ 은 옵셔널 체이닝을 포함하는 동작을 사용할 때 연산자의 우선순위를 지정합니다. `true` 로 설정하면 해당 우선순위 그룹에서 연산자는 옵셔널 체이닝 중에 Swift 표준 라이브러리의 할당 연산자와 동일한 그룹화 규칙을 사용합니다. 그렇지 않으면 `false` 로 설정하거나 생략된 경우 우선순위 그룹에서 연산자는 할당을 수행하지 않은 연산자와 동일한 옵셔널 체이닝 규칙을 따릅니다.
 
 > Grammar of a precedence group declaration:
 >

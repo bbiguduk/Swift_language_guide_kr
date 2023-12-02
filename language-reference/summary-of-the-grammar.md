@@ -310,7 +310,7 @@
 
 > Grammar of an in-out expression:
 >
-> *in-out-expression* → **`&`** *identifier*
+> *in-out-expression* → **`&`** *primary-expression*
 
 > Grammar of a try expression:
 >
@@ -735,7 +735,6 @@
 > *declaration* → *subscript-declaration* \
 > *declaration* → *operator-declaration* \
 > *declaration* → *precedence-group-declaration* \
-> *declarations* → *declaration* *declarations*_?_
 
 > Grammar of a top-level declaration:
 >
@@ -809,11 +808,14 @@
 >
 > *parameter-clause* → **`(`** **`)`** | **`(`** *parameter-list* **`)`** \
 > *parameter-list* → *parameter* | *parameter* **`,`** *parameter-list* \
-> *parameter* → *external-parameter-name*_?_ *local-parameter-name* *type-annotation* *default-argument-clause*_?_ \
-> *parameter* → *external-parameter-name*_?_ *local-parameter-name* *type-annotation* \
-> *parameter* → *external-parameter-name*_?_ *local-parameter-name* *type-annotation* **`...`** \
+> *parameter* → *external-parameter-name*_?_ *local-parameter-name* *parameter-type-annotation* *default-argument-clause*_?_ \
+> *parameter* → *external-parameter-name*_?_ *local-parameter-name* *parameter-type-annotation* \
+> *parameter* → *external-parameter-name*_?_ *local-parameter-name* *parameter-type-annotation* **`...`**
+> 
 > *external-parameter-name* → *identifier* \
 > *local-parameter-name* → *identifier* \
+> *parameter-type-annotation* → **`:`** *attributes*_?_ *parameter-modifier*_?_ *type* \
+> *parameter-modifier* → **`inout`** | **`borrowing`** | **`consuming`** \
 > *default-argument-clause* → **`=`** *expression*
 
 > Grammar of an enumeration declaration:

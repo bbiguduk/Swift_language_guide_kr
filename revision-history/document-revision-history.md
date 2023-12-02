@@ -2,6 +2,16 @@
 
 ## Revision History
 
+### 2023-12-03(일)
+
+- Swift 5.9.2 Beta 기반으로 문서 작업
+- `borrowing` 과 `consuming` 수식어에 대한 정보를 
+  [파라미터 수식어 (Parameter Modifiers)](../language-reference/declarations.md#파라미터-수식어-parameter-modifiers) 섹션에 추가했습니다.
+- [상수와 변수 선언 \(Declaring Constants and Variables\)](../language-guide-1/the-basics.md#상수와-변수-선언-declaring-constants-and-variables) 에
+  상수를 선언한 후에 값을 설정에 대한 정보를 추가했습니다.
+- 백 배포 (back deployment) 에 대한 정보를
+  [backDeployed](../language-reference/attributes.md#backdeployed) 섹션에 추가했습니다.
+
 ### 2023-09-30(토)
 
 - Swift 5.9 기반으로 문서 작업
