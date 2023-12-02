@@ -782,9 +782,9 @@ Swift 는 함수 또는 메서드가 호출자에게 반환하지 않음을 나�
 >
 > _parameter-clause_ → **`(`** **`)`** | **`(`** _parameter-list_ **`)`** \
 > _parameter-list_ → _parameter_ | _parameter_ **`,`** _parameter-list_ \
-> _parameter_ → _external-parameter-name?_ _local-parameter-name_ _type-annotation_ _default-argument-clause?_ \
-> _parameter_ → _external-parameter-name?_ _local-parameter-name_ _type-annotation_ \
-> _parameter_ → _external-parameter-name?_ _local-parameter-name_ _type-annotation_ **`...`** \
+> *parameter* → *external-parameter-name*_?_ *local-parameter-name* *parameter-type-annotation* *default-argument-clause*_?_ \
+> *parameter* → *external-parameter-name*_?_ *local-parameter-name* *parameter-type-annotation* \
+> *parameter* → *external-parameter-name*_?_ *local-parameter-name* *parameter-type-annotation* **`...`**
 > 
 > _external-parameter-name_ → _identifier_ \
 > _local-parameter-name_ → _identifier_ \
