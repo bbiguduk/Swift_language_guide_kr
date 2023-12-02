@@ -112,12 +112,14 @@ public macro OptionSet<RawType>() =
 
 ```swift
 @attached(member)
-@attached(conformance)
+@attached(extension, conformances: OptionSet)
 public macro OptionSet<RawType>() =
         #externalMacro(module: "SwiftMacros", type: "OptionSetMacro")
 ```
 
-`@attached` 속성은 각 매크로 역할에 대해 한번씩 선언에서 두번 나타납니다. 첫번째는 `@attached(member)` 를 사용하고 매크로가 적용된 타입에 새로운 멤버를 추가한다고 나타냅니다. `@OptionSet` 매크로는 `OptionSet` 프로토콜에 의해 요구되는 `init(rawValue:)` 초기화 구문과 멤버를 추가합니다. 두번째는 `@attached(conformance)` 를 사용하고 `@OptionSet` 이 프로토콜의 준수성을 하나 이상 추가한다고 나타냅니다. `@OptionSet` 매크로는 매크로를 적용한 타입을 확장하여 `OptionSet` 프로토콜의 준수성을 추가합니다.  
+`@attached` 속성은 각 매크로 역할에 대해 한번씩 선언에서 두번 나타납니다. 첫번째는 `@attached(member)` 를 사용하고 매크로가 적용된 타입에 새로운 멤버를 추가한다고 나타냅니다. `@OptionSet` 매크로는 `OptionSet` 프로토콜에 의해 요구되는 `init(rawValue:)` 초기화 구문과 멤버를 추가합니다.
+두번째는 `@attached(extension, conformances: OptionSet)` 를 사용하고 `@OptionSet` 이 `OptionSet` 프로토콜의 준수성을 추가한다고 나타냅니다.
+`@OptionSet` 매크로는 매크로를 적용한 타입을 확장하여 `OptionSet` 프로토콜의 준수성을 추가합니다.  
 
 독립 매크로에 대해 매크로의 역할을 지정하기 위해 `@freestanding` 속성을 작성합니다:
 
@@ -134,7 +136,7 @@ public macro line<T: ExpressibleByIntegerLiteral>() -> T =
 ```swift
 @attached(member, names: named(RawValue), named(rawValue),
         named(`init`), arbitrary)
-@attached(conformance)
+@attached(extension, conformances: OptionSet)
 public macro OptionSet<RawType>() =
         #externalMacro(module: "SwiftMacros", type: "OptionSetMacro")
 ```
