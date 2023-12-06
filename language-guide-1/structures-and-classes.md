@@ -26,7 +26,7 @@ Swift에서 구조체와 클래스는 공통점이 많습니다. 둘다 아래�
 
 * 상속을 사용하면 한 클래스가 다른 클래스의 특성을 상속할 수 있습니다.
 * 타입 캐스팅을 사용하면 런타임에 클래스 인스턴스의 타입을 확인하고 해석할 수 있습니다.
-* 초기화 해제 구문 \(Deinitalizers\) 을 사용하면 클래스의 인스턴스가 할당된 리소스를 해제할 수 있도록 합니다.
+* 초기화 해제 구문 \(Deinitializers\) 을 사용하면 클래스의 인스턴스가 할당된 리소스를 해제할 수 있도록 합니다.
 * 참조 카운팅은 하나 이상의 클래스 인스턴스 참조를 허락합니다.
 
 더 자세한 내용은 [상속 \(Inheritance\)](inheritance.md), [타입 캐스팅 \(Type Casting\)](type-casting.md), [초기화 해제 \(Deinitialization\)](deinitialization.md), [자동 참조 카운팅 \(Automatic Reference Counting\)](automatic-reference-counting.md) 을 참고 바랍니다.
