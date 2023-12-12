@@ -762,7 +762,7 @@ func <#function name#>(<#parameters#>) async -> <#return type#> {
 
 ### 반환되지 않는 함수 (Functions that Never Return)
 
-Swift 는 함수 또는 메서드가 호출자에게 반환하지 않음을 나타내는 `Never` 타입을 정의합니다. `Never` 반환 타입이 있는 함수와 메서드는 _비반환 (nonreturning)_ 이라고 합니다. 비반환 함수와 메서드는 복구할 수 없는 에러를 발생하거나 무한으로 계속되는 작업을 시작합니다. 이것은 호출 직후 코드가 실행되지 않음을 뜻합니다. 던지고 다시 던지는 함수는 비반환인 경우에도 적절한 `catch` 블럭으로 프로그램 제어를 전송할 수 있습니다.
+Swift 는 함수 또는 메서드가 호출자에게 반환하지 않음을 나타내는 [`Never`](https://developer.apple.com/documentation/swift/never) 타입을 정의합니다. `Never` 반환 타입이 있는 함수와 메서드는 _비반환 (nonreturning)_ 이라고 합니다. 비반환 함수와 메서드는 복구할 수 없는 에러를 발생하거나 무한으로 계속되는 작업을 시작합니다. 이것은 호출 직후 코드가 실행되지 않음을 뜻합니다. 던지고 다시 던지는 함수는 비반환인 경우에도 적절한 `catch` 블럭으로 프로그램 제어를 전송할 수 있습니다.
 
 비반환 함수 또는 메서드는 [Guard 구문 (Guard Statement)](statements.md#guard-guard-statement) 에서 설명 한대로 guard 구문의 `else` 절을 끝낼 수 있습니다.
 
