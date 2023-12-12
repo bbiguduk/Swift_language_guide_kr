@@ -2,6 +2,16 @@
 
 ## Revision History
 
+### 2023-12-12(화)
+
+- Swift 5.9.2 기반으로 문서 작업
+- 작업 (task), 작업 그룹 (task group), 그리고 작업 취소 (task cancellation) 에
+  대한 내용을 [동시성 (Concurrency)](../language-guide-1/concurrency.md) 에 추가했습니다.
+- 기존 Swift Package 에 매크로 구현에 대한 내용을
+  [매크로 (Macros)](../language-guide-1/macros.md) 에 추가했습니다.
+- Conformance 매크로를 대신해 Extension 매크로에 대한 내용을
+  [attached](../language-reference/attributes.md#attached) 에 업데이트 했습니다.
+
 ### 2023-12-03(일)
 
 - Swift 5.9.2 Beta 기반으로 문서 작업
