@@ -216,7 +216,34 @@ let magicNumber = 1145258561 as UInt32
 
 Swift Package Manager 를 사용하여 새로운 매크로를 생성하기 위해, `swift package init --type macro` 를 수행합니다 - 이것은 매크로 구현과 선언에 대한 템플릿을 포함하여 몇 개의 파일을 생성합니다.
 
-기존 프로젝트에 매크로를 추가하기 위해, 매크로 구현에 대한 타겟을 추가하고 매크로 라이브러리에 대한 타겟을 추가합니다. 예를 들어, 해당 프로젝트와 일치하는 이름으로 변경하여 `Package.swift` 파일에 다음과 같이 추가할 수 있습니다:
+기존 프로젝트에 매크로를 추가하기 위해,
+다음과 같이 `Package.swift` 파일에 처음을 수정합니다:
+
+- `swift-tools-version` 에 Swift tools 버전을 5.9 이상으로 지정합니다.
+- `CompilerPluginSupport` 모듈을 가져옵니다.
+- `platforms` 목록에 최소 배포 타겟으로 macOS 10.15 를 포함합니다.
+
+아래의 코드는 `Package.swift` 파일의 예제를 보여줍니다.
+
+```swift
+// swift-tools-version: 5.9
+
+import PackageDescription
+import CompilerPluginSupport
+
+let package = Package(
+    name: "MyPackage",
+    platforms: [ .iOS(.v17), .macOS(.v13)],
+    // ...
+)
+```
+
+다음으로 기존 `Package.swift` 파일에
+매크로 구현에 대한 타겟과
+매크로 라이브러리에 대한 타겟을 추가합니다.
+예를 들어,
+해당 프로젝트와 일치하는 이름으로 변경하여
+다음과 같이 추가할 수 있습니다:
 
 ```swift
 targets: [
@@ -249,6 +276,9 @@ dependencies: [
 매크로의 역할에 따라, 매크로 구현이 준수하는 SwiftSystem 의 프로토콜이 있습니다. 예를 들어, 이전 섹선에 `#fourCharacterCode` 를 생각해 봅시다. 다음은 해당 매크로를 구현하는 구조체입니다: 
 
 ```swift
+import SwiftSyntax
+import SwiftSyntaxMacros
+
 public struct FourCharacterCode: ExpressionMacro {
     public static func expansion(
         of node: some FreestandingMacroExpansionSyntax,
