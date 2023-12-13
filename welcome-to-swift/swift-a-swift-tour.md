@@ -919,7 +919,7 @@ var possibleInteger: OptionalValue<Int> = .none
 possibleInteger = .some(100)
 ```
 
-요구사항의 리스트을 지정하기 위해 본문 바로 전에 `where` 을 사용합니다 — 예를 들어 타입이 프로토콜을 구현하도록 요구하거나 두 타입의 동일하도록 요구하거나 클래스에 특정 상위 클래스가 있어야 합니다.
+요구사항의 리스트를 지정하기 위해 본문 바로 전에 `where` 을 사용합니다 — 예를 들어 타입이 프로토콜을 구현하도록 요구하거나 두 타입의 동일하도록 요구하거나 클래스에 특정 상위 클래스가 있어야 합니다.
 
 ```swift
 func anyCommonElements<T: Sequence, U: Sequence>(_ lhs: T, _ rhs: U) -> Bool
