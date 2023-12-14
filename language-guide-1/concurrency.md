@@ -120,7 +120,7 @@ Swift 는 이 작업과 다른 작업의 진행을
 균형적으로 맞출 수 있습니다.
 
 [`Task.sleep(for:tolerance:clock:)`](https://developer.apple.com/documentation/swift/task/sleep(for:tolerance:clock:)) 메서드는
-비동기 동작이 어떻게 동작하는지 알기위해
+동시성 동작이 어떻게 동작하는지 알기위해
 간단한 코드를 작성할 때 유용합니다.
 이 메서드는 주어진 시간만큼 현재 작업을 중단합니다.
 다음은 네트워크 동작을 지연시키기 위해 `sleep(for:tolerance:clock:)` 을 사용하는
