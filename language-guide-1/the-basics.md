@@ -644,10 +644,7 @@ if let myNumber = myNumber {
 // Prints "My number is 123"
 ```
 
-이 코드는 이전 예제에서의 코드와 마찬가지로 `myNumber` 가 값이 있는지 없는지를 먼저 확인합니다. `myNumber` 가 값이 있다면 해당 값이 새로운 `myNumber` 라는 상수에 설정됩니다. `if` 구문 안에서 `myNumber` 는 새로운 옵셔널이 아닌 상수를 참조합니다. 
-Writing `myNumber` before or after the `if` statement
-refers to the original optional integer constant.
-`if` 구문의 앞에 또는 뒤에 `myNumber` 를 작성하면 원래 옵셔널 정수 상수를 참조합니다.
+이 코드는 이전 예제에서의 코드와 마찬가지로 `myNumber` 가 값이 있는지 없는지를 먼저 확인합니다. `myNumber` 가 값이 있다면 해당 값이 새로운 `myNumber` 라는 상수에 설정됩니다. `if` 구문 안에서 `myNumber` 는 새로운 옵셔널이 아닌 상수를 참조합니다. `if` 구문의 앞에 또는 뒤에 `myNumber` 를 작성하면 원래 옵셔널 정수 상수를 참조합니다.
 
 이러한 코드는 일반적이기 때문에 옵셔널 값을 언래핑 하는데 더 짧게 사용할 수 있습니다: 언래핑할 상수 또는 변수의 이름만 작성합니다. 언래핑된 새로운 상수 또는 변수는 암시적으로 같은 이름의 옵셔널 값을 사용합니다.
 
@@ -737,7 +734,7 @@ guard let number = convertedNumber else {
 
 때로는 프로그램 구조에서 옵셔널이 값을 처음 설정한 후에는 항상 값을 갖는 것은 분명합니다. 이러한 경우 _항상_ 값이 있다고 가정할 수 있으므로 접근할 때마다 옵셔널의 값을 확인하고 언래핑 할 필요가 없습니다.
 
-이러한 옵셔널은 _암시적으로 언래핑 된 옵셔널 \(implicitly unwrapped optionals\)_로 정의됩니다. 옵셔널을 만들기위해 타입뒤에 물음표 \(`String?`\)를 작성하는 대신에 느낌표 \(`String!`\) 로 암시적으로 언래핑 된 옵셔널을 작성합니다. 사용할 때 옵셔널 이름의 뒤에 느낌표를 위치시키는 것보다 선언할 때 옵셔널 타입 뒤에 느낌표를 위치시키는 것이 더 좋습니다.
+이러한 옵셔널은 _암시적으로 언래핑 된 옵셔널 \(implicitly unwrapped optionals\)_ 로 정의됩니다. 옵셔널을 만들기위해 타입뒤에 물음표 \(`String?`\)를 작성하는 대신에 느낌표 \(`String!`\) 로 암시적으로 언래핑 된 옵셔널을 작성합니다. 사용할 때 옵셔널 이름의 뒤에 느낌표를 위치시키는 것보다 선언할 때 옵셔널 타입 뒤에 느낌표를 위치시키는 것이 더 좋습니다.
 
 암시적으로 언래핑 된 옵셔널은 옵셔널이 처음 정의된 직후에 옵셔널의 값이 존재하는 것으로 확인되고 그 이후 모든 시점에 존재한다고 가정할 수 있는 경우에 유용합니다. Swift에서 암시적으로 언래핑 된 옵셔널은 [미소유 참조와 암시적으로 언래핑 된 옵셔널 프로퍼티 \(Unowned References and Implicitly Unwrapped Optional Properties\)](automatic-reference-counting.md#unowned-references-and-implicitly-unwrapped-optional-properties) 에서 설명한 대로 클래스 초기화 중에 주로 사용합니다.
 
@@ -784,11 +781,11 @@ if let definiteString = assumedString {
 
 ## 에러 처리 \(Error Handling\)
 
-프로그램이 실행되는 동안 에러가 발생할 때 처리하기위해 _에러 처리 \(error handling\)_를 사용합니다.
+프로그램이 실행되는 동안 에러가 발생할 때 처리하기위해 _에러 처리 \(error handling\)_ 를 사용합니다.
 
 값의 존재 유무를 사용하여 함수의 성공 또는 실패를 전달할 수 있는 옵셔널과 달리 에러 처리를 사용하면 에러 원인을 판별하고 필요한 경우 에러를 프로그램의 다른 부분으로 전파 할 수 있습니다.
 
-함수에 에러 조건이 되면 에러가 _발생_합니다. 해당 함수의 호출자는 에러를 _포착_하고 적절하게 응답할 수 있습니다.
+함수에 에러 조건이 되면 에러가 _발생_ 합니다. 해당 함수의 호출자는 에러를 _포착_ 하고 적절하게 응답할 수 있습니다.
 
 ```swift
 func canThrowAnError() throws {
