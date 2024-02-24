@@ -524,7 +524,7 @@ Swift 는
 
 ```swift
 extension TemperatureLogger {
-    func convertFarenheitToCelsius() {
+    func convertFahrenheitToCelsius() {
         measurements = measurements.map { measurement in
             (measurement - 32) * 5 / 9
         }
@@ -547,7 +547,7 @@ map 작업이 진행되는 동안,
 잠재적 중단 지점을 생략해서 임시적으로 유효하지 않은 상태를 보호하는
 액터에 코드를 작성하는 것 외에도
 해당 코드를 동기 메서드로 이동할 수 있습니다.
-위에 `convertFarenheitToCelsius()` 메서드는 동기 메서드이므로,
+위에 `convertFahrenheitToCelsius()` 메서드는 동기 메서드이므로,
 *절대* 잠재적 중단 지점이 포함되지 않음을 보장합니다.
 이 함수는 데이터 모델을 일시적으로 불일치하게 만드는
 코드를 캡슐화하고,
