@@ -158,9 +158,9 @@ let photos = try await listPhotos(inGallery: "A Rainy Weekend")
 예를 들어:
 
 ```swift
-func getRainyWeekendPhotos() async -> Result<[String]> {
+func availableRainyWeekendPhotos() -> Result<[String], Error> {
     return Result {
-        try await listPhotos(inGallery: "A Rainy Weekend")
+        try listDownloadedPhotos(inGallery: "A Rainy Weekend")
     }
 }
 ```
