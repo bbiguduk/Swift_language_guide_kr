@@ -94,7 +94,19 @@ _식별자 (Identifiers)_ 는 A 부터 Z 까지 대문자 또는 소문자, 언�
 * 구문에 사용되는 키워드: `break`, `case`, `catch`, `continue`, `default`, `defer`, `do`, `else`, `fallthrough`, `for`, `guard`, `if`, `in`, `repeat`, `return`, `throw`, `switch`, `where`, 그리고 `while`.
 * 표현식과 타입에 사용되는 키워드: `Any`, `as`, `await`, `catch`, `false`, `is`, `nil`, `rethrows`, `self`, `Self`, `super`, `throw`, `throws`, `true`, 그리고 `try`.
 * 패턴에 사용되는 키워드: `_`.
-* 숫자 기호 (`#`) 로 시작하는 키워드: `#available`, `#colorLiteral`, `#elseif`, `#else`, `#endif`, `#fileLiteral`, `#if`, `#imageLiteral`, `#keyPath`, `#selector`, `#sourceLocation`.
+* 숫자 기호 (`#`) 로 시작하는 키워드:
+  `#available`,
+  `#colorLiteral`,
+  `#else`,
+  `#elseif`,
+  `#endif`,
+  `#fileLiteral`,
+  `#if`,
+  `#imageLiteral`,
+  `#keyPath`,
+  `#selector`,
+  `#sourceLocation`,
+  `#unavailable`.
 
 > Note:
 > Swift 5.9 이전에는 다음의 키워드는 예약되어 있습니다: `#column`, `#dsohandle`, `#error`, `#fileID`, `#filePath`, `#file`, `#function`, `#line`, 그리고 `#warning`.
