@@ -685,7 +685,7 @@ if #unavailable(<#platform name#> <#version#>, <#...#>) {
 > *platform-name* → **`macCatalyst`** | **`macCatalystApplicationExtension`** \
 > *platform-name* → **`watchOS`** | **`watchOSApplicationExtension`** \
 > *platform-name* → **`tvOS`** | **`tvOSApplicationExtension`** \
-> *platform-name* → **`visionOS`** \
+> *platform-name* → **`visionOS`** | **`visionOSApplicationExtension`**\
 > *platform-version* → *decimal-digits* \
 > *platform-version* → *decimal-digits* **`.`** *decimal-digits* \
 > *platform-version* → *decimal-digits* **`.`** *decimal-digits* **`.`** *decimal-digits*

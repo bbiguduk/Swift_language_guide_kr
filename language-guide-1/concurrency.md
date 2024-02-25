@@ -158,9 +158,9 @@ let photos = try await listPhotos(inGallery: "A Rainy Weekend")
 예를 들어:
 
 ```swift
-func getRainyWeekendPhotos() async -> Result<[String]> {
+func availableRainyWeekendPhotos() -> Result<[String], Error> {
     return Result {
-        try await listPhotos(inGallery: "A Rainy Weekend")
+        try listDownloadedPhotos(inGallery: "A Rainy Weekend")
     }
 }
 ```
@@ -524,7 +524,7 @@ Swift 는
 
 ```swift
 extension TemperatureLogger {
-    func convertFarenheitToCelsius() {
+    func convertFahrenheitToCelsius() {
         measurements = measurements.map { measurement in
             (measurement - 32) * 5 / 9
         }
@@ -547,7 +547,7 @@ map 작업이 진행되는 동안,
 잠재적 중단 지점을 생략해서 임시적으로 유효하지 않은 상태를 보호하는
 액터에 코드를 작성하는 것 외에도
 해당 코드를 동기 메서드로 이동할 수 있습니다.
-위에 `convertFarenheitToCelsius()` 메서드는
+위에 `convertFahrenheitToCelsius()` 메서드는 동기 메서드이므로,
 *절대* 잠재적 중단 지점이 포함되지 않음을 보장합니다.
 이 함수는 데이터 모델을 일시적으로 불일치하게 만드는
 코드를 캡슐화하고,
@@ -615,4 +615,7 @@ extension FileDescriptor: Sendable { }
 
 위의 코드는 POSIX 파일 디스크립터에 대한 래퍼의 일부분을 보여줍니다. 파일 디스크립터의 인터페이스는 정수를 사용하여 열린 파일에 대해 식별하고 상호작용 하고 정수값을 보낼 수 있지만, 비동기적 도메인을 통해 전송하는 것은 안전하지 않습니다.
 
-위의 코드에서 `NonsendableTemperatureReading` 은 암시적으로 보낼 수 있는 구조체입니다. 그러나 확장에 `Sendable` 에 대한 준수를 사용할 수 없게 만들어 타입 전송을 막을 수 있습니다.
+위의 코드에서 
+`FileDescriptor` 은 암시적으로
+보낼 수 있는 구조체입니다.
+그러나 확장에 `Sendable` 에 대한 준수를 사용할 수 없게 만들어 타입 전송을 막을 수 있습니다.

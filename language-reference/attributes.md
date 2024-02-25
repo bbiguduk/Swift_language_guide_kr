@@ -97,6 +97,7 @@ peer, member, 그리고 accessor 매크로 역할은 매크로가 생성하는 �
 * `tvOS`
 * `tvOSApplicationExtension`
 * `visionOS`
+* `visionOSApplicationExtension`
 * `swift`
 
 또한 별표 (`*`) 를 사용하여 위에 나열된 모든 플랫폼 이름에 대한 선언의 가용성을 나타낼 수도 있습니다. Swift 버전을 사용하여 지정한 가용 `available` 속성은 별표를 사용할 수 없습니다.
@@ -438,7 +439,13 @@ protocol ProvidesMain {
 
 ### NSApplicationMain
 
-애플리케이션 대리자를 나타내기 위해 클래스에 이 속성을 적용합니다. 이 속성을 사용하는 것은 `NSApplicationMain(_:_:)` 함수를 호출하는 것과 동일합니다.
+> Deprecated:
+> 이 속성은 더이상 사용되지 않습니다;
+> 대신에 [main](#main) 속성을 사용합니다.
+> Swift 6 에서,
+> 이 속성을 사용하면 에러가 발생합니다.
+
+앱 대리자를 나타내기 위해 클래스에 이 속성을 적용합니다. 이 속성을 사용하는 것은 `NSApplicationMain(_:_:)` 함수를 호출하는 것과 동일합니다.
 
 이 속성을 사용하지 않으면 다음과 같이 `NSApplicationMain(_:_:)` 함수를 호출하는 최상위의 코드로 `main.swift` 파일을 적용해야 합니다:
 
@@ -885,7 +892,13 @@ let manualArray = ArrayBuilder.buildArray(temporary)
 
 ### UIApplicationMain
 
-애플리케이션 대리자를 나타내기 위해 클래스에 이 속성을 적용합니다. 이 속성을 사용하는 것은 `UIApplicationMain` 함수를 호출하는 것과 대리자 클래스의 이름으로 클래스의 이름을 전달하는 것과 같습니다.
+> Deprecated:
+> 이 속성은 더이상 사용되지 않습니다;
+> 대신에 [main](#main) 속성을 사용합니다.
+> Swift 6 에서,
+> 이 속성을 사용하면 에러가 발생합니다.
+
+앱 대리자를 나타내기 위해 클래스에 이 속성을 적용합니다. 이 속성을 사용하는 것은 `UIApplicationMain` 함수를 호출하는 것과 대리자 클래스의 이름으로 클래스의 이름을 전달하는 것과 같습니다.
 
 이 속성을 사용하지 않으면 [`UIApplicationMain(_:_:_:_:)`](https://developer.apple.com/documentation/uikit/1622933-uiapplicationmain) 함수를 호출하는 최상위 수준의 코드를 가지는 `main.swift` 파일을 제공해야 합니다. 예를 들어 주 클래스로 `UIApplication` 의 사용자 정의 하위 클래스를 사용하면 이 속성을 사용하는 것 대신에 `UIApplicationMain(_:_:_:_:)` 함수를 호출합니다.
 

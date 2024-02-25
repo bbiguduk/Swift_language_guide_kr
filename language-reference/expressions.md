@@ -9,7 +9,6 @@ Swift 에서 접두사 표현식 (prefix expressions), 이진 표현식 (binary 
 > Grammar of an expression:
 >
 > *expression* → *try-operator*_?_ *await-operator*_?_ *prefix-expression* *infix-expressions*_?_ \
-> *expression-list* → *expression* | *expression* **`,`** *expression-list*
 
 ## 접두사 표현식 (Prefix Expressions)
 
