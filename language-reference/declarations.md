@@ -1045,13 +1045,18 @@ actor <#actor name#>: <#adopted protocols#> {
 
 ## 프로토콜 선언 (Protocol Declaration)
 
-_프로토콜 선언 (protocol declaration)_ 은 프로그램에 명명된 프로토콜 타입을 도입합니다. 프로토콜 선언은 `protocol` 키워드를 사용하여 전역에 선언되고 다음의 형식을 가집니다:
+_프로토콜 선언 (protocol declaration)_ 은 프로그램에 명명된 프로토콜 타입을 도입합니다.
+프로토콜 선언은 `protocol` 키워드를 사용하여
+전역에 선언되고 다음의 형식을 가집니다:
 
 ```swift
 protocol <#protocol name#>: <#inherited protocols#> {
    <#protocol member declarations#>
 }
 ```
+
+프로토콜 선언은 전역이나
+제너릭이 아닌 타입이나 제너릭이 아닌 함수 내에 중첩되어 나타날 수 있습니다.
 
 프로토콜의 본문은 프로토콜을 채택하는 모든 타입이 충족해야 하는 준수성 요구사항을 설명하는 _프로토콜 멤버 선언 (protocol member declarations)_ 이 없거나 하나 이상의 _프로토콜 멤버 선언 (protocol member declarations)_ 을 포함합니다. 특히 프로토콜은 준수하는 타입이 특정 프로퍼티, 메서드, 초기화 구문, 그리고 서브 스크립트를 구현해야 한다고 선언할 수 있습니다. 프로토콜은 프로토콜의 여러 선언의 관계를 지정할 수 있는 _연관된 타입 (associated types)_ 이라는 특별한 종류의 타입 별칭도 선언할 수 있습니다. 프로토콜 선언은 클래스, 구조체, 열거형, 또는 다른 프로토콜 선언을 포함할 수 없습니다. _프로토콜 멤버 선언 (protocol member declarations)_ 은 아래 자세하게 설명되어 있습니다.
 

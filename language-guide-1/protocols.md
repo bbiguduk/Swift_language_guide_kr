@@ -259,113 +259,138 @@ class SomeSubClass: SomeSuperClass, SomeProtocol {
 
 _위임 \(Delegation\)_ 은 클래스 또는 구조체가 책임의 일부를 다른 타입의 인스턴스에 넘겨주거나 위임할 수 있도록 하는 디자인 패턴입니다. 이 디자인 패턴은 위임된 기능을 제공하기 위해 준수하는 타입 \(대리자라고 함\)이 보장되도록 위임된 책임을 캡슐화하는 프로토콜을 정의하여 구현합니다. 위임은 특정 작업에 응답하거나 해당 소스의 기본 타입을 알 필요 없이 외부 소스에서 데이터를 검색하는데 사용할 수 있습니다.
 
-아래 예제는 주사위 기반 보드게임에 사용할 2가지 프로토콜을 정의합니다:
+아래 예제는 주사위 게임과
+게임의 진행사항을 관찰하는
+위임에 대한 중첩된 프로토콜을 정의합니다:
 
 ```swift
-protocol DiceGame {
-    var dice: Dice { get }
-    func play()
-}
-protocol DiceGameDelegate: AnyObject {
-    func gameDidStart(_ game: DiceGame)
-    func game(_ game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int)
-    func gameDidEnd(_ game: DiceGame)
-}
-```
+class DiceGame {
+    let sides: Int
+    let generator = LinearCongruentialGenerator()
+    weak var delegate: Delegate?
 
-`DiceGame` 프로토콜은 주사위를 포함하는 모든 게임에 의해 채택될 수 있는 프로토콜입니다.
-
-`DiceGameDelegate` 프로토콜은 `DiceGame` 의 진행사항을 추적하기 위해 채택될 수 있습니다. 강한 참조 사이클을 방지하기 위해 위임자는 약한 참조로 선언됩니다. 약한 참조에 대한 자세한 내용은 [클래스 인스턴스 사이의 강한 참조 사이클 \(Strong Reference Cycles Between Class Instances\)](automatic-reference-counting.md#strong-reference-cycles-between-class-instances) 을 참고 바랍니다. 프로토콜을 클래스 전용 프로토콜로 표시하면 이 챕터의 뒷부분에서 `SnakesAndLadders` 클래스는 위임자가 약한 참조로 사용되어야 한다고 선언할 수 있습니다. [클래스 전용 프로토콜 \(Class-Only Protocols\)](protocols.md#class-only-protocols) 은 `AnyObject` 의 상속으로 표시됩니다.
-
-다음은 [제어 흐름 \(Control Flow\)](control-flow.md) 에서 기존에 도입된 _Snakes and Ladders_ 게임의 버전입니다. 이 버전은 주사위 굴림에 대해 `Dice` 인스턴스를 사용하기 위해 채택하고 `DiceGame` 프로토콜을 채택하고 진행사항에 대해 알리기 위해 `DiceGameDelegate` 를 채택합니다:
-
-```swift
-class SnakesAndLadders: DiceGame {
-    let finalSquare = 25
-    let dice = Dice(sides: 6, generator: LinearCongruentialGenerator())
-    var square = 0
-    var board: [Int]
-    init() {
-        board = Array(repeating: 0, count: finalSquare + 1)
-        board[03] = +08; board[06] = +11; board[09] = +09; board[10] = +02
-        board[14] = -10; board[19] = -11; board[22] = -02; board[24] = -08
+    init(sides: Int) {
+        self.sides = sides
     }
-    weak var delegate: DiceGameDelegate?
-    func play() {
-        square = 0
+
+    func roll() -> Int {
+        return Int(generator.random() * Double(sides)) + 1
+    }
+
+    func play(rounds: Int) {
         delegate?.gameDidStart(self)
-        gameLoop: while square != finalSquare {
-            let diceRoll = dice.roll()
-            delegate?.game(self, didStartNewTurnWithDiceRoll: diceRoll)
-            switch square + diceRoll {
-            case finalSquare:
-                break gameLoop
-            case let newSquare where newSquare > finalSquare:
-                continue gameLoop
-            default:
-                square += diceRoll
-                square += board[square]
+        for round in 1...rounds {
+            let player1 = roll()
+            let player2 = roll()
+            if player1 == player2 {
+                delegate?.game(self, didEndRound: round, winner: nil)
+            } else if player1 > player2 {
+                delegate?.game(self, didEndRound: round, winner: 1)
+            } else {
+                delegate?.game(self, didEndRound: round, winner: 2)
             }
         }
         delegate?.gameDidEnd(self)
     }
+
+    protocol Delegate: AnyObject {
+        func gameDidStart(_ game: DiceGame)
+        func game(_ game: DiceGame, didEndRound round: Int, winner: Int?)
+        func gameDidEnd(_ game: DiceGame)
+    }
 }
 ```
 
-_Snakes and Ladders_ 게임 플레이에 대한 설명은 [중단 \(Break\)](control-flow.md#break) 을 참고 바랍니다.
+`DiceGame` 클래스는 각 플레이어가 주사위를 차례대로 굴리고,
+주사위를 굴려 가장 높은 숫자를 얻는 플레이어가 승리하는 게임을 구현합니다.
+이전 챕터의 예제에서 사용한 선형 합동 생서기를 사용하여
+주사위 굴림에 대한 난수를 생성합니다.
 
-이 게임의 버전은 `DiceGame` 프로토콜을 채택하는 `SnakesAndLadders` 라는 클래스로 래핑됩니다. 프로토콜을 준수하기 위해 gettable `dice` 프로퍼티와 `play()` 메서드를 제공합니다 \(초기화 후에 변경할 필요가 없고 프로토콜은 오직 gettable만 요구하므로 `dice` 프로퍼티는 상수 프로퍼티로 선언됩니다\).
+`DiceGame.Delegate` 프로토콜은
+주사위 게임의 진행사항을 추적하기 위해 채택될 수 있습니다.
+`DiceGame.Delegate` 프로토콜은
+주사위 게임의 컨텍스트에서만 사용되기 때문에,
+`DiceGame` 클래스 내에 중첩됩니다.
+프로토콜은 외부 선언이 제너릭하지 않으면,
+구조체와 클래스와 같은 타입 선언 내에 중첩될 수 있습니다.
+중첩하는 타입에 대한 자세한 내용은 [중첩된 타입 (Nested Types)](nested-types.md) 를 참고 바랍니다.
 
-_Snakes and Ladders_ 게임보드 설정은 클래스의 `init()` 초기화 구문 내에서 발생합니다. 모든 게임 로직은 주사위 굴림값을 제공하기 위해 프로토콜의 요구된 `dice` 프로퍼티를 사용하는 프로토콜의 `play` 메서드에서 이동됩니다.
+강한 참조 사이클을 방지하기 위해
+위임자는 약한 참조로 선언됩니다.
+약한 참조에 대한 자세한 내용은
+[클래스 인스턴스 사이의 강한 참조 사이클 \(Strong Reference Cycles Between Class Instances\)](automatic-reference-counting.md#strong-reference-cycles-between-class-instances) 을 참고 바랍니다.
+프로토콜을 클래스 전용 프로토콜로 표시하면
+`DiceGame` 클래스는 위임자가 약한 참조로 사용되어야 한다고 선언할 수 있습니다.
+[클래스 전용 프로토콜 \(Class-Only Protocols\)](protocols.md#class-only-protocols) 은
+`AnyObject` 의 상속으로 표시됩니다.
 
-위임자는 게임 플레이 하기위해 요구되지 않으므로 `delegate` 프로퍼티는 _옵셔널_ `DiceGameDelegate` 로 정의됩니다. 옵셔널 타입이므로 `delegate` 프로퍼티는 자동으로 초기값을 `nil` 로 설정합니다. 그 후에 게임 인스턴스는 적절한 위임자로 설정할 수 있는 옵션이 있습니다. `DiceGameDelegate` 프로토콜은 클래스 전용 이므로 참조 사이클을 막기위해 `weak` 로 위임자를 선언할 수 있습니다.
+`DiceGame.Delegate` 는 게임의 진행사항을 추적하기 위해 3개의 메서드를 제공합니다.
+이 3개의 메서드는 위의 `play(rounds:)` 메서드에서
+게임 로직으로 사용됩니다.
+`DiceGame` 클래스는 새로운 게임이 시작하거나, 새로운 차례가 시작하거나, 게임이 끝날 때,
+위임 메서드를 호출합니다.
 
-`DiceGameDelegate` 는 게임의 진행사항을 추적하기 위해 3개의 메서드를 제공합니다. 이 3개의 메서드는 위의 `play()` 메서드 내의 게임 로직으로 통합되었고 새로운 게임이 시작되고 새로운 턴이 시작되거나 게임이 종료될 때 호출됩니다.
+`delegate` 프로퍼티는 *옵셔널* `DiceGame.Delegate` 이므로
+`play(rounds:)` 메서드는 [옵셔널 체이닝 (Optional Chaining)](optional-chaining.md) 에서 설명한 대로
+위임에 대한 메서드를 호출할 때마다 옵셔널 체이닝을 사용합니다.
+`delegate` 프로퍼티가 `nil` 이면
+이 위임자 호출은 무시됩니다.
+`delegate` 프로퍼티가 `nil` 이 아니면
+이 위임자 메서드가 호출되고 파라미터로 `DiceGame` 인스턴스는 전달됩니다.
 
-`delegate` 프로퍼티는 _옵셔널_ `DiceGameDelegate` 이므로 `play()` 메서드는 위임자에서 메서드를 호출할 때마다 옵셔널 체이닝을 사용합니다. `delegate` 프로퍼티가 `nil` 이면 이 위임자 호출은 정상적으로 에러없이 실패합니다. `delegate` 프로퍼티가 `nil` 이 아니면 이 위임자 메서드가 호출되고 파라미터로 `SnakesAndLadders` 인스턴스는 전달됩니다.
-
-다음 예제는 `DiceGameDelegate` 프로토콜을 채택하는 `DiceGameTracker` 라는 클래스는 보여줍니다:
+다음 예제는 `DiceGame.Delegate` 프로토콜을 채택하는 `DiceGameTracker` 라는 클래스는 보여줍니다:
 
 ```swift
-class DiceGameTracker: DiceGameDelegate {
-    var numberOfTurns = 0
+class DiceGameTracker: DiceGame.Delegate {
+    var playerScore1 = 0
+    var playerScore2 = 0
     func gameDidStart(_ game: DiceGame) {
-        numberOfTurns = 0
-        if game is SnakesAndLadders {
-            print("Started a new game of Snakes and Ladders")
-        }
-        print("The game is using a \(game.dice.sides)-sided dice")
+        print("Started a new game")
+        playerScore1 = 0
+        playerScore2 = 0
     }
-    func game(_ game: DiceGame, didStartNewTurnWithDiceRoll diceRoll: Int) {
-        numberOfTurns += 1
-        print("Rolled a \(diceRoll)")
+    func game(_ game: DiceGame, didEndRound round: Int, winner: Int?) {
+        switch winner {
+            case 1:
+                playerScore1 += 1
+                print("Player 1 won round \(round)")
+            case 2: playerScore2 += 1
+                print("Player 2 won round \(round)")
+            default:
+                print("The round was a draw")
+        }
     }
     func gameDidEnd(_ game: DiceGame) {
-        print("The game lasted for \(numberOfTurns) turns")
+        if playerScore1 == playerScore2 {
+            print("The game ended in a draw.")
+        } else if playerScore1 > playerScore2 {
+            print("Player 1 won!")
+        } else {
+            print("Player 2 won!")
+        }
     }
 }
 ```
 
-`DiceGameTracker` 는 `DiceGameDelegate` 에 의해 요구된 3개의 메서드 모두 구현합니다. 이 메서드를 사용하여 게임의 턴 수를 추적합니다. 게임이 시작될 때 `numberOfTurns` 프로퍼티를 0으로 재설정하고 새로운 턴이 시작될 때마다 증가하고 게임이 종료될 때 턴의 총 수를 출력합니다.
+`DiceGameTracker` 클래스는 `DiceGame.Delegate` 프로토콜에 의해 요구되는
+3개 메서드를 모두 구현합니다.
+이 세 메서드를 이용해서
+새로운 게임이 시작되면 플레이어의 점수를 모두 0으로 만들고,
+각 라운드가 끝날 때마다 점수를 업데이트하고,
+게임이 끝나면 승리자를 발표합니다.
 
-위에서 보이는 `gameDidStart(_:)` 의 구현은 곧 플레이 할 게임에 대한 일부 소개 정보를 출력하기 위해 `game` 파라미터를 사용합니다. `game` 파라미터는 `SnakesAndLadders` 가 아닌 `DiceGame` 의 타입을 가지므로 `gameDidStart(_:)` 는 `DiceGame` 프로토콜의 부분으로 구현된 메서드와 프로퍼티로만 접근하고 사용할 수 있습니다. 그러나 이 메서드는 여전히 기본 인스턴스의 타입을 조회하기 위해 타입 캐스팅을 사용할 수 있습니다. 예를 들어 `game` 은 `SnakesAndLadders` 의 인스턴스인지 확인하고 적절한 메세지를 출력합니다.
-
-`gameDidStart(_:)` 메서드는 전달된 `game` 파라미터의 `dice` 프로퍼티에 접근합니다. `game` 은 `DiceGame` 프로토콜을 준수하므로 `dice` 프로퍼티가 보장되므로 `gameDidStart(_:)` 메서드는 어떤 종류의 게임을 플레이 하든 주사위의 `sides` 프로퍼티에 접근하고 출력할 수 있습니다.
-
-다음은 `DiceGameTracker` 의 동작을 보여줍니다:
+`DiceGame` 과 `DiceGameTracker` 가 동작은 다음과 같습니다:
 
 ```swift
 let tracker = DiceGameTracker()
-let game = SnakesAndLadders()
+let game = DiceGame(sides: 6)
 game.delegate = tracker
-game.play()
-// Started a new game of Snakes and Ladders
-// The game is using a 6-sided dice
-// Rolled a 3
-// Rolled a 5
-// Rolled a 4
-// Rolled a 5
-// The game lasted for 4 turns
+game.play(rounds: 3)
+// Started a new game
+// Player 2 won round 1
+// Player 2 won round 2
+// Player 1 won round 3
+// Player 2 won!
 ```
 
 ## 확장으로 프로토콜 준수성 추가 \(Adding Protocol Conformance with an Extension\)
