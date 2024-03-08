@@ -51,7 +51,10 @@ print(flippedTriangle.draw())
 // *
 ```
 
-아래의 코드와 같이 두개의 모양을 수직으로 결합하는 `JoinedShape<T: Shape, U: Shape>` 구조체를 정의하는 이 접근방식은 뒤집힌 삼각형을 다른 삼각형과 결합하는 `JoinedShape<FlippedShape<Triangle>, Triangle>` 과 같은 타입을 생성합니다.
+아래의 코드와 같이 두개의 모양을 수직으로 결합하는
+`JoinedShape<T: Shape, U: Shape>` 구조체를 정의하는
+이 접근방식은 뒤집힌 삼각형을 다른 삼각형과 결합하는 
+`JoinedShape<Triangle, FlippedShape<Triangle>>` 과 같은 타입을 생성합니다.
 
 ```swift
 struct JoinedShape<T: Shape, U: Shape>: Shape {
