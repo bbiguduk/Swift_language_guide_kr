@@ -369,7 +369,7 @@ print("the number of characters in \(word) is \(word.count)")
 
 위에서 언급했듯이 문자마다 저장할 메모리 양이 다를 수 있으므로 특정 위치에 있는 `Character` 를 확인하려면 해당 `String` 의 시작 또는 끝에서 각 유니코드 스칼라를 반복해야 합니다. 이러한 이유로 Swift 문자열은 정수값으로 인덱스를 생성할 수 없습니다.
 
-`String` 에 첫번째 `Character` 에 접근하기 위해 `startIndex` 프로퍼티를 사용합니다. `endIndex` 프로퍼티는 `String` 에 마지막 문자의 다음 위치입니다. 그 결과 `endIndex` 프로퍼티는 문자열의 서브 스크립트에 유효한 인수가 아닙니다. `String` 이 비어있다면 `startIndex` 와 `endIndex` 는 같습니다.
+`String` 의 첫번째 `Character` 에 접근하기 위해 `startIndex` 프로퍼티를 사용합니다. `endIndex` 프로퍼티는 `String` 에 마지막 문자의 다음 위치입니다. 그 결과 `endIndex` 프로퍼티는 문자열의 서브 스크립트에 유효한 인수가 아닙니다. `String` 이 비어있다면 `startIndex` 와 `endIndex` 는 같습니다.
 
 `String` 의 메서드 `index(before:)` 와 `index(after:)` 를 사용하여 주어진 인덱스의 전과 후에 접근할 수 있습니다. 주어진 인덱스에서 먼 인덱스에 접근하려면 이러한 메서드를 여러번 호출하는 대신 `index(_:offsetBy:)` 메서드를 사용할 수 있습니다.
 
