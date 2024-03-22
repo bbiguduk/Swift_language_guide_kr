@@ -273,7 +273,7 @@ print(#"Write an interpolated string in Swift using \(multiplier)."#)
 // Prints "Write an interpolated string in Swift using \(multiplier)."
 ```
 
-확장된 구분기호를 사용하는 문자열에서 문자열 삽입을 사용하기 위해 문자열의 시작과 끝에 숫자 기호의 갯수만큼 역슬래시 다음에 숫자 기호를 넣어주면 됩니다. 예를 들어:
+확장된 구분기호를 사용하는 문자열에서 문자열 삽입을 사용하기 위해 문자열의 시작과 끝에 숫자 기호의 개수만큼 역슬래시 다음에 숫자 기호를 넣어주면 됩니다. 예를 들어:
 
 ```swift
 print(#"6 times 7 is \#(6 * 7)."#)
@@ -357,7 +357,7 @@ print("the number of characters in \(word) is \(word.count)")
 > Note\
 > 확장된 문자소 클러스터는 여러개의 유니코드 스칼라로 구성할 수 있습니다. 이것은 다른 문자와 같은 문자의 다른 표기법은 저장할 때 메모리 사용량이 다르게 요구할 수 있다는 의미입니다. 이 때문에 Swift의 문자는 각각 문자열에서 동일한 양의 메모리를 차지하지 않습니다. 그 결과 문자열에 문자의 개수는 확장된 문자소 클러스터 경계를 결정하기 위해 문자열을 반복하지 않고는 계산할 수 없습니다. 특히 긴 문자열 값으로 작업하는 경우에 해당 문자열의 문자를 결정하려면 `count` 프로퍼티가 전체 문자열의 유니코드 스칼라를 반복해야 합니다.
 >
-> `count` 프로퍼티로 반환된 문자의 갯수는 같은 문자여도 `NSString` 의 `length` 프로퍼티와 항상 같지는 않습니다. `NSString` 의 길이는 문자열 내에 유니코드 확장된 문자소 클러스터 수가 아니라 문자열의 UTF-16 표현 내의 16-bit 코드 단위 수를 기반으로 합니다.
+> `count` 프로퍼티로 반환된 문자의 개수는 같은 문자여도 `NSString` 의 `length` 프로퍼티와 항상 같지는 않습니다. `NSString` 의 길이는 문자열 내에 유니코드 확장된 문자소 클러스터 수가 아니라 문자열의 UTF-16 표현 내의 16-bit 코드 단위 수를 기반으로 합니다.
 
 ## 문자열 접근과 수정 (Accessing and Modifying a String)
 
@@ -529,7 +529,7 @@ let romeoAndJuliet = [
 ]
 ```
 
-`hasPrefix(_:)` 메서드를 이용하여 `romeoAndJuliet` 배열의 연극 Act 1의 장면의 갯수를 카운트 할 수 있습니다:
+`hasPrefix(_:)` 메서드를 이용하여 `romeoAndJuliet` 배열의 연극 Act 1의 장면의 개수를 카운트 할 수 있습니다:
 
 ```swift
 var act1SceneCount = 0
@@ -542,7 +542,7 @@ print("There are \(act1SceneCount) scenes in Act 1")
 // Prints "There are 5 scenes in Act 1"
 ```
 
-마찬가지로 `hasSuffix(_:)` 메서드를 사용하여 Capulet’s mansion 과 Friar Lawrence’s cell 의 장면의 갯수를 구할 수 있습니다:
+마찬가지로 `hasSuffix(_:)` 메서드를 사용하여 Capulet’s mansion 과 Friar Lawrence’s cell 의 장면의 개수를 구할 수 있습니다:
 
 ```swift
 var mansionCount = 0
