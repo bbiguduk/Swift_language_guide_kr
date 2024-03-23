@@ -544,7 +544,7 @@ airports["LHR"] = "London Heathrow"
 
 서브 스크립트 외에 딕셔너리의 `updateValue(_:forKey:)` 메서드를 사용하여 특정 키에 값을 설정하거나 업데이트 할 수 있습니다. 위의 서브 스크립트 예제와 같이 `updateValue(_:forKey:)` 메서드는 해당 키에 값이 존재하지 않으면 값을 설정 하거나 해당 키에 값이 존재하면 값을 업데이트 합니다. 그러나 서브 스크립트와 다르게 `updateValue(_:forKey:)` 메서드는 업데이트 수행 후에 _이전_ 값을 반환합니다. 이를 통해 업데이트가 발생했는지 여부를 알 수 있습니다.
 
-`updateValue(_:forKey:)` 메서드는 딕셔너리의 값 타입의 옵셔널 값을 반환합니다. 예를 들어 딕셔너리에 `String` 값을 저장하면 `String?` 타입 또는 "옵셔널 `String`"을 메서드는 반환합니다. 이 옵셔널 값은 해당 키에 존재한 업데이트 전에 값 또는 존재한 값이 없었을 때는 `nil` 을 포함합니다:
+`updateValue(_:forKey:)` 메서드는 딕셔너리의 값 타입의 옵셔널 값을 반환합니다. 예를 들어 딕셔너리에 `String` 값을 저장하면 `String?` 타입 또는 "옵셔널 `String`"을 메서드는 반환합니다. 이 옵셔널 값은 해당 키에 존재한 업데이트 전의 값 또는 존재한 값이 없었을 때는 `nil` 을 포함합니다:
 
 ```swift
 if let oldValue = airports.updateValue("Dublin Airport", forKey: "DUB") {
