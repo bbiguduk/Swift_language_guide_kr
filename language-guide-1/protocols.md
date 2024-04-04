@@ -490,7 +490,7 @@ Swift는 많은 경우에 `Equatable`, `Hashable`, 그리고 `Comparable` 에 �
 
 Swift는 다음과 같은 사용자 정의 타입에 대해 `Equatable` 의 합성된 구현을 제공합니다:
 
-* `Equatable` 프로토콜을 준수하는 저장된 프로토콜만 있는 구조체
+* `Equatable` 프로토콜을 준수하는 저장된 프로퍼티만 있는 구조체
 * `Equatable` 프로토콜을 준수하는 연관된 타입만 있는 열거형
 * 연관된 타입이 없는 열거형
 
