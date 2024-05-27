@@ -1,4 +1,4 @@
-# 불투명한 타입과 박스형 타입 \(Opaque and Boxed Types\)
+# 불투명한 타입과 박스형 프로토콜 타입 \(Opaque and Boxed Protocol Types\)
 
 값의 타입에 대한 자세한 정보를 숨깁니다.
 
