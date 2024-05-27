@@ -72,7 +72,7 @@ peer, member, 그리고 accessor 매크로 역할은 매크로가 생성하는 �
 - `prefixed(<#prefix#>)`
   여기서 _접두사 (prefix)_ 는 고정된 문자열로 시작하는 이름의 경우 기호 이름 앞에 추가됩니다.
 
-- `suffixed(<#suffix#>`
+- `suffixed(<#suffix#>)`
   여기서 _접미사 (suffix)_ 는 고정된 문자열로 끝나는 이름의 경우 기호 이름 뒤에 추가됩니다.
 
 - `arbitrary`
