@@ -99,25 +99,25 @@ let someInternalConstant = 0            // implicitly internal
 > Public 타입은 기본적으로 public 멤버가 아닌 internal 멤버를 가집니다. 타입 멤버를 public으로 하려면 명시적으로 표시해야 합니다. 이 요구사항은 타입에 대한 공용 API는 공개되도록 하고 실수로 타입의 내부 작업을 공개 API로 표시되지 않도록 합니다.
 
 ```swift
-public class SomePublicClass {                  // explicitly public class
+public class SomePublicClass {                   // explicitly public class
     public var somePublicProperty = 0            // explicitly public class member
     var someInternalProperty = 0                 // implicitly internal class member
     fileprivate func someFilePrivateMethod() {}  // explicitly file-private class member
     private func somePrivateMethod() {}          // explicitly private class member
 }
 
-class SomeInternalClass {                       // implicitly internal class
+class SomeInternalClass {                        // implicitly internal class
     var someInternalProperty = 0                 // implicitly internal class member
     fileprivate func someFilePrivateMethod() {}  // explicitly file-private class member
     private func somePrivateMethod() {}          // explicitly private class member
 }
 
-fileprivate class SomeFilePrivateClass {        // explicitly file-private class
+fileprivate class SomeFilePrivateClass {         // explicitly file-private class
     func someFilePrivateMethod() {}              // implicitly file-private class member
     private func somePrivateMethod() {}          // explicitly private class member
 }
 
-private class SomePrivateClass {                // explicitly private class
+private class SomePrivateClass {                 // explicitly private class
     func somePrivateMethod() {}                  // implicitly private class member
 }
 ```
