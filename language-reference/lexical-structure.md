@@ -90,7 +90,33 @@ _식별자 (Identifiers)_ 는 A 부터 Z 까지 대문자 또는 소문자, 언�
 
 다음의 키워드는 예약되어 있으므로 [식별자 (Identifiers)](lexical-structure.md#identifiers) 에서 설명된대로 백틱을 사용하지 않는한 식별자로 사용될 수 없습니다. `inout`, `var`, 그리고 `let` 이외의 키워드는 백틱을 사용하지 않고도 함수 선언 또는 함수 호출에서 파라미터 이름으로 사용될 수 있습니다. 멤버가 키워드와 이름이 같은 경우 해당 멤버에 대한 참조는 멤버 참조와 키워드 사용 사이에 모호성이 있는 경우를 제외하고는 백틱을 사용할 필요가 없습니다 — 예를 들어 `self`, `Type`, 그리고 `Protocol` 은 명시적 멤버 표현식에서 특별한 의미가 있으므로 해당 컨텍스트에서 백틱을 사용해야 합니다.
 
-* 선언에 사용되는 키워드: `associatedtype`, `class`, `deinit`, `enum`, `extension`, `fileprivate`, `func`, `import`, `init`, `inout`, `internal`, `let`, `open`, `operator`, `private`, `precedencegroup`, `protocol`, `public`, `rethrows`, `static`, `struct`, `subscript`, `typealias`, 그리고 `var`.
+* 선언에 사용되는 키워드: 
+  `associatedtype`,
+  `borrowing`,
+  `class`,
+  `consuming`,
+  `deinit`,
+  `enum`,
+  `extension`,
+  `fileprivate`,
+  `func`,
+  `import`,
+  `init`,
+  `inout`,
+  `internal`,
+  `let`,
+  `open`,
+  `operator`,
+  `private`,
+  `precedencegroup`,
+  `protocol`,
+  `public`,
+  `rethrows`,
+  `static`,
+  `struct`,
+  `subscript`,
+  `typealias`,
+  그리고 `var`.
 * 구문에 사용되는 키워드: `break`, `case`, `catch`, `continue`, `default`, `defer`, `do`, `else`, `fallthrough`, `for`, `guard`, `if`, `in`, `repeat`, `return`, `throw`, `switch`, `where`, 그리고 `while`.
 * 표현식과 타입에 사용되는 키워드: `Any`, `as`, `await`, `catch`, `false`, `is`, `nil`, `rethrows`, `self`, `Self`, `super`, `throw`, `throws`, `true`, 그리고 `try`.
 * 패턴에 사용되는 키워드: `_`.
