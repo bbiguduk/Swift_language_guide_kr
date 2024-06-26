@@ -455,7 +455,14 @@ _파라미터 (parameters)_ 는 [함수 선언 (Function Declaration)](declarati
 }
 ```
 
-클로저의 본문에 try 표현식이 포함되어 있다면 클로저는 throwing 으로 이해됩니다. 마찬가지로 클로저에 `await` 표현식이 포함되어 있다면 그것은 비동기로 이해됩니다.
+클로저 본문에 에러를 처리할 `do` 구문이 없고 
+`throws` 구문 또는 `try` 표현식이 포함되어 있으면,
+이 클로저는 던지는 것으로 간주됩니다.
+던지는 클로저 (throwing closure) 가 하나의 에러 타입만 던지면,
+클로저는 해당 에러 타입을 던지는 것으로 간주됩니다;
+반대는 `any Error` 를 던지는 것으로 간주됩니다.
+마찬가지로, 본문에 `await` 표현식이 포함되어 있다면,
+비동기로 간주합니다.
 
 클로저를 보다 간결하게 작성할 수 있는 몇가지 특별한 형식이 있습니다:
 
@@ -548,7 +555,7 @@ myFunction { [weak parent = self.parent] in print(parent!.title) }
 >
 > *closure-expression* → **`{`** *attributes*_?_ *closure-signature*_?_ *statements*_?_ **`}`**
 >
-> *closure-signature* → *capture-list*_?_ *closure-parameter-clause* **`async`**_?_ **`throws`**_?_ *function-result*_?_ **`in`** \
+> *closure-signature* → *capture-list*_?_ *closure-parameter-clause* **`async`**_?_ *throws-clause*_?_ *function-result*_?_ **`in`** \
 > *closure-signature* → *capture-list* **`in`**
 >
 > *closure-parameter-clause* → **`(`** **`)`** | **`(`** *closure-parameter-list* **`)`** | *identifier-list* \

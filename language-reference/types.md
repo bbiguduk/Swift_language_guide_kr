@@ -140,7 +140,45 @@ var operation: (Int, Int) -> Int               // OK
 
 함수 타입에 하나 이상의 화살표 (`->`) 를 포함하는 경우 함수 타입은 오른쪽에서 왼쪽으로 그룹화 됩니다. 예를 들어 함수 타입 `(Int) -> (Int) -> Int` 는 `(Int) -> ((Int) -> Int)` 로 이해됩니다 — 이 함수는 `Int` 를 가지며 `Int` 를 가지고 반환하는 다른 함수를 반환합니다.
 
-에러를 발생 시키거나 다시 발생 시킬 수 있는 함수에 대한 함수 타입은 `throws` 키워드로 표시되어야 합니다. `throws` 키워드는 함수 타입의 일부분이며 던지지 않는 함수 (nonthrowing functions) 는 던지는 함수 (throwing functions) 의 하위 타입 (subtypes) 입니다. 결과적으로 던지는 함수로 같은 위치에서 던지지 않는 함수를 사용할 수 있습니다. 던지는 함수와 던지지 않는 함수는 [던지는 함수와 메서드 (Throwing Functions and Methods)](declarations.md#throwing-functions-and-methods) 와 [다시 던지는 함수와 메서드 (Rethrowing Functions and Methods)](declarations.md#rethrowing-functions-and-methods) 에 설명되어 있습니다.
+에러를 던지거나 다시 던질 수 있는 함수 타입은
+`throws` 키워드가 포함되어야 합니다.
+에러의 타입을 지정하기 위해서
+`throws` 다음 괄호안에 타입을 포함할 수 있습니다.
+에러 타입은 `Error` 프로토콜을 준수해야 합니다.
+특정 타입이 없이 `throws` 를 작성하는 것은
+`throws(any Error)` 로 작성한 것과 같습니다.
+`throws` 를 생략하는 것은 `throws(Never)` 로 작성하는 것과 같습니다.
+함수가 던지는 에러 타입은
+제너릭 타입, 박스형 프로토콜 타입, 그리고 불투명한 타입을 포함하여
+`Error` 를 준수하는 모든 타입일 수 있습니다.
+
+함수가 던지는 에러의 타입은 함수 타입의 일부이고,
+에러 타입 간의 하위 타입 관계는
+함수 타입 또한 하위 타입이라는 의미입니다.
+예를 들어, 임의로 정의한 `MyError` 타입을 선언하면,
+함수 타입 간의 관계는
+상위 타입에서 하위 타입으로 다음과 같습니다:
+
+1. 모든 에러를 던지는 함수는 `throws(any Error)` 로 표시합니다.
+2. 특정 에러를 던지는 함수는 `throws(MyError)` 로 표시합니다.
+3. 던지지 않는 함수는 `throws(Never)` 로 표시합니다.
+
+이 하위 타입 관계의 결과는 다음과 같습니다:
+
+- 던지는 함수와 동일한 위치에
+  던지지 않는 함수를 사용할 수 있습니다.
+- 던지는 함수와 동일한 위치에
+  구체적인 에러 타입을 던지는 함수를 사용할 수 있습니다.
+- 더 일반적인 에러 타입을 던지는 함수와 동일한 위치에
+  특정 에러 타입을 던지는 함수를 사용할 수 있습니다.
+
+함수 타입에서 던지는 에러로
+연관된 타입 (associated type) 또는 제너릭 타입 파라미터 (generic type parameter) 를 사용하면,
+연관된 타입 또는 제너릭 타입 파라미터는
+암시적으로 `Error` 프로토콜을 준수해야 합니다.
+던지는 함수와 다시 던지는 함수는
+[던지는 함수와 메서드 (Throwing Functions and Methods)](declarations.md#throwing-functions-and-methods) 와
+[다시 던지는 함수와 메서드 (Rethrowing Functions and Methods)](declarations.md#rethrowing-functions-and-methods) 에 설명되어 있습니다.
 
 비동기 함수에 대한 함수 타입은 `async` 키워드로 표시되어야 합니다. `async` 키워드는 함수의 타입의 부분이며, 동기 함수는 비동기 함수의 하위 타입 (subtypes) 입니다. 결과적으로 비동기 함수와 같은 위치에서 동기 함수를 사용할 수 있습니다. 비동기 함수에 대한 더 자세한 설명은 [비동기 함수와 메서드 (Asynchronous Functions and Methods)](declarations.md#asynchronous-functions-and-methods) 를 참고 바랍니다.
 
@@ -172,7 +210,7 @@ func takesTwoFunctions(first: (() -> Void) -> Void, second: (() -> Void) -> Void
 
 > Grammar of a function type:
 >
-> *function-type* → *attributes*_?_ *function-type-argument-clause* **`async`**_?_ **`throws`**_?_ **`->`** *type*
+> *function-type* → *attributes*_?_ *function-type-argument-clause* **`async`**_?_ *throws-clause*_?_ **`->`** *type*
 >
 > *function-type-argument-clause* → **`(`** **`)`** \
 > *function-type-argument-clause* → **`(`** *function-type-argument-list* **`...`**_?_ **`)`**
@@ -180,6 +218,8 @@ func takesTwoFunctions(first: (() -> Void) -> Void, second: (() -> Void) -> Void
 > *function-type-argument-list* → *function-type-argument* | *function-type-argument* **`,`** *function-type-argument-list* \
 > *function-type-argument* → *attributes*_?_ *parameter-modifier*_?_ *type* | *argument-label* *type-annotation* \
 > *argument-label* → *identifier*
+>
+> *throws-clause* → **`throws`** | **`throws`** **`(`** *type* **`)`**
 
 ## 배열 타입 (Array Type)
 
