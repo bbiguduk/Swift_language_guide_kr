@@ -522,7 +522,7 @@ paragraph = nil
 클로저의 정의의 부분으로 _캡처 리스트 \(capture list\)_ 를 정의하여 클로저와 클래스 인스턴스 간의 강한 참조 사이클을 해결합니다. 캡처 리스트은 클로저의 본문 내에서 하나 이상의 참조 타입을 캡처할 때 사용할 규칙을 정의합니다. 두 클래스 간의 강한 참조 사이클과 마찬가지로 캡처된 각 참조를 강한 참조가 아닌 약한 참조 또는 미소유 참조로 선언합니다. 약한 참조 또는 미소유 참조의 적절한 선택은 코드의 다른 부분 간의 관계에 따라 다릅니다.
 
 > Note   
-> Swift는 클로저 내에서 `self` 의 멤버를 참조할 때마다 `someProperty` 또는 `someMethod()` 가 아닌 `self.someProperty` 또는 `self.someMethod()` 로 작성해야 합니다. 이것은 실수로 `self` 를 캡첩할 수 있는 것을 기억하는데 도움이 됩니다.
+> Swift는 클로저 내에서 `self` 의 멤버를 참조할 때마다 `someProperty` 또는 `someMethod()` 가 아닌 `self.someProperty` 또는 `self.someMethod()` 로 작성해야 합니다. 이것은 실수로 `self` 를 캡처할 수 있는 것을 기억하는데 도움이 됩니다.
 
 ### 캡처 리스트 정의 \(Defining a Capture List\)
 
@@ -595,7 +595,7 @@ print(paragraph!.asHTML())
 // Prints "<p>hello, world</p>"
 ```
 
-다음은 캡처 리스트이 참조에서 어떻게 보이는지 나타냅니다:
+다음은 캡처 리스트가 참조에서 어떻게 보이는지 나타냅니다:
 
 ![Closure Reference Cycle 02](../.gitbook/assets/closureReferenceCycle02_2x~dark.png)
 
