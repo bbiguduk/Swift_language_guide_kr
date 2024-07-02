@@ -1778,7 +1778,9 @@ Swift 는 다섯 수준의 접근 제어를 제공합니다: open, public, inter
 
 접근 제어를 위해 동일한 파일에 있는 동일한 타입에 대한 확장은 접근-제어 범위를 공유합니다. 확장하는 타입도 동일한 파일에 있으면 타입의 접근-제어 범위를 공유합니다. 타입의 선언에서 선언된 private 멤버는 확장에서 접근할 수 있고 하나의 확장에서 선언된 private 멤버는 다른 확장과 타입의 선언에서 접근될 수 있습니다.
 
-위의 각 접근-수준 수식어는 괄호로 둘러싸인 `set` 키워드로 구성된 선택적으로 단일 인수를 허용합니다 (예를 들어 `private(set)`). [Getter 와 Setter (Getters and Setters)](../language-guide-1/access-control.md#getter-setter-getters-and-setters) 에서 설명 한대로 변수 또는 서브 스크립트에 대한 접근 수준보다 작거나 같은 변수 또는 서브 스크립트의 setter 에 대한 접근 수준을 지정하려면 이 형식의 접근-수준 수식어를 사용합니다.
+위의 각 접근-수준 수식어는 괄호로 둘러싸인 `set` 키워드로 구성된 선택적으로 단일 인수를 허용합니다 ---
+예를 들어 `private(set)`.
+[Getter 와 Setter (Getters and Setters)](../language-guide-1/access-control.md#getter-setter-getters-and-setters) 에서 설명 한대로 변수 또는 서브 스크립트에 대한 접근 수준보다 작거나 같은 변수 또는 서브 스크립트의 setter 에 대한 접근 수준을 지정하려면 이 형식의 접근-수준 수식어를 사용합니다.
 
 > Grammar of a declaration modifier:
 >

@@ -12,6 +12,7 @@
 
 ### 업데이트
 
+* [Swift 6-Beta, 2024-07-02](revision-history/document-revision-history.md#2024-07-02화)
 * [Swift 5.10, 2024-03-08](revision-history/document-revision-history.md#2024-03-08금)
 * [Swift 5.9.2, 2023-12-12](revision-history/document-revision-history.md#2023-12-12)
 * [Swift 5.9.2-Beta, 2023-12-03](revision-history/document-revision-history.md#2023-12-03일)

@@ -2,7 +2,7 @@
 
 이전 언어 모드에서 사용가능한 기능에 대해 배웁니다.
 
-이 책은 Xcode XXX 에 포함된 Swift 의 기본 버전인,
+이 책은 Xcode 16 에 포함된 Swift 의 기본 버전인,
 Swift 6 에 대해 설명합니다.
 Swift 6, Swift 5, Swift 4.2, 또는 Swift 4 로 작성된
 코드를 빌드하기위해 Swift 6 컴파일러를 사용할 수 있습니다.
