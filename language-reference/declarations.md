@@ -706,9 +706,24 @@ func <#function name#>(<#parameters#>) throws -> <#return type#> {
 }
 ```
 
+특정 에러 타입을 던지는 함수는 다음의 형식을 가집니다:
+
+```swift
+func <#function name#>(<#parameters#>) throws(<#error type#>) -> <#return type#> {
+   <#statements#>
+}
+```
+
 던지는 함수 또는 메서드 호출은 `try` 또는 `try!` 표현식 (`try` 또는 `try!` 연산자의 범위 내) 으로 래핑되어야 합니다.
 
-`throws` 키워드는 함수의 타입의 일부분이고 던지지 않는 함수는 던지는 함수의 하위 타입입니다. 결과적으로 던지는 함수와 같은 위치에서 던지지 않는 함수를 사용할 수 있습니다.
+함수의 타입은 에러를 던질 수 있고
+무슨 타입의 에러를 던지는지 포함합니다.
+예를 들어, 이러한 서브타입 관계는 에러를 던질 수 있는 컨텍스트에서
+에러를 던지지 않는 함수를 사용할 수 있다는 의미입니다.
+던지는 함수에 대한 자세한 내용은
+[함수 타입 (Function Type)](./types.md#함수-타입-function-type) 을 참고 바랍니다.
+명시적 타입을 가지는 에러 동작의 예제는
+[에러 타입 지정 (Specifying the Error Type)](../language-guide-1/error-handling.md#에러-타입-지정-specifying-the-error-type) 을 참고 바랍니다.
 
 함수가 에러를 발생할 수 있는지 여부를 기준으로 함수를 오버로드 할 수 없습니다. 이 말은 함수 파라미터 (parameter) 가 에러를 발생할 수 있는 여부에 따라 함수를 오버로드 할 수 있습니다.
 
@@ -741,6 +756,21 @@ func someFunction(callback: () throws -> Void) rethrows {
 ```
 
 던지는 메서드는 다시 던지는 메서드를 재정의할 수 없고 던지는 메서드는 다시 던지는 메서드에 대한 프로토콜 요구사항을 충족할 수 없습니다. 이 말은 다시 던지는 메서드는 던지는 메서드를 재정의할 수 있고 다시 던지는 메서드는 던지는 메서드에 대해 프로토콜 요구사항을 충족할 수 있습니다.
+
+다시 에러를 던지는 방법은 제너릭 코드에서 특정 에러 타입을 던지는 것입니다.
+예를 들어:
+
+```swift
+func someFunction<E: Error>(callback: () throws(E) -> Void) throws(E) {
+    try callback()
+}
+```
+
+에러를 전파하는 이러한 방식은
+에러에 대한 타입 정보를 유지합니다.
+그러나, `rethrows` 함수와 다르게,
+이 접근 방식은 동일한 타입의 에러를 던지도록
+함수를 보호하지 않습니다.
 
 ### 비동기 함수와 메서드 (Asynchronous Functions and Methods)
 
@@ -775,7 +805,7 @@ Swift 는 함수 또는 메서드가 호출자에게 반환하지 않음을 나�
 > _function-head_ → _attributes?_ _declaration-modifiers?_ **`func`** \
 > _function-name_ → _identifier_ | _operator_
 >
-> _function-signature_ → _parameter-clause_ **`async`**_?_ **`throws`**_?_ _function-result?_ \
+> *function-signature* → *parameter-clause* **`async`**_?_ *throws-clause*_?_ *function-result*_?_ \
 > _function-signature_ → _parameter-clause_ **`async`**_?_ **`rethrows`** _function-result?_ \
 > _function-result_ → **`->`** _attributes?_ _type_ \
 > _function-body_ → _code-block_
@@ -1746,9 +1776,26 @@ Swift 는 다섯 수준의 접근 제어를 제공합니다: open, public, inter
 
 이 수식어를 선언에 적용하여 선언의 직접 둘러싸인 범위 내의 코드로만 선언에 접근될 수 있습니다.
 
-접근 제어를 위해 동일한 파일에 있는 동일한 타입에 대한 확장은 접근-제어 범위를 공유합니다. 확장하는 타입도 동일한 파일에 있으면 타입의 접근-제어 범위를 공유합니다. 타입의 선언에서 선언된 private 멤버는 확장에서 접근할 수 있고 하나의 확장에서 선언된 private 멤버는 다른 확장과 타입의 선언에서 접근될 수 있습니다.
+접근 제어를 위해
+확장은 다음과 같이 동작합니다:
 
-위의 각 접근-수준 수식어는 괄호로 둘러싸인 `set` 키워드로 구성된 선택적으로 단일 인수를 허용합니다 (예를 들어 `private(set)`). [Getter 와 Setter (Getters and Setters)](../language-guide-1/access-control.md#getter-setter-getters-and-setters) 에서 설명 한대로 변수 또는 서브 스크립트에 대한 접근 수준보다 작거나 같은 변수 또는 서브 스크립트의 setter 에 대한 접근 수준을 지정하려면 이 형식의 접근-수준 수식어를 사용합니다.
+- 동일한 파일에 여러 확장이 있고,
+  이 확장이 동일한 타입을 확장한다면,
+  이 모든 확장은 동일한 접근 제어를 가집니다.
+  해당 타입과 확장은 다른 파일에 있을 수 있습니다.
+
+- 확장이 확장하는 타입과 동일한 파일에 있으면,
+  확장은 확장하는 타입과 동일한 접근 제어를 가집니다.
+
+- 타입의 선언에서 선언된 private 멤버는
+  해당 타입의 확장에서 접근할 수 있습니다.
+  한 확장에서 선언된 private 멤버는
+  다른 확장과 확장된 타입의 선언에서
+  접근할 수 있습니다.
+
+위의 각 접근-수준 수식어는 괄호로 둘러싸인 `set` 키워드로 구성된 선택적으로 단일 인수를 허용합니다 ---
+예를 들어 `private(set)`.
+[Getter 와 Setter (Getters and Setters)](../language-guide-1/access-control.md#getter-setter-getters-and-setters) 에서 설명 한대로 변수 또는 서브 스크립트에 대한 접근 수준보다 작거나 같은 변수 또는 서브 스크립트의 setter 에 대한 접근 수준을 지정하려면 이 형식의 접근-수준 수식어를 사용합니다.
 
 > Grammar of a declaration modifier:
 >

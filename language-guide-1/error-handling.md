@@ -250,6 +250,208 @@ func fetchData() -> Data? {
 let photo = try! loadImage(atPath: "./Resources/John Appleseed.jpg")
 ```
 
+## 에러 타입 지정 (Specifying the Error Type)
+
+위에 모든 예제에서 사용하는 에러 처리의 방법에서
+에러는
+`Error` 프로토콜을 준수하는 타입의 값입니다.
+이러한 접근방식은
+코드가 실행되는 동안 발생하는 모든 오류와
+다른 곳에서 전파된 에러에 대해
+미리 알 수 없습니다.
+이것은 오류가 시간이 지남에 따라 변할 수 있음을 나타냅니다.
+의존성을 사용하는 라이브러리를 포함하여
+새로운 라이브러리는
+새로운 에러를 던질 수 있고,
+개발 또는 테스트 중에 보여지지 않는 실패 모드를 나타낼 수 있습니다.
+위의 예제에서 에러를 처리하는 코드는
+특정 `catch` 구문이 없는
+에러 처리를 위해 기본 케이스를 포함합니다.
+
+대부분의 Swift 코드는 던지는 에러에 대해 타입을 지정하지 않습니다.
+그러나,
+다음과 같은 특별한 경우에
+특정 타입의 에러로 제한할 수 있습니다:
+
+- 동적 메모리 할당을 지원하지 않는
+  임베디드 시스템에서 코드를 실행하는 경우입니다.
+  `any Error` 또는 다른 박스형 프로토콜 타입의 인스턴스는
+  에러를 저장히기위해 런타임 때 메모리에 할당해야 합니다.
+  반대로,
+  특정 타입의 에러를 발생하려면
+  Swift 는 에러에 대한 힙 할당을 피할 수 있습니다.
+
+- 에러가 라이브러리 처럼 일부 코드를 상세히 구현하고,
+  인터페이스의 부분이 아닌 경우입니다.
+  에러는 라이브러리에서만 발생하고,
+  다른 의존성이나 라이브러리의 클라이언트에서 발생하지 않으므로,
+  가능한 모든 실패 목록을 만들 수 있습니다.
+  그리고 에러는 라이브러리의 세부 구현내용이므로,
+  라이브러리 내에서 처리됩니다.
+
+- 코드에서 클로저 인수를 가지고
+  클로저로 부터 에러를 전파하는 함수와 같이
+  제너릭 파라미터에 의해 전파되는 에러의 경우입니다.
+  특정 에러 타입을 전파하는 것과
+  `rethrows` 를 사용하는 것에 대한 비교는
+  [다시 던지는 함수와 메서드 (Rethrowing Functions and Methods)](../language-reference/declarations.md#다시-던지는-함수와-메서드-rethrowing-functions-and-methods) 를 참고 바랍니다.
+
+예를 들어,
+평점을 요약하고
+다음의 에러 타입을 사용한다고 생각해 봅시다.
+
+```swift
+enum StatisticsError: Error {
+    case noRatings
+    case invalidRating(Int)
+}
+```
+
+함수는 에러로 `StatisticsError` 값만 던지는 것을 지정하기 위해,
+함수를 선언할 때
+`throws` 대신에 `throws(StatisticsError)` 를 작성합니다.
+이 구문은 선언에서 `throws` 다음에 에러 타입을 작성하기 때문에
+*타입이 지정된 던기지 (typed throws)* 라고 부릅니다.
+예를 들어,
+아래의 함수는 에러로 `StatisticsError` 값을 던집니다.
+
+```swift
+func summarize(_ ratings: [Int]) throws(StatisticsError) {
+    guard !ratings.isEmpty else { throw .noRatings }
+
+    var counts = [1: 0, 2: 0, 3: 0]
+    for rating in ratings {
+        guard rating > 0 && rating <= 3 else { throw .invalidRating(rating) }
+        counts[rating]! += 1
+    }
+
+    print("*", counts[1]!, "-- **", counts[2]!, "-- ***", counts[3]!)
+}
+```
+
+위 코드에서,
+`summarize(_:)` 함수는 1 에서 3을 나타내는
+평점의 목록을 요약합니다.
+이 함수는 입력이 올바르지 않으면 `StatisticsError` 의 인스턴스를 던집니다.
+위 코드에서 함수의 에러 타입은 이미 정의되었으므로,
+에러를 던질 때 타입을 생략합니다.
+이와 같이 함수에서 에러가 발생할면
+`throw StatisticsError.noRatings` 로 작성하는 대신,
+`throw .noRatins` 로 짧게 작성할 수 있습니다.
+
+함수의 시작 부분에 에러 타입을 지정해서 작성하면,
+Swift 는 다른 에러 타입을 던지는지 확인합니다.
+예를 들어,
+이 챕터의 위 예제에서 `summarize(_:)` 함수에
+`VendingMachineError` 를 사용하면,
+코드는 컴파일 때 에러가 발생합니다.
+
+일반적인 던지는 함수내에서
+타입이 지정된 던지기를 사용하는 함수를 호출할 수 있습니다:
+
+```swift
+func someThrowingFunction() -> throws {
+    let ratings = [1, 2, 3, 2, 2, 1]
+    try summarize(ratings)
+}
+```
+
+위 코드에서 `someThrowingFunction()` 에서 에러 타입을 지정하지 않아,
+`any Error` 를 던집니다.
+`throws(any Error)` 로 명시적으로 에러 타입을 작성할 수도 있습니다;
+아래 코드는 위 코드와 동일합니다:
+
+```swift
+func someThrowingFunction() -> throws(any Error) {
+    let ratings = [1, 2, 3, 2, 2, 1]
+    try summarize(ratings)
+}
+```
+
+이 코드에서,
+`someThrowingFunction()` 은 `summarize(_:)` 에서 던지는 모든 에러를 전파합니다.
+`summarize(_:)` 에서 발생하는 에러는 `StatisticsError` 값이며,
+`someThrowingFunction()` 에 유효한 에러입니다.
+
+`Never` 의 반환 타입으로 반환하지 않는 함수를 작성할 수 있는 것처럼,
+절대 에러를 던지지 않는 `throws(Never)` 로 함수를 작성할 수 있습니다:
+
+```swift
+func nonThrowingFunction() throws(Never) {
+  // ...
+}
+```
+
+이 함수는 던지기 위해 `Never` 타입의 값을 생성할 수 없으므로,
+에러를 던질 수 없습니다.
+
+함수의 에러 타입을 지정하는 것 외에도,
+`do`-`catch` 구문에 에러 타입을 지정하여 작성할 수도 있습니다.
+예를 들어:
+
+```swift
+let ratings = []
+do throws(StatisticsError) {
+    try summarize(ratings)
+} catch {
+    switch error {
+    case .noRatings:
+        print("No ratings available")
+    case .invalidRating(let rating):
+        print("Invalid rating: \(rating)")
+    }
+}
+// Prints "No ratings available"
+```
+
+이 코드에서,
+`do throws(StatisticsError)` 를 작성하는 것은
+`do`-`catch` 구문에서 에러로 `StatisticsError` 값을 발생합니다.
+다른 `do`-`catch` 구문과 같이,
+`catch` 구문은 가능한 모든 에러를 처리하거나
+주변에 처리되지 않은 에러에 대해 전파합니다.
+이 코드는 `switch` 구문을 사용하여
+모든 에러를 처리합니다.
+패턴을 가지지 않는 다른 `catch` 구문과 같이
+이 구문은 모든 에러와 일치시키고
+`error` 라는 이름의 지역 상수에 바인딩 합니다.
+`do`-`catch` 구문은 `StatisticsError` 값을 던지므로,
+`error` 는 `StatisticsError` 타입의 값입니다.
+
+위의 `catch` 구문은 가능한 에러를 일치시키고 처리하기 위해
+`switch` 구문을 사용합니다.
+에러 처리 코드없이 `StatisticsError` 에 새로운 케이스를 추가하면,
+Swift 는 `switch` 구문이 완전하기 않기 때문에
+에러가 발생합니다.
+자체 에러를 모두 처리하는 라이브러리의 경우에,
+이러한 접근방식을 사용하여 새로운 에러를 처리하기 위한
+새로운 코드를 가져오도록 할 수 있습니다.
+
+함수 또는 `do` 블럭에서 하나의 타입으로 에러를 던지면,
+Swift 는 타입이 지정된 던지기를 사용하는 코드라고 추론합니다.
+이 짧은 구문을 사용하면,
+위 예제에서 `do`-`catch` 를 아래와 같이 작성할 수 있습니다:
+
+```swift
+let ratings = []
+do {
+    try summarize(ratings)
+} catch {
+    switch error {
+    case .noRatings:
+        print("No ratings available")
+    case .invalidRating(let rating):
+        print("Invalid rating: \(rating)")
+    }
+}
+// Prints "No ratings available"
+```
+
+위 `do`-`catch` 블럭에서 에러 타입을 지정하지 않지만,
+Swift 는 `StatisticsError` 를 던진다고 추론합니다.
+Swift 가 타입이 지정된 던지기로 추론하는 것을 방지하기 위해
+`throws(any Error)` 를 명시적으로 작성할 수 있습니다.
+
 ## 정리 작업 지정 \(Specifying Cleanup Actions\)
 
 코드의 현재 블럭이 종료되기 직전에 어떠한 작업을 수행하려면 `defer` 구문을 사용합니다. 이 구문을 사용하여 에러가 발생하여 종료되거나 `return` 또는 `break` 와 같은 구문에 의해 종료되는 방식에 상관없이 필요한 정리를 수행할 수 있습니다. 예를 들어 `defer` 구문을 사용하여 파일 설명자가 닫히고 수동으로 할당된 메모리가 해제되도록 할 수 있습니다.

@@ -400,6 +400,9 @@ throw <#expression#>
 ```
 
 _표현식 (expression)_ 의 값은 `Error` 프로토콜을 준수하는 타입이어야 합니다.
+`do` 구문이나 `throw` 구문을 포함하는 함수에
+발생하는 에러의 타입을 선언하면,
+*표현식* 의 값은 해당 타입의 인스턴스여야 합니다.
 
 `throw` 구문을 어떻게 사용하는지에 대한 예제는 [에러 처리 (Error Handling)](../language-guide-1/error-handling.md) 에 [던지기 함수를 이용한 에러 전파 (Propagating Errors Using Throwing Functions)](../language-guide-1/error-handling.md#propagating-errors-using-throwing-functions) 를 참고 바랍니다.
 
@@ -486,6 +489,42 @@ do {
 }
 ```
 
+`do` 구문은 선택적으로 아래와 같은 형식을 가지는
+에러의 타입을 지정할 수 있습니다:
+
+```swift
+do throws(<#type#>) {
+    try <#expression#>
+} catch <#pattern> {
+    <#statements#>
+} catch {
+    <#statements#>
+}
+```
+
+`do` 구문이 `throws` 구절을 포함하면,
+`do` 본문은 지정된 *타입* 의 에러만 던질 수 있습니다.
+*타입*은
+`Error` 프로토콜을 준수하는 타입이거나,
+`Error` 프로토콜을 준수하는 불투명한 타입,
+또는 `any Error` 의 박스형 프로토콜이어야 합니다.
+`do` 구문은 에러의 타입을 지정하지 않으면,
+Swift 는 다음과 같이 에러 타입을 추론합니다:
+
+- `do` 코드 본문에 모든 `throws` 구문과 `try` 표현식이
+  에러 처리 메커니즘으로 완벽하게 처리되면,
+  Swift 는 `do` 구문이 던지지 않는다고 추론합니다.
+
+- `do` 코드 본문이 `Never` 를 던지는 것이 아니라
+  하나의 에러 타입만을 던지는 코드가 포함되어 있는 경우,
+  Swift 는 `do` 구문이 구체적인 에러 타입을 던진다고 추론합니다.
+
+- `do` 코드 본문이 하나 이상의 에러 타입을 던지는 경우,
+  Swift 는 `do` 구문은 `any Error` 를 던진다고 추론합니다.
+
+명확한 타입을 가지는 에러 동작의 자세한 내용은,
+[에러 타입 지정 (Specifying the Error Type)](../language-guide-1/error-handling.md#에러-타입-지정-specifying-the-error-type) 을 참고 바랍니다.
+
 `do` 코드 블럭의 구문에서 에러가 발생하면 프로그렘 제어는 패턴이 에러와 일치하는 첫번째 `catch` 절로 전송됩니다. 일치하는 절이 없으면 에러를 주변 범위로 전파합니다. 에러를 최상위 수준에서 처리되지 않으면 프로그램 실행은 런타임 에러와 함께 멈춥니다.
 
 `switch` 구문처럼 컴파일러는 `catch` 절이 완벽한지 여부를 추론하려고 합니다. 그러한 결정을 내릴 수 있으면 에러가 처리된 것으로 간주됩니다. 그렇지 않으면 에러는 포함된 범위 밖으로 전파될 수 있습니다. 이것은 에러는 `catch` 절에서 처리되거나 포함한 함수가 `throws` 로 선언되어야 한다는 의미입니다.
@@ -498,7 +537,7 @@ do {
 
 > Grammar of a do statement:
 >
-> *do-statement* → **`do`** *code-block* *catch-clauses*_?_ \
+> *do-statement* → **`do`** *throws-clause*_?_ *code-block* *catch-clauses*_?_ \
 > *catch-clauses* → *catch-clause* *catch-clauses*_?_ \
 > *catch-clause* → **`catch`** *catch-pattern-list*_?_ *code-block* \
 > *catch-pattern-list* → *catch-pattern* | *catch-pattern* **`,`** *catch-pattern-list* \
@@ -610,7 +649,7 @@ print("Compiled with the Swift 5 compiler or later in a Swift mode earlier than 
 > *platform-condition* → **`canImport`** **`(`** *import-path* **`)`** \
 > *platform-condition* → **`targetEnvironment`** **`(`** *environment* **`)`**
 >
-> *operating-system* → **`macOS`** | **`iOS`** | **`watchOS`** | **`tvOS`** | **`Linux`** | **`Windows`** \
+> *operating-system* → **`macOS`** | **`iOS`** | **`watchOS`** | **`tvOS`** | **`visionOS`** | **`Linux`** | **`Windows`** \
 > *architecture* → **`i386`** | **`x86_64`** | **`arm`** | **`arm64`** \
 > *swift-version* → *decimal-digits* *swift-version-continuation*_?_ \
 > *swift-version-continuation* → **`.`** *decimal-digits* *swift-version-continuation*_?_ \
@@ -658,7 +697,7 @@ if #available(<#platform name#> <#version#>, <#...#>, *) {
 
 런타임 시 API 가 사용가능 여부에 따라 코드의 블럭을 실행하기 위해 가용성 조건을 사용합니다. 컴파일러는 코드의 블럭이 가능한 API 인 경우 가용성 조건에서 정보를 사용합니다.
 
-가용성 조건은 콤마로 구분된 플랫폼 이름과 버전을 가집니다. 플랫폼 이름으로 `iOS`, `macOS`, `watchOS`, 그리고 `tvOS` 를 사용하고 해당 버전 숫자를 포함합니다. `*` 인수는 필수이고 다른 플랫폼에서 가용성 조건으로 보호되는 코드 블럭의 본문이 타겟에 지정한 최소 배포 타겟에서 실행되도록 합니다.
+가용성 조건은 콤마로 구분된 플랫폼 이름과 버전을 가집니다. 플랫폼 이름으로 `iOS`, `macOS`, `watchOS`, `tvOS`, 그리고 `visionOS` 를 사용하고 해당 버전 숫자를 포함합니다. `*` 인수는 필수이고 다른 플랫폼에서 가용성 조건으로 보호되는 코드 블럭의 본문이 타겟에 지정한 최소 배포 타겟에서 실행되도록 합니다.
 
 부울 조건과 다르게 `&&` 와 `||` 와 같은 논리 연산자를 사용하여 가용성 조건을 결합할 수 없습니다. 비가용성 조건을 사용하기 위해 가용성 조건에 부정을 나타내기 위해 `!` 을 사용하는 대신에 다음의 형식을 가질 수 있습니다:
 
