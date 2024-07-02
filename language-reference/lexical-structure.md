@@ -105,6 +105,7 @@ _식별자 (Identifiers)_ 는 A 부터 Z 까지 대문자 또는 소문자, 언�
   `inout`,
   `internal`,
   `let`,
+  `nonisolated`,
   `open`,
   `operator`,
   `private`,
