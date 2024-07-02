@@ -1,4 +1,4 @@
-# The Swift Programming Language (한국어)
+# The Swift Programming Language (6 Beta) (한국어)
 
 [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bbiguduk\&repo=Swift\_language\_guide\_kr\&theme=midnight-purple)](https://github.com/anuraghazra/github-readme-stats)
 

@@ -28,7 +28,7 @@ Swift 4 와 Swift 4.2 코드를 빌드하기위해 Xcode 15.3 을 사용하면,
 동시성 (Concurrency) 은 Swift 5 언어 모드와
 동시성 타입을 제공하는 Swift 표준 라이브러리의 버전이 필요합니다.
 애플 플랫폼에서 배포 대상 (deployment target) 을 적어도
-iOS 13, macOS 10.15, tvOS 153 또는 watchOS 6 로 설정합니다.
+iOS 13, macOS 10.15, tvOS 13, watchOS 6, 또는 visionOS 1 로 설정합니다.
 
 Swift 6 으로 작성된 타겟은
 Swift 5, Swift 4.2 또는 Swift 4 로 작성된 타겟에 따라 달리질 수 있으며
