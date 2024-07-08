@@ -141,7 +141,7 @@ public macro OptionSet<RawType>() =
         #externalMacro(module: "SwiftMacros", type: "OptionSetMacro")
 ```
 
-위의 선언에서 `@attached(member)` 매크로는 `@OptionSet` 매크로가 생성하는 각 기호에 대해 `named:` 라벨 뒤에 인수로 포함합니다. 매크로는 `RawValue`, `rawValue`, 그리고 `init` 의 이름인 기호에 대한 선언을 추가합니다 - 이러한 이름은 미리 알고 있기 때문에, 명시적으로 매크로 선언에 나열합니다. 
+위의 선언에서 `@attached(member)` 매크로는 `@OptionSet` 매크로가 생성하는 각 기호에 대해 `names:` 라벨 뒤에 인수로 포함합니다. 매크로는 `RawValue`, `rawValue`, 그리고 `init` 의 이름인 기호에 대한 선언을 추가합니다 - 이러한 이름은 미리 알고 있기 때문에, 명시적으로 매크로 선언에 나열합니다. 
 
 매크로 선언은 매크로를 사용할 때까지 알 수 없는 이름의 선언을 생성하기위해 이름의 뒤에 `arbitrary` 도 포함합니다. 예를 들어, `@OptionSet` 매크로가 위에 `SundaeToppings` 에 적용하면, 열거형 케이스 인 `nuts`, `cherry`, 그리고 `fudge` 에 해당하는 타입 프로퍼티를 생성합니다.
 

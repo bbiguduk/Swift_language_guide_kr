@@ -1,4 +1,4 @@
-# 접근 제어 \(Access Control\)
+# 접근 제어 (Access Control)
 
 선언, 파일, 그리고 모듈에 의해 코드의 노출을 관리합니다.
 
@@ -11,15 +11,36 @@ _접근 제어 \(Access control\)_ 는 다른 소스 파일과 모듈에서 코�
 > Note   
 > 프로퍼티, 타입, 함수 등에 접근 제어를 적용할 수 있는 코드의 다양한 측면은 간결성을 위해 아래 섹션에서 "엔티티" 라고 합니다.
 
-## 모듈과 소스 파일 \(Modules and Source Files\)
+## 모듈, 소스 파일, 그리고 패키지 (Modules, Source Files, and Packages)
 
-Swift의 접근 제어 모델은 모듈과 소스 파일의 개념을 기초로 합니다.
+Swift 의 접근 제어 모델은
+모듈, 소스 파일, 그리고 패키지의 개념을 기초로 합니다.
 
-_모듈 \(module\)_ 은 단일 단위로 빌드되고 제공되는 프레임워크 또는 애플리케이션과 같은 코드 배포의 단일 단위이고 Swift의 `import` 키워드를 사용하여 다른 모듈에서 가져올 수 있습니다.
+*모듈 (module)* 은 코드 배포의 단일 단위입니다 ---
+단일 단위로 빌드되고 Swift 의 `import` 키워드로 다른 모듈에서 가져올 수 있는
+프레임워크 (framework) 또는 애플리케이션 (application) 이 모듈에 해당합니다.
 
-앱 번들 또는 프레임워크와 같이 Xcode에서 각 빌드 타겟은 Swift에서 별도의 모듈로 처리됩니다. 여러 애플리케이션에서 해당 코드를 캡슐화하고 재사용하기 위해 앱의 코드의 여러 측면을 독립형 프레임워크로 그룹화하면 해당 프레임워크 내에서 정의한 모든 것은 앱 내에서 가져와서 사용되거나 다른 프레임워크 내에서 사용될 때 별도의 모듈에 속하게 됩니다.
+Xcode 에서 각 빌드 타겟 (앱 번들 또는 프레임워크) 은
+Swift 에서 별도의 모듈로 처리됩니다.
+여러 애플리케이션에서 해당 코드를 캡슐화하고 재사용하기위해
+앱의 코드의 여러측면을 독립형 프레임워크로 그룹화하면
+프레임워크 내에 정의한 모든 것은 앱 내에서 가져오고 사용되거나
+다른 프레임워크 내에서 사용될 때
+별도의 모듈에 속하게 됩니다.
 
-_소스 파일 \(source file\)_ 은 모듈 내에서 단일 Swift 소스 코드 파일입니다 \(실제로 앱 또는 프레임워크 내의 단일 파일\). 개별 타입을 별도의 소스 파일에 정의하는 것이 일반적이지만 단일 소스 파일에 여러 타입, 함수 등에 대한 정의가 포함될 수 있습니다.
+*소스 파일 (source file)* 은 모듈 내 하나의 Swift 소스 코드 파일입니다
+(앱 또는 프레임워크 내에 단일 파일).
+별도의 소스 파일로 각각의 타입을 정의하는 것이 일반적이지만,
+하나의 소스 파일에 여러 타입, 함수, 등을 포함할 수 있습니다.
+
+*패키지 (package)* 는 하나의 단위로 개발한 모듈의 그룹입니다.
+패키지를 구성하는 모듈을 Swift 소스코드의 부분이 아닌,
+사용 중인 빌드 시스템 구성의 부분으로 정의합니다.
+예를 들어, 코드를 빌드하기위해 Swift Package Manager 를 사용한다면,
+[PackageDescription](https://developer.apple.com/documentation/packagedescription) 모듈의 API 를 사용하여
+`Package.swift` 파일에 패키지를 정의하고,
+Xcode 를 사용하면, Package Access Identifier 빌드 설정에서
+패키지 이름을 지정합니다.
 
 ## 접근 수준 \(Access Levels\)
 
@@ -99,25 +120,25 @@ let someInternalConstant = 0            // implicitly internal
 > Public 타입은 기본적으로 public 멤버가 아닌 internal 멤버를 가집니다. 타입 멤버를 public으로 하려면 명시적으로 표시해야 합니다. 이 요구사항은 타입에 대한 공용 API는 공개되도록 하고 실수로 타입의 내부 작업을 공개 API로 표시되지 않도록 합니다.
 
 ```swift
-public class SomePublicClass {                  // explicitly public class
+public class SomePublicClass {                   // explicitly public class
     public var somePublicProperty = 0            // explicitly public class member
     var someInternalProperty = 0                 // implicitly internal class member
     fileprivate func someFilePrivateMethod() {}  // explicitly file-private class member
     private func somePrivateMethod() {}          // explicitly private class member
 }
 
-class SomeInternalClass {                       // implicitly internal class
+class SomeInternalClass {                        // implicitly internal class
     var someInternalProperty = 0                 // implicitly internal class member
     fileprivate func someFilePrivateMethod() {}  // explicitly file-private class member
     private func somePrivateMethod() {}          // explicitly private class member
 }
 
-fileprivate class SomeFilePrivateClass {        // explicitly file-private class
+fileprivate class SomeFilePrivateClass {         // explicitly file-private class
     func someFilePrivateMethod() {}              // implicitly file-private class member
     private func somePrivateMethod() {}          // explicitly private class member
 }
 
-private class SomePrivateClass {                // explicitly private class
+private class SomePrivateClass {                 // explicitly private class
     func somePrivateMethod() {}                  // implicitly private class member
 }
 ```
