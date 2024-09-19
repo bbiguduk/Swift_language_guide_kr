@@ -649,26 +649,29 @@ s.$x.wrapper  // WrapperWithProjection value
 
 추가적인 결과-빌딩 메서드는 다음과 같습니다:  
 
-`static func buildOptional(_ component: Component?) -> Component` \
-`nil` 이 가능한 부분 결과로 부터 부분 결과를 빌드합니다. `else` 절을 포함하지 않은 `if` 구문을 지원하려면 이 메서드를 구현해야 합니다.
+- `static func buildOptional(_ component: Component?) -> Component`:
+  `nil` 이 가능한 부분 결과로 부터 부분 결과를 빌드합니다. `else` 절을 포함하지 않은 `if` 구문을 지원하려면 이 메서드를 구현해야 합니다.
 
-`static func buildEither(first: Component) -> Component` \
-일부 조건에 따라 다양한 값의 부분 결과를 빌드합니다. `switch` 구문과 `else` 절을 포함하는 `if` 구문을 제공하려면 이 메서드와 `buildEither(second:)` 를 모두 구현해야 합니다.
+- `static func buildEither(first: Component) -> Component`:
+  일부 조건에 따라 다양한 값의 부분 결과를 빌드합니다. `switch` 구문과 `else` 절을 포함하는 `if` 구문을 제공하려면 이 메서드와 `buildEither(second:)` 를 모두 구현해야 합니다.
 
-`static func buildEither(second: Component) -> Component` \
-일부 조건에 따라 다양한 값의 부분 결과를 빌드합니다. `switch` 구문과 `else` 절을 포함하는 `if` 구문을 제공하려면 이 메서드와 `buildEither(first:)` 를 모두 구현해야 합니다.
+- `static func buildEither(second: Component) -> Component`:
+  일부 조건에 따라 다양한 값의 부분 결과를 빌드합니다. `switch` 구문과 `else` 절을 포함하는 `if` 구문을 제공하려면 이 메서드와 `buildEither(first:)` 를 모두 구현해야 합니다.
 
-`static func buildArray(_ components: [Component]) -> Component` \
-부분 결과의 배열로 부터 부분 결과를 빌드합니다. `for` 루프를 지원하려면 이 메서드를 구현해야 합니다.
+- `static func buildArray(_ components: [Component]) -> Component`:
+  부분 결과의 배열로 부터 부분 결과를 빌드합니다. `for` 루프를 지원하려면 이 메서드를 구현해야 합니다.
 
-`static func buildExpression(_ expression: Expression) -> Component` \
-표현식에서 부분 결과를 빌드합니다. 이 메서드를 구현하여 전처리 — 예를 들어 표현식을 내부 타입으로 변환 — 를 수행하거나 사용하는 곳에서 타입 추론을 위한 추가 정보를 제공하기 위해 구현할 수 있습니다.
+- `static func buildExpression(_ expression: Expression) -> Component`:
+  표현식에서 부분 결과를 빌드합니다. 이 메서드를 구현하여 전처리 — 예를 들어 표현식을 내부 타입으로 변환 — 를 수행하거나 사용하는 곳에서 타입 추론을 위한 추가 정보를 제공하기 위해 구현할 수 있습니다.
 
-`static func buildFinalResult(_ component: Component) -> FinalResult` \
-부분 결과로 부터 최종 결과를 빌드합니다. 부분과 최종 결과에 대한 다른 타입을 사용하는 결과 빌더의 부분으로 이 메서드를 구현하거나 결과를 반환하기 전에 결과에 대해 다른 후처리를 진행하기 위해 이 메서드를 구현할 수 있습니다.
+- `static func buildFinalResult(_ component: Component) -> FinalResult`:
+  부분 결과로 부터 최종 결과를 빌드합니다. 부분과 최종 결과에 대한 다른 타입을 사용하는 결과 빌더의 부분으로 이 메서드를 구현하거나 결과를 반환하기 전에 결과에 대해 다른 후처리를 진행하기 위해 이 메서드를 구현할 수 있습니다.
 
-`static func buildLimitedAvailability(_ component: Component) -> Component` \
-가용성 검사를 수행하는 컴파일러-제어 구문의 외부에서 타입 정보를 전파하거나 지우는 부분 결과를 빌드합니다. 조건부 간의 다양한 타입 정보를 지우기 위해 사용할 수 있습니다.
+- `static func buildLimitedAvailability(_ component: Component) -> Component`:
+  타입 정보를 지우는 부분 결과를 빌드합니다.
+  가용성을 검사하는
+  컴파일러-제어 구문 외부로 
+  타입 정보가 전파되는 것을 막기위해 이 메서드를 구현할 수 있습니다.
 
 예를 들어 아래 코드는 정수의 배열을 빌드하는 간다한 결과 빌더를 정의합니다. 이 코드는 타입 별칭으로 `Component` 와 `Expression` 을 정의하여 아래 예제를 위의 메서드의 리스트보다 쉽게 일치하도록 만듭니다.
 
@@ -711,7 +714,14 @@ var manualNumber = ArrayBuilder.buildExpression(10)
 ```
 
 * 할당 구문은 표현식 처럼 변환되지만 `()` 으로 평가되는 것으로 이해됩니다. 구체적으로 할당을 처리하기 위해 `()` 타입의 인수를 가지는 `buildExpression(_:)` 의 오버로드를 정의할 수 있습니다.
-* 가용성 조건을 확인하는 분기 구문은 `buildLimitedAvailability(_:)` 메서드에 대한 호출이 됩니다. 이 변환은 `buildEither(first:)`, `buildEither(second:)`, 또는 `buildOptional(_:)` 에 대한 호출로 변환되기 전에 발생합니다. `buildLimitedAvailability(_:)` 메서드를 사용하여 어떤 분기를 사용하는지에 따라 변경되는 타입 정보를 지웁니다. 예를 들어 아래의 `buildEither(first:)` 와 `buildEither(second:)` 메서드는 두 분기에 대한 타입 정보를 캡처하는 제너릭 타입을 사용합니다.
+* 가용성 조건을 확인하는 분기 구문은
+  해당 메서드가 구현되어 있으면, `buildLimitedAvailability(_:)` 메서드에 대한 호출이 됩니다.
+  `buildLimitedAvailability(_:)` 가 구현되어 있지 않다면,
+  가용성 조건을 확인하는 분기 구문은
+  다른 분기 구문과 동일한 변환을 사용합니다.
+  이 변환은 `buildEither(first:)`, `buildEither(second:)`, 또는 `buildOptional(_:)` 에 대한 호출로 변환되기 전에 발생합니다.
+
+  `buildLimitedAvailability(_:)` 메서드를 사용하여 어떤 분기를 사용하는지에 따라 변경되는 타입 정보를 지웁니다. 예를 들어 아래의 `buildEither(first:)` 와 `buildEither(second:)` 메서드는 두 분기에 대한 타입 정보를 캡처하는 제너릭 타입을 사용합니다.
 
 ```swift
 protocol Drawable {
@@ -770,7 +780,10 @@ struct FutureText: Drawable {
 
 위의 코드에서 `FutureText` 는 `DrawEither` 제너릭 타입에서 타입 중 하나이므로 `brokenDrawing` 의 타입의 부분으로 나타납니다. 이로 인해 런타임에 `FutureText` 를 사용할 수 없는 경우 해당 타입이 명시적으로 사용되지 않는 경우에도 프로그램이 중된될 수 있습니다.
 
-이 문제를 해결하려면 타입 정보를 지우기 위해 `buildLimitedAvailability(_:)` 메서드를 구현합니다. 예를 들어 아래의 코드는 가용성 검사로 부터 `AnyDrawable` 값을 빌드합니다.
+이 문제를 해결하려면
+항상 사용가능한 타입을 반환하여 타입 정보를 지우는
+`buildLimitedAvailability(_:)` 메서드를 구현합니다.
+예를 들어 아래의 코드는 가용성 검사로 부터 `AnyDrawable` 값을 빌드합니다.
 
 ```swift
 struct AnyDrawable: Drawable {
@@ -778,7 +791,7 @@ struct AnyDrawable: Drawable {
     func draw() -> String { return content.draw() }
 }
 extension DrawingBuilder {
-    static func buildLimitedAvailability(_ content: Drawable) -> AnyDrawable {
+    static func buildLimitedAvailability(_ content: some Drawable) -> AnyDrawable {
         return AnyDrawable(content: content)
     }
 }
