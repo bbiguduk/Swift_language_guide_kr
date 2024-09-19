@@ -636,14 +636,14 @@ s.$x.wrapper  // WrapperWithProjection value
 
 결과-빌딩 메서드는 다음과 같습니다:
 
-`static func buildBlock(_ components: Component...) -> Component` \
-부분 결과의 배열을 단일 부분 결과로 결합합니다.
+- `static func buildBlock(_ components: Component...) -> Component`:
+  부분 결과의 배열을 단일 부분 결과로 결합합니다.
 
-`static func buildPartialBlock(first: Component) -> Component` \
-첫번째 컴포넌트로 부터 부분 결과 컴포넌트를 빌드합니다. 한번에 하나의 컴포넌트 빌딩 블럭을 지원하기위해 이 메서드와 `buildPartialBlock(accumulated:next:)` 메서드를 구현합니다. `buildBlock(_:)` 과 비교하여 이 접근은 인수의 다른 갯수를 처리하는 일반적인 오버로드의 필요성을 줄여줍니다.
+- `static func buildPartialBlock(first: Component) -> Component`:
+  첫번째 컴포넌트로 부터 부분 결과 컴포넌트를 빌드합니다. 한번에 하나의 컴포넌트 빌딩 블럭을 지원하기위해 이 메서드와 `buildPartialBlock(accumulated:next:)` 메서드를 구현합니다. `buildBlock(_:)` 과 비교하여 이 접근은 인수의 다른 갯수를 처리하는 일반적인 오버로드의 필요성을 줄여줍니다.
 
-`static func buildPartialBlock(accumulated: Component, next: Component) -> Component` \
-누적된 컴포넌트와 새로운 컴포넌트를 결합하여 부분 결과 컴포넌트를 빌드합니다. 한번에 하나의 컴포넌트 빌딩 블럭을 지원하기위해 이 메서드와 `buildPartialBlock(first:)` 메서드를 구현합니다. `buildBlock(_:)` 과 비교하여 이 접근은 인수의 다른 갯수를 처리하는 일반적인 오버로드의 필요성을 줄여줍니다.
+- `static func buildPartialBlock(accumulated: Component, next: Component) -> Component`:
+  누적된 컴포넌트와 새로운 컴포넌트를 결합하여 부분 결과 컴포넌트를 빌드합니다. 한번에 하나의 컴포넌트 빌딩 블럭을 지원하기위해 이 메서드와 `buildPartialBlock(first:)` 메서드를 구현합니다. `buildBlock(_:)` 과 비교하여 이 접근은 인수의 다른 갯수를 처리하는 일반적인 오버로드의 필요성을 줄여줍니다.
 
 결과 빌더는 위에 나열된 블럭-빌딩 메서드 세가지 모두 구현할 수 있습니다. 이 경우에 가용성에 따라 호출되는 메서드가 결정됩니다. 기본적으로, Swift 는 `buildPartialBlock(first:)` 와 `buildPartialBlock(accumulated:next:)` 메서드를 호출합니다. Swift 가 `buildBlock(_:)` 을 호출하도록 하려면 `buildPartialBlock(first:)` 와 `buildPartialBlock(accumulated:next:)` 에 작성하기 전에 동봉 선언 (enclosing declaration) 을 사용가능으로 표시합니다.
 
