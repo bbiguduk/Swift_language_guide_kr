@@ -412,7 +412,7 @@ let photos = await withTaskGroup(of: Optional<Data>.self) { group in
 > [`Task.isCancelled`](https://developer.apple.com/documentation/swift/task/iscancelled-swift.property) 인스턴스 프로퍼티를 사용합니다.
 
 즉시 취소에 대한 알림이 필요한 경우에
-[`Task.withTaskCancellationHandler(operation:onCancel:)`](https://developer.apple.com/documentation/swift/withtaskcancellationhandler(operation:oncancel:)) 메서드를 사용합니다.
+[`Task.withTaskCancellationHandler(operation:onCancel:isolation:)`](https://developer.apple.com/documentation/swift/withtaskcancellationhandler(operation:oncancel:isolation:)) 메서드를 사용합니다.
 예를 들어:
 
 ```swift

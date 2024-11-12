@@ -37,13 +37,17 @@ print("We're number \(one)!")
 
 충돌 접근의 맥락에서 고려해야 할 메모리 접근의 3가지 특성이 있습니다: 접근하는 동안 읽기 또는 쓰기 접근인지 여부와 접근된 메모리의 위치입니다. 특히 아래의 조건을 모두 만족하는 2개의 접근이 있다면 충돌이 발생합니다:
 
-* 적어도 하나의 쓰기 접근 또는 nonatomic 접근입니다.
+* 두 접근은 모두 읽을 수 없고, 두 접근 모두 atomic 입니다.
 * 메모리의 같은 위치에 접근합니다.
 * 접근하는 시간이 겹칩니다.
 
 읽기와 쓰기 접근 간의 차이는 일반적으로 명확합니다: 쓰기 접근은 메모리의 위치를 변경하지만 읽기 접근은 변경하지 않습니다. 메모리의 위치는 예를 들어 변수, 상수 또는 프로퍼티와 같이 접근 중인 항목을 나타냅니다. 메모리 접근 기간은 순간적이거나 장기적입니다.
 
-C atomic 연산만 사용하는 경우 _atomic_ 이고 그렇지 않으면 nonatomic 입니다. 이러한 함수 리스트는 `stdatomic(3)` 페이지를 참고 바랍니다.
+접근이 *atomic* 이라는 것은
+[`Atomic`](https://developer.apple.com/documentation/synchronization/atomic) 또는 [`AtomicLazyReference`](https://developer.apple.com/documentation/synchronization/atomiclazyreference) 의 atomic 연산을 호출하는 경우이거나,
+C atomic 연산자만 사용하는 경우를 의미합니다;
+그렇지 않으면 nonatomic 입니다.
+C 의 atomic 함수 목록은 `stdatomic(3)` 메뉴얼 페이지에서 확인 가능합니다.
 
 접근이 시작되고 종료되기 전에 다른 코드를 실행할 수 없는 경우 접근은 _즉시_ 이루어집니다. 일반적으로 2개의 즉시 접근은 동시에 발생할 수 없습니다. 대부분 메모리 접근은 즉각적입니다. 예를 들어 아래 코드 리스트의 모든 읽기와 쓰기 접근은 즉각적입니다:
 

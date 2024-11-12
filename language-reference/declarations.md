@@ -24,8 +24,7 @@ Swift 에서 대부분의 선언은 선언과 동시에 구현되거나 초기�
 > *declaration* → *subscript-declaration* \
 > *declaration* → *macro-declaration* \
 > *declaration* → *operator-declaration* \
-> *declaration* → *precedence-group-declaration* \
-> *declarations* → *declaration* *declarations*_?_
+> *declaration* → *precedence-group-declaration*
 
 ## 최상위-수준 코드 (Top-Level Code)
 
