@@ -160,7 +160,7 @@ shoppingList[0] = "Six eggs"
 
 서브 스크립트 구문을 사용할 때 인덱스는 유효해야 합니다. 예를 들어 `shoppingList[shoppingList.count] = "Salt"` 으로 배열 끝에 추가하려고 하면 런타임 에러가 발생합니다.
 
-변경할 값들이 변경할 범위와 다른 길이를 가지고 있더라도 서브 스크립트 구문으로 범위 안에 값을 한번에 변경할 수 있습니다. 아래 예제는 `"Chocolate Spread"`, `"Cheese"` 를 `"Bananas"` 와 `"Apples"` 로 대체합니다:
+변경할 값들이 변경할 범위와 다른 길이를 가지고 있더라도 서브 스크립트 구문으로 범위 안에 값을 한번에 변경할 수 있습니다. 아래 예제는 `"Chocolate Spread"`, `"Cheese"`, `"Butter"` 를 `"Bananas"` 와 `"Apples"` 로 대체합니다:
 
 ```swift
 shoppingList[4...6] = ["Bananas", "Apples"]
