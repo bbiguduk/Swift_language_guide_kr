@@ -350,7 +350,7 @@ Swift 는 다른 에러 타입을 던지는지 확인합니다.
 타입이 지정된 던지기를 사용하는 함수를 호출할 수 있습니다:
 
 ```swift
-func someThrowingFunction() -> throws {
+func someThrowingFunction() throws {
     let ratings = [1, 2, 3, 2, 2, 1]
     try summarize(ratings)
 }
@@ -362,7 +362,7 @@ func someThrowingFunction() -> throws {
 아래 코드는 위 코드와 동일합니다:
 
 ```swift
-func someThrowingFunction() -> throws(any Error) {
+func someThrowingFunction() throws(any Error) {
     let ratings = [1, 2, 3, 2, 2, 1]
     try summarize(ratings)
 }
