@@ -129,7 +129,80 @@ obsoleted: <#version number#>
 
 _버전 번호 (version number)_ 는 마침표로 구분된 하나에서 세개의 양수로 구성됩니다.
 
-* `message` 인수는 지원 중단되거나 폐기된 선언 사용에 대한 경고나 에러를 생성할 때 컴파일러가 표시하는 텍스트 메세지를 제공합니다. 다음의 형식을 가집니다:
+- `noasync` 인수는
+  선언된 심볼이 비동기 컨텍스트에서
+  직접 사용할 수 없음을 나타냅니다.
+
+  Swift 동시성에서는 일시 중단 지점 이후에
+  다른 스레드에서 실행이 재개될 수 있기 때문에,
+  스레드 로컬 저장소, 락(lock), 뮤텍스(mutex), 세마포어(semaphore)와 같은 요소를
+  일시 중단 지점 사이에서 사용하면 올바르지 않은 결과를 초래할 수 있습니다.
+
+  이러한 문제를 방지하려면,
+  심볼의 선언에 `@available(*, noasync)` 속성을 추가하세요:
+
+  ```swift
+  extension pthread_mutex_t {
+
+    @available(*, noasync)
+    mutating func lock() {
+        pthread_mutex_lock(&self)
+    }
+
+    @available(*, noasync)
+    mutating func unlock() {
+        pthread_mutex_unlock(&self)
+    }
+  }
+  ```
+
+  이 속성은 해당 심볼을 비동기 컨텍스트에서 사용하려고 할 때
+  컴파일 에러를 발생시킵니다.
+  또한 `message` 인수를 사용하여 해당 심볼에 대한 추가 정보를
+  제공할 수도 있습니다.
+
+  ```swift
+  @available(*, noasync, message: "Migrate locks to Swift concurrency.")
+  mutating func lock() {
+    pthread_mutex_lock(&self)
+  }
+  ```
+
+  코드에서
+  잠재적으로 안전하지 않은 심볼을 안전하게 사용할 수 있음을 보장할 수 있다면,
+  해당 심볼을 동기 함수로 감싼 후에 비동기 컨텍스트에서
+  해당 함수를 호출할 수 있습니다.
+
+  ```swift
+
+  // Provide a synchronous wrapper around methods with a noasync declaration.
+  extension pthread_mutex_t {
+    mutating func withLock(_ operation: () -> ()) {
+      self.lock()
+      operation()
+      self.unlock()
+    }
+  }
+
+  func downloadAndStore(key: Int,
+                      dataStore: MyKeyedStorage,
+                      dataLock: inout pthread_mutex_t) async {
+    // Safely call the wrapper in an asynchronous context.
+    dataLock.withLock {
+      dataStore[key] = downloadContent()
+    }
+  }
+  ```
+
+  대부분의 선언에서 `noasync` 인수를 사용할 수 있지만;
+  초기화 해제 구문에서는 사용할 수 없습니다.
+  Swift는 클래스의 초기화 해제 구문을 동기 및 비동기 컨텍스트에서
+  모두 호출할 수 있어야 하기 때문읍니다.
+
+- `message` 인수는 `deprecated`, `obsoleted`, `noasync`로 표시된 선언을
+  사용할 때 컴파일러가 경고 또는 에러를 출력할 때
+  표시할 텍스트 메세지를 제공합니다.
+  이 인수 다음의 형식을 가집니다:
 
 ```swift
 message: <#message#>

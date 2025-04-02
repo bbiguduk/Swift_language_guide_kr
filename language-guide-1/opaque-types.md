@@ -305,3 +305,62 @@ print(type(of: twelve))
 
 `twelve` 의 타입은 `Int` 로 유추되며 이것은 불투명한 타입이 타입 추론이 동작한다는 것을 보여줍니다. `makeOpaqueContainer(item:)` 의 구현에서 불투명한 컨테이너의 기본 타입은 `[T]` 입니다. 이 경우에 `T` 는 `Int` 이므로 반환값은 정수의 배열이고 `Item` 연관된 타입은 `Int` 로 유추됩니다. `Container` 에서 서브 스크립트는 `twelve` 의 타입도 `Int` 로 유추된다는 의미의 `Item` 을 반환합니다.
 
+## 불투명한 파라미터 타입 (Opaque Parameter Types)
+
+`some`을 사용하여 불투명한 타입을 반환하는 것 외에도,
+함수, 서브스크립트, 초기화 구문의
+파라미터 타입에도 `some`을 사용할 수 있습니다.
+그러나 파라미터 타입에서 `some`을 사용하는 것은
+불투명한 타입이 아니라 단순히 제네릭을 위한 더 짧은 문법일 뿐입니다.
+예를 들어
+아래의 두 함수는 동일한 의미를 가집니다:
+
+```swift
+func drawTwiceGeneric<SomeShape: Shape>(_ shape: SomeShape) -> String {
+    let drawn = shape.draw()
+    return drawn + "\n" + drawn
+}
+
+func drawTwiceSome(_ shape: some Shape) -> String {
+    let drawn = shape.draw()
+    return drawn + "\n" + drawn
+}
+```
+
+`drawTwiceGeneric(_:)` 함수는
+`SomeShape`이라는 제너릭 타입 파라미터를 선언하고,
+이 타입이 `Shape` 프로토콜을 준수해야 한다는 제약을 가집니다.
+`drawTwiceSome(_:)` 함수는
+파라미터 타입으로 `some Shape`를 사용합니다.
+이는 함수에 대해 새로운 이름 없는 제너릭 타입 파라미터를 생성하며,
+해당 타입이 `Shape` 프로토콜을 준수해야 한다는 제약을 가집니다.
+제너릭 타입은 이름이 없기 때문에
+함수 내 다른 곳에서 이를 참조할 수 없습니다.
+
+여러 파라미터의 타입 앞에 `some`을 사용하면,
+각 제너릭 타입은 서로 독립적입니다.
+예를 들어:
+
+```swift
+func combine(shape s1: some Shape, with s2: some Shape) -> String {
+    return s1.draw() + "\n" + s2.draw()
+}
+
+combine(smallTriangle, trapezoid)
+```
+
+`combine(shape:with:)` 함수에서
+첫 번째와 두 번째 파라미터의 타입은
+모두 `Shape` 프로토콜을 준수해야 하지만,
+두 파라미터가 동일한 타입일 필요는 없습니다.
+`combine(shape:with:)`를 호출할 때,
+삼각형과 사다리꼴처럼
+서로 다른 두 도형을 전달할 수 있습니다.
+
+[제너릭 (Generics)](./generics.md) 챕터에서 설명된
+명명된 제너릭 타입 파라미터의 문법과 다르게,
+이 간단한 문법은 제너릭 `where` 절이나 동일한 타입(`==`) 제약을
+포함할 수 없습니다.
+또한
+매우 복잡한 제약을 표현할 때
+이 간단한 문법을 사용하면 코드의 가독성이 떨어질 수 있습니다.

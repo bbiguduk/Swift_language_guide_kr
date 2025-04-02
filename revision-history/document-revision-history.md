@@ -2,6 +2,14 @@
 
 ## Revision History
 
+### 2025-04-02(수)
+
+- Swift 6.1 기반으로 문서 업데이트.
+- [불투명한 파라미터 타입 (Opaque Parameter Types)](../language-guide-1/opaque-types.md#불투명한-파라미터-타입-opaque-parameter-types) 섹션을 추가하여
+  `some`을 제너릭의 간단한 문법으로 사용하는 방법에 대한 정보를 포함.
+- [available](../language-reference/attributes.md#available) 섹션에
+  `noasync` 인수에 대한 정보를 추가.
+
 ### 2024-09-19(목)
 
 - Swift 6 기반으로 문서 업데이트.

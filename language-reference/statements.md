@@ -679,7 +679,7 @@ print("Compiled with the Swift 5 compiler or later in a Swift mode earlier than 
 
 ### 컴파일-시간 진단 구문 (Compile-Time Diagnostic Statement)
 
-Swift 5.9 이전에는 컴파일 중에 `#warning` 과 `#error` 구문은 진단을 내보냅니다. 이 동작은 이제 Swift 표준 라이브러리에 [`warning(_:)`](http://developer.apple.com/documentation/swift/documentation/swift/warning(_:)) 와 [`error(_:)`](http://developer.apple.com/documentation/swift/documentation/swift/error(_:)) 매크로로 제공됩니다.
+Swift 5.9 이전에는 컴파일 중에 `#warning` 과 `#error` 구문은 진단을 내보냅니다. 이 동작은 이제 Swift 표준 라이브러리에 [`warning(_:)`](https://developer.apple.com/documentation/swift/documentation/swift/warning(_:)) 와 [`error(_:)`](https://developer.apple.com/documentation/swift/documentation/swift/error(_:)) 매크로로 제공됩니다.
 
 ## 가용성 조건 (Availability Condition)
 
