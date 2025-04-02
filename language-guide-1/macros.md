@@ -263,11 +263,11 @@ targets: [
 
 위 코드는 두 개의 타겟을 정의합니다: `MyProjectMacros` 는 매크로의 구현을 포함하고, `MyProject` 는 해당 매크로를 사용가능하도록 만듭니다.
 
-매크로의 구현은 AST 를 사용하여 구조화된 방식으로 Swift 코드와 상호작용하기 위해 [SwiftSyntax](http://github.com/apple/swift-syntax/) 모듈을 사용합니다. Swift Package Manager 로 새로운 매크로 패키지를 생성하면, 생성된 `Package.swift` 파일은 자동으로 SwiftSyntax 에 대한 의존성을 추가합니다. 기존 프로젝트에 매크로를 추가하면, `Package.swift` 파일에 SwiftSyntax 에 대한 의존성을 추가합니다:
+매크로의 구현은 AST 를 사용하여 구조화된 방식으로 Swift 코드와 상호작용하기 위해 [SwiftSyntax](https://github.com/swiftlang/swift-syntax) 모듈을 사용합니다. Swift Package Manager 로 새로운 매크로 패키지를 생성하면, 생성된 `Package.swift` 파일은 자동으로 SwiftSyntax 에 대한 의존성을 추가합니다. 기존 프로젝트에 매크로를 추가하면, `Package.swift` 파일에 SwiftSyntax 에 대한 의존성을 추가합니다:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/apple/swift-syntax", from: "509.0.0")
+    .package(url: "https://github.com/swiftlang/swift-syntax", from: "509.0.0")
 ],
 ```
 

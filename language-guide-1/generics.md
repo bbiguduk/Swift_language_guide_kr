@@ -107,8 +107,16 @@ swapTwoValues(&someString, &anotherString)
 
 대부분의 경우 타입 파라미터는 타입 파라미터와 제너릭 타입 간의 관계나 함수 간의 관계를 나타내기 위해 `Dictionary<Key, Value>` 에서 `Key` 와 `Value` 그리고 `Array<Element>` 에서 `Element` 와 같이 설명이 포함된 이름이 있습니다. 그러나 의미있는 관계가 없을 때는 위에서 `swapTwoValues(_:_:)` 함수에서 `T` 와 같이 `T`, `U`, 그리고 `V` 와 같은 단일 문자를 사용하여 이름을 지정하는 것이 일반적입니다.
 
-> Note  
-> 값이 아니라 타입에 대한 임의의 표시라는 것을 나타내기 위해 항상 타입 파라미터가 주어질 때 대문자 이름 \(`T` 와 `MyTypeParameter` 와 같은\)으로 주어집니다.
+
+타입 파라미터 이름으로는 `T`와 `MyTypeParameter`와 같이
+대문자 카멜 케이스를 사용하여,
+값이 아닌 *타입*에 대한 지시자라는 것을 나타냅니다.
+
+> Note:
+> 타입 파라미터의 이름이 필요하지 않고
+> 해당 제너릭 타입의 제약 조건이 단순하다면,
+> [불투명한 파라미터 타입 (Opaque Parameter Types)](./opaque-types.md#불투명한-파라미터-타입-opaque-parameter-types)에서 설명한대로
+> 간단한 대체 문법이 있습니다.
 
 ## 제너릭 타입 \(Generic Types\)
 
