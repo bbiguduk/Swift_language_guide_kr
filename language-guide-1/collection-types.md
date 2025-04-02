@@ -33,7 +33,12 @@ Swift 배열의 타입은 `Element` 는 저장할 배열 값의 타입을 나타
 
 ### 빈 배열 생성 \(Creating an Empty Array\)
 
-초기화 구문을 사용하여 타입을 포함한 빈 배열을 생성할 수 있습니다:
+Swift에서는 두 가지 접근 방식으로 빈 배열을 생성할 수 있습니다.
+문맥으로 이미 타입 정보를 제공한다면,
+함수 인자나 이미 타입을 알고 있는 변수나 상수와 같이,
+빈 배열 리터럴인
+`[]`을 작성하여 사용할 수 있습니다
+(빈 대괄호 쌍):
 
 ```swift
 var someInts: [Int] = []
@@ -41,9 +46,24 @@ print("someInts is of type [Int] with \(someInts.count) items.")
 // Prints "someInts is of type [Int] with 0 items."
 ```
 
-`someInts` 변수의 타입은 초기화 타입을 통해 `[Int]` 로 추론됩니다.
+또는 명시적 초기화 구문을 사용하여
+특정 타입의 빈 배열을 생성할 수 있습니다.
+이때 대괄호 안에 요소의 타입을 작성한 뒤
+괄호를 붙이면 됩니다 ---
+예를 들어 아래의 `[Int]()`와 같습니다:
 
-또는 컨텍스트가 함수 인수나 이미 타입이 명시 된 변수 또는 상수와 같은 타입 정보를 제공하는 경우 `[]` \(빈 대괄호 쌍\)으로 빈 배열을 생성할 수 있습니다:
+```swift
+var someInts = [Int]()
+print("someInts is of type [Int] with \(someInts.count) items.")
+// Prints "someInts is of type [Int] with 0 items."
+```
+
+두 방식 모두 동일한 결과를 가집니다.
+그러나
+빈 배열 리터럴이 더 짧고 읽기 더 쉽습니다.
+
+이 두 케이스 모두 이미 존재하는 변수에 빈 배열을 재 할당하기 위해
+빈 배열 리터럴(`[]`)을 사용할 수 있습니다:
 
 ```swift
 someInts.append(3)
