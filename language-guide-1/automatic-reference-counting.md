@@ -4,7 +4,7 @@
 
 Swift는 앱의 메모리 사용량을 추적하고 관리하기 위해 _자동 참조 카운팅 \(Automatic Reference Counting\)_ \(ARC\)를 사용합니다. 대부분의 경우에 Swift에서 메모리 관리는 "그냥 수행하라" 를 의미하고 메모리 관리에 대해서 생각할 필요가 없습니다. ARC는 인스턴스가 더이상 필요치 않을 때 자동으로 클래스 인스턴스에 의해 사용된 메모리를 할당 해제 합니다.
 
-그러나 몇몇의 경우에 ARC는 메모리를 관리하기 위해 코드의 부분 간의 관계에 대한 추가 정보를 요구합니다. 이 챕터에서는 이러한 상황을 설명하고 앱의 메모리를 관리하기 위해 ARC를 어떻게 사용하는지 보여줍니다. Swift에서 ARC를 사용하는 것은 Objective-C에서 ARC 사용에 대한 [ARC 릴리즈 노트로 전환 \(Transitioning to ARC Release Notes\)](https://developer.apple.com/library/content/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html) 에서 설명한 접근방식과 매우 유사합니다.
+그러나 몇몇의 경우에 ARC는 메모리를 관리하기 위해 코드의 부분 간의 관계에 대한 추가 정보를 요구합니다. 이 챕터에서는 이러한 상황을 설명하고 앱의 메모리를 관리하기 위해 ARC를 어떻게 사용하는지 보여줍니다. Swift에서 ARC를 사용하는 것은 Objective-C에서 ARC 사용에 대한 [ARC로 전환 릴리즈 노트 \(Transitioning to ARC Release Notes\)](https://developer.apple.com/library/content/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html) 에서 설명한 접근방식과 매우 유사합니다.
 
 참조 카운팅은 클래스의 인스턴스에만 적용됩니다. 구조체와 열거형은 참조 타입이 아니고 값 타입이고 참조로 저장되거나 전달되지 않습니다.
 
