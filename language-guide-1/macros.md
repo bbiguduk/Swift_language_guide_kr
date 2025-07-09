@@ -29,7 +29,7 @@ func myFunction() {
 }
 ```
 
-첫번재 줄에서 `#function` 은 Swift 표준 라이브러리에 [`function()`](https://developer.apple.com/documentation/swift/function()) 을 호출합니다. 이 코드를 컴파일 할 때 Swift 는 `#function` 을 현재 함수의 이름으로 대체하는 매크로의 구현을 호출합니다. 이 코드를 실행하고 `myFunction()` 을 호출할 때 "Currently running myFunction()" 을 보여줍니다. 두번째 줄에서 `#warning` 은 Swift 표준 라이브러리에서 [`warning(_:)`](https://developer.apple.com/documentation/swift/warning(_:)) 매크로를 호출하여 사용자 지정 컴파일 경고를 생성합니다.
+첫 번째 줄에서 `#function` 은 Swift 표준 라이브러리에 [`function()`](<https://developer.apple.com/documentation/swift/function()>) 을 호출합니다. 이 코드를 컴파일 할 때 Swift 는 `#function` 을 현재 함수의 이름으로 대체하는 매크로의 구현을 호출합니다. 이 코드를 실행하고 `myFunction()` 을 호출할 때 "Currently running myFunction()" 을 보여줍니다. 두 번째 줄에서 `#warning` 은 Swift 표준 라이브러리에서 [`warning(_:)`](<https://developer.apple.com/documentation/swift/warning(_:)>) 매크로를 호출하여 사용자 지정 컴파일 경고를 생성합니다.
 
 독립 매크로는 `#function` 과 같이 값을 생성하거나 `#warning` 과 같이 컴파일 때 동작을 수행할 수 있습니다.
 
@@ -101,7 +101,7 @@ public macro OptionSet<RawType>() =
         #externalMacro(module: "SwiftMacros", type: "OptionSetMacro")
 ```
 
-첫번째 줄은 매크로의 이름과 매크로의 인수를 지정합니다 - 이름은 `OptionSet` 이고 인수는 가지고 있지 않습니다. 두번째 줄은 Swift 표준 라이브러리에 [`externalMacro(module:type:)`](https://developer.apple.com/documentation/swift/externalmacro(module:type:)) 매크로를 사용하여 Swift 에 매크로의 구현 위치를 알려줍니다. 이 경우에 `SwiftMacros` 모듈은 `@OptionSet` 매크로를 구현하는 `OptionSetMacro` 를 포함합니다.
+첫 번째 줄은 매크로의 이름과 매크로의 인수를 지정합니다 - 이름은 `OptionSet` 이고 인수는 가지고 있지 않습니다. 두 번째 줄은 Swift 표준 라이브러리에 [`externalMacro(module:type:)`](<https://developer.apple.com/documentation/swift/externalmacro(module:type:)>) 매크로를 사용하여 Swift 에 매크로의 구현 위치를 알려줍니다. 이 경우에 `SwiftMacros` 모듈은 `@OptionSet` 매크로를 구현하는 `OptionSetMacro` 를 포함합니다.
 
 `OptionSet` 은 첨부 매크로이므로, 매크로의 이름은 구조체와 클래스 이름처럼 대문자 카멜 케이스로 사용합니다. 독립 매크로는 변수와 함수 이름처럼 소문자 카멜 케이스로 이름을 가집니다.
 
@@ -117,9 +117,9 @@ public macro OptionSet<RawType>() =
         #externalMacro(module: "SwiftMacros", type: "OptionSetMacro")
 ```
 
-`@attached` 속성은 각 매크로 역할에 대해 한번씩 선언에서 두번 나타납니다. 첫번째는 `@attached(member)` 를 사용하고 매크로가 적용된 타입에 새로운 멤버를 추가한다고 나타냅니다. `@OptionSet` 매크로는 `OptionSet` 프로토콜에 의해 요구되는 `init(rawValue:)` 초기화 구문과 멤버를 추가합니다.
-두번째는 `@attached(extension, conformances: OptionSet)` 를 사용하고 `@OptionSet` 이 `OptionSet` 프로토콜의 준수성을 추가한다고 나타냅니다.
-`@OptionSet` 매크로는 매크로를 적용한 타입을 확장하여 `OptionSet` 프로토콜의 준수성을 추가합니다.  
+`@attached` 속성은 각 매크로 역할에 대해 한번씩 선언에서 두 번 나타납니다. 첫 번째는 `@attached(member)` 를 사용하고 매크로가 적용된 타입에 새로운 멤버를 추가한다고 나타냅니다. `@OptionSet` 매크로는 `OptionSet` 프로토콜에 의해 요구되는 `init(rawValue:)` 초기화 구문과 멤버를 추가합니다.
+두 번째는 `@attached(extension, conformances: OptionSet)` 를 사용하고 `@OptionSet` 이 `OptionSet` 프로토콜의 준수성을 추가한다고 나타냅니다.
+`@OptionSet` 매크로는 매크로를 적용한 타입을 확장하여 `OptionSet` 프로토콜의 준수성을 추가합니다.
 
 독립 매크로에 대해 매크로의 역할을 지정하기 위해 `@freestanding` 속성을 작성합니다:
 
@@ -131,7 +131,7 @@ public macro line<T: ExpressibleByIntegerLiteral>() -> T =
 
 위에 `#line` 매크로는 `expression` 역할을 가집니다. 매크로 표현식은 값을 생성하거나 컴파일 때 경고를 생성하듯이 어떠한 동작을 수행합니다.
 
-매크로의 역할 외에도 매크로의 선언은 매크로가 생성하는 기호의 이름에 대한 정보를 제공합니다. 매크로 선언이 이름을 제공하면 해당 이름을 사용하는 선언만 생성하므로 생성된 코드는 이해하고 디버그 하는데 도움을 줍니다. 다음은 `@OptionSet` 선언의 전체입니다:
+매크로의 역할 외에도 매크로의 선언은 매크로가 생성하는 기호의 이름에 대한 정보를 제공합니다. 매크로 선언이 이름을 제공하면 해당 이름을 사용하는 선언만 생성하므로 생성된 코드를 이해하고 디버그 하는데 도움을 줍니다. 다음은 `@OptionSet` 선언의 전체입니다:
 
 ```swift
 @attached(member, names: named(RawValue), named(rawValue),
@@ -332,7 +332,7 @@ struct MyProjectMacros: CompilerPlugin {
 
 `#fourCharacterCode` 매크로를 확장하기 위해, Swift 는 이 매크로를 사용하는 코드에 대한 AST 를 매크로 구현을 포함하는 라이브러리로 보냅니다. 라이브러리에서 Swift 는 `FourCharacterCode.expansion(of:in:)` 을 호출하고, AST 와 컨텍스트를 인수로 메서드에 전달합니다. `expansion(of:in:)` 의 구현은 `#fourCharacterCode` 에 인수로 전달된 문자열을 찾고, 부호없는 32-bit 정수 리터럴 값으로 계산합니다.
 
-위 예제에서, 첫번재 `guard` 블럭은 AST 에서 문자열 리터럴을 추출하고, `literalSegment` 에 해당 AST 요소를 할당합니다. 두번째 `guard` 블럭에서 private `fourCharacterCode(for:)` 함수를 호출합니다. 해당 블럭들은 매크로가 올바르게 사용되지 않으면 에러가 발생합니다 - 에러 메세지는 잘못된 호출 부분에서 컴파일 에러가 됩니다. 예를 들어, `#fourCharacterCode("AB" + "CD")` 로 매크로를 호출하면 컴파일러는 "Need a static string." 이라는 에러가 발생합니다.
+위 예제에서, 첫 번째 `guard` 블럭은 AST 에서 문자열 리터럴을 추출하고, `literalSegment` 에 해당 AST 요소를 할당합니다. 두 번째 `guard` 블럭에서 private `fourCharacterCode(for:)` 함수를 호출합니다. 해당 블럭들은 매크로가 올바르게 사용되지 않으면 에러가 발생합니다 - 에러 메세지는 잘못된 호출 부분에서 컴파일 에러가 됩니다. 예를 들어, `#fourCharacterCode("AB" + "CD")` 로 매크로를 호출하면 컴파일러는 "Need a static string." 이라는 에러가 발생합니다.
 
 `expansion(of:in:)` 매크로는 AST 에서 표현식을 표현하는 SwiftSyntax 의 타입인 `ExprSyntax` 의 인스턴스를 반환합니다. 이 타입은 `StringLiteralConvertible` 프로토콜을 준수하기 때문에, 매크로 구현은 결과를 생성하기 위해 가벼운 구문 (lightweight syntax) 으로 문자열 리터럴을 사용합니다. 매크로 구현에서 반환하는 모든 SwiftSyntax 타입은 `StringLiteralConvertible` 을 준수하므로, 모든 종류의 매크로를 구현할 때 이 접근방식을 사용할 수 있습니다.
 
