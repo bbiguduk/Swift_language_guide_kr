@@ -243,6 +243,50 @@ class SomeSubClass: SomeSuperClass, SomeProtocol {
 
 실패 가능한 초기화 구문 요구사항은 준수하는 타입에 실패 가능하거나 실패 불가능한 초기화 구문에 의해 충족될 수 있습니다. 실패 불가능한 초기화 구문 요구사항은 실패 불가능한 초기화 구문 또는 암시적 언래핑 된 실패 가능한 초기화 구문에 의해 충족될 수 있습니다.
 
+## 의미적 요구사항만 가지는 프로토콜 (Protocols that Have Only Semantic Requirements)
+
+위의 프로토콜 예제는 메서드나 프로퍼티를 요구하지만,
+프로토콜 선언은 모든 요구사항이 포함되어야 하는 것은 아닙니다.
+프로토콜은 *의미적(semantic)* 요구사항으로 사용할 수도 있습니다 ---
+해당 타입의 값이 어떻게 동작하는지
+어떤 연산을 지원해야 하는지에 대한 요구사항으로 사용할 수 있습니다.
+Swift 표준 라이브러리는
+필수 메서드나 프로퍼티를 가지지 않는 여러 프로토콜이 정의되어 있습니다:
+
+- [`Sendable`](https://developer.apple.com/documentation/swift/sendable): 동시성 도메인 간에 공유할 수 있는 값을 나타냅니다.
+  자세한 내용은 [Sendable 타입 (Sendable Types)](./concurrency.md#Sendable-타입-sendable-types)을 참고 바랍니다.
+- [`Copyable`](https://developer.apple.com/documentation/swift/copyable): 함수에 값을 전달할 때,
+  Swift가 복사할 수 있는 값을 나타냅니다.
+  자세한 내용은 [파라미터 차용과 소비 (Borrowing and Consuming Parameters)](../language-reference/declarations.md#파라미터-차용과-소비-borrowing-and-consuming-parameters)를 참고 바랍니다.
+- [`BitwiseCopyable`](https://developer.apple.com/documentation/swift/bitwisecopyable): 비트 단위로 복사할 수 있는 값을 나타냅니다.
+
+이 프로토콜의 요구사항에 대한 정보는
+각 문서의 개요를 참고 바랍니다.
+
+이 프로토콜을 채택할 때에도
+다른 프로토콜을 채택할 때와 동일한 문법을 사용합니다.
+유일한 차이점은
+프로토콜의 요구사항을 구현하는 메서드나 프로퍼티 선언을 포함하지 않아도 된다는 것입니다.
+예를 들어:
+
+```swift
+struct MyStruct: Copyable {
+    var counter = 12
+}
+
+extension MyStruct: BitwiseCopyable { }
+```
+
+위의 코드는 새로운 구조체를 정의합니다.
+`Copyable`은 의미적 요구사항만 가지고 있으므로,
+프로토콜을 채택해도 구조체 선언 내에 요구사항을 추가하지 않습니다.
+유사하게 `BitwiseCopyable`은 의미적 요구사항만 가지고 있으므로,
+프로토콜을 채택한 확장에 본문은 비어있습니다.
+
+대게 이런 프로토콜은 준수성을 작성할 필요가 없습니다 ---
+대신 [프로토콜 암시적 준수 (Implicit Conformance to a Protocol)](./protocols.md#프로토콜-암시적-준수-implicit-conformance-to-a-protocol) 설명 했듯이
+Swift는 암시적으로 준수성을 추가합니다.
+
 ## 타입으로 프로토콜 \(Protocols as Types\)
 
 프로토콜 자체는 어떤 기능도 구현하지 않습니다. 이런점과 상관없이 코드에서 타입으로 프로토콜을 사용할 수 있습니다.
@@ -539,6 +583,65 @@ for level in levels.sorted() {
 // Prints "expert(stars: 3)"
 // Prints "expert(stars: 5)"
 ```
+
+## 프로토콜 암시적 준수 (Implicit Conformance to a Protocol)
+
+어떤 프로토콜은 너무 일반적이라
+새로운 타입을 선언할 때마다 대부분 작성해야 합니다.
+다음의 프로토콜은
+Swift가 타입이 해당 프로토콜의 요구사항을 구현하면
+자동으로 준수성을 추론하므로
+직접 작성하지 않아도 됩니다:
+
+- [`Copyable`][]
+- [`Sendable`][]
+- [`BitwiseCopyable`][]
+
+명시적으로 프로토콜을 작성할 수 있지만,
+코드 동작에는 아무런 변화가 없습니다.
+암시적 준수를 억제하려면,
+프로토콜 준수성 목록에서 프로토콜 이름 앞에 물결표(`~`)를 작성합니다:
+
+```swift
+struct FileDescriptor: ~Sendable {
+    let rawValue: Int
+}
+```
+
+위 코드는 POSIX 파일 디스크립터를 감싸는 래퍼의 부분을 보여줍니다.
+`FileDescriptor` 구조체는
+`Sendable` 프로토콜의 요구사항을 모두 충족하므로
+일반적으로 이 구조체는 Sendable합니다.
+하지만
+`~Sendable`을 작성하여 암시적 준수를 억제하였습니다.
+파일 디스크립터가 열린 파일을 식별하고 상호작용하기 위해
+정수를 사용하고,
+정수 값은 Sendable 하더라도,
+Sendable하지 않게 만드는 것이 특정 버그를 피하는데 도움을 줄 수 있습니다.
+
+암시적 준수를 억제하는 다른 방법은
+unavailable을 표시한 확장을 작성하는 것입니다:
+
+```swift
+@available(*, unavailable)
+extension FileDescriptor Sendable { }
+```
+
+이전 예제와 같이
+코드에서 `~Sendable`을 작성하면,
+프로그램의 다른 코드에
+`FileDescriptor` 타입을 확장하여 `Sendable` 준수성을 추가할 수 있습니다.
+반면에
+이 예제에서 unavailable 확장은
+`Sendable`의 암시적 준수성을 억제할 뿐만 아니라
+다른 코드에서도
+타입에 `Sendable` 준수성을 추가하는 확장을 작성할 수 없게 합니다.
+
+> Note:
+> 위에서 설명한 프로토콜 외에도
+> 분산 액터(distributed actor)는 [`Codable`][] 프로토콜에 암시적으로 준수합니다.
+
+[`Codable`]: https://developer.apple.com/documentation/swift/codable
 
 ## 프로토콜 타입의 콜렉션 \(Collections of Protocol Types\)
 

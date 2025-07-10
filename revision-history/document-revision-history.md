@@ -2,6 +2,23 @@
 
 ## Revision History
 
+### 2025-07-10(목)
+
+- Swift 6.2 기반으로 문서 업데이트.
+- Swift가 방지해주는 이슈에 대한 내용을
+  [메모리 안전성 (Memory Safety)](../language-guide-1/the-basics.md#메모리-안전성-memory-safety)에 추가.
+- `if case` 문법에 대한 내용을
+  [패터 (Patterns)](../language-guide-1/control-flow.md#패턴-patterns)에 추가.
+- 메인 액터, 격리, 글로벌 액터에 대한 내용을
+  [동시성 (Concurrency)](../language-guide-1/concurrency.md)에 추가.
+- 명시적으로 준수성을 작성하지 않고
+  일반 프로토콜 준수하는 것과
+  암시적 준수 억제에 대한 내용을
+  [프로토콜 암시적 준수 (Implicit Conformance to a Protocol)](../language-guide-1/protocols.md#프로토콜-암시적-준수-implicit-conformance-to-a-protocol)에 추가.
+- 일반 프로토콜의 준수성을 요구하는
+  제너릭 제약 조건에 대한 내용을
+  [암시적 제약 조건 (Implicit Constraints)](../language-guide-1/generics.md#암시적-제약-조건-implicit-constraints)에 추가.
+
 ### 2025-04-02(수)
 
 - Swift 6.1 기반으로 문서 업데이트.

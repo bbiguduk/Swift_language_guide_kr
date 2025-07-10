@@ -197,6 +197,27 @@ case let .qrCode(productCode):
 // Prints "QR code: ABCDEFGHIJKLMNOP."
 ```
 
+열거형의 하나의 케이스만 일치시키려면 ---
+예를 들어
+해당 케이스의 연관 값을 분리하기 위해 ---
+전체 스위치 구문을 작성하는 대신에
+`if`-`case` 구문을 사용할 수 있습니다.
+다음과 같이 작성할 수 있습니다:
+
+```swift
+if case .qrCode(let productCode) = productBarcode {
+    print("QR code: \(productCode).")
+}
+```
+
+위의 스위치 구문에서와 같이
+`productBarcode` 변수는
+`.qrCode(let productCode)`와 일치됩니다.
+그리고 스위치 케이스에서와 같이
+`let`을 작성하면 상수로 연관 값을 분리할 수 있습니다.
+`if`-`case` 구문의 더 자세한 내용은
+[패터 (Patterns)](./control-flow.md#패턴-patterns)를 참고 바랍니다.
+
 ## 원시값 \(Raw Values\)
 
 [연관된 값 \(Associated Values\)](enumerations.md#associated-values) 에서의 바코드 예제는 어떻게 열거형 케이스에 다른 타입의 연관된 값을 저장한다고 선언 하는지를 보여줍니다. 연관된 값의 대안으로 열거형 케이스는 모두 동일한 타입의 기본값 \(_원시값 \(raw values\)_\)으로 미리 채워질 수 있습니다.
@@ -215,8 +236,16 @@ enum ASCIIControlCharacter: Character {
 
 원시값은 문자열, 문자, 또는 어떠한 정수 또는 부동소수점 숫자 타입이 가능합니다. 각 원시값은 열거형 선언부 내에서 유일한 값이어야 합니다.
 
-> Note  
-> 원시값은 연관된 값 \(associated values\)과 같지 않습니다. 원시값은 위의 3개의 ASCII 코드처럼 코드에서 열거형을 처음 정의할 때 미리 설정하는 값입니다. 특정 열거형 케이스를 위한 원시값은 항상 같습니다. 연관된 값은 열거형 케이스 중 하나를 기반으로 새로운 상수 또는 변수를 생성할 때 설정하고 달라질 수 있습니다.
+열거형의 추가 값으로
+원시값과 연관 값 모두 사용할 수 있지만
+이 둘의 차이점을 이해하는 것이 중요합니다.
+위의 세 가지 ASCII 코드와 같이
+열거형 케이스를 정의할 때
+열거형 케이스에 대한 원시값을 선택합니다.
+반대로
+열거형의 케이스 중 하나를 사용해
+새로운 상수나 변수를 생성할 때는 연관 값을 선택하고
+이것은 다른 값을 지정할 수도 있습니다.
 
 ### 암시적으로 할당된 원시값 \(Implicitly Assigned Raw Values\)
 

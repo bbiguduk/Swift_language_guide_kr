@@ -626,6 +626,97 @@ default:
 
 위의 `case` 는 2개의 패턴을 가지고 있습니다: `(let distance, 0)` 은 x축 위의 점과 일치하고 `(0, let distance)` 는 y축 위의 점과 일치합니다. 두 패턴 모두 `distance` 바인딩을 포함하고 `distance` 는 두 패턴에서 정수입니다. 즉, `case` 의 본문 안에 코드는 항상 `distance` 로 값에 접근할 수 있다는 의미입니다.
 
+## 패턴 (Patterns)
+
+이전 예제에서 각 스위치 케이스는 어떤 값과 일치하는지
+패턴을 포함하고 있습니다.
+`if` 구문에 조건으로 패턴을 사용할 수도 있습니다.
+다음은 패턴을 조건으로 사용하는 예제입니다:
+
+```swift
+let somePoint = (12, 100)
+if case (let x, 100) = somePoint {
+    print("Found a point on the y=100 line, at \(x)")
+}
+// Prints "Found a point on the y=100 line, at 12"
+```
+
+이 코드에서
+`if` 구문의 조건은 `case`로 시작하고,
+Boolean 값이 아닌 패턴으로 조건을 나타내고 있습니다.
+패턴이 일치하면,
+`if`의 조건은 참으로 처리되고,
+`if` 구문의 본문 내에 있는 코드를 수행합니다.
+`if case` 이후에 작성할 수 있는 패턴은
+스위치 케이스에서 작성할 수 있는 패턴과 동일합니다.
+
+`for`-`in` 루프에서
+`case`를 작성하지 않아도
+값 바인딩 패턴을 사용해 값에 이름을 줄 수 있습니다:
+
+```swift
+let points = [(10, 0), (30, -30), (-20, 0)]
+
+for (x, y) in points {
+    if y == 0 {
+        print("Found a point on the x-axis at \(x)")
+    }
+}
+// Prints "Found a point on the x-axis at 10"
+// Prints "Found a point on the x-axis at -20"
+```
+
+위의 `for`-`in` 루프는 튜플의 배열을 반복하면서
+튜플의 첫 번째와 두 번째 요소를
+`x`와 `y` 상수에 바인딩합니다.
+루프 내의 구문은 x축 위에 있는 점인지 확인하는 `if` 구문과 같이
+상수를 사용할 수 있습니다.
+이 코드를 더 간결하게 작성하려면
+`for`-`case`-`in` 루프를 사용하여
+값 바인딩과 조건을 결합합니다.
+아래 코드는 위의 `for`-`in` 루프 코드와 동일한 동작입니다:
+
+```swift
+for case (let x, 0) in points {
+    print("Found a point on the x-axis at \(x)")
+}
+// Prints "Found a point on the x-axis at 10"
+// Prints "Found a point on the x-axis at -20"
+```
+
+이 코드에서
+조건은 패턴으로
+`for`-`case`-`in` 루프로 통합되었습니다.
+`for`-`case`-`in` 루프 내의 구문은 x축 위의 점들만 실행됩니다.
+이 코드는 위의 `for`-`in` 루프와 결과는 동일하지만
+콜렉션의 특정 요소만
+반복하므로 더 간결합니다.
+
+`for`-`case`-`in` 루프는 추가 조건을 검사하는
+`where` 절도 추가할 수 있습니다.
+루프 내의 구문은
+현재 요소가 `where` 절과 일치할 때만 실행됩니다.
+예를 들어:
+
+```swift
+for case let (x, y) in points where x == y || x == -y  {
+    print("Found (\(x), \(y)) along a line through the origin")
+}
+// Prints "Found (30, -30) along a line through the origin"
+```
+
+이 코드는 튜플의 첫 번째와 두 번째 요소를
+`x`와 `y` 상수로 바인딩한 다음에
+`where` 절에서 해당 값을 검사합니다.
+`where` 절이 `true`이면,
+`for` 루프 본문의 코드는 실행됩니다;
+아니면 다음 요소로 반복됩니다.
+
+패턴은 값을 바인딩할 수 있으므로,
+`if`-`case` 구문과 `for`-`case`-`in` 루프는
+[연관된 값 (Associated Values)](./enumerations.md#연관된-값-associated-values)에서 설명했듯이
+연관 값을 가진 열거형과 사용할 때 유용합니다.
+
 ## 제어 변경 구문 \(Control Transfer Statements\)
 
 _제어 변경 구문 \(Control transfer statements\)_ 은 한 코드에서 다른 코드로 제어를 변경하여 코드가 실행되는 순서를 변경합니다. Swift는 5개의 제어 변경 구문이 있습니다:

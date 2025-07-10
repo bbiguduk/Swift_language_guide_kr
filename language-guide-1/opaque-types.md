@@ -8,7 +8,7 @@ Swift 는 값의 타입에 대한 자세한 내용을 숨기기위한 두가지 
 
 박스형 프로토콜 타입은 주어진 프로토콜을 준수하는 타입의 인스턴스를 저장할 수 있습니다. 박스형 프로토콜 타입은 타입 식별을 유지하지 않습니다 — 값의 타입은 런타임까지 알 수 없으며 다른 값이 저장됨에 따라 변경될 수 있습니다.
 
-## 불투명한 타입이 해결하는 문제 \(The Problem That Opaque Types Solve\)
+## 불투명한 타입이 해결하는 문제 \(The Problem that Opaque Types Solve\)
 
 예를 들어 ASCII 그림 모양을 그리는 모듈을 작성한다고 가정합시다. ASCII 그림 모양의 기본 특성은 `Shape` 프로토콜에 대한 요구사항으로 사용될 수 있는 모양의 문자열 표현을 반환하는 `draw()` 함수 입니다:
 
@@ -142,7 +142,7 @@ print(opaqueJoinedTriangles.draw())
 // *
 ```
 
-이 예제의 `opaqueJoinedTriangles` 의 값은 이 챕터의 이전 [불투명한 타입이 해결하는 문제 \(The Problem That Opaque Types Solve\)](opaque-types.md#the-problem-that-opaque-types-solve) 섹션에 제너릭 예제에서 `joinedTriangles` 와 동일합니다. 그러나 이 예제의 값과 달리 `flip(_:)` 과 `join(_:_:)` 은 불투명한 반환 타입으로 반환하는 제너릭 모양 연산자 인 기본 타입을 래핑하여 해당 타입이 표시되지 않도록 합니다. 두 함수는 의존하는 타입이 제너릭이고 함수에 대한 타입 파라미터가 `FlippedShape` 와 `JoinedShape` 에 필요한 타입 정보를 전달하기 때문에 모두 제너릭입니다.
+이 예제의 `opaqueJoinedTriangles` 의 값은 이 챕터의 이전 [불투명한 타입이 해결하는 문제 \(The Problem that Opaque Types Solve\)](opaque-types.md#the-problem-that-opaque-types-solve) 섹션에 제너릭 예제에서 `joinedTriangles` 와 동일합니다. 그러나 이 예제의 값과 달리 `flip(_:)` 과 `join(_:_:)` 은 불투명한 반환 타입으로 반환하는 제너릭 모양 연산자 인 기본 타입을 래핑하여 해당 타입이 표시되지 않도록 합니다. 두 함수는 의존하는 타입이 제너릭이고 함수에 대한 타입 파라미터가 `FlippedShape` 와 `JoinedShape` 에 필요한 타입 정보를 전달하기 때문에 모두 제너릭입니다.
 
 불투명한 반환 타입을 가진 함수가 여러 위치에서 반환하는 경우 가능한 모든 반환 값은 동일한 타입을 가져야 합니다. 제너릭 함수의 경우 해당 반환 타입은 함수의 제너릭 타입 파라미터로 사용할 수 있지만 여전히 단일 타입이어야 합니다. 예를 들어 다음은 사각형에 대한 특수 케이스를 포함하는 잘못된 버전의 모양 - 뒤집기 함수 입니다:
 

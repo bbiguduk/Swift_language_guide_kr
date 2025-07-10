@@ -6,7 +6,7 @@ _제너릭 코드 \(Generic code\)_ 는 정의한 요구사항에 따라 모든 
 
 제너릭은 Swift의 강력한 특징 중 하나이고 Swift 표준 라이브러리 대부분은 제너릭 코드로 되어 있습니다. 사실 모르고 있더라도 _Language Guide_ 전체에서 제너릭을 사용합니다. 예를 들어 Swift의 `Array` 와 `Dictionary` 타입은 둘다 제너릭 콜렉션 입니다. `Int` 값을 가진 배열, 또는 `String` 값을 가진 배열 또는 실제로 Swift에서 생성될 수 있는 다른 모든 타입에 대한 배열을 생성할 수 있습니다. 마찬가지로 모든 지정된 타입의 값을 저장하기 위한 딕셔너리를 생성할 수 있고 해당 타입에 대한 제한은 없습니다.
 
-## 제너릭이 해결하는 문제 \(The Problem That Generics Solve\)
+## 제너릭이 해결하는 문제 \(The Problem that Generics Solve\)
 
 다음은 두 `Int` 값을 바꾸는 `swapTwoInts(_:_:)` 라는 제너릭이 아닌 함수를 나타냅니다:
 
@@ -755,3 +755,69 @@ extension Container {
 
 종합하면 이 제약조건은 `indices` 파리미터에 전달된 값은 정수 시퀀스 임을 의미합니다.
 
+## 암시적 제약 조건 (Implicit Constraints)
+
+명시적으로 작성하는 제약 조건 외에도,
+제너릭 코드에서 [`Copyable`](https://developer.apple.com/documentation/swift/copyable)과 같은 프로토콜 준수를
+암시적으로 요구하는 경우가 있습니다.
+직접 작성하지 않는 이런 제너릭 제약 조건은
+*암시적 제약 조건(implicit contraints)*라고 합니다.
+예를 들어 다음의 두 함수 선언은
+복사 가능한 `MyType`이어야 합니다:
+
+```swift
+function someFunction<MyType> { ... }
+function someFunction<MyType: Copyable> { ... }
+```
+
+위 코드에서
+첫 번째 선언은 암시적 제약 조건을 가지고 있고,
+두 번째 선언은 명시적으로 준수성을 나열했습니다.
+대부분의 코드에서
+타입은 이런 일반 프로토콜을 암시적으로 준수합니다.
+더 자세한 내용은
+[프로토콜 암시적 준수 (Implicit Conformance to a Protocol)](./protocols.md#프로토콜-암시적-준수-implicit-conformance-to-a-protocol)를 참고 바랍니다.
+
+Swift의 대부분 타입은 이런 프로토콜을 준수하므로,
+거의 모든 곳에 반복적으로 작성해야 합니다.
+대신 예외적인 경우에만 표시함으로써
+일반적인 제약 조건이 생략된 부분을 명확하게 드러낼 수 있습니다.
+암시적 제약 조건을 억제하려면,
+프로토콜 이름 앞에 물결표(`~`)를 붙여 작성합니다.
+이제 `~Copyable`은 "복사가 가능할 수도 있다"로 읽을 수 있습니다 ---
+이렇게 억제된 제약 조건은
+해당 위치에서 복사 가능한 타입과 복사 불가능한 타입 모두를 허용합니다.
+`~Copyable`이 *반드시* 복사 불가능한 타입만 요구한다는 것은 아니라는 것에 유의해야 합니다.
+예를 들어:
+
+```swift
+func f<MyType>(x: inout MyType) {
+    let x1 = x  // The value of x1 is a copy of x's value.
+    let x2 = x  // The value of x2 is a copy of x's value.
+}
+
+func g<AnotherType: ~Copyable>(y: inout AnotherType) {
+    let y1 = y  // The assignment consumes y's value.
+    let y2 = y  // Error: Value consumed more than once.
+}
+```
+
+위 코드에서
+`f()` 함수는 암시적으로 복사 가능한 `MyType`을 요구합니다.
+함수 본문 내에서
+`x`의 값은 할당으로 `x1`과 `x2`로 복사됩니다.
+반대로 `g()`는 `AnotherType`을 암시적 제약 조건을 억제하였으므로,
+복사 가능하거나 복사 불가능한 값을 전달하도록 허용합니다.
+함수 본문 내에서
+`AnotherType`은 복사 불가능하므로
+`y`의 값은 복사할 수 없습니다.
+할당은 `y`의 값을 소비하고
+한 번 초과하여 값을 소비하면 에러가 발생합니다.
+`y`와 같은 복사 불가능한 값은
+in-out, borrowing, consuming 파라미터로 전달되어야 합니다 ---
+더 자세한 내용은
+[파라미터 차용과 소비 (Borrowing and Consuming Parameters)](../language-reference/declarations.md#파라미터-차용과-소비-borrowing-and-consuming-parameters)를 참고 바랍니다.
+
+제너릭 코드에서
+파라미터에 암시적 제약 조건이 포함될 때에 대한 자세한 내용은
+해당 프로토콜 참조를 참고 바랍니다.
