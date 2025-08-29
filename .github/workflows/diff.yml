@@ -1,0 +1,80 @@
+# This is a basic workflow to help you get started with Actions
+
+name: Check Upstream Changes and Create Issue with Diff
+
+# Controls when the workflow will run
+on:
+  # Setup schedule
+  schedule:
+    - cron: '0 * * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  check-upstream:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Add upstream remote
+        run: git remote add upstream https://github.com/swiftlang/swift-book.git
+
+      - name: Fetch upstream
+        run: git fetch upstream
+
+      - name: Get latest upstream commit hash
+        id: get_upstream_hash
+        run: echo "UPSTREAM_HASH=$(git rev-parse upstream/main)" >> $GITHUB_OUTPUT
+
+      - name: Get previous stored hash
+        id: prev_hash
+        run: |
+          if [ -f .last_upstream_hash ]; then
+            echo "PREV_HASH=$(cat .last_upstream_hash)" >> $GITHUB_OUTPUT
+          else
+            echo "PREV_HASH=" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Check for changes and get diff
+        id: get_diff
+        run: |
+          if [ "${{ steps.prev_hash.outputs.PREV_HASH }}" != "${{ steps.get_upstream_hash.outputs.UPSTREAM_HASH }}" ]; then
+            git diff --name-status ${{ steps.prev_hash.outputs.PREV_HASH }} ${{ steps.get_upstream_hash.outputs.UPSTREAM_HASH }} > diff.txt || echo "Initial commit - no diff"
+            DIFF_CONTENT=$(cat diff.txt)
+            echo "diff<<EOF" >> $GITHUB_OUTPUT
+            echo "$DIFF_CONTENT" >> $GITHUB_OUTPUT
+            echo "EOF" >> $GITHUB_OUTPUT
+            echo "changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "changed=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Create issue if changed
+        if: steps.get_diff.outputs.changed == 'true'
+        uses: dacbd/create-issue-action@main
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          title: 'Upstream Repository Updated with Changes'
+          body: |
+            The upstream repository https://github.com/swiftlang/swift-book has new commits.
+            
+            Changed files (name and status):
+            ```
+            ${{ steps.get_diff.outputs.diff }}
+            ```
+
+      - name: Store latest upstream hash
+        if: steps.get_diff.outputs.changed == 'true'
+        run: echo "${{ steps.get_upstream_hash.outputs.UPSTREAM_HASH }}" > .last_upstream_hash
+
+      - name: Commit and push updated hash file
+        if: steps.get_diff.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add .last_upstream_hash
+          git commit -m "Update last tracked upstream commit hash" || echo "No changes to commit"
+          git push
