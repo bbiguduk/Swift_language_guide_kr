@@ -1,10 +1,17 @@
-name: Check Upstream Changes and Create Issue with Detailed Diff
+# This is a basic workflow to help you get started with Actions
 
+name: Check Upstream Changes and Create Issue with Diff
+
+# Controls when the workflow will run
 on:
+  # Setup schedule
   schedule:
-    - cron: '0 * * * *'  # 매 시간 실행
+    - cron: '0 * * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   check-upstream:
     runs-on: ubuntu-latest
@@ -31,17 +38,12 @@ jobs:
             echo "PREV_HASH=" >> $GITHUB_OUTPUT
           fi
 
-      - name: Check for changes and get detailed diff
+      - name: Check for changes and get diff
         id: get_diff
         run: |
           if [ "${{ steps.prev_hash.outputs.PREV_HASH }}" != "${{ steps.get_upstream_hash.outputs.UPSTREAM_HASH }}" ]; then
-            if [ -z "${{ steps.prev_hash.outputs.PREV_HASH }}" ]; then
-              # No previous hash, show diff of initial commit or entire tree
-              git diff ${GITHUB_SHA} upstream/main > diff.txt || echo "No diff available"
-            else
-              git diff ${{ steps.prev_hash.outputs.PREV_HASH }} ${{ steps.get_upstream_hash.outputs.UPSTREAM_HASH }} > diff.txt || echo "No diff available"
-            fi
-            DIFF_CONTENT=$(head -n 1000 diff.txt)  # 최대 1000줄만 캡처 (Issue 본문 길이 고려)
+            git diff --name-status ${{ steps.prev_hash.outputs.PREV_HASH }} ${{ steps.get_upstream_hash.outputs.UPSTREAM_HASH }} > diff.txt || echo "Initial commit - no diff"
+            DIFF_CONTENT=$(cat diff.txt)
             echo "diff<<EOF" >> $GITHUB_OUTPUT
             echo "$DIFF_CONTENT" >> $GITHUB_OUTPUT
             echo "EOF" >> $GITHUB_OUTPUT
@@ -55,11 +57,11 @@ jobs:
         uses: dacbd/create-issue-action@main
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          title: 'Upstream Repository Updated with Detailed Diff'
+          title: 'Upstream Repository Updated with Changes'
           body: |
             The upstream repository https://github.com/swiftlang/swift-book has new commits.
-
-            Detailed changes (showing up to 1000 lines):
+            
+            Changed files (name and status):
             ```
             ${{ steps.get_diff.outputs.diff }}
             ```
