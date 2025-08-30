@@ -1,8 +1,21 @@
-# 문법 정리 \(Summary of the Grammar\)
+# 문법 요약 (Summary of the Grammar)
 
-전체 일반 문법을 살펴봅니다.
+전체 공식 문법을 읽어보세요.
 
-## 어휘 구조 \(Lexical Structure\)
+<!--
+
+=== IMPORTANT ===
+
+This file is manually updated.
+
+If you edit formal grammar elsewhere in the reference,
+make the same change here also.
+
+=== IMPORTANT ===
+
+-->
+
+## 어휘 구조 (Lexical Structure)
 
 > Grammar of whitespace:
 >
@@ -205,7 +218,7 @@
 > *prefix-operator* → *operator* \
 > *postfix-operator* → *operator*
 
-## 타입 \(Types\)
+## 타입 (Types)
 
 > Grammar of a type:
 >
@@ -298,7 +311,7 @@
 > *type-inheritance-clause* → **`:`** *type-inheritance-list* \
 > *type-inheritance-list* → *attributes*_?_ *type-identifier* | *attributes*_?_ *type-identifier* **`,`** *type-inheritance-list*
 
-## 표현식 \(Expressions\)
+## 표현식 (Expressions)
 
 > Grammar of an expression:
 >
@@ -526,7 +539,7 @@
 >
 > *optional-chaining-expression* → *postfix-expression* **`?`**
 
-## 구문 \(Statements\)
+## 구문 (Statements)
 
 > Grammar of a statement:
 >
@@ -711,12 +724,12 @@
 > *platform-name* → **`macCatalyst`** | **`macCatalystApplicationExtension`** \
 > *platform-name* → **`watchOS`** | **`watchOSApplicationExtension`** \
 > *platform-name* → **`tvOS`** | **`tvOSApplicationExtension`** \
-> *platform-name* → **`visionOS`** | **`visionOSApplicationExtension`**\
+> *platform-name* → **`visionOS`** | **`visionOSApplicationExtension`** \
 > *platform-version* → *decimal-digits* \
 > *platform-version* → *decimal-digits* **`.`** *decimal-digits* \
 > *platform-version* → *decimal-digits* **`.`** *decimal-digits* **`.`** *decimal-digits*
 
-## 선언 \(Declarations\)
+## 선언 (Declarations)
 
 > Grammar of a declaration:
 >
@@ -812,11 +825,11 @@
 > *parameter* → *external-parameter-name*_?_ *local-parameter-name* *parameter-type-annotation* *default-argument-clause*_?_ \
 > *parameter* → *external-parameter-name*_?_ *local-parameter-name* *parameter-type-annotation* \
 > *parameter* → *external-parameter-name*_?_ *local-parameter-name* *parameter-type-annotation* **`...`**
-> 
+>
 > *external-parameter-name* → *identifier* \
 > *local-parameter-name* → *identifier* \
 > *parameter-type-annotation* → **`:`** *attributes*_?_ *parameter-modifier*_?_ *type* \
-> *parameter-modifier* → **`inout`** | **`borrowing`** | **`consuming`** \
+> *parameter-modifier* → **`inout`** | **`borrowing`** | **`consuming`**
 > *default-argument-clause* → **`=`** *expression*
 
 > Grammar of an enumeration declaration:
@@ -986,6 +999,7 @@
 > *access-level-modifier* → **`private`** | **`private`** **`(`** **`set`** **`)`** \
 > *access-level-modifier* → **`fileprivate`** | **`fileprivate`** **`(`** **`set`** **`)`** \
 > *access-level-modifier* → **`internal`** | **`internal`** **`(`** **`set`** **`)`** \
+> *access-level-modifier* → **`package`** | **`package`** **`(`** **`set`** **`)`** \
 > *access-level-modifier* → **`public`** | **`public`** **`(`** **`set`** **`)`** \
 > *access-level-modifier* → **`open`** | **`open`** **`(`** **`set`** **`)`**
 >
@@ -993,7 +1007,7 @@
 >
 > *actor-isolation-modifier* → **`nonisolated`**
 
-## 속성 \(Attributes\)
+## 속성 (Attributes)
 
 > Grammar of an attribute:
 >
@@ -1009,7 +1023,7 @@
 > *balanced-token* → Any identifier, keyword, literal, or operator \
 > *balanced-token* → Any punctuation except  **`(`**,  **`)`**,  **`[`**,  **`]`**,  **`{`**, or  **`}`**
 
-## 패턴 \(Patterns\)
+## 패턴 (Patterns)
 
 > Grammar of a pattern:
 >
@@ -1058,7 +1072,7 @@
 >
 > *expression-pattern* → *expression*
 
-## 제너릭 파라미터와 인수 \(Generic Parameters and Arguments\)
+## 제네릭 매개변수와 인자 (Generic Parameters and Arguments)
 
 > Grammar of a generic parameter clause:
 >
@@ -1081,3 +1095,19 @@
 > *generic-argument-clause* → **`<`** *generic-argument-list* **`>`** \
 > *generic-argument-list* → *generic-argument* | *generic-argument* **`,`** *generic-argument-list* \
 > *generic-argument* → *type*
+
+> Beta Software:
+>
+> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
+>
+> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
+
+<!--
+This source file is part of the Swift.org open source project
+
+Copyright (c) 2014 - 2022 Apple Inc. and the Swift project authors
+Licensed under Apache License v2.0 with Runtime Library Exception
+
+See https://swift.org/LICENSE.txt for license information
+See https://swift.org/CONTRIBUTORS.txt for the list of Swift project authors
+-->
