@@ -1231,12 +1231,6 @@ if (enteredDoorCode && passedRetinaScan) || hasDoorKey || knowsOverridePassword 
 가독성은 항상 간결성보다 선호됩니다;
 의도를 명확하게 하는데 도움이 되는 곳에 소괄호를 사용해야 합니다.
 
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
-
 <!--
 This source file is part of the Swift.org open source project
 

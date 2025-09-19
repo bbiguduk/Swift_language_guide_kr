@@ -242,13 +242,6 @@ print("The bank now has \(Bank.coinsInBank) coins")
 이것이 일어나기 직전에 자동으로 디이니셜라이저가 호출되고,
 코인은 은행에 반환됩니다.
 
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
-
 <!--
 This source file is part of the Swift.org open source project
 

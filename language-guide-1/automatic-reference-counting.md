@@ -1512,12 +1512,6 @@ paragraph = nil
 캡처 리스트에 대한 더 자세한 내용은
 [캡처 목록 (Capture Lists)](../language-reference/expressions.md#캡처-목록-capture-lists)을 참고바랍니다.
 
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
-
 <!--
 This source file is part of the Swift.org open source project
 

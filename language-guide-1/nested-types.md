@@ -192,12 +192,6 @@ let heartsSymbol = BlackjackCard.Suit.hearts.rawValue
 `Suit`, `Rank`, `Values`의 이름은 정의된 컨텍스트에 따라 자연스럽게 규정되기 때문에
 이름을 의도적으로 짧게 유지할 수 있습니다.
 
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
-
 <!--
 This source file is part of the Swift.org open source project
 

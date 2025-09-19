@@ -1483,12 +1483,6 @@ Swift의 `Dictionary` 타입은 정의된 순서를 가지고 있지 않습니�
 특정 순서로 딕셔너리의 키나 값을 반복하려면,
 `keys`나 `values` 프로퍼티에 `sorted()` 메서드를 사용 하십시오.
 
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
-
 <!--
 This source file is part of the Swift.org open source project
 

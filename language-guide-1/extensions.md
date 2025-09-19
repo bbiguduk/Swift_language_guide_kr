@@ -682,12 +682,6 @@ printIntegerKinds([3, 19, -27, 0, -6, 0, 7])
 > `switch` 구문 내에서
 > `Int.Kind.negative`가 아닌 `.negative`로 짧게 작성할 수 있습니다.
 
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
-
 <!--
 This source file is part of the Swift.org open source project
 

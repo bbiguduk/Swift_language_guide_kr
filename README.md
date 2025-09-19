@@ -1,4 +1,4 @@
-# The Swift Programming Language (6.2 Beta) (한국어)
+# The Swift Programming Language (6.2) (한국어)
 
 [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bbiguduk\&repo=Swift\_language\_guide\_kr\&theme=midnight-purple)](https://github.com/anuraghazra/github-readme-stats)
 
@@ -8,7 +8,7 @@
 
 ### 업데이트
 
-* [Swift 6.2 Beta, 2025-07-10](revision-history/document-revision-history.md#2025-07-10목)
+* [Swift 6.2, 2025-09-19](revision-history/document-revision-history.md#2025-09-19금)
 * [Swift 6.1, 2025-04-02](revision-history/document-revision-history.md#2025-04-02수)
 * [Swift 6, 2024-09-19](revision-history/document-revision-history.md#2024-09-19목)
 * [Swift 5.10, 2024-03-08](revision-history/document-revision-history.md#2024-03-08금)

@@ -918,13 +918,13 @@ Swift는 비구조 동시성(unstructured concurrency)을 지원합니다.
 
 비구조 태스크를 생성하여
 주변 코드와 유사하게 실행하려면,
-[`Task.init(priority:operation:)`][] 이니셜라이저를 호출해야 합니다.
+[`Task.init(name:priority:operation:)`][] 이니셜라이저를 호출해야 합니다.
 새로운 태스크는 기본적으로 현재 태스크와
 동일한 액터 격리(actor isolation), 우선순위(priority), 태스크-로컬 상태(task-local state)를 가지고 실행됩니다.
 주변 코드로부터 더 독립적인
 비구조 태스크,
 특히 *분리 태스크(detached task)*라고 알려진 것을 생성하려면
-[`Task.detached(priority:operation:)`][] 정적 메서드를 호출해야 합니다.
+[`Task.detached(name:priority:operation:)`][] 정적 메서드를 호출해야 합니다.
 새로운 태스크는 기본적으로 어떠한 액터 격리없이 실행되고
 현재 태스크의 우선순위나 태스크-로컬 상태를 상속받지 않습니다.
 이 두 작업 모두 예를 들어 결과를 기다리거나 취소하는 것과 같이
@@ -942,8 +942,8 @@ let result = await handle.value
 분리 태스크(detached tasks) 관리에 대한 자세한 내용은
 [`Task`](https://developer.apple.com/documentation/swift/task)를 참고바랍니다.
 
-[`Task.init(priority:operation:)`]: https://developer.apple.com/documentation/swift/task/init(priority:operation:)-7f0zv
-[`Task.detached(priority:operation:)`]: https://developer.apple.com/documentation/swift/task/detached(priority:operation:)-d24l
+[`Task.init(name:priority:operation:)`]: https://developer.apple.com/documentation/swift/task/init(name:priority:operation:)-43wmk
+[`Task.detached(name:priority:operation:)`]: https://developer.apple.com/documentation/swift/task/detached(name:priority:operation:)-795w1
 
 <!--
   TODO Add some conceptual guidance about
@@ -1624,12 +1624,6 @@ https://github.com/apple/swift-system/pull/112
   Probably don't cover unsafe continuations (SE-0300) in TSPL,
   but maybe link to them?
 -->
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
 
 <!--
 This source file is part of the Swift.org open source project

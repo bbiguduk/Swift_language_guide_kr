@@ -921,6 +921,7 @@ print(type(of: twelve))
   }
 -->
 
+
 ## 불투명 매개변수 타입 (Opaque Parameter Types)
 
 불투명 타입을 반환하기 위해 `some`을 작성하는 것 외에도
@@ -980,12 +981,6 @@ combine(smallTriangle, trapezoid)
 또한
 매우 복잡한 제약조건에 경량 문법을 사용하면
 읽기 어려울 수 있습니다.
-
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
 
 <!--
 This source file is part of the Swift.org open source project

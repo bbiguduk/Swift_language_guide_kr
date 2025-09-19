@@ -1396,12 +1396,6 @@ Swift의 타입 추론은 단일 표현식이나 구문 수준에서 동작합�
   is allowed and when types must be fully typed.
 -->
 
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
-
 <!--
 This source file is part of the Swift.org open source project
 

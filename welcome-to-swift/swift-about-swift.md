@@ -45,12 +45,6 @@ Swift 는 새롭고 강력한 기능으로 발전하고 있습니다.
 Swift 에 대한 목표는 야심찹니다.
 Swift 로 무엇을 만들지 기대가 됩니다.
 
-> Beta Software:
->
-> This documentation contains preliminary information about an API or technology in development. This information is subject to change, and software implemented according to this documentation should be tested with final operating system software.
->
-> Learn more about using [Apple's beta software](https://developer.apple.com/support/beta-software/).
-
 <!--
 This source file is part of the Swift.org open source project
 
