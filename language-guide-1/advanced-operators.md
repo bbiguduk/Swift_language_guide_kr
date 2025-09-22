@@ -130,7 +130,7 @@ let middleFourBits = firstSixBits & lastSixBits  // equals 00111100
 ```swift
 let someBits: UInt8 = 0b10110010
 let moreBits: UInt8 = 0b01011110
-let combinedbits = someBits | moreBits  // equals 11111110
+let combinedBits = someBits | moreBits  // equals 11111110
 ```
 
 <!--
@@ -358,7 +358,7 @@ Swift의 16진수 표현에서 `0xCC6699`로 작성됩니다.
 
 두 번째로 2의 보수 표현을 사용하면
 음수의 비트도 양수처럼 왼쪽과 오른쪽으로 이동할 수 있고,
-왼쪽으로 이동할 때마다 두배로 늘리거나
+왼쪽으로 이동할 때마다 두 배로 늘리거나
 오른쪽으로 이동할 때마다 반으로 줄입니다.
 이를 위해 부호 있는 정수를 오른쪽으로 이동할 때는 추가 규칙이 있습니다:
 부호 있는 정수를 오른쪽으로 이동할 때,
@@ -457,7 +457,7 @@ unsignedOverflow = unsignedOverflow &+ 1
 아래 다이어그램과 같이
 경계를 넘어 오버플로우 됩니다.
 오버플로우 덧셈 후 `UInt8`의 범위 내에 남아있는 값은
-`00000000` 또는 0 입니다.
+`00000000` 또는 0입니다.
 
 ![Overflow Addition](../.gitbook/assets/overflowAddition_2x~dark.png)
 
@@ -518,7 +518,7 @@ signedOverflow = signedOverflow &- 1
   ```
 -->
 
-`Int8` 의 최소값은 `-128`이나
+`Int8`의 최소값은 `-128`이나
 이진수 `10000000`을 가질 수 있습니다.
 오버플로우 연산자를 사용하여 이진수에 `1`을 빼면
 이진수 `01111111`이 되고,
@@ -1301,7 +1301,7 @@ struct DrawingBuilder {
 `buildEither(first:)`와 `buildEither(second:)` 메서드는
 `if`-`else`에 대한 지원을 추가합니다.
 
-`@DrawingBuilding`을 함수의 매개변수로 적용하여
+`@DrawingBuilder`를 함수의 매개변수로 적용하여
 함수에 전달된 클로저를
 결과 빌더가 해당 클로저에서 생성하는 값으로 바꿀 수 있습니다.
 예를 들어:
