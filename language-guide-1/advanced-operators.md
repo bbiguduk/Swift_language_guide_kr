@@ -1301,7 +1301,7 @@ struct DrawingBuilder {
 `buildEither(first:)`와 `buildEither(second:)` 메서드는
 `if`-`else`에 대한 지원을 추가합니다.
 
-`@DrawingBuilder`을 함수의 매개변수로 적용하여
+`@DrawingBuilder`를 함수의 매개변수로 적용하여
 함수에 전달된 클로저를
 결과 빌더가 해당 클로저에서 생성하는 값으로 바꿀 수 있습니다.
 예를 들어:
