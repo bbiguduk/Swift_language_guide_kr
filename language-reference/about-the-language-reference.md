@@ -1,3 +1,10 @@
+{% hint style="info" %}
+📢 **공지**  
+이 문서는 더 이상 업데이트되지 않습니다.  
+아래 새로운 URL로 업데이트 되었으니, 새로운 URL로 접속해 주세요.  
+[Swift Book Korean](https://bbiguduk.github.io/swift-book-korean/documentation/tsplk/)
+{% endhint %}
+
 # 언어 참조에 대해 (About the Language Reference)
 
 형식 문법의 표기법을 읽어봅니다.

@@ -1,3 +1,10 @@
+{% hint style="info" %}
+📢 **공지**  
+이 문서는 더 이상 업데이트되지 않습니다.  
+아래 새로운 URL로 업데이트 되었으니, 새로운 URL로 접속해 주세요.  
+[Swift Book Korean](https://bbiguduk.github.io/swift-book-korean/documentation/tsplk/)
+{% endhint %}
+
 # 타입 캐스팅 (Type Casting)
 
 값의 런타임 타입을 확인하고, 더 구체적인 타입의 정보를 제공합니다.

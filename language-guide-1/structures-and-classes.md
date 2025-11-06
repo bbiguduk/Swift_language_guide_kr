@@ -1,3 +1,10 @@
+{% hint style="info" %}
+📢 **공지**  
+이 문서는 더 이상 업데이트되지 않습니다.  
+아래 새로운 URL로 업데이트 되었으니, 새로운 URL로 접속해 주세요.  
+[Swift Book Korean](https://bbiguduk.github.io/swift-book-korean/documentation/tsplk/)
+{% endhint %}
+
 # 구조체와 클래스 (Structures and Classes)
 
 데이터를 캡슐화하는 커스텀 타입을 모델링합니다.

@@ -1,3 +1,10 @@
+{% hint style="info" %}
+📢 **공지**  
+이 문서는 더 이상 업데이트되지 않습니다.  
+아래 새로운 URL로 업데이트 되었으니, 새로운 URL로 접속해 주세요.  
+[Swift Book Korean](https://bbiguduk.github.io/swift-book-korean/documentation/tsplk/)
+{% endhint %}
+
 # The Swift Programming Language (6.2) (한국어)
 
 [![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=bbiguduk\&repo=Swift\_language\_guide\_kr\&theme=midnight-purple)](https://github.com/anuraghazra/github-readme-stats)
